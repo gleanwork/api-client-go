@@ -1,0 +1,13 @@
+# FeedbackChatExchange
+
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `Timestamp`                                                              | **int64*                                                                 | :heavy_minus_sign:                                                       | Unix timestamp in millis for the chat request.                           |
+| `Agent`                                                                  | **string*                                                                | :heavy_minus_sign:                                                       | Either DEFAULT (company knowledge) or GPT (world knowledge).             |
+| `UserQuery`                                                              | **string*                                                                | :heavy_minus_sign:                                                       | Initial query entered by the user.                                       |
+| `SearchQuery`                                                            | **string*                                                                | :heavy_minus_sign:                                                       | Search query performed by the agent.                                     |
+| `ResultDocuments`                                                        | [][components.ResultDocument](../../models/components/resultdocument.md) | :heavy_minus_sign:                                                       | List of documents read by the agent.                                     |
+| `Response`                                                               | **string*                                                                | :heavy_minus_sign:                                                       | N/A                                                                      |

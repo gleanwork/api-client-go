@@ -1,0 +1,14 @@
+# SummarizeRequest
+
+Summary of the document
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `Timestamp`                                                                                 | [*time.Time](https://pkg.go.dev/time#Time)                                                  | :heavy_minus_sign:                                                                          | The ISO 8601 timestamp associated with the client request.                                  |
+| `Query`                                                                                     | **string*                                                                                   | :heavy_minus_sign:                                                                          | Optional query that the summary should be about                                             |
+| `PreferredSummaryLength`                                                                    | **int64*                                                                                    | :heavy_minus_sign:                                                                          | Optional length of summary output. If not given, defaults to 500 chars.                     |
+| `DocumentSpecs`                                                                             | [][components.DocumentSpecUnion](../../models/components/documentspecunion.md)              | :heavy_check_mark:                                                                          | Specifications of documents to summarize                                                    |
+| `TrackingToken`                                                                             | **string*                                                                                   | :heavy_minus_sign:                                                                          | An opaque token that represents this particular result. To be used for /feedback reporting. |

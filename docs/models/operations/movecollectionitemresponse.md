@@ -1,0 +1,9 @@
+# MovecollectionitemResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)                              | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `MoveCollectionItemResponse`                                                                    | [*components.MoveCollectionItemResponse](../../models/components/movecollectionitemresponse.md) | :heavy_minus_sign:                                                                              | OK                                                                                              |

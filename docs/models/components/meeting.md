@@ -1,0 +1,14 @@
+# Meeting
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `ID`                                                                          | **string*                                                                     | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `Title`                                                                       | **string*                                                                     | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `Description`                                                                 | **string*                                                                     | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `URL`                                                                         | **string*                                                                     | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `StartTime`                                                                   | [*time.Time](https://pkg.go.dev/time#Time)                                    | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `EndTime`                                                                     | [*time.Time](https://pkg.go.dev/time#Time)                                    | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `Attendees`                                                                   | [*components.CalendarAttendees](../../models/components/calendarattendees.md) | :heavy_minus_sign:                                                            | N/A                                                                           |

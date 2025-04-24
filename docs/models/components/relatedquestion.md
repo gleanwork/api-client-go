@@ -1,0 +1,10 @@
+# RelatedQuestion
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `Question`                                                                                     | **string*                                                                                      | :heavy_minus_sign:                                                                             | The text of the related question                                                               |
+| `Answer`                                                                                       | **string*                                                                                      | :heavy_minus_sign:                                                                             | The answer for the related question                                                            |
+| `Ranges`                                                                                       | [][components.TextRange](../../models/components/textrange.md)                                 | :heavy_minus_sign:                                                                             | Subsections of the answer string to which some special formatting should be applied (eg. bold) |

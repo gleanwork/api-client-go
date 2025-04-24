@@ -1,0 +1,11 @@
+# ExecuteActionToolRequest
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `ActionRunID`                                                                                 | **string*                                                                                     | :heavy_minus_sign:                                                                            | Unique identifier for this actionRun execution event.                                         |
+| `Name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | The name of the tool.                                                                         |
+| `ActionInstanceID`                                                                            | **string*                                                                                     | :heavy_minus_sign:                                                                            | Unique identifier of an action instance.                                                      |
+| `Parameters`                                                                                  | map[string][components.WriteActionParameter](../../models/components/writeactionparameter.md) | :heavy_minus_sign:                                                                            | The parameters to be passed to the tool for action.                                           |

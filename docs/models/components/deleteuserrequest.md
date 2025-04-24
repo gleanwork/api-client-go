@@ -1,0 +1,12 @@
+# DeleteUserRequest
+
+Describes the request body of the /deleteuser API call
+
+
+## Fields
+
+| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `Version`                                                                                                       | **int64*                                                                                                        | :heavy_minus_sign:                                                                                              | Version number for document for optimistic concurrency control. If absent or 0 then no version checks are done. |
+| `Datasource`                                                                                                    | *string*                                                                                                        | :heavy_check_mark:                                                                                              | The datasource for which the user is removed                                                                    |
+| `Email`                                                                                                         | *string*                                                                                                        | :heavy_check_mark:                                                                                              | The email of the user to be deleted                                                                             |

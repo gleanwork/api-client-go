@@ -1,0 +1,12 @@
+# EditCollectionItemRequest
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `Name`                                                                              | **string*                                                                           | :heavy_minus_sign:                                                                  | The optional name of the Collection item.                                           |
+| `Description`                                                                       | **string*                                                                           | :heavy_minus_sign:                                                                  | A helpful description of why this CollectionItem is in the Collection that it's in. |
+| `Icon`                                                                              | **string*                                                                           | :heavy_minus_sign:                                                                  | The emoji icon for this CollectionItem. Only used for Text type items.              |
+| `CollectionID`                                                                      | *int64*                                                                             | :heavy_check_mark:                                                                  | The ID of the Collection to edit CollectionItems in.                                |
+| `ItemID`                                                                            | *string*                                                                            | :heavy_check_mark:                                                                  | The ID of the CollectionItem to edit.                                               |

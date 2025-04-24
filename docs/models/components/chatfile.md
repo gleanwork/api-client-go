@@ -1,0 +1,13 @@
+# ChatFile
+
+Structure for file uploaded by a user for Chat.
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `ID`                                                                        | **string*                                                                   | :heavy_minus_sign:                                                          | Unique identifier of the file.                                              | FILE_1234                                                                   |
+| `URL`                                                                       | **string*                                                                   | :heavy_minus_sign:                                                          | Url of the file.                                                            | www.google.com                                                              |
+| `Name`                                                                      | **string*                                                                   | :heavy_minus_sign:                                                          | Name of the uploaded file.                                                  | sample.pdf                                                                  |
+| `Metadata`                                                                  | [*components.ChatFileMetadata](../../models/components/chatfilemetadata.md) | :heavy_minus_sign:                                                          | Metadata of a file uploaded by a user for Chat.                             |                                                                             |

@@ -1,0 +1,12 @@
+# TeamMember
+
+Information about a team's member
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `Email`                                                                                                    | *string*                                                                                                   | :heavy_check_mark:                                                                                         | The member's email                                                                                         |
+| `Relationship`                                                                                             | **string*                                                                                                  | :heavy_minus_sign:                                                                                         | The member's relationship to the team, an enum of `MEMBER`, `MANAGER`, `LEAD`, `POINT_OF_CONTACT`, `OTHER` |
+| `JoinDate`                                                                                                 | [*types.Date](../../types/date.md)                                                                         | :heavy_minus_sign:                                                                                         | The member's start date                                                                                    |

@@ -1,0 +1,10 @@
+# ListShortcutsPaginatedResponse
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `Shortcuts`                                                                                      | [][components.Shortcut](../../models/components/shortcut.md)                                     | :heavy_check_mark:                                                                               | List of all shortcuts accessible to the user                                                     |
+| `FacetResults`                                                                                   | [][components.FacetResult](../../models/components/facetresult.md)                               | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `Meta`                                                                                           | [components.ShortcutsPaginationMetadata](../../models/components/shortcutspaginationmetadata.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |

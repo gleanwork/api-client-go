@@ -1,0 +1,9 @@
+# GetchatapplicationResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)                              | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `GetChatApplicationResponse`                                                                    | [*components.GetChatApplicationResponse](../../models/components/getchatapplicationresponse.md) | :heavy_minus_sign:                                                                              | OK                                                                                              |

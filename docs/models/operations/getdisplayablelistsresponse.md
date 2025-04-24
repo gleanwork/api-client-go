@@ -1,0 +1,9 @@
+# GetdisplayablelistsResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                        | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `GetDisplayableListsResponse`                                                                     | [*components.GetDisplayableListsResponse](../../models/components/getdisplayablelistsresponse.md) | :heavy_minus_sign:                                                                                | OK                                                                                                |

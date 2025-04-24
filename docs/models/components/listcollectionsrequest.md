@@ -1,0 +1,10 @@
+# ListCollectionsRequest
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `IncludeAudience`                                                                                  | **bool*                                                                                            | :heavy_minus_sign:                                                                                 | Whether to include the audience filters with the listed Collections.                               |
+| `IncludeRoles`                                                                                     | **bool*                                                                                            | :heavy_minus_sign:                                                                                 | Whether to include the editor roles with the listed Collections.                                   |
+| `AllowedDatasource`                                                                                | **string*                                                                                          | :heavy_minus_sign:                                                                                 | The datasource type this Collection can hold.<br/>ANSWERS - for Collections representing answer boards |

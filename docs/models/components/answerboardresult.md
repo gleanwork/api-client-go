@@ -1,0 +1,9 @@
+# AnswerBoardResult
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Board`                                                                                           | [components.AnswerBoard](../../models/components/answerboard.md)                                  | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `TrackingToken`                                                                                   | **string*                                                                                         | :heavy_minus_sign:                                                                                | An opaque token that represents this particular Answer Board. To be used for /feedback reporting. |

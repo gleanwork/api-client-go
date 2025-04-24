@@ -1,0 +1,11 @@
+# FeedResult
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `Category`                                                                       | [components.FeedResultCategory](../../models/components/feedresultcategory.md)   | :heavy_check_mark:                                                               | Category of the result, one of the requested categories in incoming request.     |
+| `PrimaryEntry`                                                                   | [components.FeedEntry](../../models/components/feedentry.md)                     | :heavy_check_mark:                                                               | N/A                                                                              |
+| `SecondaryEntries`                                                               | [][components.FeedEntry](../../models/components/feedentry.md)                   | :heavy_minus_sign:                                                               | Secondary entries for the result e.g. suggested docs for the calendar, carousel. |
+| `Rank`                                                                           | **int64*                                                                         | :heavy_minus_sign:                                                               | Rank of the result. Rank is suggested by server. Client side rank may differ.    |

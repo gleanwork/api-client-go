@@ -1,0 +1,12 @@
+# UserActivityInsight
+
+
+## Fields
+
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `User`                                                             | [components.Person](../../models/components/person.md)             | :heavy_check_mark:                                                 | N/A                                                                | {<br/>"name": "George Clooney",<br/>"obfuscatedId": "abc123"<br/>} |
+| `Activity`                                                         | [components.ActivityEnum](../../models/components/activityenum.md) | :heavy_check_mark:                                                 | Activity e.g. search, home page visit or all.                      |                                                                    |
+| `LastActivityTimestamp`                                            | **int64*                                                           | :heavy_minus_sign:                                                 | Unix timestamp of the last activity (in seconds since epoch UTC).  |                                                                    |
+| `ActivityCount`                                                    | [*components.CountInfo](../../models/components/countinfo.md)      | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `ActiveDayCount`                                                   | [*components.CountInfo](../../models/components/countinfo.md)      | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |

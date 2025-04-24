@@ -1,0 +1,14 @@
+# DisplayableListConfig
+
+UI specific configurations for a displayable list
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Format`                                                                                          | [*components.DisplayableListConfigFormat](../../models/components/displayablelistconfigformat.md) | :heavy_minus_sign:                                                                                | defines how to render this particular displayable list card                                       |
+| `Title`                                                                                           | **string*                                                                                         | :heavy_minus_sign:                                                                                | Primary title for the list.                                                                       |
+| `Enabled`                                                                                         | **bool*                                                                                           | :heavy_minus_sign:                                                                                | Whether the list should be shown to the user                                                      |
+| `AudienceFilters`                                                                                 | [][components.FacetFilter](../../models/components/facetfilter.md)                                | :heavy_minus_sign:                                                                                | Filters which restrict who should should see displayable list                                     |
+| `ItemUIConfig`                                                                                    | [*components.DisplayableListItemUIConfig](../../models/components/displayablelistitemuiconfig.md) | :heavy_minus_sign:                                                                                | UI configurations for each item of the list                                                       |

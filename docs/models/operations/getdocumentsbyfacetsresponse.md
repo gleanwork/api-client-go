@@ -1,0 +1,9 @@
+# GetdocumentsbyfacetsResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                          | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                  | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `GetDocumentsByFacetsResponse`                                                                      | [*components.GetDocumentsByFacetsResponse](../../models/components/getdocumentsbyfacetsresponse.md) | :heavy_minus_sign:                                                                                  | OK                                                                                                  |

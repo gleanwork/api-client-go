@@ -1,0 +1,13 @@
+# Badge
+
+Displays a user's accomplishment or milestone
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       | Example                                                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `Key`                                                                             | **string*                                                                         | :heavy_minus_sign:                                                                | An auto generated unique identifier.                                              |                                                                                   |
+| `DisplayName`                                                                     | **string*                                                                         | :heavy_minus_sign:                                                                | The badge name displayed to users                                                 |                                                                                   |
+| `IconConfig`                                                                      | [*components.IconConfig](../../models/components/iconconfig.md)                   | :heavy_minus_sign:                                                                | Defines how to render an icon                                                     | {<br/>"color": "#343CED",<br/>"key": "person_icon",<br/>"iconType": "GLYPH",<br/>"name": "user"<br/>} |
+| `Pinned`                                                                          | **bool*                                                                           | :heavy_minus_sign:                                                                | The badge should be shown on the PersonAttribution                                |                                                                                   |

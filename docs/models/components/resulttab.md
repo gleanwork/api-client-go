@@ -1,0 +1,11 @@
+# ResultTab
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ID`                                                                                     | **string*                                                                                | :heavy_minus_sign:                                                                       | The unique ID of the tab. Can be passed in a search request to get results for that tab. |
+| `Count`                                                                                  | **int64*                                                                                 | :heavy_minus_sign:                                                                       | The number of results in this tab for the current query.                                 |
+| `Datasource`                                                                             | **string*                                                                                | :heavy_minus_sign:                                                                       | The datasource associated with the tab, if any.                                          |
+| `DatasourceInstance`                                                                     | **string*                                                                                | :heavy_minus_sign:                                                                       | The datasource instance associated with the tab, if any.                                 |

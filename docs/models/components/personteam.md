@@ -1,0 +1,14 @@
+# PersonTeam
+
+Use `id` if you index teams via Glean, and use `name` and `externalLink` if you want to use your own team pages
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `ID`                                                                                    | **string*                                                                               | :heavy_minus_sign:                                                                      | Unique identifier                                                                       |
+| `Name`                                                                                  | **string*                                                                               | :heavy_minus_sign:                                                                      | Team name                                                                               |
+| `ExternalLink`                                                                          | **string*                                                                               | :heavy_minus_sign:                                                                      | Link to a team page on the internet or your company's intranet                          |
+| `Relationship`                                                                          | [*components.PersonTeamRelationship](../../models/components/personteamrelationship.md) | :heavy_minus_sign:                                                                      | The team member's relationship to the team. This defaults to MEMBER if not set.         |
+| `JoinDate`                                                                              | [*time.Time](https://pkg.go.dev/time#Time)                                              | :heavy_minus_sign:                                                                      | The team member's start date                                                            |

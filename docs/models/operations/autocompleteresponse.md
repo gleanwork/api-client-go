@@ -1,0 +1,9 @@
+# AutocompleteResponse
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         | Example                                                                             |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                          | [components.HTTPMetadata](../../models/components/httpmetadata.md)                  | :heavy_check_mark:                                                                  | N/A                                                                                 |                                                                                     |
+| `AutocompleteResponse`                                                              | [*components.AutocompleteResponse](../../models/components/autocompleteresponse.md) | :heavy_minus_sign:                                                                  | OK                                                                                  | {<br/>"trackingToken": "trackingToken"<br/>}                                        |

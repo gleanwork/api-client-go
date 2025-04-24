@@ -1,0 +1,36 @@
+speakeasyVersion: 1.539.2
+sources:
+    petstore-oas:
+        sourceNamespace: petstore-oas
+        sourceRevisionDigest: sha256:97b2eff2f43ce14276d28efc41ec5de8034cde61db8445f12b626e4dc88ea40e
+        sourceBlobDigest: sha256:81cfc2e66c21c8554e77c28114e76e9b348f43af7e680245f78786f373790761
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    petstore:
+        source: petstore-oas
+        sourceNamespace: petstore-oas
+        sourceRevisionDigest: sha256:97b2eff2f43ce14276d28efc41ec5de8034cde61db8445f12b626e4dc88ea40e
+        sourceBlobDigest: sha256:81cfc2e66c21c8554e77c28114e76e9b348f43af7e680245f78786f373790761
+        codeSamplesNamespace: petstore-oas-go-code-samples
+        codeSamplesRevisionDigest: sha256:4e3c643b18fedb68dd6eee5066d835472f1d4a7137ba7fefb32dc7458c208b7b
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        petstore-oas:
+            inputs:
+                - location: openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/glean-el2/sdk/petstore-oas
+    targets:
+        petstore:
+            target: go
+            source: petstore-oas
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/glean-el2/sdk/petstore-oas-go-code-samples
+                labelOverride:
+                    fixedValue: Go (SDK)
+                blocking: false

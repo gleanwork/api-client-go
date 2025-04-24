@@ -1,0 +1,13 @@
+# DisplayableList
+
+All configurations for a list that can be displayed.
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `Source`                                                                                                     | [*components.DisplayableListSource](../../models/components/displayablelistsource.md)                        | :heavy_minus_sign:                                                                                           | The type of data that backs this displayable list                                                            |
+| `ID`                                                                                                         | **int64*                                                                                                     | :heavy_minus_sign:                                                                                           | Unique identifier of this list. Unique amongst only DisplayableLists, not unique amongst other types of UGC. |
+| `SourceID`                                                                                                   | **string*                                                                                                    | :heavy_minus_sign:                                                                                           | Unstructured identifier for the source to render (ID, URL, query).                                           |
+| `Config`                                                                                                     | [*components.DisplayableListConfig](../../models/components/displayablelistconfig.md)                        | :heavy_minus_sign:                                                                                           | UI specific configurations for a displayable list                                                            |
