@@ -92,7 +92,7 @@ type CreateCollectionResponse struct {
 	Roles      []UserRoleSpecification           `json:"roles,omitempty"`
 	ErrorCode  CreateCollectionResponseErrorCode `json:"errorCode"`
 	Collection *Collection                       `json:"collection,omitempty"`
-	Error      *CollectionError1                 `json:"error,omitempty"`
+	Error      *CollectionError                  `json:"error,omitempty"`
 }
 
 func (c CreateCollectionResponse) MarshalJSON() ([]byte, error) {
@@ -281,7 +281,7 @@ func (o *CreateCollectionResponse) GetCollection() *Collection {
 	return o.Collection
 }
 
-func (o *CreateCollectionResponse) GetError() *CollectionError1 {
+func (o *CreateCollectionResponse) GetError() *CollectionError {
 	if o == nil {
 		return nil
 	}

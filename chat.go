@@ -28,9 +28,9 @@ func newChat(sdkConfig sdkConfiguration) *Chat {
 
 // Ask - Detect and answer questions
 // Classify a query as information seeking or not. If so, generate an AI answer and/or provide relevant documents. Useful for integrating into existing chat interfaces.
-func (s *Chat) Ask(ctx context.Context, xScioActas *string, xGleanAuthType *string, askRequest *components.AskRequest, opts ...operations.Option) (*operations.AskResponse, error) {
+func (s *Chat) Ask(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, askRequest *components.AskRequest, opts ...operations.Option) (*operations.AskResponse, error) {
 	request := operations.AskRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		AskRequest:     askRequest,
 	}
@@ -274,9 +274,9 @@ func (s *Chat) Ask(ctx context.Context, xScioActas *string, xGleanAuthType *stri
 
 // Start - Chat
 // Have a conversation with Glean AI.
-func (s *Chat) Start(ctx context.Context, chatRequest components.ChatRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.ChatResponse, error) {
+func (s *Chat) Start(ctx context.Context, chatRequest components.ChatRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.ChatResponse, error) {
 	request := operations.ChatRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 		ChatRequest:    chatRequest,
@@ -500,9 +500,9 @@ func (s *Chat) Start(ctx context.Context, chatRequest components.ChatRequest, xS
 
 // DeleteAll - Deletes all saved Chats owned by a user
 // Deletes all saved Chats a user has had and all their contained conversational content.
-func (s *Chat) DeleteAll(ctx context.Context, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeleteallchatsResponse, error) {
+func (s *Chat) DeleteAll(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeleteallchatsResponse, error) {
 	request := operations.DeleteallchatsRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 	}
@@ -700,9 +700,9 @@ func (s *Chat) DeleteAll(ctx context.Context, xScioActas *string, xGleanAuthType
 
 // Delete - Deletes saved Chats
 // Deletes saved Chats and all their contained conversational content.
-func (s *Chat) Delete(ctx context.Context, deleteChatsRequest components.DeleteChatsRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatsResponse, error) {
+func (s *Chat) Delete(ctx context.Context, deleteChatsRequest components.DeleteChatsRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatsResponse, error) {
 	request := operations.DeletechatsRequest{
-		XScioActas:         xScioActas,
+		XGleanActAs:        xGleanActAs,
 		XGleanAuthType:     xGleanAuthType,
 		TimezoneOffset:     timezoneOffset,
 		DeleteChatsRequest: deleteChatsRequest,
@@ -910,9 +910,9 @@ func (s *Chat) Delete(ctx context.Context, deleteChatsRequest components.DeleteC
 
 // Get - Retrieves a Chat
 // Retrieves the chat history between Glean Assistant and the user for a given Chat.
-func (s *Chat) Get(ctx context.Context, getChatRequest components.GetChatRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatResponse, error) {
+func (s *Chat) Get(ctx context.Context, getChatRequest components.GetChatRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatResponse, error) {
 	request := operations.GetchatRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 		GetChatRequest: getChatRequest,
@@ -1140,9 +1140,9 @@ func (s *Chat) Get(ctx context.Context, getChatRequest components.GetChatRequest
 
 // List - Retrieves all saved Chats
 // Retrieves all the saved Chats between Glean Assistant and the user. The returned Chats contain only metadata and no conversational content.
-func (s *Chat) List(ctx context.Context, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.ListchatsResponse, error) {
+func (s *Chat) List(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.ListchatsResponse, error) {
 	request := operations.ListchatsRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 	}
@@ -1360,9 +1360,9 @@ func (s *Chat) List(ctx context.Context, xScioActas *string, xGleanAuthType *str
 
 // GetApplication - Gets the metadata for a custom Chat application
 // Gets the Chat application details for the specified application ID.
-func (s *Chat) GetApplication(ctx context.Context, getChatApplicationRequest components.GetChatApplicationRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatapplicationResponse, error) {
+func (s *Chat) GetApplication(ctx context.Context, getChatApplicationRequest components.GetChatApplicationRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatapplicationResponse, error) {
 	request := operations.GetchatapplicationRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		TimezoneOffset:            timezoneOffset,
 		GetChatApplicationRequest: getChatApplicationRequest,
@@ -1588,9 +1588,9 @@ func (s *Chat) GetApplication(ctx context.Context, getChatApplicationRequest com
 
 // UploadFiles - Upload files for Chat.
 // Upload files for Chat.
-func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest components.UploadChatFilesRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.UploadchatfilesResponse, error) {
+func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest components.UploadChatFilesRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.UploadchatfilesResponse, error) {
 	request := operations.UploadchatfilesRequest{
-		XScioActas:             xScioActas,
+		XGleanActAs:            xGleanActAs,
 		XGleanAuthType:         xGleanAuthType,
 		TimezoneOffset:         timezoneOffset,
 		UploadChatFilesRequest: uploadChatFilesRequest,
@@ -1818,9 +1818,9 @@ func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest component
 
 // GetFiles - Get files uploaded by a user for Chat.
 // Get files uploaded by a user for Chat.
-func (s *Chat) GetFiles(ctx context.Context, getChatFilesRequest components.GetChatFilesRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatfilesResponse, error) {
+func (s *Chat) GetFiles(ctx context.Context, getChatFilesRequest components.GetChatFilesRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatfilesResponse, error) {
 	request := operations.GetchatfilesRequest{
-		XScioActas:          xScioActas,
+		XGleanActAs:         xGleanActAs,
 		XGleanAuthType:      xGleanAuthType,
 		TimezoneOffset:      timezoneOffset,
 		GetChatFilesRequest: getChatFilesRequest,
@@ -2048,9 +2048,9 @@ func (s *Chat) GetFiles(ctx context.Context, getChatFilesRequest components.GetC
 
 // DeleteFiles - Delete files uploaded by a user for chat.
 // Delete files uploaded by a user for Chat.
-func (s *Chat) DeleteFiles(ctx context.Context, deleteChatFilesRequest components.DeleteChatFilesRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatfilesResponse, error) {
+func (s *Chat) DeleteFiles(ctx context.Context, deleteChatFilesRequest components.DeleteChatFilesRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatfilesResponse, error) {
 	request := operations.DeletechatfilesRequest{
-		XScioActas:             xScioActas,
+		XGleanActAs:            xGleanActAs,
 		XGleanAuthType:         xGleanAuthType,
 		TimezoneOffset:         timezoneOffset,
 		DeleteChatFilesRequest: deleteChatFilesRequest,

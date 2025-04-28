@@ -65,6 +65,8 @@ type Team struct {
 	MemberCount *int64 `json:"memberCount,omitempty"`
 	// The emails for this team
 	Emails []TeamEmail `json:"emails,omitempty"`
+	// Customizable fields for additional team information.
+	CustomFields []CustomFieldData `json:"customFields,omitempty"`
 	// The datasource profiles of the team
 	DatasourceProfiles []DatasourceProfile `json:"datasourceProfiles,omitempty"`
 	// the data source of the team, e.g. GDRIVE
@@ -181,6 +183,13 @@ func (o *Team) GetEmails() []TeamEmail {
 		return nil
 	}
 	return o.Emails
+}
+
+func (o *Team) GetCustomFields() []CustomFieldData {
+	if o == nil {
+		return nil
+	}
+	return o.CustomFields
 }
 
 func (o *Team) GetDatasourceProfiles() []DatasourceProfile {

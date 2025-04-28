@@ -5,6 +5,7 @@
 
 | Name                                   | Value                                  |
 | -------------------------------------- | -------------------------------------- |
+| `InsightsRequestCategoryAgents`        | AGENTS                                 |
 | `InsightsRequestCategoryAi`            | AI                                     |
 | `InsightsRequestCategoryAiApps`        | AI_APPS                                |
 | `InsightsRequestCategoryAnnouncements` | ANNOUNCEMENTS                          |

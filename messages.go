@@ -28,9 +28,9 @@ func newMessages(sdkConfig sdkConfiguration) *Messages {
 
 // Get - Read messages
 // Retrieves list of messages from messaging/chat datasources (e.g. Slack, Teams).
-func (s *Messages) Get(ctx context.Context, messagesRequest components.MessagesRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.MessagesResponse, error) {
+func (s *Messages) Get(ctx context.Context, messagesRequest components.MessagesRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.MessagesResponse, error) {
 	request := operations.MessagesRequest{
-		XScioActas:      xScioActas,
+		XGleanActAs:     xGleanActAs,
 		XGleanAuthType:  xGleanAuthType,
 		MessagesRequest: messagesRequest,
 	}

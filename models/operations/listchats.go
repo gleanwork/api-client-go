@@ -8,18 +8,18 @@ import (
 
 type ListchatsRequest struct {
 	// Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens).
-	XScioActas *string `header:"style=simple,explode=false,name=X-Scio-Actas"`
+	XGleanActAs *string `header:"style=simple,explode=false,name=X-Glean-ActAs"`
 	// Auth type being used to access the endpoint (should be non-empty only for global tokens).
 	XGleanAuthType *string `header:"style=simple,explode=false,name=X-Glean-Auth-Type"`
 	// The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 because it's 7 hours behind UTC.
 	TimezoneOffset *int64 `queryParam:"style=form,explode=true,name=timezoneOffset"`
 }
 
-func (o *ListchatsRequest) GetXScioActas() *string {
+func (o *ListchatsRequest) GetXGleanActAs() *string {
 	if o == nil {
 		return nil
 	}
-	return o.XScioActas
+	return o.XGleanActAs
 }
 
 func (o *ListchatsRequest) GetXGleanAuthType() *string {

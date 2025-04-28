@@ -8,18 +8,18 @@ import (
 
 type DeleteanswerRequest struct {
 	// Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens).
-	XScioActas *string `header:"style=simple,explode=false,name=X-Scio-Actas"`
+	XGleanActAs *string `header:"style=simple,explode=false,name=X-Glean-ActAs"`
 	// Auth type being used to access the endpoint (should be non-empty only for global tokens).
 	XGleanAuthType *string `header:"style=simple,explode=false,name=X-Glean-Auth-Type"`
 	// DeleteAnswer request
 	DeleteAnswerRequest components.DeleteAnswerRequest `request:"mediaType=application/json"`
 }
 
-func (o *DeleteanswerRequest) GetXScioActas() *string {
+func (o *DeleteanswerRequest) GetXGleanActAs() *string {
 	if o == nil {
 		return nil
 	}
-	return o.XScioActas
+	return o.XGleanActAs
 }
 
 func (o *DeleteanswerRequest) GetXGleanAuthType() *string {

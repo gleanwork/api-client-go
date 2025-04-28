@@ -28,9 +28,9 @@ func newAnnouncements(sdkConfig sdkConfiguration) *Announcements {
 
 // Create Announcement
 // Create a textual announcement visible to some set of users based on department and location.
-func (s *Announcements) Create(ctx context.Context, createAnnouncementRequest components.CreateAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateannouncementResponse, error) {
+func (s *Announcements) Create(ctx context.Context, createAnnouncementRequest components.CreateAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateannouncementResponse, error) {
 	request := operations.CreateannouncementRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		CreateAnnouncementRequest: createAnnouncementRequest,
 	}
@@ -251,9 +251,9 @@ func (s *Announcements) Create(ctx context.Context, createAnnouncementRequest co
 
 // CreateDraft - Create draft Announcement
 // Create a draft of a textual announcement visible to some set of users based on department and location.
-func (s *Announcements) CreateDraft(ctx context.Context, createDraftAnnouncementRequest components.CreateDraftAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreatedraftannouncementResponse, error) {
+func (s *Announcements) CreateDraft(ctx context.Context, createDraftAnnouncementRequest components.CreateDraftAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreatedraftannouncementResponse, error) {
 	request := operations.CreatedraftannouncementRequest{
-		XScioActas:                     xScioActas,
+		XGleanActAs:                    xGleanActAs,
 		XGleanAuthType:                 xGleanAuthType,
 		CreateDraftAnnouncementRequest: createDraftAnnouncementRequest,
 	}
@@ -474,9 +474,9 @@ func (s *Announcements) CreateDraft(ctx context.Context, createDraftAnnouncement
 
 // Delete Announcement
 // Delete an existing user-generated announcement.
-func (s *Announcements) Delete(ctx context.Context, deleteAnnouncementRequest components.DeleteAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteannouncementResponse, error) {
+func (s *Announcements) Delete(ctx context.Context, deleteAnnouncementRequest components.DeleteAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteannouncementResponse, error) {
 	request := operations.DeleteannouncementRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		DeleteAnnouncementRequest: deleteAnnouncementRequest,
 	}
@@ -677,9 +677,9 @@ func (s *Announcements) Delete(ctx context.Context, deleteAnnouncementRequest co
 
 // DeleteDraft - Delete draft Announcement
 // Delete an existing user-generated draft Announcement.
-func (s *Announcements) DeleteDraft(ctx context.Context, deleteAnnouncementRequest components.DeleteAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletedraftannouncementResponse, error) {
+func (s *Announcements) DeleteDraft(ctx context.Context, deleteAnnouncementRequest components.DeleteAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletedraftannouncementResponse, error) {
 	request := operations.DeletedraftannouncementRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		DeleteAnnouncementRequest: deleteAnnouncementRequest,
 	}
@@ -880,9 +880,9 @@ func (s *Announcements) DeleteDraft(ctx context.Context, deleteAnnouncementReque
 
 // Get - Read Announcement
 // Read the details of an Announcement given its ID.
-func (s *Announcements) Get(ctx context.Context, getAnnouncementRequest components.GetAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetannouncementResponse, error) {
+func (s *Announcements) Get(ctx context.Context, getAnnouncementRequest components.GetAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetannouncementResponse, error) {
 	request := operations.GetannouncementRequest{
-		XScioActas:             xScioActas,
+		XGleanActAs:            xGleanActAs,
 		XGleanAuthType:         xGleanAuthType,
 		GetAnnouncementRequest: getAnnouncementRequest,
 	}
@@ -1103,9 +1103,9 @@ func (s *Announcements) Get(ctx context.Context, getAnnouncementRequest componen
 
 // GetDraft - Read draft Announcement
 // Read the details of an existing user-generated draft Announcement.
-func (s *Announcements) GetDraft(ctx context.Context, getAnnouncementRequest components.GetAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetdraftannouncementResponse, error) {
+func (s *Announcements) GetDraft(ctx context.Context, getAnnouncementRequest components.GetAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetdraftannouncementResponse, error) {
 	request := operations.GetdraftannouncementRequest{
-		XScioActas:             xScioActas,
+		XGleanActAs:            xGleanActAs,
 		XGleanAuthType:         xGleanAuthType,
 		GetAnnouncementRequest: getAnnouncementRequest,
 	}
@@ -1326,9 +1326,9 @@ func (s *Announcements) GetDraft(ctx context.Context, getAnnouncementRequest com
 
 // List Announcements
 // List Announcement details for all Announcements matching the given criteria.
-func (s *Announcements) List(ctx context.Context, listAnnouncementsRequest components.ListAnnouncementsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListannouncementsResponse, error) {
+func (s *Announcements) List(ctx context.Context, listAnnouncementsRequest components.ListAnnouncementsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListannouncementsResponse, error) {
 	request := operations.ListannouncementsRequest{
-		XScioActas:               xScioActas,
+		XGleanActAs:              xGleanActAs,
 		XGleanAuthType:           xGleanAuthType,
 		ListAnnouncementsRequest: listAnnouncementsRequest,
 	}
@@ -1549,9 +1549,9 @@ func (s *Announcements) List(ctx context.Context, listAnnouncementsRequest compo
 
 // Preview Announcement
 // Generate a preview for a user-generated Announcement from structured text.
-func (s *Announcements) Preview(ctx context.Context, structuredTextMutableProperties components.StructuredTextMutableProperties, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewannouncementResponse, error) {
+func (s *Announcements) Preview(ctx context.Context, structuredTextMutableProperties components.StructuredTextMutableProperties, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewannouncementResponse, error) {
 	request := operations.PreviewannouncementRequest{
-		XScioActas:                      xScioActas,
+		XGleanActAs:                     xGleanActAs,
 		XGleanAuthType:                  xGleanAuthType,
 		StructuredTextMutableProperties: structuredTextMutableProperties,
 	}
@@ -1772,9 +1772,9 @@ func (s *Announcements) Preview(ctx context.Context, structuredTextMutableProper
 
 // PreviewDraft - Preview draft Announcement
 // Generates a preview for a user-generated Announcement from a draft.
-func (s *Announcements) PreviewDraft(ctx context.Context, previewUgcRequest components.PreviewUgcRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewannouncementdraftResponse, error) {
+func (s *Announcements) PreviewDraft(ctx context.Context, previewUgcRequest components.PreviewUgcRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewannouncementdraftResponse, error) {
 	request := operations.PreviewannouncementdraftRequest{
-		XScioActas:        xScioActas,
+		XGleanActAs:       xGleanActAs,
 		XGleanAuthType:    xGleanAuthType,
 		PreviewUgcRequest: previewUgcRequest,
 	}
@@ -1995,9 +1995,9 @@ func (s *Announcements) PreviewDraft(ctx context.Context, previewUgcRequest comp
 
 // Publish draft Announcement
 // Promote a draft Announcement to be visible to others.
-func (s *Announcements) Publish(ctx context.Context, publishDraftAnnouncementRequest components.PublishDraftAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PublishdraftannouncementResponse, error) {
+func (s *Announcements) Publish(ctx context.Context, publishDraftAnnouncementRequest components.PublishDraftAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PublishdraftannouncementResponse, error) {
 	request := operations.PublishdraftannouncementRequest{
-		XScioActas:                      xScioActas,
+		XGleanActAs:                     xGleanActAs,
 		XGleanAuthType:                  xGleanAuthType,
 		PublishDraftAnnouncementRequest: publishDraftAnnouncementRequest,
 	}
@@ -2198,9 +2198,9 @@ func (s *Announcements) Publish(ctx context.Context, publishDraftAnnouncementReq
 
 // Unpublish Announcement
 // Unpublish an Announcement to hide it from users.
-func (s *Announcements) Unpublish(ctx context.Context, unpublishAnnouncementRequest components.UnpublishAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UnpublishannouncementResponse, error) {
+func (s *Announcements) Unpublish(ctx context.Context, unpublishAnnouncementRequest components.UnpublishAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UnpublishannouncementResponse, error) {
 	request := operations.UnpublishannouncementRequest{
-		XScioActas:                   xScioActas,
+		XGleanActAs:                  xGleanActAs,
 		XGleanAuthType:               xGleanAuthType,
 		UnpublishAnnouncementRequest: unpublishAnnouncementRequest,
 	}
@@ -2421,9 +2421,9 @@ func (s *Announcements) Unpublish(ctx context.Context, unpublishAnnouncementRequ
 
 // Update Announcement
 // Update a textual announcement visible to some set of users based on department and location.
-func (s *Announcements) Update(ctx context.Context, updateAnnouncementRequest components.UpdateAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdateannouncementResponse, error) {
+func (s *Announcements) Update(ctx context.Context, updateAnnouncementRequest components.UpdateAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdateannouncementResponse, error) {
 	request := operations.UpdateannouncementRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		UpdateAnnouncementRequest: updateAnnouncementRequest,
 	}
@@ -2644,9 +2644,9 @@ func (s *Announcements) Update(ctx context.Context, updateAnnouncementRequest co
 
 // UpdateDraft - Update draft Announcement
 // Update a textual Announcement visible to some set of users based on department and location.
-func (s *Announcements) UpdateDraft(ctx context.Context, updateDraftAnnouncementRequest components.UpdateDraftAnnouncementRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdatedraftannouncementResponse, error) {
+func (s *Announcements) UpdateDraft(ctx context.Context, updateDraftAnnouncementRequest components.UpdateDraftAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdatedraftannouncementResponse, error) {
 	request := operations.UpdatedraftannouncementRequest{
-		XScioActas:                     xScioActas,
+		XGleanActAs:                    xGleanActAs,
 		XGleanAuthType:                 xGleanAuthType,
 		UpdateDraftAnnouncementRequest: updateDraftAnnouncementRequest,
 	}

@@ -28,9 +28,9 @@ func newClientDocuments(sdkConfig sdkConfiguration) *ClientDocuments {
 
 // GetPermissions - Read document permissions
 // Read the emails of all users who have access to the given document.
-func (s *ClientDocuments) GetPermissions(ctx context.Context, getDocPermissionsRequest components.GetDocPermissionsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetdocpermissionsResponse, error) {
+func (s *ClientDocuments) GetPermissions(ctx context.Context, getDocPermissionsRequest components.GetDocPermissionsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetdocpermissionsResponse, error) {
 	request := operations.GetdocpermissionsRequest{
-		XScioActas:               xScioActas,
+		XGleanActAs:              xGleanActAs,
 		XGleanAuthType:           xGleanAuthType,
 		GetDocPermissionsRequest: getDocPermissionsRequest,
 	}
@@ -253,9 +253,9 @@ func (s *ClientDocuments) GetPermissions(ctx context.Context, getDocPermissionsR
 
 // Get - Read documents
 // Read the documents including metadata (does not include enhanced metadata via `/documentmetadata`) for the given list of Glean Document IDs or URLs specified in the request.
-func (s *ClientDocuments) Get(ctx context.Context, xScioActas *string, xGleanAuthType *string, getDocumentsRequest *components.GetDocumentsRequest, opts ...operations.Option) (*operations.GetdocumentsResponse, error) {
+func (s *ClientDocuments) Get(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, getDocumentsRequest *components.GetDocumentsRequest, opts ...operations.Option) (*operations.GetdocumentsResponse, error) {
 	request := operations.GetdocumentsRequest{
-		XScioActas:          xScioActas,
+		XGleanActAs:         xGleanActAs,
 		XGleanAuthType:      xGleanAuthType,
 		GetDocumentsRequest: getDocumentsRequest,
 	}
@@ -478,9 +478,9 @@ func (s *ClientDocuments) Get(ctx context.Context, xScioActas *string, xGleanAut
 
 // GetByFacets - Read documents by facets
 // Read the documents including metadata (does not include enhanced metadata via `/documentmetadata`) macthing the given facet conditions.
-func (s *ClientDocuments) GetByFacets(ctx context.Context, xScioActas *string, xGleanAuthType *string, getDocumentsByFacetsRequest *components.GetDocumentsByFacetsRequest, opts ...operations.Option) (*operations.GetdocumentsbyfacetsResponse, error) {
+func (s *ClientDocuments) GetByFacets(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, getDocumentsByFacetsRequest *components.GetDocumentsByFacetsRequest, opts ...operations.Option) (*operations.GetdocumentsbyfacetsResponse, error) {
 	request := operations.GetdocumentsbyfacetsRequest{
-		XScioActas:                  xScioActas,
+		XGleanActAs:                 xGleanActAs,
 		XGleanAuthType:              xGleanAuthType,
 		GetDocumentsByFacetsRequest: getDocumentsByFacetsRequest,
 	}
@@ -703,9 +703,9 @@ func (s *ClientDocuments) GetByFacets(ctx context.Context, xScioActas *string, x
 
 // GetAnalytics - Read document analytics
 // Read the document analytics information for the given list of Glean Document IDs or URLs specified in the request
-func (s *ClientDocuments) GetAnalytics(ctx context.Context, xScioActas *string, xGleanAuthType *string, getDocumentAnalyticsRequest *components.GetDocumentAnalyticsRequest, opts ...operations.Option) (*operations.GetdocumentanalyticsResponse, error) {
+func (s *ClientDocuments) GetAnalytics(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, getDocumentAnalyticsRequest *components.GetDocumentAnalyticsRequest, opts ...operations.Option) (*operations.GetdocumentanalyticsResponse, error) {
 	request := operations.GetdocumentanalyticsRequest{
-		XScioActas:                  xScioActas,
+		XGleanActAs:                 xGleanActAs,
 		XGleanAuthType:              xGleanAuthType,
 		GetDocumentAnalyticsRequest: getDocumentAnalyticsRequest,
 	}

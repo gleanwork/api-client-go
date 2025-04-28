@@ -28,9 +28,9 @@ func newCollections(sdkConfig sdkConfiguration) *Collections {
 
 // AddItems - Add Collection item
 // Add items to a Collection.
-func (s *Collections) AddItems(ctx context.Context, addCollectionItemsRequest components.AddCollectionItemsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AddcollectionitemsResponse, error) {
+func (s *Collections) AddItems(ctx context.Context, addCollectionItemsRequest components.AddCollectionItemsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AddcollectionitemsResponse, error) {
 	request := operations.AddcollectionitemsRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		AddCollectionItemsRequest: addCollectionItemsRequest,
 	}
@@ -251,9 +251,9 @@ func (s *Collections) AddItems(ctx context.Context, addCollectionItemsRequest co
 
 // Create Collection
 // Create a publicly visible (empty) Collection of documents.
-func (s *Collections) Create(ctx context.Context, createCollectionRequest components.CreateCollectionRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreatecollectionResponse, error) {
+func (s *Collections) Create(ctx context.Context, createCollectionRequest components.CreateCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreatecollectionResponse, error) {
 	request := operations.CreatecollectionRequest{
-		XScioActas:              xScioActas,
+		XGleanActAs:             xGleanActAs,
 		XGleanAuthType:          xGleanAuthType,
 		CreateCollectionRequest: createCollectionRequest,
 	}
@@ -495,9 +495,9 @@ func (s *Collections) Create(ctx context.Context, createCollectionRequest compon
 
 // Delete Collection
 // Delete a Collection given the Collection's ID.
-func (s *Collections) Delete(ctx context.Context, deleteCollectionRequest components.DeleteCollectionRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletecollectionResponse, error) {
+func (s *Collections) Delete(ctx context.Context, deleteCollectionRequest components.DeleteCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletecollectionResponse, error) {
 	request := operations.DeletecollectionRequest{
-		XScioActas:              xScioActas,
+		XGleanActAs:             xGleanActAs,
 		XGleanAuthType:          xGleanAuthType,
 		DeleteCollectionRequest: deleteCollectionRequest,
 	}
@@ -719,9 +719,9 @@ func (s *Collections) Delete(ctx context.Context, deleteCollectionRequest compon
 
 // DeleteItem - Delete Collection item
 // Delete a single item from a Collection.
-func (s *Collections) DeleteItem(ctx context.Context, deleteCollectionItemRequest components.DeleteCollectionItemRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletecollectionitemResponse, error) {
+func (s *Collections) DeleteItem(ctx context.Context, deleteCollectionItemRequest components.DeleteCollectionItemRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletecollectionitemResponse, error) {
 	request := operations.DeletecollectionitemRequest{
-		XScioActas:                  xScioActas,
+		XGleanActAs:                 xGleanActAs,
 		XGleanAuthType:              xGleanAuthType,
 		DeleteCollectionItemRequest: deleteCollectionItemRequest,
 	}
@@ -944,9 +944,9 @@ func (s *Collections) DeleteItem(ctx context.Context, deleteCollectionItemReques
 
 // Update Collection
 // Update the properties of an existing Collection.
-func (s *Collections) Update(ctx context.Context, editCollectionRequest components.EditCollectionRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditcollectionResponse, error) {
+func (s *Collections) Update(ctx context.Context, editCollectionRequest components.EditCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditcollectionResponse, error) {
 	request := operations.EditcollectionRequest{
-		XScioActas:            xScioActas,
+		XGleanActAs:           xGleanActAs,
 		XGleanAuthType:        xGleanAuthType,
 		EditCollectionRequest: editCollectionRequest,
 	}
@@ -1188,9 +1188,9 @@ func (s *Collections) Update(ctx context.Context, editCollectionRequest componen
 
 // EditItem - Update Collection item
 // Update the URL, Glean Document ID, description of an item within a Collection given its ID.
-func (s *Collections) EditItem(ctx context.Context, editCollectionItemRequest components.EditCollectionItemRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditcollectionitemResponse, error) {
+func (s *Collections) EditItem(ctx context.Context, editCollectionItemRequest components.EditCollectionItemRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditcollectionitemResponse, error) {
 	request := operations.EditcollectionitemRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		EditCollectionItemRequest: editCollectionItemRequest,
 	}
@@ -1411,9 +1411,9 @@ func (s *Collections) EditItem(ctx context.Context, editCollectionItemRequest co
 
 // Edit - Update document Collections
 // Update the Collections that a document belongs to.
-func (s *Collections) Edit(ctx context.Context, editDocumentCollectionsRequest components.EditDocumentCollectionsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditdocumentcollectionsResponse, error) {
+func (s *Collections) Edit(ctx context.Context, editDocumentCollectionsRequest components.EditDocumentCollectionsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditdocumentcollectionsResponse, error) {
 	request := operations.EditdocumentcollectionsRequest{
-		XScioActas:                     xScioActas,
+		XGleanActAs:                    xGleanActAs,
 		XGleanAuthType:                 xGleanAuthType,
 		EditDocumentCollectionsRequest: editDocumentCollectionsRequest,
 	}
@@ -1634,9 +1634,9 @@ func (s *Collections) Edit(ctx context.Context, editDocumentCollectionsRequest c
 
 // Get - Read Collection
 // Read the details of a Collection given its ID. Does not fetch items in this Collection.
-func (s *Collections) Get(ctx context.Context, getCollectionRequest components.GetCollectionRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetcollectionResponse, error) {
+func (s *Collections) Get(ctx context.Context, getCollectionRequest components.GetCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetcollectionResponse, error) {
 	request := operations.GetcollectionRequest{
-		XScioActas:           xScioActas,
+		XGleanActAs:          xGleanActAs,
 		XGleanAuthType:       xGleanAuthType,
 		GetCollectionRequest: getCollectionRequest,
 	}
@@ -1857,9 +1857,9 @@ func (s *Collections) Get(ctx context.Context, getCollectionRequest components.G
 
 // List Collections
 // List all existing Collections.
-func (s *Collections) List(ctx context.Context, listCollectionsRequest components.ListCollectionsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListcollectionsResponse, error) {
+func (s *Collections) List(ctx context.Context, listCollectionsRequest components.ListCollectionsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListcollectionsResponse, error) {
 	request := operations.ListcollectionsRequest{
-		XScioActas:             xScioActas,
+		XGleanActAs:            xGleanActAs,
 		XGleanAuthType:         xGleanAuthType,
 		ListCollectionsRequest: listCollectionsRequest,
 	}
@@ -2080,9 +2080,9 @@ func (s *Collections) List(ctx context.Context, listCollectionsRequest component
 
 // MoveItem - Move Collection item
 // Reorder a Collection by moving a CollectionItem below another CollectionItem.
-func (s *Collections) MoveItem(ctx context.Context, moveCollectionItemRequest components.MoveCollectionItemRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.MovecollectionitemResponse, error) {
+func (s *Collections) MoveItem(ctx context.Context, moveCollectionItemRequest components.MoveCollectionItemRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.MovecollectionitemResponse, error) {
 	request := operations.MovecollectionitemRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		MoveCollectionItemRequest: moveCollectionItemRequest,
 	}
@@ -2305,9 +2305,9 @@ func (s *Collections) MoveItem(ctx context.Context, moveCollectionItemRequest co
 
 // Pin Collection
 // Given the Collection id and category, pins the Collection to the home page for all company users.
-func (s *Collections) Pin(ctx context.Context, pinCollectionRequest components.PinCollectionRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PincollectionResponse, error) {
+func (s *Collections) Pin(ctx context.Context, pinCollectionRequest components.PinCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PincollectionResponse, error) {
 	request := operations.PincollectionRequest{
-		XScioActas:           xScioActas,
+		XGleanActAs:          xGleanActAs,
 		XGleanAuthType:       xGleanAuthType,
 		PinCollectionRequest: pinCollectionRequest,
 	}

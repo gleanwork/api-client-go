@@ -44,6 +44,10 @@ type AssistantConfig struct {
 	// Placeholder text for the chat bar
 	ChatBarPlaceholderText *string                 `json:"chatBarPlaceholderText,omitempty"`
 	AgentMigrationStatuses *AgentMigrationStatuses `json:"agentMigrationStatuses,omitempty"`
+	// The prompt deprecation time shown on the prompt library warning.
+	PromptDeprecationTimestamp *int64 `json:"promptDeprecationTimestamp,omitempty"`
+	// Configuration settings for triggers.
+	Triggers *TriggersClientConfig `json:"triggers,omitempty"`
 }
 
 func (o *AssistantConfig) GetChatBannerText() *string {
@@ -184,4 +188,18 @@ func (o *AssistantConfig) GetAgentMigrationStatuses() *AgentMigrationStatuses {
 		return nil
 	}
 	return o.AgentMigrationStatuses
+}
+
+func (o *AssistantConfig) GetPromptDeprecationTimestamp() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PromptDeprecationTimestamp
+}
+
+func (o *AssistantConfig) GetTriggers() *TriggersClientConfig {
+	if o == nil {
+		return nil
+	}
+	return o.Triggers
 }

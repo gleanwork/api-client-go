@@ -11,13 +11,14 @@ import (
 type ImageType string
 
 const (
-	ImageTypeBackground ImageType = "BACKGROUND"
-	ImageTypeFeedback   ImageType = "FEEDBACK"
-	ImageTypeHeader     ImageType = "HEADER"
-	ImageTypeIcon       ImageType = "ICON"
-	ImageTypeLogo       ImageType = "LOGO"
-	ImageTypeUgc        ImageType = "UGC"
-	ImageTypeUser       ImageType = "USER"
+	ImageTypeBackground    ImageType = "BACKGROUND"
+	ImageTypeFeedback      ImageType = "FEEDBACK"
+	ImageTypeHeader        ImageType = "HEADER"
+	ImageTypeIcon          ImageType = "ICON"
+	ImageTypeLogo          ImageType = "LOGO"
+	ImageTypeUgc           ImageType = "UGC"
+	ImageTypeUser          ImageType = "USER"
+	ImageTypeDocumentImage ImageType = "DOCUMENT_IMAGE"
 )
 
 func (e ImageType) ToPointer() *ImageType {
@@ -42,6 +43,8 @@ func (e *ImageType) UnmarshalJSON(data []byte) error {
 	case "UGC":
 		fallthrough
 	case "USER":
+		fallthrough
+	case "DOCUMENT_IMAGE":
 		*e = ImageType(v)
 		return nil
 	default:

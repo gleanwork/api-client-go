@@ -28,9 +28,9 @@ func newPins(sdkConfig sdkConfiguration) *Pins {
 
 // Edit - Update pin
 // Update an existing user-generated pin.
-func (s *Pins) Edit(ctx context.Context, editPinRequest components.EditPinRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditpinResponse, error) {
+func (s *Pins) Edit(ctx context.Context, editPinRequest components.EditPinRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditpinResponse, error) {
 	request := operations.EditpinRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		EditPinRequest: editPinRequest,
 	}
@@ -251,9 +251,9 @@ func (s *Pins) Edit(ctx context.Context, editPinRequest components.EditPinReques
 
 // Get - Read pin
 // Read pin details given its ID.
-func (s *Pins) Get(ctx context.Context, getPinRequest components.GetPinRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetpinResponse, error) {
+func (s *Pins) Get(ctx context.Context, getPinRequest components.GetPinRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetpinResponse, error) {
 	request := operations.GetpinRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		GetPinRequest:  getPinRequest,
 	}
@@ -474,9 +474,9 @@ func (s *Pins) Get(ctx context.Context, getPinRequest components.GetPinRequest, 
 
 // List pins
 // Lists all pins.
-func (s *Pins) List(ctx context.Context, requestBody operations.ListpinsRequestBody, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListpinsResponse, error) {
+func (s *Pins) List(ctx context.Context, requestBody operations.ListpinsRequestBody, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListpinsResponse, error) {
 	request := operations.ListpinsRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		RequestBody:    requestBody,
 	}
@@ -697,9 +697,9 @@ func (s *Pins) List(ctx context.Context, requestBody operations.ListpinsRequestB
 
 // Create pin
 // Pin a document as a result for a given search query.Pin results that are known to be a good match.
-func (s *Pins) Create(ctx context.Context, pinRequest components.PinRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PinResponse, error) {
+func (s *Pins) Create(ctx context.Context, pinRequest components.PinRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PinResponse, error) {
 	request := operations.PinRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		PinRequest:     pinRequest,
 	}
@@ -920,9 +920,9 @@ func (s *Pins) Create(ctx context.Context, pinRequest components.PinRequest, xSc
 
 // Remove - Delete pin
 // Unpin a previously pinned result.
-func (s *Pins) Remove(ctx context.Context, unpin components.Unpin, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UnpinResponse, error) {
+func (s *Pins) Remove(ctx context.Context, unpin components.Unpin, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UnpinResponse, error) {
 	request := operations.UnpinRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		Unpin:          unpin,
 	}

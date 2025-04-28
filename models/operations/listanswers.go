@@ -8,18 +8,18 @@ import (
 
 type ListanswersRequest struct {
 	// Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens).
-	XScioActas *string `header:"style=simple,explode=false,name=X-Scio-Actas"`
+	XGleanActAs *string `header:"style=simple,explode=false,name=X-Glean-ActAs"`
 	// Auth type being used to access the endpoint (should be non-empty only for global tokens).
 	XGleanAuthType *string `header:"style=simple,explode=false,name=X-Glean-Auth-Type"`
 	// ListAnswers request
 	ListAnswersRequest components.ListAnswersRequest `request:"mediaType=application/json"`
 }
 
-func (o *ListanswersRequest) GetXScioActas() *string {
+func (o *ListanswersRequest) GetXGleanActAs() *string {
 	if o == nil {
 		return nil
 	}
-	return o.XScioActas
+	return o.XGleanActAs
 }
 
 func (o *ListanswersRequest) GetXGleanAuthType() *string {

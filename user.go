@@ -28,9 +28,9 @@ func newUser(sdkConfig sdkConfiguration) *User {
 
 // AddCredential - Create credentials
 // API to save a user's credentials. Used for Confluence restricted pages and Tableau per-user auth, for example
-func (s *User) AddCredential(ctx context.Context, addCredentialRequest components.AddCredentialRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AddcredentialResponse, error) {
+func (s *User) AddCredential(ctx context.Context, addCredentialRequest components.AddCredentialRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AddcredentialResponse, error) {
 	request := operations.AddcredentialRequest{
-		XScioActas:           xScioActas,
+		XGleanActAs:          xGleanActAs,
 		XGleanAuthType:       xGleanAuthType,
 		AddCredentialRequest: addCredentialRequest,
 	}
@@ -231,9 +231,9 @@ func (s *User) AddCredential(ctx context.Context, addCredentialRequest component
 
 // DeleteQueryHistory - Delete query history
 // Remove one or more queries from a user's query history.
-func (s *User) DeleteQueryHistory(ctx context.Context, deleteQueryHistoryRequest components.DeleteQueryHistoryRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletequeryhistoryResponse, error) {
+func (s *User) DeleteQueryHistory(ctx context.Context, deleteQueryHistoryRequest components.DeleteQueryHistoryRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletequeryhistoryResponse, error) {
 	request := operations.DeletequeryhistoryRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		DeleteQueryHistoryRequest: deleteQueryHistoryRequest,
 	}
@@ -454,9 +454,9 @@ func (s *User) DeleteQueryHistory(ctx context.Context, deleteQueryHistoryRequest
 
 // Invite - Send invitation
 // Invites people to Glean via email or Slack
-func (s *User) Invite(ctx context.Context, inviteRequest components.InviteRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.InviteResponse, error) {
+func (s *User) Invite(ctx context.Context, inviteRequest components.InviteRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.InviteResponse, error) {
 	request := operations.InviteRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		InviteRequest:  inviteRequest,
 	}
@@ -657,9 +657,9 @@ func (s *User) Invite(ctx context.Context, inviteRequest components.InviteReques
 
 // GetPublicConfig - Read public client configuration
 // Read configuration information such as the company name, logo and etc that is public and is not considered as PII.
-func (s *User) GetPublicConfig(ctx context.Context, xScioActas *string, xGleanAuthType *string, publicConfigRequest *components.PublicConfigRequest, opts ...operations.Option) (*operations.PublicconfigResponse, error) {
+func (s *User) GetPublicConfig(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, publicConfigRequest *components.PublicConfigRequest, opts ...operations.Option) (*operations.PublicconfigResponse, error) {
 	request := operations.PublicconfigRequest{
-		XScioActas:          xScioActas,
+		XGleanActAs:         xGleanActAs,
 		XGleanAuthType:      xGleanAuthType,
 		PublicConfigRequest: publicConfigRequest,
 	}
@@ -878,9 +878,9 @@ func (s *User) GetPublicConfig(ctx context.Context, xScioActas *string, xGleanAu
 
 // RemoveCredential - Delete credentials
 // Delete a user's credentials. Used for Confluence restricted pages and Tableau per-user auth, for example
-func (s *User) RemoveCredential(ctx context.Context, removeCredentialRequest components.RemoveCredentialRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.RemovecredentialResponse, error) {
+func (s *User) RemoveCredential(ctx context.Context, removeCredentialRequest components.RemoveCredentialRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.RemovecredentialResponse, error) {
 	request := operations.RemovecredentialRequest{
-		XScioActas:              xScioActas,
+		XGleanActAs:             xGleanActAs,
 		XGleanAuthType:          xGleanAuthType,
 		RemoveCredentialRequest: removeCredentialRequest,
 	}
@@ -1081,9 +1081,9 @@ func (s *User) RemoveCredential(ctx context.Context, removeCredentialRequest com
 
 // SendSupportEmail - Send support email
 // Sends a support email based on a template to the Glean support team.
-func (s *User) SendSupportEmail(ctx context.Context, emailRequest components.EmailRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.SupportEmailResponse, error) {
+func (s *User) SendSupportEmail(ctx context.Context, emailRequest components.EmailRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.SupportEmailResponse, error) {
 	request := operations.SupportEmailRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		EmailRequest:   emailRequest,
 	}

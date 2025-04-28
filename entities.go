@@ -28,9 +28,9 @@ func newEntities(sdkConfig sdkConfiguration) *Entities {
 
 // List entities
 // List some set of details for all entities that fit the given criteria and return in the requested order. Does not support negation in filters, assumes relation type EQUALS. There is a limit of 10000 entities that can be retrieved via this endpoint.
-func (s *Entities) List(ctx context.Context, listEntitiesRequest components.ListEntitiesRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListentitiesResponse, error) {
+func (s *Entities) List(ctx context.Context, listEntitiesRequest components.ListEntitiesRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListentitiesResponse, error) {
 	request := operations.ListentitiesRequest{
-		XScioActas:          xScioActas,
+		XGleanActAs:         xGleanActAs,
 		XGleanAuthType:      xGleanAuthType,
 		ListEntitiesRequest: listEntitiesRequest,
 	}
@@ -251,9 +251,9 @@ func (s *Entities) List(ctx context.Context, listEntitiesRequest components.List
 
 // ReadPeople - Read people
 // Read people details for the given IDs.
-func (s *Entities) ReadPeople(ctx context.Context, peopleRequest components.PeopleRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PeopleResponse, error) {
+func (s *Entities) ReadPeople(ctx context.Context, peopleRequest components.PeopleRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PeopleResponse, error) {
 	request := operations.PeopleRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		PeopleRequest:  peopleRequest,
 	}
@@ -474,9 +474,9 @@ func (s *Entities) ReadPeople(ctx context.Context, peopleRequest components.Peop
 
 // GetTeams - Read teams
 // Read the details of the teams with the given IDs.
-func (s *Entities) GetTeams(ctx context.Context, teamsRequest components.TeamsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.TeamsResponse, error) {
+func (s *Entities) GetTeams(ctx context.Context, teamsRequest components.TeamsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.TeamsResponse, error) {
 	request := operations.TeamsRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		TeamsRequest:   teamsRequest,
 	}
