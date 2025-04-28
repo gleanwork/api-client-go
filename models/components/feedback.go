@@ -230,6 +230,8 @@ type Feedback struct {
 	WorkflowFeedbackInfo *WorkflowFeedbackInfo `json:"workflowFeedbackInfo,omitempty"`
 	// The application ID of the client that sent the feedback event.
 	ApplicationID *string `json:"applicationId,omitempty"`
+	// The agent ID of the client that sent the feedback event.
+	AgentID *string `json:"agentId,omitempty"`
 }
 
 func (f Feedback) MarshalJSON() ([]byte, error) {
@@ -374,4 +376,11 @@ func (o *Feedback) GetApplicationID() *string {
 		return nil
 	}
 	return o.ApplicationID
+}
+
+func (o *Feedback) GetAgentID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AgentID
 }

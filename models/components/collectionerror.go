@@ -48,11 +48,11 @@ func (e *CollectionErrorErrorCode) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type CollectionError3 struct {
+type CollectionError struct {
 	ErrorCode CollectionErrorErrorCode `json:"errorCode"`
 }
 
-func (o *CollectionError3) GetErrorCode() CollectionErrorErrorCode {
+func (o *CollectionError) GetErrorCode() CollectionErrorErrorCode {
 	if o == nil {
 		return CollectionErrorErrorCode("")
 	}

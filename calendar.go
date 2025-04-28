@@ -28,9 +28,9 @@ func newCalendar(sdkConfig sdkConfiguration) *Calendar {
 
 // GetEvents - Read events
 // Read detailed information about the given event ids.
-func (s *Calendar) GetEvents(ctx context.Context, getEventsRequest components.GetEventsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GeteventsResponse, error) {
+func (s *Calendar) GetEvents(ctx context.Context, getEventsRequest components.GetEventsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GeteventsResponse, error) {
 	request := operations.GeteventsRequest{
-		XScioActas:       xScioActas,
+		XGleanActAs:      xGleanActAs,
 		XGleanAuthType:   xGleanAuthType,
 		GetEventsRequest: getEventsRequest,
 	}

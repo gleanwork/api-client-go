@@ -8,18 +8,18 @@ import (
 
 type PincollectionRequest struct {
 	// Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens).
-	XScioActas *string `header:"style=simple,explode=false,name=X-Scio-Actas"`
+	XGleanActAs *string `header:"style=simple,explode=false,name=X-Glean-ActAs"`
 	// Auth type being used to access the endpoint (should be non-empty only for global tokens).
 	XGleanAuthType *string `header:"style=simple,explode=false,name=X-Glean-Auth-Type"`
 	// PinCollection request
 	PinCollectionRequest components.PinCollectionRequest `request:"mediaType=application/json"`
 }
 
-func (o *PincollectionRequest) GetXScioActas() *string {
+func (o *PincollectionRequest) GetXGleanActAs() *string {
 	if o == nil {
 		return nil
 	}
-	return o.XScioActas
+	return o.XGleanActAs
 }
 
 func (o *PincollectionRequest) GetXGleanAuthType() *string {

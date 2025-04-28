@@ -28,9 +28,9 @@ func newAgents(sdkConfig sdkConfiguration) *Agents {
 
 // Runagent - Runs an Agent.
 // Trigger an Agent with a given id.
-func (s *Agents) Runagent(ctx context.Context, runAgentRequest components.RunAgentRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.RunagentResponse, error) {
+func (s *Agents) Runagent(ctx context.Context, runAgentRequest components.RunAgentRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.RunagentResponse, error) {
 	request := operations.RunagentRequest{
-		XScioActas:      xScioActas,
+		XGleanActAs:     xGleanActAs,
 		XGleanAuthType:  xGleanAuthType,
 		TimezoneOffset:  timezoneOffset,
 		RunAgentRequest: runAgentRequest,
@@ -258,9 +258,9 @@ func (s *Agents) Runagent(ctx context.Context, runAgentRequest components.RunAge
 
 // Listagents - Lists all agents.
 // Lists all agents that are available.
-func (s *Agents) Listagents(ctx context.Context, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, requestBody any, opts ...operations.Option) (*operations.ListagentsResponse, error) {
+func (s *Agents) Listagents(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, requestBody any, opts ...operations.Option) (*operations.ListagentsResponse, error) {
 	request := operations.ListagentsRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 		RequestBody:    requestBody,
@@ -488,9 +488,9 @@ func (s *Agents) Listagents(ctx context.Context, xScioActas *string, xGleanAuthT
 
 // Getagentinputs - Gets the inputs to an agent.
 // Get the inputs to an agent with a given id.
-func (s *Agents) Getagentinputs(ctx context.Context, getAgentInputsRequest components.GetAgentInputsRequest, xScioActas *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetagentinputsResponse, error) {
+func (s *Agents) Getagentinputs(ctx context.Context, getAgentInputsRequest components.GetAgentInputsRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetagentinputsResponse, error) {
 	request := operations.GetagentinputsRequest{
-		XScioActas:            xScioActas,
+		XGleanActAs:           xGleanActAs,
 		XGleanAuthType:        xGleanAuthType,
 		TimezoneOffset:        timezoneOffset,
 		GetAgentInputsRequest: getAgentInputsRequest,

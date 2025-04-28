@@ -5,6 +5,8 @@ package components
 type AgentMigrationStatuses struct {
 	// The status of an agent migration
 	AdvancedPromptsMigrationStatus *AgentMigrationStatus `json:"advancedPromptsMigrationStatus,omitempty"`
+	// The status of an agent migration
+	AppsMigrationStatus *AgentMigrationStatus `json:"appsMigrationStatus,omitempty"`
 }
 
 func (o *AgentMigrationStatuses) GetAdvancedPromptsMigrationStatus() *AgentMigrationStatus {
@@ -12,4 +14,11 @@ func (o *AgentMigrationStatuses) GetAdvancedPromptsMigrationStatus() *AgentMigra
 		return nil
 	}
 	return o.AdvancedPromptsMigrationStatus
+}
+
+func (o *AgentMigrationStatuses) GetAppsMigrationStatus() *AgentMigrationStatus {
+	if o == nil {
+		return nil
+	}
+	return o.AppsMigrationStatus
 }

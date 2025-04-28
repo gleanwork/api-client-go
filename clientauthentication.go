@@ -236,9 +236,9 @@ func (s *ClientAuthentication) CreateAnonymousToken(ctx context.Context, opts ..
 
 // CreateToken - Create authentication token
 // Creates an authentication token for the authenticated user.
-func (s *ClientAuthentication) CreateToken(ctx context.Context, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateauthtokenResponse, error) {
+func (s *ClientAuthentication) CreateToken(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateauthtokenResponse, error) {
 	request := operations.CreateauthtokenRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 	}
 

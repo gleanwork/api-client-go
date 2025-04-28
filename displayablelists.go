@@ -28,9 +28,9 @@ func newDisplayableLists(sdkConfig sdkConfiguration) *DisplayableLists {
 
 // Create displayable lists
 // Create one or more lists that can be display on the home page.
-func (s *DisplayableLists) Create(ctx context.Context, createDisplayableListsRequest components.CreateDisplayableListsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreatedisplayablelistsResponse, error) {
+func (s *DisplayableLists) Create(ctx context.Context, createDisplayableListsRequest components.CreateDisplayableListsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreatedisplayablelistsResponse, error) {
 	request := operations.CreatedisplayablelistsRequest{
-		XScioActas:                    xScioActas,
+		XGleanActAs:                   xGleanActAs,
 		XGleanAuthType:                xGleanAuthType,
 		CreateDisplayableListsRequest: createDisplayableListsRequest,
 	}
@@ -253,9 +253,9 @@ func (s *DisplayableLists) Create(ctx context.Context, createDisplayableListsReq
 
 // Delete displayable lists
 // Delete one or more displayable lists.
-func (s *DisplayableLists) Delete(ctx context.Context, deleteDisplayableListsRequest components.DeleteDisplayableListsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletedisplayablelistsResponse, error) {
+func (s *DisplayableLists) Delete(ctx context.Context, deleteDisplayableListsRequest components.DeleteDisplayableListsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletedisplayablelistsResponse, error) {
 	request := operations.DeletedisplayablelistsRequest{
-		XScioActas:                    xScioActas,
+		XGleanActAs:                   xGleanActAs,
 		XGleanAuthType:                xGleanAuthType,
 		DeleteDisplayableListsRequest: deleteDisplayableListsRequest,
 	}
@@ -458,9 +458,9 @@ func (s *DisplayableLists) Delete(ctx context.Context, deleteDisplayableListsReq
 
 // Get - Read displayable lists
 // Read the details of the displayable lists with the given IDs.
-func (s *DisplayableLists) Get(ctx context.Context, getDisplayableListsRequest components.GetDisplayableListsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetdisplayablelistsResponse, error) {
+func (s *DisplayableLists) Get(ctx context.Context, getDisplayableListsRequest components.GetDisplayableListsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetdisplayablelistsResponse, error) {
 	request := operations.GetdisplayablelistsRequest{
-		XScioActas:                 xScioActas,
+		XGleanActAs:                xGleanActAs,
 		XGleanAuthType:             xGleanAuthType,
 		GetDisplayableListsRequest: getDisplayableListsRequest,
 	}
@@ -683,9 +683,9 @@ func (s *DisplayableLists) Get(ctx context.Context, getDisplayableListsRequest c
 
 // Update displayable lists
 // Update one or more displayable lists with all fields from request fields.
-func (s *DisplayableLists) Update(ctx context.Context, updateDisplayableListsRequest components.UpdateDisplayableListsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdatedisplayablelistsResponse, error) {
+func (s *DisplayableLists) Update(ctx context.Context, updateDisplayableListsRequest components.UpdateDisplayableListsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdatedisplayablelistsResponse, error) {
 	request := operations.UpdatedisplayablelistsRequest{
-		XScioActas:                    xScioActas,
+		XGleanActAs:                   xGleanActAs,
 		XGleanAuthType:                xGleanAuthType,
 		UpdateDisplayableListsRequest: updateDisplayableListsRequest,
 	}

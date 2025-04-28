@@ -9,10 +9,21 @@ Developer-friendly & type-safe Go SDK specifically catered to leverage *github.c
 <!-- no [summary] -->
 The Glean Go SDK provides convenient access to the Glean REST API for Go 1.18+. It offers strongly typed request and response structs, context-based request handling, and uses the standard net/http package.
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Glean API: # Introduction
+In addition to the data sources that Glean has built-in support for, Glean also provides a REST API that enables customers to put arbitrary content in the search index. This is useful, for example, for doing permissions-aware search over content in internal tools that reside on-prem as well as for searching over applications that Glean does not currently support first class. In addition these APIs allow the customer to push organization data (people info, organization structure etc) into Glean.
+
+# Usage guidelines
+This API is evolving fast. Glean will provide advance notice of any planned backwards incompatible changes along
+with a 6-month sunset period for anything that requires developers to adopt the new versions.
+<!-- End Summary [summary] -->
+
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [github.com/gleanwork/api-client-go](#githubcomgleanworkapi-client-go)
+* [api-client-go](#api-client-go)
 * [Usage guidelines](#usage-guidelines)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
@@ -323,10 +334,6 @@ func main() {
 #### [Client.Summarize](docs/sdks/summarize/README.md)
 
 * [Generate](docs/sdks/summarize/README.md#generate) - Summarize documents
-
-#### [Client.Tools](docs/sdks/tools/README.md)
-
-* [ExecuteAction](docs/sdks/tools/README.md#executeaction) - Execute Action Tool
 
 #### [Client.User](docs/sdks/user/README.md)
 

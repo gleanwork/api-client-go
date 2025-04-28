@@ -8,18 +8,18 @@ import (
 
 type PreviewanswerdraftRequest struct {
 	// Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens).
-	XScioActas *string `header:"style=simple,explode=false,name=X-Scio-Actas"`
+	XGleanActAs *string `header:"style=simple,explode=false,name=X-Glean-ActAs"`
 	// Auth type being used to access the endpoint (should be non-empty only for global tokens).
 	XGleanAuthType *string `header:"style=simple,explode=false,name=X-Glean-Auth-Type"`
 	// preview answer request
 	PreviewUgcRequest components.PreviewUgcRequest `request:"mediaType=application/json"`
 }
 
-func (o *PreviewanswerdraftRequest) GetXScioActas() *string {
+func (o *PreviewanswerdraftRequest) GetXGleanActAs() *string {
 	if o == nil {
 		return nil
 	}
-	return o.XScioActas
+	return o.XGleanActAs
 }
 
 func (o *PreviewanswerdraftRequest) GetXGleanAuthType() *string {

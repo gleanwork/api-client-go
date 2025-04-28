@@ -28,9 +28,9 @@ func newClientShortcuts(sdkConfig sdkConfiguration) *ClientShortcuts {
 
 // Create shortcut
 // Create a user-generated shortcut that contains an alias and destination URL.
-func (s *ClientShortcuts) Create(ctx context.Context, createShortcutRequest components.CreateShortcutRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateshortcutResponse, error) {
+func (s *ClientShortcuts) Create(ctx context.Context, createShortcutRequest components.CreateShortcutRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateshortcutResponse, error) {
 	request := operations.CreateshortcutRequest{
-		XScioActas:            xScioActas,
+		XGleanActAs:           xGleanActAs,
 		XGleanAuthType:        xGleanAuthType,
 		CreateShortcutRequest: createShortcutRequest,
 	}
@@ -251,9 +251,9 @@ func (s *ClientShortcuts) Create(ctx context.Context, createShortcutRequest comp
 
 // Delete shortcut
 // Delete an existing user-generated shortcut.
-func (s *ClientShortcuts) Delete(ctx context.Context, deleteShortcutRequest components.DeleteShortcutRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteshortcutResponse, error) {
+func (s *ClientShortcuts) Delete(ctx context.Context, deleteShortcutRequest components.DeleteShortcutRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteshortcutResponse, error) {
 	request := operations.DeleteshortcutRequest{
-		XScioActas:            xScioActas,
+		XGleanActAs:           xGleanActAs,
 		XGleanAuthType:        xGleanAuthType,
 		DeleteShortcutRequest: deleteShortcutRequest,
 	}
@@ -454,9 +454,9 @@ func (s *ClientShortcuts) Delete(ctx context.Context, deleteShortcutRequest comp
 
 // Get - Read shortcut
 // Read a particular shortcut's details given its ID.
-func (s *ClientShortcuts) Get(ctx context.Context, getShortcutRequest components.GetShortcutRequestUnion, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetshortcutResponse, error) {
+func (s *ClientShortcuts) Get(ctx context.Context, getShortcutRequest components.GetShortcutRequestUnion, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetshortcutResponse, error) {
 	request := operations.GetshortcutRequest{
-		XScioActas:         xScioActas,
+		XGleanActAs:        xGleanActAs,
 		XGleanAuthType:     xGleanAuthType,
 		GetShortcutRequest: getShortcutRequest,
 	}
@@ -677,9 +677,9 @@ func (s *ClientShortcuts) Get(ctx context.Context, getShortcutRequest components
 
 // GetSimilar - Get similar shortcuts
 // Get shortcuts with similar aliases to a given alias.
-func (s *ClientShortcuts) GetSimilar(ctx context.Context, getSimilarShortcutsRequest components.GetSimilarShortcutsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetsimilarshortcutsResponse, error) {
+func (s *ClientShortcuts) GetSimilar(ctx context.Context, getSimilarShortcutsRequest components.GetSimilarShortcutsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetsimilarshortcutsResponse, error) {
 	request := operations.GetsimilarshortcutsRequest{
-		XScioActas:                 xScioActas,
+		XGleanActAs:                xGleanActAs,
 		XGleanAuthType:             xGleanAuthType,
 		GetSimilarShortcutsRequest: getSimilarShortcutsRequest,
 	}
@@ -900,9 +900,9 @@ func (s *ClientShortcuts) GetSimilar(ctx context.Context, getSimilarShortcutsReq
 
 // List shortcuts
 // List shortcuts editable/owned by the currently authenticated user.
-func (s *ClientShortcuts) List(ctx context.Context, listShortcutsPaginatedRequest components.ListShortcutsPaginatedRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListshortcutsResponse, error) {
+func (s *ClientShortcuts) List(ctx context.Context, listShortcutsPaginatedRequest components.ListShortcutsPaginatedRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListshortcutsResponse, error) {
 	request := operations.ListshortcutsRequest{
-		XScioActas:                    xScioActas,
+		XGleanActAs:                   xGleanActAs,
 		XGleanAuthType:                xGleanAuthType,
 		ListShortcutsPaginatedRequest: listShortcutsPaginatedRequest,
 	}
@@ -1123,9 +1123,9 @@ func (s *ClientShortcuts) List(ctx context.Context, listShortcutsPaginatedReques
 
 // Preview shortcut
 // Preview a shortcut that contains an alias and destination URL.
-func (s *ClientShortcuts) Preview(ctx context.Context, shortcutMutableProperties components.ShortcutMutableProperties, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewshortcutResponse, error) {
+func (s *ClientShortcuts) Preview(ctx context.Context, shortcutMutableProperties components.ShortcutMutableProperties, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewshortcutResponse, error) {
 	request := operations.PreviewshortcutRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		ShortcutMutableProperties: shortcutMutableProperties,
 	}
@@ -1346,9 +1346,9 @@ func (s *ClientShortcuts) Preview(ctx context.Context, shortcutMutableProperties
 
 // Update shortcut
 // Updates the shortcut with the given ID.
-func (s *ClientShortcuts) Update(ctx context.Context, updateShortcutRequest components.UpdateShortcutRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdateshortcutResponse, error) {
+func (s *ClientShortcuts) Update(ctx context.Context, updateShortcutRequest components.UpdateShortcutRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdateshortcutResponse, error) {
 	request := operations.UpdateshortcutRequest{
-		XScioActas:            xScioActas,
+		XGleanActAs:           xGleanActAs,
 		XGleanAuthType:        xGleanAuthType,
 		UpdateShortcutRequest: updateShortcutRequest,
 	}

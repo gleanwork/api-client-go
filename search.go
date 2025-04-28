@@ -28,9 +28,9 @@ func newSearch(sdkConfig sdkConfiguration) *Search {
 
 // Admin - Search the index (admin)
 // Retrieves results for search query without respect for permissions. This is available only to privileged users.
-func (s *Search) Admin(ctx context.Context, xScioActas *string, xGleanAuthType *string, searchRequest *components.SearchRequest, opts ...operations.Option) (*operations.AdminsearchResponse, error) {
+func (s *Search) Admin(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, searchRequest *components.SearchRequest, opts ...operations.Option) (*operations.AdminsearchResponse, error) {
 	request := operations.AdminsearchRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		SearchRequest:  searchRequest,
 	}
@@ -274,9 +274,9 @@ func (s *Search) Admin(ctx context.Context, xScioActas *string, xGleanAuthType *
 
 // Autocomplete
 // Retrieve query suggestions, operators and documents for the given partially typed query.
-func (s *Search) Autocomplete(ctx context.Context, autocompleteRequest components.AutocompleteRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AutocompleteResponse, error) {
+func (s *Search) Autocomplete(ctx context.Context, autocompleteRequest components.AutocompleteRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AutocompleteResponse, error) {
 	request := operations.AutocompleteRequest{
-		XScioActas:          xScioActas,
+		XGleanActAs:         xGleanActAs,
 		XGleanAuthType:      xGleanAuthType,
 		AutocompleteRequest: autocompleteRequest,
 	}
@@ -497,9 +497,9 @@ func (s *Search) Autocomplete(ctx context.Context, autocompleteRequest component
 
 // GetFeed - Feed of documents and events
 // The personalized feed/home includes different types of contents including suggestions, recents, calendar events and many more.
-func (s *Search) GetFeed(ctx context.Context, feedRequest components.FeedRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.FeedResponse, error) {
+func (s *Search) GetFeed(ctx context.Context, feedRequest components.FeedRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.FeedResponse, error) {
 	request := operations.FeedRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		FeedRequest:    feedRequest,
 	}
@@ -722,9 +722,9 @@ func (s *Search) GetFeed(ctx context.Context, feedRequest components.FeedRequest
 
 // SuggestPeople - Suggest people
 // Retrieves a list of suggested people for given type. Includes information about the persons.
-func (s *Search) SuggestPeople(ctx context.Context, peopleSuggestRequest components.PeopleSuggestRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PeoplesuggestResponse, error) {
+func (s *Search) SuggestPeople(ctx context.Context, peopleSuggestRequest components.PeopleSuggestRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PeoplesuggestResponse, error) {
 	request := operations.PeoplesuggestRequest{
-		XScioActas:           xScioActas,
+		XGleanActAs:          xGleanActAs,
 		XGleanAuthType:       xGleanAuthType,
 		PeopleSuggestRequest: peopleSuggestRequest,
 	}
@@ -945,9 +945,9 @@ func (s *Search) SuggestPeople(ctx context.Context, peopleSuggestRequest compone
 
 // SuggestPeopleAdmin - Suggest people (admin)
 // Returns a list of suggested people for given type for admin's view. Includes information about the persons.
-func (s *Search) SuggestPeopleAdmin(ctx context.Context, peopleSuggestRequest components.PeopleSuggestRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PeoplesuggestadminResponse, error) {
+func (s *Search) SuggestPeopleAdmin(ctx context.Context, peopleSuggestRequest components.PeopleSuggestRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PeoplesuggestadminResponse, error) {
 	request := operations.PeoplesuggestadminRequest{
-		XScioActas:           xScioActas,
+		XGleanActAs:          xGleanActAs,
 		XGleanAuthType:       xGleanAuthType,
 		PeopleSuggestRequest: peopleSuggestRequest,
 	}
@@ -1168,9 +1168,9 @@ func (s *Search) SuggestPeopleAdmin(ctx context.Context, peopleSuggestRequest co
 
 // Recommendations - Recommend documents
 // Retrieve recommended documents for the given URL or Glean Document ID.
-func (s *Search) Recommendations(ctx context.Context, xScioActas *string, xGleanAuthType *string, recommendationsRequest *components.RecommendationsRequest, opts ...operations.Option) (*operations.RecommendationsResponse, error) {
+func (s *Search) Recommendations(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, recommendationsRequest *components.RecommendationsRequest, opts ...operations.Option) (*operations.RecommendationsResponse, error) {
 	request := operations.RecommendationsRequest{
-		XScioActas:             xScioActas,
+		XGleanActAs:            xGleanActAs,
 		XGleanAuthType:         xGleanAuthType,
 		RecommendationsRequest: recommendationsRequest,
 	}
@@ -1396,9 +1396,9 @@ func (s *Search) Recommendations(ctx context.Context, xScioActas *string, xGlean
 
 // Execute - Search
 // Retrieve results from the index for the given query and filters.
-func (s *Search) Execute(ctx context.Context, xScioActas *string, xGleanAuthType *string, searchRequest *components.SearchRequest, opts ...operations.Option) (*operations.SearchResponse, error) {
+func (s *Search) Execute(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, searchRequest *components.SearchRequest, opts ...operations.Option) (*operations.SearchResponse, error) {
 	request := operations.SearchRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		SearchRequest:  searchRequest,
 	}

@@ -5,12 +5,13 @@ The type of the image that determines how to interprets metadata and where the i
 
 ## Values
 
-| Name                  | Value                 |
-| --------------------- | --------------------- |
-| `ImageTypeBackground` | BACKGROUND            |
-| `ImageTypeFeedback`   | FEEDBACK              |
-| `ImageTypeHeader`     | HEADER                |
-| `ImageTypeIcon`       | ICON                  |
-| `ImageTypeLogo`       | LOGO                  |
-| `ImageTypeUgc`        | UGC                   |
-| `ImageTypeUser`       | USER                  |
+| Name                     | Value                    |
+| ------------------------ | ------------------------ |
+| `ImageTypeBackground`    | BACKGROUND               |
+| `ImageTypeFeedback`      | FEEDBACK                 |
+| `ImageTypeHeader`        | HEADER                   |
+| `ImageTypeIcon`          | ICON                     |
+| `ImageTypeLogo`          | LOGO                     |
+| `ImageTypeUgc`           | UGC                      |
+| `ImageTypeUser`          | USER                     |
+| `ImageTypeDocumentImage` | DOCUMENT_IMAGE           |

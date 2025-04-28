@@ -28,9 +28,9 @@ func newVerification(sdkConfig sdkConfiguration) *Verification {
 
 // AddReminder - Create verification
 // Creates a verification reminder for the document. Users can create verification reminders from different product surfaces.
-func (s *Verification) AddReminder(ctx context.Context, reminderRequest components.ReminderRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AddverificationreminderResponse, error) {
+func (s *Verification) AddReminder(ctx context.Context, reminderRequest components.ReminderRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AddverificationreminderResponse, error) {
 	request := operations.AddverificationreminderRequest{
-		XScioActas:      xScioActas,
+		XGleanActAs:     xGleanActAs,
 		XGleanAuthType:  xGleanAuthType,
 		ReminderRequest: reminderRequest,
 	}
@@ -253,9 +253,9 @@ func (s *Verification) AddReminder(ctx context.Context, reminderRequest componen
 
 // List verifications
 // Returns the information to be rendered in verification dashboard. Includes information for each document owned by user regarding their verifications.
-func (s *Verification) List(ctx context.Context, xScioActas *string, xGleanAuthType *string, count *int64, opts ...operations.Option) (*operations.ListverificationsResponse, error) {
+func (s *Verification) List(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, count *int64, opts ...operations.Option) (*operations.ListverificationsResponse, error) {
 	request := operations.ListverificationsRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		Count:          count,
 	}
@@ -473,9 +473,9 @@ func (s *Verification) List(ctx context.Context, xScioActas *string, xGleanAuthT
 
 // Verify - Update verification
 // Verify documents to keep the knowledge up to date within customer corpus.
-func (s *Verification) Verify(ctx context.Context, verifyRequest components.VerifyRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.VerifyResponse, error) {
+func (s *Verification) Verify(ctx context.Context, verifyRequest components.VerifyRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.VerifyResponse, error) {
 	request := operations.VerifyRequest{
-		XScioActas:     xScioActas,
+		XGleanActAs:    xGleanActAs,
 		XGleanAuthType: xGleanAuthType,
 		VerifyRequest:  verifyRequest,
 	}

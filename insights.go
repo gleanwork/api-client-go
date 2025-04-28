@@ -28,9 +28,9 @@ func newInsights(sdkConfig sdkConfiguration) *Insights {
 
 // Get - Read insights
 // Reads the aggregate information for each user, query, and content.
-func (s *Insights) Get(ctx context.Context, insightsRequest components.InsightsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.InsightsResponse, error) {
+func (s *Insights) Get(ctx context.Context, insightsRequest components.InsightsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.InsightsResponse, error) {
 	request := operations.InsightsRequest{
-		XScioActas:      xScioActas,
+		XGleanActAs:     xGleanActAs,
 		XGleanAuthType:  xGleanAuthType,
 		InsightsRequest: insightsRequest,
 	}

@@ -27,9 +27,9 @@ func newActivities(sdkConfig sdkConfiguration) *Activities {
 
 // ReportActivity - Report client activity
 // Report events that happen to results within a Glean client UI, such as search result views and clicks.  This signal improves search quality.
-func (s *Activities) ReportActivity(ctx context.Context, xScioActas *string, xGleanAuthType *string, feedbackQueryParameter *string, feedback1 *components.Feedback, opts ...operations.Option) (*operations.FeedbackResponse, error) {
+func (s *Activities) ReportActivity(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, feedbackQueryParameter *string, feedback1 *components.Feedback, opts ...operations.Option) (*operations.FeedbackResponse, error) {
 	request := operations.FeedbackRequest{
-		XScioActas:             xScioActas,
+		XGleanActAs:            xGleanActAs,
 		XGleanAuthType:         xGleanAuthType,
 		FeedbackQueryParameter: feedbackQueryParameter,
 		Feedback1:              feedback1,

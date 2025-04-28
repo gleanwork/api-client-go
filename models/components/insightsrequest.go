@@ -10,6 +10,7 @@ import (
 type InsightsRequestCategory string
 
 const (
+	InsightsRequestCategoryAgents        InsightsRequestCategory = "AGENTS"
 	InsightsRequestCategoryAi            InsightsRequestCategory = "AI"
 	InsightsRequestCategoryAiApps        InsightsRequestCategory = "AI_APPS"
 	InsightsRequestCategoryAnnouncements InsightsRequestCategory = "ANNOUNCEMENTS"
@@ -31,6 +32,8 @@ func (e *InsightsRequestCategory) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
+	case "AGENTS":
+		fallthrough
 	case "AI":
 		fallthrough
 	case "AI_APPS":
@@ -93,9 +96,10 @@ type InsightsRequest struct {
 	// Categories of data requested. Request can include single or multiple types.
 	Categories []InsightsRequestCategory `json:"categories"`
 	// Departments that the data is requested for. If this is empty, corresponds to whole company.
-	Departments         []string                     `json:"departments,omitempty"`
-	DayRange            *Period                      `json:"dayRange,omitempty"`
-	AiAppRequestOptions *InsightsAiAppRequestOptions `json:"aiAppRequestOptions,omitempty"`
+	Departments          []string                      `json:"departments,omitempty"`
+	DayRange             *Period                       `json:"dayRange,omitempty"`
+	AiAppRequestOptions  *InsightsAiAppRequestOptions  `json:"aiAppRequestOptions,omitempty"`
+	AgentsRequestOptions *InsightsAgentsRequestOptions `json:"agentsRequestOptions,omitempty"`
 	// Types of activity that should count in the definition of an Assistant Active User. Affects only insights for AI category.
 	AssistantActivityTypes []AssistantActivityType `json:"assistantActivityTypes,omitempty"`
 	// If true, suppresses the generation of per-user Insights in the response. Default is false.
@@ -128,6 +132,13 @@ func (o *InsightsRequest) GetAiAppRequestOptions() *InsightsAiAppRequestOptions 
 		return nil
 	}
 	return o.AiAppRequestOptions
+}
+
+func (o *InsightsRequest) GetAgentsRequestOptions() *InsightsAgentsRequestOptions {
+	if o == nil {
+		return nil
+	}
+	return o.AgentsRequestOptions
 }
 
 func (o *InsightsRequest) GetAssistantActivityTypes() []AssistantActivityType {

@@ -28,9 +28,9 @@ func newSummarize(sdkConfig sdkConfiguration) *Summarize {
 
 // Generate - Summarize documents
 // Generate an AI summary of the requested documents.
-func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.SummarizeRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.SummarizeResponse, error) {
+func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.SummarizeRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.SummarizeResponse, error) {
 	request := operations.SummarizeRequest{
-		XScioActas:       xScioActas,
+		XGleanActAs:      xGleanActAs,
 		XGleanAuthType:   xGleanAuthType,
 		SummarizeRequest: summarizeRequest,
 	}

@@ -11,9 +11,8 @@ import (
 type AgentEnum string
 
 const (
-	AgentEnumDefault      AgentEnum = "DEFAULT"
-	AgentEnumGpt          AgentEnum = "GPT"
-	AgentEnumDeepResearch AgentEnum = "DEEP_RESEARCH"
+	AgentEnumDefault AgentEnum = "DEFAULT"
+	AgentEnumGpt     AgentEnum = "GPT"
 )
 
 func (e AgentEnum) ToPointer() *AgentEnum {
@@ -28,8 +27,6 @@ func (e *AgentEnum) UnmarshalJSON(data []byte) error {
 	case "DEFAULT":
 		fallthrough
 	case "GPT":
-		fallthrough
-	case "DEEP_RESEARCH":
 		*e = AgentEnum(v)
 		return nil
 	default:

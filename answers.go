@@ -28,9 +28,9 @@ func newAnswers(sdkConfig sdkConfiguration) *Answers {
 
 // Create Answer
 // Create a user-generated Answer that contains a question and answer.
-func (s *Answers) Create(ctx context.Context, createAnswerRequest components.CreateAnswerRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateanswerResponse, error) {
+func (s *Answers) Create(ctx context.Context, createAnswerRequest components.CreateAnswerRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateanswerResponse, error) {
 	request := operations.CreateanswerRequest{
-		XScioActas:          xScioActas,
+		XGleanActAs:         xGleanActAs,
 		XGleanAuthType:      xGleanAuthType,
 		CreateAnswerRequest: createAnswerRequest,
 	}
@@ -251,9 +251,9 @@ func (s *Answers) Create(ctx context.Context, createAnswerRequest components.Cre
 
 // Delete Answer
 // Delete an existing user-generated Answer.
-func (s *Answers) Delete(ctx context.Context, deleteAnswerRequest components.DeleteAnswerRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteanswerResponse, error) {
+func (s *Answers) Delete(ctx context.Context, deleteAnswerRequest components.DeleteAnswerRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteanswerResponse, error) {
 	request := operations.DeleteanswerRequest{
-		XScioActas:          xScioActas,
+		XGleanActAs:         xGleanActAs,
 		XGleanAuthType:      xGleanAuthType,
 		DeleteAnswerRequest: deleteAnswerRequest,
 	}
@@ -454,9 +454,9 @@ func (s *Answers) Delete(ctx context.Context, deleteAnswerRequest components.Del
 
 // Edit - Update Answer
 // Update an existing user-generated Answer.
-func (s *Answers) Edit(ctx context.Context, editAnswerRequest components.EditAnswerRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditanswerResponse, error) {
+func (s *Answers) Edit(ctx context.Context, editAnswerRequest components.EditAnswerRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditanswerResponse, error) {
 	request := operations.EditanswerRequest{
-		XScioActas:        xScioActas,
+		XGleanActAs:       xGleanActAs,
 		XGleanAuthType:    xGleanAuthType,
 		EditAnswerRequest: editAnswerRequest,
 	}
@@ -677,9 +677,9 @@ func (s *Answers) Edit(ctx context.Context, editAnswerRequest components.EditAns
 
 // Get - Read Answer
 // Read the details of a particular Answer given its ID.
-func (s *Answers) Get(ctx context.Context, getAnswerRequest components.GetAnswerRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetanswerResponse, error) {
+func (s *Answers) Get(ctx context.Context, getAnswerRequest components.GetAnswerRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetanswerResponse, error) {
 	request := operations.GetanswerRequest{
-		XScioActas:       xScioActas,
+		XGleanActAs:      xGleanActAs,
 		XGleanAuthType:   xGleanAuthType,
 		GetAnswerRequest: getAnswerRequest,
 	}
@@ -900,9 +900,9 @@ func (s *Answers) Get(ctx context.Context, getAnswerRequest components.GetAnswer
 
 // List Answers
 // List Answers created by the current user.
-func (s *Answers) List(ctx context.Context, listAnswersRequest components.ListAnswersRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListanswersResponse, error) {
+func (s *Answers) List(ctx context.Context, listAnswersRequest components.ListAnswersRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListanswersResponse, error) {
 	request := operations.ListanswersRequest{
-		XScioActas:         xScioActas,
+		XGleanActAs:        xGleanActAs,
 		XGleanAuthType:     xGleanAuthType,
 		ListAnswersRequest: listAnswersRequest,
 	}
@@ -1123,9 +1123,9 @@ func (s *Answers) List(ctx context.Context, listAnswersRequest components.ListAn
 
 // Preview Answer
 // Generate a preview for a user-generated Answer that contains a question and answer.
-func (s *Answers) Preview(ctx context.Context, structuredTextMutableProperties components.StructuredTextMutableProperties, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewanswerResponse, error) {
+func (s *Answers) Preview(ctx context.Context, structuredTextMutableProperties components.StructuredTextMutableProperties, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewanswerResponse, error) {
 	request := operations.PreviewanswerRequest{
-		XScioActas:                      xScioActas,
+		XGleanActAs:                     xGleanActAs,
 		XGleanAuthType:                  xGleanAuthType,
 		StructuredTextMutableProperties: structuredTextMutableProperties,
 	}
@@ -1346,9 +1346,9 @@ func (s *Answers) Preview(ctx context.Context, structuredTextMutableProperties c
 
 // PreviewDraft - Preview draft Answer
 // Generate a preview for a user-generated answer from a draft.
-func (s *Answers) PreviewDraft(ctx context.Context, previewUgcRequest components.PreviewUgcRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewanswerdraftResponse, error) {
+func (s *Answers) PreviewDraft(ctx context.Context, previewUgcRequest components.PreviewUgcRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PreviewanswerdraftResponse, error) {
 	request := operations.PreviewanswerdraftRequest{
-		XScioActas:        xScioActas,
+		XGleanActAs:       xGleanActAs,
 		XGleanAuthType:    xGleanAuthType,
 		PreviewUgcRequest: previewUgcRequest,
 	}
@@ -1569,9 +1569,9 @@ func (s *Answers) PreviewDraft(ctx context.Context, previewUgcRequest components
 
 // UpdateLikes - Update Answer likes
 // Update the likes for an existing user-generated Answer. Examples are liking or unliking the Answer.
-func (s *Answers) UpdateLikes(ctx context.Context, updateAnswerLikesRequest components.UpdateAnswerLikesRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdateanswerlikesResponse, error) {
+func (s *Answers) UpdateLikes(ctx context.Context, updateAnswerLikesRequest components.UpdateAnswerLikesRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdateanswerlikesResponse, error) {
 	request := operations.UpdateanswerlikesRequest{
-		XScioActas:               xScioActas,
+		XGleanActAs:              xGleanActAs,
 		XGleanAuthType:           xGleanAuthType,
 		UpdateAnswerLikesRequest: updateAnswerLikesRequest,
 	}
@@ -1794,9 +1794,9 @@ func (s *Answers) UpdateLikes(ctx context.Context, updateAnswerLikesRequest comp
 // Create a board of Answers.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *Answers) CreateBoard(ctx context.Context, collectionBaseMutableProperties components.CollectionBaseMutableProperties, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateanswerboardResponse, error) {
+func (s *Answers) CreateBoard(ctx context.Context, collectionBaseMutableProperties components.CollectionBaseMutableProperties, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateanswerboardResponse, error) {
 	request := operations.CreateanswerboardRequest{
-		XScioActas:                      xScioActas,
+		XGleanActAs:                     xGleanActAs,
 		XGleanAuthType:                  xGleanAuthType,
 		CollectionBaseMutableProperties: collectionBaseMutableProperties,
 	}
@@ -2019,9 +2019,9 @@ func (s *Answers) CreateBoard(ctx context.Context, collectionBaseMutableProperti
 // Delete an Answer Board given the Answer Board's ID. Multi-delete is not currently supported.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *Answers) DeleteBoard(ctx context.Context, deleteAnswerBoardsRequest components.DeleteAnswerBoardsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteanswerboardsResponse, error) {
+func (s *Answers) DeleteBoard(ctx context.Context, deleteAnswerBoardsRequest components.DeleteAnswerBoardsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteanswerboardsResponse, error) {
 	request := operations.DeleteanswerboardsRequest{
-		XScioActas:                xScioActas,
+		XGleanActAs:               xGleanActAs,
 		XGleanAuthType:            xGleanAuthType,
 		DeleteAnswerBoardsRequest: deleteAnswerBoardsRequest,
 	}
@@ -2244,9 +2244,9 @@ func (s *Answers) DeleteBoard(ctx context.Context, deleteAnswerBoardsRequest com
 // Modifies the properties of an existing Answer Board.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *Answers) UpdateBoard(ctx context.Context, editAnswerBoardRequest components.EditAnswerBoardRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditanswerboardResponse, error) {
+func (s *Answers) UpdateBoard(ctx context.Context, editAnswerBoardRequest components.EditAnswerBoardRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditanswerboardResponse, error) {
 	request := operations.EditanswerboardRequest{
-		XScioActas:             xScioActas,
+		XGleanActAs:            xGleanActAs,
 		XGleanAuthType:         xGleanAuthType,
 		EditAnswerBoardRequest: editAnswerBoardRequest,
 	}
@@ -2469,9 +2469,9 @@ func (s *Answers) UpdateBoard(ctx context.Context, editAnswerBoardRequest compon
 // Read the details of an Answer Board given its ID. Does not fetch items in this Answer Board, use /listanswers instead.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *Answers) GetBoard(ctx context.Context, getAnswerBoardRequest components.GetAnswerBoardRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetanswerboardResponse, error) {
+func (s *Answers) GetBoard(ctx context.Context, getAnswerBoardRequest components.GetAnswerBoardRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetanswerboardResponse, error) {
 	request := operations.GetanswerboardRequest{
-		XScioActas:            xScioActas,
+		XGleanActAs:           xGleanActAs,
 		XGleanAuthType:        xGleanAuthType,
 		GetAnswerBoardRequest: getAnswerBoardRequest,
 	}
@@ -2694,9 +2694,9 @@ func (s *Answers) GetBoard(ctx context.Context, getAnswerBoardRequest components
 // List all existing Answer Boards
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *Answers) ListBoards(ctx context.Context, listAnswerBoardsRequest components.ListAnswerBoardsRequest, xScioActas *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListanswerboardsResponse, error) {
+func (s *Answers) ListBoards(ctx context.Context, listAnswerBoardsRequest components.ListAnswerBoardsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListanswerboardsResponse, error) {
 	request := operations.ListanswerboardsRequest{
-		XScioActas:              xScioActas,
+		XGleanActAs:             xGleanActAs,
 		XGleanAuthType:          xGleanAuthType,
 		ListAnswerBoardsRequest: listAnswerBoardsRequest,
 	}

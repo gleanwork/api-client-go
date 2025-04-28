@@ -9,7 +9,7 @@ import (
 
 type ImagesRequest struct {
 	// Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens).
-	XScioActas *string `header:"style=simple,explode=false,name=X-Scio-Actas"`
+	XGleanActAs *string `header:"style=simple,explode=false,name=X-Glean-ActAs"`
 	// Auth type being used to access the endpoint (should be non-empty only for global tokens).
 	XGleanAuthType *string `header:"style=simple,explode=false,name=X-Glean-Auth-Type"`
 	// Primary key for the image being asked. The key is returned by the API when an image is uploaded. If key is used, other parameters should not be used.
@@ -24,11 +24,11 @@ type ImagesRequest struct {
 	Cid *string `queryParam:"style=form,explode=true,name=cid"`
 }
 
-func (o *ImagesRequest) GetXScioActas() *string {
+func (o *ImagesRequest) GetXGleanActAs() *string {
 	if o == nil {
 		return nil
 	}
-	return o.XScioActas
+	return o.XGleanActAs
 }
 
 func (o *ImagesRequest) GetXGleanAuthType() *string {

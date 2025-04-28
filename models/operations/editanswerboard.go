@@ -8,18 +8,18 @@ import (
 
 type EditanswerboardRequest struct {
 	// Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens).
-	XScioActas *string `header:"style=simple,explode=false,name=X-Scio-Actas"`
+	XGleanActAs *string `header:"style=simple,explode=false,name=X-Glean-ActAs"`
 	// Auth type being used to access the endpoint (should be non-empty only for global tokens).
 	XGleanAuthType *string `header:"style=simple,explode=false,name=X-Glean-Auth-Type"`
 	// Answer Board content plus any additional metadata for the request.
 	EditAnswerBoardRequest components.EditAnswerBoardRequest `request:"mediaType=application/json"`
 }
 
-func (o *EditanswerboardRequest) GetXScioActas() *string {
+func (o *EditanswerboardRequest) GetXGleanActAs() *string {
 	if o == nil {
 		return nil
 	}
-	return o.XScioActas
+	return o.XGleanActAs
 }
 
 func (o *EditanswerboardRequest) GetXGleanAuthType() *string {
