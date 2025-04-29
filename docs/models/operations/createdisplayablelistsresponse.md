@@ -1,9 +1,0 @@
-# CreatedisplayablelistsResponse
-
-
-## Fields
-
-| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `HTTPMeta`                                                                                              | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                      | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `CreateDisplayableListsResponse`                                                                        | [*components.CreateDisplayableListsResponse](../../models/components/createdisplayablelistsresponse.md) | :heavy_minus_sign:                                                                                      | OK                                                                                                      |

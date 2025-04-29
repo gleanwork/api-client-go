@@ -16,4 +16,4 @@ targets:
                 fixedValue: Go (Client)
             blocking: false
         testing:
-            enabled: false
+            enabled: true

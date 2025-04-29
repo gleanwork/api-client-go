@@ -1,9 +1,0 @@
-# DeleteanswerboardsResponse
-
-
-## Fields
-
-| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `HTTPMeta`                                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)                              | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `DeleteAnswerBoardsResponse`                                                                    | [*components.DeleteAnswerBoardsResponse](../../models/components/deleteanswerboardsresponse.md) | :heavy_minus_sign:                                                                              | OK                                                                                              |

@@ -18,8 +18,11 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
+  tests:
+    generateNewTests: true
+    skipResponseBodyAssertions: true
 go:
-  version: 0.1.3
+  version: 0.1.4
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   clientServerStatusCodesAsErrors: true
