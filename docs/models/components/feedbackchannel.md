@@ -3,7 +3,7 @@
 
 ## Values
 
-| Name                            | Value                           |
-| ------------------------------- | ------------------------------- |
-| `FeedbackChannelGleanChannel`   | GLEAN_CHANNEL                   |
-| `FeedbackChannelCompanyChannel` | COMPANY_CHANNEL                 |
+| Name                     | Value                    |
+| ------------------------ | ------------------------ |
+| `FeedbackChannelCompany` | COMPANY                  |
+| `FeedbackChannelGlean`   | GLEAN                    |

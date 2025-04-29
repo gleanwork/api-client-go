@@ -8,8 +8,6 @@
 * [Admin](#admin) - Search the index (admin)
 * [Autocomplete](#autocomplete) - Autocomplete
 * [GetFeed](#getfeed) - Feed of documents and events
-* [SuggestPeople](#suggestpeople) - Suggest people
-* [SuggestPeopleAdmin](#suggestpeopleadmin) - Suggest people (admin)
 * [Recommendations](#recommendations) - Recommend documents
 * [Execute](#execute) - Search
 
@@ -252,10 +250,10 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| apierrors.ErrorInfo | 403, 422            | application/json    |
-| apierrors.APIError  | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| apierrors.GleanDataError | 403, 422                 | application/json         |
+| apierrors.APIError       | 4XX, 5XX                 | \*/\*                    |
 
 ## Autocomplete
 
@@ -374,123 +372,6 @@ func main() {
 ### Response
 
 **[*operations.FeedResponse](../../models/operations/feedresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
-
-## SuggestPeople
-
-Retrieves a list of suggested people for given type. Includes information about the persons.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	"os"
-	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
-    )
-
-    res, err := s.Client.Search.SuggestPeople(ctx, components.PeopleSuggestRequest{
-        Categories: []components.PeopleSuggestionCategory{
-            components.PeopleSuggestionCategoryInviteNonusers,
-            components.PeopleSuggestionCategoryInviteNonusers,
-        },
-    }, nil, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.PeopleSuggestResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `peopleSuggestRequest`                                                                                                   | [components.PeopleSuggestRequest](../../models/components/peoplesuggestrequest.md)                                       | :heavy_check_mark:                                                                                                       | Includes request params for type of suggestions.                                                                         |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
-
-### Response
-
-**[*operations.PeoplesuggestResponse](../../models/operations/peoplesuggestresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
-
-## SuggestPeopleAdmin
-
-Returns a list of suggested people for given type for admin's view. Includes information about the persons.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	"os"
-	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
-    )
-
-    res, err := s.Client.Search.SuggestPeopleAdmin(ctx, components.PeopleSuggestRequest{
-        Categories: []components.PeopleSuggestionCategory{
-            components.PeopleSuggestionCategoryInviteNonusers,
-        },
-    }, nil, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.PeopleSuggestResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `peopleSuggestRequest`                                                                                                   | [components.PeopleSuggestRequest](../../models/components/peoplesuggestrequest.md)                                       | :heavy_check_mark:                                                                                                       | Includes request params for type of suggestions.                                                                         |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
-
-### Response
-
-**[*operations.PeoplesuggestadminResponse](../../models/operations/peoplesuggestadminresponse.md), error**
 
 ### Errors
 
@@ -913,7 +794,7 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| apierrors.ErrorInfo | 403, 422            | application/json    |
-| apierrors.APIError  | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| apierrors.GleanDataError | 403, 422                 | application/json         |
+| apierrors.APIError       | 4XX, 5XX                 | \*/\*                    |

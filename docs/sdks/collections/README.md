@@ -11,11 +11,8 @@
 * [DeleteItem](#deleteitem) - Delete Collection item
 * [Update](#update) - Update Collection
 * [EditItem](#edititem) - Update Collection item
-* [Edit](#edit) - Update document Collections
 * [Get](#get) - Read Collection
 * [List](#list) - List Collections
-* [MoveItem](#moveitem) - Move Collection item
-* [Pin](#pin) - Pin Collection
 
 ## AddItems
 
@@ -509,60 +506,6 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Edit
-
-Update the Collections that a document belongs to.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	"os"
-	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
-    )
-
-    res, err := s.Client.Collections.Edit(ctx, components.EditDocumentCollectionsRequest{}, nil, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.EditDocumentCollectionsResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `editDocumentCollectionsRequest`                                                                                         | [components.EditDocumentCollectionsRequest](../../models/components/editdocumentcollectionsrequest.md)                   | :heavy_check_mark:                                                                                                       | Data describing the edit operation.                                                                                      |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
-
-### Response
-
-**[*operations.EditdocumentcollectionsResponse](../../models/operations/editdocumentcollectionsresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
-
 ## Get
 
 Read the details of a Collection given its ID. Does not fetch items in this Collection.
@@ -666,117 +609,6 @@ func main() {
 ### Response
 
 **[*operations.ListcollectionsResponse](../../models/operations/listcollectionsresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
-
-## MoveItem
-
-Reorder a Collection by moving a CollectionItem below another CollectionItem.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	"os"
-	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
-    )
-
-    res, err := s.Client.Collections.MoveItem(ctx, components.MoveCollectionItemRequest{
-        CollectionID: 451684,
-        ItemID: "<id>",
-    }, nil, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.MoveCollectionItemResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `moveCollectionItemRequest`                                                                                              | [components.MoveCollectionItemRequest](../../models/components/movecollectionitemrequest.md)                             | :heavy_check_mark:                                                                                                       | MoveCollectionItems request                                                                                              |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
-
-### Response
-
-**[*operations.MovecollectionitemResponse](../../models/operations/movecollectionitemresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
-
-## Pin
-
-Given the Collection id and category, pins the Collection to the home page for all company users.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	"os"
-	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
-    )
-
-    res, err := s.Client.Collections.Pin(ctx, components.PinCollectionRequest{}, nil, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.GetCollectionResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `pinCollectionRequest`                                                                                                   | [components.PinCollectionRequest](../../models/components/pincollectionrequest.md)                                       | :heavy_check_mark:                                                                                                       | PinCollection request                                                                                                    |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
-
-### Response
-
-**[*operations.PincollectionResponse](../../models/operations/pincollectionresponse.md), error**
 
 ### Errors
 

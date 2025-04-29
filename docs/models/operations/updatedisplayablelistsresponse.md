@@ -1,9 +1,0 @@
-# UpdatedisplayablelistsResponse
-
-
-## Fields
-
-| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `HTTPMeta`                                                                                              | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                      | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `UpdateDisplayableListsResponse`                                                                        | [*components.UpdateDisplayableListsResponse](../../models/components/updatedisplayablelistsresponse.md) | :heavy_minus_sign:                                                                                      | OK                                                                                                      |

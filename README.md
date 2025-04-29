@@ -204,18 +204,8 @@ func main() {
 #### [Client.Announcements](docs/sdks/announcements/README.md)
 
 * [Create](docs/sdks/announcements/README.md#create) - Create Announcement
-* [CreateDraft](docs/sdks/announcements/README.md#createdraft) - Create draft Announcement
 * [Delete](docs/sdks/announcements/README.md#delete) - Delete Announcement
-* [DeleteDraft](docs/sdks/announcements/README.md#deletedraft) - Delete draft Announcement
-* [Get](docs/sdks/announcements/README.md#get) - Read Announcement
-* [GetDraft](docs/sdks/announcements/README.md#getdraft) - Read draft Announcement
-* [List](docs/sdks/announcements/README.md#list) - List Announcements
-* [Preview](docs/sdks/announcements/README.md#preview) - Preview Announcement
-* [PreviewDraft](docs/sdks/announcements/README.md#previewdraft) - Preview draft Announcement
-* [Publish](docs/sdks/announcements/README.md#publish) - Publish draft Announcement
-* [Unpublish](docs/sdks/announcements/README.md#unpublish) - Unpublish Announcement
 * [Update](docs/sdks/announcements/README.md#update) - Update Announcement
-* [UpdateDraft](docs/sdks/announcements/README.md#updatedraft) - Update draft Announcement
 
 #### [Client.Answers](docs/sdks/answers/README.md)
 
@@ -224,27 +214,13 @@ func main() {
 * [Edit](docs/sdks/answers/README.md#edit) - Update Answer
 * [Get](docs/sdks/answers/README.md#get) - Read Answer
 * [List](docs/sdks/answers/README.md#list) - List Answers
-* [Preview](docs/sdks/answers/README.md#preview) - Preview Answer
-* [PreviewDraft](docs/sdks/answers/README.md#previewdraft) - Preview draft Answer
-* [UpdateLikes](docs/sdks/answers/README.md#updatelikes) - Update Answer likes
-* [~~CreateBoard~~](docs/sdks/answers/README.md#createboard) - Create Answer Board :warning: **Deprecated**
-* [~~DeleteBoard~~](docs/sdks/answers/README.md#deleteboard) - Delete Answer Board :warning: **Deprecated**
-* [~~UpdateBoard~~](docs/sdks/answers/README.md#updateboard) - Update Answer Board :warning: **Deprecated**
-* [~~GetBoard~~](docs/sdks/answers/README.md#getboard) - Read Answer Board :warning: **Deprecated**
-* [~~ListBoards~~](docs/sdks/answers/README.md#listboards) - List Answer Boards :warning: **Deprecated**
 
 #### [Client.Authentication](docs/sdks/clientauthentication/README.md)
 
-* [CreateAnonymousToken](docs/sdks/clientauthentication/README.md#createanonymoustoken) - Create anonymous token
 * [CreateToken](docs/sdks/clientauthentication/README.md#createtoken) - Create authentication token
-
-#### [Client.Calendar](docs/sdks/calendar/README.md)
-
-* [GetEvents](docs/sdks/calendar/README.md#getevents) - Read events
 
 #### [Client.Chat](docs/sdks/chat/README.md)
 
-* [Ask](docs/sdks/chat/README.md#ask) - Detect and answer questions
 * [Start](docs/sdks/chat/README.md#start) - Chat
 * [DeleteAll](docs/sdks/chat/README.md#deleteall) - Deletes all saved Chats owned by a user
 * [Delete](docs/sdks/chat/README.md#delete) - Deletes saved Chats
@@ -263,36 +239,19 @@ func main() {
 * [DeleteItem](docs/sdks/collections/README.md#deleteitem) - Delete Collection item
 * [Update](docs/sdks/collections/README.md#update) - Update Collection
 * [EditItem](docs/sdks/collections/README.md#edititem) - Update Collection item
-* [Edit](docs/sdks/collections/README.md#edit) - Update document Collections
 * [Get](docs/sdks/collections/README.md#get) - Read Collection
 * [List](docs/sdks/collections/README.md#list) - List Collections
-* [MoveItem](docs/sdks/collections/README.md#moveitem) - Move Collection item
-* [Pin](docs/sdks/collections/README.md#pin) - Pin Collection
-
-#### [Client.DisplayableLists](docs/sdks/displayablelists/README.md)
-
-* [Create](docs/sdks/displayablelists/README.md#create) - Create displayable lists
-* [Delete](docs/sdks/displayablelists/README.md#delete) - Delete displayable lists
-* [Get](docs/sdks/displayablelists/README.md#get) - Read displayable lists
-* [Update](docs/sdks/displayablelists/README.md#update) - Update displayable lists
 
 #### [Client.Documents](docs/sdks/clientdocuments/README.md)
 
 * [GetPermissions](docs/sdks/clientdocuments/README.md#getpermissions) - Read document permissions
 * [Get](docs/sdks/clientdocuments/README.md#get) - Read documents
 * [GetByFacets](docs/sdks/clientdocuments/README.md#getbyfacets) - Read documents by facets
-* [GetAnalytics](docs/sdks/clientdocuments/README.md#getanalytics) - Read document analytics
 
 #### [Client.Entities](docs/sdks/entities/README.md)
 
 * [List](docs/sdks/entities/README.md#list) - List entities
 * [ReadPeople](docs/sdks/entities/README.md#readpeople) - Read people
-* [GetTeams](docs/sdks/entities/README.md#getteams) - Read teams
-
-#### [Client.Images](docs/sdks/images/README.md)
-
-* [Get](docs/sdks/images/README.md#get) - Get image
-* [Upload](docs/sdks/images/README.md#upload) - Upload images
 
 #### [Client.Insights](docs/sdks/insights/README.md)
 
@@ -315,8 +274,6 @@ func main() {
 * [Admin](docs/sdks/search/README.md#admin) - Search the index (admin)
 * [Autocomplete](docs/sdks/search/README.md#autocomplete) - Autocomplete
 * [GetFeed](docs/sdks/search/README.md#getfeed) - Feed of documents and events
-* [SuggestPeople](docs/sdks/search/README.md#suggestpeople) - Suggest people
-* [SuggestPeopleAdmin](docs/sdks/search/README.md#suggestpeopleadmin) - Suggest people (admin)
 * [Recommendations](docs/sdks/search/README.md#recommendations) - Recommend documents
 * [Execute](docs/sdks/search/README.md#execute) - Search
 
@@ -325,24 +282,13 @@ func main() {
 * [Create](docs/sdks/clientshortcuts/README.md#create) - Create shortcut
 * [Delete](docs/sdks/clientshortcuts/README.md#delete) - Delete shortcut
 * [Get](docs/sdks/clientshortcuts/README.md#get) - Read shortcut
-* [GetSimilar](docs/sdks/clientshortcuts/README.md#getsimilar) - Get similar shortcuts
 * [List](docs/sdks/clientshortcuts/README.md#list) - List shortcuts
-* [Preview](docs/sdks/clientshortcuts/README.md#preview) - Preview shortcut
 * [Update](docs/sdks/clientshortcuts/README.md#update) - Update shortcut
 * [Upload](docs/sdks/clientshortcuts/README.md#upload) - Upload shortcuts
 
 #### [Client.Summarize](docs/sdks/summarize/README.md)
 
 * [Generate](docs/sdks/summarize/README.md#generate) - Summarize documents
-
-#### [Client.User](docs/sdks/user/README.md)
-
-* [AddCredential](docs/sdks/user/README.md#addcredential) - Create credentials
-* [DeleteQueryHistory](docs/sdks/user/README.md#deletequeryhistory) - Delete query history
-* [Invite](docs/sdks/user/README.md#invite) - Send invitation
-* [GetPublicConfig](docs/sdks/user/README.md#getpublicconfig) - Read public client configuration
-* [RemoveCredential](docs/sdks/user/README.md#removecredential) - Delete credentials
-* [SendSupportEmail](docs/sdks/user/README.md#sendsupportemail) - Send support email
 
 #### [Client.Verification](docs/sdks/verification/README.md)
 
@@ -568,12 +514,12 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `Ask` function may return the following errors:
+For example, the `Create` function may return the following errors:
 
-| Error Type          | Status Code | Content Type     |
-| ------------------- | ----------- | ---------------- |
-| apierrors.ErrorInfo | 403, 422    | application/json |
-| apierrors.APIError  | 4XX, 5XX    | \*/\*            |
+| Error Type                | Status Code | Content Type     |
+| ------------------------- | ----------- | ---------------- |
+| apierrors.CollectionError | 422         | application/json |
+| apierrors.APIError        | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -598,183 +544,86 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
 	)
 
-	res, err := s.Client.Chat.Ask(ctx, nil, nil, &components.AskRequest{
-		SearchRequest: components.SearchRequest{
-			TrackingToken: apiclientgo.String("trackingToken"),
-			SourceDocument: &components.Document{
-				Metadata: &components.DocumentMetadata{
-					Datasource: apiclientgo.String("datasource"),
-					ObjectType: apiclientgo.String("Feature Request"),
-					Container:  apiclientgo.String("container"),
-					ParentID:   apiclientgo.String("JIRA_EN-1337"),
-					MimeType:   apiclientgo.String("mimeType"),
-					DocumentID: apiclientgo.String("documentId"),
-					CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
-					UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
-					Author: &components.Person{
-						Name:             "George Clooney",
-						ObfuscatedID:     "abc123",
-						RelatedDocuments: []components.RelatedDocuments{},
-						Metadata: &components.PersonMetadata{
-							Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-							Title:      apiclientgo.String("Actor"),
-							Department: apiclientgo.String("Movies"),
-							Email:      apiclientgo.String("george@example.com"),
-							Location:   apiclientgo.String("Hollywood, CA"),
-							Phone:      apiclientgo.String("6505551234"),
-							PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
-							StartDate:  types.MustNewDateFromString("2000-01-23"),
-							DatasourceProfile: []components.DatasourceProfile{
-								components.DatasourceProfile{
-									Datasource: "github",
-									Handle:     "<value>",
-								},
+	res, err := s.Client.Collections.Create(ctx, components.CreateCollectionRequest{
+		Name: "<value>",
+		AddedRoles: []components.UserRoleSpecification{
+			components.UserRoleSpecification{
+				Person: &components.Person{
+					Name:             "George Clooney",
+					ObfuscatedID:     "abc123",
+					RelatedDocuments: []components.RelatedDocuments{},
+					Metadata: &components.PersonMetadata{
+						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
+						Title:      apiclientgo.String("Actor"),
+						Department: apiclientgo.String("Movies"),
+						Email:      apiclientgo.String("george@example.com"),
+						Location:   apiclientgo.String("Hollywood, CA"),
+						Phone:      apiclientgo.String("6505551234"),
+						PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+						StartDate:  types.MustNewDateFromString("2000-01-23"),
+						DatasourceProfile: []components.DatasourceProfile{
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
 							},
-							QuerySuggestions: &components.QuerySuggestionList{
-								Suggestions: []components.QuerySuggestion{},
-							},
-							InviteInfo: &components.InviteInfo{
-								Invites: []components.ChannelInviteInfo{},
-							},
-							CustomFields: []components.CustomFieldData{},
-							Badges: []components.Badge{
-								components.Badge{
-									Key:         apiclientgo.String("deployment_name_new_hire"),
-									DisplayName: apiclientgo.String("New hire"),
-									IconConfig: &components.IconConfig{
-										Color:    apiclientgo.String("#343CED"),
-										Key:      apiclientgo.String("person_icon"),
-										IconType: components.IconTypeGlyph.ToPointer(),
-										Name:     apiclientgo.String("user"),
-									},
+						},
+						QuerySuggestions: &components.QuerySuggestionList{
+							Suggestions: []components.QuerySuggestion{},
+						},
+						InviteInfo: &components.InviteInfo{
+							Invites: []components.ChannelInviteInfo{},
+						},
+						CustomFields: []components.CustomFieldData{},
+						Badges: []components.Badge{
+							components.Badge{
+								Key:         apiclientgo.String("deployment_name_new_hire"),
+								DisplayName: apiclientgo.String("New hire"),
+								IconConfig: &components.IconConfig{
+									Color:    apiclientgo.String("#343CED"),
+									Key:      apiclientgo.String("person_icon"),
+									IconType: components.IconTypeGlyph.ToPointer(),
+									Name:     apiclientgo.String("user"),
 								},
 							},
 						},
-					},
-					Owner: &components.Person{
-						Name:         "George Clooney",
-						ObfuscatedID: "abc123",
-					},
-					MentionedPeople: []components.Person{},
-					Components: []string{
-						"Backend",
-						"Networking",
-					},
-					Status: apiclientgo.String("[\"Done\"]"),
-					Pins:   []components.PinDocument{},
-					AssignedTo: &components.Person{
-						Name:         "George Clooney",
-						ObfuscatedID: "abc123",
-					},
-					UpdatedBy: &components.Person{
-						Name:         "George Clooney",
-						ObfuscatedID: "abc123",
-					},
-					Collections: []components.Collection{},
-					Interactions: &components.DocumentInteractions{
-						Reacts: []components.Reaction{},
-						Shares: []components.Share{},
-					},
-					Verification: &components.Verification{
-						State: components.StateUnverified,
-						Metadata: &components.VerificationMetadata{
-							LastVerifier: &components.Person{
-								Name:         "George Clooney",
-								ObfuscatedID: "abc123",
-							},
-							Reminders: []components.Reminder{},
-							LastReminder: &components.Reminder{
-								Assignee: components.Person{
-									Name:         "George Clooney",
-									ObfuscatedID: "abc123",
-								},
-								Requestor: &components.Person{
-									Name:         "George Clooney",
-									ObfuscatedID: "abc123",
-								},
-								RemindAt: 892381,
-							},
-							CandidateVerifiers: []components.Person{},
-						},
-					},
-					CustomData: map[string]components.CustomDataValue{
-						"someCustomField": components.CustomDataValue{},
-					},
-					ContactPerson: &components.Person{
-						Name:         "George Clooney",
-						ObfuscatedID: "abc123",
 					},
 				},
+				Role: components.UserRoleOwner,
 			},
-			PageSize:       apiclientgo.Int64(100),
-			MaxSnippetSize: apiclientgo.Int64(400),
-			Query:          "vacation policy",
-			InputDetails: &components.SearchRequestInputDetails{
-				HasCopyPaste: apiclientgo.Bool(true),
+			components.UserRoleSpecification{
+				Role: components.UserRoleVerifier,
 			},
-			RequestOptions: &components.SearchRequestOptions{
-				DatasourceFilter: apiclientgo.String("JIRA"),
-				DatasourcesFilter: []string{
-					"JIRA",
-				},
-				QueryOverridesFacetFilters: apiclientgo.Bool(true),
-				FacetFilters: []components.FacetFilter{
-					components.FacetFilter{
-						FieldName: apiclientgo.String("type"),
-						Values: []components.FacetFilterValue{
-							components.FacetFilterValue{
-								Value:        apiclientgo.String("Spreadsheet"),
-								RelationType: components.RelationTypeEquals.ToPointer(),
-							},
-							components.FacetFilterValue{
-								Value:        apiclientgo.String("Presentation"),
-								RelationType: components.RelationTypeEquals.ToPointer(),
-							},
-						},
-					},
-				},
-				FacetFilterSets: []components.FacetFilterSet{
-					components.FacetFilterSet{
-						Filters: []components.FacetFilter{
-							components.FacetFilter{
-								FieldName: apiclientgo.String("type"),
-								Values: []components.FacetFilterValue{
-									components.FacetFilterValue{
-										Value:        apiclientgo.String("Spreadsheet"),
-										RelationType: components.RelationTypeEquals.ToPointer(),
-									},
-									components.FacetFilterValue{
-										Value:        apiclientgo.String("Presentation"),
-										RelationType: components.RelationTypeEquals.ToPointer(),
-									},
-								},
-							},
-						},
-					},
-				},
-				FacetBucketSize: 132988,
-				AuthTokens: []components.AuthToken{
-					components.AuthToken{
-						AccessToken: "123abc",
-						Datasource:  "gmail",
-						Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
-						TokenType:   apiclientgo.String("Bearer"),
-						AuthUser:    apiclientgo.String("1"),
-					},
-				},
+		},
+		RemovedRoles: []components.UserRoleSpecification{
+			components.UserRoleSpecification{
+				Role: components.UserRoleVerifier,
 			},
-			TimeoutMillis: apiclientgo.Int64(5000),
-			People: []components.Person{
-				components.Person{
-					Name:         "George Clooney",
-					ObfuscatedID: "abc123",
+			components.UserRoleSpecification{
+				Role: components.UserRoleAnswerModerator,
+			},
+			components.UserRoleSpecification{
+				Role: components.UserRoleOwner,
+			},
+		},
+		AudienceFilters: []components.FacetFilter{
+			components.FacetFilter{
+				FieldName: apiclientgo.String("type"),
+				Values: []components.FacetFilterValue{
+					components.FacetFilterValue{
+						Value:        apiclientgo.String("Spreadsheet"),
+						RelationType: components.RelationTypeEquals.ToPointer(),
+					},
+					components.FacetFilterValue{
+						Value:        apiclientgo.String("Presentation"),
+						RelationType: components.RelationTypeEquals.ToPointer(),
+					},
 				},
 			},
 		},
-	})
+	}, nil, nil)
 	if err != nil {
 
-		var e *apierrors.ErrorInfo
+		var e *apierrors.CollectionError
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
