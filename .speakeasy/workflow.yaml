@@ -13,7 +13,7 @@ targets:
             registry:
                 location: registry.speakeasyapi.dev/glean-el2/sdk/glean-api-specs-go-code-samples
             labelOverride:
-                fixedValue: Go (SDK)
+                fixedValue: Go (Client)
             blocking: false
         testing:
             enabled: false
