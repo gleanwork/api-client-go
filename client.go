@@ -3,26 +3,22 @@
 package apiclientgo
 
 type Client struct {
-	Activity         *Activity
-	Activities       *Activities
-	Announcements    *Announcements
-	Answers          *Answers
-	Authentication   *ClientAuthentication
-	Calendar         *Calendar
-	Chat             *Chat
-	Collections      *Collections
-	DisplayableLists *DisplayableLists
-	Documents        *ClientDocuments
-	Images           *Images
-	Insights         *Insights
-	Messages         *Messages
-	Pins             *Pins
-	Search           *Search
-	Entities         *Entities
-	Shortcuts        *ClientShortcuts
-	Summarize        *Summarize
-	User             *User
-	Verification     *Verification
+	Activity       *Activity
+	Activities     *Activities
+	Announcements  *Announcements
+	Answers        *Answers
+	Authentication *ClientAuthentication
+	Chat           *Chat
+	Collections    *Collections
+	Documents      *ClientDocuments
+	Insights       *Insights
+	Messages       *Messages
+	Pins           *Pins
+	Search         *Search
+	Entities       *Entities
+	Shortcuts      *ClientShortcuts
+	Summarize      *Summarize
+	Verification   *Verification
 
 	sdkConfiguration sdkConfiguration
 }
@@ -35,12 +31,9 @@ func newClient(sdkConfig sdkConfiguration) *Client {
 		Announcements:    newAnnouncements(sdkConfig),
 		Answers:          newAnswers(sdkConfig),
 		Authentication:   newClientAuthentication(sdkConfig),
-		Calendar:         newCalendar(sdkConfig),
 		Chat:             newChat(sdkConfig),
 		Collections:      newCollections(sdkConfig),
-		DisplayableLists: newDisplayableLists(sdkConfig),
 		Documents:        newClientDocuments(sdkConfig),
-		Images:           newImages(sdkConfig),
 		Insights:         newInsights(sdkConfig),
 		Messages:         newMessages(sdkConfig),
 		Pins:             newPins(sdkConfig),
@@ -48,7 +41,6 @@ func newClient(sdkConfig sdkConfiguration) *Client {
 		Entities:         newEntities(sdkConfig),
 		Shortcuts:        newClientShortcuts(sdkConfig),
 		Summarize:        newSummarize(sdkConfig),
-		User:             newUser(sdkConfig),
 		Verification:     newVerification(sdkConfig),
 	}
 }

@@ -2,8 +2,8 @@ speakeasyVersion: 1.540.1
 sources:
     Glean API:
         sourceNamespace: glean-api-specs
-        sourceRevisionDigest: sha256:17a3cccbe692304b9f2f7aeb1d013659e6ea74d40e4aa312c9214b66606f50b8
-        sourceBlobDigest: sha256:b665c0f813e6c8a41366763feea36eaf8a41b6ac10a6db5c18926f22c3cde2ab
+        sourceRevisionDigest: sha256:33b8b6d8447549ad225d8eb93b6629385a696b9836c5c86f40e75f2dc9ae92e0
+        sourceBlobDigest: sha256:02dae61341a702b82c050ed3828f22d5a82de8e9f2fa6a99ddab6ad0dfe4a38a
         tags:
             - latest
     petstore-oas:
@@ -17,8 +17,8 @@ targets:
     glean:
         source: Glean API
         sourceNamespace: glean-api-specs
-        sourceRevisionDigest: sha256:17a3cccbe692304b9f2f7aeb1d013659e6ea74d40e4aa312c9214b66606f50b8
-        sourceBlobDigest: sha256:b665c0f813e6c8a41366763feea36eaf8a41b6ac10a6db5c18926f22c3cde2ab
+        sourceRevisionDigest: sha256:33b8b6d8447549ad225d8eb93b6629385a696b9836c5c86f40e75f2dc9ae92e0
+        sourceBlobDigest: sha256:02dae61341a702b82c050ed3828f22d5a82de8e9f2fa6a99ddab6ad0dfe4a38a
     petstore:
         source: petstore-oas
         sourceNamespace: petstore-oas
@@ -42,7 +42,7 @@ workflow:
                 registry:
                     location: registry.speakeasyapi.dev/glean-el2/sdk/glean-api-specs-go-code-samples
                 labelOverride:
-                    fixedValue: Go (SDK)
+                    fixedValue: Go (Client)
                 blocking: false
             testing:
-                enabled: false
+                enabled: true

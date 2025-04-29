@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: b59e1f193e8da30c15e41e41c6c1885d
+  docChecksum: 1a2c49930fef57ea7cddf2ed9b486f1d
   docVersion: 0.9.0
   speakeasyVersion: 1.540.1
   generationVersion: 2.593.4
   releaseVersion: 0.1.3
-  configChecksum: 1830c61b8dfd2bf60d5d652ebf0781e6
+  configChecksum: f793813e85ccf1c7fc01ba063d7ba452
 features:
   go:
     additionalDependencies: 0.1.0
@@ -16,7 +16,6 @@ features:
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
-    downloadStreams: 0.1.2
     envVarSecurityUsage: 0.3.2
     flattening: 2.81.1
     globalSecurity: 2.82.11
@@ -25,10 +24,12 @@ features:
     globalServerURLs: 2.82.2
     groups: 2.81.2
     intellisenseMarkdownSupport: 0.1.0
+    mockServer: 0.1.0
     nameOverrides: 2.81.2
     responseFormat: 0.1.2
     retries: 2.83.2
     sdkHooks: 0.1.0
+    tests: 0.15.1
     unions: 2.85.10
     uploadStreams: 0.1.0
 generatedFiles:
@@ -37,44 +38,29 @@ generatedFiles:
   - .devcontainer/setup.sh
   - .gitattributes
   - /models/apierrors/collectionerror.go
-  - /models/apierrors/errorinfo.go
+  - /models/apierrors/gleandataerror.go
   - /models/components/activity.go
   - /models/components/activityevent.go
   - /models/components/activityeventparams.go
   - /models/components/addcollectionitemserror.go
   - /models/components/addcollectionitemsrequest.go
   - /models/components/addcollectionitemsresponse.go
-  - /models/components/addcredentialrequest.go
   - /models/components/additionalfielddefinition.go
   - /models/components/agent.go
-  - /models/components/agentclientconfig.go
   - /models/components/agentconfig.go
-  - /models/components/agentmigrationstatus.go
-  - /models/components/agentmigrationstatuses.go
   - /models/components/agentresult.go
   - /models/components/aiappactioncounts.go
   - /models/components/aiappsinsightsresponse.go
   - /models/components/aiinsightsresponse.go
-  - /models/components/alertdata.go
   - /models/components/announcement.go
-  - /models/components/announcementchannel.go
-  - /models/components/announcementerror.go
-  - /models/components/announcementmutableproperties.go
   - /models/components/anonymousevent.go
   - /models/components/answer.go
   - /models/components/answerboard.go
-  - /models/components/answerboarderror.go
-  - /models/components/answerboardresult.go
   - /models/components/answercreationdata.go
   - /models/components/answerlike.go
   - /models/components/answerlikes.go
-  - /models/components/answermutableproperties.go
   - /models/components/answerresult.go
   - /models/components/appresult.go
-  - /models/components/askexperimentalmetadata.go
-  - /models/components/askrequest.go
-  - /models/components/askresponse.go
-  - /models/components/assistantconfig.go
   - /models/components/authconfig.go
   - /models/components/authtoken.go
   - /models/components/autocompleterequest.go
@@ -82,7 +68,6 @@ generatedFiles:
   - /models/components/autocompleteresult.go
   - /models/components/autocompleteresultgroup.go
   - /models/components/badge.go
-  - /models/components/branding.go
   - /models/components/bulkindexdocumentsrequest.go
   - /models/components/bulkindexemployeesrequest.go
   - /models/components/bulkindexgroupsrequest.go
@@ -113,13 +98,11 @@ generatedFiles:
   - /models/components/chatzerostatesuggestionoptions.go
   - /models/components/checkdocumentaccessrequest.go
   - /models/components/checkdocumentaccessresponse.go
-  - /models/components/clientconfig.go
   - /models/components/clustergroup.go
   - /models/components/clustertypeenum.go
   - /models/components/code.go
   - /models/components/codeline.go
   - /models/components/collection.go
-  - /models/components/collectionbasemutableproperties.go
   - /models/components/collectionerror.go
   - /models/components/collectionitem.go
   - /models/components/collectionitemdescriptor.go
@@ -130,7 +113,6 @@ generatedFiles:
   - /models/components/collectionpintarget.go
   - /models/components/commentdefinition.go
   - /models/components/communicationchannel.go
-  - /models/components/communicationtemplate.go
   - /models/components/company.go
   - /models/components/conferencedata.go
   - /models/components/connectortype.go
@@ -138,14 +120,10 @@ generatedFiles:
   - /models/components/contentinsightsresponse.go
   - /models/components/countinfo.go
   - /models/components/createannouncementrequest.go
-  - /models/components/createanswerboardresponse.go
   - /models/components/createanswerrequest.go
   - /models/components/createauthtokenresponse.go
   - /models/components/createcollectionrequest.go
   - /models/components/createcollectionresponse.go
-  - /models/components/createdisplayablelistsrequest.go
-  - /models/components/createdisplayablelistsresponse.go
-  - /models/components/createdraftannouncementrequest.go
   - /models/components/createshortcutrequest.go
   - /models/components/createshortcutresponse.go
   - /models/components/customdatasourceconfig.go
@@ -176,36 +154,24 @@ generatedFiles:
   - /models/components/debuguserrequest.go
   - /models/components/debuguserresponse.go
   - /models/components/deleteannouncementrequest.go
-  - /models/components/deleteanswerboardsrequest.go
-  - /models/components/deleteanswerboardsresponse.go
   - /models/components/deleteanswerrequest.go
   - /models/components/deletechatfilesrequest.go
   - /models/components/deletechatsrequest.go
   - /models/components/deletecollectionitemrequest.go
   - /models/components/deletecollectionitemresponse.go
   - /models/components/deletecollectionrequest.go
-  - /models/components/deletedisplayablelistsrequest.go
   - /models/components/deletedocumentrequest.go
   - /models/components/deleteemployeerequest.go
   - /models/components/deletegrouprequest.go
   - /models/components/deletemembershiprequest.go
-  - /models/components/deletequeryhistoryerror.go
-  - /models/components/deletequeryhistoryrequest.go
-  - /models/components/deletequeryhistoryresponse.go
   - /models/components/deleteshortcutrequest.go
   - /models/components/deleteteamrequest.go
   - /models/components/deleteuserrequest.go
   - /models/components/disambiguation.go
-  - /models/components/displayablelist.go
-  - /models/components/displayablelistconfig.go
   - /models/components/displayablelistitemuiconfig.go
-  - /models/components/dlpreportdata.go
-  - /models/components/dlpsimpleresult.go
   - /models/components/document.go
-  - /models/components/documentanalytics.go
   - /models/components/documentcontent.go
   - /models/components/documentdefinition.go
-  - /models/components/documentfacetanalytics.go
   - /models/components/documentinsight.go
   - /models/components/documentinteractions.go
   - /models/components/documentinteractionsdefinition.go
@@ -216,23 +182,17 @@ generatedFiles:
   - /models/components/documentspecunion.go
   - /models/components/documentstatusresponse.go
   - /models/components/documentvisibility.go
-  - /models/components/editanswerboardrequest.go
-  - /models/components/editanswerboardresponse.go
   - /models/components/editanswerrequest.go
   - /models/components/editcollectionitemrequest.go
   - /models/components/editcollectionitemresponse.go
   - /models/components/editcollectionrequest.go
   - /models/components/editcollectionresponse.go
-  - /models/components/editdocumentcollectionsrequest.go
-  - /models/components/editdocumentcollectionsresponse.go
   - /models/components/editpinrequest.go
-  - /models/components/emailrequest.go
   - /models/components/employeeinfodefinition.go
   - /models/components/employeeteaminfo.go
   - /models/components/entitiessortorder.go
   - /models/components/entityrelationship.go
   - /models/components/entitytype.go
-  - /models/components/errorinfo.go
   - /models/components/errormessage.go
   - /models/components/eventclassification.go
   - /models/components/eventclassificationname.go
@@ -248,25 +208,18 @@ generatedFiles:
   - /models/components/facetvalue.go
   - /models/components/favoriteinfo.go
   - /models/components/feedback.go
-  - /models/components/feedbackchannel.go
   - /models/components/feedbackchatexchange.go
-  - /models/components/feedbackcustomizations.go
   - /models/components/feedentry.go
   - /models/components/feedrequest.go
   - /models/components/feedrequestoptions.go
   - /models/components/feedresponse.go
   - /models/components/feedresult.go
-  - /models/components/fileuploadconfig.go
   - /models/components/followupaction.go
   - /models/components/generatedattachment.go
   - /models/components/generatedattachmentcontent.go
   - /models/components/generatedqna.go
   - /models/components/getagentinputsrequest.go
   - /models/components/getagentinputsresponse.go
-  - /models/components/getannouncementrequest.go
-  - /models/components/getannouncementresponse.go
-  - /models/components/getanswerboardrequest.go
-  - /models/components/getanswerboardresponse.go
   - /models/components/getanswererror.go
   - /models/components/getanswerrequest.go
   - /models/components/getanswerresponse.go
@@ -279,12 +232,8 @@ generatedFiles:
   - /models/components/getcollectionrequest.go
   - /models/components/getcollectionresponse.go
   - /models/components/getdatasourceconfigrequest.go
-  - /models/components/getdisplayablelistsrequest.go
-  - /models/components/getdisplayablelistsresponse.go
   - /models/components/getdocpermissionsrequest.go
   - /models/components/getdocpermissionsresponse.go
-  - /models/components/getdocumentanalyticsrequest.go
-  - /models/components/getdocumentanalyticsresponse.go
   - /models/components/getdocumentcountrequest.go
   - /models/components/getdocumentcountresponse.go
   - /models/components/getdocumentsbyfacetsrequest.go
@@ -293,26 +242,20 @@ generatedFiles:
   - /models/components/getdocumentsresponse.go
   - /models/components/getdocumentstatusrequest.go
   - /models/components/getdocumentstatusresponse.go
-  - /models/components/getdraftannouncementresponse.go
-  - /models/components/geteventsrequest.go
-  - /models/components/geteventsresponse.go
   - /models/components/getpinrequest.go
   - /models/components/getpinresponse.go
   - /models/components/getshortcutrequestunion.go
   - /models/components/getshortcutresponse.go
-  - /models/components/getsimilarshortcutsrequest.go
-  - /models/components/getsimilarshortcutsresponse.go
   - /models/components/getusercountrequest.go
   - /models/components/getusercountresponse.go
   - /models/components/gleanassistinsightsresponse.go
+  - /models/components/gleandataerror.go
   - /models/components/grantpermission.go
   - /models/components/greenlistusersrequest.go
   - /models/components/group.go
   - /models/components/grouptype.go
   - /models/components/httpmetadata.go
   - /models/components/iconconfig.go
-  - /models/components/imagemetadata.go
-  - /models/components/imagetype.go
   - /models/components/indexdocumentrequest.go
   - /models/components/indexdocumentsrequest.go
   - /models/components/indexemployeelistrequest.go
@@ -328,13 +271,8 @@ generatedFiles:
   - /models/components/insightsresponse.go
   - /models/components/invalidoperatorvalueerror.go
   - /models/components/inviteinfo.go
-  - /models/components/inviterequest.go
   - /models/components/labeledcountinfo.go
   - /models/components/listagentsresponse.go
-  - /models/components/listannouncementsrequest.go
-  - /models/components/listannouncementsresponse.go
-  - /models/components/listanswerboardsrequest.go
-  - /models/components/listanswerboardsresponse.go
   - /models/components/listanswersrequest.go
   - /models/components/listanswersresponse.go
   - /models/components/listchatsresponse.go
@@ -349,20 +287,12 @@ generatedFiles:
   - /models/components/meeting.go
   - /models/components/messagesrequest.go
   - /models/components/messagesresponse.go
-  - /models/components/movecollectionitemrequest.go
-  - /models/components/movecollectionitemresponse.go
   - /models/components/objectdefinition.go
   - /models/components/objectpermissions.go
-  - /models/components/onboardingadmininvitedata.go
-  - /models/components/onboardingadminrecipientdata.go
   - /models/components/operatormetadata.go
   - /models/components/operatorscope.go
-  - /models/components/peoplefilters.go
   - /models/components/peoplerequest.go
   - /models/components/peopleresponse.go
-  - /models/components/peoplesuggestioncategory.go
-  - /models/components/peoplesuggestrequest.go
-  - /models/components/peoplesuggestresponse.go
   - /models/components/period.go
   - /models/components/permissions.go
   - /models/components/permissionsgroupintersectiondefinition.go
@@ -370,28 +300,18 @@ generatedFiles:
   - /models/components/persondistance.go
   - /models/components/personmetadata.go
   - /models/components/personobject.go
-  - /models/components/personsuggestionlist.go
   - /models/components/personteam.go
   - /models/components/persontoteamrelationship.go
-  - /models/components/pincollectionrequest.go
   - /models/components/pindocument.go
   - /models/components/pinrequest.go
   - /models/components/possiblevalue.go
-  - /models/components/previewshortcutresponse.go
-  - /models/components/previewstructuredtextresponse.go
-  - /models/components/previewugcrequest.go
-  - /models/components/previewugcresponse.go
   - /models/components/processalldocumentsrequest.go
   - /models/components/processallmembershipsrequest.go
   - /models/components/processinghistoryevent.go
-  - /models/components/productterm.go
-  - /models/components/productterms.go
   - /models/components/prompttemplate.go
   - /models/components/prompttemplateresult.go
   - /models/components/propertydefinition.go
   - /models/components/propertygroup.go
-  - /models/components/publicconfigrequest.go
-  - /models/components/publishdraftannouncementrequest.go
   - /models/components/queryinsight.go
   - /models/components/queryinsightsresponse.go
   - /models/components/querysuggestion.go
@@ -408,8 +328,6 @@ generatedFiles:
   - /models/components/relatedquestion.go
   - /models/components/reminder.go
   - /models/components/reminderrequest.go
-  - /models/components/removecredentialrequest.go
-  - /models/components/resolutionstep.go
   - /models/components/restrictionfilters.go
   - /models/components/resultsdescription.go
   - /models/components/resultsresponse.go
@@ -417,7 +335,6 @@ generatedFiles:
   - /models/components/rotatetokenresponse.go
   - /models/components/runagentrequest.go
   - /models/components/scopetype.go
-  - /models/components/searchclientconfig.go
   - /models/components/searchproviderinfo.go
   - /models/components/searchrequest.go
   - /models/components/searchrequestinputdetails.go
@@ -437,7 +354,6 @@ generatedFiles:
   - /models/components/shortcutinsight.go
   - /models/components/shortcutinsightsresponse.go
   - /models/components/shortcutmutableproperties.go
-  - /models/components/shortcutsconfig.go
   - /models/components/shortcutspaginationmetadata.go
   - /models/components/socialnetwork.go
   - /models/components/socialnetworkdefinition.go
@@ -455,33 +371,20 @@ generatedFiles:
   - /models/components/teamemail.go
   - /models/components/teaminfodefinition.go
   - /models/components/teammember.go
-  - /models/components/teamsrequest.go
-  - /models/components/teamsresponse.go
   - /models/components/textrange.go
-  - /models/components/themes.go
   - /models/components/thumbnail.go
   - /models/components/timeinterval.go
   - /models/components/timepoint.go
   - /models/components/toolinfo.go
   - /models/components/toolmetadata.go
-  - /models/components/toolsconfig.go
-  - /models/components/triggersclientconfig.go
-  - /models/components/ugcdraft.go
   - /models/components/ugctype.go
   - /models/components/unpin.go
-  - /models/components/unpublishannouncementrequest.go
   - /models/components/updateannouncementrequest.go
-  - /models/components/updateanswerlikesrequest.go
-  - /models/components/updateanswerlikesresponse.go
-  - /models/components/updatedisplayablelistsrequest.go
-  - /models/components/updatedisplayablelistsresponse.go
-  - /models/components/updatedraftannouncementrequest.go
   - /models/components/updatepermissionsrequest.go
   - /models/components/updateshortcutrequest.go
   - /models/components/updateshortcutresponse.go
   - /models/components/uploadchatfilesrequest.go
   - /models/components/uploadchatfilesresponse.go
-  - /models/components/uploadimageresponse.go
   - /models/components/uploadshortcutsrequest.go
   - /models/components/uploadstatusenum.go
   - /models/components/user.go
@@ -489,7 +392,6 @@ generatedFiles:
   - /models/components/useractivityinsight.go
   - /models/components/usergeneratedcontentid.go
   - /models/components/userinsightsresponse.go
-  - /models/components/useroutreachconfig.go
   - /models/components/userreferencedefinition.go
   - /models/components/userrole.go
   - /models/components/userrolespecification.go
@@ -500,7 +402,6 @@ generatedFiles:
   - /models/components/verificationmetadata.go
   - /models/components/verifyrequest.go
   - /models/components/viewerinfo.go
-  - /models/components/websearchconfig.go
   - /models/components/workflow.go
   - /models/components/workflowfeedbackinfo.go
   - /models/components/workflowinputfield.go
@@ -509,65 +410,42 @@ generatedFiles:
   - /models/components/writepermission.go
   - /models/operations/activity.go
   - /models/operations/addcollectionitems.go
-  - /models/operations/addcredential.go
   - /models/operations/addverificationreminder.go
   - /models/operations/adminsearch.go
-  - /models/operations/ask.go
   - /models/operations/autocomplete.go
   - /models/operations/chat.go
   - /models/operations/createannouncement.go
-  - /models/operations/createanonymoustoken.go
   - /models/operations/createanswer.go
-  - /models/operations/createanswerboard.go
   - /models/operations/createauthtoken.go
   - /models/operations/createcollection.go
-  - /models/operations/createdisplayablelists.go
-  - /models/operations/createdraftannouncement.go
   - /models/operations/createshortcut.go
   - /models/operations/deleteallchats.go
   - /models/operations/deleteannouncement.go
   - /models/operations/deleteanswer.go
-  - /models/operations/deleteanswerboards.go
   - /models/operations/deletechatfiles.go
   - /models/operations/deletechats.go
   - /models/operations/deletecollection.go
   - /models/operations/deletecollectionitem.go
-  - /models/operations/deletedisplayablelists.go
-  - /models/operations/deletedraftannouncement.go
-  - /models/operations/deletequeryhistory.go
   - /models/operations/deleteshortcut.go
   - /models/operations/editanswer.go
-  - /models/operations/editanswerboard.go
   - /models/operations/editcollection.go
   - /models/operations/editcollectionitem.go
-  - /models/operations/editdocumentcollections.go
   - /models/operations/editpin.go
   - /models/operations/feed.go
   - /models/operations/feedback.go
   - /models/operations/getagentinputs.go
-  - /models/operations/getannouncement.go
   - /models/operations/getanswer.go
-  - /models/operations/getanswerboard.go
   - /models/operations/getchat.go
   - /models/operations/getchatapplication.go
   - /models/operations/getchatfiles.go
   - /models/operations/getcollection.go
-  - /models/operations/getdisplayablelists.go
   - /models/operations/getdocpermissions.go
-  - /models/operations/getdocumentanalytics.go
   - /models/operations/getdocuments.go
   - /models/operations/getdocumentsbyfacets.go
-  - /models/operations/getdraftannouncement.go
-  - /models/operations/getevents.go
   - /models/operations/getpin.go
   - /models/operations/getshortcut.go
-  - /models/operations/getsimilarshortcuts.go
-  - /models/operations/images.go
   - /models/operations/insights.go
-  - /models/operations/invite.go
   - /models/operations/listagents.go
-  - /models/operations/listannouncements.go
-  - /models/operations/listanswerboards.go
   - /models/operations/listanswers.go
   - /models/operations/listchats.go
   - /models/operations/listcollections.go
@@ -576,12 +454,8 @@ generatedFiles:
   - /models/operations/listshortcuts.go
   - /models/operations/listverifications.go
   - /models/operations/messages.go
-  - /models/operations/movecollectionitem.go
   - /models/operations/people.go
-  - /models/operations/peoplesuggest.go
-  - /models/operations/peoplesuggestadmin.go
   - /models/operations/pin.go
-  - /models/operations/pincollection.go
   - /models/operations/postapiindexv1adddatasource.go
   - /models/operations/postapiindexv1betausers.go
   - /models/operations/postapiindexv1bulkindexdocuments.go
@@ -620,29 +494,14 @@ generatedFiles:
   - /models/operations/postapiindexv1rotatetoken.go
   - /models/operations/postapiindexv1updatepermissions.go
   - /models/operations/postapiindexv1uploadshortcuts.go
-  - /models/operations/previewannouncement.go
-  - /models/operations/previewannouncementdraft.go
-  - /models/operations/previewanswer.go
-  - /models/operations/previewanswerdraft.go
-  - /models/operations/previewshortcut.go
-  - /models/operations/publicconfig.go
-  - /models/operations/publishdraftannouncement.go
   - /models/operations/recommendations.go
-  - /models/operations/removecredential.go
   - /models/operations/runagent.go
   - /models/operations/search.go
   - /models/operations/summarize.go
-  - /models/operations/supportemail.go
-  - /models/operations/teams.go
   - /models/operations/unpin.go
-  - /models/operations/unpublishannouncement.go
   - /models/operations/updateannouncement.go
-  - /models/operations/updateanswerlikes.go
-  - /models/operations/updatedisplayablelists.go
-  - /models/operations/updatedraftannouncement.go
   - /models/operations/updateshortcut.go
   - /models/operations/uploadchatfiles.go
-  - /models/operations/uploadimage.go
   - /models/operations/verify.go
   - USAGE.md
   - activities.go
@@ -650,7 +509,6 @@ generatedFiles:
   - agents.go
   - announcements.go
   - answers.go
-  - calendar.go
   - chat.go
   - client.go
   - clientauthentication.go
@@ -658,9 +516,8 @@ generatedFiles:
   - clientshortcuts.go
   - collections.go
   - datasources.go
-  - displayablelists.go
   - docs/models/apierrors/collectionerror.md
-  - docs/models/apierrors/errorinfo.md
+  - docs/models/apierrors/gleandataerror.md
   - docs/models/components/activity.md
   - docs/models/components/activityenum.md
   - docs/models/components/activityevent.md
@@ -670,50 +527,30 @@ generatedFiles:
   - docs/models/components/addcollectionitemserrorerrortype.md
   - docs/models/components/addcollectionitemsrequest.md
   - docs/models/components/addcollectionitemsresponse.md
-  - docs/models/components/addcredentialrequest.md
   - docs/models/components/additionalfielddefinition.md
   - docs/models/components/agent.md
-  - docs/models/components/agentclientconfig.md
   - docs/models/components/agentconfig.md
   - docs/models/components/agentenum.md
-  - docs/models/components/agentmigrationstatus.md
-  - docs/models/components/agentmigrationstatuses.md
   - docs/models/components/agentresult.md
   - docs/models/components/aiappactioncounts.md
   - docs/models/components/aiappsinsightsresponse.md
   - docs/models/components/aiinsightsresponse.md
-  - docs/models/components/alertdata.md
   - docs/models/components/announcement.md
   - docs/models/components/announcementchannel.md
-  - docs/models/components/announcementchannel1.md
-  - docs/models/components/announcementerror.md
-  - docs/models/components/announcementerrorerrortype.md
-  - docs/models/components/announcementmutableproperties.md
-  - docs/models/components/announcementmutablepropertieschannel.md
-  - docs/models/components/announcementmutablepropertiesposttype.md
   - docs/models/components/announcementposttype.md
   - docs/models/components/announcementviewerinfo.md
   - docs/models/components/anonymousevent.md
   - docs/models/components/anonymouseventeventtype.md
   - docs/models/components/answer.md
   - docs/models/components/answerboard.md
-  - docs/models/components/answerboarderror.md
-  - docs/models/components/answerboarderrorerrorcode.md
-  - docs/models/components/answerboardresult.md
   - docs/models/components/answercreationdata.md
   - docs/models/components/answercreationdatasourcetype.md
   - docs/models/components/answerlike.md
   - docs/models/components/answerlikes.md
-  - docs/models/components/answermutableproperties.md
-  - docs/models/components/answermutablepropertiessourcetype.md
   - docs/models/components/answerresult.md
   - docs/models/components/answersourcetype.md
   - docs/models/components/appresult.md
-  - docs/models/components/askexperimentalmetadata.md
-  - docs/models/components/askrequest.md
-  - docs/models/components/askresponse.md
   - docs/models/components/assistantactivitytype.md
-  - docs/models/components/assistantconfig.md
   - docs/models/components/authconfig.md
   - docs/models/components/authconfigstatus.md
   - docs/models/components/authconfigtype.md
@@ -726,12 +563,7 @@ generatedFiles:
   - docs/models/components/autocompleteresult.md
   - docs/models/components/autocompleteresultgroup.md
   - docs/models/components/autocompleteresultresulttype.md
-  - docs/models/components/backend.md
   - docs/models/components/badge.md
-  - docs/models/components/bannertype.md
-  - docs/models/components/block.md
-  - docs/models/components/branding.md
-  - docs/models/components/brandings.md
   - docs/models/components/bulkindexdocumentsrequest.md
   - docs/models/components/bulkindexemployeesrequest.md
   - docs/models/components/bulkindexgroupsrequest.md
@@ -749,7 +581,6 @@ generatedFiles:
   - docs/models/components/categorytoresultsize.md
   - docs/models/components/channelinviteinfo.md
   - docs/models/components/chat.md
-  - docs/models/components/chatfeedbackpayload.md
   - docs/models/components/chatfile.md
   - docs/models/components/chatfilefailurereason.md
   - docs/models/components/chatfilemetadata.md
@@ -766,13 +597,11 @@ generatedFiles:
   - docs/models/components/chatzerostatesuggestionoptions.md
   - docs/models/components/checkdocumentaccessrequest.md
   - docs/models/components/checkdocumentaccessresponse.md
-  - docs/models/components/clientconfig.md
   - docs/models/components/clustergroup.md
   - docs/models/components/clustertypeenum.md
   - docs/models/components/code.md
   - docs/models/components/codeline.md
   - docs/models/components/collection.md
-  - docs/models/components/collectionbasemutableproperties.md
   - docs/models/components/collectionerror.md
   - docs/models/components/collectionerrorerrorcode.md
   - docs/models/components/collectionitem.md
@@ -786,29 +615,21 @@ generatedFiles:
   - docs/models/components/collectionpintarget.md
   - docs/models/components/commentdefinition.md
   - docs/models/components/communicationchannel.md
-  - docs/models/components/communicationtemplate.md
   - docs/models/components/company.md
   - docs/models/components/conferencedata.md
   - docs/models/components/conferencedatasource.md
   - docs/models/components/connectortype.md
-  - docs/models/components/contentchange.md
   - docs/models/components/contentdefinition.md
   - docs/models/components/contentinsightsresponse.md
   - docs/models/components/countinfo.md
   - docs/models/components/createannouncementrequest.md
   - docs/models/components/createannouncementrequestchannel.md
   - docs/models/components/createannouncementrequestposttype.md
-  - docs/models/components/createanswerboardresponse.md
   - docs/models/components/createanswerrequest.md
   - docs/models/components/createauthtokenresponse.md
   - docs/models/components/createcollectionrequest.md
   - docs/models/components/createcollectionresponse.md
   - docs/models/components/createcollectionresponseerrorcode.md
-  - docs/models/components/createdisplayablelistsrequest.md
-  - docs/models/components/createdisplayablelistsresponse.md
-  - docs/models/components/createdraftannouncementrequest.md
-  - docs/models/components/createdraftannouncementrequestchannel.md
-  - docs/models/components/createdraftannouncementrequestposttype.md
   - docs/models/components/createshortcutrequest.md
   - docs/models/components/createshortcutresponse.md
   - docs/models/components/customdatasourceconfig.md
@@ -845,41 +666,26 @@ generatedFiles:
   - docs/models/components/debuguserrequest.md
   - docs/models/components/debuguserresponse.md
   - docs/models/components/deleteannouncementrequest.md
-  - docs/models/components/deleteanswerboardsrequest.md
-  - docs/models/components/deleteanswerboardsresponse.md
   - docs/models/components/deleteanswerrequest.md
   - docs/models/components/deletechatfilesrequest.md
   - docs/models/components/deletechatsrequest.md
   - docs/models/components/deletecollectionitemrequest.md
   - docs/models/components/deletecollectionitemresponse.md
   - docs/models/components/deletecollectionrequest.md
-  - docs/models/components/deletedisplayablelistsrequest.md
   - docs/models/components/deletedocumentrequest.md
   - docs/models/components/deleteemployeerequest.md
   - docs/models/components/deletegrouprequest.md
   - docs/models/components/deletemembershiprequest.md
-  - docs/models/components/deletequeryhistoryerror.md
-  - docs/models/components/deletequeryhistoryerrorerrortype.md
-  - docs/models/components/deletequeryhistoryrequest.md
-  - docs/models/components/deletequeryhistoryresponse.md
   - docs/models/components/deleteshortcutrequest.md
   - docs/models/components/deleteteamrequest.md
   - docs/models/components/deleteuserrequest.md
   - docs/models/components/direction.md
   - docs/models/components/disambiguation.md
-  - docs/models/components/displayablelist.md
-  - docs/models/components/displayablelistconfig.md
-  - docs/models/components/displayablelistconfigformat.md
   - docs/models/components/displayablelistitemuiconfig.md
-  - docs/models/components/displayablelistsource.md
-  - docs/models/components/dlpreportdata.md
-  - docs/models/components/dlpsimpleresult.md
   - docs/models/components/doccategory.md
   - docs/models/components/document.md
-  - docs/models/components/documentanalytics.md
   - docs/models/components/documentcontent.md
   - docs/models/components/documentdefinition.md
-  - docs/models/components/documentfacetanalytics.md
   - docs/models/components/documentinsight.md
   - docs/models/components/documentinteractions.md
   - docs/models/components/documentinteractionsdefinition.md
@@ -896,8 +702,6 @@ generatedFiles:
   - docs/models/components/documentspecunion.md
   - docs/models/components/documentstatusresponse.md
   - docs/models/components/documentvisibility.md
-  - docs/models/components/editanswerboardrequest.md
-  - docs/models/components/editanswerboardresponse.md
   - docs/models/components/editanswerrequest.md
   - docs/models/components/editanswerrequestsourcetype.md
   - docs/models/components/editcollectionitemrequest.md
@@ -905,17 +709,13 @@ generatedFiles:
   - docs/models/components/editcollectionrequest.md
   - docs/models/components/editcollectionresponse.md
   - docs/models/components/editcollectionresponseerrorcode.md
-  - docs/models/components/editdocumentcollectionsrequest.md
-  - docs/models/components/editdocumentcollectionsresponse.md
   - docs/models/components/editpinrequest.md
-  - docs/models/components/emailrequest.md
   - docs/models/components/employeeinfodefinition.md
   - docs/models/components/employeeteaminfo.md
   - docs/models/components/entitiessortorder.md
   - docs/models/components/entityrelationship.md
   - docs/models/components/entitytype.md
   - docs/models/components/error.md
-  - docs/models/components/errorinfo.md
   - docs/models/components/errormessage.md
   - docs/models/components/event.md
   - docs/models/components/eventclassification.md
@@ -934,12 +734,8 @@ generatedFiles:
   - docs/models/components/feedback.md
   - docs/models/components/feedbackcategory.md
   - docs/models/components/feedbackchannel.md
-  - docs/models/components/feedbackchannel1.md
   - docs/models/components/feedbackchatexchange.md
-  - docs/models/components/feedbackcustomizations.md
-  - docs/models/components/feedbackpayload.md
   - docs/models/components/feedentry.md
-  - docs/models/components/feedentryformat.md
   - docs/models/components/feedrequest.md
   - docs/models/components/feedrequestcategory.md
   - docs/models/components/feedrequestoptions.md
@@ -947,19 +743,14 @@ generatedFiles:
   - docs/models/components/feedresult.md
   - docs/models/components/feedresultcategory.md
   - docs/models/components/file.md
-  - docs/models/components/fileuploadconfig.md
   - docs/models/components/followupaction.md
-  - docs/models/components/frequency.md
+  - docs/models/components/format.md
   - docs/models/components/generatedattachment.md
   - docs/models/components/generatedattachmentcontent.md
   - docs/models/components/generatedqna.md
   - docs/models/components/generatedqnastatus.md
   - docs/models/components/getagentinputsrequest.md
   - docs/models/components/getagentinputsresponse.md
-  - docs/models/components/getannouncementrequest.md
-  - docs/models/components/getannouncementresponse.md
-  - docs/models/components/getanswerboardrequest.md
-  - docs/models/components/getanswerboardresponse.md
   - docs/models/components/getanswererror.md
   - docs/models/components/getanswererrorerrortype.md
   - docs/models/components/getanswerrequest.md
@@ -973,12 +764,8 @@ generatedFiles:
   - docs/models/components/getcollectionrequest.md
   - docs/models/components/getcollectionresponse.md
   - docs/models/components/getdatasourceconfigrequest.md
-  - docs/models/components/getdisplayablelistsrequest.md
-  - docs/models/components/getdisplayablelistsresponse.md
   - docs/models/components/getdocpermissionsrequest.md
   - docs/models/components/getdocpermissionsresponse.md
-  - docs/models/components/getdocumentanalyticsrequest.md
-  - docs/models/components/getdocumentanalyticsresponse.md
   - docs/models/components/getdocumentcountrequest.md
   - docs/models/components/getdocumentcountresponse.md
   - docs/models/components/getdocumentsbyfacetsrequest.md
@@ -988,19 +775,15 @@ generatedFiles:
   - docs/models/components/getdocumentsresponse.md
   - docs/models/components/getdocumentstatusrequest.md
   - docs/models/components/getdocumentstatusresponse.md
-  - docs/models/components/getdraftannouncementresponse.md
-  - docs/models/components/geteventsrequest.md
-  - docs/models/components/geteventsresponse.md
   - docs/models/components/getpinrequest.md
   - docs/models/components/getpinresponse.md
   - docs/models/components/getshortcutrequest.md
   - docs/models/components/getshortcutrequestunion.md
   - docs/models/components/getshortcutresponse.md
-  - docs/models/components/getsimilarshortcutsrequest.md
-  - docs/models/components/getsimilarshortcutsresponse.md
   - docs/models/components/getusercountrequest.md
   - docs/models/components/getusercountresponse.md
   - docs/models/components/gleanassistinsightsresponse.md
+  - docs/models/components/gleandataerror.md
   - docs/models/components/grantpermission.md
   - docs/models/components/granttype.md
   - docs/models/components/greenlistusersrequest.md
@@ -1012,8 +795,6 @@ generatedFiles:
   - docs/models/components/icontype.md
   - docs/models/components/identity.md
   - docs/models/components/idtype.md
-  - docs/models/components/imagemetadata.md
-  - docs/models/components/imagetype.md
   - docs/models/components/includetype.md
   - docs/models/components/indexdocumentrequest.md
   - docs/models/components/indexdocumentsrequest.md
@@ -1031,16 +812,11 @@ generatedFiles:
   - docs/models/components/insightsresponse.md
   - docs/models/components/invalidoperatorvalueerror.md
   - docs/models/components/inviteinfo.md
-  - docs/models/components/inviterequest.md
   - docs/models/components/issue.md
   - docs/models/components/justificationtype.md
   - docs/models/components/knowledgetype.md
   - docs/models/components/labeledcountinfo.md
   - docs/models/components/listagentsresponse.md
-  - docs/models/components/listannouncementsrequest.md
-  - docs/models/components/listannouncementsresponse.md
-  - docs/models/components/listanswerboardsrequest.md
-  - docs/models/components/listanswerboardsresponse.md
   - docs/models/components/listanswersrequest.md
   - docs/models/components/listanswersresponse.md
   - docs/models/components/listchatsresponse.md
@@ -1054,7 +830,6 @@ generatedFiles:
   - docs/models/components/listshortcutspaginatedrequest.md
   - docs/models/components/listshortcutspaginatedrequestincludefield.md
   - docs/models/components/listshortcutspaginatedresponse.md
-  - docs/models/components/localizations.md
   - docs/models/components/manualfeedbackinfo.md
   - docs/models/components/manualfeedbackinfosource.md
   - docs/models/components/meeting.md
@@ -1063,23 +838,15 @@ generatedFiles:
   - docs/models/components/messagetype.md
   - docs/models/components/metadata.md
   - docs/models/components/mode.md
-  - docs/models/components/movecollectionitemrequest.md
-  - docs/models/components/movecollectionitemresponse.md
   - docs/models/components/objectdefinition.md
   - docs/models/components/objectpermissions.md
-  - docs/models/components/onboardingadmininvitedata.md
-  - docs/models/components/onboardingadminrecipientdata.md
   - docs/models/components/operatormetadata.md
   - docs/models/components/operatorscope.md
   - docs/models/components/operatortype.md
   - docs/models/components/orderby.md
-  - docs/models/components/peoplefilters.md
   - docs/models/components/peoplerequest.md
   - docs/models/components/peoplerequestincludefield.md
   - docs/models/components/peopleresponse.md
-  - docs/models/components/peoplesuggestioncategory.md
-  - docs/models/components/peoplesuggestrequest.md
-  - docs/models/components/peoplesuggestresponse.md
   - docs/models/components/period.md
   - docs/models/components/permissions.md
   - docs/models/components/permissionsgroupintersectiondefinition.md
@@ -1088,26 +855,17 @@ generatedFiles:
   - docs/models/components/personmetadata.md
   - docs/models/components/personmetadatatype.md
   - docs/models/components/personobject.md
-  - docs/models/components/personsuggestionlist.md
   - docs/models/components/personteam.md
   - docs/models/components/personteamrelationship.md
   - docs/models/components/persontoteamrelationship.md
   - docs/models/components/persontoteamrelationshiprelationship.md
-  - docs/models/components/pincollectionrequest.md
-  - docs/models/components/pincollectionrequestaction.md
   - docs/models/components/pindocument.md
   - docs/models/components/pinrequest.md
   - docs/models/components/possiblevalue.md
-  - docs/models/components/previewshortcutresponse.md
-  - docs/models/components/previewstructuredtextresponse.md
-  - docs/models/components/previewugcrequest.md
-  - docs/models/components/previewugcresponse.md
   - docs/models/components/processalldocumentsrequest.md
   - docs/models/components/processallmembershipsrequest.md
   - docs/models/components/processinghistoryevent.md
   - docs/models/components/processingstate.md
-  - docs/models/components/productterm.md
-  - docs/models/components/productterms.md
   - docs/models/components/prominence.md
   - docs/models/components/prompttemplate.md
   - docs/models/components/prompttemplateresult.md
@@ -1115,8 +873,6 @@ generatedFiles:
   - docs/models/components/propertygroup.md
   - docs/models/components/propertytype.md
   - docs/models/components/provider.md
-  - docs/models/components/publicconfigrequest.md
-  - docs/models/components/publishdraftannouncementrequest.md
   - docs/models/components/queryinsight.md
   - docs/models/components/queryinsightsresponse.md
   - docs/models/components/querysuggestion.md
@@ -1135,8 +891,6 @@ generatedFiles:
   - docs/models/components/relationtype.md
   - docs/models/components/reminder.md
   - docs/models/components/reminderrequest.md
-  - docs/models/components/removecredentialrequest.md
-  - docs/models/components/resolutionstep.md
   - docs/models/components/responsehint.md
   - docs/models/components/responsestatus.md
   - docs/models/components/restrictionfilters.md
@@ -1149,7 +903,6 @@ generatedFiles:
   - docs/models/components/runagentrequest.md
   - docs/models/components/scope.md
   - docs/models/components/scopetype.md
-  - docs/models/components/searchclientconfig.md
   - docs/models/components/searchproviderinfo.md
   - docs/models/components/searchrequest.md
   - docs/models/components/searchrequestinputdetails.md
@@ -1170,12 +923,10 @@ generatedFiles:
   - docs/models/components/shortcutinsight.md
   - docs/models/components/shortcutinsightsresponse.md
   - docs/models/components/shortcutmutableproperties.md
-  - docs/models/components/shortcutsconfig.md
   - docs/models/components/shortcutspaginationmetadata.md
   - docs/models/components/socialnetwork.md
   - docs/models/components/socialnetworkdefinition.md
   - docs/models/components/sortoptions.md
-  - docs/models/components/ssocompanyprovider.md
   - docs/models/components/state.md
   - docs/models/components/structuredlink.md
   - docs/models/components/structuredlocation.md
@@ -1191,44 +942,27 @@ generatedFiles:
   - docs/models/components/teamemail.md
   - docs/models/components/teaminfodefinition.md
   - docs/models/components/teammember.md
-  - docs/models/components/teamsrequest.md
-  - docs/models/components/teamsrequestincludefield.md
-  - docs/models/components/teamsresponse.md
   - docs/models/components/teamstatus.md
   - docs/models/components/textrange.md
   - docs/models/components/textrangetype.md
-  - docs/models/components/themes.md
   - docs/models/components/thumbnail.md
   - docs/models/components/timeinterval.md
   - docs/models/components/timepoint.md
   - docs/models/components/toolinfo.md
   - docs/models/components/toolmetadata.md
   - docs/models/components/toolmetadatatype.md
-  - docs/models/components/toolsconfig.md
-  - docs/models/components/triggersclientconfig.md
-  - docs/models/components/ugcdraft.md
   - docs/models/components/ugctype.md
   - docs/models/components/uiconfig.md
   - docs/models/components/uioptions.md
   - docs/models/components/unpin.md
-  - docs/models/components/unpublishannouncementrequest.md
   - docs/models/components/updateannouncementrequest.md
   - docs/models/components/updateannouncementrequestchannel.md
   - docs/models/components/updateannouncementrequestposttype.md
-  - docs/models/components/updateanswerlikesrequest.md
-  - docs/models/components/updateanswerlikesrequestaction.md
-  - docs/models/components/updateanswerlikesresponse.md
-  - docs/models/components/updatedisplayablelistsrequest.md
-  - docs/models/components/updatedisplayablelistsresponse.md
-  - docs/models/components/updatedraftannouncementrequest.md
-  - docs/models/components/updatedraftannouncementrequestchannel.md
-  - docs/models/components/updatedraftannouncementrequestposttype.md
   - docs/models/components/updatepermissionsrequest.md
   - docs/models/components/updateshortcutrequest.md
   - docs/models/components/updateshortcutresponse.md
   - docs/models/components/uploadchatfilesrequest.md
   - docs/models/components/uploadchatfilesresponse.md
-  - docs/models/components/uploadimageresponse.md
   - docs/models/components/uploadshortcutsrequest.md
   - docs/models/components/uploadstatusenum.md
   - docs/models/components/user.md
@@ -1237,7 +971,6 @@ generatedFiles:
   - docs/models/components/useractivityinsight.md
   - docs/models/components/usergeneratedcontentid.md
   - docs/models/components/userinsightsresponse.md
-  - docs/models/components/useroutreachconfig.md
   - docs/models/components/userreferencedefinition.md
   - docs/models/components/userrole.md
   - docs/models/components/userrolespecification.md
@@ -1252,7 +985,6 @@ generatedFiles:
   - docs/models/components/viewerinfo.md
   - docs/models/components/vote.md
   - docs/models/components/warningtype.md
-  - docs/models/components/websearchconfig.md
   - docs/models/components/workflow.md
   - docs/models/components/workflowfeedbackinfo.md
   - docs/models/components/workflowfeedbackinfosource.md
@@ -1265,41 +997,28 @@ generatedFiles:
   - docs/models/operations/activityresponse.md
   - docs/models/operations/addcollectionitemsrequest.md
   - docs/models/operations/addcollectionitemsresponse.md
-  - docs/models/operations/addcredentialrequest.md
-  - docs/models/operations/addcredentialresponse.md
   - docs/models/operations/addverificationreminderrequest.md
   - docs/models/operations/addverificationreminderresponse.md
   - docs/models/operations/adminsearchrequest.md
   - docs/models/operations/adminsearchresponse.md
-  - docs/models/operations/askrequest.md
-  - docs/models/operations/askresponse.md
   - docs/models/operations/autocompleterequest.md
   - docs/models/operations/autocompleteresponse.md
   - docs/models/operations/chatrequest.md
   - docs/models/operations/chatresponse.md
   - docs/models/operations/createannouncementrequest.md
   - docs/models/operations/createannouncementresponse.md
-  - docs/models/operations/createanonymoustokenresponse.md
-  - docs/models/operations/createanswerboardrequest.md
-  - docs/models/operations/createanswerboardresponse.md
   - docs/models/operations/createanswerrequest.md
   - docs/models/operations/createanswerresponse.md
   - docs/models/operations/createauthtokenrequest.md
   - docs/models/operations/createauthtokenresponse.md
   - docs/models/operations/createcollectionrequest.md
   - docs/models/operations/createcollectionresponse.md
-  - docs/models/operations/createdisplayablelistsrequest.md
-  - docs/models/operations/createdisplayablelistsresponse.md
-  - docs/models/operations/createdraftannouncementrequest.md
-  - docs/models/operations/createdraftannouncementresponse.md
   - docs/models/operations/createshortcutrequest.md
   - docs/models/operations/createshortcutresponse.md
   - docs/models/operations/deleteallchatsrequest.md
   - docs/models/operations/deleteallchatsresponse.md
   - docs/models/operations/deleteannouncementrequest.md
   - docs/models/operations/deleteannouncementresponse.md
-  - docs/models/operations/deleteanswerboardsrequest.md
-  - docs/models/operations/deleteanswerboardsresponse.md
   - docs/models/operations/deleteanswerrequest.md
   - docs/models/operations/deleteanswerresponse.md
   - docs/models/operations/deletechatfilesrequest.md
@@ -1310,24 +1029,14 @@ generatedFiles:
   - docs/models/operations/deletecollectionitemresponse.md
   - docs/models/operations/deletecollectionrequest.md
   - docs/models/operations/deletecollectionresponse.md
-  - docs/models/operations/deletedisplayablelistsrequest.md
-  - docs/models/operations/deletedisplayablelistsresponse.md
-  - docs/models/operations/deletedraftannouncementrequest.md
-  - docs/models/operations/deletedraftannouncementresponse.md
-  - docs/models/operations/deletequeryhistoryrequest.md
-  - docs/models/operations/deletequeryhistoryresponse.md
   - docs/models/operations/deleteshortcutrequest.md
   - docs/models/operations/deleteshortcutresponse.md
-  - docs/models/operations/editanswerboardrequest.md
-  - docs/models/operations/editanswerboardresponse.md
   - docs/models/operations/editanswerrequest.md
   - docs/models/operations/editanswerresponse.md
   - docs/models/operations/editcollectionitemrequest.md
   - docs/models/operations/editcollectionitemresponse.md
   - docs/models/operations/editcollectionrequest.md
   - docs/models/operations/editcollectionresponse.md
-  - docs/models/operations/editdocumentcollectionsrequest.md
-  - docs/models/operations/editdocumentcollectionsresponse.md
   - docs/models/operations/editpinrequest.md
   - docs/models/operations/editpinresponse.md
   - docs/models/operations/feedbackrequest.md
@@ -1336,10 +1045,6 @@ generatedFiles:
   - docs/models/operations/feedresponse.md
   - docs/models/operations/getagentinputsrequest.md
   - docs/models/operations/getagentinputsresponse.md
-  - docs/models/operations/getannouncementrequest.md
-  - docs/models/operations/getannouncementresponse.md
-  - docs/models/operations/getanswerboardrequest.md
-  - docs/models/operations/getanswerboardresponse.md
   - docs/models/operations/getanswerrequest.md
   - docs/models/operations/getanswerresponse.md
   - docs/models/operations/getchatapplicationrequest.md
@@ -1350,38 +1055,20 @@ generatedFiles:
   - docs/models/operations/getchatresponse.md
   - docs/models/operations/getcollectionrequest.md
   - docs/models/operations/getcollectionresponse.md
-  - docs/models/operations/getdisplayablelistsrequest.md
-  - docs/models/operations/getdisplayablelistsresponse.md
   - docs/models/operations/getdocpermissionsrequest.md
   - docs/models/operations/getdocpermissionsresponse.md
-  - docs/models/operations/getdocumentanalyticsrequest.md
-  - docs/models/operations/getdocumentanalyticsresponse.md
   - docs/models/operations/getdocumentsbyfacetsrequest.md
   - docs/models/operations/getdocumentsbyfacetsresponse.md
   - docs/models/operations/getdocumentsrequest.md
   - docs/models/operations/getdocumentsresponse.md
-  - docs/models/operations/getdraftannouncementrequest.md
-  - docs/models/operations/getdraftannouncementresponse.md
-  - docs/models/operations/geteventsrequest.md
-  - docs/models/operations/geteventsresponse.md
   - docs/models/operations/getpinrequest.md
   - docs/models/operations/getpinresponse.md
   - docs/models/operations/getshortcutrequest.md
   - docs/models/operations/getshortcutresponse.md
-  - docs/models/operations/getsimilarshortcutsrequest.md
-  - docs/models/operations/getsimilarshortcutsresponse.md
-  - docs/models/operations/imagesrequest.md
-  - docs/models/operations/imagesresponse.md
   - docs/models/operations/insightsrequest.md
   - docs/models/operations/insightsresponse.md
-  - docs/models/operations/inviterequest.md
-  - docs/models/operations/inviteresponse.md
   - docs/models/operations/listagentsrequest.md
   - docs/models/operations/listagentsresponse.md
-  - docs/models/operations/listannouncementsrequest.md
-  - docs/models/operations/listannouncementsresponse.md
-  - docs/models/operations/listanswerboardsrequest.md
-  - docs/models/operations/listanswerboardsresponse.md
   - docs/models/operations/listanswersrequest.md
   - docs/models/operations/listanswersresponse.md
   - docs/models/operations/listchatsrequest.md
@@ -1399,17 +1086,9 @@ generatedFiles:
   - docs/models/operations/listverificationsresponse.md
   - docs/models/operations/messagesrequest.md
   - docs/models/operations/messagesresponse.md
-  - docs/models/operations/movecollectionitemrequest.md
-  - docs/models/operations/movecollectionitemresponse.md
   - docs/models/operations/option.md
   - docs/models/operations/peoplerequest.md
   - docs/models/operations/peopleresponse.md
-  - docs/models/operations/peoplesuggestadminrequest.md
-  - docs/models/operations/peoplesuggestadminresponse.md
-  - docs/models/operations/peoplesuggestrequest.md
-  - docs/models/operations/peoplesuggestresponse.md
-  - docs/models/operations/pincollectionrequest.md
-  - docs/models/operations/pincollectionresponse.md
   - docs/models/operations/pinrequest.md
   - docs/models/operations/pinresponse.md
   - docs/models/operations/postapiindexv1adddatasourceresponse.md
@@ -1454,52 +1133,22 @@ generatedFiles:
   - docs/models/operations/postapiindexv1rotatetokenresponse.md
   - docs/models/operations/postapiindexv1updatepermissionsresponse.md
   - docs/models/operations/postapiindexv1uploadshortcutsresponse.md
-  - docs/models/operations/previewannouncementdraftrequest.md
-  - docs/models/operations/previewannouncementdraftresponse.md
-  - docs/models/operations/previewannouncementrequest.md
-  - docs/models/operations/previewannouncementresponse.md
-  - docs/models/operations/previewanswerdraftrequest.md
-  - docs/models/operations/previewanswerdraftresponse.md
-  - docs/models/operations/previewanswerrequest.md
-  - docs/models/operations/previewanswerresponse.md
-  - docs/models/operations/previewshortcutrequest.md
-  - docs/models/operations/previewshortcutresponse.md
-  - docs/models/operations/publicconfigrequest.md
-  - docs/models/operations/publicconfigresponse.md
-  - docs/models/operations/publishdraftannouncementrequest.md
-  - docs/models/operations/publishdraftannouncementresponse.md
   - docs/models/operations/recommendationsrequest.md
   - docs/models/operations/recommendationsresponse.md
-  - docs/models/operations/removecredentialrequest.md
-  - docs/models/operations/removecredentialresponse.md
   - docs/models/operations/runagentrequest.md
   - docs/models/operations/runagentresponse.md
   - docs/models/operations/searchrequest.md
   - docs/models/operations/searchresponse.md
   - docs/models/operations/summarizerequest.md
   - docs/models/operations/summarizeresponse.md
-  - docs/models/operations/supportemailrequest.md
-  - docs/models/operations/supportemailresponse.md
-  - docs/models/operations/teamsrequest.md
-  - docs/models/operations/teamsresponse.md
   - docs/models/operations/unpinrequest.md
   - docs/models/operations/unpinresponse.md
-  - docs/models/operations/unpublishannouncementrequest.md
-  - docs/models/operations/unpublishannouncementresponse.md
   - docs/models/operations/updateannouncementrequest.md
   - docs/models/operations/updateannouncementresponse.md
-  - docs/models/operations/updateanswerlikesrequest.md
-  - docs/models/operations/updateanswerlikesresponse.md
-  - docs/models/operations/updatedisplayablelistsrequest.md
-  - docs/models/operations/updatedisplayablelistsresponse.md
-  - docs/models/operations/updatedraftannouncementrequest.md
-  - docs/models/operations/updatedraftannouncementresponse.md
   - docs/models/operations/updateshortcutrequest.md
   - docs/models/operations/updateshortcutresponse.md
   - docs/models/operations/uploadchatfilesrequest.md
   - docs/models/operations/uploadchatfilesresponse.md
-  - docs/models/operations/uploadimagerequest.md
-  - docs/models/operations/uploadimageresponse.md
   - docs/models/operations/verifyrequest.md
   - docs/models/operations/verifyresponse.md
   - docs/sdks/activities/README.md
@@ -1507,7 +1156,6 @@ generatedFiles:
   - docs/sdks/agents/README.md
   - docs/sdks/announcements/README.md
   - docs/sdks/answers/README.md
-  - docs/sdks/calendar/README.md
   - docs/sdks/chat/README.md
   - docs/sdks/client/README.md
   - docs/sdks/clientauthentication/README.md
@@ -1515,10 +1163,8 @@ generatedFiles:
   - docs/sdks/clientshortcuts/README.md
   - docs/sdks/collections/README.md
   - docs/sdks/datasources/README.md
-  - docs/sdks/displayablelists/README.md
   - docs/sdks/entities/README.md
   - docs/sdks/glean/README.md
-  - docs/sdks/images/README.md
   - docs/sdks/indexing/README.md
   - docs/sdks/indexingauthentication/README.md
   - docs/sdks/indexingdocuments/README.md
@@ -1531,13 +1177,11 @@ generatedFiles:
   - docs/sdks/search/README.md
   - docs/sdks/summarize/README.md
   - docs/sdks/troubleshooting/README.md
-  - docs/sdks/user/README.md
   - docs/sdks/verification/README.md
   - docs/types/date.md
   - entities.go
   - glean.go
   - go.mod
-  - images.go
   - indexing.go
   - indexingauthentication.go
   - indexingdocuments.go
@@ -1564,13 +1208,626 @@ generatedFiles:
   - retry/config.go
   - search.go
   - summarize.go
+  - tests/activities_test.go
+  - tests/activity_test.go
+  - tests/agents_test.go
+  - tests/announcements_test.go
+  - tests/answers_test.go
+  - tests/chat_test.go
+  - tests/clientauthentication_test.go
+  - tests/clientdocuments_test.go
+  - tests/clientshortcuts_test.go
+  - tests/collections_test.go
+  - tests/datasources_test.go
+  - tests/entities_test.go
+  - tests/files.go
+  - tests/indexingauthentication_test.go
+  - tests/indexingdocuments_test.go
+  - tests/insights_test.go
+  - tests/messages_test.go
+  - tests/mockserver/Dockerfile
+  - tests/mockserver/Makefile
+  - tests/mockserver/README.md
+  - tests/mockserver/go.mod
+  - tests/mockserver/go.sum
+  - tests/mockserver/internal/handler/assert/contenttype.go
+  - tests/mockserver/internal/handler/assert/header.go
+  - tests/mockserver/internal/handler/assert/parameter.go
+  - tests/mockserver/internal/handler/assert/pointer.go
+  - tests/mockserver/internal/handler/assert/security.go
+  - tests/mockserver/internal/handler/doc.go
+  - tests/mockserver/internal/handler/generated_handler.go
+  - tests/mockserver/internal/handler/generated_handlers.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1adddatasource.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1betausers.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1bulkindexdocuments.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1bulkindexgroups.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1bulkindexmemberships.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1bulkindexusers.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1checkdocumentaccess.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1deletedocument.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1deletegroup.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1deletemembership.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1deleteuser.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1getdatasourceconfig.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1getdocumentcount.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1getdocumentstatus.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1getusercount.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1indexdocument.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1indexdocuments.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1indexgroup.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1indexmembership.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1indexuser.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1processalldocuments.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1processallemployeesandteams.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1processallmemberships.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1rotatetoken.go
+  - tests/mockserver/internal/handler/pathpostapiindexv1updatepermissions.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1activity.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1addcollectionitems.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1addverificationreminder.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1adminsearch.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1autocomplete.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1chat.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1createannouncement.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1createanswer.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1createauthtoken.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1createcollection.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1createshortcut.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1deleteallchats.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1deleteannouncement.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1deleteanswer.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1deletechatfiles.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1deletechats.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1deletecollection.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1deletecollectionitem.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1deleteshortcut.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1editanswer.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1editcollection.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1editcollectionitem.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1editpin.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1feed.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1feedback.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getagentinputs.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getanswer.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getchat.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getchatapplication.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getchatfiles.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getcollection.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getdocpermissions.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getdocuments.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getdocumentsbyfacets.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getpin.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1getshortcut.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1insights.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1listagents.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1listanswers.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1listchats.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1listcollections.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1listentities.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1listpins.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1listshortcuts.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1listverifications.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1messages.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1people.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1pin.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1recommendations.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1runagent.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1search.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1summarize.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1unpin.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1updateannouncement.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1updateshortcut.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1uploadchatfiles.go
+  - tests/mockserver/internal/handler/pathpostrestapiv1verify.go
+  - tests/mockserver/internal/handler/values/files.go
+  - tests/mockserver/internal/logging/doc.go
+  - tests/mockserver/internal/logging/formats.go
+  - tests/mockserver/internal/logging/http_file.go
+  - tests/mockserver/internal/logging/http_logger.go
+  - tests/mockserver/internal/logging/levels.go
+  - tests/mockserver/internal/logging/logger.go
+  - tests/mockserver/internal/logging/oas_operation.go
+  - tests/mockserver/internal/logging/oas_operation_call.go
+  - tests/mockserver/internal/sdk/models/components/activity.go
+  - tests/mockserver/internal/sdk/models/components/activityevent.go
+  - tests/mockserver/internal/sdk/models/components/activityeventparams.go
+  - tests/mockserver/internal/sdk/models/components/addcollectionitemserror.go
+  - tests/mockserver/internal/sdk/models/components/addcollectionitemsrequest.go
+  - tests/mockserver/internal/sdk/models/components/addcollectionitemsresponse.go
+  - tests/mockserver/internal/sdk/models/components/additionalfielddefinition.go
+  - tests/mockserver/internal/sdk/models/components/agent.go
+  - tests/mockserver/internal/sdk/models/components/agentconfig.go
+  - tests/mockserver/internal/sdk/models/components/agentresult.go
+  - tests/mockserver/internal/sdk/models/components/aiappactioncounts.go
+  - tests/mockserver/internal/sdk/models/components/aiappsinsightsresponse.go
+  - tests/mockserver/internal/sdk/models/components/aiinsightsresponse.go
+  - tests/mockserver/internal/sdk/models/components/announcement.go
+  - tests/mockserver/internal/sdk/models/components/anonymousevent.go
+  - tests/mockserver/internal/sdk/models/components/answer.go
+  - tests/mockserver/internal/sdk/models/components/answerboard.go
+  - tests/mockserver/internal/sdk/models/components/answercreationdata.go
+  - tests/mockserver/internal/sdk/models/components/answerlike.go
+  - tests/mockserver/internal/sdk/models/components/answerlikes.go
+  - tests/mockserver/internal/sdk/models/components/answerresult.go
+  - tests/mockserver/internal/sdk/models/components/appresult.go
+  - tests/mockserver/internal/sdk/models/components/authconfig.go
+  - tests/mockserver/internal/sdk/models/components/authtoken.go
+  - tests/mockserver/internal/sdk/models/components/autocompleterequest.go
+  - tests/mockserver/internal/sdk/models/components/autocompleteresponse.go
+  - tests/mockserver/internal/sdk/models/components/autocompleteresult.go
+  - tests/mockserver/internal/sdk/models/components/autocompleteresultgroup.go
+  - tests/mockserver/internal/sdk/models/components/badge.go
+  - tests/mockserver/internal/sdk/models/components/bulkindexdocumentsrequest.go
+  - tests/mockserver/internal/sdk/models/components/bulkindexemployeesrequest.go
+  - tests/mockserver/internal/sdk/models/components/bulkindexgroupsrequest.go
+  - tests/mockserver/internal/sdk/models/components/bulkindexmembershipsrequest.go
+  - tests/mockserver/internal/sdk/models/components/bulkindexshortcutsrequest.go
+  - tests/mockserver/internal/sdk/models/components/bulkindexteamsrequest.go
+  - tests/mockserver/internal/sdk/models/components/bulkindexusersrequest.go
+  - tests/mockserver/internal/sdk/models/components/bulkuploadhistoryevent.go
+  - tests/mockserver/internal/sdk/models/components/calendarattendee.go
+  - tests/mockserver/internal/sdk/models/components/calendarattendees.go
+  - tests/mockserver/internal/sdk/models/components/calendarevent.go
+  - tests/mockserver/internal/sdk/models/components/canonicalizingregextype.go
+  - tests/mockserver/internal/sdk/models/components/channelinviteinfo.go
+  - tests/mockserver/internal/sdk/models/components/chat.go
+  - tests/mockserver/internal/sdk/models/components/chatfile.go
+  - tests/mockserver/internal/sdk/models/components/chatfilefailurereason.go
+  - tests/mockserver/internal/sdk/models/components/chatfilemetadata.go
+  - tests/mockserver/internal/sdk/models/components/chatfilestatus.go
+  - tests/mockserver/internal/sdk/models/components/chatmessage.go
+  - tests/mockserver/internal/sdk/models/components/chatmessagecitation.go
+  - tests/mockserver/internal/sdk/models/components/chatmessagefragment.go
+  - tests/mockserver/internal/sdk/models/components/chatmetadata.go
+  - tests/mockserver/internal/sdk/models/components/chatmetadataresult.go
+  - tests/mockserver/internal/sdk/models/components/chatrequest.go
+  - tests/mockserver/internal/sdk/models/components/chatresponse.go
+  - tests/mockserver/internal/sdk/models/components/chatrestrictionfilters.go
+  - tests/mockserver/internal/sdk/models/components/chatresult.go
+  - tests/mockserver/internal/sdk/models/components/chatzerostatesuggestionoptions.go
+  - tests/mockserver/internal/sdk/models/components/checkdocumentaccessrequest.go
+  - tests/mockserver/internal/sdk/models/components/checkdocumentaccessresponse.go
+  - tests/mockserver/internal/sdk/models/components/clustergroup.go
+  - tests/mockserver/internal/sdk/models/components/clustertypeenum.go
+  - tests/mockserver/internal/sdk/models/components/code.go
+  - tests/mockserver/internal/sdk/models/components/codeline.go
+  - tests/mockserver/internal/sdk/models/components/collection.go
+  - tests/mockserver/internal/sdk/models/components/collectionerror.go
+  - tests/mockserver/internal/sdk/models/components/collectionitem.go
+  - tests/mockserver/internal/sdk/models/components/collectionitemdescriptor.go
+  - tests/mockserver/internal/sdk/models/components/collectionpinmetadata.go
+  - tests/mockserver/internal/sdk/models/components/collectionpinnablecategories.go
+  - tests/mockserver/internal/sdk/models/components/collectionpinnabletargets.go
+  - tests/mockserver/internal/sdk/models/components/collectionpinnedmetadata.go
+  - tests/mockserver/internal/sdk/models/components/collectionpintarget.go
+  - tests/mockserver/internal/sdk/models/components/commentdefinition.go
+  - tests/mockserver/internal/sdk/models/components/communicationchannel.go
+  - tests/mockserver/internal/sdk/models/components/company.go
+  - tests/mockserver/internal/sdk/models/components/conferencedata.go
+  - tests/mockserver/internal/sdk/models/components/connectortype.go
+  - tests/mockserver/internal/sdk/models/components/contentdefinition.go
+  - tests/mockserver/internal/sdk/models/components/contentinsightsresponse.go
+  - tests/mockserver/internal/sdk/models/components/countinfo.go
+  - tests/mockserver/internal/sdk/models/components/createannouncementrequest.go
+  - tests/mockserver/internal/sdk/models/components/createanswerrequest.go
+  - tests/mockserver/internal/sdk/models/components/createauthtokenresponse.go
+  - tests/mockserver/internal/sdk/models/components/createcollectionrequest.go
+  - tests/mockserver/internal/sdk/models/components/createcollectionresponse.go
+  - tests/mockserver/internal/sdk/models/components/createshortcutrequest.go
+  - tests/mockserver/internal/sdk/models/components/createshortcutresponse.go
+  - tests/mockserver/internal/sdk/models/components/customdatasourceconfig.go
+  - tests/mockserver/internal/sdk/models/components/customdatavalue.go
+  - tests/mockserver/internal/sdk/models/components/customentity.go
+  - tests/mockserver/internal/sdk/models/components/customentitymetadata.go
+  - tests/mockserver/internal/sdk/models/components/customer.go
+  - tests/mockserver/internal/sdk/models/components/customermetadata.go
+  - tests/mockserver/internal/sdk/models/components/customfielddata.go
+  - tests/mockserver/internal/sdk/models/components/customfieldvalue.go
+  - tests/mockserver/internal/sdk/models/components/customfieldvaluehyperlink.go
+  - tests/mockserver/internal/sdk/models/components/customfieldvalueperson.go
+  - tests/mockserver/internal/sdk/models/components/customfieldvaluestr.go
+  - tests/mockserver/internal/sdk/models/components/customproperty.go
+  - tests/mockserver/internal/sdk/models/components/datasourcebulkmembershipdefinition.go
+  - tests/mockserver/internal/sdk/models/components/datasourcegroupdefinition.go
+  - tests/mockserver/internal/sdk/models/components/datasourcemembershipdefinition.go
+  - tests/mockserver/internal/sdk/models/components/datasourceobjecttypedocumentcountentry.go
+  - tests/mockserver/internal/sdk/models/components/datasourceprofile.go
+  - tests/mockserver/internal/sdk/models/components/datasourceuserdefinition.go
+  - tests/mockserver/internal/sdk/models/components/debugdatasourcestatusidentityresponsecomponent.go
+  - tests/mockserver/internal/sdk/models/components/debugdatasourcestatusresponse.go
+  - tests/mockserver/internal/sdk/models/components/debugdocumentrequest.go
+  - tests/mockserver/internal/sdk/models/components/debugdocumentresponse.go
+  - tests/mockserver/internal/sdk/models/components/debugdocumentsrequest.go
+  - tests/mockserver/internal/sdk/models/components/debugdocumentsresponse.go
+  - tests/mockserver/internal/sdk/models/components/debugdocumentsresponseitem.go
+  - tests/mockserver/internal/sdk/models/components/debuguserrequest.go
+  - tests/mockserver/internal/sdk/models/components/debuguserresponse.go
+  - tests/mockserver/internal/sdk/models/components/deleteannouncementrequest.go
+  - tests/mockserver/internal/sdk/models/components/deleteanswerrequest.go
+  - tests/mockserver/internal/sdk/models/components/deletechatfilesrequest.go
+  - tests/mockserver/internal/sdk/models/components/deletechatsrequest.go
+  - tests/mockserver/internal/sdk/models/components/deletecollectionitemrequest.go
+  - tests/mockserver/internal/sdk/models/components/deletecollectionitemresponse.go
+  - tests/mockserver/internal/sdk/models/components/deletecollectionrequest.go
+  - tests/mockserver/internal/sdk/models/components/deletedocumentrequest.go
+  - tests/mockserver/internal/sdk/models/components/deleteemployeerequest.go
+  - tests/mockserver/internal/sdk/models/components/deletegrouprequest.go
+  - tests/mockserver/internal/sdk/models/components/deletemembershiprequest.go
+  - tests/mockserver/internal/sdk/models/components/deleteshortcutrequest.go
+  - tests/mockserver/internal/sdk/models/components/deleteteamrequest.go
+  - tests/mockserver/internal/sdk/models/components/deleteuserrequest.go
+  - tests/mockserver/internal/sdk/models/components/disambiguation.go
+  - tests/mockserver/internal/sdk/models/components/displayablelistitemuiconfig.go
+  - tests/mockserver/internal/sdk/models/components/document.go
+  - tests/mockserver/internal/sdk/models/components/documentcontent.go
+  - tests/mockserver/internal/sdk/models/components/documentdefinition.go
+  - tests/mockserver/internal/sdk/models/components/documentinsight.go
+  - tests/mockserver/internal/sdk/models/components/documentinteractions.go
+  - tests/mockserver/internal/sdk/models/components/documentinteractionsdefinition.go
+  - tests/mockserver/internal/sdk/models/components/documentmetadata.go
+  - tests/mockserver/internal/sdk/models/components/documentorerrorunion.go
+  - tests/mockserver/internal/sdk/models/components/documentpermissionsdefinition.go
+  - tests/mockserver/internal/sdk/models/components/documentsection.go
+  - tests/mockserver/internal/sdk/models/components/documentspecunion.go
+  - tests/mockserver/internal/sdk/models/components/documentstatusresponse.go
+  - tests/mockserver/internal/sdk/models/components/documentvisibility.go
+  - tests/mockserver/internal/sdk/models/components/editanswerrequest.go
+  - tests/mockserver/internal/sdk/models/components/editcollectionitemrequest.go
+  - tests/mockserver/internal/sdk/models/components/editcollectionitemresponse.go
+  - tests/mockserver/internal/sdk/models/components/editcollectionrequest.go
+  - tests/mockserver/internal/sdk/models/components/editcollectionresponse.go
+  - tests/mockserver/internal/sdk/models/components/editpinrequest.go
+  - tests/mockserver/internal/sdk/models/components/employeeinfodefinition.go
+  - tests/mockserver/internal/sdk/models/components/employeeteaminfo.go
+  - tests/mockserver/internal/sdk/models/components/entitiessortorder.go
+  - tests/mockserver/internal/sdk/models/components/entityrelationship.go
+  - tests/mockserver/internal/sdk/models/components/entitytype.go
+  - tests/mockserver/internal/sdk/models/components/errormessage.go
+  - tests/mockserver/internal/sdk/models/components/eventclassification.go
+  - tests/mockserver/internal/sdk/models/components/eventclassificationname.go
+  - tests/mockserver/internal/sdk/models/components/eventstrategyname.go
+  - tests/mockserver/internal/sdk/models/components/externalshortcut.go
+  - tests/mockserver/internal/sdk/models/components/extractedqna.go
+  - tests/mockserver/internal/sdk/models/components/facetbucket.go
+  - tests/mockserver/internal/sdk/models/components/facetbucketfilter.go
+  - tests/mockserver/internal/sdk/models/components/facetfilter.go
+  - tests/mockserver/internal/sdk/models/components/facetfilterset.go
+  - tests/mockserver/internal/sdk/models/components/facetfiltervalue.go
+  - tests/mockserver/internal/sdk/models/components/facetresult.go
+  - tests/mockserver/internal/sdk/models/components/facetvalue.go
+  - tests/mockserver/internal/sdk/models/components/favoriteinfo.go
+  - tests/mockserver/internal/sdk/models/components/feedback.go
+  - tests/mockserver/internal/sdk/models/components/feedbackchatexchange.go
+  - tests/mockserver/internal/sdk/models/components/feedentry.go
+  - tests/mockserver/internal/sdk/models/components/feedrequest.go
+  - tests/mockserver/internal/sdk/models/components/feedrequestoptions.go
+  - tests/mockserver/internal/sdk/models/components/feedresponse.go
+  - tests/mockserver/internal/sdk/models/components/feedresult.go
+  - tests/mockserver/internal/sdk/models/components/followupaction.go
+  - tests/mockserver/internal/sdk/models/components/generatedattachment.go
+  - tests/mockserver/internal/sdk/models/components/generatedattachmentcontent.go
+  - tests/mockserver/internal/sdk/models/components/generatedqna.go
+  - tests/mockserver/internal/sdk/models/components/getagentinputsrequest.go
+  - tests/mockserver/internal/sdk/models/components/getagentinputsresponse.go
+  - tests/mockserver/internal/sdk/models/components/getanswererror.go
+  - tests/mockserver/internal/sdk/models/components/getanswerrequest.go
+  - tests/mockserver/internal/sdk/models/components/getanswerresponse.go
+  - tests/mockserver/internal/sdk/models/components/getchatapplicationrequest.go
+  - tests/mockserver/internal/sdk/models/components/getchatapplicationresponse.go
+  - tests/mockserver/internal/sdk/models/components/getchatfilesrequest.go
+  - tests/mockserver/internal/sdk/models/components/getchatfilesresponse.go
+  - tests/mockserver/internal/sdk/models/components/getchatrequest.go
+  - tests/mockserver/internal/sdk/models/components/getchatresponse.go
+  - tests/mockserver/internal/sdk/models/components/getcollectionrequest.go
+  - tests/mockserver/internal/sdk/models/components/getcollectionresponse.go
+  - tests/mockserver/internal/sdk/models/components/getdatasourceconfigrequest.go
+  - tests/mockserver/internal/sdk/models/components/getdocpermissionsrequest.go
+  - tests/mockserver/internal/sdk/models/components/getdocpermissionsresponse.go
+  - tests/mockserver/internal/sdk/models/components/getdocumentcountrequest.go
+  - tests/mockserver/internal/sdk/models/components/getdocumentcountresponse.go
+  - tests/mockserver/internal/sdk/models/components/getdocumentsbyfacetsrequest.go
+  - tests/mockserver/internal/sdk/models/components/getdocumentsbyfacetsresponse.go
+  - tests/mockserver/internal/sdk/models/components/getdocumentsrequest.go
+  - tests/mockserver/internal/sdk/models/components/getdocumentsresponse.go
+  - tests/mockserver/internal/sdk/models/components/getdocumentstatusrequest.go
+  - tests/mockserver/internal/sdk/models/components/getdocumentstatusresponse.go
+  - tests/mockserver/internal/sdk/models/components/getpinrequest.go
+  - tests/mockserver/internal/sdk/models/components/getpinresponse.go
+  - tests/mockserver/internal/sdk/models/components/getshortcutrequestunion.go
+  - tests/mockserver/internal/sdk/models/components/getshortcutresponse.go
+  - tests/mockserver/internal/sdk/models/components/getusercountrequest.go
+  - tests/mockserver/internal/sdk/models/components/getusercountresponse.go
+  - tests/mockserver/internal/sdk/models/components/gleanassistinsightsresponse.go
+  - tests/mockserver/internal/sdk/models/components/gleandataerror.go
+  - tests/mockserver/internal/sdk/models/components/grantpermission.go
+  - tests/mockserver/internal/sdk/models/components/greenlistusersrequest.go
+  - tests/mockserver/internal/sdk/models/components/group.go
+  - tests/mockserver/internal/sdk/models/components/grouptype.go
+  - tests/mockserver/internal/sdk/models/components/httpmetadata.go
+  - tests/mockserver/internal/sdk/models/components/iconconfig.go
+  - tests/mockserver/internal/sdk/models/components/indexdocumentrequest.go
+  - tests/mockserver/internal/sdk/models/components/indexdocumentsrequest.go
+  - tests/mockserver/internal/sdk/models/components/indexemployeelistrequest.go
+  - tests/mockserver/internal/sdk/models/components/indexemployeerequest.go
+  - tests/mockserver/internal/sdk/models/components/indexgrouprequest.go
+  - tests/mockserver/internal/sdk/models/components/indexmembershiprequest.go
+  - tests/mockserver/internal/sdk/models/components/indexstatus.go
+  - tests/mockserver/internal/sdk/models/components/indexteamrequest.go
+  - tests/mockserver/internal/sdk/models/components/indexuserrequest.go
+  - tests/mockserver/internal/sdk/models/components/insightsagentsrequestoptions.go
+  - tests/mockserver/internal/sdk/models/components/insightsaiapprequestoptions.go
+  - tests/mockserver/internal/sdk/models/components/insightsrequest.go
+  - tests/mockserver/internal/sdk/models/components/insightsresponse.go
+  - tests/mockserver/internal/sdk/models/components/invalidoperatorvalueerror.go
+  - tests/mockserver/internal/sdk/models/components/inviteinfo.go
+  - tests/mockserver/internal/sdk/models/components/labeledcountinfo.go
+  - tests/mockserver/internal/sdk/models/components/listagentsresponse.go
+  - tests/mockserver/internal/sdk/models/components/listanswersrequest.go
+  - tests/mockserver/internal/sdk/models/components/listanswersresponse.go
+  - tests/mockserver/internal/sdk/models/components/listchatsresponse.go
+  - tests/mockserver/internal/sdk/models/components/listcollectionsrequest.go
+  - tests/mockserver/internal/sdk/models/components/listcollectionsresponse.go
+  - tests/mockserver/internal/sdk/models/components/listentitiesrequest.go
+  - tests/mockserver/internal/sdk/models/components/listentitiesresponse.go
+  - tests/mockserver/internal/sdk/models/components/listpinsresponse.go
+  - tests/mockserver/internal/sdk/models/components/listshortcutspaginatedrequest.go
+  - tests/mockserver/internal/sdk/models/components/listshortcutspaginatedresponse.go
+  - tests/mockserver/internal/sdk/models/components/manualfeedbackinfo.go
+  - tests/mockserver/internal/sdk/models/components/meeting.go
+  - tests/mockserver/internal/sdk/models/components/messagesrequest.go
+  - tests/mockserver/internal/sdk/models/components/messagesresponse.go
+  - tests/mockserver/internal/sdk/models/components/objectdefinition.go
+  - tests/mockserver/internal/sdk/models/components/objectpermissions.go
+  - tests/mockserver/internal/sdk/models/components/operatormetadata.go
+  - tests/mockserver/internal/sdk/models/components/operatorscope.go
+  - tests/mockserver/internal/sdk/models/components/peoplerequest.go
+  - tests/mockserver/internal/sdk/models/components/peopleresponse.go
+  - tests/mockserver/internal/sdk/models/components/period.go
+  - tests/mockserver/internal/sdk/models/components/permissions.go
+  - tests/mockserver/internal/sdk/models/components/permissionsgroupintersectiondefinition.go
+  - tests/mockserver/internal/sdk/models/components/person.go
+  - tests/mockserver/internal/sdk/models/components/persondistance.go
+  - tests/mockserver/internal/sdk/models/components/personmetadata.go
+  - tests/mockserver/internal/sdk/models/components/personobject.go
+  - tests/mockserver/internal/sdk/models/components/personteam.go
+  - tests/mockserver/internal/sdk/models/components/persontoteamrelationship.go
+  - tests/mockserver/internal/sdk/models/components/pindocument.go
+  - tests/mockserver/internal/sdk/models/components/pinrequest.go
+  - tests/mockserver/internal/sdk/models/components/possiblevalue.go
+  - tests/mockserver/internal/sdk/models/components/processalldocumentsrequest.go
+  - tests/mockserver/internal/sdk/models/components/processallmembershipsrequest.go
+  - tests/mockserver/internal/sdk/models/components/processinghistoryevent.go
+  - tests/mockserver/internal/sdk/models/components/prompttemplate.go
+  - tests/mockserver/internal/sdk/models/components/prompttemplateresult.go
+  - tests/mockserver/internal/sdk/models/components/propertydefinition.go
+  - tests/mockserver/internal/sdk/models/components/propertygroup.go
+  - tests/mockserver/internal/sdk/models/components/queryinsight.go
+  - tests/mockserver/internal/sdk/models/components/queryinsightsresponse.go
+  - tests/mockserver/internal/sdk/models/components/querysuggestion.go
+  - tests/mockserver/internal/sdk/models/components/querysuggestionlist.go
+  - tests/mockserver/internal/sdk/models/components/quicklink.go
+  - tests/mockserver/internal/sdk/models/components/reaction.go
+  - tests/mockserver/internal/sdk/models/components/readpermission.go
+  - tests/mockserver/internal/sdk/models/components/recommendationsrequest.go
+  - tests/mockserver/internal/sdk/models/components/recommendationsrequestoptions.go
+  - tests/mockserver/internal/sdk/models/components/referencerange.go
+  - tests/mockserver/internal/sdk/models/components/relateddocuments.go
+  - tests/mockserver/internal/sdk/models/components/relatedobject.go
+  - tests/mockserver/internal/sdk/models/components/relatedobjectedge.go
+  - tests/mockserver/internal/sdk/models/components/relatedquestion.go
+  - tests/mockserver/internal/sdk/models/components/reminder.go
+  - tests/mockserver/internal/sdk/models/components/reminderrequest.go
+  - tests/mockserver/internal/sdk/models/components/restrictionfilters.go
+  - tests/mockserver/internal/sdk/models/components/resultsdescription.go
+  - tests/mockserver/internal/sdk/models/components/resultsresponse.go
+  - tests/mockserver/internal/sdk/models/components/resulttab.go
+  - tests/mockserver/internal/sdk/models/components/rotatetokenresponse.go
+  - tests/mockserver/internal/sdk/models/components/runagentrequest.go
+  - tests/mockserver/internal/sdk/models/components/scopetype.go
+  - tests/mockserver/internal/sdk/models/components/searchproviderinfo.go
+  - tests/mockserver/internal/sdk/models/components/searchrequest.go
+  - tests/mockserver/internal/sdk/models/components/searchrequestinputdetails.go
+  - tests/mockserver/internal/sdk/models/components/searchrequestoptions.go
+  - tests/mockserver/internal/sdk/models/components/searchresponse.go
+  - tests/mockserver/internal/sdk/models/components/searchresponsemetadata.go
+  - tests/mockserver/internal/sdk/models/components/searchresult.go
+  - tests/mockserver/internal/sdk/models/components/searchresultprominenceenum.go
+  - tests/mockserver/internal/sdk/models/components/searchresultsnippet.go
+  - tests/mockserver/internal/sdk/models/components/searchwarning.go
+  - tests/mockserver/internal/sdk/models/components/security.go
+  - tests/mockserver/internal/sdk/models/components/seenfeedbackinfo.go
+  - tests/mockserver/internal/sdk/models/components/sessioninfo.go
+  - tests/mockserver/internal/sdk/models/components/share.go
+  - tests/mockserver/internal/sdk/models/components/shortcut.go
+  - tests/mockserver/internal/sdk/models/components/shortcuterror.go
+  - tests/mockserver/internal/sdk/models/components/shortcutinsight.go
+  - tests/mockserver/internal/sdk/models/components/shortcutinsightsresponse.go
+  - tests/mockserver/internal/sdk/models/components/shortcutmutableproperties.go
+  - tests/mockserver/internal/sdk/models/components/shortcutspaginationmetadata.go
+  - tests/mockserver/internal/sdk/models/components/socialnetwork.go
+  - tests/mockserver/internal/sdk/models/components/socialnetworkdefinition.go
+  - tests/mockserver/internal/sdk/models/components/sortoptions.go
+  - tests/mockserver/internal/sdk/models/components/structuredlink.go
+  - tests/mockserver/internal/sdk/models/components/structuredlocation.go
+  - tests/mockserver/internal/sdk/models/components/structuredresult.go
+  - tests/mockserver/internal/sdk/models/components/structuredtext.go
+  - tests/mockserver/internal/sdk/models/components/structuredtextitem.go
+  - tests/mockserver/internal/sdk/models/components/structuredtextmutableproperties.go
+  - tests/mockserver/internal/sdk/models/components/summarizerequest.go
+  - tests/mockserver/internal/sdk/models/components/summarizeresponse.go
+  - tests/mockserver/internal/sdk/models/components/summary.go
+  - tests/mockserver/internal/sdk/models/components/team.go
+  - tests/mockserver/internal/sdk/models/components/teamemail.go
+  - tests/mockserver/internal/sdk/models/components/teaminfodefinition.go
+  - tests/mockserver/internal/sdk/models/components/teammember.go
+  - tests/mockserver/internal/sdk/models/components/textrange.go
+  - tests/mockserver/internal/sdk/models/components/thumbnail.go
+  - tests/mockserver/internal/sdk/models/components/timeinterval.go
+  - tests/mockserver/internal/sdk/models/components/timepoint.go
+  - tests/mockserver/internal/sdk/models/components/toolinfo.go
+  - tests/mockserver/internal/sdk/models/components/toolmetadata.go
+  - tests/mockserver/internal/sdk/models/components/ugctype.go
+  - tests/mockserver/internal/sdk/models/components/unpin.go
+  - tests/mockserver/internal/sdk/models/components/updateannouncementrequest.go
+  - tests/mockserver/internal/sdk/models/components/updatepermissionsrequest.go
+  - tests/mockserver/internal/sdk/models/components/updateshortcutrequest.go
+  - tests/mockserver/internal/sdk/models/components/updateshortcutresponse.go
+  - tests/mockserver/internal/sdk/models/components/uploadchatfilesrequest.go
+  - tests/mockserver/internal/sdk/models/components/uploadchatfilesresponse.go
+  - tests/mockserver/internal/sdk/models/components/uploadshortcutsrequest.go
+  - tests/mockserver/internal/sdk/models/components/uploadstatusenum.go
+  - tests/mockserver/internal/sdk/models/components/user.go
+  - tests/mockserver/internal/sdk/models/components/useractivity.go
+  - tests/mockserver/internal/sdk/models/components/useractivityinsight.go
+  - tests/mockserver/internal/sdk/models/components/usergeneratedcontentid.go
+  - tests/mockserver/internal/sdk/models/components/userinsightsresponse.go
+  - tests/mockserver/internal/sdk/models/components/userreferencedefinition.go
+  - tests/mockserver/internal/sdk/models/components/userrole.go
+  - tests/mockserver/internal/sdk/models/components/userrolespecification.go
+  - tests/mockserver/internal/sdk/models/components/userstatusresponse.go
+  - tests/mockserver/internal/sdk/models/components/userviewinfo.go
+  - tests/mockserver/internal/sdk/models/components/verification.go
+  - tests/mockserver/internal/sdk/models/components/verificationfeed.go
+  - tests/mockserver/internal/sdk/models/components/verificationmetadata.go
+  - tests/mockserver/internal/sdk/models/components/verifyrequest.go
+  - tests/mockserver/internal/sdk/models/components/viewerinfo.go
+  - tests/mockserver/internal/sdk/models/components/workflow.go
+  - tests/mockserver/internal/sdk/models/components/workflowfeedbackinfo.go
+  - tests/mockserver/internal/sdk/models/components/workflowinputfield.go
+  - tests/mockserver/internal/sdk/models/components/workflowresult.go
+  - tests/mockserver/internal/sdk/models/components/writeactionparameter.go
+  - tests/mockserver/internal/sdk/models/components/writepermission.go
+  - tests/mockserver/internal/sdk/models/operations/activity.go
+  - tests/mockserver/internal/sdk/models/operations/addcollectionitems.go
+  - tests/mockserver/internal/sdk/models/operations/addverificationreminder.go
+  - tests/mockserver/internal/sdk/models/operations/adminsearch.go
+  - tests/mockserver/internal/sdk/models/operations/autocomplete.go
+  - tests/mockserver/internal/sdk/models/operations/chat.go
+  - tests/mockserver/internal/sdk/models/operations/createannouncement.go
+  - tests/mockserver/internal/sdk/models/operations/createanswer.go
+  - tests/mockserver/internal/sdk/models/operations/createauthtoken.go
+  - tests/mockserver/internal/sdk/models/operations/createcollection.go
+  - tests/mockserver/internal/sdk/models/operations/createshortcut.go
+  - tests/mockserver/internal/sdk/models/operations/deleteallchats.go
+  - tests/mockserver/internal/sdk/models/operations/deleteannouncement.go
+  - tests/mockserver/internal/sdk/models/operations/deleteanswer.go
+  - tests/mockserver/internal/sdk/models/operations/deletechatfiles.go
+  - tests/mockserver/internal/sdk/models/operations/deletechats.go
+  - tests/mockserver/internal/sdk/models/operations/deletecollection.go
+  - tests/mockserver/internal/sdk/models/operations/deletecollectionitem.go
+  - tests/mockserver/internal/sdk/models/operations/deleteshortcut.go
+  - tests/mockserver/internal/sdk/models/operations/editanswer.go
+  - tests/mockserver/internal/sdk/models/operations/editcollection.go
+  - tests/mockserver/internal/sdk/models/operations/editcollectionitem.go
+  - tests/mockserver/internal/sdk/models/operations/editpin.go
+  - tests/mockserver/internal/sdk/models/operations/feed.go
+  - tests/mockserver/internal/sdk/models/operations/feedback.go
+  - tests/mockserver/internal/sdk/models/operations/getagentinputs.go
+  - tests/mockserver/internal/sdk/models/operations/getanswer.go
+  - tests/mockserver/internal/sdk/models/operations/getchat.go
+  - tests/mockserver/internal/sdk/models/operations/getchatapplication.go
+  - tests/mockserver/internal/sdk/models/operations/getchatfiles.go
+  - tests/mockserver/internal/sdk/models/operations/getcollection.go
+  - tests/mockserver/internal/sdk/models/operations/getdocpermissions.go
+  - tests/mockserver/internal/sdk/models/operations/getdocuments.go
+  - tests/mockserver/internal/sdk/models/operations/getdocumentsbyfacets.go
+  - tests/mockserver/internal/sdk/models/operations/getpin.go
+  - tests/mockserver/internal/sdk/models/operations/getshortcut.go
+  - tests/mockserver/internal/sdk/models/operations/insights.go
+  - tests/mockserver/internal/sdk/models/operations/listagents.go
+  - tests/mockserver/internal/sdk/models/operations/listanswers.go
+  - tests/mockserver/internal/sdk/models/operations/listchats.go
+  - tests/mockserver/internal/sdk/models/operations/listcollections.go
+  - tests/mockserver/internal/sdk/models/operations/listentities.go
+  - tests/mockserver/internal/sdk/models/operations/listpins.go
+  - tests/mockserver/internal/sdk/models/operations/listshortcuts.go
+  - tests/mockserver/internal/sdk/models/operations/listverifications.go
+  - tests/mockserver/internal/sdk/models/operations/messages.go
+  - tests/mockserver/internal/sdk/models/operations/people.go
+  - tests/mockserver/internal/sdk/models/operations/pin.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1adddatasource.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1betausers.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1bulkindexdocuments.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1bulkindexemployees.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1bulkindexgroups.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1bulkindexmemberships.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1bulkindexshortcuts.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1bulkindexteams.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1bulkindexusers.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1checkdocumentaccess.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1debugdatasourcedocument.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1debugdatasourcedocuments.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1debugdatasourcestatus.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1debugdatasourceuser.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1deletedocument.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1deleteemployee.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1deletegroup.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1deletemembership.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1deleteteam.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1deleteuser.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1getdatasourceconfig.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1getdocumentcount.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1getdocumentstatus.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1getusercount.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1indexdocument.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1indexdocuments.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1indexemployee.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1indexemployeelist.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1indexgroup.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1indexmembership.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1indexteam.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1indexuser.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1processalldocuments.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1processallemployeesandteams.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1processallmemberships.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1rotatetoken.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1updatepermissions.go
+  - tests/mockserver/internal/sdk/models/operations/postapiindexv1uploadshortcuts.go
+  - tests/mockserver/internal/sdk/models/operations/recommendations.go
+  - tests/mockserver/internal/sdk/models/operations/runagent.go
+  - tests/mockserver/internal/sdk/models/operations/search.go
+  - tests/mockserver/internal/sdk/models/operations/summarize.go
+  - tests/mockserver/internal/sdk/models/operations/unpin.go
+  - tests/mockserver/internal/sdk/models/operations/updateannouncement.go
+  - tests/mockserver/internal/sdk/models/operations/updateshortcut.go
+  - tests/mockserver/internal/sdk/models/operations/uploadchatfiles.go
+  - tests/mockserver/internal/sdk/models/operations/verify.go
+  - tests/mockserver/internal/sdk/models/sdkerrors/collectionerror.go
+  - tests/mockserver/internal/sdk/models/sdkerrors/gleandataerror.go
+  - tests/mockserver/internal/sdk/types/bigint.go
+  - tests/mockserver/internal/sdk/types/date.go
+  - tests/mockserver/internal/sdk/types/datetime.go
+  - tests/mockserver/internal/sdk/types/decimal.go
+  - tests/mockserver/internal/sdk/types/jsonl/jsonl.go
+  - tests/mockserver/internal/sdk/types/pointers.go
+  - tests/mockserver/internal/sdk/utils/json.go
+  - tests/mockserver/internal/sdk/utils/reflect.go
+  - tests/mockserver/internal/sdk/utils/sort.go
+  - tests/mockserver/internal/server/doc.go
+  - tests/mockserver/internal/server/generated_handlers.go
+  - tests/mockserver/internal/server/internal_handlers.go
+  - tests/mockserver/internal/server/server.go
+  - tests/mockserver/internal/server/server_option.go
+  - tests/mockserver/internal/server/templates/log/index.html.tmpl
+  - tests/mockserver/internal/server/templates/log/operation.html.tmpl
+  - tests/mockserver/internal/server/templates/log/style.css.tmpl
+  - tests/mockserver/internal/tracking/requesttracker.go
+  - tests/mockserver/main.go
+  - tests/people_test.go
+  - tests/permissions_test.go
+  - tests/pins_test.go
+  - tests/search_test.go
+  - tests/summarize_test.go
+  - tests/testclient.go
+  - tests/troubleshooting_test.go
+  - tests/verification_test.go
   - troubleshooting.go
   - types/bigint.go
   - types/date.go
   - types/datetime.go
   - types/decimal.go
   - types/pointers.go
-  - user.go
   - verification.go
 examples:
   updatePet:
@@ -2612,4 +2869,87 @@ examples:
       requestBody:
         application/json; charset=UTF-8: {"uploadId": "<id>", "shortcuts": [{"inputAlias": "<value>", "destinationUrl": "https://only-juggernaut.com/", "createdBy": "<value>", "intermediateUrl": "https://descriptive-electronics.name"}]}
 examplesVersion: 1.0.1
-generatedTests: {}
+generatedTests:
+  activity: "2025-04-29T16:18:24+01:00"
+  feedback: "2025-04-29T16:18:24+01:00"
+  createannouncement: "2025-04-29T16:18:24+01:00"
+  deleteannouncement: "2025-04-29T16:18:24+01:00"
+  updateannouncement: "2025-04-29T16:18:24+01:00"
+  createanswer: "2025-04-29T16:18:24+01:00"
+  deleteanswer: "2025-04-29T16:18:24+01:00"
+  editanswer: "2025-04-29T16:18:24+01:00"
+  getanswer: "2025-04-29T16:18:24+01:00"
+  listanswers: "2025-04-29T16:18:24+01:00"
+  createauthtoken: "2025-04-29T16:18:24+01:00"
+  chat: "2025-04-29T16:18:24+01:00"
+  deleteallchats: "2025-04-29T16:18:24+01:00"
+  deletechats: "2025-04-29T16:18:24+01:00"
+  getchat: "2025-04-29T16:18:24+01:00"
+  listchats: "2025-04-29T16:18:24+01:00"
+  getchatapplication: "2025-04-29T16:18:24+01:00"
+  uploadchatfiles: "2025-04-29T16:18:24+01:00"
+  getchatfiles: "2025-04-29T16:18:24+01:00"
+  deletechatfiles: "2025-04-29T16:18:24+01:00"
+  addcollectionitems: "2025-04-29T16:18:24+01:00"
+  createcollection: "2025-04-29T16:18:24+01:00"
+  deletecollection: "2025-04-29T16:18:24+01:00"
+  deletecollectionitem: "2025-04-29T16:18:24+01:00"
+  editcollection: "2025-04-29T16:18:24+01:00"
+  editcollectionitem: "2025-04-29T16:18:24+01:00"
+  getcollection: "2025-04-29T16:18:24+01:00"
+  listcollections: "2025-04-29T16:18:24+01:00"
+  getdocpermissions: "2025-04-29T16:18:24+01:00"
+  getdocuments: "2025-04-29T16:18:24+01:00"
+  getdocumentsbyfacets: "2025-04-29T16:18:24+01:00"
+  insights: "2025-04-29T16:18:24+01:00"
+  messages: "2025-04-29T16:18:24+01:00"
+  editpin: "2025-04-29T16:18:24+01:00"
+  getpin: "2025-04-29T16:18:24+01:00"
+  listpins: "2025-04-29T16:18:24+01:00"
+  pin: "2025-04-29T16:18:24+01:00"
+  unpin: "2025-04-29T16:18:24+01:00"
+  adminsearch: "2025-04-29T16:18:24+01:00"
+  autocomplete: "2025-04-29T16:18:24+01:00"
+  feed: "2025-04-29T16:18:24+01:00"
+  recommendations: "2025-04-29T16:18:24+01:00"
+  search: "2025-04-29T16:18:24+01:00"
+  listentities: "2025-04-29T16:18:24+01:00"
+  people: "2025-04-29T16:18:24+01:00"
+  createshortcut: "2025-04-29T16:18:24+01:00"
+  deleteshortcut: "2025-04-29T16:18:24+01:00"
+  getshortcut: "2025-04-29T16:18:24+01:00"
+  listshortcuts: "2025-04-29T16:18:24+01:00"
+  updateshortcut: "2025-04-29T16:18:24+01:00"
+  summarize: "2025-04-29T16:18:24+01:00"
+  addverificationreminder: "2025-04-29T16:18:24+01:00"
+  listverifications: "2025-04-29T16:18:24+01:00"
+  verify: "2025-04-29T16:18:24+01:00"
+  runagent: "2025-04-29T16:18:24+01:00"
+  listagents: "2025-04-29T16:18:24+01:00"
+  getagentinputs: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/indexdocument: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/indexdocuments: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/bulkindexdocuments: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/processalldocuments: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/deletedocument: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/updatepermissions: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/indexuser: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/bulkindexusers: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/indexgroup: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/bulkindexgroups: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/indexmembership: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/bulkindexmemberships: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/processallmemberships: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/deleteuser: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/deletegroup: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/deletemembership: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/betausers: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/debug/{datasource}/status: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/checkdocumentaccess: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/getdocumentstatus: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/getdocumentcount: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/getusercount: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/adddatasource: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/getdatasourceconfig: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/rotatetoken: "2025-04-29T16:18:24+01:00"
+  post_/api/index/v1/processallemployeesandteams: "2025-04-29T16:18:24+01:00"
