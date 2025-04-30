@@ -1,12 +1,14 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 1a2c49930fef57ea7cddf2ed9b486f1d
+  docChecksum: 5f39e048571bfcd8aae3cc610c7d8852
   docVersion: 0.9.0
-  speakeasyVersion: 1.540.1
-  generationVersion: 2.593.4
-  releaseVersion: 0.1.3
-  configChecksum: f793813e85ccf1c7fc01ba063d7ba452
+  speakeasyVersion: 1.541.0
+  generationVersion: 2.595.2
+  releaseVersion: 0.2.0
+  configChecksum: 9134877add1789c369dbb155f3447789
+  repoURL: https://github.com/gleanwork/api-client-go.git
+  installationURL: https://github.com/gleanwork/api-client-go
 features:
   go:
     additionalDependencies: 0.1.0
@@ -17,6 +19,7 @@ features:
     deprecations: 2.81.3
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
+    examples: 2.81.4
     flattening: 2.81.1
     globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
