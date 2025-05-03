@@ -26,7 +26,7 @@ func TestCollections_Addcollectionitems(t *testing.T) {
 
 	res, err := s.Client.Collections.AddItems(ctx, components.AddCollectionItemsRequest{
 		CollectionID: 6460.15,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -119,7 +119,7 @@ func TestCollections_Createcollection(t *testing.T) {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -141,7 +141,7 @@ func TestCollections_Deletecollection(t *testing.T) {
 			698486,
 			386564,
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -161,7 +161,7 @@ func TestCollections_Deletecollectionitem(t *testing.T) {
 	res, err := s.Client.Collections.DeleteItem(ctx, components.DeleteCollectionItemRequest{
 		CollectionID: 1357.59,
 		ItemID:       "<id>",
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -252,7 +252,7 @@ func TestCollections_Editcollection(t *testing.T) {
 			},
 		},
 		ID: 720396,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -272,7 +272,7 @@ func TestCollections_Editcollectionitem(t *testing.T) {
 	res, err := s.Client.Collections.EditItem(ctx, components.EditCollectionItemRequest{
 		CollectionID: 795203,
 		ItemID:       "<id>",
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -291,7 +291,7 @@ func TestCollections_Getcollection(t *testing.T) {
 
 	res, err := s.Client.Collections.Get(ctx, components.GetCollectionRequest{
 		ID: 700347,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -308,7 +308,7 @@ func TestCollections_Listcollections(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Collections.List(ctx, components.ListCollectionsRequest{}, nil, nil)
+	res, err := s.Client.Collections.List(ctx, components.ListCollectionsRequest{})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

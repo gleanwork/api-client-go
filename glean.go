@@ -78,6 +78,7 @@ type Glean struct {
 	Client   *Client
 	Agents   *Agents
 	Indexing *Indexing
+	Chat     *Chat
 
 	sdkConfiguration sdkConfiguration
 }
@@ -169,9 +170,9 @@ func New(opts ...SDKOption) *Glean {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "0.9.0",
-			SDKVersion:        "0.1.0-beta.1",
-			GenVersion:        "2.595.2",
-			UserAgent:         "speakeasy-sdk/go 0.1.0-beta.1 2.595.2 0.9.0 github.com/gleanwork/api-client-go",
+			SDKVersion:        "0.1.0-beta.2",
+			GenVersion:        "2.596.2",
+			UserAgent:         "speakeasy-sdk/go 0.1.0-beta.2 2.596.2 0.9.0 github.com/gleanwork/api-client-go",
 			ServerDefaults: []map[string]string{
 				{
 					"domain": "domain",
@@ -208,6 +209,8 @@ func New(opts ...SDKOption) *Glean {
 	sdk.Agents = newAgents(sdk.sdkConfiguration)
 
 	sdk.Indexing = newIndexing(sdk.sdkConfiguration)
+
+	sdk.Chat = newChat(sdk.sdkConfiguration)
 
 	return sdk
 }

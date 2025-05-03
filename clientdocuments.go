@@ -28,13 +28,7 @@ func newClientDocuments(sdkConfig sdkConfiguration) *ClientDocuments {
 
 // GetPermissions - Read document permissions
 // Read the emails of all users who have access to the given document.
-func (s *ClientDocuments) GetPermissions(ctx context.Context, getDocPermissionsRequest components.GetDocPermissionsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetdocpermissionsResponse, error) {
-	request := operations.GetdocpermissionsRequest{
-		XGleanActAs:              xGleanActAs,
-		XGleanAuthType:           xGleanAuthType,
-		GetDocPermissionsRequest: getDocPermissionsRequest,
-	}
-
+func (s *ClientDocuments) GetPermissions(ctx context.Context, request components.GetDocPermissionsRequest, opts ...operations.Option) (*operations.GetdocpermissionsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *ClientDocuments) GetPermissions(ctx context.Context, getDocPermissionsR
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "GetDocPermissionsRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *ClientDocuments) GetPermissions(ctx context.Context, getDocPermissionsR
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -253,13 +245,7 @@ func (s *ClientDocuments) GetPermissions(ctx context.Context, getDocPermissionsR
 
 // Get - Read documents
 // Read the documents including metadata (does not include enhanced metadata via `/documentmetadata`) for the given list of Glean Document IDs or URLs specified in the request.
-func (s *ClientDocuments) Get(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, getDocumentsRequest *components.GetDocumentsRequest, opts ...operations.Option) (*operations.GetdocumentsResponse, error) {
-	request := operations.GetdocumentsRequest{
-		XGleanActAs:         xGleanActAs,
-		XGleanAuthType:      xGleanAuthType,
-		GetDocumentsRequest: getDocumentsRequest,
-	}
-
+func (s *ClientDocuments) Get(ctx context.Context, request *components.GetDocumentsRequest, opts ...operations.Option) (*operations.GetdocumentsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -290,7 +276,7 @@ func (s *ClientDocuments) Get(ctx context.Context, xGleanActAs *string, xGleanAu
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "GetDocumentsRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -315,8 +301,6 @@ func (s *ClientDocuments) Get(ctx context.Context, xGleanActAs *string, xGleanAu
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -478,13 +462,7 @@ func (s *ClientDocuments) Get(ctx context.Context, xGleanActAs *string, xGleanAu
 
 // GetByFacets - Read documents by facets
 // Read the documents including metadata (does not include enhanced metadata via `/documentmetadata`) macthing the given facet conditions.
-func (s *ClientDocuments) GetByFacets(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, getDocumentsByFacetsRequest *components.GetDocumentsByFacetsRequest, opts ...operations.Option) (*operations.GetdocumentsbyfacetsResponse, error) {
-	request := operations.GetdocumentsbyfacetsRequest{
-		XGleanActAs:                 xGleanActAs,
-		XGleanAuthType:              xGleanAuthType,
-		GetDocumentsByFacetsRequest: getDocumentsByFacetsRequest,
-	}
-
+func (s *ClientDocuments) GetByFacets(ctx context.Context, request *components.GetDocumentsByFacetsRequest, opts ...operations.Option) (*operations.GetdocumentsbyfacetsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -515,7 +493,7 @@ func (s *ClientDocuments) GetByFacets(ctx context.Context, xGleanActAs *string, 
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "GetDocumentsByFacetsRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -540,8 +518,6 @@ func (s *ClientDocuments) GetByFacets(ctx context.Context, xGleanActAs *string, 
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

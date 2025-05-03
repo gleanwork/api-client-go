@@ -28,13 +28,7 @@ func newSearch(sdkConfig sdkConfiguration) *Search {
 
 // Admin - Search the index (admin)
 // Retrieves results for search query without respect for permissions. This is available only to privileged users.
-func (s *Search) Admin(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, searchRequest *components.SearchRequest, opts ...operations.Option) (*operations.AdminsearchResponse, error) {
-	request := operations.AdminsearchRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		SearchRequest:  searchRequest,
-	}
-
+func (s *Search) Admin(ctx context.Context, request *components.SearchRequest, opts ...operations.Option) (*operations.AdminsearchResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Search) Admin(ctx context.Context, xGleanActAs *string, xGleanAuthType 
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "SearchRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Search) Admin(ctx context.Context, xGleanActAs *string, xGleanAuthType 
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -274,13 +266,7 @@ func (s *Search) Admin(ctx context.Context, xGleanActAs *string, xGleanAuthType 
 
 // Autocomplete
 // Retrieve query suggestions, operators and documents for the given partially typed query.
-func (s *Search) Autocomplete(ctx context.Context, autocompleteRequest components.AutocompleteRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AutocompleteResponse, error) {
-	request := operations.AutocompleteRequest{
-		XGleanActAs:         xGleanActAs,
-		XGleanAuthType:      xGleanAuthType,
-		AutocompleteRequest: autocompleteRequest,
-	}
-
+func (s *Search) Autocomplete(ctx context.Context, request components.AutocompleteRequest, opts ...operations.Option) (*operations.AutocompleteResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -311,7 +297,7 @@ func (s *Search) Autocomplete(ctx context.Context, autocompleteRequest component
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "AutocompleteRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -336,8 +322,6 @@ func (s *Search) Autocomplete(ctx context.Context, autocompleteRequest component
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -497,13 +481,7 @@ func (s *Search) Autocomplete(ctx context.Context, autocompleteRequest component
 
 // GetFeed - Feed of documents and events
 // The personalized feed/home includes different types of contents including suggestions, recents, calendar events and many more.
-func (s *Search) GetFeed(ctx context.Context, feedRequest components.FeedRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.FeedResponse, error) {
-	request := operations.FeedRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		FeedRequest:    feedRequest,
-	}
-
+func (s *Search) GetFeed(ctx context.Context, request components.FeedRequest, opts ...operations.Option) (*operations.FeedResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -534,7 +512,7 @@ func (s *Search) GetFeed(ctx context.Context, feedRequest components.FeedRequest
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "FeedRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -559,8 +537,6 @@ func (s *Search) GetFeed(ctx context.Context, feedRequest components.FeedRequest
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -722,13 +698,7 @@ func (s *Search) GetFeed(ctx context.Context, feedRequest components.FeedRequest
 
 // Recommendations - Recommend documents
 // Retrieve recommended documents for the given URL or Glean Document ID.
-func (s *Search) Recommendations(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, recommendationsRequest *components.RecommendationsRequest, opts ...operations.Option) (*operations.RecommendationsResponse, error) {
-	request := operations.RecommendationsRequest{
-		XGleanActAs:            xGleanActAs,
-		XGleanAuthType:         xGleanAuthType,
-		RecommendationsRequest: recommendationsRequest,
-	}
-
+func (s *Search) Recommendations(ctx context.Context, request *components.RecommendationsRequest, opts ...operations.Option) (*operations.RecommendationsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -759,7 +729,7 @@ func (s *Search) Recommendations(ctx context.Context, xGleanActAs *string, xGlea
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RecommendationsRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -784,8 +754,6 @@ func (s *Search) Recommendations(ctx context.Context, xGleanActAs *string, xGlea
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -950,13 +918,7 @@ func (s *Search) Recommendations(ctx context.Context, xGleanActAs *string, xGlea
 
 // Execute - Search
 // Retrieve results from the index for the given query and filters.
-func (s *Search) Execute(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, searchRequest *components.SearchRequest, opts ...operations.Option) (*operations.SearchResponse, error) {
-	request := operations.SearchRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		SearchRequest:  searchRequest,
-	}
-
+func (s *Search) Execute(ctx context.Context, request *components.SearchRequest, opts ...operations.Option) (*operations.SearchResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -987,7 +949,7 @@ func (s *Search) Execute(ctx context.Context, xGleanActAs *string, xGleanAuthTyp
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "SearchRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -1012,8 +974,6 @@ func (s *Search) Execute(ctx context.Context, xGleanActAs *string, xGleanAuthTyp
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

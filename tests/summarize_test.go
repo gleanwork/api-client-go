@@ -32,7 +32,7 @@ func TestSummarize_Summarize(t *testing.T) {
 				components.DocumentSpec1{},
 			),
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

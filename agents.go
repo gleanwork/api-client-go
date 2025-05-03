@@ -28,10 +28,8 @@ func newAgents(sdkConfig sdkConfiguration) *Agents {
 
 // Runagent - Runs an Agent.
 // Trigger an Agent with a given id.
-func (s *Agents) Runagent(ctx context.Context, runAgentRequest components.RunAgentRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.RunagentResponse, error) {
+func (s *Agents) Runagent(ctx context.Context, runAgentRequest components.RunAgentRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.RunagentResponse, error) {
 	request := operations.RunagentRequest{
-		XGleanActAs:     xGleanActAs,
-		XGleanAuthType:  xGleanAuthType,
 		TimezoneOffset:  timezoneOffset,
 		RunAgentRequest: runAgentRequest,
 	}
@@ -91,8 +89,6 @@ func (s *Agents) Runagent(ctx context.Context, runAgentRequest components.RunAge
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -258,10 +254,8 @@ func (s *Agents) Runagent(ctx context.Context, runAgentRequest components.RunAge
 
 // Listagents - Lists all agents.
 // Lists all agents that are available.
-func (s *Agents) Listagents(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, requestBody any, opts ...operations.Option) (*operations.ListagentsResponse, error) {
+func (s *Agents) Listagents(ctx context.Context, timezoneOffset *int64, requestBody any, opts ...operations.Option) (*operations.ListagentsResponse, error) {
 	request := operations.ListagentsRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 		RequestBody:    requestBody,
 	}
@@ -321,8 +315,6 @@ func (s *Agents) Listagents(ctx context.Context, xGleanActAs *string, xGleanAuth
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -488,10 +480,8 @@ func (s *Agents) Listagents(ctx context.Context, xGleanActAs *string, xGleanAuth
 
 // Getagentinputs - Gets the inputs to an agent.
 // Get the inputs to an agent with a given id.
-func (s *Agents) Getagentinputs(ctx context.Context, getAgentInputsRequest components.GetAgentInputsRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetagentinputsResponse, error) {
+func (s *Agents) Getagentinputs(ctx context.Context, getAgentInputsRequest components.GetAgentInputsRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.GetagentinputsResponse, error) {
 	request := operations.GetagentinputsRequest{
-		XGleanActAs:           xGleanActAs,
-		XGleanAuthType:        xGleanAuthType,
 		TimezoneOffset:        timezoneOffset,
 		GetAgentInputsRequest: getAgentInputsRequest,
 	}
@@ -551,8 +541,6 @@ func (s *Agents) Getagentinputs(ctx context.Context, getAgentInputsRequest compo
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)

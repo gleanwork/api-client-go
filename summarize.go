@@ -28,13 +28,7 @@ func newSummarize(sdkConfig sdkConfiguration) *Summarize {
 
 // Generate - Summarize documents
 // Generate an AI summary of the requested documents.
-func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.SummarizeRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.SummarizeResponse, error) {
-	request := operations.SummarizeRequest{
-		XGleanActAs:      xGleanActAs,
-		XGleanAuthType:   xGleanAuthType,
-		SummarizeRequest: summarizeRequest,
-	}
-
+func (s *Summarize) Generate(ctx context.Context, request components.SummarizeRequest, opts ...operations.Option) (*operations.SummarizeResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "SummarizeRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

@@ -47,7 +47,7 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -66,7 +66,7 @@ func TestAnnouncements_Deleteannouncement(t *testing.T) {
 
 	res, err := s.Client.Announcements.Delete(ctx, components.DeleteAnnouncementRequest{
 		ID: 545907,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -107,7 +107,7 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 			},
 		},
 		ID: 761625,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

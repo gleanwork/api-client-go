@@ -24,7 +24,7 @@ func TestSearch_Adminsearch(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Search.Admin(ctx, nil, nil, &components.SearchRequest{
+	res, err := s.Client.Search.Admin(ctx, &components.SearchRequest{
 		TrackingToken: apiclientgo.String("trackingToken"),
 		SourceDocument: &components.Document{
 			Metadata: &components.DocumentMetadata{
@@ -243,7 +243,7 @@ func TestSearch_Autocomplete(t *testing.T) {
 				AuthUser:    apiclientgo.String("1"),
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -262,7 +262,7 @@ func TestSearch_Feed(t *testing.T) {
 
 	res, err := s.Client.Search.GetFeed(ctx, components.FeedRequest{
 		TimeoutMillis: apiclientgo.Int64(5000),
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -279,7 +279,7 @@ func TestSearch_Recommendations(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Search.Recommendations(ctx, nil, nil, &components.RecommendationsRequest{
+	res, err := s.Client.Search.Recommendations(ctx, &components.RecommendationsRequest{
 		SourceDocument: &components.Document{
 			Metadata: &components.DocumentMetadata{
 				Datasource: apiclientgo.String("datasource"),
@@ -430,7 +430,7 @@ func TestSearch_Search(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Search.Execute(ctx, nil, nil, &components.SearchRequest{
+	res, err := s.Client.Search.Execute(ctx, &components.SearchRequest{
 		TrackingToken: apiclientgo.String("trackingToken"),
 		SourceDocument: &components.Document{
 			Metadata: &components.DocumentMetadata{

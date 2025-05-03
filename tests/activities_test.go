@@ -23,7 +23,7 @@ func TestActivities_Feedback(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Activities.ReportActivity(ctx, nil, nil, nil, &components.Feedback{
+	res, err := s.Client.Activities.ReportActivity(ctx, nil, &components.Feedback{
 		TrackingTokens: []string{
 			"trackingTokens",
 		},

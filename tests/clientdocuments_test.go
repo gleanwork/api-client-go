@@ -23,7 +23,7 @@ func TestClientDocuments_Getdocpermissions(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Documents.GetPermissions(ctx, components.GetDocPermissionsRequest{}, nil, nil)
+	res, err := s.Client.Documents.GetPermissions(ctx, components.GetDocPermissionsRequest{})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -40,7 +40,7 @@ func TestClientDocuments_Getdocuments(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Documents.Get(ctx, nil, nil, nil)
+	res, err := s.Client.Documents.Get(ctx, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -57,7 +57,7 @@ func TestClientDocuments_Getdocumentsbyfacets(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Documents.GetByFacets(ctx, nil, nil, &components.GetDocumentsByFacetsRequest{
+	res, err := s.Client.Documents.GetByFacets(ctx, &components.GetDocumentsByFacetsRequest{
 		FilterSets: []components.FacetFilterSet{
 			components.FacetFilterSet{
 				Filters: []components.FacetFilter{

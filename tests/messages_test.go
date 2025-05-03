@@ -26,7 +26,7 @@ func TestMessages_Messages(t *testing.T) {
 	res, err := s.Client.Messages.Get(ctx, components.MessagesRequest{
 		IDType: components.IDTypeConversationID,
 		ID:     "<id>",
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

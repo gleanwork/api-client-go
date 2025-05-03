@@ -8,7 +8,7 @@ type Client struct {
 	Announcements  *Announcements
 	Answers        *Answers
 	Authentication *ClientAuthentication
-	Chat           *Chat
+	Chat           *ClientChat
 	Collections    *Collections
 	Documents      *ClientDocuments
 	Insights       *Insights
@@ -31,7 +31,7 @@ func newClient(sdkConfig sdkConfiguration) *Client {
 		Announcements:    newAnnouncements(sdkConfig),
 		Answers:          newAnswers(sdkConfig),
 		Authentication:   newClientAuthentication(sdkConfig),
-		Chat:             newChat(sdkConfig),
+		Chat:             newClientChat(sdkConfig),
 		Collections:      newCollections(sdkConfig),
 		Documents:        newClientDocuments(sdkConfig),
 		Insights:         newInsights(sdkConfig),

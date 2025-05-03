@@ -28,7 +28,7 @@ func TestInsights_Insights(t *testing.T) {
 			components.InsightsRequestCategoryContent,
 			components.InsightsRequestCategoryContent,
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

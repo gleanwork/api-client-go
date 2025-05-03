@@ -64,7 +64,7 @@ func main() {
 				},
 			},
 		},
-	}, nil, nil, nil)
+	}, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -156,6 +156,10 @@ func main() {
 * [Listagents](docs/sdks/agents/README.md#listagents) - Lists all agents.
 * [Getagentinputs](docs/sdks/agents/README.md#getagentinputs) - Gets the inputs to an agent.
 
+### [Chat](docs/sdks/chat/README.md)
+
+* [ChatStream](docs/sdks/chat/README.md#chatstream) - Chat
+
 ### [Client](docs/sdks/client/README.md)
 
 
@@ -185,17 +189,17 @@ func main() {
 
 * [CreateToken](docs/sdks/clientauthentication/README.md#createtoken) - Create authentication token
 
-#### [Client.Chat](docs/sdks/chat/README.md)
+#### [Client.Chat](docs/sdks/clientchat/README.md)
 
-* [Start](docs/sdks/chat/README.md#start) - Chat
-* [DeleteAll](docs/sdks/chat/README.md#deleteall) - Deletes all saved Chats owned by a user
-* [Delete](docs/sdks/chat/README.md#delete) - Deletes saved Chats
-* [Get](docs/sdks/chat/README.md#get) - Retrieves a Chat
-* [List](docs/sdks/chat/README.md#list) - Retrieves all saved Chats
-* [GetApplication](docs/sdks/chat/README.md#getapplication) - Gets the metadata for a custom Chat application
-* [UploadFiles](docs/sdks/chat/README.md#uploadfiles) - Upload files for Chat.
-* [GetFiles](docs/sdks/chat/README.md#getfiles) - Get files uploaded by a user for Chat.
-* [DeleteFiles](docs/sdks/chat/README.md#deletefiles) - Delete files uploaded by a user for chat.
+* [Start](docs/sdks/clientchat/README.md#start) - Chat
+* [DeleteAll](docs/sdks/clientchat/README.md#deleteall) - Deletes all saved Chats owned by a user
+* [Delete](docs/sdks/clientchat/README.md#delete) - Deletes saved Chats
+* [Get](docs/sdks/clientchat/README.md#get) - Retrieves a Chat
+* [List](docs/sdks/clientchat/README.md#list) - Retrieves all saved Chats
+* [GetApplication](docs/sdks/clientchat/README.md#getapplication) - Gets the metadata for a custom Chat application
+* [UploadFiles](docs/sdks/clientchat/README.md#uploadfiles) - Upload files for Chat.
+* [GetFiles](docs/sdks/clientchat/README.md#getfiles) - Get files uploaded by a user for Chat.
+* [DeleteFiles](docs/sdks/clientchat/README.md#deletefiles) - Delete files uploaded by a user for chat.
 
 #### [Client.Collections](docs/sdks/collections/README.md)
 
@@ -586,7 +590,7 @@ func main() {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	if err != nil {
 
 		var e *apierrors.CollectionError

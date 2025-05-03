@@ -28,13 +28,7 @@ func newInsights(sdkConfig sdkConfiguration) *Insights {
 
 // Get - Read insights
 // Reads the aggregate information for each user, query, and content.
-func (s *Insights) Get(ctx context.Context, insightsRequest components.InsightsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.InsightsResponse, error) {
-	request := operations.InsightsRequest{
-		XGleanActAs:     xGleanActAs,
-		XGleanAuthType:  xGleanAuthType,
-		InsightsRequest: insightsRequest,
-	}
-
+func (s *Insights) Get(ctx context.Context, request components.InsightsRequest, opts ...operations.Option) (*operations.InsightsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Insights) Get(ctx context.Context, insightsRequest components.InsightsR
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "InsightsRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Insights) Get(ctx context.Context, insightsRequest components.InsightsR
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

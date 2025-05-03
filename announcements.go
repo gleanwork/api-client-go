@@ -28,13 +28,7 @@ func newAnnouncements(sdkConfig sdkConfiguration) *Announcements {
 
 // Create Announcement
 // Create a textual announcement visible to some set of users based on department and location.
-func (s *Announcements) Create(ctx context.Context, createAnnouncementRequest components.CreateAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateannouncementResponse, error) {
-	request := operations.CreateannouncementRequest{
-		XGleanActAs:               xGleanActAs,
-		XGleanAuthType:            xGleanAuthType,
-		CreateAnnouncementRequest: createAnnouncementRequest,
-	}
-
+func (s *Announcements) Create(ctx context.Context, request components.CreateAnnouncementRequest, opts ...operations.Option) (*operations.CreateannouncementResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Announcements) Create(ctx context.Context, createAnnouncementRequest co
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "CreateAnnouncementRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Announcements) Create(ctx context.Context, createAnnouncementRequest co
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -251,13 +243,7 @@ func (s *Announcements) Create(ctx context.Context, createAnnouncementRequest co
 
 // Delete Announcement
 // Delete an existing user-generated announcement.
-func (s *Announcements) Delete(ctx context.Context, deleteAnnouncementRequest components.DeleteAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteannouncementResponse, error) {
-	request := operations.DeleteannouncementRequest{
-		XGleanActAs:               xGleanActAs,
-		XGleanAuthType:            xGleanAuthType,
-		DeleteAnnouncementRequest: deleteAnnouncementRequest,
-	}
-
+func (s *Announcements) Delete(ctx context.Context, request components.DeleteAnnouncementRequest, opts ...operations.Option) (*operations.DeleteannouncementResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -288,7 +274,7 @@ func (s *Announcements) Delete(ctx context.Context, deleteAnnouncementRequest co
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "DeleteAnnouncementRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -313,8 +299,6 @@ func (s *Announcements) Delete(ctx context.Context, deleteAnnouncementRequest co
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -454,13 +438,7 @@ func (s *Announcements) Delete(ctx context.Context, deleteAnnouncementRequest co
 
 // Update Announcement
 // Update a textual announcement visible to some set of users based on department and location.
-func (s *Announcements) Update(ctx context.Context, updateAnnouncementRequest components.UpdateAnnouncementRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdateannouncementResponse, error) {
-	request := operations.UpdateannouncementRequest{
-		XGleanActAs:               xGleanActAs,
-		XGleanAuthType:            xGleanAuthType,
-		UpdateAnnouncementRequest: updateAnnouncementRequest,
-	}
-
+func (s *Announcements) Update(ctx context.Context, request components.UpdateAnnouncementRequest, opts ...operations.Option) (*operations.UpdateannouncementResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -491,7 +469,7 @@ func (s *Announcements) Update(ctx context.Context, updateAnnouncementRequest co
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "UpdateAnnouncementRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -516,8 +494,6 @@ func (s *Announcements) Update(ctx context.Context, updateAnnouncementRequest co
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
