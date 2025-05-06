@@ -28,13 +28,7 @@ func newVerification(sdkConfig sdkConfiguration) *Verification {
 
 // AddReminder - Create verification
 // Creates a verification reminder for the document. Users can create verification reminders from different product surfaces.
-func (s *Verification) AddReminder(ctx context.Context, reminderRequest components.ReminderRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AddverificationreminderResponse, error) {
-	request := operations.AddverificationreminderRequest{
-		XGleanActAs:     xGleanActAs,
-		XGleanAuthType:  xGleanAuthType,
-		ReminderRequest: reminderRequest,
-	}
-
+func (s *Verification) AddReminder(ctx context.Context, request components.ReminderRequest, opts ...operations.Option) (*operations.AddverificationreminderResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Verification) AddReminder(ctx context.Context, reminderRequest componen
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ReminderRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Verification) AddReminder(ctx context.Context, reminderRequest componen
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -253,11 +245,9 @@ func (s *Verification) AddReminder(ctx context.Context, reminderRequest componen
 
 // List verifications
 // Returns the information to be rendered in verification dashboard. Includes information for each document owned by user regarding their verifications.
-func (s *Verification) List(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, count *int64, opts ...operations.Option) (*operations.ListverificationsResponse, error) {
+func (s *Verification) List(ctx context.Context, count *int64, opts ...operations.Option) (*operations.ListverificationsResponse, error) {
 	request := operations.ListverificationsRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		Count:          count,
+		Count: count,
 	}
 
 	o := operations.Options{}
@@ -308,8 +298,6 @@ func (s *Verification) List(ctx context.Context, xGleanActAs *string, xGleanAuth
 	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -473,13 +461,7 @@ func (s *Verification) List(ctx context.Context, xGleanActAs *string, xGleanAuth
 
 // Verify - Update verification
 // Verify documents to keep the knowledge up to date within customer corpus.
-func (s *Verification) Verify(ctx context.Context, verifyRequest components.VerifyRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.VerifyResponse, error) {
-	request := operations.VerifyRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		VerifyRequest:  verifyRequest,
-	}
-
+func (s *Verification) Verify(ctx context.Context, request components.VerifyRequest, opts ...operations.Option) (*operations.VerifyResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -510,7 +492,7 @@ func (s *Verification) Verify(ctx context.Context, verifyRequest components.Veri
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "VerifyRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -535,8 +517,6 @@ func (s *Verification) Verify(ctx context.Context, verifyRequest components.Veri
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

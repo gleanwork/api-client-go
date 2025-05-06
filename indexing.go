@@ -3,13 +3,13 @@
 package apiclientgo
 
 type Indexing struct {
-	Documents       *IndexingDocuments
-	Permissions     *Permissions
-	Troubleshooting *Troubleshooting
-	Datasources     *Datasources
-	Authentication  *IndexingAuthentication
-	People          *People
-	Shortcuts       *IndexingShortcuts
+	Documents      *IndexingDocuments
+	Permissions    *Permissions
+	Datasource     *Datasource
+	People         *People
+	Datasources    *Datasources
+	Authentication *IndexingAuthentication
+	Shortcuts      *IndexingShortcuts
 
 	sdkConfiguration sdkConfiguration
 }
@@ -19,10 +19,10 @@ func newIndexing(sdkConfig sdkConfiguration) *Indexing {
 		sdkConfiguration: sdkConfig,
 		Documents:        newIndexingDocuments(sdkConfig),
 		Permissions:      newPermissions(sdkConfig),
-		Troubleshooting:  newTroubleshooting(sdkConfig),
+		Datasource:       newDatasource(sdkConfig),
+		People:           newPeople(sdkConfig),
 		Datasources:      newDatasources(sdkConfig),
 		Authentication:   newIndexingAuthentication(sdkConfig),
-		People:           newPeople(sdkConfig),
 		Shortcuts:        newIndexingShortcuts(sdkConfig),
 	}
 }

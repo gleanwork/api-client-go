@@ -15,7 +15,7 @@ import (
 
 // ServerList contains the list of servers available to the SDK
 var ServerList = []string{
-	"https://{domain}-be.glean.com",
+	"https://domain-be.glean.com",
 }
 
 // HTTPClient provides an interface for suplying the SDK with a custom HTTP client
@@ -74,9 +74,18 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 // # Usage guidelines
 // This API is evolving fast. Glean will provide advance notice of any planned backwards incompatible changes along
 // with a 6-month sunset period for anything that requires developers to adopt the new versions.
+//
+// # API Clients
+// Official API clients for the Glean Indexing API are available in multiple languages:
+//
+// - [Python](https://github.com/gleanwork/api-client-python)
+// - [TypeScript](https://github.com/gleanwork/api-client-typescript)
+// - [Go](https://github.com/gleanwork/api-client-go)
+// - [Java](https://github.com/gleanwork/api-client-java)
+//
+// These API clients provide type-safe, idiomatic interfaces for working with Glean IndexingAPIs in your language of choice.
 type Glean struct {
 	Client   *Client
-	Agents   *Agents
 	Indexing *Indexing
 
 	sdkConfiguration sdkConfiguration
@@ -134,9 +143,9 @@ func WithClient(client HTTPClient) SDKOption {
 }
 
 // WithSecurity configures the SDK to use the provided security details
-func WithSecurity(bearerAuth string) SDKOption {
+func WithSecurity(apiToken string) SDKOption {
 	return func(sdk *Glean) {
-		security := components.Security{BearerAuth: &bearerAuth}
+		security := components.Security{APIToken: &apiToken}
 		sdk.sdkConfiguration.Security = utils.AsSecuritySource(&security)
 	}
 }
@@ -169,9 +178,9 @@ func New(opts ...SDKOption) *Glean {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "0.9.0",
-			SDKVersion:        "0.1.0-beta.1",
-			GenVersion:        "2.595.2",
-			UserAgent:         "speakeasy-sdk/go 0.1.0-beta.1 2.595.2 0.9.0 github.com/gleanwork/api-client-go",
+			SDKVersion:        "0.1.0-beta.2",
+			GenVersion:        "2.597.9",
+			UserAgent:         "speakeasy-sdk/go 0.1.0-beta.2 2.597.9 0.9.0 github.com/gleanwork/api-client-go",
 			ServerDefaults: []map[string]string{
 				{
 					"domain": "domain",
@@ -204,8 +213,6 @@ func New(opts ...SDKOption) *Glean {
 	}
 
 	sdk.Client = newClient(sdk.sdkConfiguration)
-
-	sdk.Agents = newAgents(sdk.sdkConfiguration)
 
 	sdk.Indexing = newIndexing(sdk.sdkConfiguration)
 

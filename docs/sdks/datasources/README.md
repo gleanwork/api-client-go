@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [Add](#add) - Add or update datasource
-* [GetConfig](#getconfig) - Get datasource config
+* [RetrieveConfig](#retrieveconfig) - Get datasource config
 
 ## Add
 
@@ -29,7 +29,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Datasources.Add(ctx, components.CustomDatasourceConfig{
@@ -81,7 +81,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## GetConfig
+## RetrieveConfig
 
 Fetches the datasource config for the specified custom datasource.
 
@@ -102,10 +102,10 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Indexing.Datasources.GetConfig(ctx, components.GetDatasourceConfigRequest{
+    res, err := s.Indexing.Datasources.RetrieveConfig(ctx, components.GetDatasourceConfigRequest{
         Datasource: "<value>",
     })
     if err != nil {

@@ -20,10 +20,10 @@ func TestSummarize_Summarize(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Client.Summarize.Generate(ctx, components.SummarizeRequest{
+	res, err := s.Client.Documents.Summarize(ctx, components.SummarizeRequest{
 		DocumentSpecs: []components.DocumentSpecUnion{
 			components.CreateDocumentSpecUnionDocumentSpec1(
 				components.DocumentSpec1{},
@@ -32,7 +32,7 @@ func TestSummarize_Summarize(t *testing.T) {
 				components.DocumentSpec1{},
 			),
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

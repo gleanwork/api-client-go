@@ -20,15 +20,15 @@ func TestInsights_Insights(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Client.Insights.Get(ctx, components.InsightsRequest{
+	res, err := s.Client.Insights.Retrieve(ctx, components.InsightsRequest{
 		Categories: []components.InsightsRequestCategory{
 			components.InsightsRequestCategoryContent,
 			components.InsightsRequestCategoryContent,
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

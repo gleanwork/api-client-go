@@ -28,13 +28,7 @@ func newClientShortcuts(sdkConfig sdkConfiguration) *ClientShortcuts {
 
 // Create shortcut
 // Create a user-generated shortcut that contains an alias and destination URL.
-func (s *ClientShortcuts) Create(ctx context.Context, createShortcutRequest components.CreateShortcutRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateshortcutResponse, error) {
-	request := operations.CreateshortcutRequest{
-		XGleanActAs:           xGleanActAs,
-		XGleanAuthType:        xGleanAuthType,
-		CreateShortcutRequest: createShortcutRequest,
-	}
-
+func (s *ClientShortcuts) Create(ctx context.Context, request components.CreateShortcutRequest, opts ...operations.Option) (*operations.CreateshortcutResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *ClientShortcuts) Create(ctx context.Context, createShortcutRequest comp
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "CreateShortcutRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *ClientShortcuts) Create(ctx context.Context, createShortcutRequest comp
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -251,13 +243,7 @@ func (s *ClientShortcuts) Create(ctx context.Context, createShortcutRequest comp
 
 // Delete shortcut
 // Delete an existing user-generated shortcut.
-func (s *ClientShortcuts) Delete(ctx context.Context, deleteShortcutRequest components.DeleteShortcutRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteshortcutResponse, error) {
-	request := operations.DeleteshortcutRequest{
-		XGleanActAs:           xGleanActAs,
-		XGleanAuthType:        xGleanAuthType,
-		DeleteShortcutRequest: deleteShortcutRequest,
-	}
-
+func (s *ClientShortcuts) Delete(ctx context.Context, request components.DeleteShortcutRequest, opts ...operations.Option) (*operations.DeleteshortcutResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -288,7 +274,7 @@ func (s *ClientShortcuts) Delete(ctx context.Context, deleteShortcutRequest comp
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "DeleteShortcutRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -313,8 +299,6 @@ func (s *ClientShortcuts) Delete(ctx context.Context, deleteShortcutRequest comp
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -452,15 +436,9 @@ func (s *ClientShortcuts) Delete(ctx context.Context, deleteShortcutRequest comp
 
 }
 
-// Get - Read shortcut
+// Retrieve - Read shortcut
 // Read a particular shortcut's details given its ID.
-func (s *ClientShortcuts) Get(ctx context.Context, getShortcutRequest components.GetShortcutRequestUnion, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetshortcutResponse, error) {
-	request := operations.GetshortcutRequest{
-		XGleanActAs:        xGleanActAs,
-		XGleanAuthType:     xGleanAuthType,
-		GetShortcutRequest: getShortcutRequest,
-	}
-
+func (s *ClientShortcuts) Retrieve(ctx context.Context, request components.GetShortcutRequestUnion, opts ...operations.Option) (*operations.GetshortcutResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -491,7 +469,7 @@ func (s *ClientShortcuts) Get(ctx context.Context, getShortcutRequest components
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "GetShortcutRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -516,8 +494,6 @@ func (s *ClientShortcuts) Get(ctx context.Context, getShortcutRequest components
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -677,13 +653,7 @@ func (s *ClientShortcuts) Get(ctx context.Context, getShortcutRequest components
 
 // List shortcuts
 // List shortcuts editable/owned by the currently authenticated user.
-func (s *ClientShortcuts) List(ctx context.Context, listShortcutsPaginatedRequest components.ListShortcutsPaginatedRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListshortcutsResponse, error) {
-	request := operations.ListshortcutsRequest{
-		XGleanActAs:                   xGleanActAs,
-		XGleanAuthType:                xGleanAuthType,
-		ListShortcutsPaginatedRequest: listShortcutsPaginatedRequest,
-	}
-
+func (s *ClientShortcuts) List(ctx context.Context, request components.ListShortcutsPaginatedRequest, opts ...operations.Option) (*operations.ListshortcutsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -714,7 +684,7 @@ func (s *ClientShortcuts) List(ctx context.Context, listShortcutsPaginatedReques
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ListShortcutsPaginatedRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -739,8 +709,6 @@ func (s *ClientShortcuts) List(ctx context.Context, listShortcutsPaginatedReques
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -900,13 +868,7 @@ func (s *ClientShortcuts) List(ctx context.Context, listShortcutsPaginatedReques
 
 // Update shortcut
 // Updates the shortcut with the given ID.
-func (s *ClientShortcuts) Update(ctx context.Context, updateShortcutRequest components.UpdateShortcutRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UpdateshortcutResponse, error) {
-	request := operations.UpdateshortcutRequest{
-		XGleanActAs:           xGleanActAs,
-		XGleanAuthType:        xGleanAuthType,
-		UpdateShortcutRequest: updateShortcutRequest,
-	}
-
+func (s *ClientShortcuts) Update(ctx context.Context, request components.UpdateShortcutRequest, opts ...operations.Option) (*operations.UpdateshortcutResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -937,7 +899,7 @@ func (s *ClientShortcuts) Update(ctx context.Context, updateShortcutRequest comp
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "UpdateShortcutRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -962,8 +924,6 @@ func (s *ClientShortcuts) Update(ctx context.Context, updateShortcutRequest comp
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1096,201 +1056,6 @@ func (s *ClientShortcuts) Update(ctx context.Context, updateShortcutRequest comp
 	case httpRes.StatusCode == 401:
 		fallthrough
 	case httpRes.StatusCode == 429:
-		fallthrough
-	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
-		rawBody, err := utils.ConsumeRawBody(httpRes)
-		if err != nil {
-			return nil, err
-		}
-		return nil, apierrors.NewAPIError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
-		rawBody, err := utils.ConsumeRawBody(httpRes)
-		if err != nil {
-			return nil, err
-		}
-		return nil, apierrors.NewAPIError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	default:
-		rawBody, err := utils.ConsumeRawBody(httpRes)
-		if err != nil {
-			return nil, err
-		}
-		return nil, apierrors.NewAPIError("unknown status code returned", httpRes.StatusCode, string(rawBody), httpRes)
-	}
-
-	return res, nil
-
-}
-
-// Upload shortcuts
-// Creates glean shortcuts for uploaded shortcuts info. Glean would host the shortcuts, and they can be managed in the knowledge tab once uploaded.
-func (s *ClientShortcuts) Upload(ctx context.Context, request components.UploadShortcutsRequest, opts ...operations.Option) (*operations.PostAPIIndexV1UploadshortcutsResponse, error) {
-	o := operations.Options{}
-	supportedOptions := []string{
-		operations.SupportedOptionRetries,
-		operations.SupportedOptionTimeout,
-	}
-
-	for _, opt := range opts {
-		if err := opt(&o, supportedOptions...); err != nil {
-			return nil, fmt.Errorf("error applying option: %w", err)
-		}
-	}
-
-	var baseURL string
-	if o.ServerURL == nil {
-		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
-	} else {
-		baseURL = *o.ServerURL
-	}
-	opURL, err := url.JoinPath(baseURL, "/api/index/v1/uploadshortcuts")
-	if err != nil {
-		return nil, fmt.Errorf("error generating URL: %w", err)
-	}
-
-	hookCtx := hooks.HookContext{
-		BaseURL:        baseURL,
-		Context:        ctx,
-		OperationID:    "post_/api/index/v1/uploadshortcuts",
-		OAuth2Scopes:   []string{},
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
-	if err != nil {
-		return nil, err
-	}
-
-	timeout := o.Timeout
-	if timeout == nil {
-		timeout = s.sdkConfiguration.Timeout
-	}
-
-	if timeout != nil {
-		var cancel context.CancelFunc
-		ctx, cancel = context.WithTimeout(ctx, *timeout)
-		defer cancel()
-	}
-
-	req, err := http.NewRequestWithContext(ctx, "POST", opURL, bodyReader)
-	if err != nil {
-		return nil, fmt.Errorf("error creating request: %w", err)
-	}
-	req.Header.Set("Accept", "*/*")
-	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-	if reqContentType != "" {
-		req.Header.Set("Content-Type", reqContentType)
-	}
-
-	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
-		return nil, err
-	}
-
-	for k, v := range o.SetHeaders {
-		req.Header.Set(k, v)
-	}
-
-	globalRetryConfig := s.sdkConfiguration.RetryConfig
-	retryConfig := o.Retries
-	if retryConfig == nil {
-		if globalRetryConfig != nil {
-			retryConfig = globalRetryConfig
-		}
-	}
-
-	var httpRes *http.Response
-	if retryConfig != nil {
-		httpRes, err = utils.Retry(ctx, utils.Retries{
-			Config: retryConfig,
-			StatusCodes: []string{
-				"429",
-				"500",
-				"502",
-				"503",
-				"504",
-			},
-		}, func() (*http.Response, error) {
-			if req.Body != nil {
-				copyBody, err := req.GetBody()
-				if err != nil {
-					return nil, err
-				}
-				req.Body = copyBody
-			}
-
-			req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
-			if err != nil {
-				if retry.IsPermanentError(err) || retry.IsTemporaryError(err) {
-					return nil, err
-				}
-
-				return nil, retry.Permanent(err)
-			}
-
-			httpRes, err := s.sdkConfiguration.Client.Do(req)
-			if err != nil || httpRes == nil {
-				if err != nil {
-					err = fmt.Errorf("error sending request: %w", err)
-				} else {
-					err = fmt.Errorf("error sending request: no response")
-				}
-
-				_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
-			}
-			return httpRes, err
-		})
-
-		if err != nil {
-			return nil, err
-		} else {
-			httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
-			if err != nil {
-				return nil, err
-			}
-		}
-	} else {
-		req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
-		if err != nil {
-			return nil, err
-		}
-
-		httpRes, err = s.sdkConfiguration.Client.Do(req)
-		if err != nil || httpRes == nil {
-			if err != nil {
-				err = fmt.Errorf("error sending request: %w", err)
-			} else {
-				err = fmt.Errorf("error sending request: no response")
-			}
-
-			_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
-			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "409", "4XX", "5XX"}, httpRes.StatusCode) {
-			_httpRes, err := s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
-			if err != nil {
-				return nil, err
-			} else if _httpRes != nil {
-				httpRes = _httpRes
-			}
-		} else {
-			httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
-			if err != nil {
-				return nil, err
-			}
-		}
-	}
-
-	res := &operations.PostAPIIndexV1UploadshortcutsResponse{
-		HTTPMeta: components.HTTPMetadata{
-			Request:  req,
-			Response: httpRes,
-		},
-	}
-
-	switch {
-	case httpRes.StatusCode == 200:
-	case httpRes.StatusCode == 400:
-		fallthrough
-	case httpRes.StatusCode == 401:
-		fallthrough
-	case httpRes.StatusCode == 409:
 		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)

@@ -26,15 +26,9 @@ func newMessages(sdkConfig sdkConfiguration) *Messages {
 	}
 }
 
-// Get - Read messages
+// Retrieve - Read messages
 // Retrieves list of messages from messaging/chat datasources (e.g. Slack, Teams).
-func (s *Messages) Get(ctx context.Context, messagesRequest components.MessagesRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.MessagesResponse, error) {
-	request := operations.MessagesRequest{
-		XGleanActAs:     xGleanActAs,
-		XGleanAuthType:  xGleanAuthType,
-		MessagesRequest: messagesRequest,
-	}
-
+func (s *Messages) Retrieve(ctx context.Context, request components.MessagesRequest, opts ...operations.Option) (*operations.MessagesResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Messages) Get(ctx context.Context, messagesRequest components.MessagesR
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "MessagesRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Messages) Get(ctx context.Context, messagesRequest components.MessagesR
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

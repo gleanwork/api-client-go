@@ -21,7 +21,7 @@ func TestClientShortcuts_Createshortcut(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Client.Shortcuts.Create(ctx, components.CreateShortcutRequest{
@@ -86,7 +86,7 @@ func TestClientShortcuts_Createshortcut(t *testing.T) {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -100,12 +100,12 @@ func TestClientShortcuts_Deleteshortcut(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Client.Shortcuts.Delete(ctx, components.DeleteShortcutRequest{
 		ID: 545907,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -119,14 +119,14 @@ func TestClientShortcuts_Getshortcut(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Client.Shortcuts.Get(ctx, components.CreateGetShortcutRequestUnionGetShortcutRequest(
+	res, err := s.Client.Shortcuts.Retrieve(ctx, components.CreateGetShortcutRequestUnionGetShortcutRequest(
 		components.GetShortcutRequest{
 			Alias: "<value>",
 		},
-	), nil, nil)
+	))
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -140,7 +140,7 @@ func TestClientShortcuts_Listshortcuts(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Client.Shortcuts.List(ctx, components.ListShortcutsPaginatedRequest{
@@ -160,7 +160,7 @@ func TestClientShortcuts_Listshortcuts(t *testing.T) {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -174,7 +174,7 @@ func TestClientShortcuts_Updateshortcut(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Client.Shortcuts.Update(ctx, components.UpdateShortcutRequest{
@@ -235,7 +235,7 @@ func TestClientShortcuts_Updateshortcut(t *testing.T) {
 				Role: components.UserRoleAnswerModerator,
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

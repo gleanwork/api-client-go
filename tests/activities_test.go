@@ -20,10 +20,10 @@ func TestActivities_Feedback(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Client.Activities.ReportActivity(ctx, nil, nil, nil, &components.Feedback{
+	res, err := s.Client.Activity.Feedback(ctx, nil, &components.Feedback{
 		TrackingTokens: []string{
 			"trackingTokens",
 		},

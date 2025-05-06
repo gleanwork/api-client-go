@@ -39,7 +39,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.UpdatePermissions(ctx, components.UpdatePermissionsRequest{
@@ -94,7 +94,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.IndexUser(ctx, components.IndexUserRequest{
@@ -152,7 +152,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.BulkIndexUsers(ctx, components.BulkIndexUsersRequest{
@@ -221,7 +221,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.IndexGroup(ctx, components.IndexGroupRequest{
@@ -278,7 +278,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.BulkIndexGroups(ctx, components.BulkIndexGroupsRequest{
@@ -341,7 +341,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.IndexMembership(ctx, components.IndexMembershipRequest{
@@ -398,7 +398,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.BulkIndexMemberships(ctx, components.BulkIndexMembershipsRequest{
@@ -458,7 +458,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.ProcessMemberships(ctx, nil)
@@ -510,7 +510,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.DeleteUser(ctx, components.DeleteUserRequest{
@@ -565,7 +565,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.DeleteGroup(ctx, components.DeleteGroupRequest{
@@ -620,7 +620,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.DeleteMembership(ctx, components.DeleteMembershipRequest{
@@ -677,7 +677,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Permissions.AuthorizeBetaUsers(ctx, components.GreenlistUsersRequest{

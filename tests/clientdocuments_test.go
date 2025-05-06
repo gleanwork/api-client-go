@@ -20,10 +20,10 @@ func TestClientDocuments_Getdocpermissions(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Client.Documents.GetPermissions(ctx, components.GetDocPermissionsRequest{}, nil, nil)
+	res, err := s.Client.Documents.RetrievePermissions(ctx, components.GetDocPermissionsRequest{})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -37,10 +37,10 @@ func TestClientDocuments_Getdocuments(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Client.Documents.Get(ctx, nil, nil, nil)
+	res, err := s.Client.Documents.Retrieve(ctx, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -54,10 +54,10 @@ func TestClientDocuments_Getdocumentsbyfacets(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Client.Documents.GetByFacets(ctx, nil, nil, &components.GetDocumentsByFacetsRequest{
+	res, err := s.Client.Documents.RetrieveByFacets(ctx, &components.GetDocumentsByFacetsRequest{
 		FilterSets: []components.FacetFilterSet{
 			components.FacetFilterSet{
 				Filters: []components.FacetFilter{

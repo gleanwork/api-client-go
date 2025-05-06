@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `BearerAuth`       | **string*          | :heavy_minus_sign: | N/A                |
+| `APIToken`         | **string*          | :heavy_minus_sign: | N/A                |

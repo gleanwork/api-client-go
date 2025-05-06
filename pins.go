@@ -26,15 +26,9 @@ func newPins(sdkConfig sdkConfiguration) *Pins {
 	}
 }
 
-// Edit - Update pin
+// Update pin
 // Update an existing user-generated pin.
-func (s *Pins) Edit(ctx context.Context, editPinRequest components.EditPinRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditpinResponse, error) {
-	request := operations.EditpinRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		EditPinRequest: editPinRequest,
-	}
-
+func (s *Pins) Update(ctx context.Context, request components.EditPinRequest, opts ...operations.Option) (*operations.EditpinResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Pins) Edit(ctx context.Context, editPinRequest components.EditPinReques
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "EditPinRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Pins) Edit(ctx context.Context, editPinRequest components.EditPinReques
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -249,15 +241,9 @@ func (s *Pins) Edit(ctx context.Context, editPinRequest components.EditPinReques
 
 }
 
-// Get - Read pin
+// Retrieve - Read pin
 // Read pin details given its ID.
-func (s *Pins) Get(ctx context.Context, getPinRequest components.GetPinRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetpinResponse, error) {
-	request := operations.GetpinRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		GetPinRequest:  getPinRequest,
-	}
-
+func (s *Pins) Retrieve(ctx context.Context, request components.GetPinRequest, opts ...operations.Option) (*operations.GetpinResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -288,7 +274,7 @@ func (s *Pins) Get(ctx context.Context, getPinRequest components.GetPinRequest, 
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "GetPinRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -313,8 +299,6 @@ func (s *Pins) Get(ctx context.Context, getPinRequest components.GetPinRequest, 
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -474,13 +458,7 @@ func (s *Pins) Get(ctx context.Context, getPinRequest components.GetPinRequest, 
 
 // List pins
 // Lists all pins.
-func (s *Pins) List(ctx context.Context, requestBody operations.ListpinsRequestBody, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListpinsResponse, error) {
-	request := operations.ListpinsRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		RequestBody:    requestBody,
-	}
-
+func (s *Pins) List(ctx context.Context, request operations.ListpinsRequest, opts ...operations.Option) (*operations.ListpinsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -511,7 +489,7 @@ func (s *Pins) List(ctx context.Context, requestBody operations.ListpinsRequestB
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -536,8 +514,6 @@ func (s *Pins) List(ctx context.Context, requestBody operations.ListpinsRequestB
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -697,13 +673,7 @@ func (s *Pins) List(ctx context.Context, requestBody operations.ListpinsRequestB
 
 // Create pin
 // Pin a document as a result for a given search query.Pin results that are known to be a good match.
-func (s *Pins) Create(ctx context.Context, pinRequest components.PinRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PinResponse, error) {
-	request := operations.PinRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		PinRequest:     pinRequest,
-	}
-
+func (s *Pins) Create(ctx context.Context, request components.PinRequest, opts ...operations.Option) (*operations.PinResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -734,7 +704,7 @@ func (s *Pins) Create(ctx context.Context, pinRequest components.PinRequest, xGl
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "PinRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -759,8 +729,6 @@ func (s *Pins) Create(ctx context.Context, pinRequest components.PinRequest, xGl
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -920,13 +888,7 @@ func (s *Pins) Create(ctx context.Context, pinRequest components.PinRequest, xGl
 
 // Remove - Delete pin
 // Unpin a previously pinned result.
-func (s *Pins) Remove(ctx context.Context, unpin components.Unpin, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.UnpinResponse, error) {
-	request := operations.UnpinRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		Unpin:          unpin,
-	}
-
+func (s *Pins) Remove(ctx context.Context, request components.Unpin, opts ...operations.Option) (*operations.UnpinResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -957,7 +919,7 @@ func (s *Pins) Remove(ctx context.Context, unpin components.Unpin, xGleanActAs *
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Unpin", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -982,8 +944,6 @@ func (s *Pins) Remove(ctx context.Context, unpin components.Unpin, xGleanActAs *
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

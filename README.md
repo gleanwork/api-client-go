@@ -36,6 +36,7 @@ Remember that each namespace requires its own authentication token type as descr
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
 * [api-client-go](#api-client-go)
+  * [Unified SDK Architecture](#unified-sdk-architecture)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
@@ -63,7 +64,7 @@ go get github.com/gleanwork/api-client-go
 <!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
-### Example
+### Example 1
 
 ```go
 package main
@@ -80,10 +81,10 @@ func main() {
 	ctx := context.Background()
 
 	s := apiclientgo.New(
-		apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Client.Chat.Start(ctx, components.ChatRequest{
+	res, err := s.Client.Chat.Create(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
 				Fragments: []components.ChatMessageFragment{
@@ -93,11 +94,52 @@ func main() {
 				},
 			},
 		},
-	}, nil, nil, nil)
+	}, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 	if res.ChatResponse != nil {
+		// handle response
+	}
+}
+
+```
+
+### Example 2
+
+```go
+package main
+
+import (
+	"context"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+	"os"
+)
+
+func main() {
+	ctx := context.Background()
+
+	s := apiclientgo.New(
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+	)
+
+	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
+		Messages: []components.ChatMessage{
+			components.ChatMessage{
+				Fragments: []components.ChatMessageFragment{
+					components.ChatMessageFragment{
+						Text: apiclientgo.String("What are the company holidays this year?"),
+					},
+				},
+			},
+		},
+	}, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.ChatRequestStream != nil {
 		// handle response
 	}
 }
@@ -112,9 +154,9 @@ func main() {
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type | Scheme      | Environment Variable |
-| ------------ | ---- | ----------- | -------------------- |
-| `BearerAuth` | http | HTTP Bearer | `GLEAN_BEARER_AUTH`  |
+| Name       | Type | Scheme      | Environment Variable |
+| ---------- | ---- | ----------- | -------------------- |
+| `APIToken` | http | HTTP Bearer | `GLEAN_API_TOKEN`    |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
 ```go
@@ -133,7 +175,7 @@ func main() {
 	ctx := context.Background()
 
 	s := apiclientgo.New(
-		apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
 	res, err := s.Client.Activity.Report(ctx, components.Activity{
@@ -208,22 +250,19 @@ For more information on obtaining the appropriate token type, please contact you
 <details open>
 <summary>Available methods</summary>
 
-### [Agents](docs/sdks/agents/README.md)
-
-* [Runagent](docs/sdks/agents/README.md#runagent) - Runs an Agent.
-* [Listagents](docs/sdks/agents/README.md#listagents) - Lists all agents.
-* [Getagentinputs](docs/sdks/agents/README.md#getagentinputs) - Gets the inputs to an agent.
-
 ### [Client](docs/sdks/client/README.md)
 
-
-#### [Client.Activities](docs/sdks/activities/README.md)
-
-* [ReportActivity](docs/sdks/activities/README.md#reportactivity) - Report client activity
 
 #### [Client.Activity](docs/sdks/activity/README.md)
 
 * [Report](docs/sdks/activity/README.md#report) - Report document activity
+* [Feedback](docs/sdks/activity/README.md#feedback) - Report client activity
+
+#### [Client.Agents](docs/sdks/agents/README.md)
+
+* [Run](docs/sdks/agents/README.md#run) - Runs an Agent.
+* [List](docs/sdks/agents/README.md#list) - Lists all agents.
+* [RetrieveInputs](docs/sdks/agents/README.md#retrieveinputs) - Gets the inputs to an agent.
 
 #### [Client.Announcements](docs/sdks/announcements/README.md)
 
@@ -235,8 +274,8 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [Create](docs/sdks/answers/README.md#create) - Create Answer
 * [Delete](docs/sdks/answers/README.md#delete) - Delete Answer
-* [Edit](docs/sdks/answers/README.md#edit) - Update Answer
-* [Get](docs/sdks/answers/README.md#get) - Read Answer
+* [Update](docs/sdks/answers/README.md#update) - Update Answer
+* [Retrieve](docs/sdks/answers/README.md#retrieve) - Read Answer
 * [List](docs/sdks/answers/README.md#list) - List Answers
 
 #### [Client.Authentication](docs/sdks/clientauthentication/README.md)
@@ -245,15 +284,16 @@ For more information on obtaining the appropriate token type, please contact you
 
 #### [Client.Chat](docs/sdks/chat/README.md)
 
-* [Start](docs/sdks/chat/README.md#start) - Chat
+* [Create](docs/sdks/chat/README.md#create) - Chat
 * [DeleteAll](docs/sdks/chat/README.md#deleteall) - Deletes all saved Chats owned by a user
 * [Delete](docs/sdks/chat/README.md#delete) - Deletes saved Chats
-* [Get](docs/sdks/chat/README.md#get) - Retrieves a Chat
+* [Retrieve](docs/sdks/chat/README.md#retrieve) - Retrieves a Chat
 * [List](docs/sdks/chat/README.md#list) - Retrieves all saved Chats
-* [GetApplication](docs/sdks/chat/README.md#getapplication) - Gets the metadata for a custom Chat application
+* [RetrieveApplication](docs/sdks/chat/README.md#retrieveapplication) - Gets the metadata for a custom Chat application
 * [UploadFiles](docs/sdks/chat/README.md#uploadfiles) - Upload files for Chat.
-* [GetFiles](docs/sdks/chat/README.md#getfiles) - Get files uploaded by a user for Chat.
+* [RetrieveFiles](docs/sdks/chat/README.md#retrievefiles) - Get files uploaded by a user for Chat.
 * [DeleteFiles](docs/sdks/chat/README.md#deletefiles) - Delete files uploaded by a user for chat.
+* [CreateStream](docs/sdks/chat/README.md#createstream) - Chat
 
 #### [Client.Collections](docs/sdks/collections/README.md)
 
@@ -262,15 +302,16 @@ For more information on obtaining the appropriate token type, please contact you
 * [Delete](docs/sdks/collections/README.md#delete) - Delete Collection
 * [DeleteItem](docs/sdks/collections/README.md#deleteitem) - Delete Collection item
 * [Update](docs/sdks/collections/README.md#update) - Update Collection
-* [EditItem](docs/sdks/collections/README.md#edititem) - Update Collection item
-* [Get](docs/sdks/collections/README.md#get) - Read Collection
+* [UpdateItem](docs/sdks/collections/README.md#updateitem) - Update Collection item
+* [Retrieve](docs/sdks/collections/README.md#retrieve) - Read Collection
 * [List](docs/sdks/collections/README.md#list) - List Collections
 
 #### [Client.Documents](docs/sdks/clientdocuments/README.md)
 
-* [GetPermissions](docs/sdks/clientdocuments/README.md#getpermissions) - Read document permissions
-* [Get](docs/sdks/clientdocuments/README.md#get) - Read documents
-* [GetByFacets](docs/sdks/clientdocuments/README.md#getbyfacets) - Read documents by facets
+* [RetrievePermissions](docs/sdks/clientdocuments/README.md#retrievepermissions) - Read document permissions
+* [Retrieve](docs/sdks/clientdocuments/README.md#retrieve) - Read documents
+* [RetrieveByFacets](docs/sdks/clientdocuments/README.md#retrievebyfacets) - Read documents by facets
+* [Summarize](docs/sdks/clientdocuments/README.md#summarize) - Summarize documents
 
 #### [Client.Entities](docs/sdks/entities/README.md)
 
@@ -279,40 +320,35 @@ For more information on obtaining the appropriate token type, please contact you
 
 #### [Client.Insights](docs/sdks/insights/README.md)
 
-* [Get](docs/sdks/insights/README.md#get) - Read insights
+* [Retrieve](docs/sdks/insights/README.md#retrieve) - Read insights
 
 #### [Client.Messages](docs/sdks/messages/README.md)
 
-* [Get](docs/sdks/messages/README.md#get) - Read messages
+* [Retrieve](docs/sdks/messages/README.md#retrieve) - Read messages
 
 #### [Client.Pins](docs/sdks/pins/README.md)
 
-* [Edit](docs/sdks/pins/README.md#edit) - Update pin
-* [Get](docs/sdks/pins/README.md#get) - Read pin
+* [Update](docs/sdks/pins/README.md#update) - Update pin
+* [Retrieve](docs/sdks/pins/README.md#retrieve) - Read pin
 * [List](docs/sdks/pins/README.md#list) - List pins
 * [Create](docs/sdks/pins/README.md#create) - Create pin
 * [Remove](docs/sdks/pins/README.md#remove) - Delete pin
 
 #### [Client.Search](docs/sdks/search/README.md)
 
-* [Admin](docs/sdks/search/README.md#admin) - Search the index (admin)
+* [QueryAsAdmin](docs/sdks/search/README.md#queryasadmin) - Search the index (admin)
 * [Autocomplete](docs/sdks/search/README.md#autocomplete) - Autocomplete
-* [GetFeed](docs/sdks/search/README.md#getfeed) - Feed of documents and events
+* [RetrieveFeed](docs/sdks/search/README.md#retrievefeed) - Feed of documents and events
 * [Recommendations](docs/sdks/search/README.md#recommendations) - Recommend documents
-* [Execute](docs/sdks/search/README.md#execute) - Search
+* [Query](docs/sdks/search/README.md#query) - Search
 
 #### [Client.Shortcuts](docs/sdks/clientshortcuts/README.md)
 
 * [Create](docs/sdks/clientshortcuts/README.md#create) - Create shortcut
 * [Delete](docs/sdks/clientshortcuts/README.md#delete) - Delete shortcut
-* [Get](docs/sdks/clientshortcuts/README.md#get) - Read shortcut
+* [Retrieve](docs/sdks/clientshortcuts/README.md#retrieve) - Read shortcut
 * [List](docs/sdks/clientshortcuts/README.md#list) - List shortcuts
 * [Update](docs/sdks/clientshortcuts/README.md#update) - Update shortcut
-* [Upload](docs/sdks/clientshortcuts/README.md#upload) - Upload shortcuts
-
-#### [Client.Summarize](docs/sdks/summarize/README.md)
-
-* [Generate](docs/sdks/summarize/README.md#generate) - Summarize documents
 
 #### [Client.Verification](docs/sdks/verification/README.md)
 
@@ -328,10 +364,15 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [RotateToken](docs/sdks/indexingauthentication/README.md#rotatetoken) - Rotate token
 
+#### [Indexing.Datasource](docs/sdks/datasource/README.md)
+
+* [Status](docs/sdks/datasource/README.md#status) - Beta: Get datasource status
+
+
 #### [Indexing.Datasources](docs/sdks/datasources/README.md)
 
 * [Add](docs/sdks/datasources/README.md#add) - Add or update datasource
-* [GetConfig](docs/sdks/datasources/README.md#getconfig) - Get datasource config
+* [RetrieveConfig](docs/sdks/datasources/README.md#retrieveconfig) - Get datasource config
 
 #### [Indexing.Documents](docs/sdks/indexingdocuments/README.md)
 
@@ -340,12 +381,21 @@ For more information on obtaining the appropriate token type, please contact you
 * [BulkIndex](docs/sdks/indexingdocuments/README.md#bulkindex) - Bulk index documents
 * [ProcessAll](docs/sdks/indexingdocuments/README.md#processall) - Schedules the processing of uploaded documents
 * [Delete](docs/sdks/indexingdocuments/README.md#delete) - Delete document
+* [Debug](docs/sdks/indexingdocuments/README.md#debug) - Beta: Get document information
+
+* [DebugMany](docs/sdks/indexingdocuments/README.md#debugmany) - Beta: Get information of a batch of documents
+
+* [CheckAccess](docs/sdks/indexingdocuments/README.md#checkaccess) - Check document access
+* [~~Status~~](docs/sdks/indexingdocuments/README.md#status) - Get document upload and indexing status :warning: **Deprecated**
+* [~~Count~~](docs/sdks/indexingdocuments/README.md#count) - Get document count :warning: **Deprecated**
 
 #### [Indexing.People](docs/sdks/people/README.md)
 
+* [Debug](docs/sdks/people/README.md#debug) - Beta: Get user information
+
+* [~~Count~~](docs/sdks/people/README.md#count) - Get user count :warning: **Deprecated**
 * [Index](docs/sdks/people/README.md#index) - Index employee
-* [BulkIndexEmployees](docs/sdks/people/README.md#bulkindexemployees) - Bulk index employees
-* [~~BulkIndex~~](docs/sdks/people/README.md#bulkindex) - Bulk index employees :warning: **Deprecated**
+* [BulkIndex](docs/sdks/people/README.md#bulkindex) - Bulk index employees
 * [ProcessAllEmployeesAndTeams](docs/sdks/people/README.md#processallemployeesandteams) - Schedules the processing of uploaded employees and teams
 * [Delete](docs/sdks/people/README.md#delete) - Delete employee
 * [IndexTeam](docs/sdks/people/README.md#indexteam) - Index team
@@ -370,21 +420,7 @@ For more information on obtaining the appropriate token type, please contact you
 #### [Indexing.Shortcuts](docs/sdks/indexingshortcuts/README.md)
 
 * [BulkIndex](docs/sdks/indexingshortcuts/README.md#bulkindex) - Bulk index external shortcuts
-
-#### [Indexing.Troubleshooting](docs/sdks/troubleshooting/README.md)
-
-* [GetDatasourceStatus](docs/sdks/troubleshooting/README.md#getdatasourcestatus) - Beta: Get datasource status
-
-* [PostDocumentDebug](docs/sdks/troubleshooting/README.md#postdocumentdebug) - Beta: Get document information
-
-* [PostDocumentsDebug](docs/sdks/troubleshooting/README.md#postdocumentsdebug) - Beta: Get information of a batch of documents
-
-* [DebugUser](docs/sdks/troubleshooting/README.md#debuguser) - Beta: Get user information
-
-* [CheckAccess](docs/sdks/troubleshooting/README.md#checkaccess) - Check document access
-* [~~GetStatus~~](docs/sdks/troubleshooting/README.md#getstatus) - Get document upload and indexing status :warning: **Deprecated**
-* [~~GetDocumentCount~~](docs/sdks/troubleshooting/README.md#getdocumentcount) - Get document count :warning: **Deprecated**
-* [~~GetUserCount~~](docs/sdks/troubleshooting/README.md#getusercount) - Get user count :warning: **Deprecated**
+* [Upload](docs/sdks/indexingshortcuts/README.md#upload) - Upload shortcuts
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -413,7 +449,7 @@ func main() {
 	ctx := context.Background()
 
 	s := apiclientgo.New(
-		apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
 	res, err := s.Client.Activity.Report(ctx, components.Activity{
@@ -491,7 +527,7 @@ func main() {
 				},
 				RetryConnectionErrors: false,
 			}),
-		apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
 	res, err := s.Client.Activity.Report(ctx, components.Activity{
@@ -565,7 +601,7 @@ func main() {
 	ctx := context.Background()
 
 	s := apiclientgo.New(
-		apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
 	res, err := s.Client.Collections.Create(ctx, components.CreateCollectionRequest{
@@ -644,7 +680,7 @@ func main() {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	if err != nil {
 
 		var e *apierrors.CollectionError
@@ -694,7 +730,7 @@ func main() {
 
 	s := apiclientgo.New(
 		apiclientgo.WithDomain("scared-pearl.biz"),
-		apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
 	res, err := s.Client.Activity.Report(ctx, components.Activity{
@@ -753,7 +789,7 @@ func main() {
 
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL("https://domain-be.glean.com"),
-		apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
 	res, err := s.Client.Activity.Report(ctx, components.Activity{

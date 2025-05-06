@@ -1,12 +1,12 @@
-speakeasyVersion: 1.541.0
+speakeasyVersion: 1.542.3
 sources:
     Glean API:
         sourceNamespace: glean-api-specs
-        sourceRevisionDigest: sha256:1756c09ecbe23405704c2ca0a7fc16f744e0104dd7eae3eea4f70d5a04348c16
-        sourceBlobDigest: sha256:774205fd75a3374e402da1109732bc48f7fcd38efe41d5709663e17ac4f28898
+        sourceRevisionDigest: sha256:899a2c3976fdfa81af3713ce06fcb2283a89faa893ef608498f2365840127272
+        sourceBlobDigest: sha256:313446623e4d6be9ffcf70008ec73eb557e9df1e658aa69a749ef1962fe25e60
         tags:
             - latest
-            - speakeasy-sdk-regen-1746035267
+            - speakeasy-sdk-regen-1746544444
     petstore-oas:
         sourceNamespace: petstore-oas
         sourceRevisionDigest: sha256:97b2eff2f43ce14276d28efc41ec5de8034cde61db8445f12b626e4dc88ea40e
@@ -18,10 +18,10 @@ targets:
     glean:
         source: Glean API
         sourceNamespace: glean-api-specs
-        sourceRevisionDigest: sha256:1756c09ecbe23405704c2ca0a7fc16f744e0104dd7eae3eea4f70d5a04348c16
-        sourceBlobDigest: sha256:774205fd75a3374e402da1109732bc48f7fcd38efe41d5709663e17ac4f28898
+        sourceRevisionDigest: sha256:899a2c3976fdfa81af3713ce06fcb2283a89faa893ef608498f2365840127272
+        sourceBlobDigest: sha256:313446623e4d6be9ffcf70008ec73eb557e9df1e658aa69a749ef1962fe25e60
         codeSamplesNamespace: glean-api-specs-go-code-samples
-        codeSamplesRevisionDigest: sha256:4f6a2f7fc0467c009be003af9d554181df55111188e1e7b314e5532cb92a0e81
+        codeSamplesRevisionDigest: sha256:1a2c6ee620b75ec55a4e5d1dba13e505c1a5ed1cc10d2c374be32857ecbd6f98
     petstore:
         source: petstore-oas
         sourceNamespace: petstore-oas
@@ -45,7 +45,7 @@ workflow:
                 registry:
                     location: registry.speakeasyapi.dev/glean-el2/sdk/glean-api-specs-go-code-samples
                 labelOverride:
-                    fixedValue: Go (Client)
+                    fixedValue: Go (API Client)
                 blocking: false
             testing:
                 enabled: true
