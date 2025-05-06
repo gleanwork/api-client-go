@@ -5,13 +5,13 @@
 
 ### Available Operations
 
-* [Edit](#edit) - Update pin
-* [Get](#get) - Read pin
+* [Update](#update) - Update pin
+* [Retrieve](#retrieve) - Read pin
 * [List](#list) - List pins
 * [Create](#create) - Create pin
 * [Remove](#remove) - Delete pin
 
-## Edit
+## Update
 
 Update an existing user-generated pin.
 
@@ -32,10 +32,10 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Client.Pins.Edit(ctx, components.EditPinRequest{
+    res, err := s.Client.Pins.Update(ctx, components.EditPinRequest{
         AudienceFilters: []components.FacetFilter{
             components.FacetFilter{
                 FieldName: apiclientgo.String("type"),
@@ -51,7 +51,7 @@ func main() {
                 },
             },
         },
-    }, nil, nil)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -63,13 +63,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `editPinRequest`                                                                                                         | [components.EditPinRequest](../../models/components/editpinrequest.md)                                                   | :heavy_check_mark:                                                                                                       | Edit pins request                                                                                                        |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `ctx`                                                                  | [context.Context](https://pkg.go.dev/context#Context)                  | :heavy_check_mark:                                                     | The context to use for the request.                                    |
+| `request`                                                              | [components.EditPinRequest](../../models/components/editpinrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `opts`                                                                 | [][operations.Option](../../models/operations/option.md)               | :heavy_minus_sign:                                                     | The options for this request.                                          |
 
 ### Response
 
@@ -81,7 +79,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Get
+## Retrieve
 
 Read pin details given its ID.
 
@@ -102,10 +100,10 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Client.Pins.Get(ctx, components.GetPinRequest{}, nil, nil)
+    res, err := s.Client.Pins.Retrieve(ctx, components.GetPinRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -117,13 +115,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `getPinRequest`                                                                                                          | [components.GetPinRequest](../../models/components/getpinrequest.md)                                                     | :heavy_check_mark:                                                                                                       | Get pin request                                                                                                          |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `ctx`                                                                | [context.Context](https://pkg.go.dev/context#Context)                | :heavy_check_mark:                                                   | The context to use for the request.                                  |
+| `request`                                                            | [components.GetPinRequest](../../models/components/getpinrequest.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
+| `opts`                                                               | [][operations.Option](../../models/operations/option.md)             | :heavy_minus_sign:                                                   | The options for this request.                                        |
 
 ### Response
 
@@ -156,10 +152,10 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Client.Pins.List(ctx, operations.ListpinsRequestBody{}, nil, nil)
+    res, err := s.Client.Pins.List(ctx, operations.ListpinsRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -171,13 +167,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `requestBody`                                                                                                            | [operations.ListpinsRequestBody](../../models/operations/listpinsrequestbody.md)                                         | :heavy_check_mark:                                                                                                       | List pins request                                                                                                        |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
+| `request`                                                                | [operations.ListpinsRequest](../../models/operations/listpinsrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `opts`                                                                   | [][operations.Option](../../models/operations/option.md)                 | :heavy_minus_sign:                                                       | The options for this request.                                            |
 
 ### Response
 
@@ -210,7 +204,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Client.Pins.Create(ctx, components.PinRequest{
@@ -229,7 +223,7 @@ func main() {
                 },
             },
         },
-    }, nil, nil)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -241,13 +235,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `pinRequest`                                                                                                             | [components.PinRequest](../../models/components/pinrequest.md)                                                           | :heavy_check_mark:                                                                                                       | Details about the document and query for the pin.                                                                        |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                      | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `ctx`                                                          | [context.Context](https://pkg.go.dev/context#Context)          | :heavy_check_mark:                                             | The context to use for the request.                            |
+| `request`                                                      | [components.PinRequest](../../models/components/pinrequest.md) | :heavy_check_mark:                                             | The request object to use for the request.                     |
+| `opts`                                                         | [][operations.Option](../../models/operations/option.md)       | :heavy_minus_sign:                                             | The options for this request.                                  |
 
 ### Response
 
@@ -280,10 +272,10 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Client.Pins.Remove(ctx, components.Unpin{}, nil, nil)
+    res, err := s.Client.Pins.Remove(ctx, components.Unpin{})
     if err != nil {
         log.Fatal(err)
     }
@@ -295,13 +287,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `unpin`                                                                                                                  | [components.Unpin](../../models/components/unpin.md)                                                                     | :heavy_check_mark:                                                                                                       | Details about the pin being unpinned.                                                                                    |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `request`                                                | [components.Unpin](../../models/components/unpin.md)     | :heavy_check_mark:                                       | The request object to use for the request.               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
 

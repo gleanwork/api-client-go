@@ -4,11 +4,11 @@ package apiclientgo
 
 type Client struct {
 	Activity       *Activity
-	Activities     *Activities
 	Announcements  *Announcements
 	Answers        *Answers
 	Authentication *ClientAuthentication
 	Chat           *Chat
+	Agents         *Agents
 	Collections    *Collections
 	Documents      *ClientDocuments
 	Insights       *Insights
@@ -17,7 +17,6 @@ type Client struct {
 	Search         *Search
 	Entities       *Entities
 	Shortcuts      *ClientShortcuts
-	Summarize      *Summarize
 	Verification   *Verification
 
 	sdkConfiguration sdkConfiguration
@@ -27,11 +26,11 @@ func newClient(sdkConfig sdkConfiguration) *Client {
 	return &Client{
 		sdkConfiguration: sdkConfig,
 		Activity:         newActivity(sdkConfig),
-		Activities:       newActivities(sdkConfig),
 		Announcements:    newAnnouncements(sdkConfig),
 		Answers:          newAnswers(sdkConfig),
 		Authentication:   newClientAuthentication(sdkConfig),
 		Chat:             newChat(sdkConfig),
+		Agents:           newAgents(sdkConfig),
 		Collections:      newCollections(sdkConfig),
 		Documents:        newClientDocuments(sdkConfig),
 		Insights:         newInsights(sdkConfig),
@@ -40,7 +39,6 @@ func newClient(sdkConfig sdkConfiguration) *Client {
 		Search:           newSearch(sdkConfig),
 		Entities:         newEntities(sdkConfig),
 		Shortcuts:        newClientShortcuts(sdkConfig),
-		Summarize:        newSummarize(sdkConfig),
 		Verification:     newVerification(sdkConfig),
 	}
 }

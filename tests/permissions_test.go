@@ -20,7 +20,7 @@ func TestPermissions_PostAPIIndexV1Updatepermissions(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.UpdatePermissions(ctx, components.UpdatePermissionsRequest{
@@ -40,7 +40,7 @@ func TestPermissions_PostAPIIndexV1Indexuser(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.IndexUser(ctx, components.IndexUserRequest{
@@ -63,7 +63,7 @@ func TestPermissions_PostAPIIndexV1Bulkindexusers(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.BulkIndexUsers(ctx, components.BulkIndexUsersRequest{
@@ -97,7 +97,7 @@ func TestPermissions_PostAPIIndexV1Indexgroup(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.IndexGroup(ctx, components.IndexGroupRequest{
@@ -119,7 +119,7 @@ func TestPermissions_PostAPIIndexV1Bulkindexgroups(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.BulkIndexGroups(ctx, components.BulkIndexGroupsRequest{
@@ -147,7 +147,7 @@ func TestPermissions_PostAPIIndexV1Indexmembership(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.IndexMembership(ctx, components.IndexMembershipRequest{
@@ -169,7 +169,7 @@ func TestPermissions_PostAPIIndexV1Bulkindexmemberships(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.BulkIndexMemberships(ctx, components.BulkIndexMembershipsRequest{
@@ -194,7 +194,7 @@ func TestPermissions_PostAPIIndexV1Processallmemberships(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.ProcessMemberships(ctx, nil)
@@ -211,7 +211,7 @@ func TestPermissions_PostAPIIndexV1Deleteuser(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.DeleteUser(ctx, components.DeleteUserRequest{
@@ -231,7 +231,7 @@ func TestPermissions_PostAPIIndexV1Deletegroup(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.DeleteGroup(ctx, components.DeleteGroupRequest{
@@ -251,7 +251,7 @@ func TestPermissions_PostAPIIndexV1Deletemembership(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.DeleteMembership(ctx, components.DeleteMembershipRequest{
@@ -273,7 +273,7 @@ func TestPermissions_PostAPIIndexV1Betausers(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Permissions.AuthorizeBetaUsers(ctx, components.GreenlistUsersRequest{

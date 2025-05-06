@@ -3,12 +3,12 @@
 package components
 
 type Security struct {
-	BearerAuth *string `security:"scheme,type=http,subtype=bearer,name=Authorization,env=glean_bearer_auth"`
+	APIToken *string `security:"scheme,type=http,subtype=bearer,name=Authorization,env=glean_api_token"`
 }
 
-func (o *Security) GetBearerAuth() *string {
+func (o *Security) GetAPIToken() *string {
 	if o == nil {
 		return nil
 	}
-	return o.BearerAuth
+	return o.APIToken
 }

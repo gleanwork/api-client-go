@@ -26,12 +26,10 @@ func newChat(sdkConfig sdkConfiguration) *Chat {
 	}
 }
 
-// Start - Chat
+// Create - Chat
 // Have a conversation with Glean AI.
-func (s *Chat) Start(ctx context.Context, chatRequest components.ChatRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.ChatResponse, error) {
+func (s *Chat) Create(ctx context.Context, chatRequest components.ChatRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.ChatResponse, error) {
 	request := operations.ChatRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 		ChatRequest:    chatRequest,
 	}
@@ -86,13 +84,11 @@ func (s *Chat) Start(ctx context.Context, chatRequest components.ChatRequest, xG
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "text/plain")
+	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -205,13 +201,17 @@ func (s *Chat) Start(ctx context.Context, chatRequest components.ChatRequest, xG
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `text/plain`):
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
 				return nil, err
 			}
 
-			out := string(rawBody)
+			var out components.ChatResponse
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+				return nil, err
+			}
+
 			res.ChatResponse = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -254,10 +254,8 @@ func (s *Chat) Start(ctx context.Context, chatRequest components.ChatRequest, xG
 
 // DeleteAll - Deletes all saved Chats owned by a user
 // Deletes all saved Chats a user has had and all their contained conversational content.
-func (s *Chat) DeleteAll(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeleteallchatsResponse, error) {
+func (s *Chat) DeleteAll(ctx context.Context, timezoneOffset *int64, opts ...operations.Option) (*operations.DeleteallchatsResponse, error) {
 	request := operations.DeleteallchatsRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 	}
 
@@ -309,8 +307,6 @@ func (s *Chat) DeleteAll(ctx context.Context, xGleanActAs *string, xGleanAuthTyp
 	}
 	req.Header.Set("Accept", "*/*")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -454,10 +450,8 @@ func (s *Chat) DeleteAll(ctx context.Context, xGleanActAs *string, xGleanAuthTyp
 
 // Delete - Deletes saved Chats
 // Deletes saved Chats and all their contained conversational content.
-func (s *Chat) Delete(ctx context.Context, deleteChatsRequest components.DeleteChatsRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatsResponse, error) {
+func (s *Chat) Delete(ctx context.Context, deleteChatsRequest components.DeleteChatsRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatsResponse, error) {
 	request := operations.DeletechatsRequest{
-		XGleanActAs:        xGleanActAs,
-		XGleanAuthType:     xGleanAuthType,
 		TimezoneOffset:     timezoneOffset,
 		DeleteChatsRequest: deleteChatsRequest,
 	}
@@ -517,8 +511,6 @@ func (s *Chat) Delete(ctx context.Context, deleteChatsRequest components.DeleteC
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -662,12 +654,10 @@ func (s *Chat) Delete(ctx context.Context, deleteChatsRequest components.DeleteC
 
 }
 
-// Get - Retrieves a Chat
+// Retrieve - Retrieves a Chat
 // Retrieves the chat history between Glean Assistant and the user for a given Chat.
-func (s *Chat) Get(ctx context.Context, getChatRequest components.GetChatRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatResponse, error) {
+func (s *Chat) Retrieve(ctx context.Context, getChatRequest components.GetChatRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatResponse, error) {
 	request := operations.GetchatRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 		GetChatRequest: getChatRequest,
 	}
@@ -727,8 +717,6 @@ func (s *Chat) Get(ctx context.Context, getChatRequest components.GetChatRequest
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -894,10 +882,8 @@ func (s *Chat) Get(ctx context.Context, getChatRequest components.GetChatRequest
 
 // List - Retrieves all saved Chats
 // Retrieves all the saved Chats between Glean Assistant and the user. The returned Chats contain only metadata and no conversational content.
-func (s *Chat) List(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.ListchatsResponse, error) {
+func (s *Chat) List(ctx context.Context, timezoneOffset *int64, opts ...operations.Option) (*operations.ListchatsResponse, error) {
 	request := operations.ListchatsRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
 		TimezoneOffset: timezoneOffset,
 	}
 
@@ -949,8 +935,6 @@ func (s *Chat) List(ctx context.Context, xGleanActAs *string, xGleanAuthType *st
 	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1112,12 +1096,10 @@ func (s *Chat) List(ctx context.Context, xGleanActAs *string, xGleanAuthType *st
 
 }
 
-// GetApplication - Gets the metadata for a custom Chat application
+// RetrieveApplication - Gets the metadata for a custom Chat application
 // Gets the Chat application details for the specified application ID.
-func (s *Chat) GetApplication(ctx context.Context, getChatApplicationRequest components.GetChatApplicationRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatapplicationResponse, error) {
+func (s *Chat) RetrieveApplication(ctx context.Context, getChatApplicationRequest components.GetChatApplicationRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatapplicationResponse, error) {
 	request := operations.GetchatapplicationRequest{
-		XGleanActAs:               xGleanActAs,
-		XGleanAuthType:            xGleanAuthType,
 		TimezoneOffset:            timezoneOffset,
 		GetChatApplicationRequest: getChatApplicationRequest,
 	}
@@ -1177,8 +1159,6 @@ func (s *Chat) GetApplication(ctx context.Context, getChatApplicationRequest com
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1342,10 +1322,8 @@ func (s *Chat) GetApplication(ctx context.Context, getChatApplicationRequest com
 
 // UploadFiles - Upload files for Chat.
 // Upload files for Chat.
-func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest components.UploadChatFilesRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.UploadchatfilesResponse, error) {
+func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest components.UploadChatFilesRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.UploadchatfilesResponse, error) {
 	request := operations.UploadchatfilesRequest{
-		XGleanActAs:            xGleanActAs,
-		XGleanAuthType:         xGleanAuthType,
 		TimezoneOffset:         timezoneOffset,
 		UploadChatFilesRequest: uploadChatFilesRequest,
 	}
@@ -1405,8 +1383,6 @@ func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest component
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1570,12 +1546,10 @@ func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest component
 
 }
 
-// GetFiles - Get files uploaded by a user for Chat.
+// RetrieveFiles - Get files uploaded by a user for Chat.
 // Get files uploaded by a user for Chat.
-func (s *Chat) GetFiles(ctx context.Context, getChatFilesRequest components.GetChatFilesRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatfilesResponse, error) {
+func (s *Chat) RetrieveFiles(ctx context.Context, getChatFilesRequest components.GetChatFilesRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatfilesResponse, error) {
 	request := operations.GetchatfilesRequest{
-		XGleanActAs:         xGleanActAs,
-		XGleanAuthType:      xGleanAuthType,
 		TimezoneOffset:      timezoneOffset,
 		GetChatFilesRequest: getChatFilesRequest,
 	}
@@ -1635,8 +1609,6 @@ func (s *Chat) GetFiles(ctx context.Context, getChatFilesRequest components.GetC
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1802,10 +1774,8 @@ func (s *Chat) GetFiles(ctx context.Context, getChatFilesRequest components.GetC
 
 // DeleteFiles - Delete files uploaded by a user for chat.
 // Delete files uploaded by a user for Chat.
-func (s *Chat) DeleteFiles(ctx context.Context, deleteChatFilesRequest components.DeleteChatFilesRequest, xGleanActAs *string, xGleanAuthType *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatfilesResponse, error) {
+func (s *Chat) DeleteFiles(ctx context.Context, deleteChatFilesRequest components.DeleteChatFilesRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatfilesResponse, error) {
 	request := operations.DeletechatfilesRequest{
-		XGleanActAs:            xGleanActAs,
-		XGleanAuthType:         xGleanAuthType,
 		TimezoneOffset:         timezoneOffset,
 		DeleteChatFilesRequest: deleteChatFilesRequest,
 	}
@@ -1865,8 +1835,6 @@ func (s *Chat) DeleteFiles(ctx context.Context, deleteChatFilesRequest component
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -1983,6 +1951,228 @@ func (s *Chat) DeleteFiles(ctx context.Context, deleteChatFilesRequest component
 	case httpRes.StatusCode == 401:
 		fallthrough
 	case httpRes.StatusCode == 403:
+		fallthrough
+	case httpRes.StatusCode == 429:
+		fallthrough
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+		return nil, apierrors.NewAPIError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+		return nil, apierrors.NewAPIError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
+	default:
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+		return nil, apierrors.NewAPIError("unknown status code returned", httpRes.StatusCode, string(rawBody), httpRes)
+	}
+
+	return res, nil
+
+}
+
+// CreateStream - Chat
+// Have a conversation with Glean AI.
+func (s *Chat) CreateStream(ctx context.Context, chatRequest components.ChatRequest, timezoneOffset *int64, opts ...operations.Option) (*operations.ChatStreamResponse, error) {
+	request := operations.ChatStreamRequest{
+		TimezoneOffset: timezoneOffset,
+		ChatRequest:    chatRequest,
+	}
+
+	o := operations.Options{}
+	supportedOptions := []string{
+		operations.SupportedOptionRetries,
+		operations.SupportedOptionTimeout,
+	}
+
+	for _, opt := range opts {
+		if err := opt(&o, supportedOptions...); err != nil {
+			return nil, fmt.Errorf("error applying option: %w", err)
+		}
+	}
+
+	var baseURL string
+	if o.ServerURL == nil {
+		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	} else {
+		baseURL = *o.ServerURL
+	}
+	opURL, err := url.JoinPath(baseURL, "/rest/api/v1/chat")
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "chatStream",
+		OAuth2Scopes:   []string{},
+		SecuritySource: s.sdkConfiguration.Security,
+	}
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ChatRequest", "json", `request:"mediaType=application/json"`)
+	if err != nil {
+		return nil, err
+	}
+
+	timeout := o.Timeout
+	if timeout == nil {
+		timeout = s.sdkConfiguration.Timeout
+	}
+
+	if timeout != nil {
+		var cancel context.CancelFunc
+		ctx, cancel = context.WithTimeout(ctx, *timeout)
+		defer cancel()
+	}
+
+	req, err := http.NewRequestWithContext(ctx, "POST", opURL, bodyReader)
+	if err != nil {
+		return nil, fmt.Errorf("error creating request: %w", err)
+	}
+	req.Header.Set("Accept", "text/plain")
+	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+	if reqContentType != "" {
+		req.Header.Set("Content-Type", reqContentType)
+	}
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
+
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
+		return nil, err
+	}
+
+	for k, v := range o.SetHeaders {
+		req.Header.Set(k, v)
+	}
+
+	globalRetryConfig := s.sdkConfiguration.RetryConfig
+	retryConfig := o.Retries
+	if retryConfig == nil {
+		if globalRetryConfig != nil {
+			retryConfig = globalRetryConfig
+		}
+	}
+
+	var httpRes *http.Response
+	if retryConfig != nil {
+		httpRes, err = utils.Retry(ctx, utils.Retries{
+			Config: retryConfig,
+			StatusCodes: []string{
+				"429",
+				"500",
+				"502",
+				"503",
+				"504",
+			},
+		}, func() (*http.Response, error) {
+			if req.Body != nil {
+				copyBody, err := req.GetBody()
+				if err != nil {
+					return nil, err
+				}
+				req.Body = copyBody
+			}
+
+			req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
+			if err != nil {
+				if retry.IsPermanentError(err) || retry.IsTemporaryError(err) {
+					return nil, err
+				}
+
+				return nil, retry.Permanent(err)
+			}
+
+			httpRes, err := s.sdkConfiguration.Client.Do(req)
+			if err != nil || httpRes == nil {
+				if err != nil {
+					err = fmt.Errorf("error sending request: %w", err)
+				} else {
+					err = fmt.Errorf("error sending request: no response")
+				}
+
+				_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
+			}
+			return httpRes, err
+		})
+
+		if err != nil {
+			return nil, err
+		} else {
+			httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
+			if err != nil {
+				return nil, err
+			}
+		}
+	} else {
+		req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
+		if err != nil {
+			return nil, err
+		}
+
+		httpRes, err = s.sdkConfiguration.Client.Do(req)
+		if err != nil || httpRes == nil {
+			if err != nil {
+				err = fmt.Errorf("error sending request: %w", err)
+			} else {
+				err = fmt.Errorf("error sending request: no response")
+			}
+
+			_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
+			return nil, err
+		} else if utils.MatchStatusCodes([]string{"400", "401", "408", "429", "4XX", "5XX"}, httpRes.StatusCode) {
+			_httpRes, err := s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
+			if err != nil {
+				return nil, err
+			} else if _httpRes != nil {
+				httpRes = _httpRes
+			}
+		} else {
+			httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
+			if err != nil {
+				return nil, err
+			}
+		}
+	}
+
+	res := &operations.ChatStreamResponse{
+		HTTPMeta: components.HTTPMetadata{
+			Request:  req,
+			Response: httpRes,
+		},
+	}
+
+	switch {
+	case httpRes.StatusCode == 200:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `text/plain`):
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+
+			out := string(rawBody)
+			res.ChatRequestStream = &out
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, apierrors.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
+	case httpRes.StatusCode == 400:
+		fallthrough
+	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 408:
 		fallthrough
 	case httpRes.StatusCode == 429:
 		fallthrough

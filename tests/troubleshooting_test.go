@@ -24,10 +24,10 @@ func TestTroubleshooting_PostAPIIndexV1Checkdocumentaccess(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Indexing.Troubleshooting.CheckAccess(ctx, components.CheckDocumentAccessRequest{
+	res, err := s.Indexing.Documents.CheckAccess(ctx, components.CheckDocumentAccessRequest{
 		Datasource: "<value>",
 		ObjectType: "<value>",
 		DocID:      "<id>",
@@ -46,10 +46,10 @@ func TestTroubleshooting_PostAPIIndexV1Getdocumentstatus(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Indexing.Troubleshooting.GetStatus(ctx, components.GetDocumentStatusRequest{
+	res, err := s.Indexing.Documents.Status(ctx, components.GetDocumentStatusRequest{
 		Datasource: "<value>",
 		ObjectType: "<value>",
 		DocID:      "<id>",
@@ -67,10 +67,10 @@ func TestTroubleshooting_PostAPIIndexV1Getdocumentcount(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Indexing.Troubleshooting.GetDocumentCount(ctx, components.GetDocumentCountRequest{
+	res, err := s.Indexing.Documents.Count(ctx, components.GetDocumentCountRequest{
 		Datasource: "<value>",
 	})
 	require.NoError(t, err)
@@ -86,10 +86,10 @@ func TestTroubleshooting_PostAPIIndexV1Getusercount(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Indexing.Troubleshooting.GetUserCount(ctx, components.GetUserCountRequest{
+	res, err := s.Indexing.People.Count(ctx, components.GetUserCountRequest{
 		Datasource: "<value>",
 	})
 	require.NoError(t, err)

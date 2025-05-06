@@ -21,7 +21,7 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Client.Announcements.Create(ctx, components.CreateAnnouncementRequest{
@@ -47,7 +47,7 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -61,12 +61,12 @@ func TestAnnouncements_Deleteannouncement(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Client.Announcements.Delete(ctx, components.DeleteAnnouncementRequest{
 		ID: 545907,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -80,7 +80,7 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Client.Announcements.Update(ctx, components.UpdateAnnouncementRequest{
@@ -107,7 +107,7 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 			},
 		},
 		ID: 761625,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

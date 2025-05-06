@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [Get](#get) - Read messages
+* [Retrieve](#retrieve) - Read messages
 
-## Get
+## Retrieve
 
 Retrieves list of messages from messaging/chat datasources (e.g. Slack, Teams).
 
@@ -28,13 +28,13 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Client.Messages.Get(ctx, components.MessagesRequest{
+    res, err := s.Client.Messages.Retrieve(ctx, components.MessagesRequest{
         IDType: components.IDTypeConversationID,
         ID: "<id>",
-    }, nil, nil)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -46,13 +46,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `messagesRequest`                                                                                                        | [components.MessagesRequest](../../models/components/messagesrequest.md)                                                 | :heavy_check_mark:                                                                                                       | Includes request params such as the id for channel/message and direction.                                                |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
+| `request`                                                                | [components.MessagesRequest](../../models/components/messagesrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `opts`                                                                   | [][operations.Option](../../models/operations/option.md)                 | :heavy_minus_sign:                                                       | The options for this request.                                            |
 
 ### Response
 

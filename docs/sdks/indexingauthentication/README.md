@@ -27,7 +27,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.Authentication.RotateToken(ctx)

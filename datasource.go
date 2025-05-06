@@ -13,26 +13,26 @@ import (
 	"github.com/gleanwork/api-client-go/models/operations"
 	"github.com/gleanwork/api-client-go/retry"
 	"net/http"
-	"net/url"
 )
 
-type Summarize struct {
+type Datasource struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newSummarize(sdkConfig sdkConfiguration) *Summarize {
-	return &Summarize{
+func newDatasource(sdkConfig sdkConfiguration) *Datasource {
+	return &Datasource{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
-// Generate - Summarize documents
-// Generate an AI summary of the requested documents.
-func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.SummarizeRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.SummarizeResponse, error) {
-	request := operations.SummarizeRequest{
-		XGleanActAs:      xGleanActAs,
-		XGleanAuthType:   xGleanAuthType,
-		SummarizeRequest: summarizeRequest,
+// Status - Beta: Get datasource status
+//
+// Gather information about the datasource's overall status. Currently in beta, might undergo breaking changes without prior notice.
+//
+// Tip: Refer to the [Troubleshooting tutorial](https://developers.glean.com/docs/indexing_api/indexing_api_troubleshooting/) for more information.
+func (s *Datasource) Status(ctx context.Context, datasource string, opts ...operations.Option) (*operations.PostAPIIndexV1DebugDatasourceStatusResponse, error) {
+	request := operations.PostAPIIndexV1DebugDatasourceStatusRequest{
+		Datasource: datasource,
 	}
 
 	o := operations.Options{}
@@ -53,7 +53,7 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/rest/api/v1/summarize")
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/api/index/v1/debug/{datasource}/status", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -61,13 +61,9 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 	hookCtx := hooks.HookContext{
 		BaseURL:        baseURL,
 		Context:        ctx,
-		OperationID:    "summarize",
+		OperationID:    "post_/api/index/v1/debug/{datasource}/status",
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
-	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "SummarizeRequest", "json", `request:"mediaType=application/json"`)
-	if err != nil {
-		return nil, err
 	}
 
 	timeout := o.Timeout
@@ -81,17 +77,12 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 		defer cancel()
 	}
 
-	req, err := http.NewRequestWithContext(ctx, "POST", opURL, bodyReader)
+	req, err := http.NewRequestWithContext(ctx, "POST", opURL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Accept", "application/json; charset=UTF-8")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-	if reqContentType != "" {
-		req.Header.Set("Content-Type", reqContentType)
-	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -175,7 +166,7 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 
 			_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "429", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"400", "401", "4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -190,7 +181,7 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 		}
 	}
 
-	res := &operations.SummarizeResponse{
+	res := &operations.PostAPIIndexV1DebugDatasourceStatusResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -200,18 +191,18 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json; charset=UTF-8`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
 				return nil, err
 			}
 
-			var out components.SummarizeResponse
+			var out components.DebugDatasourceStatusResponse
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.SummarizeResponse = &out
+			res.DebugDatasourceStatusResponse = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -222,8 +213,6 @@ func (s *Summarize) Generate(ctx context.Context, summarizeRequest components.Su
 	case httpRes.StatusCode == 400:
 		fallthrough
 	case httpRes.StatusCode == 401:
-		fallthrough
-	case httpRes.StatusCode == 429:
 		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)

@@ -28,13 +28,7 @@ func newCollections(sdkConfig sdkConfiguration) *Collections {
 
 // AddItems - Add Collection item
 // Add items to a Collection.
-func (s *Collections) AddItems(ctx context.Context, addCollectionItemsRequest components.AddCollectionItemsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.AddcollectionitemsResponse, error) {
-	request := operations.AddcollectionitemsRequest{
-		XGleanActAs:               xGleanActAs,
-		XGleanAuthType:            xGleanAuthType,
-		AddCollectionItemsRequest: addCollectionItemsRequest,
-	}
-
+func (s *Collections) AddItems(ctx context.Context, request components.AddCollectionItemsRequest, opts ...operations.Option) (*operations.AddcollectionitemsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Collections) AddItems(ctx context.Context, addCollectionItemsRequest co
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "AddCollectionItemsRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Collections) AddItems(ctx context.Context, addCollectionItemsRequest co
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -251,13 +243,7 @@ func (s *Collections) AddItems(ctx context.Context, addCollectionItemsRequest co
 
 // Create Collection
 // Create a publicly visible (empty) Collection of documents.
-func (s *Collections) Create(ctx context.Context, createCollectionRequest components.CreateCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreatecollectionResponse, error) {
-	request := operations.CreatecollectionRequest{
-		XGleanActAs:             xGleanActAs,
-		XGleanAuthType:          xGleanAuthType,
-		CreateCollectionRequest: createCollectionRequest,
-	}
-
+func (s *Collections) Create(ctx context.Context, request components.CreateCollectionRequest, opts ...operations.Option) (*operations.CreatecollectionResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -288,7 +274,7 @@ func (s *Collections) Create(ctx context.Context, createCollectionRequest compon
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "CreateCollectionRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -313,8 +299,6 @@ func (s *Collections) Create(ctx context.Context, createCollectionRequest compon
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -495,13 +479,7 @@ func (s *Collections) Create(ctx context.Context, createCollectionRequest compon
 
 // Delete Collection
 // Delete a Collection given the Collection's ID.
-func (s *Collections) Delete(ctx context.Context, deleteCollectionRequest components.DeleteCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletecollectionResponse, error) {
-	request := operations.DeletecollectionRequest{
-		XGleanActAs:             xGleanActAs,
-		XGleanAuthType:          xGleanAuthType,
-		DeleteCollectionRequest: deleteCollectionRequest,
-	}
-
+func (s *Collections) Delete(ctx context.Context, request components.DeleteCollectionRequest, opts ...operations.Option) (*operations.DeletecollectionResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -532,7 +510,7 @@ func (s *Collections) Delete(ctx context.Context, deleteCollectionRequest compon
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "DeleteCollectionRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -557,8 +535,6 @@ func (s *Collections) Delete(ctx context.Context, deleteCollectionRequest compon
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -719,13 +695,7 @@ func (s *Collections) Delete(ctx context.Context, deleteCollectionRequest compon
 
 // DeleteItem - Delete Collection item
 // Delete a single item from a Collection.
-func (s *Collections) DeleteItem(ctx context.Context, deleteCollectionItemRequest components.DeleteCollectionItemRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeletecollectionitemResponse, error) {
-	request := operations.DeletecollectionitemRequest{
-		XGleanActAs:                 xGleanActAs,
-		XGleanAuthType:              xGleanAuthType,
-		DeleteCollectionItemRequest: deleteCollectionItemRequest,
-	}
-
+func (s *Collections) DeleteItem(ctx context.Context, request components.DeleteCollectionItemRequest, opts ...operations.Option) (*operations.DeletecollectionitemResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -756,7 +726,7 @@ func (s *Collections) DeleteItem(ctx context.Context, deleteCollectionItemReques
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "DeleteCollectionItemRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -781,8 +751,6 @@ func (s *Collections) DeleteItem(ctx context.Context, deleteCollectionItemReques
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -944,13 +912,7 @@ func (s *Collections) DeleteItem(ctx context.Context, deleteCollectionItemReques
 
 // Update Collection
 // Update the properties of an existing Collection.
-func (s *Collections) Update(ctx context.Context, editCollectionRequest components.EditCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditcollectionResponse, error) {
-	request := operations.EditcollectionRequest{
-		XGleanActAs:           xGleanActAs,
-		XGleanAuthType:        xGleanAuthType,
-		EditCollectionRequest: editCollectionRequest,
-	}
-
+func (s *Collections) Update(ctx context.Context, request components.EditCollectionRequest, opts ...operations.Option) (*operations.EditcollectionResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -981,7 +943,7 @@ func (s *Collections) Update(ctx context.Context, editCollectionRequest componen
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "EditCollectionRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -1006,8 +968,6 @@ func (s *Collections) Update(ctx context.Context, editCollectionRequest componen
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1186,15 +1146,9 @@ func (s *Collections) Update(ctx context.Context, editCollectionRequest componen
 
 }
 
-// EditItem - Update Collection item
+// UpdateItem - Update Collection item
 // Update the URL, Glean Document ID, description of an item within a Collection given its ID.
-func (s *Collections) EditItem(ctx context.Context, editCollectionItemRequest components.EditCollectionItemRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditcollectionitemResponse, error) {
-	request := operations.EditcollectionitemRequest{
-		XGleanActAs:               xGleanActAs,
-		XGleanAuthType:            xGleanAuthType,
-		EditCollectionItemRequest: editCollectionItemRequest,
-	}
-
+func (s *Collections) UpdateItem(ctx context.Context, request components.EditCollectionItemRequest, opts ...operations.Option) (*operations.EditcollectionitemResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1225,7 +1179,7 @@ func (s *Collections) EditItem(ctx context.Context, editCollectionItemRequest co
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "EditCollectionItemRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -1250,8 +1204,6 @@ func (s *Collections) EditItem(ctx context.Context, editCollectionItemRequest co
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1409,15 +1361,9 @@ func (s *Collections) EditItem(ctx context.Context, editCollectionItemRequest co
 
 }
 
-// Get - Read Collection
+// Retrieve - Read Collection
 // Read the details of a Collection given its ID. Does not fetch items in this Collection.
-func (s *Collections) Get(ctx context.Context, getCollectionRequest components.GetCollectionRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetcollectionResponse, error) {
-	request := operations.GetcollectionRequest{
-		XGleanActAs:          xGleanActAs,
-		XGleanAuthType:       xGleanAuthType,
-		GetCollectionRequest: getCollectionRequest,
-	}
-
+func (s *Collections) Retrieve(ctx context.Context, request components.GetCollectionRequest, opts ...operations.Option) (*operations.GetcollectionResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1448,7 +1394,7 @@ func (s *Collections) Get(ctx context.Context, getCollectionRequest components.G
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "GetCollectionRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -1473,8 +1419,6 @@ func (s *Collections) Get(ctx context.Context, getCollectionRequest components.G
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1634,13 +1578,7 @@ func (s *Collections) Get(ctx context.Context, getCollectionRequest components.G
 
 // List Collections
 // List all existing Collections.
-func (s *Collections) List(ctx context.Context, listCollectionsRequest components.ListCollectionsRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListcollectionsResponse, error) {
-	request := operations.ListcollectionsRequest{
-		XGleanActAs:            xGleanActAs,
-		XGleanAuthType:         xGleanAuthType,
-		ListCollectionsRequest: listCollectionsRequest,
-	}
-
+func (s *Collections) List(ctx context.Context, request components.ListCollectionsRequest, opts ...operations.Option) (*operations.ListcollectionsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1671,7 +1609,7 @@ func (s *Collections) List(ctx context.Context, listCollectionsRequest component
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ListCollectionsRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -1696,8 +1634,6 @@ func (s *Collections) List(ctx context.Context, listCollectionsRequest component
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

@@ -19,7 +19,7 @@ func TestIndexingAuthentication_PostAPIIndexV1Rotatetoken(t *testing.T) {
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
 		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
 	res, err := s.Indexing.Authentication.RotateToken(ctx)

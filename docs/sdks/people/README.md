@@ -5,14 +5,133 @@
 
 ### Available Operations
 
+* [Debug](#debug) - Beta: Get user information
+
+* [~~Count~~](#count) - Get user count :warning: **Deprecated**
 * [Index](#index) - Index employee
-* [BulkIndexEmployees](#bulkindexemployees) - Bulk index employees
-* [~~BulkIndex~~](#bulkindex) - Bulk index employees :warning: **Deprecated**
+* [BulkIndex](#bulkindex) - Bulk index employees
 * [ProcessAllEmployeesAndTeams](#processallemployeesandteams) - Schedules the processing of uploaded employees and teams
 * [Delete](#delete) - Delete employee
 * [IndexTeam](#indexteam) - Index team
 * [DeleteTeam](#deleteteam) - Delete team
 * [BulkIndexTeams](#bulkindexteams) - Bulk index teams
+
+## Debug
+
+Gives various information that would help in debugging related to a particular user. Currently in beta, might undergo breaking changes without prior notice.
+
+Tip: Refer to the [Troubleshooting tutorial](https://developers.glean.com/docs/indexing_api/indexing_api_troubleshooting/) for more information.
+
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Indexing.People.Debug(ctx, "<value>", components.DebugUserRequest{
+        Email: "u1@foo.com",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.DebugUserResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
+| `datasource`                                                               | *string*                                                                   | :heavy_check_mark:                                                         | The datasource to which the user belongs                                   |
+| `debugUserRequest`                                                         | [components.DebugUserRequest](../../models/components/debuguserrequest.md) | :heavy_check_mark:                                                         | N/A                                                                        |
+| `opts`                                                                     | [][operations.Option](../../models/operations/option.md)                   | :heavy_minus_sign:                                                         | The options for this request.                                              |
+
+### Response
+
+**[*operations.PostAPIIndexV1DebugDatasourceUserResponse](../../models/operations/postapiindexv1debugdatasourceuserresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| apierrors.APIError | 4XX, 5XX           | \*/\*              |
+
+## ~~Count~~
+
+Fetches user count for the specified custom datasource.
+
+Tip: Use [/debug/{datasource}/status](https://developers.glean.com/docs/indexing_api/indexing_api_troubleshooting/#debug-datasource-status) for richer information.
+
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Indexing.People.Count(ctx, components.GetUserCountRequest{
+        Datasource: "<value>",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.GetUserCountResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [components.GetUserCountRequest](../../models/components/getusercountrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `opts`                                                                           | [][operations.Option](../../models/operations/option.md)                         | :heavy_minus_sign:                                                               | The options for this request.                                                    |
+
+### Response
+
+**[*operations.PostAPIIndexV1GetusercountResponse](../../models/operations/postapiindexv1getusercountresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
 ## Index
 
@@ -35,7 +154,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.People.Index(ctx, components.IndexEmployeeRequest{
@@ -81,7 +200,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## BulkIndexEmployees
+## BulkIndex
 
 Replaces all the currently indexed employees using paginated batch API calls. Please refer to the [bulk indexing](https://developers.glean.com/docs/indexing_api_bulk_indexing/#bulk-upload-model) documentation for an explanation of how to use bulk endpoints.
 
@@ -102,10 +221,10 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Indexing.People.BulkIndexEmployees(ctx, components.BulkIndexEmployeesRequest{
+    res, err := s.Indexing.People.BulkIndex(ctx, components.BulkIndexEmployeesRequest{
         UploadID: "<id>",
         Employees: []components.EmployeeInfoDefinition{},
     })
@@ -136,99 +255,6 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## ~~BulkIndex~~
-
-Bulk upload details of all the employees. This deletes all employees uploaded in the prior batch. SOON TO BE DEPRECATED in favor of /bulkindexemployees.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	"os"
-	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
-    )
-
-    res, err := s.Indexing.People.BulkIndex(ctx, components.IndexEmployeeListRequest{
-        Employees: []components.IndexEmployeeRequest{
-            components.IndexEmployeeRequest{
-                Employee: components.EmployeeInfoDefinition{
-                    Email: "Kiera_Bashirian18@yahoo.com",
-                    Department: "<value>",
-                    DatasourceProfiles: []components.DatasourceProfile{
-                        components.DatasourceProfile{
-                            Datasource: "github",
-                            Handle: "<value>",
-                        },
-                        components.DatasourceProfile{
-                            Datasource: "github",
-                            Handle: "<value>",
-                        },
-                    },
-                },
-            },
-            components.IndexEmployeeRequest{
-                Employee: components.EmployeeInfoDefinition{
-                    Email: "Madie_Hayes48@gmail.com",
-                    Department: "<value>",
-                    DatasourceProfiles: []components.DatasourceProfile{
-                        components.DatasourceProfile{
-                            Datasource: "github",
-                            Handle: "<value>",
-                        },
-                        components.DatasourceProfile{
-                            Datasource: "github",
-                            Handle: "<value>",
-                        },
-                        components.DatasourceProfile{
-                            Datasource: "github",
-                            Handle: "<value>",
-                        },
-                    },
-                },
-            },
-        },
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [components.IndexEmployeeListRequest](../../models/components/indexemployeelistrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `opts`                                                                                     | [][operations.Option](../../models/operations/option.md)                                   | :heavy_minus_sign:                                                                         | The options for this request.                                                              |
-
-### Response
-
-**[*operations.PostAPIIndexV1IndexemployeelistResponse](../../models/operations/postapiindexv1indexemployeelistresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
-
 ## ProcessAllEmployeesAndTeams
 
 Schedules the immediate processing of employees and teams uploaded through the indexing API. By default all uploaded people data will be processed asynchronously but this API can be used to schedule its processing on demand.
@@ -250,7 +276,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.People.ProcessAllEmployeesAndTeams(ctx)
@@ -301,7 +327,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.People.Delete(ctx, components.DeleteEmployeeRequest{
@@ -355,7 +381,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.People.IndexTeam(ctx, components.IndexTeamRequest{
@@ -437,7 +463,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.People.DeleteTeam(ctx, components.DeleteTeamRequest{
@@ -491,7 +517,7 @@ func main() {
     ctx := context.Background()
 
     s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
     res, err := s.Indexing.People.BulkIndexTeams(ctx, components.BulkIndexTeamsRequest{
