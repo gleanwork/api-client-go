@@ -40,7 +40,7 @@ func TestEntities_Listentities(t *testing.T) {
 			},
 		},
 		PageSize: apiclientgo.Int64(100),
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -62,7 +62,7 @@ func TestEntities_People(t *testing.T) {
 			"abc123",
 			"abc456",
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

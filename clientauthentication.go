@@ -28,12 +28,7 @@ func newClientAuthentication(sdkConfig sdkConfiguration) *ClientAuthentication {
 
 // CreateToken - Create authentication token
 // Creates an authentication token for the authenticated user.
-func (s *ClientAuthentication) CreateToken(ctx context.Context, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateauthtokenResponse, error) {
-	request := operations.CreateauthtokenRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-	}
-
+func (s *ClientAuthentication) CreateToken(ctx context.Context, opts ...operations.Option) (*operations.CreateauthtokenResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -82,8 +77,6 @@ func (s *ClientAuthentication) CreateToken(ctx context.Context, xGleanActAs *str
 	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

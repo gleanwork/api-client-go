@@ -61,7 +61,7 @@ func TestDatasources_PostAPIIndexV1Getdatasourceconfig(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Indexing.Datasources.GetConfig(ctx, components.GetDatasourceConfigRequest{
+	res, err := s.Indexing.Datasources.RetrieveConfig(ctx, components.GetDatasourceConfigRequest{
 		Datasource: "<value>",
 	})
 	require.NoError(t, err)

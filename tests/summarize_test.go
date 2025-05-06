@@ -23,7 +23,7 @@ func TestSummarize_Summarize(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Summarize.Generate(ctx, components.SummarizeRequest{
+	res, err := s.Client.Documents.Summarize(ctx, components.SummarizeRequest{
 		DocumentSpecs: []components.DocumentSpecUnion{
 			components.CreateDocumentSpecUnionDocumentSpec1(
 				components.DocumentSpec1{},
@@ -32,7 +32,7 @@ func TestSummarize_Summarize(t *testing.T) {
 				components.DocumentSpec1{},
 			),
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

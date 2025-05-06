@@ -22,7 +22,7 @@ func TestClientAuthentication_Createauthtoken(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Authentication.CreateToken(ctx, nil, nil)
+	res, err := s.Client.Authentication.CreateToken(ctx)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

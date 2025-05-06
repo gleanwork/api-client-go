@@ -23,7 +23,7 @@ func TestAgents_Runagent(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Agents.Runagent(ctx, components.RunAgentRequest{}, nil, nil, nil)
+	res, err := s.Client.Agents.Run(ctx, components.RunAgentRequest{}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -40,7 +40,7 @@ func TestAgents_Listagents(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Agents.Listagents(ctx, nil, nil, nil, nil)
+	res, err := s.Client.Agents.List(ctx, nil, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -57,7 +57,7 @@ func TestAgents_Getagentinputs(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Agents.Getagentinputs(ctx, components.GetAgentInputsRequest{}, nil, nil, nil)
+	res, err := s.Client.Agents.RetrieveInputs(ctx, components.GetAgentInputsRequest{}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

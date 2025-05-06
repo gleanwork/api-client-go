@@ -6,6 +6,7 @@
 ### Available Operations
 
 * [BulkIndex](#bulkindex) - Bulk index external shortcuts
+* [Upload](#upload) - Upload shortcuts
 
 ## BulkIndex
 
@@ -62,6 +63,67 @@ func main() {
 ### Response
 
 **[*operations.PostAPIIndexV1BulkindexshortcutsResponse](../../models/operations/postapiindexv1bulkindexshortcutsresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| apierrors.APIError | 4XX, 5XX           | \*/\*              |
+
+## Upload
+
+Creates glean shortcuts for uploaded shortcuts info. Glean would host the shortcuts, and they can be managed in the knowledge tab once uploaded.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
+    )
+
+    res, err := s.Indexing.Shortcuts.Upload(ctx, components.UploadShortcutsRequest{
+        UploadID: "<id>",
+        Shortcuts: []components.IndexingShortcut{
+            components.IndexingShortcut{
+                InputAlias: "<value>",
+                DestinationURL: "https://needy-harp.name",
+                CreatedBy: "<value>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [components.UploadShortcutsRequest](../../models/components/uploadshortcutsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `opts`                                                                                 | [][operations.Option](../../models/operations/option.md)                               | :heavy_minus_sign:                                                                     | The options for this request.                                                          |
+
+### Response
+
+**[*operations.PostAPIIndexV1UploadshortcutsResponse](../../models/operations/postapiindexv1uploadshortcutsresponse.md), error**
 
 ### Errors
 

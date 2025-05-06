@@ -28,13 +28,7 @@ func newEntities(sdkConfig sdkConfiguration) *Entities {
 
 // List entities
 // List some set of details for all entities that fit the given criteria and return in the requested order. Does not support negation in filters, assumes relation type EQUALS. There is a limit of 10000 entities that can be retrieved via this endpoint.
-func (s *Entities) List(ctx context.Context, listEntitiesRequest components.ListEntitiesRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListentitiesResponse, error) {
-	request := operations.ListentitiesRequest{
-		XGleanActAs:         xGleanActAs,
-		XGleanAuthType:      xGleanAuthType,
-		ListEntitiesRequest: listEntitiesRequest,
-	}
-
+func (s *Entities) List(ctx context.Context, request components.ListEntitiesRequest, opts ...operations.Option) (*operations.ListentitiesResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Entities) List(ctx context.Context, listEntitiesRequest components.List
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ListEntitiesRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Entities) List(ctx context.Context, listEntitiesRequest components.List
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -251,13 +243,7 @@ func (s *Entities) List(ctx context.Context, listEntitiesRequest components.List
 
 // ReadPeople - Read people
 // Read people details for the given IDs.
-func (s *Entities) ReadPeople(ctx context.Context, peopleRequest components.PeopleRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.PeopleResponse, error) {
-	request := operations.PeopleRequest{
-		XGleanActAs:    xGleanActAs,
-		XGleanAuthType: xGleanAuthType,
-		PeopleRequest:  peopleRequest,
-	}
-
+func (s *Entities) ReadPeople(ctx context.Context, request components.PeopleRequest, opts ...operations.Option) (*operations.PeopleResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -288,7 +274,7 @@ func (s *Entities) ReadPeople(ctx context.Context, peopleRequest components.Peop
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "PeopleRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -313,8 +299,6 @@ func (s *Entities) ReadPeople(ctx context.Context, peopleRequest components.Peop
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

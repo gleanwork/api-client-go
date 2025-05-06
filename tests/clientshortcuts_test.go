@@ -86,7 +86,7 @@ func TestClientShortcuts_Createshortcut(t *testing.T) {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -105,7 +105,7 @@ func TestClientShortcuts_Deleteshortcut(t *testing.T) {
 
 	res, err := s.Client.Shortcuts.Delete(ctx, components.DeleteShortcutRequest{
 		ID: 545907,
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -122,11 +122,11 @@ func TestClientShortcuts_Getshortcut(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Shortcuts.Get(ctx, components.CreateGetShortcutRequestUnionGetShortcutRequest(
+	res, err := s.Client.Shortcuts.Retrieve(ctx, components.CreateGetShortcutRequestUnionGetShortcutRequest(
 		components.GetShortcutRequest{
 			Alias: "<value>",
 		},
-	), nil, nil)
+	))
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -160,7 +160,7 @@ func TestClientShortcuts_Listshortcuts(t *testing.T) {
 				},
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -235,7 +235,7 @@ func TestClientShortcuts_Updateshortcut(t *testing.T) {
 				Role: components.UserRoleAnswerModerator,
 			},
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

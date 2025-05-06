@@ -23,12 +23,12 @@ func TestInsights_Insights(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Insights.Get(ctx, components.InsightsRequest{
+	res, err := s.Client.Insights.Retrieve(ctx, components.InsightsRequest{
 		Categories: []components.InsightsRequestCategory{
 			components.InsightsRequestCategoryContent,
 			components.InsightsRequestCategoryContent,
 		},
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

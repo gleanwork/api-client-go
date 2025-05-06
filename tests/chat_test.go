@@ -14,9 +14,29 @@ import (
 )
 
 func TestChat_ChatDefaultExample(t *testing.T) {
+	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step chat-defaultExample.test referencing operation chat does not contain response body with content type text/plain`]")
+}
+
+func TestChat_ChatGptAgentExample(t *testing.T) {
+	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step chat-gptAgentExample.test referencing operation chat does not contain response body with content type text/plain`]")
+}
+
+func TestChat_ChatStreamingExample(t *testing.T) {
+	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step chat-streamingExample.test referencing operation chat does not contain response body with content type text/plain`]")
+}
+
+func TestChat_ChatUpdateResponse(t *testing.T) {
+	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step chat-updateResponse.test referencing operation chat does not contain response body with content type text/plain`]")
+}
+
+func TestChat_ChatCitationResponse(t *testing.T) {
+	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step chat-citationResponse.test referencing operation chat does not contain response body with content type text/plain`]")
+}
+
+func TestChat_Deleteallchats(t *testing.T) {
 	ctx := context.Background()
 
-	testHTTPClient := createTestHTTPClient("chat-defaultExample")
+	testHTTPClient := createTestHTTPClient("deleteallchats")
 
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
@@ -24,7 +44,163 @@ func TestChat_ChatDefaultExample(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Chat.Start(ctx, components.ChatRequest{
+	res, err := s.Client.Chat.DeleteAll(ctx, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestChat_Deletechats(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("deletechats")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+	)
+
+	res, err := s.Client.Chat.Delete(ctx, components.DeleteChatsRequest{
+		Ids: []string{
+			"<value>",
+			"<value>",
+		},
+	}, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestChat_Getchat(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("getchat")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+	)
+
+	res, err := s.Client.Chat.Retrieve(ctx, components.GetChatRequest{
+		ID: "<id>",
+	}, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestChat_Listchats(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("listchats")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+	)
+
+	res, err := s.Client.Chat.List(ctx, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestChat_Getchatapplication(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("getchatapplication")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+	)
+
+	res, err := s.Client.Chat.RetrieveApplication(ctx, components.GetChatApplicationRequest{
+		ID: "<id>",
+	}, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestChat_Uploadchatfiles(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("uploadchatfiles")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+	)
+
+	res, err := s.Client.Chat.UploadFiles(ctx, components.UploadChatFilesRequest{
+		Files: []components.File{},
+	}, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestChat_Getchatfiles(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("getchatfiles")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+	)
+
+	res, err := s.Client.Chat.RetrieveFiles(ctx, components.GetChatFilesRequest{
+		FileIds: []string{
+			"<value>",
+			"<value>",
+		},
+	}, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestChat_Deletechatfiles(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("deletechatfiles")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+	)
+
+	res, err := s.Client.Chat.DeleteFiles(ctx, components.DeleteChatFilesRequest{
+		FileIds: []string{
+			"<value>",
+		},
+	}, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestChat_ChatStreamDefaultExample(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("chatStream-defaultExample")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
+	)
+
+	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
 				Fragments: []components.ChatMessageFragment{
@@ -34,16 +210,16 @@ func TestChat_ChatDefaultExample(t *testing.T) {
 				},
 			},
 		},
-	}, nil, nil, nil)
+	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
 
-func TestChat_ChatGptAgentExample(t *testing.T) {
+func TestChat_ChatStreamGptAgentExample(t *testing.T) {
 	ctx := context.Background()
 
-	testHTTPClient := createTestHTTPClient("chat-gptAgentExample")
+	testHTTPClient := createTestHTTPClient("chatStream-gptAgentExample")
 
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
@@ -51,7 +227,7 @@ func TestChat_ChatGptAgentExample(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Chat.Start(ctx, components.ChatRequest{
+	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
 				Fragments: []components.ChatMessageFragment{
@@ -64,16 +240,16 @@ func TestChat_ChatGptAgentExample(t *testing.T) {
 		AgentConfig: &components.AgentConfig{
 			Agent: components.AgentEnumGpt.ToPointer(),
 		},
-	}, nil, nil, nil)
+	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
 
-func TestChat_ChatStreamingExample(t *testing.T) {
+func TestChat_ChatStreamStreamingExample(t *testing.T) {
 	ctx := context.Background()
 
-	testHTTPClient := createTestHTTPClient("chat-streamingExample")
+	testHTTPClient := createTestHTTPClient("chatStream-streamingExample")
 
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
@@ -81,19 +257,19 @@ func TestChat_ChatStreamingExample(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Chat.Start(ctx, components.ChatRequest{
+	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages:      []components.ChatMessage{},
 		TimeoutMillis: apiclientgo.Int64(30000),
-	}, nil, nil, nil)
+	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
 
-func TestChat_ChatUpdateResponse(t *testing.T) {
+func TestChat_ChatStreamUpdateResponse(t *testing.T) {
 	ctx := context.Background()
 
-	testHTTPClient := createTestHTTPClient("chat-updateResponse")
+	testHTTPClient := createTestHTTPClient("chatStream-updateResponse")
 
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
@@ -101,7 +277,7 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Chat.Start(ctx, components.ChatRequest{
+	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
 				Citations: []components.ChatMessageCitation{
@@ -142,51 +318,9 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 						ReferenceRanges: []components.ReferenceRange{
 							components.ReferenceRange{
 								TextRange: &components.TextRange{
-									StartIndex: 956313,
+									StartIndex: 485333,
 									Document:   &components.Document{},
 								},
-								Snippets: []components.SearchResultSnippet{
-									components.SearchResultSnippet{
-										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
-									},
-								},
-							},
-						},
-					},
-					components.ChatMessageCitation{
-						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
-						},
-						ReferenceRanges: []components.ReferenceRange{
-							components.ReferenceRange{
-								Snippets: []components.SearchResultSnippet{
-									components.SearchResultSnippet{
-										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
-									},
-								},
-							},
-							components.ReferenceRange{
-								Snippets: []components.SearchResultSnippet{
-									components.SearchResultSnippet{
-										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
-									},
-								},
-							},
-						},
-					},
-					components.ChatMessageCitation{
-						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
-						},
-						ReferenceRanges: []components.ReferenceRange{
-							components.ReferenceRange{
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
 										Snippet:  "snippet",
@@ -233,14 +367,11 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 									Notes: apiclientgo.String("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
-									ID:      "<id>",
-									Name:    "<value>",
-									Members: []components.PersonToTeamRelationship{},
+									ID:           "<id>",
+									Name:         "<value>",
+									Members:      []components.PersonToTeamRelationship{},
+									CustomFields: []components.CustomFieldData{},
 									DatasourceProfiles: []components.DatasourceProfile{
-										components.DatasourceProfile{
-											Datasource: "github",
-											Handle:     "<value>",
-										},
 										components.DatasourceProfile{
 											Datasource: "github",
 											Handle:     "<value>",
@@ -283,7 +414,7 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 									Likes: &components.AnswerLikes{
 										LikedBy:     []components.AnswerLike{},
 										LikedByUser: false,
-										NumLikes:    798102,
+										NumLikes:    490380,
 									},
 									UpdatedBy: &components.Person{
 										Name:         "George Clooney",
@@ -306,14 +437,14 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 													Name:         "George Clooney",
 													ObfuscatedID: "abc123",
 												},
-												RemindAt: 961967,
+												RemindAt: 997948,
 											},
 											CandidateVerifiers: []components.Person{},
 										},
 									},
 									Board: &components.AnswerBoard{
 										Name:        "<value>",
-										Description: "not meh surprisingly too like embed dreamily verbally casement with",
+										Description: "stage atop minion which best sturdy enormously afore circumference duh",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
 												FieldName: apiclientgo.String("type"),
@@ -329,7 +460,7 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 												},
 											},
 										},
-										ID: 756840,
+										ID: 647529,
 										Creator: &components.Person{
 											Name:         "George Clooney",
 											ObfuscatedID: "abc123",
@@ -351,7 +482,7 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 								},
 								Collection: &components.Collection{
 									Name:        "<value>",
-									Description: "daily forecast rapidly urgently slipper meh",
+									Description: "veg welcome boss manage freely",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
 											FieldName: apiclientgo.String("type"),
@@ -367,12 +498,11 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 											},
 										},
 									},
-									ID:       308354,
-									Children: []components.Collection{},
+									ID: 79387,
 								},
 								AnswerBoard: &components.AnswerBoard{
 									Name:        "<value>",
-									Description: "frantically highlight thunderbolt defrag aside stitcher furthermore zealous",
+									Description: "after er grouchy stained plus buck",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
 											FieldName: apiclientgo.String("type"),
@@ -388,11 +518,19 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 											},
 										},
 									},
-									ID: 87875,
+									ID: 668238,
 								},
 								Code: &components.Code{
 									RepoName: apiclientgo.String("scio"),
 									FileName: apiclientgo.String("README.md"),
+								},
+								Shortcut: &components.Shortcut{
+									InputAlias: "<value>",
+									CreatedBy: &components.Person{
+										Name:         "George Clooney",
+										ObfuscatedID: "abc123",
+									},
+									DestinationDocument: &components.Document{},
 								},
 								QuerySuggestions: &components.QuerySuggestionList{
 									Suggestions: []components.QuerySuggestion{},
@@ -402,7 +540,6 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 									Ranges: []components.TextRange{},
 								},
 							},
-							components.StructuredResult{},
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
@@ -418,7 +555,26 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 							Metadata: &components.ToolMetadata{
 								Type:               components.ToolMetadataTypeRetrieval,
 								Name:               "<value>",
-								DisplayName:        "Jarrell_Hudson65",
+								DisplayName:        "Brianne.OReilly19",
+								DisplayDescription: "<value>",
+								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+							},
+						},
+					},
+					components.ChatMessageFragment{
+						StructuredResults: []components.StructuredResult{
+							components.StructuredResult{},
+						},
+						File: &components.ChatFile{
+							ID:   apiclientgo.String("FILE_1234"),
+							URL:  apiclientgo.String("www.google.com"),
+							Name: apiclientgo.String("sample.pdf"),
+						},
+						Action: &components.ToolInfo{
+							Metadata: &components.ToolMetadata{
+								Type:               components.ToolMetadataTypeAction,
+								Name:               "<value>",
+								DisplayName:        "Elinor_Champlin",
 								DisplayDescription: "<value>",
 								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
@@ -439,28 +595,7 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 							Metadata: &components.ToolMetadata{
 								Type:               components.ToolMetadataTypeRetrieval,
 								Name:               "<value>",
-								DisplayName:        "Bertha.Koepp",
-								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
-							},
-						},
-					},
-					components.ChatMessageFragment{
-						StructuredResults: []components.StructuredResult{
-							components.StructuredResult{},
-							components.StructuredResult{},
-							components.StructuredResult{},
-						},
-						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
-						},
-						Action: &components.ToolInfo{
-							Metadata: &components.ToolMetadata{
-								Type:               components.ToolMetadataTypeAction,
-								Name:               "<value>",
-								DisplayName:        "Sheridan.Koss71",
+								DisplayName:        "Chanel.Kshlerin",
 								DisplayDescription: "<value>",
 								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
@@ -493,6 +628,15 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 									},
 								},
 							},
+						},
+					},
+					components.ChatMessageCitation{
+						SourceFile: &components.ChatFile{
+							ID:   apiclientgo.String("FILE_1234"),
+							URL:  apiclientgo.String("www.google.com"),
+							Name: apiclientgo.String("sample.pdf"),
+						},
+						ReferenceRanges: []components.ReferenceRange{
 							components.ReferenceRange{
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
@@ -551,9 +695,9 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
-								Type:               components.ToolMetadataTypeRetrieval,
+								Type:               components.ToolMetadataTypeAction,
 								Name:               "<value>",
-								DisplayName:        "Zoe8",
+								DisplayName:        "Lauren53",
 								DisplayDescription: "<value>",
 								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
@@ -574,7 +718,7 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 							Metadata: &components.ToolMetadata{
 								Type:               components.ToolMetadataTypeAction,
 								Name:               "<value>",
-								DisplayName:        "Caterina70",
+								DisplayName:        "Brooklyn64",
 								DisplayDescription: "<value>",
 								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
@@ -584,16 +728,16 @@ func TestChat_ChatUpdateResponse(t *testing.T) {
 			},
 		},
 		TimeoutMillis: apiclientgo.Int64(30000),
-	}, nil, nil, nil)
+	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
 
-func TestChat_ChatCitationResponse(t *testing.T) {
+func TestChat_ChatStreamCitationResponse(t *testing.T) {
 	ctx := context.Background()
 
-	testHTTPClient := createTestHTTPClient("chat-citationResponse")
+	testHTTPClient := createTestHTTPClient("chatStream-citationResponse")
 
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
@@ -601,7 +745,7 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Chat.Start(ctx, components.ChatRequest{
+	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
 				Citations: []components.ChatMessageCitation{
@@ -642,7 +786,7 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 						ReferenceRanges: []components.ReferenceRange{
 							components.ReferenceRange{
 								TextRange: &components.TextRange{
-									StartIndex: 585176,
+									StartIndex: 436071,
 									Document:   &components.Document{},
 								},
 								Snippets: []components.SearchResultSnippet{
@@ -677,15 +821,6 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 									},
 								},
 							},
-						},
-					},
-					components.ChatMessageCitation{
-						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
-						},
-						ReferenceRanges: []components.ReferenceRange{
 							components.ReferenceRange{
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
@@ -725,10 +860,15 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 									Notes: apiclientgo.String("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
-									ID:      "<id>",
-									Name:    "<value>",
-									Members: []components.PersonToTeamRelationship{},
+									ID:           "<id>",
+									Name:         "<value>",
+									Members:      []components.PersonToTeamRelationship{},
+									CustomFields: []components.CustomFieldData{},
 									DatasourceProfiles: []components.DatasourceProfile{
+										components.DatasourceProfile{
+											Datasource: "github",
+											Handle:     "<value>",
+										},
 										components.DatasourceProfile{
 											Datasource: "github",
 											Handle:     "<value>",
@@ -771,7 +911,7 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 									Likes: &components.AnswerLikes{
 										LikedBy:     []components.AnswerLike{},
 										LikedByUser: true,
-										NumLikes:    294779,
+										NumLikes:    181994,
 									},
 									UpdatedBy: &components.Person{
 										Name:         "George Clooney",
@@ -794,14 +934,14 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 													Name:         "George Clooney",
 													ObfuscatedID: "abc123",
 												},
-												RemindAt: 881610,
+												RemindAt: 424843,
 											},
 											CandidateVerifiers: []components.Person{},
 										},
 									},
 									Board: &components.AnswerBoard{
 										Name:        "<value>",
-										Description: "slip receptor fork",
+										Description: "extent emotional white oil buck",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
 												FieldName: apiclientgo.String("type"),
@@ -817,7 +957,7 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 												},
 											},
 										},
-										ID: 71022,
+										ID: 392138,
 										Creator: &components.Person{
 											Name:         "George Clooney",
 											ObfuscatedID: "abc123",
@@ -839,7 +979,7 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 								},
 								Collection: &components.Collection{
 									Name:        "<value>",
-									Description: "notarize equally hospitable",
+									Description: "matter lest spark oof unfurl jubilantly across",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
 											FieldName: apiclientgo.String("type"),
@@ -855,12 +995,11 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 											},
 										},
 									},
-									ID:       889117,
-									Children: []components.Collection{},
+									ID: 194535,
 								},
 								AnswerBoard: &components.AnswerBoard{
 									Name:        "<value>",
-									Description: "e-mail outstanding among voluntarily fooey badly beautifully",
+									Description: "communicate prudent powerful considering quietly with tromp spring brr",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
 											FieldName: apiclientgo.String("type"),
@@ -876,11 +1015,19 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 											},
 										},
 									},
-									ID: 900364,
+									ID: 595008,
 								},
 								Code: &components.Code{
 									RepoName: apiclientgo.String("scio"),
 									FileName: apiclientgo.String("README.md"),
+								},
+								Shortcut: &components.Shortcut{
+									InputAlias: "<value>",
+									CreatedBy: &components.Person{
+										Name:         "George Clooney",
+										ObfuscatedID: "abc123",
+									},
+									DestinationDocument: &components.Document{},
 								},
 								QuerySuggestions: &components.QuerySuggestionList{
 									Suggestions: []components.QuerySuggestion{},
@@ -903,49 +1050,90 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
+								Type:               components.ToolMetadataTypeRetrieval,
+								Name:               "<value>",
+								DisplayName:        "Blaise87",
+								DisplayDescription: "<value>",
+								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+							},
+						},
+					},
+					components.ChatMessageFragment{
+						StructuredResults: []components.StructuredResult{
+							components.StructuredResult{},
+							components.StructuredResult{},
+							components.StructuredResult{},
+						},
+						File: &components.ChatFile{
+							ID:   apiclientgo.String("FILE_1234"),
+							URL:  apiclientgo.String("www.google.com"),
+							Name: apiclientgo.String("sample.pdf"),
+						},
+						Action: &components.ToolInfo{
+							Metadata: &components.ToolMetadata{
+								Type:               components.ToolMetadataTypeRetrieval,
+								Name:               "<value>",
+								DisplayName:        "Alfred_Wilderman",
+								DisplayDescription: "<value>",
+								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+							},
+						},
+					},
+				},
+			},
+			components.ChatMessage{
+				Citations: []components.ChatMessageCitation{
+					components.ChatMessageCitation{
+						SourceFile: &components.ChatFile{
+							ID:   apiclientgo.String("FILE_1234"),
+							URL:  apiclientgo.String("www.google.com"),
+							Name: apiclientgo.String("sample.pdf"),
+						},
+						ReferenceRanges: []components.ReferenceRange{
+							components.ReferenceRange{
+								Snippets: []components.SearchResultSnippet{
+									components.SearchResultSnippet{
+										Snippet:  "snippet",
+										MimeType: apiclientgo.String("mimeType"),
+									},
+								},
+							},
+							components.ReferenceRange{
+								Snippets: []components.SearchResultSnippet{
+									components.SearchResultSnippet{
+										Snippet:  "snippet",
+										MimeType: apiclientgo.String("mimeType"),
+									},
+								},
+							},
+							components.ReferenceRange{
+								Snippets: []components.SearchResultSnippet{
+									components.SearchResultSnippet{
+										Snippet:  "snippet",
+										MimeType: apiclientgo.String("mimeType"),
+									},
+								},
+							},
+						},
+					},
+				},
+				Fragments: []components.ChatMessageFragment{
+					components.ChatMessageFragment{
+						StructuredResults: []components.StructuredResult{
+							components.StructuredResult{},
+							components.StructuredResult{},
+							components.StructuredResult{},
+						},
+						File: &components.ChatFile{
+							ID:   apiclientgo.String("FILE_1234"),
+							URL:  apiclientgo.String("www.google.com"),
+							Name: apiclientgo.String("sample.pdf"),
+						},
+						Action: &components.ToolInfo{
+							Metadata: &components.ToolMetadata{
 								Type:               components.ToolMetadataTypeAction,
 								Name:               "<value>",
-								DisplayName:        "Jamil_Koss",
-								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
-							},
-						},
-					},
-					components.ChatMessageFragment{
-						StructuredResults: []components.StructuredResult{
-							components.StructuredResult{},
-							components.StructuredResult{},
-						},
-						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
-						},
-						Action: &components.ToolInfo{
-							Metadata: &components.ToolMetadata{
-								Type:               components.ToolMetadataTypeRetrieval,
-								Name:               "<value>",
-								DisplayName:        "Julien_Okuneva",
-								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
-							},
-						},
-					},
-					components.ChatMessageFragment{
-						StructuredResults: []components.StructuredResult{
-							components.StructuredResult{},
-							components.StructuredResult{},
-						},
-						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
-						},
-						Action: &components.ToolInfo{
-							Metadata: &components.ToolMetadata{
-								Type:               components.ToolMetadataTypeRetrieval,
-								Name:               "<value>",
-								DisplayName:        "Eulalia31",
+								DisplayName:        "Dylan_Schowalter48",
 								DisplayDescription: "<value>",
 								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
@@ -995,6 +1183,22 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 									},
 								},
 							},
+							components.ReferenceRange{
+								Snippets: []components.SearchResultSnippet{
+									components.SearchResultSnippet{
+										Snippet:  "snippet",
+										MimeType: apiclientgo.String("mimeType"),
+									},
+								},
+							},
+							components.ReferenceRange{
+								Snippets: []components.SearchResultSnippet{
+									components.SearchResultSnippet{
+										Snippet:  "snippet",
+										MimeType: apiclientgo.String("mimeType"),
+									},
+								},
+							},
 						},
 					},
 					components.ChatMessageCitation{
@@ -1020,14 +1224,6 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 									},
 								},
 							},
-							components.ReferenceRange{
-								Snippets: []components.SearchResultSnippet{
-									components.SearchResultSnippet{
-										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
-									},
-								},
-							},
 						},
 					},
 				},
@@ -1036,24 +1232,6 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 						StructuredResults: []components.StructuredResult{
 							components.StructuredResult{},
 							components.StructuredResult{},
-						},
-						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
-						},
-						Action: &components.ToolInfo{
-							Metadata: &components.ToolMetadata{
-								Type:               components.ToolMetadataTypeRetrieval,
-								Name:               "<value>",
-								DisplayName:        "Eladio82",
-								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
-							},
-						},
-					},
-					components.ChatMessageFragment{
-						StructuredResults: []components.StructuredResult{
 							components.StructuredResult{},
 						},
 						File: &components.ChatFile{
@@ -1065,7 +1243,7 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 							Metadata: &components.ToolMetadata{
 								Type:               components.ToolMetadataTypeAction,
 								Name:               "<value>",
-								DisplayName:        "Jeanne52",
+								DisplayName:        "Solon.Schmitt10",
 								DisplayDescription: "<value>",
 								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
@@ -1073,6 +1251,8 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 					},
 					components.ChatMessageFragment{
 						StructuredResults: []components.StructuredResult{
+							components.StructuredResult{},
+							components.StructuredResult{},
 							components.StructuredResult{},
 						},
 						File: &components.ChatFile{
@@ -1082,9 +1262,9 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
-								Type:               components.ToolMetadataTypeRetrieval,
+								Type:               components.ToolMetadataTypeAction,
 								Name:               "<value>",
-								DisplayName:        "Naomie.Corkery",
+								DisplayName:        "Nannie.McDermott",
 								DisplayDescription: "<value>",
 								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
@@ -1094,163 +1274,7 @@ func TestChat_ChatCitationResponse(t *testing.T) {
 			},
 		},
 		TimeoutMillis: apiclientgo.Int64(30000),
-	}, nil, nil, nil)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
-}
-
-func TestChat_Deleteallchats(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("deleteallchats")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
-	)
-
-	res, err := s.Client.Chat.DeleteAll(ctx, nil, nil, nil)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
-}
-
-func TestChat_Deletechats(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("deletechats")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
-	)
-
-	res, err := s.Client.Chat.Delete(ctx, components.DeleteChatsRequest{
-		Ids: []string{
-			"<value>",
-			"<value>",
-		},
-	}, nil, nil, nil)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
-}
-
-func TestChat_Getchat(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("getchat")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
-	)
-
-	res, err := s.Client.Chat.Get(ctx, components.GetChatRequest{
-		ID: "<id>",
-	}, nil, nil, nil)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
-}
-
-func TestChat_Listchats(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("listchats")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
-	)
-
-	res, err := s.Client.Chat.List(ctx, nil, nil, nil)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
-}
-
-func TestChat_Getchatapplication(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("getchatapplication")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
-	)
-
-	res, err := s.Client.Chat.GetApplication(ctx, components.GetChatApplicationRequest{
-		ID: "<id>",
-	}, nil, nil, nil)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
-}
-
-func TestChat_Uploadchatfiles(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("uploadchatfiles")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
-	)
-
-	res, err := s.Client.Chat.UploadFiles(ctx, components.UploadChatFilesRequest{
-		Files: []components.File{},
-	}, nil, nil, nil)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
-}
-
-func TestChat_Getchatfiles(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("getchatfiles")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
-	)
-
-	res, err := s.Client.Chat.GetFiles(ctx, components.GetChatFilesRequest{
-		FileIds: []string{
-			"<value>",
-			"<value>",
-		},
-	}, nil, nil, nil)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
-}
-
-func TestChat_Deletechatfiles(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("deletechatfiles")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
-	)
-
-	res, err := s.Client.Chat.DeleteFiles(ctx, components.DeleteChatFilesRequest{
-		FileIds: []string{
-			"<value>",
-		},
-	}, nil, nil, nil)
+	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

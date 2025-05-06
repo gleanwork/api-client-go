@@ -28,13 +28,7 @@ func newAnswers(sdkConfig sdkConfiguration) *Answers {
 
 // Create Answer
 // Create a user-generated Answer that contains a question and answer.
-func (s *Answers) Create(ctx context.Context, createAnswerRequest components.CreateAnswerRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.CreateanswerResponse, error) {
-	request := operations.CreateanswerRequest{
-		XGleanActAs:         xGleanActAs,
-		XGleanAuthType:      xGleanAuthType,
-		CreateAnswerRequest: createAnswerRequest,
-	}
-
+func (s *Answers) Create(ctx context.Context, request components.CreateAnswerRequest, opts ...operations.Option) (*operations.CreateanswerResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -65,7 +59,7 @@ func (s *Answers) Create(ctx context.Context, createAnswerRequest components.Cre
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "CreateAnswerRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -90,8 +84,6 @@ func (s *Answers) Create(ctx context.Context, createAnswerRequest components.Cre
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -251,13 +243,7 @@ func (s *Answers) Create(ctx context.Context, createAnswerRequest components.Cre
 
 // Delete Answer
 // Delete an existing user-generated Answer.
-func (s *Answers) Delete(ctx context.Context, deleteAnswerRequest components.DeleteAnswerRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.DeleteanswerResponse, error) {
-	request := operations.DeleteanswerRequest{
-		XGleanActAs:         xGleanActAs,
-		XGleanAuthType:      xGleanAuthType,
-		DeleteAnswerRequest: deleteAnswerRequest,
-	}
-
+func (s *Answers) Delete(ctx context.Context, request components.DeleteAnswerRequest, opts ...operations.Option) (*operations.DeleteanswerResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -288,7 +274,7 @@ func (s *Answers) Delete(ctx context.Context, deleteAnswerRequest components.Del
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "DeleteAnswerRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -313,8 +299,6 @@ func (s *Answers) Delete(ctx context.Context, deleteAnswerRequest components.Del
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -452,15 +436,9 @@ func (s *Answers) Delete(ctx context.Context, deleteAnswerRequest components.Del
 
 }
 
-// Edit - Update Answer
+// Update Answer
 // Update an existing user-generated Answer.
-func (s *Answers) Edit(ctx context.Context, editAnswerRequest components.EditAnswerRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.EditanswerResponse, error) {
-	request := operations.EditanswerRequest{
-		XGleanActAs:       xGleanActAs,
-		XGleanAuthType:    xGleanAuthType,
-		EditAnswerRequest: editAnswerRequest,
-	}
-
+func (s *Answers) Update(ctx context.Context, request components.EditAnswerRequest, opts ...operations.Option) (*operations.EditanswerResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -491,7 +469,7 @@ func (s *Answers) Edit(ctx context.Context, editAnswerRequest components.EditAns
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "EditAnswerRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -516,8 +494,6 @@ func (s *Answers) Edit(ctx context.Context, editAnswerRequest components.EditAns
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -675,15 +651,9 @@ func (s *Answers) Edit(ctx context.Context, editAnswerRequest components.EditAns
 
 }
 
-// Get - Read Answer
+// Retrieve - Read Answer
 // Read the details of a particular Answer given its ID.
-func (s *Answers) Get(ctx context.Context, getAnswerRequest components.GetAnswerRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.GetanswerResponse, error) {
-	request := operations.GetanswerRequest{
-		XGleanActAs:      xGleanActAs,
-		XGleanAuthType:   xGleanAuthType,
-		GetAnswerRequest: getAnswerRequest,
-	}
-
+func (s *Answers) Retrieve(ctx context.Context, request components.GetAnswerRequest, opts ...operations.Option) (*operations.GetanswerResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -714,7 +684,7 @@ func (s *Answers) Get(ctx context.Context, getAnswerRequest components.GetAnswer
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "GetAnswerRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -739,8 +709,6 @@ func (s *Answers) Get(ctx context.Context, getAnswerRequest components.GetAnswer
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -900,13 +868,7 @@ func (s *Answers) Get(ctx context.Context, getAnswerRequest components.GetAnswer
 
 // List Answers
 // List Answers created by the current user.
-func (s *Answers) List(ctx context.Context, listAnswersRequest components.ListAnswersRequest, xGleanActAs *string, xGleanAuthType *string, opts ...operations.Option) (*operations.ListanswersResponse, error) {
-	request := operations.ListanswersRequest{
-		XGleanActAs:        xGleanActAs,
-		XGleanAuthType:     xGleanAuthType,
-		ListAnswersRequest: listAnswersRequest,
-	}
-
+func (s *Answers) List(ctx context.Context, request components.ListAnswersRequest, opts ...operations.Option) (*operations.ListanswersResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -937,7 +899,7 @@ func (s *Answers) List(ctx context.Context, listAnswersRequest components.ListAn
 		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ListAnswersRequest", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -962,8 +924,6 @@ func (s *Answers) List(ctx context.Context, listAnswersRequest components.ListAn
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
 	}
-
-	utils.PopulateHeaders(ctx, req, request, nil)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

@@ -25,7 +25,7 @@ func TestVerification_Addverificationreminder(t *testing.T) {
 
 	res, err := s.Client.Verification.AddReminder(ctx, components.ReminderRequest{
 		DocumentID: "<id>",
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -42,7 +42,7 @@ func TestVerification_Listverifications(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_BEARER_AUTH", "value")),
 	)
 
-	res, err := s.Client.Verification.List(ctx, nil, nil, nil)
+	res, err := s.Client.Verification.List(ctx, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -61,7 +61,7 @@ func TestVerification_Verify(t *testing.T) {
 
 	res, err := s.Client.Verification.Verify(ctx, components.VerifyRequest{
 		DocumentID: "<id>",
-	}, nil, nil)
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

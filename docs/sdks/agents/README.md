@@ -1,15 +1,15 @@
 # Agents
-(*Agents*)
+(*Client.Agents*)
 
 ## Overview
 
 ### Available Operations
 
-* [Runagent](#runagent) - Runs an Agent.
-* [Listagents](#listagents) - Lists all agents.
-* [Getagentinputs](#getagentinputs) - Gets the inputs to an agent.
+* [Run](#run) - Runs an Agent.
+* [List](#list) - Lists all agents.
+* [RetrieveInputs](#retrieveinputs) - Gets the inputs to an agent.
 
-## Runagent
+## Run
 
 Trigger an Agent with a given id.
 
@@ -33,7 +33,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
     )
 
-    res, err := s.Agents.Runagent(ctx, components.RunAgentRequest{}, nil, nil, nil)
+    res, err := s.Client.Agents.Run(ctx, components.RunAgentRequest{}, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -45,14 +45,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `runAgentRequest`                                                                                                        | [components.RunAgentRequest](../../models/components/runagentrequest.md)                                                 | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `timezoneOffset`                                                                                                         | **int64*                                                                                                                 | :heavy_minus_sign:                                                                                                       | The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 because it's 7 hours behind UTC.               |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `runAgentRequest`                                                                                          | [components.RunAgentRequest](../../models/components/runagentrequest.md)                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `timezoneOffset`                                                                                           | **int64*                                                                                                   | :heavy_minus_sign:                                                                                         | The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 because it's 7 hours behind UTC. |
+| `opts`                                                                                                     | [][operations.Option](../../models/operations/option.md)                                                   | :heavy_minus_sign:                                                                                         | The options for this request.                                                                              |
 
 ### Response
 
@@ -64,7 +62,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Listagents
+## List
 
 Lists all agents that are available.
 
@@ -87,7 +85,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
     )
 
-    res, err := s.Agents.Listagents(ctx, nil, nil, nil, nil)
+    res, err := s.Client.Agents.List(ctx, nil, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -99,14 +97,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `timezoneOffset`                                                                                                         | **int64*                                                                                                                 | :heavy_minus_sign:                                                                                                       | The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 because it's 7 hours behind UTC.               |
-| `requestBody`                                                                                                            | *any*                                                                                                                    | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `timezoneOffset`                                                                                           | **int64*                                                                                                   | :heavy_minus_sign:                                                                                         | The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 because it's 7 hours behind UTC. |
+| `requestBody`                                                                                              | *any*                                                                                                      | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `opts`                                                                                                     | [][operations.Option](../../models/operations/option.md)                                                   | :heavy_minus_sign:                                                                                         | The options for this request.                                                                              |
 
 ### Response
 
@@ -118,7 +114,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Getagentinputs
+## RetrieveInputs
 
 Get the inputs to an agent with a given id.
 
@@ -142,7 +138,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_BEARER_AUTH")),
     )
 
-    res, err := s.Agents.Getagentinputs(ctx, components.GetAgentInputsRequest{}, nil, nil, nil)
+    res, err := s.Client.Agents.RetrieveInputs(ctx, components.GetAgentInputsRequest{}, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -154,14 +150,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                    | :heavy_check_mark:                                                                                                       | The context to use for the request.                                                                                      |
-| `getAgentInputsRequest`                                                                                                  | [components.GetAgentInputsRequest](../../models/components/getagentinputsrequest.md)                                     | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
-| `xGleanActAs`                                                                                                            | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Email address of a user on whose behalf the request is intended to be made (should be non-empty only for global tokens). |
-| `xGleanAuthType`                                                                                                         | **string*                                                                                                                | :heavy_minus_sign:                                                                                                       | Auth type being used to access the endpoint (should be non-empty only for global tokens).                                |
-| `timezoneOffset`                                                                                                         | **int64*                                                                                                                 | :heavy_minus_sign:                                                                                                       | The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 because it's 7 hours behind UTC.               |
-| `opts`                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                 | :heavy_minus_sign:                                                                                                       | The options for this request.                                                                                            |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `getAgentInputsRequest`                                                                                    | [components.GetAgentInputsRequest](../../models/components/getagentinputsrequest.md)                       | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `timezoneOffset`                                                                                           | **int64*                                                                                                   | :heavy_minus_sign:                                                                                         | The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 because it's 7 hours behind UTC. |
+| `opts`                                                                                                     | [][operations.Option](../../models/operations/option.md)                                                   | :heavy_minus_sign:                                                                                         | The options for this request.                                                                              |
 
 ### Response
 

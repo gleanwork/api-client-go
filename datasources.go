@@ -219,9 +219,9 @@ func (s *Datasources) Add(ctx context.Context, request components.CustomDatasour
 
 }
 
-// GetConfig - Get datasource config
+// RetrieveConfig - Get datasource config
 // Fetches the datasource config for the specified custom datasource.
-func (s *Datasources) GetConfig(ctx context.Context, request components.GetDatasourceConfigRequest, opts ...operations.Option) (*operations.PostAPIIndexV1GetdatasourceconfigResponse, error) {
+func (s *Datasources) RetrieveConfig(ctx context.Context, request components.GetDatasourceConfigRequest, opts ...operations.Option) (*operations.PostAPIIndexV1GetdatasourceconfigResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
