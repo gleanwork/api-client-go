@@ -15,7 +15,7 @@ import (
 
 // ServerList contains the list of servers available to the SDK
 var ServerList = []string{
-	"https://domain-be.glean.com",
+	"https://{domain}-be.glean.com",
 }
 
 // HTTPClient provides an interface for suplying the SDK with a custom HTTP client
@@ -178,9 +178,9 @@ func New(opts ...SDKOption) *Glean {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "0.9.0",
-			SDKVersion:        "0.1.0-beta.2",
+			SDKVersion:        "0.2.0",
 			GenVersion:        "2.597.9",
-			UserAgent:         "speakeasy-sdk/go 0.1.0-beta.2 2.597.9 0.9.0 github.com/gleanwork/api-client-go",
+			UserAgent:         "speakeasy-sdk/go 0.2.0 2.597.9 0.9.0 github.com/gleanwork/api-client-go",
 			ServerDefaults: []map[string]string{
 				{
 					"domain": "domain",
