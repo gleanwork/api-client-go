@@ -3,6 +3,35 @@
 The Glean Go SDK provides convenient access to the Glean REST API for Go 1.18+. It offers strongly typed request and response structs, context-based request handling, and uses the standard net/http package.
 <!-- No Summary [summary] -->
 
+## Unified SDK Architecture
+
+This SDK combines both the Client and Indexing API namespaces into a single unified package:
+
+- **Client API**: Used for search, retrieval, and end-user interactions with Glean content
+- **Indexing API**: Used for indexing content, permissions, and other administrative operations
+
+Each namespace has its own authentication requirements and access patterns. While they serve different purposes, having them in a single SDK provides a consistent developer experience across all Glean API interactions.
+
+```go
+// Example of accessing Client namespace
+s := apiclientgo.New(
+	apiclientgo.WithSecurity("client-token"),
+)
+res, err := s.Client.Search.Query(ctx, components.SearchRequest{
+	Query: "search term",
+})
+
+// Example of accessing Indexing namespace 
+s := apiclientgo.New(
+	apiclientgo.WithSecurity("indexing-token"),
+)
+res, err := s.Indexing.Documents.Index(ctx, components.DocumentRequest{
+	// document data
+})
+```
+
+Remember that each namespace requires its own authentication token type as described in the [Authentication Methods](#authentication-methods) section.
+
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
@@ -143,6 +172,35 @@ func main() {
 
 ```
 <!-- End Authentication [security] -->
+
+### Authentication Methods
+
+Glean supports different authentication methods depending on which API namespace you're using:
+
+#### Client Namespace
+
+The Client namespace supports two authentication methods:
+
+1. **Manually Provisioned API Tokens**
+   - Can be created by an Admin or a user with the API Token Creator role
+   - Used for server-to-server integrations
+
+2. **OAuth**
+   - Requires OAuth setup to be completed by an Admin
+   - Used for user-based authentication flows
+
+#### Indexing Namespace
+
+The Indexing namespace supports only one authentication method:
+
+1. **Manually Provisioned API Tokens**
+   - Can be created by an Admin or a user with the API Token Creator role
+   - Used for secure document indexing operations
+
+> [!IMPORTANT]
+> Client tokens **will not work** for Indexing operations, and Indexing tokens **will not work** for Client operations. You must use the appropriate token type for the namespace you're accessing.
+
+For more information on obtaining the appropriate token type, please contact your Glean administrator.
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
