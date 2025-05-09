@@ -51,7 +51,111 @@ func main() {
                 Author: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
-                    RelatedDocuments: []components.RelatedDocuments{},
+                    RelatedDocuments: []components.RelatedDocuments{
+                        components.RelatedDocuments{
+                            QuerySuggestion: &components.QuerySuggestion{
+                                Query: "app:github type:pull author:mortimer",
+                                SearchProviderInfo: &components.SearchProviderInfo{
+                                    Name: apiclientgo.String("Google"),
+                                    SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+                                },
+                                Label: apiclientgo.String("Mortimer's PRs"),
+                                Datasource: apiclientgo.String("github"),
+                                RequestOptions: &components.SearchRequestOptions{
+                                    DatasourceFilter: apiclientgo.String("JIRA"),
+                                    DatasourcesFilter: []string{
+                                        "JIRA",
+                                    },
+                                    QueryOverridesFacetFilters: apiclientgo.Bool(true),
+                                    FacetFilters: []components.FacetFilter{
+                                        components.FacetFilter{
+                                            FieldName: apiclientgo.String("type"),
+                                            Values: []components.FacetFilterValue{
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Spreadsheet"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Presentation"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetFilterSets: []components.FacetFilterSet{
+                                        components.FacetFilterSet{
+                                            Filters: []components.FacetFilter{
+                                                components.FacetFilter{
+                                                    FieldName: apiclientgo.String("type"),
+                                                    Values: []components.FacetFilterValue{
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Spreadsheet"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Presentation"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                        components.FacetFilterSet{
+                                            Filters: []components.FacetFilter{
+                                                components.FacetFilter{
+                                                    FieldName: apiclientgo.String("type"),
+                                                    Values: []components.FacetFilterValue{
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Spreadsheet"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Presentation"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetBucketSize: 122022,
+                                    AuthTokens: []components.AuthToken{
+                                        components.AuthToken{
+                                            AccessToken: "123abc",
+                                            Datasource: "gmail",
+                                            Scope: apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+                                            TokenType: apiclientgo.String("Bearer"),
+                                            AuthUser: apiclientgo.String("1"),
+                                        },
+                                    },
+                                },
+                                Ranges: []components.TextRange{
+                                    components.TextRange{
+                                        StartIndex: 166446,
+                                    },
+                                    components.TextRange{
+                                        StartIndex: 944208,
+                                    },
+                                },
+                                InputDetails: &components.SearchRequestInputDetails{
+                                    HasCopyPaste: apiclientgo.Bool(true),
+                                },
+                            },
+                            Results: []components.SearchResult{
+                                components.SearchResult{
+                                    Title: apiclientgo.String("title"),
+                                    URL: "https://example.com/foo/bar",
+                                    NativeAppURL: apiclientgo.String("slack://foo/bar"),
+                                    Snippets: []components.SearchResultSnippet{
+                                        components.SearchResultSnippet{
+                                            Snippet: "snippet",
+                                            MimeType: apiclientgo.String("mimeType"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
                     Metadata: &components.PersonMetadata{
                         Type: components.PersonMetadataTypeFullTime.ToPointer(),
                         Title: apiclientgo.String("Actor"),
@@ -68,12 +172,25 @@ func main() {
                             },
                         },
                         QuerySuggestions: &components.QuerySuggestionList{
-                            Suggestions: []components.QuerySuggestion{},
+                            Suggestions: []components.QuerySuggestion{
+                                components.QuerySuggestion{
+                                    Query: "app:github type:pull author:mortimer",
+                                    Label: apiclientgo.String("Mortimer's PRs"),
+                                    Datasource: apiclientgo.String("github"),
+                                },
+                            },
                         },
                         InviteInfo: &components.InviteInfo{
-                            Invites: []components.ChannelInviteInfo{},
+                            Invites: []components.ChannelInviteInfo{
+                                components.ChannelInviteInfo{},
+                            },
                         },
-                        CustomFields: []components.CustomFieldData{},
+                        CustomFields: []components.CustomFieldData{
+                            components.CustomFieldData{
+                                Label: "<value>",
+                                Values: []components.CustomFieldValue{},
+                            },
+                        },
                         Badges: []components.Badge{
                             components.Badge{
                                 Key: apiclientgo.String("deployment_name_new_hire"),
@@ -91,26 +208,1452 @@ func main() {
                 Owner: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
-                MentionedPeople: []components.Person{},
+                MentionedPeople: []components.Person{
+                    components.Person{
+                        Name: "George Clooney",
+                        ObfuscatedID: "abc123",
+                    },
+                },
                 Components: []string{
                     "Backend",
                     "Networking",
                 },
                 Status: apiclientgo.String("[\"Done\"]"),
-                Pins: []components.PinDocument{},
+                Pins: []components.PinDocument{
+                    components.PinDocument{
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        DocumentID: "<id>",
+                        Attribution: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.PinDocument{
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        DocumentID: "<id>",
+                        Attribution: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.PinDocument{
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        DocumentID: "<id>",
+                        Attribution: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 AssignedTo: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
                 UpdatedBy: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
-                Collections: []components.Collection{},
+                Collections: []components.Collection{
+                    components.Collection{
+                        Name: "<value>",
+                        Description: "fooey cannon yet late supposing recede another equatorial incidentally unto",
+                        AddedRoles: []components.UserRoleSpecification{
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleOwner,
+                            },
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleEditor,
+                            },
+                        },
+                        RemovedRoles: []components.UserRoleSpecification{
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleViewer,
+                            },
+                        },
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        ID: 46901,
+                        Creator: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        Items: []components.CollectionItem{
+                            components.CollectionItem{
+                                CollectionID: 734026,
+                                CreatedBy: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Shortcut: &components.Shortcut{
+                                    InputAlias: "<value>",
+                                    CreatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    UpdatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Roles: []components.UserRoleSpecification{
+                                        components.UserRoleSpecification{
+                                            Person: &components.Person{
+                                                Name: "George Clooney",
+                                                ObfuscatedID: "abc123",
+                                                Metadata: &components.PersonMetadata{
+                                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                                    Title: apiclientgo.String("Actor"),
+                                                    Department: apiclientgo.String("Movies"),
+                                                    Email: apiclientgo.String("george@example.com"),
+                                                    Location: apiclientgo.String("Hollywood, CA"),
+                                                    Phone: apiclientgo.String("6505551234"),
+                                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                                    DatasourceProfile: []components.DatasourceProfile{
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                    },
+                                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                                    InviteInfo: &components.InviteInfo{},
+                                                    Badges: []components.Badge{
+                                                        components.Badge{
+                                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                                            DisplayName: apiclientgo.String("New hire"),
+                                                            IconConfig: &components.IconConfig{
+                                                                Color: apiclientgo.String("#343CED"),
+                                                                Key: apiclientgo.String("person_icon"),
+                                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                                Name: apiclientgo.String("user"),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            Role: components.UserRoleOwner,
+                                        },
+                                        components.UserRoleSpecification{
+                                            Person: &components.Person{
+                                                Name: "George Clooney",
+                                                ObfuscatedID: "abc123",
+                                                Metadata: &components.PersonMetadata{
+                                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                                    Title: apiclientgo.String("Actor"),
+                                                    Department: apiclientgo.String("Movies"),
+                                                    Email: apiclientgo.String("george@example.com"),
+                                                    Location: apiclientgo.String("Hollywood, CA"),
+                                                    Phone: apiclientgo.String("6505551234"),
+                                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                                    DatasourceProfile: []components.DatasourceProfile{
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                    },
+                                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                                    InviteInfo: &components.InviteInfo{},
+                                                    Badges: []components.Badge{
+                                                        components.Badge{
+                                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                                            DisplayName: apiclientgo.String("New hire"),
+                                                            IconConfig: &components.IconConfig{
+                                                                Color: apiclientgo.String("#343CED"),
+                                                                Key: apiclientgo.String("person_icon"),
+                                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                                Name: apiclientgo.String("user"),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            Role: components.UserRoleVerifier,
+                                        },
+                                        components.UserRoleSpecification{
+                                            Person: &components.Person{
+                                                Name: "George Clooney",
+                                                ObfuscatedID: "abc123",
+                                                Metadata: &components.PersonMetadata{
+                                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                                    Title: apiclientgo.String("Actor"),
+                                                    Department: apiclientgo.String("Movies"),
+                                                    Email: apiclientgo.String("george@example.com"),
+                                                    Location: apiclientgo.String("Hollywood, CA"),
+                                                    Phone: apiclientgo.String("6505551234"),
+                                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                                    DatasourceProfile: []components.DatasourceProfile{
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                    },
+                                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                                    InviteInfo: &components.InviteInfo{},
+                                                    Badges: []components.Badge{
+                                                        components.Badge{
+                                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                                            DisplayName: apiclientgo.String("New hire"),
+                                                            IconConfig: &components.IconConfig{
+                                                                Color: apiclientgo.String("#343CED"),
+                                                                Key: apiclientgo.String("person_icon"),
+                                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                                Name: apiclientgo.String("user"),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            Role: components.UserRoleVerifier,
+                                        },
+                                    },
+                                },
+                                ItemType: components.CollectionItemItemTypeText,
+                            },
+                            components.CollectionItem{
+                                CollectionID: 894207,
+                                CreatedBy: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Shortcut: &components.Shortcut{
+                                    InputAlias: "<value>",
+                                    CreatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    UpdatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                ItemType: components.CollectionItemItemTypeText,
+                            },
+                            components.CollectionItem{
+                                CollectionID: 624681,
+                                CreatedBy: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Shortcut: &components.Shortcut{
+                                    InputAlias: "<value>",
+                                    CreatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    UpdatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                ItemType: components.CollectionItemItemTypeDocument,
+                            },
+                        },
+                    },
+                    components.Collection{
+                        Name: "<value>",
+                        Description: "reach astride courtroom unlike before rewarding towards affectionate indeed",
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        ID: 722601,
+                        Creator: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.Collection{
+                        Name: "<value>",
+                        Description: "abnormally eek scope gee violently orchestrate though nicely",
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        ID: 23042,
+                        Creator: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 Interactions: &components.DocumentInteractions{
-                    Reacts: []components.Reaction{},
-                    Shares: []components.Share{},
+                    Reacts: []components.Reaction{
+                        components.Reaction{
+                            Reactors: []components.Person{
+                                components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                },
+                            },
+                        },
+                        components.Reaction{},
+                    },
+                    Shares: []components.Share{
+                        components.Share{
+                            NumDaysAgo: 507637,
+                            Sharer: &components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        components.Share{
+                            NumDaysAgo: 321079,
+                            Sharer: &components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        components.Share{
+                            NumDaysAgo: 189943,
+                            Sharer: &components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
                 },
                 Verification: &components.Verification{
                     State: components.StateVerified,
@@ -118,29 +1661,579 @@ func main() {
                         LastVerifier: &components.Person{
                             Name: "George Clooney",
                             ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
                         },
-                        Reminders: []components.Reminder{},
+                        Reminders: []components.Reminder{
+                            components.Reminder{
+                                Assignee: components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Requestor: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                RemindAt: 436172,
+                            },
+                            components.Reminder{
+                                Assignee: components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Requestor: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                RemindAt: 385589,
+                            },
+                            components.Reminder{
+                                Assignee: components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Requestor: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                RemindAt: 757453,
+                            },
+                        },
                         LastReminder: &components.Reminder{
                             Assignee: components.Person{
                                 Name: "George Clooney",
                                 ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
                             },
                             Requestor: &components.Person{
                                 Name: "George Clooney",
                                 ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
                             },
                             RemindAt: 333878,
                         },
-                        CandidateVerifiers: []components.Person{},
+                        CandidateVerifiers: []components.Person{
+                            components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                            },
+                        },
                     },
                 },
-                Shortcuts: []components.Shortcut{},
+                Shortcuts: []components.Shortcut{
+                    components.Shortcut{
+                        InputAlias: "<value>",
+                        CreatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.Shortcut{
+                        InputAlias: "<value>",
+                        CreatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 CustomData: map[string]components.CustomDataValue{
                     "someCustomField": components.CustomDataValue{},
                 },
                 ContactPerson: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
             },
         },
@@ -413,7 +2506,261 @@ func main() {
                 Author: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
-                    RelatedDocuments: []components.RelatedDocuments{},
+                    RelatedDocuments: []components.RelatedDocuments{
+                        components.RelatedDocuments{
+                            QuerySuggestion: &components.QuerySuggestion{
+                                Query: "app:github type:pull author:mortimer",
+                                SearchProviderInfo: &components.SearchProviderInfo{
+                                    Name: apiclientgo.String("Google"),
+                                    SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+                                },
+                                Label: apiclientgo.String("Mortimer's PRs"),
+                                Datasource: apiclientgo.String("github"),
+                                RequestOptions: &components.SearchRequestOptions{
+                                    DatasourceFilter: apiclientgo.String("JIRA"),
+                                    DatasourcesFilter: []string{
+                                        "JIRA",
+                                    },
+                                    QueryOverridesFacetFilters: apiclientgo.Bool(true),
+                                    FacetFilters: []components.FacetFilter{
+                                        components.FacetFilter{
+                                            FieldName: apiclientgo.String("type"),
+                                            Values: []components.FacetFilterValue{
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Spreadsheet"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Presentation"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetFilterSets: []components.FacetFilterSet{
+                                        components.FacetFilterSet{
+                                            Filters: []components.FacetFilter{
+                                                components.FacetFilter{
+                                                    FieldName: apiclientgo.String("type"),
+                                                    Values: []components.FacetFilterValue{
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Spreadsheet"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Presentation"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetBucketSize: 236211,
+                                    AuthTokens: []components.AuthToken{
+                                        components.AuthToken{
+                                            AccessToken: "123abc",
+                                            Datasource: "gmail",
+                                            Scope: apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+                                            TokenType: apiclientgo.String("Bearer"),
+                                            AuthUser: apiclientgo.String("1"),
+                                        },
+                                    },
+                                },
+                                Ranges: []components.TextRange{
+                                    components.TextRange{
+                                        StartIndex: 818990,
+                                    },
+                                    components.TextRange{
+                                        StartIndex: 38651,
+                                    },
+                                    components.TextRange{
+                                        StartIndex: 996660,
+                                    },
+                                },
+                                InputDetails: &components.SearchRequestInputDetails{
+                                    HasCopyPaste: apiclientgo.Bool(true),
+                                },
+                            },
+                            Results: []components.SearchResult{
+                                components.SearchResult{
+                                    Title: apiclientgo.String("title"),
+                                    URL: "https://example.com/foo/bar",
+                                    NativeAppURL: apiclientgo.String("slack://foo/bar"),
+                                    Snippets: []components.SearchResultSnippet{
+                                        components.SearchResultSnippet{
+                                            Snippet: "snippet",
+                                            MimeType: apiclientgo.String("mimeType"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        components.RelatedDocuments{
+                            QuerySuggestion: &components.QuerySuggestion{
+                                Query: "app:github type:pull author:mortimer",
+                                SearchProviderInfo: &components.SearchProviderInfo{
+                                    Name: apiclientgo.String("Google"),
+                                    SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+                                },
+                                Label: apiclientgo.String("Mortimer's PRs"),
+                                Datasource: apiclientgo.String("github"),
+                                RequestOptions: &components.SearchRequestOptions{
+                                    DatasourceFilter: apiclientgo.String("JIRA"),
+                                    DatasourcesFilter: []string{
+                                        "JIRA",
+                                    },
+                                    QueryOverridesFacetFilters: apiclientgo.Bool(true),
+                                    FacetFilters: []components.FacetFilter{
+                                        components.FacetFilter{
+                                            FieldName: apiclientgo.String("type"),
+                                            Values: []components.FacetFilterValue{
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Spreadsheet"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Presentation"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetFilterSets: []components.FacetFilterSet{
+                                        components.FacetFilterSet{
+                                            Filters: []components.FacetFilter{
+                                                components.FacetFilter{
+                                                    FieldName: apiclientgo.String("type"),
+                                                    Values: []components.FacetFilterValue{
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Spreadsheet"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Presentation"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                        components.FacetFilterSet{
+                                            Filters: []components.FacetFilter{
+                                                components.FacetFilter{
+                                                    FieldName: apiclientgo.String("type"),
+                                                    Values: []components.FacetFilterValue{
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Spreadsheet"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Presentation"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                        components.FacetFilterSet{
+                                            Filters: []components.FacetFilter{
+                                                components.FacetFilter{
+                                                    FieldName: apiclientgo.String("type"),
+                                                    Values: []components.FacetFilterValue{
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Spreadsheet"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Presentation"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetBucketSize: 485964,
+                                    AuthTokens: []components.AuthToken{
+                                        components.AuthToken{
+                                            AccessToken: "123abc",
+                                            Datasource: "gmail",
+                                            Scope: apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+                                            TokenType: apiclientgo.String("Bearer"),
+                                            AuthUser: apiclientgo.String("1"),
+                                        },
+                                    },
+                                },
+                                InputDetails: &components.SearchRequestInputDetails{
+                                    HasCopyPaste: apiclientgo.Bool(true),
+                                },
+                            },
+                        },
+                        components.RelatedDocuments{
+                            QuerySuggestion: &components.QuerySuggestion{
+                                Query: "app:github type:pull author:mortimer",
+                                SearchProviderInfo: &components.SearchProviderInfo{
+                                    Name: apiclientgo.String("Google"),
+                                    SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+                                },
+                                Label: apiclientgo.String("Mortimer's PRs"),
+                                Datasource: apiclientgo.String("github"),
+                                RequestOptions: &components.SearchRequestOptions{
+                                    DatasourceFilter: apiclientgo.String("JIRA"),
+                                    DatasourcesFilter: []string{
+                                        "JIRA",
+                                    },
+                                    QueryOverridesFacetFilters: apiclientgo.Bool(true),
+                                    FacetFilters: []components.FacetFilter{
+                                        components.FacetFilter{
+                                            FieldName: apiclientgo.String("type"),
+                                            Values: []components.FacetFilterValue{
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Spreadsheet"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Presentation"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetFilterSets: []components.FacetFilterSet{
+                                        components.FacetFilterSet{
+                                            Filters: []components.FacetFilter{
+                                                components.FacetFilter{
+                                                    FieldName: apiclientgo.String("type"),
+                                                    Values: []components.FacetFilterValue{
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Spreadsheet"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Presentation"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetBucketSize: 793380,
+                                    AuthTokens: []components.AuthToken{
+                                        components.AuthToken{
+                                            AccessToken: "123abc",
+                                            Datasource: "gmail",
+                                            Scope: apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+                                            TokenType: apiclientgo.String("Bearer"),
+                                            AuthUser: apiclientgo.String("1"),
+                                        },
+                                    },
+                                },
+                                InputDetails: &components.SearchRequestInputDetails{
+                                    HasCopyPaste: apiclientgo.Bool(true),
+                                },
+                            },
+                        },
+                    },
                     Metadata: &components.PersonMetadata{
                         Type: components.PersonMetadataTypeFullTime.ToPointer(),
                         Title: apiclientgo.String("Actor"),
@@ -434,12 +2781,44 @@ func main() {
                             },
                         },
                         QuerySuggestions: &components.QuerySuggestionList{
-                            Suggestions: []components.QuerySuggestion{},
+                            Suggestions: []components.QuerySuggestion{
+                                components.QuerySuggestion{
+                                    Query: "app:github type:pull author:mortimer",
+                                    Label: apiclientgo.String("Mortimer's PRs"),
+                                    Datasource: apiclientgo.String("github"),
+                                },
+                            },
                         },
                         InviteInfo: &components.InviteInfo{
-                            Invites: []components.ChannelInviteInfo{},
+                            Invites: []components.ChannelInviteInfo{
+                                components.ChannelInviteInfo{},
+                                components.ChannelInviteInfo{},
+                            },
                         },
-                        CustomFields: []components.CustomFieldData{},
+                        CustomFields: []components.CustomFieldData{
+                            components.CustomFieldData{
+                                Label: "<value>",
+                                Values: []components.CustomFieldValue{
+                                    components.CreateCustomFieldValueCustomFieldValueStr(
+                                        components.CustomFieldValueStr{},
+                                    ),
+                                    components.CreateCustomFieldValueCustomFieldValueStr(
+                                        components.CustomFieldValueStr{},
+                                    ),
+                                    components.CreateCustomFieldValueCustomFieldValueStr(
+                                        components.CustomFieldValueStr{},
+                                    ),
+                                },
+                            },
+                            components.CustomFieldData{
+                                Label: "<value>",
+                                Values: []components.CustomFieldValue{},
+                            },
+                            components.CustomFieldData{
+                                Label: "<value>",
+                                Values: []components.CustomFieldValue{},
+                            },
+                        },
                         Badges: []components.Badge{
                             components.Badge{
                                 Key: apiclientgo.String("deployment_name_new_hire"),
@@ -457,26 +2836,981 @@ func main() {
                 Owner: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
-                MentionedPeople: []components.Person{},
+                MentionedPeople: []components.Person{
+                    components.Person{
+                        Name: "George Clooney",
+                        ObfuscatedID: "abc123",
+                    },
+                },
                 Components: []string{
                     "Backend",
                     "Networking",
                 },
                 Status: apiclientgo.String("[\"Done\"]"),
-                Pins: []components.PinDocument{},
+                Pins: []components.PinDocument{
+                    components.PinDocument{
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        DocumentID: "<id>",
+                        Attribution: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 AssignedTo: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
                 UpdatedBy: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
-                Collections: []components.Collection{},
+                Collections: []components.Collection{
+                    components.Collection{
+                        Name: "<value>",
+                        Description: "rust whisper oh in seagull",
+                        AddedRoles: []components.UserRoleSpecification{
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleAnswerModerator,
+                            },
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleVerifier,
+                            },
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleAnswerModerator,
+                            },
+                        },
+                        RemovedRoles: []components.UserRoleSpecification{
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleAnswerModerator,
+                            },
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleVerifier,
+                            },
+                        },
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        ID: 532535,
+                        Creator: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        Items: []components.CollectionItem{
+                            components.CollectionItem{
+                                CollectionID: 354858,
+                                CreatedBy: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Shortcut: &components.Shortcut{
+                                    InputAlias: "<value>",
+                                    CreatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    UpdatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Roles: []components.UserRoleSpecification{
+                                        components.UserRoleSpecification{
+                                            Person: &components.Person{
+                                                Name: "George Clooney",
+                                                ObfuscatedID: "abc123",
+                                                Metadata: &components.PersonMetadata{
+                                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                                    Title: apiclientgo.String("Actor"),
+                                                    Department: apiclientgo.String("Movies"),
+                                                    Email: apiclientgo.String("george@example.com"),
+                                                    Location: apiclientgo.String("Hollywood, CA"),
+                                                    Phone: apiclientgo.String("6505551234"),
+                                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                                    DatasourceProfile: []components.DatasourceProfile{
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                    },
+                                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                                    InviteInfo: &components.InviteInfo{},
+                                                    Badges: []components.Badge{
+                                                        components.Badge{
+                                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                                            DisplayName: apiclientgo.String("New hire"),
+                                                            IconConfig: &components.IconConfig{
+                                                                Color: apiclientgo.String("#343CED"),
+                                                                Key: apiclientgo.String("person_icon"),
+                                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                                Name: apiclientgo.String("user"),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            Role: components.UserRoleVerifier,
+                                        },
+                                    },
+                                },
+                                ItemType: components.CollectionItemItemTypeURL,
+                            },
+                        },
+                    },
+                    components.Collection{
+                        Name: "<value>",
+                        Description: "physical queasily provision towards frightfully meh",
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        ID: 452218,
+                        Creator: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.Collection{
+                        Name: "<value>",
+                        Description: "mmm crushing playfully feminize",
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        ID: 498098,
+                        Creator: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 Interactions: &components.DocumentInteractions{
-                    Reacts: []components.Reaction{},
-                    Shares: []components.Share{},
+                    Reacts: []components.Reaction{
+                        components.Reaction{
+                            Reactors: []components.Person{
+                                components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                },
+                            },
+                        },
+                        components.Reaction{},
+                    },
+                    Shares: []components.Share{
+                        components.Share{
+                            NumDaysAgo: 578719,
+                            Sharer: &components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        components.Share{
+                            NumDaysAgo: 450275,
+                            Sharer: &components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
                 },
                 Verification: &components.Verification{
                     State: components.StateVerified,
@@ -484,29 +3818,492 @@ func main() {
                         LastVerifier: &components.Person{
                             Name: "George Clooney",
                             ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
                         },
-                        Reminders: []components.Reminder{},
+                        Reminders: []components.Reminder{
+                            components.Reminder{
+                                Assignee: components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Requestor: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                RemindAt: 821135,
+                            },
+                        },
                         LastReminder: &components.Reminder{
                             Assignee: components.Person{
                                 Name: "George Clooney",
                                 ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
                             },
                             Requestor: &components.Person{
                                 Name: "George Clooney",
                                 ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
                             },
                             RemindAt: 986764,
                         },
-                        CandidateVerifiers: []components.Person{},
+                        CandidateVerifiers: []components.Person{
+                            components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                            },
+                        },
                     },
                 },
-                Shortcuts: []components.Shortcut{},
+                Shortcuts: []components.Shortcut{
+                    components.Shortcut{
+                        InputAlias: "<value>",
+                        CreatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.Shortcut{
+                        InputAlias: "<value>",
+                        CreatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.Shortcut{
+                        InputAlias: "<value>",
+                        CreatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 CustomData: map[string]components.CustomDataValue{
                     "someCustomField": components.CustomDataValue{},
                 },
                 ContactPerson: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
             },
         },
@@ -532,7 +4329,339 @@ func main() {
                     },
                 },
             },
-            Context: &components.Document{},
+            Context: &components.Document{
+                Metadata: &components.DocumentMetadata{
+                    Datasource: apiclientgo.String("datasource"),
+                    ObjectType: apiclientgo.String("Feature Request"),
+                    Container: apiclientgo.String("container"),
+                    ParentID: apiclientgo.String("JIRA_EN-1337"),
+                    MimeType: apiclientgo.String("mimeType"),
+                    DocumentID: apiclientgo.String("documentId"),
+                    CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
+                    UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
+                    Author: &components.Person{
+                        Name: "George Clooney",
+                        ObfuscatedID: "abc123",
+                        Metadata: &components.PersonMetadata{
+                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                            Title: apiclientgo.String("Actor"),
+                            Department: apiclientgo.String("Movies"),
+                            Email: apiclientgo.String("george@example.com"),
+                            Location: apiclientgo.String("Hollywood, CA"),
+                            Phone: apiclientgo.String("6505551234"),
+                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                            DatasourceProfile: []components.DatasourceProfile{
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                            },
+                            QuerySuggestions: &components.QuerySuggestionList{},
+                            InviteInfo: &components.InviteInfo{},
+                            Badges: []components.Badge{
+                                components.Badge{
+                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                    DisplayName: apiclientgo.String("New hire"),
+                                    IconConfig: &components.IconConfig{
+                                        Color: apiclientgo.String("#343CED"),
+                                        Key: apiclientgo.String("person_icon"),
+                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                        Name: apiclientgo.String("user"),
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    Owner: &components.Person{
+                        Name: "George Clooney",
+                        ObfuscatedID: "abc123",
+                        Metadata: &components.PersonMetadata{
+                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                            Title: apiclientgo.String("Actor"),
+                            Department: apiclientgo.String("Movies"),
+                            Email: apiclientgo.String("george@example.com"),
+                            Location: apiclientgo.String("Hollywood, CA"),
+                            Phone: apiclientgo.String("6505551234"),
+                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                            DatasourceProfile: []components.DatasourceProfile{
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                            },
+                            QuerySuggestions: &components.QuerySuggestionList{},
+                            InviteInfo: &components.InviteInfo{},
+                            Badges: []components.Badge{
+                                components.Badge{
+                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                    DisplayName: apiclientgo.String("New hire"),
+                                    IconConfig: &components.IconConfig{
+                                        Color: apiclientgo.String("#343CED"),
+                                        Key: apiclientgo.String("person_icon"),
+                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                        Name: apiclientgo.String("user"),
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    Components: []string{
+                        "Backend",
+                        "Networking",
+                    },
+                    Status: apiclientgo.String("[\"Done\"]"),
+                    AssignedTo: &components.Person{
+                        Name: "George Clooney",
+                        ObfuscatedID: "abc123",
+                        Metadata: &components.PersonMetadata{
+                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                            Title: apiclientgo.String("Actor"),
+                            Department: apiclientgo.String("Movies"),
+                            Email: apiclientgo.String("george@example.com"),
+                            Location: apiclientgo.String("Hollywood, CA"),
+                            Phone: apiclientgo.String("6505551234"),
+                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                            DatasourceProfile: []components.DatasourceProfile{
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                            },
+                            QuerySuggestions: &components.QuerySuggestionList{},
+                            InviteInfo: &components.InviteInfo{},
+                            Badges: []components.Badge{
+                                components.Badge{
+                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                    DisplayName: apiclientgo.String("New hire"),
+                                    IconConfig: &components.IconConfig{
+                                        Color: apiclientgo.String("#343CED"),
+                                        Key: apiclientgo.String("person_icon"),
+                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                        Name: apiclientgo.String("user"),
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    UpdatedBy: &components.Person{
+                        Name: "George Clooney",
+                        ObfuscatedID: "abc123",
+                        Metadata: &components.PersonMetadata{
+                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                            Title: apiclientgo.String("Actor"),
+                            Department: apiclientgo.String("Movies"),
+                            Email: apiclientgo.String("george@example.com"),
+                            Location: apiclientgo.String("Hollywood, CA"),
+                            Phone: apiclientgo.String("6505551234"),
+                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                            DatasourceProfile: []components.DatasourceProfile{
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                            },
+                            QuerySuggestions: &components.QuerySuggestionList{},
+                            InviteInfo: &components.InviteInfo{},
+                            Badges: []components.Badge{
+                                components.Badge{
+                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                    DisplayName: apiclientgo.String("New hire"),
+                                    IconConfig: &components.IconConfig{
+                                        Color: apiclientgo.String("#343CED"),
+                                        Key: apiclientgo.String("person_icon"),
+                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                        Name: apiclientgo.String("user"),
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    Interactions: &components.DocumentInteractions{},
+                    Verification: &components.Verification{
+                        State: components.StateDeprecated,
+                        Metadata: &components.VerificationMetadata{
+                            LastVerifier: &components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                            LastReminder: &components.Reminder{
+                                Assignee: components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Requestor: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                RemindAt: 518835,
+                            },
+                        },
+                    },
+                    CustomData: map[string]components.CustomDataValue{
+                        "someCustomField": components.CustomDataValue{},
+                    },
+                    ContactPerson: &components.Person{
+                        Name: "George Clooney",
+                        ObfuscatedID: "abc123",
+                        Metadata: &components.PersonMetadata{
+                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                            Title: apiclientgo.String("Actor"),
+                            Department: apiclientgo.String("Movies"),
+                            Email: apiclientgo.String("george@example.com"),
+                            Location: apiclientgo.String("Hollywood, CA"),
+                            Phone: apiclientgo.String("6505551234"),
+                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                            DatasourceProfile: []components.DatasourceProfile{
+                                components.DatasourceProfile{
+                                    Datasource: "github",
+                                    Handle: "<value>",
+                                },
+                            },
+                            QuerySuggestions: &components.QuerySuggestionList{},
+                            InviteInfo: &components.InviteInfo{},
+                            Badges: []components.Badge{
+                                components.Badge{
+                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                    DisplayName: apiclientgo.String("New hire"),
+                                    IconConfig: &components.IconConfig{
+                                        Color: apiclientgo.String("#343CED"),
+                                        Key: apiclientgo.String("person_icon"),
+                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                        Name: apiclientgo.String("user"),
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
         },
     })
     if err != nil {
@@ -602,7 +4731,97 @@ func main() {
                 Author: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
-                    RelatedDocuments: []components.RelatedDocuments{},
+                    RelatedDocuments: []components.RelatedDocuments{
+                        components.RelatedDocuments{
+                            QuerySuggestion: &components.QuerySuggestion{
+                                Query: "app:github type:pull author:mortimer",
+                                SearchProviderInfo: &components.SearchProviderInfo{
+                                    Name: apiclientgo.String("Google"),
+                                    SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+                                },
+                                Label: apiclientgo.String("Mortimer's PRs"),
+                                Datasource: apiclientgo.String("github"),
+                                RequestOptions: &components.SearchRequestOptions{
+                                    DatasourceFilter: apiclientgo.String("JIRA"),
+                                    DatasourcesFilter: []string{
+                                        "JIRA",
+                                    },
+                                    QueryOverridesFacetFilters: apiclientgo.Bool(true),
+                                    FacetFilters: []components.FacetFilter{
+                                        components.FacetFilter{
+                                            FieldName: apiclientgo.String("type"),
+                                            Values: []components.FacetFilterValue{
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Spreadsheet"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                                components.FacetFilterValue{
+                                                    Value: apiclientgo.String("Presentation"),
+                                                    RelationType: components.RelationTypeEquals.ToPointer(),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetFilterSets: []components.FacetFilterSet{
+                                        components.FacetFilterSet{
+                                            Filters: []components.FacetFilter{
+                                                components.FacetFilter{
+                                                    FieldName: apiclientgo.String("type"),
+                                                    Values: []components.FacetFilterValue{
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Spreadsheet"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                        components.FacetFilterValue{
+                                                            Value: apiclientgo.String("Presentation"),
+                                                            RelationType: components.RelationTypeEquals.ToPointer(),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    FacetBucketSize: 30421,
+                                    AuthTokens: []components.AuthToken{
+                                        components.AuthToken{
+                                            AccessToken: "123abc",
+                                            Datasource: "gmail",
+                                            Scope: apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+                                            TokenType: apiclientgo.String("Bearer"),
+                                            AuthUser: apiclientgo.String("1"),
+                                        },
+                                    },
+                                },
+                                Ranges: []components.TextRange{
+                                    components.TextRange{
+                                        StartIndex: 122261,
+                                    },
+                                    components.TextRange{
+                                        StartIndex: 569009,
+                                    },
+                                    components.TextRange{
+                                        StartIndex: 367457,
+                                    },
+                                },
+                                InputDetails: &components.SearchRequestInputDetails{
+                                    HasCopyPaste: apiclientgo.Bool(true),
+                                },
+                            },
+                            Results: []components.SearchResult{
+                                components.SearchResult{
+                                    Title: apiclientgo.String("title"),
+                                    URL: "https://example.com/foo/bar",
+                                    NativeAppURL: apiclientgo.String("slack://foo/bar"),
+                                    Snippets: []components.SearchResultSnippet{
+                                        components.SearchResultSnippet{
+                                            Snippet: "snippet",
+                                            MimeType: apiclientgo.String("mimeType"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
                     Metadata: &components.PersonMetadata{
                         Type: components.PersonMetadataTypeFullTime.ToPointer(),
                         Title: apiclientgo.String("Actor"),
@@ -623,12 +4842,44 @@ func main() {
                             },
                         },
                         QuerySuggestions: &components.QuerySuggestionList{
-                            Suggestions: []components.QuerySuggestion{},
+                            Suggestions: []components.QuerySuggestion{
+                                components.QuerySuggestion{
+                                    Query: "app:github type:pull author:mortimer",
+                                    Label: apiclientgo.String("Mortimer's PRs"),
+                                    Datasource: apiclientgo.String("github"),
+                                },
+                            },
                         },
                         InviteInfo: &components.InviteInfo{
-                            Invites: []components.ChannelInviteInfo{},
+                            Invites: []components.ChannelInviteInfo{
+                                components.ChannelInviteInfo{},
+                                components.ChannelInviteInfo{},
+                            },
                         },
-                        CustomFields: []components.CustomFieldData{},
+                        CustomFields: []components.CustomFieldData{
+                            components.CustomFieldData{
+                                Label: "<value>",
+                                Values: []components.CustomFieldValue{
+                                    components.CreateCustomFieldValueCustomFieldValueStr(
+                                        components.CustomFieldValueStr{},
+                                    ),
+                                    components.CreateCustomFieldValueCustomFieldValueStr(
+                                        components.CustomFieldValueStr{},
+                                    ),
+                                    components.CreateCustomFieldValueCustomFieldValueStr(
+                                        components.CustomFieldValueStr{},
+                                    ),
+                                },
+                            },
+                            components.CustomFieldData{
+                                Label: "<value>",
+                                Values: []components.CustomFieldValue{},
+                            },
+                            components.CustomFieldData{
+                                Label: "<value>",
+                                Values: []components.CustomFieldValue{},
+                            },
+                        },
                         Badges: []components.Badge{
                             components.Badge{
                                 Key: apiclientgo.String("deployment_name_new_hire"),
@@ -646,26 +4897,1183 @@ func main() {
                 Owner: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
-                MentionedPeople: []components.Person{},
+                MentionedPeople: []components.Person{
+                    components.Person{
+                        Name: "George Clooney",
+                        ObfuscatedID: "abc123",
+                    },
+                },
                 Components: []string{
                     "Backend",
                     "Networking",
                 },
                 Status: apiclientgo.String("[\"Done\"]"),
-                Pins: []components.PinDocument{},
+                Pins: []components.PinDocument{
+                    components.PinDocument{
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        DocumentID: "<id>",
+                        Attribution: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.PinDocument{
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        DocumentID: "<id>",
+                        Attribution: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 AssignedTo: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
                 UpdatedBy: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
-                Collections: []components.Collection{},
+                Collections: []components.Collection{
+                    components.Collection{
+                        Name: "<value>",
+                        Description: "gracefully pop tasty versus whenever ring major rot how",
+                        AddedRoles: []components.UserRoleSpecification{
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleViewer,
+                            },
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleVerifier,
+                            },
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleOwner,
+                            },
+                        },
+                        RemovedRoles: []components.UserRoleSpecification{
+                            components.UserRoleSpecification{
+                                Person: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Role: components.UserRoleViewer,
+                            },
+                        },
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        ID: 489525,
+                        Creator: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        Items: []components.CollectionItem{
+                            components.CollectionItem{
+                                CollectionID: 954885,
+                                CreatedBy: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Shortcut: &components.Shortcut{
+                                    InputAlias: "<value>",
+                                    CreatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    UpdatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Roles: []components.UserRoleSpecification{
+                                        components.UserRoleSpecification{
+                                            Person: &components.Person{
+                                                Name: "George Clooney",
+                                                ObfuscatedID: "abc123",
+                                                Metadata: &components.PersonMetadata{
+                                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                                    Title: apiclientgo.String("Actor"),
+                                                    Department: apiclientgo.String("Movies"),
+                                                    Email: apiclientgo.String("george@example.com"),
+                                                    Location: apiclientgo.String("Hollywood, CA"),
+                                                    Phone: apiclientgo.String("6505551234"),
+                                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                                    DatasourceProfile: []components.DatasourceProfile{
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                        components.DatasourceProfile{
+                                                            Datasource: "github",
+                                                            Handle: "<value>",
+                                                        },
+                                                    },
+                                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                                    InviteInfo: &components.InviteInfo{},
+                                                    Badges: []components.Badge{
+                                                        components.Badge{
+                                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                                            DisplayName: apiclientgo.String("New hire"),
+                                                            IconConfig: &components.IconConfig{
+                                                                Color: apiclientgo.String("#343CED"),
+                                                                Key: apiclientgo.String("person_icon"),
+                                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                                Name: apiclientgo.String("user"),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            Role: components.UserRoleEditor,
+                                        },
+                                    },
+                                },
+                                ItemType: components.CollectionItemItemTypeURL,
+                            },
+                            components.CollectionItem{
+                                CollectionID: 566679,
+                                CreatedBy: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Shortcut: &components.Shortcut{
+                                    InputAlias: "<value>",
+                                    CreatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    UpdatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                ItemType: components.CollectionItemItemTypeDocument,
+                            },
+                            components.CollectionItem{
+                                CollectionID: 242202,
+                                CreatedBy: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Shortcut: &components.Shortcut{
+                                    InputAlias: "<value>",
+                                    CreatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    UpdatedBy: &components.Person{
+                                        Name: "George Clooney",
+                                        ObfuscatedID: "abc123",
+                                        Metadata: &components.PersonMetadata{
+                                            Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                            Title: apiclientgo.String("Actor"),
+                                            Department: apiclientgo.String("Movies"),
+                                            Email: apiclientgo.String("george@example.com"),
+                                            Location: apiclientgo.String("Hollywood, CA"),
+                                            Phone: apiclientgo.String("6505551234"),
+                                            PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                            StartDate: types.MustNewDateFromString("2000-01-23"),
+                                            DatasourceProfile: []components.DatasourceProfile{
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                                components.DatasourceProfile{
+                                                    Datasource: "github",
+                                                    Handle: "<value>",
+                                                },
+                                            },
+                                            QuerySuggestions: &components.QuerySuggestionList{},
+                                            InviteInfo: &components.InviteInfo{},
+                                            Badges: []components.Badge{
+                                                components.Badge{
+                                                    Key: apiclientgo.String("deployment_name_new_hire"),
+                                                    DisplayName: apiclientgo.String("New hire"),
+                                                    IconConfig: &components.IconConfig{
+                                                        Color: apiclientgo.String("#343CED"),
+                                                        Key: apiclientgo.String("person_icon"),
+                                                        IconType: components.IconTypeGlyph.ToPointer(),
+                                                        Name: apiclientgo.String("user"),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                ItemType: components.CollectionItemItemTypeDocument,
+                            },
+                        },
+                    },
+                    components.Collection{
+                        Name: "<value>",
+                        Description: "granular disconnection hospitalization roasted fussy yuck",
+                        AudienceFilters: []components.FacetFilter{
+                            components.FacetFilter{
+                                FieldName: apiclientgo.String("type"),
+                                Values: []components.FacetFilterValue{
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Spreadsheet"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                    components.FacetFilterValue{
+                                        Value: apiclientgo.String("Presentation"),
+                                        RelationType: components.RelationTypeEquals.ToPointer(),
+                                    },
+                                },
+                            },
+                        },
+                        ID: 409273,
+                        Creator: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 Interactions: &components.DocumentInteractions{
-                    Reacts: []components.Reaction{},
-                    Shares: []components.Share{},
+                    Reacts: []components.Reaction{
+                        components.Reaction{
+                            Reactors: []components.Person{
+                                components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                },
+                            },
+                        },
+                    },
+                    Shares: []components.Share{
+                        components.Share{
+                            NumDaysAgo: 441613,
+                            Sharer: &components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        components.Share{
+                            NumDaysAgo: 652190,
+                            Sharer: &components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
                 },
                 Verification: &components.Verification{
                     State: components.StateUnverified,
@@ -673,29 +6081,559 @@ func main() {
                         LastVerifier: &components.Person{
                             Name: "George Clooney",
                             ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
                         },
-                        Reminders: []components.Reminder{},
+                        Reminders: []components.Reminder{
+                            components.Reminder{
+                                Assignee: components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Requestor: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                RemindAt: 194895,
+                            },
+                            components.Reminder{
+                                Assignee: components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                Requestor: &components.Person{
+                                    Name: "George Clooney",
+                                    ObfuscatedID: "abc123",
+                                    Metadata: &components.PersonMetadata{
+                                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                        Title: apiclientgo.String("Actor"),
+                                        Department: apiclientgo.String("Movies"),
+                                        Email: apiclientgo.String("george@example.com"),
+                                        Location: apiclientgo.String("Hollywood, CA"),
+                                        Phone: apiclientgo.String("6505551234"),
+                                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                                        DatasourceProfile: []components.DatasourceProfile{
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                            components.DatasourceProfile{
+                                                Datasource: "github",
+                                                Handle: "<value>",
+                                            },
+                                        },
+                                        QuerySuggestions: &components.QuerySuggestionList{},
+                                        InviteInfo: &components.InviteInfo{},
+                                        Badges: []components.Badge{
+                                            components.Badge{
+                                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                                DisplayName: apiclientgo.String("New hire"),
+                                                IconConfig: &components.IconConfig{
+                                                    Color: apiclientgo.String("#343CED"),
+                                                    Key: apiclientgo.String("person_icon"),
+                                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                                    Name: apiclientgo.String("user"),
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                                RemindAt: 365168,
+                            },
+                        },
                         LastReminder: &components.Reminder{
                             Assignee: components.Person{
                                 Name: "George Clooney",
                                 ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
                             },
                             Requestor: &components.Person{
                                 Name: "George Clooney",
                                 ObfuscatedID: "abc123",
+                                Metadata: &components.PersonMetadata{
+                                    Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                    Title: apiclientgo.String("Actor"),
+                                    Department: apiclientgo.String("Movies"),
+                                    Email: apiclientgo.String("george@example.com"),
+                                    Location: apiclientgo.String("Hollywood, CA"),
+                                    Phone: apiclientgo.String("6505551234"),
+                                    PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                    StartDate: types.MustNewDateFromString("2000-01-23"),
+                                    DatasourceProfile: []components.DatasourceProfile{
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                        components.DatasourceProfile{
+                                            Datasource: "github",
+                                            Handle: "<value>",
+                                        },
+                                    },
+                                    QuerySuggestions: &components.QuerySuggestionList{},
+                                    InviteInfo: &components.InviteInfo{},
+                                    Badges: []components.Badge{
+                                        components.Badge{
+                                            Key: apiclientgo.String("deployment_name_new_hire"),
+                                            DisplayName: apiclientgo.String("New hire"),
+                                            IconConfig: &components.IconConfig{
+                                                Color: apiclientgo.String("#343CED"),
+                                                Key: apiclientgo.String("person_icon"),
+                                                IconType: components.IconTypeGlyph.ToPointer(),
+                                                Name: apiclientgo.String("user"),
+                                            },
+                                        },
+                                    },
+                                },
                             },
                             RemindAt: 675445,
                         },
-                        CandidateVerifiers: []components.Person{},
+                        CandidateVerifiers: []components.Person{
+                            components.Person{
+                                Name: "George Clooney",
+                                ObfuscatedID: "abc123",
+                            },
+                        },
                     },
                 },
-                Shortcuts: []components.Shortcut{},
+                Shortcuts: []components.Shortcut{
+                    components.Shortcut{
+                        InputAlias: "<value>",
+                        CreatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.Shortcut{
+                        InputAlias: "<value>",
+                        CreatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    components.Shortcut{
+                        InputAlias: "<value>",
+                        CreatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                        UpdatedBy: &components.Person{
+                            Name: "George Clooney",
+                            ObfuscatedID: "abc123",
+                            Metadata: &components.PersonMetadata{
+                                Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                                Title: apiclientgo.String("Actor"),
+                                Department: apiclientgo.String("Movies"),
+                                Email: apiclientgo.String("george@example.com"),
+                                Location: apiclientgo.String("Hollywood, CA"),
+                                Phone: apiclientgo.String("6505551234"),
+                                PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                                StartDate: types.MustNewDateFromString("2000-01-23"),
+                                DatasourceProfile: []components.DatasourceProfile{
+                                    components.DatasourceProfile{
+                                        Datasource: "github",
+                                        Handle: "<value>",
+                                    },
+                                },
+                                QuerySuggestions: &components.QuerySuggestionList{},
+                                InviteInfo: &components.InviteInfo{},
+                                Badges: []components.Badge{
+                                    components.Badge{
+                                        Key: apiclientgo.String("deployment_name_new_hire"),
+                                        DisplayName: apiclientgo.String("New hire"),
+                                        IconConfig: &components.IconConfig{
+                                            Color: apiclientgo.String("#343CED"),
+                                            Key: apiclientgo.String("person_icon"),
+                                            IconType: components.IconTypeGlyph.ToPointer(),
+                                            Name: apiclientgo.String("user"),
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 CustomData: map[string]components.CustomDataValue{
                     "someCustomField": components.CustomDataValue{},
                 },
                 ContactPerson: &components.Person{
                     Name: "George Clooney",
                     ObfuscatedID: "abc123",
+                    Metadata: &components.PersonMetadata{
+                        Type: components.PersonMetadataTypeFullTime.ToPointer(),
+                        Title: apiclientgo.String("Actor"),
+                        Department: apiclientgo.String("Movies"),
+                        Email: apiclientgo.String("george@example.com"),
+                        Location: apiclientgo.String("Hollywood, CA"),
+                        Phone: apiclientgo.String("6505551234"),
+                        PhotoURL: apiclientgo.String("https://example.com/george.jpg"),
+                        StartDate: types.MustNewDateFromString("2000-01-23"),
+                        DatasourceProfile: []components.DatasourceProfile{
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                            components.DatasourceProfile{
+                                Datasource: "github",
+                                Handle: "<value>",
+                            },
+                        },
+                        QuerySuggestions: &components.QuerySuggestionList{},
+                        InviteInfo: &components.InviteInfo{},
+                        Badges: []components.Badge{
+                            components.Badge{
+                                Key: apiclientgo.String("deployment_name_new_hire"),
+                                DisplayName: apiclientgo.String("New hire"),
+                                IconConfig: &components.IconConfig{
+                                    Color: apiclientgo.String("#343CED"),
+                                    Key: apiclientgo.String("person_icon"),
+                                    IconType: components.IconTypeGlyph.ToPointer(),
+                                    Name: apiclientgo.String("user"),
+                                },
+                            },
+                        },
+                    },
                 },
             },
         },
