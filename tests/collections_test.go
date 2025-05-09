@@ -48,9 +48,352 @@ func TestCollections_Createcollection(t *testing.T) {
 		AddedRoles: []components.UserRoleSpecification{
 			components.UserRoleSpecification{
 				Person: &components.Person{
-					Name:             "George Clooney",
-					ObfuscatedID:     "abc123",
-					RelatedDocuments: []components.RelatedDocuments{},
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					RelatedDocuments: []components.RelatedDocuments{
+						components.RelatedDocuments{
+							QuerySuggestion: &components.QuerySuggestion{
+								Query: "app:github type:pull author:mortimer",
+								SearchProviderInfo: &components.SearchProviderInfo{
+									Name:                  apiclientgo.String("Google"),
+									SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+								},
+								Label:      apiclientgo.String("Mortimer's PRs"),
+								Datasource: apiclientgo.String("github"),
+								RequestOptions: &components.SearchRequestOptions{
+									DatasourceFilter: apiclientgo.String("JIRA"),
+									DatasourcesFilter: []string{
+										"JIRA",
+									},
+									QueryOverridesFacetFilters: apiclientgo.Bool(true),
+									FacetFilters: []components.FacetFilter{
+										components.FacetFilter{
+											FieldName: apiclientgo.String("type"),
+											Values: []components.FacetFilterValue{
+												components.FacetFilterValue{
+													Value:        apiclientgo.String("Spreadsheet"),
+													RelationType: components.RelationTypeEquals.ToPointer(),
+												},
+												components.FacetFilterValue{
+													Value:        apiclientgo.String("Presentation"),
+													RelationType: components.RelationTypeEquals.ToPointer(),
+												},
+											},
+										},
+									},
+									FacetFilterSets: []components.FacetFilterSet{
+										components.FacetFilterSet{
+											Filters: []components.FacetFilter{
+												components.FacetFilter{
+													FieldName: apiclientgo.String("type"),
+													Values: []components.FacetFilterValue{
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Spreadsheet"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Presentation"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+													},
+												},
+											},
+										},
+										components.FacetFilterSet{
+											Filters: []components.FacetFilter{
+												components.FacetFilter{
+													FieldName: apiclientgo.String("type"),
+													Values: []components.FacetFilterValue{
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Spreadsheet"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Presentation"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+													},
+												},
+											},
+										},
+									},
+									FacetBucketSize: 134365,
+									AuthTokens: []components.AuthToken{
+										components.AuthToken{
+											AccessToken: "123abc",
+											Datasource:  "gmail",
+											Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+											TokenType:   apiclientgo.String("Bearer"),
+											AuthUser:    apiclientgo.String("1"),
+										},
+									},
+								},
+								Ranges: []components.TextRange{
+									components.TextRange{
+										StartIndex: 796474,
+										Document: &components.Document{
+											Metadata: &components.DocumentMetadata{
+												Datasource: apiclientgo.String("datasource"),
+												ObjectType: apiclientgo.String("Feature Request"),
+												Container:  apiclientgo.String("container"),
+												ParentID:   apiclientgo.String("JIRA_EN-1337"),
+												MimeType:   apiclientgo.String("mimeType"),
+												DocumentID: apiclientgo.String("documentId"),
+												CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
+												UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
+												Components: []string{
+													"Backend",
+													"Networking",
+												},
+												Status: apiclientgo.String("[\"Done\"]"),
+												Pins: []components.PinDocument{
+													components.PinDocument{
+														AudienceFilters: []components.FacetFilter{
+															components.FacetFilter{
+																FieldName: apiclientgo.String("type"),
+																Values: []components.FacetFilterValue{
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Spreadsheet"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Presentation"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																},
+															},
+														},
+														DocumentID: "<id>",
+													},
+													components.PinDocument{
+														AudienceFilters: []components.FacetFilter{
+															components.FacetFilter{
+																FieldName: apiclientgo.String("type"),
+																Values: []components.FacetFilterValue{
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Spreadsheet"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Presentation"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																},
+															},
+														},
+														DocumentID: "<id>",
+													},
+													components.PinDocument{
+														AudienceFilters: []components.FacetFilter{
+															components.FacetFilter{
+																FieldName: apiclientgo.String("type"),
+																Values: []components.FacetFilterValue{
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Spreadsheet"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Presentation"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																},
+															},
+														},
+														DocumentID: "<id>",
+													},
+												},
+												Collections: []components.Collection{
+													components.Collection{
+														Name:        "<value>",
+														Description: "fumigate convection though zowie",
+														AudienceFilters: []components.FacetFilter{
+															components.FacetFilter{
+																FieldName: apiclientgo.String("type"),
+																Values: []components.FacetFilterValue{
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Spreadsheet"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Presentation"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																},
+															},
+														},
+														ID: 496323,
+														Items: []components.CollectionItem{
+															components.CollectionItem{
+																CollectionID: 782367,
+																ItemType:     components.CollectionItemItemTypeDocument,
+															},
+														},
+													},
+												},
+												Interactions: &components.DocumentInteractions{
+													Reacts: []components.Reaction{
+														components.Reaction{},
+														components.Reaction{},
+														components.Reaction{},
+													},
+													Shares: []components.Share{
+														components.Share{
+															NumDaysAgo: 219974,
+														},
+														components.Share{
+															NumDaysAgo: 449221,
+														},
+														components.Share{
+															NumDaysAgo: 427887,
+														},
+													},
+												},
+												Verification: &components.Verification{
+													State: components.StateVerified,
+													Metadata: &components.VerificationMetadata{
+														Reminders: []components.Reminder{
+															components.Reminder{
+																Assignee: components.Person{
+																	Name:         "George Clooney",
+																	ObfuscatedID: "abc123",
+																},
+																RemindAt: 491427,
+															},
+														},
+														LastReminder: &components.Reminder{
+															Assignee: components.Person{
+																Name:         "George Clooney",
+																ObfuscatedID: "abc123",
+															},
+															RemindAt: 490420,
+														},
+													},
+												},
+												CustomData: map[string]components.CustomDataValue{
+													"someCustomField": components.CustomDataValue{},
+												},
+											},
+										},
+									},
+								},
+								InputDetails: &components.SearchRequestInputDetails{
+									HasCopyPaste: apiclientgo.Bool(true),
+								},
+							},
+							Results: []components.SearchResult{
+								components.SearchResult{
+									Title:        apiclientgo.String("title"),
+									URL:          "https://example.com/foo/bar",
+									NativeAppURL: apiclientgo.String("slack://foo/bar"),
+									Snippets: []components.SearchResultSnippet{
+										components.SearchResultSnippet{
+											Snippet:  "snippet",
+											MimeType: apiclientgo.String("mimeType"),
+										},
+									},
+								},
+							},
+						},
+						components.RelatedDocuments{
+							QuerySuggestion: &components.QuerySuggestion{
+								Query: "app:github type:pull author:mortimer",
+								SearchProviderInfo: &components.SearchProviderInfo{
+									Name:                  apiclientgo.String("Google"),
+									SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+								},
+								Label:      apiclientgo.String("Mortimer's PRs"),
+								Datasource: apiclientgo.String("github"),
+								RequestOptions: &components.SearchRequestOptions{
+									DatasourceFilter: apiclientgo.String("JIRA"),
+									DatasourcesFilter: []string{
+										"JIRA",
+									},
+									QueryOverridesFacetFilters: apiclientgo.Bool(true),
+									FacetFilters: []components.FacetFilter{
+										components.FacetFilter{
+											FieldName: apiclientgo.String("type"),
+											Values: []components.FacetFilterValue{
+												components.FacetFilterValue{
+													Value:        apiclientgo.String("Spreadsheet"),
+													RelationType: components.RelationTypeEquals.ToPointer(),
+												},
+												components.FacetFilterValue{
+													Value:        apiclientgo.String("Presentation"),
+													RelationType: components.RelationTypeEquals.ToPointer(),
+												},
+											},
+										},
+									},
+									FacetFilterSets: []components.FacetFilterSet{
+										components.FacetFilterSet{
+											Filters: []components.FacetFilter{
+												components.FacetFilter{
+													FieldName: apiclientgo.String("type"),
+													Values: []components.FacetFilterValue{
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Spreadsheet"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Presentation"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+													},
+												},
+											},
+										},
+										components.FacetFilterSet{
+											Filters: []components.FacetFilter{
+												components.FacetFilter{
+													FieldName: apiclientgo.String("type"),
+													Values: []components.FacetFilterValue{
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Spreadsheet"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Presentation"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+													},
+												},
+											},
+										},
+										components.FacetFilterSet{
+											Filters: []components.FacetFilter{
+												components.FacetFilter{
+													FieldName: apiclientgo.String("type"),
+													Values: []components.FacetFilterValue{
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Spreadsheet"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Presentation"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+													},
+												},
+											},
+										},
+									},
+									FacetBucketSize: 45416,
+									AuthTokens: []components.AuthToken{
+										components.AuthToken{
+											AccessToken: "123abc",
+											Datasource:  "gmail",
+											Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+											TokenType:   apiclientgo.String("Bearer"),
+											AuthUser:    apiclientgo.String("1"),
+										},
+									},
+								},
+								InputDetails: &components.SearchRequestInputDetails{
+									HasCopyPaste: apiclientgo.Bool(true),
+								},
+							},
+						},
+					},
 					Metadata: &components.PersonMetadata{
 						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
 						Title:      apiclientgo.String("Actor"),
@@ -67,12 +410,36 @@ func TestCollections_Createcollection(t *testing.T) {
 							},
 						},
 						QuerySuggestions: &components.QuerySuggestionList{
-							Suggestions: []components.QuerySuggestion{},
+							Suggestions: []components.QuerySuggestion{
+								components.QuerySuggestion{
+									Query:      "app:github type:pull author:mortimer",
+									Label:      apiclientgo.String("Mortimer's PRs"),
+									Datasource: apiclientgo.String("github"),
+								},
+							},
 						},
 						InviteInfo: &components.InviteInfo{
-							Invites: []components.ChannelInviteInfo{},
+							Invites: []components.ChannelInviteInfo{
+								components.ChannelInviteInfo{},
+							},
 						},
-						CustomFields: []components.CustomFieldData{},
+						CustomFields: []components.CustomFieldData{
+							components.CustomFieldData{
+								Label: "<value>",
+								Values: []components.CustomFieldValue{
+									components.CreateCustomFieldValueCustomFieldValueStr(
+										components.CustomFieldValueStr{},
+									),
+									components.CreateCustomFieldValueCustomFieldValueStr(
+										components.CustomFieldValueStr{},
+									),
+								},
+							},
+							components.CustomFieldData{
+								Label:  "<value>",
+								Values: []components.CustomFieldValue{},
+							},
+						},
 						Badges: []components.Badge{
 							components.Badge{
 								Key:         apiclientgo.String("deployment_name_new_hire"),
@@ -90,17 +457,161 @@ func TestCollections_Createcollection(t *testing.T) {
 				Role: components.UserRoleOwner,
 			},
 			components.UserRoleSpecification{
+				Person: &components.Person{
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					Metadata: &components.PersonMetadata{
+						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
+						Title:      apiclientgo.String("Actor"),
+						Department: apiclientgo.String("Movies"),
+						Email:      apiclientgo.String("george@example.com"),
+						Location:   apiclientgo.String("Hollywood, CA"),
+						Phone:      apiclientgo.String("6505551234"),
+						PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+						StartDate:  types.MustNewDateFromString("2000-01-23"),
+						DatasourceProfile: []components.DatasourceProfile{
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+						},
+						QuerySuggestions: &components.QuerySuggestionList{},
+						InviteInfo:       &components.InviteInfo{},
+						Badges: []components.Badge{
+							components.Badge{
+								Key:         apiclientgo.String("deployment_name_new_hire"),
+								DisplayName: apiclientgo.String("New hire"),
+								IconConfig: &components.IconConfig{
+									Color:    apiclientgo.String("#343CED"),
+									Key:      apiclientgo.String("person_icon"),
+									IconType: components.IconTypeGlyph.ToPointer(),
+									Name:     apiclientgo.String("user"),
+								},
+							},
+						},
+					},
+				},
 				Role: components.UserRoleVerifier,
 			},
 		},
 		RemovedRoles: []components.UserRoleSpecification{
 			components.UserRoleSpecification{
+				Person: &components.Person{
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					Metadata: &components.PersonMetadata{
+						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
+						Title:      apiclientgo.String("Actor"),
+						Department: apiclientgo.String("Movies"),
+						Email:      apiclientgo.String("george@example.com"),
+						Location:   apiclientgo.String("Hollywood, CA"),
+						Phone:      apiclientgo.String("6505551234"),
+						PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+						StartDate:  types.MustNewDateFromString("2000-01-23"),
+						DatasourceProfile: []components.DatasourceProfile{
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+						},
+						QuerySuggestions: &components.QuerySuggestionList{},
+						InviteInfo:       &components.InviteInfo{},
+						Badges: []components.Badge{
+							components.Badge{
+								Key:         apiclientgo.String("deployment_name_new_hire"),
+								DisplayName: apiclientgo.String("New hire"),
+								IconConfig: &components.IconConfig{
+									Color:    apiclientgo.String("#343CED"),
+									Key:      apiclientgo.String("person_icon"),
+									IconType: components.IconTypeGlyph.ToPointer(),
+									Name:     apiclientgo.String("user"),
+								},
+							},
+						},
+					},
+				},
 				Role: components.UserRoleVerifier,
 			},
 			components.UserRoleSpecification{
+				Person: &components.Person{
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					Metadata: &components.PersonMetadata{
+						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
+						Title:      apiclientgo.String("Actor"),
+						Department: apiclientgo.String("Movies"),
+						Email:      apiclientgo.String("george@example.com"),
+						Location:   apiclientgo.String("Hollywood, CA"),
+						Phone:      apiclientgo.String("6505551234"),
+						PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+						StartDate:  types.MustNewDateFromString("2000-01-23"),
+						DatasourceProfile: []components.DatasourceProfile{
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+						},
+						QuerySuggestions: &components.QuerySuggestionList{},
+						InviteInfo:       &components.InviteInfo{},
+						Badges: []components.Badge{
+							components.Badge{
+								Key:         apiclientgo.String("deployment_name_new_hire"),
+								DisplayName: apiclientgo.String("New hire"),
+								IconConfig: &components.IconConfig{
+									Color:    apiclientgo.String("#343CED"),
+									Key:      apiclientgo.String("person_icon"),
+									IconType: components.IconTypeGlyph.ToPointer(),
+									Name:     apiclientgo.String("user"),
+								},
+							},
+						},
+					},
+				},
 				Role: components.UserRoleAnswerModerator,
 			},
 			components.UserRoleSpecification{
+				Person: &components.Person{
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					Metadata: &components.PersonMetadata{
+						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
+						Title:      apiclientgo.String("Actor"),
+						Department: apiclientgo.String("Movies"),
+						Email:      apiclientgo.String("george@example.com"),
+						Location:   apiclientgo.String("Hollywood, CA"),
+						Phone:      apiclientgo.String("6505551234"),
+						PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+						StartDate:  types.MustNewDateFromString("2000-01-23"),
+						DatasourceProfile: []components.DatasourceProfile{
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+						},
+						QuerySuggestions: &components.QuerySuggestionList{},
+						InviteInfo:       &components.InviteInfo{},
+						Badges: []components.Badge{
+							components.Badge{
+								Key:         apiclientgo.String("deployment_name_new_hire"),
+								DisplayName: apiclientgo.String("New hire"),
+								IconConfig: &components.IconConfig{
+									Color:    apiclientgo.String("#343CED"),
+									Key:      apiclientgo.String("person_icon"),
+									IconType: components.IconTypeGlyph.ToPointer(),
+									Name:     apiclientgo.String("user"),
+								},
+							},
+						},
+					},
+				},
 				Role: components.UserRoleOwner,
 			},
 		},
@@ -183,9 +694,353 @@ func TestCollections_Editcollection(t *testing.T) {
 		AddedRoles: []components.UserRoleSpecification{
 			components.UserRoleSpecification{
 				Person: &components.Person{
-					Name:             "George Clooney",
-					ObfuscatedID:     "abc123",
-					RelatedDocuments: []components.RelatedDocuments{},
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					RelatedDocuments: []components.RelatedDocuments{
+						components.RelatedDocuments{
+							QuerySuggestion: &components.QuerySuggestion{
+								Query: "app:github type:pull author:mortimer",
+								SearchProviderInfo: &components.SearchProviderInfo{
+									Name:                  apiclientgo.String("Google"),
+									SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+								},
+								Label:      apiclientgo.String("Mortimer's PRs"),
+								Datasource: apiclientgo.String("github"),
+								RequestOptions: &components.SearchRequestOptions{
+									DatasourceFilter: apiclientgo.String("JIRA"),
+									DatasourcesFilter: []string{
+										"JIRA",
+									},
+									QueryOverridesFacetFilters: apiclientgo.Bool(true),
+									FacetFilters: []components.FacetFilter{
+										components.FacetFilter{
+											FieldName: apiclientgo.String("type"),
+											Values: []components.FacetFilterValue{
+												components.FacetFilterValue{
+													Value:        apiclientgo.String("Spreadsheet"),
+													RelationType: components.RelationTypeEquals.ToPointer(),
+												},
+												components.FacetFilterValue{
+													Value:        apiclientgo.String("Presentation"),
+													RelationType: components.RelationTypeEquals.ToPointer(),
+												},
+											},
+										},
+									},
+									FacetFilterSets: []components.FacetFilterSet{
+										components.FacetFilterSet{
+											Filters: []components.FacetFilter{
+												components.FacetFilter{
+													FieldName: apiclientgo.String("type"),
+													Values: []components.FacetFilterValue{
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Spreadsheet"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Presentation"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+													},
+												},
+											},
+										},
+										components.FacetFilterSet{
+											Filters: []components.FacetFilter{
+												components.FacetFilter{
+													FieldName: apiclientgo.String("type"),
+													Values: []components.FacetFilterValue{
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Spreadsheet"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Presentation"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+													},
+												},
+											},
+										},
+									},
+									FacetBucketSize: 991464,
+									AuthTokens: []components.AuthToken{
+										components.AuthToken{
+											AccessToken: "123abc",
+											Datasource:  "gmail",
+											Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+											TokenType:   apiclientgo.String("Bearer"),
+											AuthUser:    apiclientgo.String("1"),
+										},
+									},
+								},
+								Ranges: []components.TextRange{
+									components.TextRange{
+										StartIndex: 488852,
+										Document: &components.Document{
+											Metadata: &components.DocumentMetadata{
+												Datasource: apiclientgo.String("datasource"),
+												ObjectType: apiclientgo.String("Feature Request"),
+												Container:  apiclientgo.String("container"),
+												ParentID:   apiclientgo.String("JIRA_EN-1337"),
+												MimeType:   apiclientgo.String("mimeType"),
+												DocumentID: apiclientgo.String("documentId"),
+												CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
+												UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
+												Components: []string{
+													"Backend",
+													"Networking",
+												},
+												Status: apiclientgo.String("[\"Done\"]"),
+												Pins: []components.PinDocument{
+													components.PinDocument{
+														AudienceFilters: []components.FacetFilter{
+															components.FacetFilter{
+																FieldName: apiclientgo.String("type"),
+																Values: []components.FacetFilterValue{
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Spreadsheet"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Presentation"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																},
+															},
+														},
+														DocumentID: "<id>",
+													},
+													components.PinDocument{
+														AudienceFilters: []components.FacetFilter{
+															components.FacetFilter{
+																FieldName: apiclientgo.String("type"),
+																Values: []components.FacetFilterValue{
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Spreadsheet"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Presentation"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																},
+															},
+														},
+														DocumentID: "<id>",
+													},
+													components.PinDocument{
+														AudienceFilters: []components.FacetFilter{
+															components.FacetFilter{
+																FieldName: apiclientgo.String("type"),
+																Values: []components.FacetFilterValue{
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Spreadsheet"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Presentation"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																},
+															},
+														},
+														DocumentID: "<id>",
+													},
+												},
+												Collections: []components.Collection{
+													components.Collection{
+														Name:        "<value>",
+														Description: "eulogise whereas till mild than during meanwhile disapprove finer ha",
+														AudienceFilters: []components.FacetFilter{
+															components.FacetFilter{
+																FieldName: apiclientgo.String("type"),
+																Values: []components.FacetFilterValue{
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Spreadsheet"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																	components.FacetFilterValue{
+																		Value:        apiclientgo.String("Presentation"),
+																		RelationType: components.RelationTypeEquals.ToPointer(),
+																	},
+																},
+															},
+														},
+														ID: 2984,
+														Items: []components.CollectionItem{
+															components.CollectionItem{
+																CollectionID: 477967,
+																ItemType:     components.CollectionItemItemTypeURL,
+															},
+															components.CollectionItem{
+																CollectionID: 813577,
+																ItemType:     components.CollectionItemItemTypeText,
+															},
+														},
+													},
+												},
+												Interactions: &components.DocumentInteractions{
+													Reacts: []components.Reaction{
+														components.Reaction{},
+													},
+													Shares: []components.Share{
+														components.Share{
+															NumDaysAgo: 301848,
+														},
+														components.Share{
+															NumDaysAgo: 657278,
+														},
+													},
+												},
+												Verification: &components.Verification{
+													State: components.StateUnverified,
+													Metadata: &components.VerificationMetadata{
+														Reminders: []components.Reminder{
+															components.Reminder{
+																Assignee: components.Person{
+																	Name:         "George Clooney",
+																	ObfuscatedID: "abc123",
+																},
+																RemindAt: 335191,
+															},
+														},
+														LastReminder: &components.Reminder{
+															Assignee: components.Person{
+																Name:         "George Clooney",
+																ObfuscatedID: "abc123",
+															},
+															RemindAt: 532806,
+														},
+													},
+												},
+												CustomData: map[string]components.CustomDataValue{
+													"someCustomField": components.CustomDataValue{},
+												},
+											},
+										},
+									},
+									components.TextRange{
+										StartIndex: 556706,
+										Document: &components.Document{
+											Metadata: &components.DocumentMetadata{
+												Datasource: apiclientgo.String("datasource"),
+												ObjectType: apiclientgo.String("Feature Request"),
+												Container:  apiclientgo.String("container"),
+												ParentID:   apiclientgo.String("JIRA_EN-1337"),
+												MimeType:   apiclientgo.String("mimeType"),
+												DocumentID: apiclientgo.String("documentId"),
+												CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
+												UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
+												Components: []string{
+													"Backend",
+													"Networking",
+												},
+												Status:       apiclientgo.String("[\"Done\"]"),
+												Interactions: &components.DocumentInteractions{},
+												Verification: &components.Verification{
+													State: components.StateVerified,
+													Metadata: &components.VerificationMetadata{
+														LastReminder: &components.Reminder{
+															Assignee: components.Person{
+																Name:         "George Clooney",
+																ObfuscatedID: "abc123",
+															},
+															RemindAt: 416023,
+														},
+													},
+												},
+												CustomData: map[string]components.CustomDataValue{
+													"someCustomField": components.CustomDataValue{},
+												},
+											},
+										},
+									},
+								},
+								InputDetails: &components.SearchRequestInputDetails{
+									HasCopyPaste: apiclientgo.Bool(true),
+								},
+							},
+							Results: []components.SearchResult{
+								components.SearchResult{
+									Title:        apiclientgo.String("title"),
+									URL:          "https://example.com/foo/bar",
+									NativeAppURL: apiclientgo.String("slack://foo/bar"),
+									Snippets: []components.SearchResultSnippet{
+										components.SearchResultSnippet{
+											Snippet:  "snippet",
+											MimeType: apiclientgo.String("mimeType"),
+										},
+									},
+								},
+							},
+						},
+						components.RelatedDocuments{
+							QuerySuggestion: &components.QuerySuggestion{
+								Query: "app:github type:pull author:mortimer",
+								SearchProviderInfo: &components.SearchProviderInfo{
+									Name:                  apiclientgo.String("Google"),
+									SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+								},
+								Label:      apiclientgo.String("Mortimer's PRs"),
+								Datasource: apiclientgo.String("github"),
+								RequestOptions: &components.SearchRequestOptions{
+									DatasourceFilter: apiclientgo.String("JIRA"),
+									DatasourcesFilter: []string{
+										"JIRA",
+									},
+									QueryOverridesFacetFilters: apiclientgo.Bool(true),
+									FacetFilters: []components.FacetFilter{
+										components.FacetFilter{
+											FieldName: apiclientgo.String("type"),
+											Values: []components.FacetFilterValue{
+												components.FacetFilterValue{
+													Value:        apiclientgo.String("Spreadsheet"),
+													RelationType: components.RelationTypeEquals.ToPointer(),
+												},
+												components.FacetFilterValue{
+													Value:        apiclientgo.String("Presentation"),
+													RelationType: components.RelationTypeEquals.ToPointer(),
+												},
+											},
+										},
+									},
+									FacetFilterSets: []components.FacetFilterSet{
+										components.FacetFilterSet{
+											Filters: []components.FacetFilter{
+												components.FacetFilter{
+													FieldName: apiclientgo.String("type"),
+													Values: []components.FacetFilterValue{
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Spreadsheet"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+														components.FacetFilterValue{
+															Value:        apiclientgo.String("Presentation"),
+															RelationType: components.RelationTypeEquals.ToPointer(),
+														},
+													},
+												},
+											},
+										},
+									},
+									FacetBucketSize: 967252,
+									AuthTokens: []components.AuthToken{
+										components.AuthToken{
+											AccessToken: "123abc",
+											Datasource:  "gmail",
+											Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
+											TokenType:   apiclientgo.String("Bearer"),
+											AuthUser:    apiclientgo.String("1"),
+										},
+									},
+								},
+								InputDetails: &components.SearchRequestInputDetails{
+									HasCopyPaste: apiclientgo.Bool(true),
+								},
+							},
+						},
+					},
 					Metadata: &components.PersonMetadata{
 						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
 						Title:      apiclientgo.String("Actor"),
@@ -202,12 +1057,33 @@ func TestCollections_Editcollection(t *testing.T) {
 							},
 						},
 						QuerySuggestions: &components.QuerySuggestionList{
-							Suggestions: []components.QuerySuggestion{},
+							Suggestions: []components.QuerySuggestion{
+								components.QuerySuggestion{
+									Query:      "app:github type:pull author:mortimer",
+									Label:      apiclientgo.String("Mortimer's PRs"),
+									Datasource: apiclientgo.String("github"),
+								},
+							},
 						},
 						InviteInfo: &components.InviteInfo{
-							Invites: []components.ChannelInviteInfo{},
+							Invites: []components.ChannelInviteInfo{
+								components.ChannelInviteInfo{},
+							},
 						},
-						CustomFields: []components.CustomFieldData{},
+						CustomFields: []components.CustomFieldData{
+							components.CustomFieldData{
+								Label:  "<value>",
+								Values: []components.CustomFieldValue{},
+							},
+							components.CustomFieldData{
+								Label:  "<value>",
+								Values: []components.CustomFieldValue{},
+							},
+							components.CustomFieldData{
+								Label:  "<value>",
+								Values: []components.CustomFieldValue{},
+							},
+						},
 						Badges: []components.Badge{
 							components.Badge{
 								Key:         apiclientgo.String("deployment_name_new_hire"),
@@ -225,14 +1101,124 @@ func TestCollections_Editcollection(t *testing.T) {
 				Role: components.UserRoleAnswerModerator,
 			},
 			components.UserRoleSpecification{
+				Person: &components.Person{
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					Metadata: &components.PersonMetadata{
+						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
+						Title:      apiclientgo.String("Actor"),
+						Department: apiclientgo.String("Movies"),
+						Email:      apiclientgo.String("george@example.com"),
+						Location:   apiclientgo.String("Hollywood, CA"),
+						Phone:      apiclientgo.String("6505551234"),
+						PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+						StartDate:  types.MustNewDateFromString("2000-01-23"),
+						DatasourceProfile: []components.DatasourceProfile{
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+						},
+						QuerySuggestions: &components.QuerySuggestionList{},
+						InviteInfo:       &components.InviteInfo{},
+						Badges: []components.Badge{
+							components.Badge{
+								Key:         apiclientgo.String("deployment_name_new_hire"),
+								DisplayName: apiclientgo.String("New hire"),
+								IconConfig: &components.IconConfig{
+									Color:    apiclientgo.String("#343CED"),
+									Key:      apiclientgo.String("person_icon"),
+									IconType: components.IconTypeGlyph.ToPointer(),
+									Name:     apiclientgo.String("user"),
+								},
+							},
+						},
+					},
+				},
 				Role: components.UserRoleEditor,
 			},
 			components.UserRoleSpecification{
+				Person: &components.Person{
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					Metadata: &components.PersonMetadata{
+						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
+						Title:      apiclientgo.String("Actor"),
+						Department: apiclientgo.String("Movies"),
+						Email:      apiclientgo.String("george@example.com"),
+						Location:   apiclientgo.String("Hollywood, CA"),
+						Phone:      apiclientgo.String("6505551234"),
+						PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+						StartDate:  types.MustNewDateFromString("2000-01-23"),
+						DatasourceProfile: []components.DatasourceProfile{
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+						},
+						QuerySuggestions: &components.QuerySuggestionList{},
+						InviteInfo:       &components.InviteInfo{},
+						Badges: []components.Badge{
+							components.Badge{
+								Key:         apiclientgo.String("deployment_name_new_hire"),
+								DisplayName: apiclientgo.String("New hire"),
+								IconConfig: &components.IconConfig{
+									Color:    apiclientgo.String("#343CED"),
+									Key:      apiclientgo.String("person_icon"),
+									IconType: components.IconTypeGlyph.ToPointer(),
+									Name:     apiclientgo.String("user"),
+								},
+							},
+						},
+					},
+				},
 				Role: components.UserRoleAnswerModerator,
 			},
 		},
 		RemovedRoles: []components.UserRoleSpecification{
 			components.UserRoleSpecification{
+				Person: &components.Person{
+					Name:         "George Clooney",
+					ObfuscatedID: "abc123",
+					Metadata: &components.PersonMetadata{
+						Type:       components.PersonMetadataTypeFullTime.ToPointer(),
+						Title:      apiclientgo.String("Actor"),
+						Department: apiclientgo.String("Movies"),
+						Email:      apiclientgo.String("george@example.com"),
+						Location:   apiclientgo.String("Hollywood, CA"),
+						Phone:      apiclientgo.String("6505551234"),
+						PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+						StartDate:  types.MustNewDateFromString("2000-01-23"),
+						DatasourceProfile: []components.DatasourceProfile{
+							components.DatasourceProfile{
+								Datasource: "github",
+								Handle:     "<value>",
+							},
+						},
+						QuerySuggestions: &components.QuerySuggestionList{},
+						InviteInfo:       &components.InviteInfo{},
+						Badges: []components.Badge{
+							components.Badge{
+								Key:         apiclientgo.String("deployment_name_new_hire"),
+								DisplayName: apiclientgo.String("New hire"),
+								IconConfig: &components.IconConfig{
+									Color:    apiclientgo.String("#343CED"),
+									Key:      apiclientgo.String("person_icon"),
+									IconType: components.IconTypeGlyph.ToPointer(),
+									Name:     apiclientgo.String("user"),
+								},
+							},
+						},
+					},
+				},
 				Role: components.UserRoleAnswerModerator,
 			},
 		},

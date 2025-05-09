@@ -15,7 +15,7 @@ import (
 
 // ServerList contains the list of servers available to the SDK
 var ServerList = []string{
-	"https://{domain}-be.glean.com",
+	"https://instance-name-be.glean.com",
 }
 
 // HTTPClient provides an interface for suplying the SDK with a custom HTTP client
@@ -122,15 +122,15 @@ func WithServerIndex(serverIndex int) SDKOption {
 	}
 }
 
-// WithDomain allows setting the domain variable for url substitution
-func WithDomain(domain string) SDKOption {
+// WithInstance allows setting the instance variable for url substitution
+func WithInstance(instance string) SDKOption {
 	return func(sdk *Glean) {
 		for idx := range sdk.sdkConfiguration.ServerDefaults {
-			if _, ok := sdk.sdkConfiguration.ServerDefaults[idx]["domain"]; !ok {
+			if _, ok := sdk.sdkConfiguration.ServerDefaults[idx]["instance"]; !ok {
 				continue
 			}
 
-			sdk.sdkConfiguration.ServerDefaults[idx]["domain"] = fmt.Sprintf("%v", domain)
+			sdk.sdkConfiguration.ServerDefaults[idx]["instance"] = fmt.Sprintf("%v", instance)
 		}
 	}
 }
@@ -178,12 +178,12 @@ func New(opts ...SDKOption) *Glean {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "0.9.0",
-			SDKVersion:        "0.2.0",
-			GenVersion:        "2.597.9",
-			UserAgent:         "speakeasy-sdk/go 0.2.0 2.597.9 0.9.0 github.com/gleanwork/api-client-go",
+			SDKVersion:        "0.2.1",
+			GenVersion:        "2.598.21",
+			UserAgent:         "speakeasy-sdk/go 0.2.1 2.598.21 0.9.0 github.com/gleanwork/api-client-go",
 			ServerDefaults: []map[string]string{
 				{
-					"domain": "domain",
+					"instance": "instance-name",
 				},
 			},
 			Hooks: hooks.New(),
