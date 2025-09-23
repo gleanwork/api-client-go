@@ -20,51 +20,51 @@ type BulkIndexDocumentsRequest struct {
 	DisableStaleDocumentDeletionCheck *bool `json:"disableStaleDocumentDeletionCheck,omitempty"`
 }
 
-func (o *BulkIndexDocumentsRequest) GetUploadID() string {
-	if o == nil {
+func (b *BulkIndexDocumentsRequest) GetUploadID() string {
+	if b == nil {
 		return ""
 	}
-	return o.UploadID
+	return b.UploadID
 }
 
-func (o *BulkIndexDocumentsRequest) GetIsFirstPage() *bool {
-	if o == nil {
+func (b *BulkIndexDocumentsRequest) GetIsFirstPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsFirstPage
+	return b.IsFirstPage
 }
 
-func (o *BulkIndexDocumentsRequest) GetIsLastPage() *bool {
-	if o == nil {
+func (b *BulkIndexDocumentsRequest) GetIsLastPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsLastPage
+	return b.IsLastPage
 }
 
-func (o *BulkIndexDocumentsRequest) GetForceRestartUpload() *bool {
-	if o == nil {
+func (b *BulkIndexDocumentsRequest) GetForceRestartUpload() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.ForceRestartUpload
+	return b.ForceRestartUpload
 }
 
-func (o *BulkIndexDocumentsRequest) GetDatasource() string {
-	if o == nil {
+func (b *BulkIndexDocumentsRequest) GetDatasource() string {
+	if b == nil {
 		return ""
 	}
-	return o.Datasource
+	return b.Datasource
 }
 
-func (o *BulkIndexDocumentsRequest) GetDocuments() []DocumentDefinition {
-	if o == nil {
+func (b *BulkIndexDocumentsRequest) GetDocuments() []DocumentDefinition {
+	if b == nil {
 		return []DocumentDefinition{}
 	}
-	return o.Documents
+	return b.Documents
 }
 
-func (o *BulkIndexDocumentsRequest) GetDisableStaleDocumentDeletionCheck() *bool {
-	if o == nil {
+func (b *BulkIndexDocumentsRequest) GetDisableStaleDocumentDeletionCheck() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.DisableStaleDocumentDeletionCheck
+	return b.DisableStaleDocumentDeletionCheck
 }

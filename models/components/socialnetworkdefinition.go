@@ -12,23 +12,23 @@ type SocialNetworkDefinition struct {
 	ProfileURL *string `json:"profileUrl,omitempty"`
 }
 
-func (o *SocialNetworkDefinition) GetName() *string {
-	if o == nil {
+func (s *SocialNetworkDefinition) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Name
+	return s.Name
 }
 
-func (o *SocialNetworkDefinition) GetProfileName() *string {
-	if o == nil {
+func (s *SocialNetworkDefinition) GetProfileName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ProfileName
+	return s.ProfileName
 }
 
-func (o *SocialNetworkDefinition) GetProfileURL() *string {
-	if o == nil {
+func (s *SocialNetworkDefinition) GetProfileURL() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ProfileURL
+	return s.ProfileURL
 }

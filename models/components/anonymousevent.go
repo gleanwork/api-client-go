@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 // AnonymousEventEventType - The nature of the event, for example "out of office".
@@ -41,16 +42,27 @@ type AnonymousEvent struct {
 	EventType *AnonymousEventEventType `json:"eventType,omitempty"`
 }
 
-func (o *AnonymousEvent) GetTime() *TimeInterval {
-	if o == nil {
-		return nil
-	}
-	return o.Time
+func (a AnonymousEvent) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
 }
 
-func (o *AnonymousEvent) GetEventType() *AnonymousEventEventType {
-	if o == nil {
+func (a *AnonymousEvent) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *AnonymousEvent) GetTime() *TimeInterval {
+	if a == nil {
 		return nil
 	}
-	return o.EventType
+	return a.Time
+}
+
+func (a *AnonymousEvent) GetEventType() *AnonymousEventEventType {
+	if a == nil {
+		return nil
+	}
+	return a.EventType
 }

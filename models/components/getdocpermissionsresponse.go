@@ -7,9 +7,9 @@ type GetDocPermissionsResponse struct {
 	AllowedUserEmails []string `json:"allowedUserEmails,omitempty"`
 }
 
-func (o *GetDocPermissionsResponse) GetAllowedUserEmails() []string {
-	if o == nil {
+func (g *GetDocPermissionsResponse) GetAllowedUserEmails() []string {
+	if g == nil {
 		return nil
 	}
-	return o.AllowedUserEmails
+	return g.AllowedUserEmails
 }

@@ -8,9 +8,9 @@ type GetDocumentCountResponse struct {
 	DocumentCount *int64 `json:"documentCount,omitempty"`
 }
 
-func (o *GetDocumentCountResponse) GetDocumentCount() *int64 {
-	if o == nil {
+func (g *GetDocumentCountResponse) GetDocumentCount() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.DocumentCount
+	return g.DocumentCount
 }

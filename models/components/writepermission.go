@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // WritePermission - Describes the write permissions levels that a user has for a specific feature
 type WritePermission struct {
 	// Describes the scope for a ReadPermission, WritePermission, or GrantPermission object
@@ -14,30 +18,41 @@ type WritePermission struct {
 	Delete *bool `json:"delete,omitempty"`
 }
 
-func (o *WritePermission) GetScopeType() *ScopeType {
-	if o == nil {
-		return nil
-	}
-	return o.ScopeType
+func (w WritePermission) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
 }
 
-func (o *WritePermission) GetCreate() *bool {
-	if o == nil {
-		return nil
+func (w *WritePermission) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, nil); err != nil {
+		return err
 	}
-	return o.Create
+	return nil
 }
 
-func (o *WritePermission) GetUpdate() *bool {
-	if o == nil {
+func (w *WritePermission) GetScopeType() *ScopeType {
+	if w == nil {
 		return nil
 	}
-	return o.Update
+	return w.ScopeType
 }
 
-func (o *WritePermission) GetDelete() *bool {
-	if o == nil {
+func (w *WritePermission) GetCreate() *bool {
+	if w == nil {
 		return nil
 	}
-	return o.Delete
+	return w.Create
+}
+
+func (w *WritePermission) GetUpdate() *bool {
+	if w == nil {
+		return nil
+	}
+	return w.Update
+}
+
+func (w *WritePermission) GetDelete() *bool {
+	if w == nil {
+		return nil
+	}
+	return w.Delete
 }

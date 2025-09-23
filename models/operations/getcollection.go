@@ -12,16 +12,16 @@ type GetcollectionResponse struct {
 	GetCollectionResponse *components.GetCollectionResponse
 }
 
-func (o *GetcollectionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetcollectionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetcollectionResponse) GetGetCollectionResponse() *components.GetCollectionResponse {
-	if o == nil {
+func (g *GetcollectionResponse) GetGetCollectionResponse() *components.GetCollectionResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetCollectionResponse
+	return g.GetCollectionResponse
 }

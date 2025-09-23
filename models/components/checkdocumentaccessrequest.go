@@ -14,30 +14,30 @@ type CheckDocumentAccessRequest struct {
 	UserEmail string `json:"userEmail"`
 }
 
-func (o *CheckDocumentAccessRequest) GetDatasource() string {
-	if o == nil {
+func (c *CheckDocumentAccessRequest) GetDatasource() string {
+	if c == nil {
 		return ""
 	}
-	return o.Datasource
+	return c.Datasource
 }
 
-func (o *CheckDocumentAccessRequest) GetObjectType() string {
-	if o == nil {
+func (c *CheckDocumentAccessRequest) GetObjectType() string {
+	if c == nil {
 		return ""
 	}
-	return o.ObjectType
+	return c.ObjectType
 }
 
-func (o *CheckDocumentAccessRequest) GetDocID() string {
-	if o == nil {
+func (c *CheckDocumentAccessRequest) GetDocID() string {
+	if c == nil {
 		return ""
 	}
-	return o.DocID
+	return c.DocID
 }
 
-func (o *CheckDocumentAccessRequest) GetUserEmail() string {
-	if o == nil {
+func (c *CheckDocumentAccessRequest) GetUserEmail() string {
+	if c == nil {
 		return ""
 	}
-	return o.UserEmail
+	return c.UserEmail
 }

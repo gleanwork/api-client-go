@@ -12,23 +12,23 @@ type DatasourceMembershipDefinition struct {
 	MemberGroupName *string `json:"memberGroupName,omitempty"`
 }
 
-func (o *DatasourceMembershipDefinition) GetGroupName() string {
-	if o == nil {
+func (d *DatasourceMembershipDefinition) GetGroupName() string {
+	if d == nil {
 		return ""
 	}
-	return o.GroupName
+	return d.GroupName
 }
 
-func (o *DatasourceMembershipDefinition) GetMemberUserID() *string {
-	if o == nil {
+func (d *DatasourceMembershipDefinition) GetMemberUserID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.MemberUserID
+	return d.MemberUserID
 }
 
-func (o *DatasourceMembershipDefinition) GetMemberGroupName() *string {
-	if o == nil {
+func (d *DatasourceMembershipDefinition) GetMemberGroupName() *string {
+	if d == nil {
 		return nil
 	}
-	return o.MemberGroupName
+	return d.MemberGroupName
 }

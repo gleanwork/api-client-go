@@ -76,197 +76,197 @@ func (e EmployeeInfoDefinition) MarshalJSON() ([]byte, error) {
 }
 
 func (e *EmployeeInfoDefinition) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &e, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &e, "", false, []string{"email", "department"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *EmployeeInfoDefinition) GetEmail() string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetEmail() string {
+	if e == nil {
 		return ""
 	}
-	return o.Email
+	return e.Email
 }
 
-func (o *EmployeeInfoDefinition) GetFirstName() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetFirstName() *string {
+	if e == nil {
 		return nil
 	}
-	return o.FirstName
+	return e.FirstName
 }
 
-func (o *EmployeeInfoDefinition) GetLastName() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetLastName() *string {
+	if e == nil {
 		return nil
 	}
-	return o.LastName
+	return e.LastName
 }
 
-func (o *EmployeeInfoDefinition) GetPreferredName() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetPreferredName() *string {
+	if e == nil {
 		return nil
 	}
-	return o.PreferredName
+	return e.PreferredName
 }
 
-func (o *EmployeeInfoDefinition) GetID() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetID() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ID
+	return e.ID
 }
 
-func (o *EmployeeInfoDefinition) GetPhoneNumber() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetPhoneNumber() *string {
+	if e == nil {
 		return nil
 	}
-	return o.PhoneNumber
+	return e.PhoneNumber
 }
 
-func (o *EmployeeInfoDefinition) GetLocation() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetLocation() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Location
+	return e.Location
 }
 
-func (o *EmployeeInfoDefinition) GetStructuredLocation() *StructuredLocation {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetStructuredLocation() *StructuredLocation {
+	if e == nil {
 		return nil
 	}
-	return o.StructuredLocation
+	return e.StructuredLocation
 }
 
-func (o *EmployeeInfoDefinition) GetTitle() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetTitle() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Title
+	return e.Title
 }
 
-func (o *EmployeeInfoDefinition) GetPhotoURL() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetPhotoURL() *string {
+	if e == nil {
 		return nil
 	}
-	return o.PhotoURL
+	return e.PhotoURL
 }
 
-func (o *EmployeeInfoDefinition) GetBusinessUnit() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetBusinessUnit() *string {
+	if e == nil {
 		return nil
 	}
-	return o.BusinessUnit
+	return e.BusinessUnit
 }
 
-func (o *EmployeeInfoDefinition) GetDepartment() string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetDepartment() string {
+	if e == nil {
 		return ""
 	}
-	return o.Department
+	return e.Department
 }
 
-func (o *EmployeeInfoDefinition) GetDatasourceProfiles() []DatasourceProfile {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetDatasourceProfiles() []DatasourceProfile {
+	if e == nil {
 		return nil
 	}
-	return o.DatasourceProfiles
+	return e.DatasourceProfiles
 }
 
-func (o *EmployeeInfoDefinition) GetTeams() []EmployeeTeamInfo {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetTeams() []EmployeeTeamInfo {
+	if e == nil {
 		return nil
 	}
-	return o.Teams
+	return e.Teams
 }
 
-func (o *EmployeeInfoDefinition) GetStartDate() *types.Date {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetStartDate() *types.Date {
+	if e == nil {
 		return nil
 	}
-	return o.StartDate
+	return e.StartDate
 }
 
-func (o *EmployeeInfoDefinition) GetEndDate() *types.Date {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetEndDate() *types.Date {
+	if e == nil {
 		return nil
 	}
-	return o.EndDate
+	return e.EndDate
 }
 
-func (o *EmployeeInfoDefinition) GetBio() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetBio() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Bio
+	return e.Bio
 }
 
-func (o *EmployeeInfoDefinition) GetPronoun() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetPronoun() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Pronoun
+	return e.Pronoun
 }
 
-func (o *EmployeeInfoDefinition) GetAlsoKnownAs() []string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetAlsoKnownAs() []string {
+	if e == nil {
 		return nil
 	}
-	return o.AlsoKnownAs
+	return e.AlsoKnownAs
 }
 
-func (o *EmployeeInfoDefinition) GetProfileURL() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetProfileURL() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ProfileURL
+	return e.ProfileURL
 }
 
-func (o *EmployeeInfoDefinition) GetSocialNetworks() []SocialNetworkDefinition {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetSocialNetworks() []SocialNetworkDefinition {
+	if e == nil {
 		return nil
 	}
-	return o.SocialNetworks
+	return e.SocialNetworks
 }
 
-func (o *EmployeeInfoDefinition) GetManagerEmail() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetManagerEmail() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ManagerEmail
+	return e.ManagerEmail
 }
 
-func (o *EmployeeInfoDefinition) GetManagerID() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetManagerID() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ManagerID
+	return e.ManagerID
 }
 
-func (o *EmployeeInfoDefinition) GetType() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetType() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Type
+	return e.Type
 }
 
-func (o *EmployeeInfoDefinition) GetRelationships() []EntityRelationship {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetRelationships() []EntityRelationship {
+	if e == nil {
 		return nil
 	}
-	return o.Relationships
+	return e.Relationships
 }
 
-func (o *EmployeeInfoDefinition) GetStatus() *string {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetStatus() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Status
+	return e.Status
 }
 
-func (o *EmployeeInfoDefinition) GetAdditionalFields() []AdditionalFieldDefinition {
-	if o == nil {
+func (e *EmployeeInfoDefinition) GetAdditionalFields() []AdditionalFieldDefinition {
+	if e == nil {
 		return nil
 	}
-	return o.AdditionalFields
+	return e.AdditionalFields
 }

@@ -11,11 +11,11 @@ type ListverificationsRequest struct {
 	Count *int64 `queryParam:"style=form,explode=true,name=count"`
 }
 
-func (o *ListverificationsRequest) GetCount() *int64 {
-	if o == nil {
+func (l *ListverificationsRequest) GetCount() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Count
+	return l.Count
 }
 
 type ListverificationsResponse struct {
@@ -24,16 +24,16 @@ type ListverificationsResponse struct {
 	VerificationFeed *components.VerificationFeed
 }
 
-func (o *ListverificationsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListverificationsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListverificationsResponse) GetVerificationFeed() *components.VerificationFeed {
-	if o == nil {
+func (l *ListverificationsResponse) GetVerificationFeed() *components.VerificationFeed {
+	if l == nil {
 		return nil
 	}
-	return o.VerificationFeed
+	return l.VerificationFeed
 }

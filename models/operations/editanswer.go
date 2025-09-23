@@ -12,16 +12,16 @@ type EditanswerResponse struct {
 	Answer *components.Answer
 }
 
-func (o *EditanswerResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (e *EditanswerResponse) GetHTTPMeta() components.HTTPMetadata {
+	if e == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return e.HTTPMeta
 }
 
-func (o *EditanswerResponse) GetAnswer() *components.Answer {
-	if o == nil {
+func (e *EditanswerResponse) GetAnswer() *components.Answer {
+	if e == nil {
 		return nil
 	}
-	return o.Answer
+	return e.Answer
 }

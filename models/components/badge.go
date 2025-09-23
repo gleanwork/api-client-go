@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // Badge - Displays a user's accomplishment or milestone
 type Badge struct {
 	// An auto generated unique identifier.
@@ -14,30 +18,41 @@ type Badge struct {
 	Pinned *bool `json:"pinned,omitempty"`
 }
 
-func (o *Badge) GetKey() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Key
+func (b Badge) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(b, "", false)
 }
 
-func (o *Badge) GetDisplayName() *string {
-	if o == nil {
-		return nil
+func (b *Badge) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &b, "", false, nil); err != nil {
+		return err
 	}
-	return o.DisplayName
+	return nil
 }
 
-func (o *Badge) GetIconConfig() *IconConfig {
-	if o == nil {
+func (b *Badge) GetKey() *string {
+	if b == nil {
 		return nil
 	}
-	return o.IconConfig
+	return b.Key
 }
 
-func (o *Badge) GetPinned() *bool {
-	if o == nil {
+func (b *Badge) GetDisplayName() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Pinned
+	return b.DisplayName
+}
+
+func (b *Badge) GetIconConfig() *IconConfig {
+	if b == nil {
+		return nil
+	}
+	return b.IconConfig
+}
+
+func (b *Badge) GetPinned() *bool {
+	if b == nil {
+		return nil
+	}
+	return b.Pinned
 }

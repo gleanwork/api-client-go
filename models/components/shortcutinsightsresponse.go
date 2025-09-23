@@ -13,30 +13,30 @@ type ShortcutInsightsResponse struct {
 	MinVisitorThreshold *int64 `json:"minVisitorThreshold,omitempty"`
 }
 
-func (o *ShortcutInsightsResponse) GetLastLogTimestamp() *int64 {
-	if o == nil {
+func (s *ShortcutInsightsResponse) GetLastLogTimestamp() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.LastLogTimestamp
+	return s.LastLogTimestamp
 }
 
-func (o *ShortcutInsightsResponse) GetShortcutInsights() []ShortcutInsight {
-	if o == nil {
+func (s *ShortcutInsightsResponse) GetShortcutInsights() []ShortcutInsight {
+	if s == nil {
 		return nil
 	}
-	return o.ShortcutInsights
+	return s.ShortcutInsights
 }
 
-func (o *ShortcutInsightsResponse) GetDepartments() []string {
-	if o == nil {
+func (s *ShortcutInsightsResponse) GetDepartments() []string {
+	if s == nil {
 		return nil
 	}
-	return o.Departments
+	return s.Departments
 }
 
-func (o *ShortcutInsightsResponse) GetMinVisitorThreshold() *int64 {
-	if o == nil {
+func (s *ShortcutInsightsResponse) GetMinVisitorThreshold() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.MinVisitorThreshold
+	return s.MinVisitorThreshold
 }

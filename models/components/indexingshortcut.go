@@ -23,65 +23,65 @@ type IndexingShortcut struct {
 	URLTemplate *string `json:"urlTemplate,omitempty"`
 }
 
-func (o *IndexingShortcut) GetInputAlias() string {
-	if o == nil {
+func (i *IndexingShortcut) GetInputAlias() string {
+	if i == nil {
 		return ""
 	}
-	return o.InputAlias
+	return i.InputAlias
 }
 
-func (o *IndexingShortcut) GetDescription() *string {
-	if o == nil {
+func (i *IndexingShortcut) GetDescription() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Description
+	return i.Description
 }
 
-func (o *IndexingShortcut) GetDestinationURL() string {
-	if o == nil {
+func (i *IndexingShortcut) GetDestinationURL() string {
+	if i == nil {
 		return ""
 	}
-	return o.DestinationURL
+	return i.DestinationURL
 }
 
-func (o *IndexingShortcut) GetCreatedBy() string {
-	if o == nil {
+func (i *IndexingShortcut) GetCreatedBy() string {
+	if i == nil {
 		return ""
 	}
-	return o.CreatedBy
+	return i.CreatedBy
 }
 
-func (o *IndexingShortcut) GetCreateTime() *int64 {
-	if o == nil {
+func (i *IndexingShortcut) GetCreateTime() *int64 {
+	if i == nil {
 		return nil
 	}
-	return o.CreateTime
+	return i.CreateTime
 }
 
-func (o *IndexingShortcut) GetUpdatedBy() *string {
-	if o == nil {
+func (i *IndexingShortcut) GetUpdatedBy() *string {
+	if i == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return i.UpdatedBy
 }
 
-func (o *IndexingShortcut) GetUpdateTime() *int64 {
-	if o == nil {
+func (i *IndexingShortcut) GetUpdateTime() *int64 {
+	if i == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return i.UpdateTime
 }
 
-func (o *IndexingShortcut) GetUnlisted() *bool {
-	if o == nil {
+func (i *IndexingShortcut) GetUnlisted() *bool {
+	if i == nil {
 		return nil
 	}
-	return o.Unlisted
+	return i.Unlisted
 }
 
-func (o *IndexingShortcut) GetURLTemplate() *string {
-	if o == nil {
+func (i *IndexingShortcut) GetURLTemplate() *string {
+	if i == nil {
 		return nil
 	}
-	return o.URLTemplate
+	return i.URLTemplate
 }

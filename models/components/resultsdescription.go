@@ -9,16 +9,16 @@ type ResultsDescription struct {
 	IconConfig *IconConfig `json:"iconConfig,omitempty"`
 }
 
-func (o *ResultsDescription) GetText() *string {
-	if o == nil {
+func (r *ResultsDescription) GetText() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Text
+	return r.Text
 }
 
-func (o *ResultsDescription) GetIconConfig() *IconConfig {
-	if o == nil {
+func (r *ResultsDescription) GetIconConfig() *IconConfig {
+	if r == nil {
 		return nil
 	}
-	return o.IconConfig
+	return r.IconConfig
 }

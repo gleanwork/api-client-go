@@ -8,9 +8,9 @@ type CheckDocumentAccessResponse struct {
 	HasAccess *bool `json:"hasAccess,omitempty"`
 }
 
-func (o *CheckDocumentAccessResponse) GetHasAccess() *bool {
-	if o == nil {
+func (c *CheckDocumentAccessResponse) GetHasAccess() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.HasAccess
+	return c.HasAccess
 }

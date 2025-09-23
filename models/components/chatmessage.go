@@ -46,6 +46,7 @@ const (
 	MessageTypeError         MessageType = "ERROR"
 	MessageTypeHeading       MessageType = "HEADING"
 	MessageTypeWarning       MessageType = "WARNING"
+	MessageTypeServerTool    MessageType = "SERVER_TOOL"
 )
 
 func (e MessageType) ToPointer() *MessageType {
@@ -72,6 +73,8 @@ func (e *MessageType) UnmarshalJSON(data []byte) error {
 	case "HEADING":
 		fallthrough
 	case "WARNING":
+		fallthrough
+	case "SERVER_TOOL":
 		*e = MessageType(v)
 		return nil
 	default:
@@ -83,7 +86,7 @@ func (e *MessageType) UnmarshalJSON(data []byte) error {
 type ChatMessage struct {
 	// Describes the agent that executes the request.
 	AgentConfig *AgentConfig `json:"agentConfig,omitempty"`
-	Author      *Author      `default:"GLEAN_AI" json:"author"`
+	Author      *Author      `default:"USER" json:"author"`
 	// A list of Citations that were used to generate the response.
 	Citations []ChatMessageCitation `json:"citations,omitempty"`
 	// IDs of files uploaded in the message that are referenced to generate the answer.
@@ -109,78 +112,78 @@ func (c ChatMessage) MarshalJSON() ([]byte, error) {
 }
 
 func (c *ChatMessage) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ChatMessage) GetAgentConfig() *AgentConfig {
-	if o == nil {
+func (c *ChatMessage) GetAgentConfig() *AgentConfig {
+	if c == nil {
 		return nil
 	}
-	return o.AgentConfig
+	return c.AgentConfig
 }
 
-func (o *ChatMessage) GetAuthor() *Author {
-	if o == nil {
+func (c *ChatMessage) GetAuthor() *Author {
+	if c == nil {
 		return nil
 	}
-	return o.Author
+	return c.Author
 }
 
-func (o *ChatMessage) GetCitations() []ChatMessageCitation {
-	if o == nil {
+func (c *ChatMessage) GetCitations() []ChatMessageCitation {
+	if c == nil {
 		return nil
 	}
-	return o.Citations
+	return c.Citations
 }
 
-func (o *ChatMessage) GetUploadedFileIds() []string {
-	if o == nil {
+func (c *ChatMessage) GetUploadedFileIds() []string {
+	if c == nil {
 		return nil
 	}
-	return o.UploadedFileIds
+	return c.UploadedFileIds
 }
 
-func (o *ChatMessage) GetFragments() []ChatMessageFragment {
-	if o == nil {
+func (c *ChatMessage) GetFragments() []ChatMessageFragment {
+	if c == nil {
 		return nil
 	}
-	return o.Fragments
+	return c.Fragments
 }
 
-func (o *ChatMessage) GetTs() *string {
-	if o == nil {
+func (c *ChatMessage) GetTs() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Ts
+	return c.Ts
 }
 
-func (o *ChatMessage) GetMessageID() *string {
-	if o == nil {
+func (c *ChatMessage) GetMessageID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.MessageID
+	return c.MessageID
 }
 
-func (o *ChatMessage) GetMessageTrackingToken() *string {
-	if o == nil {
+func (c *ChatMessage) GetMessageTrackingToken() *string {
+	if c == nil {
 		return nil
 	}
-	return o.MessageTrackingToken
+	return c.MessageTrackingToken
 }
 
-func (o *ChatMessage) GetMessageType() *MessageType {
-	if o == nil {
+func (c *ChatMessage) GetMessageType() *MessageType {
+	if c == nil {
 		return nil
 	}
-	return o.MessageType
+	return c.MessageType
 }
 
-func (o *ChatMessage) GetHasMoreFragments() *bool {
-	if o == nil {
+func (c *ChatMessage) GetHasMoreFragments() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.HasMoreFragments
+	return c.HasMoreFragments
 }

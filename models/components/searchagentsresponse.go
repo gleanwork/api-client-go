@@ -6,9 +6,9 @@ type SearchAgentsResponse struct {
 	Agents []Agent `json:"agents,omitempty"`
 }
 
-func (o *SearchAgentsResponse) GetAgents() []Agent {
-	if o == nil {
+func (s *SearchAgentsResponse) GetAgents() []Agent {
+	if s == nil {
 		return nil
 	}
-	return o.Agents
+	return s.Agents
 }

@@ -6,9 +6,9 @@ type GetChatApplicationResponse struct {
 	Application any `json:"application,omitempty"`
 }
 
-func (o *GetChatApplicationResponse) GetApplication() any {
-	if o == nil {
+func (g *GetChatApplicationResponse) GetApplication() any {
+	if g == nil {
 		return nil
 	}
-	return o.Application
+	return g.Application
 }

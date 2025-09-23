@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type Reminder struct {
 	Assignee  Person  `json:"assignee"`
 	Requestor *Person `json:"requestor,omitempty"`
@@ -13,37 +17,48 @@ type Reminder struct {
 	Reason *string `json:"reason,omitempty"`
 }
 
-func (o *Reminder) GetAssignee() Person {
-	if o == nil {
+func (r Reminder) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *Reminder) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, []string{"assignee", "remindAt"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (r *Reminder) GetAssignee() Person {
+	if r == nil {
 		return Person{}
 	}
-	return o.Assignee
+	return r.Assignee
 }
 
-func (o *Reminder) GetRequestor() *Person {
-	if o == nil {
+func (r *Reminder) GetRequestor() *Person {
+	if r == nil {
 		return nil
 	}
-	return o.Requestor
+	return r.Requestor
 }
 
-func (o *Reminder) GetRemindAt() int64 {
-	if o == nil {
+func (r *Reminder) GetRemindAt() int64 {
+	if r == nil {
 		return 0
 	}
-	return o.RemindAt
+	return r.RemindAt
 }
 
-func (o *Reminder) GetCreatedAt() *int64 {
-	if o == nil {
+func (r *Reminder) GetCreatedAt() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return r.CreatedAt
 }
 
-func (o *Reminder) GetReason() *string {
-	if o == nil {
+func (r *Reminder) GetReason() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Reason
+	return r.Reason
 }

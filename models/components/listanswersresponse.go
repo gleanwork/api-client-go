@@ -7,9 +7,9 @@ type ListAnswersResponse struct {
 	AnswerResults []AnswerResult `json:"answerResults"`
 }
 
-func (o *ListAnswersResponse) GetAnswerResults() []AnswerResult {
-	if o == nil {
+func (l *ListAnswersResponse) GetAnswerResults() []AnswerResult {
+	if l == nil {
 		return []AnswerResult{}
 	}
-	return o.AnswerResults
+	return l.AnswerResults
 }

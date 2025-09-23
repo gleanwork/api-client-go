@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CustomEntity struct {
 	Permissions *ObjectPermissions `json:"permissions,omitempty"`
 	// Unique identifier.
@@ -17,51 +21,62 @@ type CustomEntity struct {
 	Roles []UserRoleSpecification `json:"roles,omitempty"`
 }
 
-func (o *CustomEntity) GetPermissions() *ObjectPermissions {
-	if o == nil {
-		return nil
-	}
-	return o.Permissions
+func (c CustomEntity) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CustomEntity) GetID() *string {
-	if o == nil {
-		return nil
+func (c *CustomEntity) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
 	}
-	return o.ID
+	return nil
 }
 
-func (o *CustomEntity) GetTitle() *string {
-	if o == nil {
+func (c *CustomEntity) GetPermissions() *ObjectPermissions {
+	if c == nil {
 		return nil
 	}
-	return o.Title
+	return c.Permissions
 }
 
-func (o *CustomEntity) GetDatasource() *string {
-	if o == nil {
+func (c *CustomEntity) GetID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Datasource
+	return c.ID
 }
 
-func (o *CustomEntity) GetObjectType() *string {
-	if o == nil {
+func (c *CustomEntity) GetTitle() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ObjectType
+	return c.Title
 }
 
-func (o *CustomEntity) GetMetadata() *CustomEntityMetadata {
-	if o == nil {
+func (c *CustomEntity) GetDatasource() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Metadata
+	return c.Datasource
 }
 
-func (o *CustomEntity) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (c *CustomEntity) GetObjectType() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Roles
+	return c.ObjectType
+}
+
+func (c *CustomEntity) GetMetadata() *CustomEntityMetadata {
+	if c == nil {
+		return nil
+	}
+	return c.Metadata
+}
+
+func (c *CustomEntity) GetRoles() []UserRoleSpecification {
+	if c == nil {
+		return nil
+	}
+	return c.Roles
 }

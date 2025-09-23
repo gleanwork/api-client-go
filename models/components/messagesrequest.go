@@ -113,58 +113,58 @@ type MessagesRequest struct {
 	DatasourceInstanceDisplayName *string `json:"datasourceInstanceDisplayName,omitempty"`
 }
 
-func (o *MessagesRequest) GetIDType() IDType {
-	if o == nil {
+func (m *MessagesRequest) GetIDType() IDType {
+	if m == nil {
 		return IDType("")
 	}
-	return o.IDType
+	return m.IDType
 }
 
-func (o *MessagesRequest) GetID() string {
-	if o == nil {
+func (m *MessagesRequest) GetID() string {
+	if m == nil {
 		return ""
 	}
-	return o.ID
+	return m.ID
 }
 
-func (o *MessagesRequest) GetWorkspaceID() *string {
-	if o == nil {
+func (m *MessagesRequest) GetWorkspaceID() *string {
+	if m == nil {
 		return nil
 	}
-	return o.WorkspaceID
+	return m.WorkspaceID
 }
 
-func (o *MessagesRequest) GetDirection() *Direction {
-	if o == nil {
+func (m *MessagesRequest) GetDirection() *Direction {
+	if m == nil {
 		return nil
 	}
-	return o.Direction
+	return m.Direction
 }
 
-func (o *MessagesRequest) GetTimestampMillis() *int64 {
-	if o == nil {
+func (m *MessagesRequest) GetTimestampMillis() *int64 {
+	if m == nil {
 		return nil
 	}
-	return o.TimestampMillis
+	return m.TimestampMillis
 }
 
-func (o *MessagesRequest) GetIncludeRootMessage() *bool {
-	if o == nil {
+func (m *MessagesRequest) GetIncludeRootMessage() *bool {
+	if m == nil {
 		return nil
 	}
-	return o.IncludeRootMessage
+	return m.IncludeRootMessage
 }
 
-func (o *MessagesRequest) GetDatasource() *Datasource {
-	if o == nil {
+func (m *MessagesRequest) GetDatasource() *Datasource {
+	if m == nil {
 		return nil
 	}
-	return o.Datasource
+	return m.Datasource
 }
 
-func (o *MessagesRequest) GetDatasourceInstanceDisplayName() *string {
-	if o == nil {
+func (m *MessagesRequest) GetDatasourceInstanceDisplayName() *string {
+	if m == nil {
 		return nil
 	}
-	return o.DatasourceInstanceDisplayName
+	return m.DatasourceInstanceDisplayName
 }

@@ -9,16 +9,16 @@ type ToolInfo struct {
 	Parameters map[string]WriteActionParameter `json:"parameters,omitempty"`
 }
 
-func (o *ToolInfo) GetMetadata() *ToolMetadata {
-	if o == nil {
+func (t *ToolInfo) GetMetadata() *ToolMetadata {
+	if t == nil {
 		return nil
 	}
-	return o.Metadata
+	return t.Metadata
 }
 
-func (o *ToolInfo) GetParameters() map[string]WriteActionParameter {
-	if o == nil {
+func (t *ToolInfo) GetParameters() map[string]WriteActionParameter {
+	if t == nil {
 		return nil
 	}
-	return o.Parameters
+	return t.Parameters
 }

@@ -12,23 +12,23 @@ type DeleteGroupRequest struct {
 	GroupName string `json:"groupName"`
 }
 
-func (o *DeleteGroupRequest) GetVersion() *int64 {
-	if o == nil {
+func (d *DeleteGroupRequest) GetVersion() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Version
+	return d.Version
 }
 
-func (o *DeleteGroupRequest) GetDatasource() string {
-	if o == nil {
+func (d *DeleteGroupRequest) GetDatasource() string {
+	if d == nil {
 		return ""
 	}
-	return o.Datasource
+	return d.Datasource
 }
 
-func (o *DeleteGroupRequest) GetGroupName() string {
-	if o == nil {
+func (d *DeleteGroupRequest) GetGroupName() string {
+	if d == nil {
 		return ""
 	}
-	return o.GroupName
+	return d.GroupName
 }

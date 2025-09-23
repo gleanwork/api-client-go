@@ -27,64 +27,64 @@ func (r RecommendationsRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (r *RecommendationsRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *RecommendationsRequest) GetTimestamp() *time.Time {
-	if o == nil {
+func (r *RecommendationsRequest) GetTimestamp() *time.Time {
+	if r == nil {
 		return nil
 	}
-	return o.Timestamp
+	return r.Timestamp
 }
 
-func (o *RecommendationsRequest) GetTrackingToken() *string {
-	if o == nil {
+func (r *RecommendationsRequest) GetTrackingToken() *string {
+	if r == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return r.TrackingToken
 }
 
-func (o *RecommendationsRequest) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (r *RecommendationsRequest) GetSessionInfo() *SessionInfo {
+	if r == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return r.SessionInfo
 }
 
-func (o *RecommendationsRequest) GetSourceDocument() *Document {
-	if o == nil {
+func (r *RecommendationsRequest) GetSourceDocument() *Document {
+	if r == nil {
 		return nil
 	}
-	return o.SourceDocument
+	return r.SourceDocument
 }
 
-func (o *RecommendationsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (r *RecommendationsRequest) GetPageSize() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.PageSize
+	return r.PageSize
 }
 
-func (o *RecommendationsRequest) GetMaxSnippetSize() *int64 {
-	if o == nil {
+func (r *RecommendationsRequest) GetMaxSnippetSize() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.MaxSnippetSize
+	return r.MaxSnippetSize
 }
 
-func (o *RecommendationsRequest) GetRecommendationDocumentSpec() *DocumentSpecUnion {
-	if o == nil {
+func (r *RecommendationsRequest) GetRecommendationDocumentSpec() *DocumentSpecUnion {
+	if r == nil {
 		return nil
 	}
-	return o.RecommendationDocumentSpec
+	return r.RecommendationDocumentSpec
 }
 
-func (o *RecommendationsRequest) GetRequestOptions() *RecommendationsRequestOptions {
-	if o == nil {
+func (r *RecommendationsRequest) GetRequestOptions() *RecommendationsRequestOptions {
+	if r == nil {
 		return nil
 	}
-	return o.RequestOptions
+	return r.RequestOptions
 }

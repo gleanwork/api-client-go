@@ -24,3 +24,4 @@ The document category of this object type.
 | `DocCategoryExternalShortcut`     | EXTERNAL_SHORTCUT                 |
 | `DocCategoryEntity`               | ENTITY                            |
 | `DocCategoryCalendar`             | CALENDAR                          |
+| `DocCategoryAgents`               | AGENTS                            |

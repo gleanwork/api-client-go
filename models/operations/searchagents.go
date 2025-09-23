@@ -12,16 +12,16 @@ type SearchAgentsResponse struct {
 	SearchAgentsResponse *components.SearchAgentsResponse
 }
 
-func (o *SearchAgentsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (s *SearchAgentsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if s == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return s.HTTPMeta
 }
 
-func (o *SearchAgentsResponse) GetSearchAgentsResponse() *components.SearchAgentsResponse {
-	if o == nil {
+func (s *SearchAgentsResponse) GetSearchAgentsResponse() *components.SearchAgentsResponse {
+	if s == nil {
 		return nil
 	}
-	return o.SearchAgentsResponse
+	return s.SearchAgentsResponse
 }

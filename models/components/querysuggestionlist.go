@@ -2,21 +2,36 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type QuerySuggestionList struct {
 	Suggestions []QuerySuggestion `json:"suggestions,omitempty"`
 	Person      *Person           `json:"person,omitempty"`
 }
 
-func (o *QuerySuggestionList) GetSuggestions() []QuerySuggestion {
-	if o == nil {
-		return nil
-	}
-	return o.Suggestions
+func (q QuerySuggestionList) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(q, "", false)
 }
 
-func (o *QuerySuggestionList) GetPerson() *Person {
-	if o == nil {
+func (q *QuerySuggestionList) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &q, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (q *QuerySuggestionList) GetSuggestions() []QuerySuggestion {
+	if q == nil {
 		return nil
 	}
-	return o.Person
+	return q.Suggestions
+}
+
+func (q *QuerySuggestionList) GetPerson() *Person {
+	if q == nil {
+		return nil
+	}
+	return q.Person
 }

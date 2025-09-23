@@ -20,51 +20,51 @@ type BulkIndexUsersRequest struct {
 	DisableStaleDataDeletionCheck *bool `json:"disableStaleDataDeletionCheck,omitempty"`
 }
 
-func (o *BulkIndexUsersRequest) GetUploadID() string {
-	if o == nil {
+func (b *BulkIndexUsersRequest) GetUploadID() string {
+	if b == nil {
 		return ""
 	}
-	return o.UploadID
+	return b.UploadID
 }
 
-func (o *BulkIndexUsersRequest) GetIsFirstPage() *bool {
-	if o == nil {
+func (b *BulkIndexUsersRequest) GetIsFirstPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsFirstPage
+	return b.IsFirstPage
 }
 
-func (o *BulkIndexUsersRequest) GetIsLastPage() *bool {
-	if o == nil {
+func (b *BulkIndexUsersRequest) GetIsLastPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsLastPage
+	return b.IsLastPage
 }
 
-func (o *BulkIndexUsersRequest) GetForceRestartUpload() *bool {
-	if o == nil {
+func (b *BulkIndexUsersRequest) GetForceRestartUpload() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.ForceRestartUpload
+	return b.ForceRestartUpload
 }
 
-func (o *BulkIndexUsersRequest) GetDatasource() string {
-	if o == nil {
+func (b *BulkIndexUsersRequest) GetDatasource() string {
+	if b == nil {
 		return ""
 	}
-	return o.Datasource
+	return b.Datasource
 }
 
-func (o *BulkIndexUsersRequest) GetUsers() []DatasourceUserDefinition {
-	if o == nil {
+func (b *BulkIndexUsersRequest) GetUsers() []DatasourceUserDefinition {
+	if b == nil {
 		return []DatasourceUserDefinition{}
 	}
-	return o.Users
+	return b.Users
 }
 
-func (o *BulkIndexUsersRequest) GetDisableStaleDataDeletionCheck() *bool {
-	if o == nil {
+func (b *BulkIndexUsersRequest) GetDisableStaleDataDeletionCheck() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.DisableStaleDataDeletionCheck
+	return b.DisableStaleDataDeletionCheck
 }

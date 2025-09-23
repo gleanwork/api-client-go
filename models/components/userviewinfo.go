@@ -11,23 +11,23 @@ type UserViewInfo struct {
 	DocURL *string `json:"docUrl,omitempty"`
 }
 
-func (o *UserViewInfo) GetDocID() *string {
-	if o == nil {
+func (u *UserViewInfo) GetDocID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.DocID
+	return u.DocID
 }
 
-func (o *UserViewInfo) GetDocTitle() *string {
-	if o == nil {
+func (u *UserViewInfo) GetDocTitle() *string {
+	if u == nil {
 		return nil
 	}
-	return o.DocTitle
+	return u.DocTitle
 }
 
-func (o *UserViewInfo) GetDocURL() *string {
-	if o == nil {
+func (u *UserViewInfo) GetDocURL() *string {
+	if u == nil {
 		return nil
 	}
-	return o.DocURL
+	return u.DocURL
 }

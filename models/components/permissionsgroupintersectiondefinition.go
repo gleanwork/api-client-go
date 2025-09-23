@@ -7,9 +7,9 @@ type PermissionsGroupIntersectionDefinition struct {
 	RequiredGroups []string `json:"requiredGroups,omitempty"`
 }
 
-func (o *PermissionsGroupIntersectionDefinition) GetRequiredGroups() []string {
-	if o == nil {
+func (p *PermissionsGroupIntersectionDefinition) GetRequiredGroups() []string {
+	if p == nil {
 		return nil
 	}
-	return o.RequiredGroups
+	return p.RequiredGroups
 }

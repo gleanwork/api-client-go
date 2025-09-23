@@ -6,9 +6,9 @@ type UpdateDlpReportResponse struct {
 	Result *DlpSimpleResult `json:"result,omitempty"`
 }
 
-func (o *UpdateDlpReportResponse) GetResult() *DlpSimpleResult {
-	if o == nil {
+func (u *UpdateDlpReportResponse) GetResult() *DlpSimpleResult {
+	if u == nil {
 		return nil
 	}
-	return o.Result
+	return u.Result
 }

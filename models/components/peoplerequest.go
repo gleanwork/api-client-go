@@ -98,44 +98,44 @@ type PeopleRequest struct {
 	Source *string `json:"source,omitempty"`
 }
 
-func (o *PeopleRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (p *PeopleRequest) GetTimezoneOffset() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return p.TimezoneOffset
 }
 
-func (o *PeopleRequest) GetObfuscatedIds() []string {
-	if o == nil {
+func (p *PeopleRequest) GetObfuscatedIds() []string {
+	if p == nil {
 		return nil
 	}
-	return o.ObfuscatedIds
+	return p.ObfuscatedIds
 }
 
-func (o *PeopleRequest) GetEmailIds() []string {
-	if o == nil {
+func (p *PeopleRequest) GetEmailIds() []string {
+	if p == nil {
 		return nil
 	}
-	return o.EmailIds
+	return p.EmailIds
 }
 
-func (o *PeopleRequest) GetIncludeFields() []PeopleRequestIncludeField {
-	if o == nil {
+func (p *PeopleRequest) GetIncludeFields() []PeopleRequestIncludeField {
+	if p == nil {
 		return nil
 	}
-	return o.IncludeFields
+	return p.IncludeFields
 }
 
-func (o *PeopleRequest) GetIncludeTypes() []IncludeType {
-	if o == nil {
+func (p *PeopleRequest) GetIncludeTypes() []IncludeType {
+	if p == nil {
 		return nil
 	}
-	return o.IncludeTypes
+	return p.IncludeTypes
 }
 
-func (o *PeopleRequest) GetSource() *string {
-	if o == nil {
+func (p *PeopleRequest) GetSource() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Source
+	return p.Source
 }

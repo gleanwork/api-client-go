@@ -12,16 +12,16 @@ type ListanswersResponse struct {
 	ListAnswersResponse *components.ListAnswersResponse
 }
 
-func (o *ListanswersResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListanswersResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListanswersResponse) GetListAnswersResponse() *components.ListAnswersResponse {
-	if o == nil {
+func (l *ListanswersResponse) GetListAnswersResponse() *components.ListAnswersResponse {
+	if l == nil {
 		return nil
 	}
-	return o.ListAnswersResponse
+	return l.ListAnswersResponse
 }

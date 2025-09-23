@@ -12,16 +12,16 @@ type MessagesResponse struct {
 	MessagesResponse *components.MessagesResponse
 }
 
-func (o *MessagesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (m *MessagesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if m == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return m.HTTPMeta
 }
 
-func (o *MessagesResponse) GetMessagesResponse() *components.MessagesResponse {
-	if o == nil {
+func (m *MessagesResponse) GetMessagesResponse() *components.MessagesResponse {
+	if m == nil {
 		return nil
 	}
-	return o.MessagesResponse
+	return m.MessagesResponse
 }

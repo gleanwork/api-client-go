@@ -9,16 +9,16 @@ type DeleteCollectionRequest struct {
 	AllowedDatasource *string `json:"allowedDatasource,omitempty"`
 }
 
-func (o *DeleteCollectionRequest) GetIds() []int64 {
-	if o == nil {
+func (d *DeleteCollectionRequest) GetIds() []int64 {
+	if d == nil {
 		return []int64{}
 	}
-	return o.Ids
+	return d.Ids
 }
 
-func (o *DeleteCollectionRequest) GetAllowedDatasource() *string {
-	if o == nil {
+func (d *DeleteCollectionRequest) GetAllowedDatasource() *string {
+	if d == nil {
 		return nil
 	}
-	return o.AllowedDatasource
+	return d.AllowedDatasource
 }

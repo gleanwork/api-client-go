@@ -8,18 +8,18 @@ type File struct {
 	Content any `multipartForm:"content"`
 }
 
-func (o *File) GetFileName() string {
-	if o == nil {
+func (f *File) GetFileName() string {
+	if f == nil {
 		return ""
 	}
-	return o.FileName
+	return f.FileName
 }
 
-func (o *File) GetContent() any {
-	if o == nil {
+func (f *File) GetContent() any {
+	if f == nil {
 		return nil
 	}
-	return o.Content
+	return f.Content
 }
 
 type UploadChatFilesRequest struct {
@@ -27,9 +27,9 @@ type UploadChatFilesRequest struct {
 	Files []File `multipartForm:"file,name=files"`
 }
 
-func (o *UploadChatFilesRequest) GetFiles() []File {
-	if o == nil {
+func (u *UploadChatFilesRequest) GetFiles() []File {
+	if u == nil {
 		return []File{}
 	}
-	return o.Files
+	return u.Files
 }

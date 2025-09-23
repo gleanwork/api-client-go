@@ -2,9 +2,11 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type SearchResultSnippet struct {
-	// A matching snippet from the document. Query term matches are marked by the unicode characters uE006 and uE007.
-	Snippet string `json:"snippet"`
 	// The mime type of the snippets, currently either text/plain or text/html.
 	MimeType *string `json:"mimeType,omitempty"`
 	// A matching snippet from the document with no highlights.
@@ -15,46 +17,61 @@ type SearchResultSnippet struct {
 	Ranges []TextRange `json:"ranges,omitempty"`
 	// A URL, generated based on availability, that links to the position of the snippet text or to the nearest header above the snippet text.
 	URL *string `json:"url,omitempty"`
+	// A matching snippet from the document. Query term matches are marked by the unicode characters uE006 and uE007. Use 'text' field instead.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
+	Snippet string `json:"snippet"`
 }
 
-func (o *SearchResultSnippet) GetSnippet() string {
-	if o == nil {
+func (s SearchResultSnippet) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *SearchResultSnippet) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"snippet"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *SearchResultSnippet) GetMimeType() *string {
+	if s == nil {
+		return nil
+	}
+	return s.MimeType
+}
+
+func (s *SearchResultSnippet) GetText() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Text
+}
+
+func (s *SearchResultSnippet) GetSnippetTextOrdering() *int64 {
+	if s == nil {
+		return nil
+	}
+	return s.SnippetTextOrdering
+}
+
+func (s *SearchResultSnippet) GetRanges() []TextRange {
+	if s == nil {
+		return nil
+	}
+	return s.Ranges
+}
+
+func (s *SearchResultSnippet) GetURL() *string {
+	if s == nil {
+		return nil
+	}
+	return s.URL
+}
+
+func (s *SearchResultSnippet) GetSnippet() string {
+	if s == nil {
 		return ""
 	}
-	return o.Snippet
-}
-
-func (o *SearchResultSnippet) GetMimeType() *string {
-	if o == nil {
-		return nil
-	}
-	return o.MimeType
-}
-
-func (o *SearchResultSnippet) GetText() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Text
-}
-
-func (o *SearchResultSnippet) GetSnippetTextOrdering() *int64 {
-	if o == nil {
-		return nil
-	}
-	return o.SnippetTextOrdering
-}
-
-func (o *SearchResultSnippet) GetRanges() []TextRange {
-	if o == nil {
-		return nil
-	}
-	return o.Ranges
-}
-
-func (o *SearchResultSnippet) GetURL() *string {
-	if o == nil {
-		return nil
-	}
-	return o.URL
+	return s.Snippet
 }

@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type SearchResult struct {
 	// An array of entities in the work graph retrieved via a data request.
 	StructuredResults []StructuredResult `json:"structuredResults,omitempty"`
@@ -43,149 +47,160 @@ type SearchResult struct {
 	Pins []PinDocument `json:"pins,omitempty"`
 }
 
-func (o *SearchResult) GetStructuredResults() []StructuredResult {
-	if o == nil {
-		return nil
-	}
-	return o.StructuredResults
+func (s SearchResult) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (o *SearchResult) GetTrackingToken() *string {
-	if o == nil {
-		return nil
+func (s *SearchResult) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"url"}); err != nil {
+		return err
 	}
-	return o.TrackingToken
+	return nil
 }
 
-func (o *SearchResult) GetDocument() *Document {
-	if o == nil {
+func (s *SearchResult) GetStructuredResults() []StructuredResult {
+	if s == nil {
 		return nil
 	}
-	return o.Document
+	return s.StructuredResults
 }
 
-func (o *SearchResult) GetTitle() *string {
-	if o == nil {
+func (s *SearchResult) GetTrackingToken() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Title
+	return s.TrackingToken
 }
 
-func (o *SearchResult) GetURL() string {
-	if o == nil {
+func (s *SearchResult) GetDocument() *Document {
+	if s == nil {
+		return nil
+	}
+	return s.Document
+}
+
+func (s *SearchResult) GetTitle() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Title
+}
+
+func (s *SearchResult) GetURL() string {
+	if s == nil {
 		return ""
 	}
-	return o.URL
+	return s.URL
 }
 
-func (o *SearchResult) GetNativeAppURL() *string {
-	if o == nil {
+func (s *SearchResult) GetNativeAppURL() *string {
+	if s == nil {
 		return nil
 	}
-	return o.NativeAppURL
+	return s.NativeAppURL
 }
 
-func (o *SearchResult) GetSnippets() []SearchResultSnippet {
-	if o == nil {
+func (s *SearchResult) GetSnippets() []SearchResultSnippet {
+	if s == nil {
 		return nil
 	}
-	return o.Snippets
+	return s.Snippets
 }
 
-func (o *SearchResult) GetFullText() *string {
-	if o == nil {
+func (s *SearchResult) GetFullText() *string {
+	if s == nil {
 		return nil
 	}
-	return o.FullText
+	return s.FullText
 }
 
-func (o *SearchResult) GetFullTextList() []string {
-	if o == nil {
+func (s *SearchResult) GetFullTextList() []string {
+	if s == nil {
 		return nil
 	}
-	return o.FullTextList
+	return s.FullTextList
 }
 
-func (o *SearchResult) GetRelatedResults() []RelatedDocuments {
-	if o == nil {
+func (s *SearchResult) GetRelatedResults() []RelatedDocuments {
+	if s == nil {
 		return nil
 	}
-	return o.RelatedResults
+	return s.RelatedResults
 }
 
-func (o *SearchResult) GetClusteredResults() []SearchResult {
-	if o == nil {
+func (s *SearchResult) GetClusteredResults() []SearchResult {
+	if s == nil {
 		return nil
 	}
-	return o.ClusteredResults
+	return s.ClusteredResults
 }
 
-func (o *SearchResult) GetAllClusteredResults() []ClusterGroup {
-	if o == nil {
+func (s *SearchResult) GetAllClusteredResults() []ClusterGroup {
+	if s == nil {
 		return nil
 	}
-	return o.AllClusteredResults
+	return s.AllClusteredResults
 }
 
-func (o *SearchResult) GetAttachmentCount() *int64 {
-	if o == nil {
+func (s *SearchResult) GetAttachmentCount() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.AttachmentCount
+	return s.AttachmentCount
 }
 
-func (o *SearchResult) GetAttachments() []SearchResult {
-	if o == nil {
+func (s *SearchResult) GetAttachments() []SearchResult {
+	if s == nil {
 		return nil
 	}
-	return o.Attachments
+	return s.Attachments
 }
 
-func (o *SearchResult) GetBacklinkResults() []SearchResult {
-	if o == nil {
+func (s *SearchResult) GetBacklinkResults() []SearchResult {
+	if s == nil {
 		return nil
 	}
-	return o.BacklinkResults
+	return s.BacklinkResults
 }
 
-func (o *SearchResult) GetClusterType() *ClusterTypeEnum {
-	if o == nil {
+func (s *SearchResult) GetClusterType() *ClusterTypeEnum {
+	if s == nil {
 		return nil
 	}
-	return o.ClusterType
+	return s.ClusterType
 }
 
-func (o *SearchResult) GetMustIncludeSuggestions() *QuerySuggestionList {
-	if o == nil {
+func (s *SearchResult) GetMustIncludeSuggestions() *QuerySuggestionList {
+	if s == nil {
 		return nil
 	}
-	return o.MustIncludeSuggestions
+	return s.MustIncludeSuggestions
 }
 
-func (o *SearchResult) GetQuerySuggestion() *QuerySuggestion {
-	if o == nil {
+func (s *SearchResult) GetQuerySuggestion() *QuerySuggestion {
+	if s == nil {
 		return nil
 	}
-	return o.QuerySuggestion
+	return s.QuerySuggestion
 }
 
-func (o *SearchResult) GetProminence() *SearchResultProminenceEnum {
-	if o == nil {
+func (s *SearchResult) GetProminence() *SearchResultProminenceEnum {
+	if s == nil {
 		return nil
 	}
-	return o.Prominence
+	return s.Prominence
 }
 
-func (o *SearchResult) GetAttachmentContext() *string {
-	if o == nil {
+func (s *SearchResult) GetAttachmentContext() *string {
+	if s == nil {
 		return nil
 	}
-	return o.AttachmentContext
+	return s.AttachmentContext
 }
 
-func (o *SearchResult) GetPins() []PinDocument {
-	if o == nil {
+func (s *SearchResult) GetPins() []PinDocument {
+	if s == nil {
 		return nil
 	}
-	return o.Pins
+	return s.Pins
 }

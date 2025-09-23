@@ -34,9 +34,9 @@ type AddCollectionItemsError struct {
 	ErrorType *AddCollectionItemsErrorErrorType `json:"errorType,omitempty"`
 }
 
-func (o *AddCollectionItemsError) GetErrorType() *AddCollectionItemsErrorErrorType {
-	if o == nil {
+func (a *AddCollectionItemsError) GetErrorType() *AddCollectionItemsErrorErrorType {
+	if a == nil {
 		return nil
 	}
-	return o.ErrorType
+	return a.ErrorType
 }

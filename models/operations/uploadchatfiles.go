@@ -12,18 +12,18 @@ type UploadchatfilesRequest struct {
 	UploadChatFilesRequest components.UploadChatFilesRequest `request:"mediaType=multipart/form-data"`
 }
 
-func (o *UploadchatfilesRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (u *UploadchatfilesRequest) GetTimezoneOffset() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return u.TimezoneOffset
 }
 
-func (o *UploadchatfilesRequest) GetUploadChatFilesRequest() components.UploadChatFilesRequest {
-	if o == nil {
+func (u *UploadchatfilesRequest) GetUploadChatFilesRequest() components.UploadChatFilesRequest {
+	if u == nil {
 		return components.UploadChatFilesRequest{}
 	}
-	return o.UploadChatFilesRequest
+	return u.UploadChatFilesRequest
 }
 
 type UploadchatfilesResponse struct {
@@ -32,16 +32,16 @@ type UploadchatfilesResponse struct {
 	UploadChatFilesResponse *components.UploadChatFilesResponse
 }
 
-func (o *UploadchatfilesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UploadchatfilesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UploadchatfilesResponse) GetUploadChatFilesResponse() *components.UploadChatFilesResponse {
-	if o == nil {
+func (u *UploadchatfilesResponse) GetUploadChatFilesResponse() *components.UploadChatFilesResponse {
+	if u == nil {
 		return nil
 	}
-	return o.UploadChatFilesResponse
+	return u.UploadChatFilesResponse
 }

@@ -2,14 +2,29 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type DocumentContent struct {
 	// The plaintext content of the document.
 	FullTextList []string `json:"fullTextList,omitempty"`
 }
 
-func (o *DocumentContent) GetFullTextList() []string {
-	if o == nil {
+func (d DocumentContent) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
+}
+
+func (d *DocumentContent) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (d *DocumentContent) GetFullTextList() []string {
+	if d == nil {
 		return nil
 	}
-	return o.FullTextList
+	return d.FullTextList
 }

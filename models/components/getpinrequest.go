@@ -7,9 +7,9 @@ type GetPinRequest struct {
 	ID *string `json:"id,omitempty"`
 }
 
-func (o *GetPinRequest) GetID() *string {
-	if o == nil {
+func (g *GetPinRequest) GetID() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ID
+	return g.ID
 }

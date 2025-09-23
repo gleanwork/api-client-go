@@ -9,16 +9,16 @@ type ReferenceRange struct {
 	Snippets  []SearchResultSnippet `json:"snippets,omitempty"`
 }
 
-func (o *ReferenceRange) GetTextRange() *TextRange {
-	if o == nil {
+func (r *ReferenceRange) GetTextRange() *TextRange {
+	if r == nil {
 		return nil
 	}
-	return o.TextRange
+	return r.TextRange
 }
 
-func (o *ReferenceRange) GetSnippets() []SearchResultSnippet {
-	if o == nil {
+func (r *ReferenceRange) GetSnippets() []SearchResultSnippet {
+	if r == nil {
 		return nil
 	}
-	return o.Snippets
+	return r.Snippets
 }

@@ -21,3 +21,9 @@ documentSpecUnion := components.CreateDocumentSpecUnionDocumentSpec2(components.
 documentSpecUnion := components.CreateDocumentSpecUnionDocumentSpec3(components.DocumentSpec3{/* values here */})
 ```
 
+### DocumentSpec4
+
+```go
+documentSpecUnion := components.CreateDocumentSpecUnionDocumentSpec4(components.DocumentSpec4{/* values here */})
+```
+

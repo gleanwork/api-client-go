@@ -51,16 +51,16 @@ type ReportStatusResponse struct {
 	StartTime *string `json:"startTime,omitempty"`
 }
 
-func (o *ReportStatusResponse) GetStatus() *ReportStatusResponseStatus {
-	if o == nil {
+func (r *ReportStatusResponse) GetStatus() *ReportStatusResponseStatus {
+	if r == nil {
 		return nil
 	}
-	return o.Status
+	return r.Status
 }
 
-func (o *ReportStatusResponse) GetStartTime() *string {
-	if o == nil {
+func (r *ReportStatusResponse) GetStartTime() *string {
+	if r == nil {
 		return nil
 	}
-	return o.StartTime
+	return r.StartTime
 }

@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 type CollectionErrorErrorCode string
@@ -52,9 +53,20 @@ type CollectionError struct {
 	ErrorCode CollectionErrorErrorCode `json:"errorCode"`
 }
 
-func (o *CollectionError) GetErrorCode() CollectionErrorErrorCode {
-	if o == nil {
+func (c CollectionError) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CollectionError) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"errorCode"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CollectionError) GetErrorCode() CollectionErrorErrorCode {
+	if c == nil {
 		return CollectionErrorErrorCode("")
 	}
-	return o.ErrorCode
+	return c.ErrorCode
 }

@@ -19,12 +19,13 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
+    hoistGlobalSecurity: true
   tests:
     generateTests: true
     generateNewTests: true
     skipResponseBodyAssertions: true
 go:
-  version: 0.8.0
+  version: 0.9.0
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: GleanError
@@ -44,7 +45,9 @@ go:
   maxMethodParams: 4
   methodArguments: require-security-and-request
   modulePath: ""
+  nullableOptionalWrapper: false
   outputModelSuffix: output
   packageName: github.com/gleanwork/api-client-go
+  respectRequiredFields: false
   responseFormat: envelope-http
   sdkPackageName: ""

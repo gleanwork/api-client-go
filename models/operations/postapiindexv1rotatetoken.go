@@ -12,16 +12,16 @@ type PostAPIIndexV1RotatetokenResponse struct {
 	RotateTokenResponse *components.RotateTokenResponse
 }
 
-func (o *PostAPIIndexV1RotatetokenResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIIndexV1RotatetokenResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostAPIIndexV1RotatetokenResponse) GetRotateTokenResponse() *components.RotateTokenResponse {
-	if o == nil {
+func (p *PostAPIIndexV1RotatetokenResponse) GetRotateTokenResponse() *components.RotateTokenResponse {
+	if p == nil {
 		return nil
 	}
-	return o.RotateTokenResponse
+	return p.RotateTokenResponse
 }

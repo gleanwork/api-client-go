@@ -34,7 +34,7 @@ func TestClientActivity_Activity(t *testing.T) {
 			components.ActivityEvent{
 				Action: components.ActivityEventActionSearch,
 				Params: &components.ActivityEventParams{
-					Query: apiclientgo.String("query"),
+					Query: apiclientgo.Pointer("query"),
 				},
 				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
 				URL:       "https://example.com/search?q=query",
@@ -42,8 +42,8 @@ func TestClientActivity_Activity(t *testing.T) {
 			components.ActivityEvent{
 				Action: components.ActivityEventActionView,
 				Params: &components.ActivityEventParams{
-					Duration: apiclientgo.Int64(20),
-					Referrer: apiclientgo.String("https://example.com/document"),
+					Duration: apiclientgo.Pointer[int64](20),
+					Referrer: apiclientgo.Pointer("https://example.com/document"),
 				},
 				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
 				URL:       "https://example.com/",

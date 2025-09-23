@@ -12,16 +12,16 @@ type AutocompleteResponse struct {
 	AutocompleteResponse *components.AutocompleteResponse
 }
 
-func (o *AutocompleteResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (a *AutocompleteResponse) GetHTTPMeta() components.HTTPMetadata {
+	if a == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return a.HTTPMeta
 }
 
-func (o *AutocompleteResponse) GetAutocompleteResponse() *components.AutocompleteResponse {
-	if o == nil {
+func (a *AutocompleteResponse) GetAutocompleteResponse() *components.AutocompleteResponse {
+	if a == nil {
 		return nil
 	}
-	return o.AutocompleteResponse
+	return a.AutocompleteResponse
 }

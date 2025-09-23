@@ -15,37 +15,37 @@ type ChatResponse struct {
 	ChatSessionTrackingToken *string `json:"chatSessionTrackingToken,omitempty"`
 }
 
-func (o *ChatResponse) GetMessages() []ChatMessage {
-	if o == nil {
+func (c *ChatResponse) GetMessages() []ChatMessage {
+	if c == nil {
 		return nil
 	}
-	return o.Messages
+	return c.Messages
 }
 
-func (o *ChatResponse) GetChatID() *string {
-	if o == nil {
+func (c *ChatResponse) GetChatID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ChatID
+	return c.ChatID
 }
 
-func (o *ChatResponse) GetFollowUpPrompts() []string {
-	if o == nil {
+func (c *ChatResponse) GetFollowUpPrompts() []string {
+	if c == nil {
 		return nil
 	}
-	return o.FollowUpPrompts
+	return c.FollowUpPrompts
 }
 
-func (o *ChatResponse) GetBackendTimeMillis() *int64 {
-	if o == nil {
+func (c *ChatResponse) GetBackendTimeMillis() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.BackendTimeMillis
+	return c.BackendTimeMillis
 }
 
-func (o *ChatResponse) GetChatSessionTrackingToken() *string {
-	if o == nil {
+func (c *ChatResponse) GetChatSessionTrackingToken() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ChatSessionTrackingToken
+	return c.ChatSessionTrackingToken
 }

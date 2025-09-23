@@ -24,43 +24,43 @@ func (c ChannelInviteInfo) MarshalJSON() ([]byte, error) {
 }
 
 func (c *ChannelInviteInfo) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ChannelInviteInfo) GetChannel() *CommunicationChannel {
-	if o == nil {
+func (c *ChannelInviteInfo) GetChannel() *CommunicationChannel {
+	if c == nil {
 		return nil
 	}
-	return o.Channel
+	return c.Channel
 }
 
-func (o *ChannelInviteInfo) GetIsAutoInvite() *bool {
-	if o == nil {
+func (c *ChannelInviteInfo) GetIsAutoInvite() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.IsAutoInvite
+	return c.IsAutoInvite
 }
 
-func (o *ChannelInviteInfo) GetInviter() *Person {
-	if o == nil {
+func (c *ChannelInviteInfo) GetInviter() *Person {
+	if c == nil {
 		return nil
 	}
-	return o.Inviter
+	return c.Inviter
 }
 
-func (o *ChannelInviteInfo) GetInviteTime() *time.Time {
-	if o == nil {
+func (c *ChannelInviteInfo) GetInviteTime() *time.Time {
+	if c == nil {
 		return nil
 	}
-	return o.InviteTime
+	return c.InviteTime
 }
 
-func (o *ChannelInviteInfo) GetReminderTime() *time.Time {
-	if o == nil {
+func (c *ChannelInviteInfo) GetReminderTime() *time.Time {
+	if c == nil {
 		return nil
 	}
-	return o.ReminderTime
+	return c.ReminderTime
 }

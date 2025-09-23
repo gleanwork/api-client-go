@@ -9,16 +9,16 @@ type PersonObject struct {
 	ObfuscatedID string `json:"obfuscatedId"`
 }
 
-func (o *PersonObject) GetName() string {
-	if o == nil {
+func (p *PersonObject) GetName() string {
+	if p == nil {
 		return ""
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PersonObject) GetObfuscatedID() string {
-	if o == nil {
+func (p *PersonObject) GetObfuscatedID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ObfuscatedID
+	return p.ObfuscatedID
 }

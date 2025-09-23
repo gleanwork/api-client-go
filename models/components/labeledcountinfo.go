@@ -9,16 +9,16 @@ type LabeledCountInfo struct {
 	CountInfo []CountInfo `json:"countInfo,omitempty"`
 }
 
-func (o *LabeledCountInfo) GetLabel() string {
-	if o == nil {
+func (l *LabeledCountInfo) GetLabel() string {
+	if l == nil {
 		return ""
 	}
-	return o.Label
+	return l.Label
 }
 
-func (o *LabeledCountInfo) GetCountInfo() []CountInfo {
-	if o == nil {
+func (l *LabeledCountInfo) GetCountInfo() []CountInfo {
+	if l == nil {
 		return nil
 	}
-	return o.CountInfo
+	return l.CountInfo
 }

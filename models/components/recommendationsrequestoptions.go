@@ -14,37 +14,37 @@ type RecommendationsRequestOptions struct {
 	ResultProminence []SearchResultProminenceEnum `json:"resultProminence,omitempty"`
 }
 
-func (o *RecommendationsRequestOptions) GetDatasourceFilter() *string {
-	if o == nil {
+func (r *RecommendationsRequestOptions) GetDatasourceFilter() *string {
+	if r == nil {
 		return nil
 	}
-	return o.DatasourceFilter
+	return r.DatasourceFilter
 }
 
-func (o *RecommendationsRequestOptions) GetDatasourcesFilter() []string {
-	if o == nil {
+func (r *RecommendationsRequestOptions) GetDatasourcesFilter() []string {
+	if r == nil {
 		return nil
 	}
-	return o.DatasourcesFilter
+	return r.DatasourcesFilter
 }
 
-func (o *RecommendationsRequestOptions) GetFacetFilterSets() []FacetFilterSet {
-	if o == nil {
+func (r *RecommendationsRequestOptions) GetFacetFilterSets() []FacetFilterSet {
+	if r == nil {
 		return nil
 	}
-	return o.FacetFilterSets
+	return r.FacetFilterSets
 }
 
-func (o *RecommendationsRequestOptions) GetContext() *Document {
-	if o == nil {
+func (r *RecommendationsRequestOptions) GetContext() *Document {
+	if r == nil {
 		return nil
 	}
-	return o.Context
+	return r.Context
 }
 
-func (o *RecommendationsRequestOptions) GetResultProminence() []SearchResultProminenceEnum {
-	if o == nil {
+func (r *RecommendationsRequestOptions) GetResultProminence() []SearchResultProminenceEnum {
+	if r == nil {
 		return nil
 	}
-	return o.ResultProminence
+	return r.ResultProminence
 }

@@ -7,9 +7,9 @@ type InsightsAgentsRequestOptions struct {
 	AgentIds []string `json:"agentIds,omitempty"`
 }
 
-func (o *InsightsAgentsRequestOptions) GetAgentIds() []string {
-	if o == nil {
+func (i *InsightsAgentsRequestOptions) GetAgentIds() []string {
+	if i == nil {
 		return nil
 	}
-	return o.AgentIds
+	return i.AgentIds
 }

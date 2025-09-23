@@ -9,16 +9,16 @@ type User struct {
 	OrigID *string `json:"origID,omitempty"`
 }
 
-func (o *User) GetUserID() *string {
-	if o == nil {
+func (u *User) GetUserID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.UserID
+	return u.UserID
 }
 
-func (o *User) GetOrigID() *string {
-	if o == nil {
+func (u *User) GetOrigID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.OrigID
+	return u.OrigID
 }

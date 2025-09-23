@@ -7,9 +7,9 @@ type UploadChatFilesResponse struct {
 	Files []ChatFile `json:"files,omitempty"`
 }
 
-func (o *UploadChatFilesResponse) GetFiles() []ChatFile {
-	if o == nil {
+func (u *UploadChatFilesResponse) GetFiles() []ChatFile {
+	if u == nil {
 		return nil
 	}
-	return o.Files
+	return u.Files
 }

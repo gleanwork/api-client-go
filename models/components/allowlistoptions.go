@@ -8,9 +8,9 @@ type AllowlistOptions struct {
 	Terms []string `json:"terms,omitempty"`
 }
 
-func (o *AllowlistOptions) GetTerms() []string {
-	if o == nil {
+func (a *AllowlistOptions) GetTerms() []string {
+	if a == nil {
 		return nil
 	}
-	return o.Terms
+	return a.Terms
 }

@@ -135,316 +135,316 @@ func (p PersonMetadata) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PersonMetadata) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *PersonMetadata) GetType() *PersonMetadataType {
-	if o == nil {
+func (p *PersonMetadata) GetType() *PersonMetadataType {
+	if p == nil {
 		return nil
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PersonMetadata) GetFirstName() *string {
-	if o == nil {
+func (p *PersonMetadata) GetFirstName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.FirstName
+	return p.FirstName
 }
 
-func (o *PersonMetadata) GetLastName() *string {
-	if o == nil {
+func (p *PersonMetadata) GetLastName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.LastName
+	return p.LastName
 }
 
-func (o *PersonMetadata) GetTitle() *string {
-	if o == nil {
+func (p *PersonMetadata) GetTitle() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Title
+	return p.Title
 }
 
-func (o *PersonMetadata) GetBusinessUnit() *string {
-	if o == nil {
+func (p *PersonMetadata) GetBusinessUnit() *string {
+	if p == nil {
 		return nil
 	}
-	return o.BusinessUnit
+	return p.BusinessUnit
 }
 
-func (o *PersonMetadata) GetDepartment() *string {
-	if o == nil {
+func (p *PersonMetadata) GetDepartment() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Department
+	return p.Department
 }
 
-func (o *PersonMetadata) GetTeams() []PersonTeam {
-	if o == nil {
+func (p *PersonMetadata) GetTeams() []PersonTeam {
+	if p == nil {
 		return nil
 	}
-	return o.Teams
+	return p.Teams
 }
 
-func (o *PersonMetadata) GetDepartmentCount() *int64 {
-	if o == nil {
+func (p *PersonMetadata) GetDepartmentCount() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.DepartmentCount
+	return p.DepartmentCount
 }
 
-func (o *PersonMetadata) GetEmail() *string {
-	if o == nil {
+func (p *PersonMetadata) GetEmail() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Email
+	return p.Email
 }
 
-func (o *PersonMetadata) GetAliasEmails() []string {
-	if o == nil {
+func (p *PersonMetadata) GetAliasEmails() []string {
+	if p == nil {
 		return nil
 	}
-	return o.AliasEmails
+	return p.AliasEmails
 }
 
-func (o *PersonMetadata) GetLocation() *string {
-	if o == nil {
+func (p *PersonMetadata) GetLocation() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Location
+	return p.Location
 }
 
-func (o *PersonMetadata) GetStructuredLocation() *StructuredLocation {
-	if o == nil {
+func (p *PersonMetadata) GetStructuredLocation() *StructuredLocation {
+	if p == nil {
 		return nil
 	}
-	return o.StructuredLocation
+	return p.StructuredLocation
 }
 
-func (o *PersonMetadata) GetExternalProfileLink() *string {
-	if o == nil {
+func (p *PersonMetadata) GetExternalProfileLink() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ExternalProfileLink
+	return p.ExternalProfileLink
 }
 
-func (o *PersonMetadata) GetManager() *Person {
-	if o == nil {
+func (p *PersonMetadata) GetManager() *Person {
+	if p == nil {
 		return nil
 	}
-	return o.Manager
+	return p.Manager
 }
 
-func (o *PersonMetadata) GetManagementChain() []Person {
-	if o == nil {
+func (p *PersonMetadata) GetManagementChain() []Person {
+	if p == nil {
 		return nil
 	}
-	return o.ManagementChain
+	return p.ManagementChain
 }
 
-func (o *PersonMetadata) GetPhone() *string {
-	if o == nil {
+func (p *PersonMetadata) GetPhone() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Phone
+	return p.Phone
 }
 
-func (o *PersonMetadata) GetTimezone() *string {
-	if o == nil {
+func (p *PersonMetadata) GetTimezone() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Timezone
+	return p.Timezone
 }
 
-func (o *PersonMetadata) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (p *PersonMetadata) GetTimezoneOffset() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return p.TimezoneOffset
 }
 
-func (o *PersonMetadata) GetPhotoURL() *string {
-	if o == nil {
+func (p *PersonMetadata) GetPhotoURL() *string {
+	if p == nil {
 		return nil
 	}
-	return o.PhotoURL
+	return p.PhotoURL
 }
 
-func (o *PersonMetadata) GetUneditedPhotoURL() *string {
-	if o == nil {
+func (p *PersonMetadata) GetUneditedPhotoURL() *string {
+	if p == nil {
 		return nil
 	}
-	return o.UneditedPhotoURL
+	return p.UneditedPhotoURL
 }
 
-func (o *PersonMetadata) GetBannerURL() *string {
-	if o == nil {
+func (p *PersonMetadata) GetBannerURL() *string {
+	if p == nil {
 		return nil
 	}
-	return o.BannerURL
+	return p.BannerURL
 }
 
-func (o *PersonMetadata) GetReports() []Person {
-	if o == nil {
+func (p *PersonMetadata) GetReports() []Person {
+	if p == nil {
 		return nil
 	}
-	return o.Reports
+	return p.Reports
 }
 
-func (o *PersonMetadata) GetStartDate() *types.Date {
-	if o == nil {
+func (p *PersonMetadata) GetStartDate() *types.Date {
+	if p == nil {
 		return nil
 	}
-	return o.StartDate
+	return p.StartDate
 }
 
-func (o *PersonMetadata) GetEndDate() *types.Date {
-	if o == nil {
+func (p *PersonMetadata) GetEndDate() *types.Date {
+	if p == nil {
 		return nil
 	}
-	return o.EndDate
+	return p.EndDate
 }
 
-func (o *PersonMetadata) GetBio() *string {
-	if o == nil {
+func (p *PersonMetadata) GetBio() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Bio
+	return p.Bio
 }
 
-func (o *PersonMetadata) GetPronoun() *string {
-	if o == nil {
+func (p *PersonMetadata) GetPronoun() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Pronoun
+	return p.Pronoun
 }
 
-func (o *PersonMetadata) GetOrgSizeCount() *int64 {
-	if o == nil {
+func (p *PersonMetadata) GetOrgSizeCount() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.OrgSizeCount
+	return p.OrgSizeCount
 }
 
-func (o *PersonMetadata) GetDirectReportsCount() *int64 {
-	if o == nil {
+func (p *PersonMetadata) GetDirectReportsCount() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.DirectReportsCount
+	return p.DirectReportsCount
 }
 
-func (o *PersonMetadata) GetPreferredName() *string {
-	if o == nil {
+func (p *PersonMetadata) GetPreferredName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.PreferredName
+	return p.PreferredName
 }
 
-func (o *PersonMetadata) GetSocialNetwork() []SocialNetwork {
-	if o == nil {
+func (p *PersonMetadata) GetSocialNetwork() []SocialNetwork {
+	if p == nil {
 		return nil
 	}
-	return o.SocialNetwork
+	return p.SocialNetwork
 }
 
-func (o *PersonMetadata) GetDatasourceProfile() []DatasourceProfile {
-	if o == nil {
+func (p *PersonMetadata) GetDatasourceProfile() []DatasourceProfile {
+	if p == nil {
 		return nil
 	}
-	return o.DatasourceProfile
+	return p.DatasourceProfile
 }
 
-func (o *PersonMetadata) GetQuerySuggestions() *QuerySuggestionList {
-	if o == nil {
+func (p *PersonMetadata) GetQuerySuggestions() *QuerySuggestionList {
+	if p == nil {
 		return nil
 	}
-	return o.QuerySuggestions
+	return p.QuerySuggestions
 }
 
-func (o *PersonMetadata) GetPeopleDistance() []PersonDistance {
-	if o == nil {
+func (p *PersonMetadata) GetPeopleDistance() []PersonDistance {
+	if p == nil {
 		return nil
 	}
-	return o.PeopleDistance
+	return p.PeopleDistance
 }
 
-func (o *PersonMetadata) GetInviteInfo() *InviteInfo {
-	if o == nil {
+func (p *PersonMetadata) GetInviteInfo() *InviteInfo {
+	if p == nil {
 		return nil
 	}
-	return o.InviteInfo
+	return p.InviteInfo
 }
 
-func (o *PersonMetadata) GetIsSignedUp() *bool {
-	if o == nil {
+func (p *PersonMetadata) GetIsSignedUp() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.IsSignedUp
+	return p.IsSignedUp
 }
 
-func (o *PersonMetadata) GetLastExtensionUse() *time.Time {
-	if o == nil {
+func (p *PersonMetadata) GetLastExtensionUse() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.LastExtensionUse
+	return p.LastExtensionUse
 }
 
-func (o *PersonMetadata) GetPermissions() *Permissions {
-	if o == nil {
+func (p *PersonMetadata) GetPermissions() *Permissions {
+	if p == nil {
 		return nil
 	}
-	return o.Permissions
+	return p.Permissions
 }
 
-func (o *PersonMetadata) GetCustomFields() []CustomFieldData {
-	if o == nil {
+func (p *PersonMetadata) GetCustomFields() []CustomFieldData {
+	if p == nil {
 		return nil
 	}
-	return o.CustomFields
+	return p.CustomFields
 }
 
-func (o *PersonMetadata) GetLoggingID() *string {
-	if o == nil {
+func (p *PersonMetadata) GetLoggingID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.LoggingID
+	return p.LoggingID
 }
 
-func (o *PersonMetadata) GetStartDatePercentile() *float32 {
-	if o == nil {
+func (p *PersonMetadata) GetStartDatePercentile() *float32 {
+	if p == nil {
 		return nil
 	}
-	return o.StartDatePercentile
+	return p.StartDatePercentile
 }
 
-func (o *PersonMetadata) GetBusyEvents() []AnonymousEvent {
-	if o == nil {
+func (p *PersonMetadata) GetBusyEvents() []AnonymousEvent {
+	if p == nil {
 		return nil
 	}
-	return o.BusyEvents
+	return p.BusyEvents
 }
 
-func (o *PersonMetadata) GetProfileBoolSettings() map[string]bool {
-	if o == nil {
+func (p *PersonMetadata) GetProfileBoolSettings() map[string]bool {
+	if p == nil {
 		return nil
 	}
-	return o.ProfileBoolSettings
+	return p.ProfileBoolSettings
 }
 
-func (o *PersonMetadata) GetBadges() []Badge {
-	if o == nil {
+func (p *PersonMetadata) GetBadges() []Badge {
+	if p == nil {
 		return nil
 	}
-	return o.Badges
+	return p.Badges
 }
 
-func (o *PersonMetadata) GetIsOrgRoot() *bool {
-	if o == nil {
+func (p *PersonMetadata) GetIsOrgRoot() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.IsOrgRoot
+	return p.IsOrgRoot
 }

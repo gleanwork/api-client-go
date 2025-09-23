@@ -7,16 +7,16 @@ type UpdateShortcutResponse struct {
 	Error    *ShortcutError `json:"error,omitempty"`
 }
 
-func (o *UpdateShortcutResponse) GetShortcut() *Shortcut {
-	if o == nil {
+func (u *UpdateShortcutResponse) GetShortcut() *Shortcut {
+	if u == nil {
 		return nil
 	}
-	return o.Shortcut
+	return u.Shortcut
 }
 
-func (o *UpdateShortcutResponse) GetError() *ShortcutError {
-	if o == nil {
+func (u *UpdateShortcutResponse) GetError() *ShortcutError {
+	if u == nil {
 		return nil
 	}
-	return o.Error
+	return u.Error
 }

@@ -9,23 +9,23 @@ type MessagesResponse struct {
 	RootMessage    *SearchResult   `json:"rootMessage,omitempty"`
 }
 
-func (o *MessagesResponse) GetHasMore() bool {
-	if o == nil {
+func (m *MessagesResponse) GetHasMore() bool {
+	if m == nil {
 		return false
 	}
-	return o.HasMore
+	return m.HasMore
 }
 
-func (o *MessagesResponse) GetSearchResponse() *SearchResponse {
-	if o == nil {
+func (m *MessagesResponse) GetSearchResponse() *SearchResponse {
+	if m == nil {
 		return nil
 	}
-	return o.SearchResponse
+	return m.SearchResponse
 }
 
-func (o *MessagesResponse) GetRootMessage() *SearchResult {
-	if o == nil {
+func (m *MessagesResponse) GetRootMessage() *SearchResult {
+	if m == nil {
 		return nil
 	}
-	return o.RootMessage
+	return m.RootMessage
 }

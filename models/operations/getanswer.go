@@ -12,16 +12,16 @@ type GetanswerResponse struct {
 	GetAnswerResponse *components.GetAnswerResponse
 }
 
-func (o *GetanswerResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetanswerResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetanswerResponse) GetGetAnswerResponse() *components.GetAnswerResponse {
-	if o == nil {
+func (g *GetanswerResponse) GetGetAnswerResponse() *components.GetAnswerResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetAnswerResponse
+	return g.GetAnswerResponse
 }

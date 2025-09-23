@@ -10,16 +10,16 @@ type DeleteEmployeeRequest struct {
 	EmployeeEmail string `json:"employeeEmail"`
 }
 
-func (o *DeleteEmployeeRequest) GetVersion() *int64 {
-	if o == nil {
+func (d *DeleteEmployeeRequest) GetVersion() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Version
+	return d.Version
 }
 
-func (o *DeleteEmployeeRequest) GetEmployeeEmail() string {
-	if o == nil {
+func (d *DeleteEmployeeRequest) GetEmployeeEmail() string {
+	if d == nil {
 		return ""
 	}
-	return o.EmployeeEmail
+	return d.EmployeeEmail
 }

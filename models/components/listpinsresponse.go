@@ -7,9 +7,9 @@ type ListPinsResponse struct {
 	Pins []PinDocument `json:"pins"`
 }
 
-func (o *ListPinsResponse) GetPins() []PinDocument {
-	if o == nil {
+func (l *ListPinsResponse) GetPins() []PinDocument {
+	if l == nil {
 		return []PinDocument{}
 	}
-	return o.Pins
+	return l.Pins
 }

@@ -10,23 +10,23 @@ type UserReferenceDefinition struct {
 	Name             *string `json:"name,omitempty"`
 }
 
-func (o *UserReferenceDefinition) GetEmail() *string {
-	if o == nil {
+func (u *UserReferenceDefinition) GetEmail() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Email
+	return u.Email
 }
 
-func (o *UserReferenceDefinition) GetDatasourceUserID() *string {
-	if o == nil {
+func (u *UserReferenceDefinition) GetDatasourceUserID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.DatasourceUserID
+	return u.DatasourceUserID
 }
 
-func (o *UserReferenceDefinition) GetName() *string {
-	if o == nil {
+func (u *UserReferenceDefinition) GetName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Name
+	return u.Name
 }

@@ -68,43 +68,43 @@ func (a ActivityEvent) MarshalJSON() ([]byte, error) {
 }
 
 func (a *ActivityEvent) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &a, "", false, []string{"action", "timestamp", "url"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ActivityEvent) GetID() *string {
-	if o == nil {
+func (a *ActivityEvent) GetID() *string {
+	if a == nil {
 		return nil
 	}
-	return o.ID
+	return a.ID
 }
 
-func (o *ActivityEvent) GetAction() ActivityEventAction {
-	if o == nil {
+func (a *ActivityEvent) GetAction() ActivityEventAction {
+	if a == nil {
 		return ActivityEventAction("")
 	}
-	return o.Action
+	return a.Action
 }
 
-func (o *ActivityEvent) GetParams() *ActivityEventParams {
-	if o == nil {
+func (a *ActivityEvent) GetParams() *ActivityEventParams {
+	if a == nil {
 		return nil
 	}
-	return o.Params
+	return a.Params
 }
 
-func (o *ActivityEvent) GetTimestamp() time.Time {
-	if o == nil {
+func (a *ActivityEvent) GetTimestamp() time.Time {
+	if a == nil {
 		return time.Time{}
 	}
-	return o.Timestamp
+	return a.Timestamp
 }
 
-func (o *ActivityEvent) GetURL() string {
-	if o == nil {
+func (a *ActivityEvent) GetURL() string {
+	if a == nil {
 		return ""
 	}
-	return o.URL
+	return a.URL
 }

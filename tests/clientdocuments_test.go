@@ -62,14 +62,14 @@ func TestClientDocuments_Getdocumentsbyfacets(t *testing.T) {
 			components.FacetFilterSet{
 				Filters: []components.FacetFilter{
 					components.FacetFilter{
-						FieldName: apiclientgo.String("type"),
+						FieldName: apiclientgo.Pointer("type"),
 						Values: []components.FacetFilterValue{
 							components.FacetFilterValue{
-								Value:        apiclientgo.String("Spreadsheet"),
+								Value:        apiclientgo.Pointer("Spreadsheet"),
 								RelationType: components.RelationTypeEquals.ToPointer(),
 							},
 							components.FacetFilterValue{
-								Value:        apiclientgo.String("Presentation"),
+								Value:        apiclientgo.Pointer("Presentation"),
 								RelationType: components.RelationTypeEquals.ToPointer(),
 							},
 						},
@@ -79,14 +79,14 @@ func TestClientDocuments_Getdocumentsbyfacets(t *testing.T) {
 			components.FacetFilterSet{
 				Filters: []components.FacetFilter{
 					components.FacetFilter{
-						FieldName: apiclientgo.String("type"),
+						FieldName: apiclientgo.Pointer("type"),
 						Values: []components.FacetFilterValue{
 							components.FacetFilterValue{
-								Value:        apiclientgo.String("Spreadsheet"),
+								Value:        apiclientgo.Pointer("Spreadsheet"),
 								RelationType: components.RelationTypeEquals.ToPointer(),
 							},
 							components.FacetFilterValue{
-								Value:        apiclientgo.String("Presentation"),
+								Value:        apiclientgo.Pointer("Presentation"),
 								RelationType: components.RelationTypeEquals.ToPointer(),
 							},
 						},

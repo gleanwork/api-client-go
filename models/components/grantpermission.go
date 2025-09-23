@@ -2,15 +2,30 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // GrantPermission - Describes the grant permission level that a user has for a specific feature
 type GrantPermission struct {
 	// Describes the scope for a ReadPermission, WritePermission, or GrantPermission object
 	ScopeType *ScopeType `json:"scopeType,omitempty"`
 }
 
-func (o *GrantPermission) GetScopeType() *ScopeType {
-	if o == nil {
+func (g GrantPermission) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GrantPermission) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (g *GrantPermission) GetScopeType() *ScopeType {
+	if g == nil {
 		return nil
 	}
-	return o.ScopeType
+	return g.ScopeType
 }

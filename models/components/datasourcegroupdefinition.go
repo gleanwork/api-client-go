@@ -8,9 +8,9 @@ type DatasourceGroupDefinition struct {
 	Name string `json:"name"`
 }
 
-func (o *DatasourceGroupDefinition) GetName() string {
-	if o == nil {
+func (d *DatasourceGroupDefinition) GetName() string {
+	if d == nil {
 		return ""
 	}
-	return o.Name
+	return d.Name
 }

@@ -12,16 +12,16 @@ type CreateAndWaitRunResponse struct {
 	AgentRunWaitResponse *components.AgentRunWaitResponse
 }
 
-func (o *CreateAndWaitRunResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateAndWaitRunResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateAndWaitRunResponse) GetAgentRunWaitResponse() *components.AgentRunWaitResponse {
-	if o == nil {
+func (c *CreateAndWaitRunResponse) GetAgentRunWaitResponse() *components.AgentRunWaitResponse {
+	if c == nil {
 		return nil
 	}
-	return o.AgentRunWaitResponse
+	return c.AgentRunWaitResponse
 }

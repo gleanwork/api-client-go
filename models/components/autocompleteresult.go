@@ -86,79 +86,79 @@ type AutocompleteResult struct {
 	Ranges []TextRange `json:"ranges,omitempty"`
 }
 
-func (o *AutocompleteResult) GetResult() string {
-	if o == nil {
+func (a *AutocompleteResult) GetResult() string {
+	if a == nil {
 		return ""
 	}
-	return o.Result
+	return a.Result
 }
 
-func (o *AutocompleteResult) GetKeywords() []string {
-	if o == nil {
+func (a *AutocompleteResult) GetKeywords() []string {
+	if a == nil {
 		return nil
 	}
-	return o.Keywords
+	return a.Keywords
 }
 
-func (o *AutocompleteResult) GetResultType() *AutocompleteResultResultType {
-	if o == nil {
+func (a *AutocompleteResult) GetResultType() *AutocompleteResultResultType {
+	if a == nil {
 		return nil
 	}
-	return o.ResultType
+	return a.ResultType
 }
 
-func (o *AutocompleteResult) GetScore() *float64 {
-	if o == nil {
+func (a *AutocompleteResult) GetScore() *float64 {
+	if a == nil {
 		return nil
 	}
-	return o.Score
+	return a.Score
 }
 
-func (o *AutocompleteResult) GetOperatorMetadata() *OperatorMetadata {
-	if o == nil {
+func (a *AutocompleteResult) GetOperatorMetadata() *OperatorMetadata {
+	if a == nil {
 		return nil
 	}
-	return o.OperatorMetadata
+	return a.OperatorMetadata
 }
 
-func (o *AutocompleteResult) GetQuicklink() *Quicklink {
-	if o == nil {
+func (a *AutocompleteResult) GetQuicklink() *Quicklink {
+	if a == nil {
 		return nil
 	}
-	return o.Quicklink
+	return a.Quicklink
 }
 
-func (o *AutocompleteResult) GetDocument() *Document {
-	if o == nil {
+func (a *AutocompleteResult) GetDocument() *Document {
+	if a == nil {
 		return nil
 	}
-	return o.Document
+	return a.Document
 }
 
-func (o *AutocompleteResult) GetURL() *string {
-	if o == nil {
+func (a *AutocompleteResult) GetURL() *string {
+	if a == nil {
 		return nil
 	}
-	return o.URL
+	return a.URL
 }
 
-func (o *AutocompleteResult) GetStructuredResult() *StructuredResult {
-	if o == nil {
+func (a *AutocompleteResult) GetStructuredResult() *StructuredResult {
+	if a == nil {
 		return nil
 	}
-	return o.StructuredResult
+	return a.StructuredResult
 }
 
-func (o *AutocompleteResult) GetTrackingToken() *string {
-	if o == nil {
+func (a *AutocompleteResult) GetTrackingToken() *string {
+	if a == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return a.TrackingToken
 }
 
-func (o *AutocompleteResult) GetRanges() []TextRange {
-	if o == nil {
+func (a *AutocompleteResult) GetRanges() []TextRange {
+	if a == nil {
 		return nil
 	}
-	return o.Ranges
+	return a.Ranges
 }

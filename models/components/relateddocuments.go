@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 // Relation - How this document relates to the including entity.
@@ -90,37 +91,48 @@ type RelatedDocuments struct {
 	Results []SearchResult `json:"results,omitempty"`
 }
 
-func (o *RelatedDocuments) GetRelation() *Relation {
-	if o == nil {
-		return nil
-	}
-	return o.Relation
+func (r RelatedDocuments) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
 }
 
-func (o *RelatedDocuments) GetAssociatedEntityID() *string {
-	if o == nil {
-		return nil
+func (r *RelatedDocuments) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
+		return err
 	}
-	return o.AssociatedEntityID
+	return nil
 }
 
-func (o *RelatedDocuments) GetQuerySuggestion() *QuerySuggestion {
-	if o == nil {
+func (r *RelatedDocuments) GetRelation() *Relation {
+	if r == nil {
 		return nil
 	}
-	return o.QuerySuggestion
+	return r.Relation
 }
 
-func (o *RelatedDocuments) GetDocuments() []Document {
-	if o == nil {
+func (r *RelatedDocuments) GetAssociatedEntityID() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Documents
+	return r.AssociatedEntityID
 }
 
-func (o *RelatedDocuments) GetResults() []SearchResult {
-	if o == nil {
+func (r *RelatedDocuments) GetQuerySuggestion() *QuerySuggestion {
+	if r == nil {
 		return nil
 	}
-	return o.Results
+	return r.QuerySuggestion
+}
+
+func (r *RelatedDocuments) GetDocuments() []Document {
+	if r == nil {
+		return nil
+	}
+	return r.Documents
+}
+
+func (r *RelatedDocuments) GetResults() []SearchResult {
+	if r == nil {
+		return nil
+	}
+	return r.Results
 }

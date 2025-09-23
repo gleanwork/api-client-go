@@ -18,44 +18,44 @@ type CommentDefinition struct {
 	UpdatedBy *UserReferenceDefinition `json:"updatedBy,omitempty"`
 }
 
-func (o *CommentDefinition) GetID() string {
-	if o == nil {
+func (c *CommentDefinition) GetID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *CommentDefinition) GetAuthor() *UserReferenceDefinition {
-	if o == nil {
+func (c *CommentDefinition) GetAuthor() *UserReferenceDefinition {
+	if c == nil {
 		return nil
 	}
-	return o.Author
+	return c.Author
 }
 
-func (o *CommentDefinition) GetContent() *ContentDefinition {
-	if o == nil {
+func (c *CommentDefinition) GetContent() *ContentDefinition {
+	if c == nil {
 		return nil
 	}
-	return o.Content
+	return c.Content
 }
 
-func (o *CommentDefinition) GetCreatedAt() *int64 {
-	if o == nil {
+func (c *CommentDefinition) GetCreatedAt() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return c.CreatedAt
 }
 
-func (o *CommentDefinition) GetUpdatedAt() *int64 {
-	if o == nil {
+func (c *CommentDefinition) GetUpdatedAt() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return c.UpdatedAt
 }
 
-func (o *CommentDefinition) GetUpdatedBy() *UserReferenceDefinition {
-	if o == nil {
+func (c *CommentDefinition) GetUpdatedBy() *UserReferenceDefinition {
+	if c == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return c.UpdatedBy
 }

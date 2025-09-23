@@ -6,9 +6,9 @@ type CreateAnswerRequest struct {
 	Data AnswerCreationData `json:"data"`
 }
 
-func (o *CreateAnswerRequest) GetData() AnswerCreationData {
-	if o == nil {
+func (c *CreateAnswerRequest) GetData() AnswerCreationData {
+	if c == nil {
 		return AnswerCreationData{}
 	}
-	return o.Data
+	return c.Data
 }

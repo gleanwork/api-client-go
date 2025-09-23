@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CollectionPinTarget struct {
 	// Categories a Collection can be pinned to.
 	Category CollectionPinnableCategories `json:"category"`
@@ -11,23 +15,34 @@ type CollectionPinTarget struct {
 	Target *CollectionPinnableTargets `json:"target,omitempty"`
 }
 
-func (o *CollectionPinTarget) GetCategory() CollectionPinnableCategories {
-	if o == nil {
+func (c CollectionPinTarget) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CollectionPinTarget) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"category"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CollectionPinTarget) GetCategory() CollectionPinnableCategories {
+	if c == nil {
 		return CollectionPinnableCategories("")
 	}
-	return o.Category
+	return c.Category
 }
 
-func (o *CollectionPinTarget) GetValue() *string {
-	if o == nil {
+func (c *CollectionPinTarget) GetValue() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Value
+	return c.Value
 }
 
-func (o *CollectionPinTarget) GetTarget() *CollectionPinnableTargets {
-	if o == nil {
+func (c *CollectionPinTarget) GetTarget() *CollectionPinnableTargets {
+	if c == nil {
 		return nil
 	}
-	return o.Target
+	return c.Target
 }

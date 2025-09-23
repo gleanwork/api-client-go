@@ -16,44 +16,44 @@ type FeedResponse struct {
 	MentionsTimeWindowInHours *int64 `json:"mentionsTimeWindowInHours,omitempty"`
 }
 
-func (o *FeedResponse) GetExperimentIds() []int64 {
-	if o == nil {
+func (f *FeedResponse) GetExperimentIds() []int64 {
+	if f == nil {
 		return nil
 	}
-	return o.ExperimentIds
+	return f.ExperimentIds
 }
 
-func (o *FeedResponse) GetTrackingToken() *string {
-	if o == nil {
+func (f *FeedResponse) GetTrackingToken() *string {
+	if f == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return f.TrackingToken
 }
 
-func (o *FeedResponse) GetServerTimestamp() int64 {
-	if o == nil {
+func (f *FeedResponse) GetServerTimestamp() int64 {
+	if f == nil {
 		return 0
 	}
-	return o.ServerTimestamp
+	return f.ServerTimestamp
 }
 
-func (o *FeedResponse) GetResults() []FeedResult {
-	if o == nil {
+func (f *FeedResponse) GetResults() []FeedResult {
+	if f == nil {
 		return nil
 	}
-	return o.Results
+	return f.Results
 }
 
-func (o *FeedResponse) GetFacetResults() map[string][]FacetResult {
-	if o == nil {
+func (f *FeedResponse) GetFacetResults() map[string][]FacetResult {
+	if f == nil {
 		return nil
 	}
-	return o.FacetResults
+	return f.FacetResults
 }
 
-func (o *FeedResponse) GetMentionsTimeWindowInHours() *int64 {
-	if o == nil {
+func (f *FeedResponse) GetMentionsTimeWindowInHours() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.MentionsTimeWindowInHours
+	return f.MentionsTimeWindowInHours
 }

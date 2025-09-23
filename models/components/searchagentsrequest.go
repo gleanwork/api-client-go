@@ -7,9 +7,9 @@ type SearchAgentsRequest struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *SearchAgentsRequest) GetName() *string {
-	if o == nil {
+func (s *SearchAgentsRequest) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Name
+	return s.Name
 }

@@ -38,16 +38,16 @@ type SortOptions struct {
 	SortBy  *string  `json:"sortBy,omitempty"`
 }
 
-func (o *SortOptions) GetOrderBy() *OrderBy {
-	if o == nil {
+func (s *SortOptions) GetOrderBy() *OrderBy {
+	if s == nil {
 		return nil
 	}
-	return o.OrderBy
+	return s.OrderBy
 }
 
-func (o *SortOptions) GetSortBy() *string {
-	if o == nil {
+func (s *SortOptions) GetSortBy() *string {
+	if s == nil {
 		return nil
 	}
-	return o.SortBy
+	return s.SortBy
 }

@@ -12,18 +12,18 @@ type UpdatepolicyRequest struct {
 	UpdateDlpReportRequest components.UpdateDlpReportRequest `request:"mediaType=application/json"`
 }
 
-func (o *UpdatepolicyRequest) GetID() string {
-	if o == nil {
+func (u *UpdatepolicyRequest) GetID() string {
+	if u == nil {
 		return ""
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UpdatepolicyRequest) GetUpdateDlpReportRequest() components.UpdateDlpReportRequest {
-	if o == nil {
+func (u *UpdatepolicyRequest) GetUpdateDlpReportRequest() components.UpdateDlpReportRequest {
+	if u == nil {
 		return components.UpdateDlpReportRequest{}
 	}
-	return o.UpdateDlpReportRequest
+	return u.UpdateDlpReportRequest
 }
 
 type UpdatepolicyResponse struct {
@@ -32,16 +32,16 @@ type UpdatepolicyResponse struct {
 	UpdateDlpReportResponse *components.UpdateDlpReportResponse
 }
 
-func (o *UpdatepolicyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdatepolicyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdatepolicyResponse) GetUpdateDlpReportResponse() *components.UpdateDlpReportResponse {
-	if o == nil {
+func (u *UpdatepolicyResponse) GetUpdateDlpReportResponse() *components.UpdateDlpReportResponse {
+	if u == nil {
 		return nil
 	}
-	return o.UpdateDlpReportResponse
+	return u.UpdateDlpReportResponse
 }

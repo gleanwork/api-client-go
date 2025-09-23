@@ -13,18 +13,18 @@ type GetpolicyRequest struct {
 	Version *int64 `queryParam:"style=form,explode=true,name=version"`
 }
 
-func (o *GetpolicyRequest) GetID() string {
-	if o == nil {
+func (g *GetpolicyRequest) GetID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ID
+	return g.ID
 }
 
-func (o *GetpolicyRequest) GetVersion() *int64 {
-	if o == nil {
+func (g *GetpolicyRequest) GetVersion() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.Version
+	return g.Version
 }
 
 type GetpolicyResponse struct {
@@ -33,16 +33,16 @@ type GetpolicyResponse struct {
 	GetDlpReportResponse *components.GetDlpReportResponse
 }
 
-func (o *GetpolicyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetpolicyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetpolicyResponse) GetGetDlpReportResponse() *components.GetDlpReportResponse {
-	if o == nil {
+func (g *GetpolicyResponse) GetGetDlpReportResponse() *components.GetDlpReportResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetDlpReportResponse
+	return g.GetDlpReportResponse
 }

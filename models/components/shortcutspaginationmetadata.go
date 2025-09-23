@@ -9,23 +9,23 @@ type ShortcutsPaginationMetadata struct {
 	TotalItemCount *int64  `json:"totalItemCount,omitempty"`
 }
 
-func (o *ShortcutsPaginationMetadata) GetCursor() *string {
-	if o == nil {
+func (s *ShortcutsPaginationMetadata) GetCursor() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Cursor
+	return s.Cursor
 }
 
-func (o *ShortcutsPaginationMetadata) GetHasNextPage() *bool {
-	if o == nil {
+func (s *ShortcutsPaginationMetadata) GetHasNextPage() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.HasNextPage
+	return s.HasNextPage
 }
 
-func (o *ShortcutsPaginationMetadata) GetTotalItemCount() *int64 {
-	if o == nil {
+func (s *ShortcutsPaginationMetadata) GetTotalItemCount() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.TotalItemCount
+	return s.TotalItemCount
 }

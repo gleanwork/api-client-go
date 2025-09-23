@@ -14,30 +14,30 @@ type AgentRunCreate struct {
 	Metadata map[string]any `json:"metadata,omitempty"`
 }
 
-func (o *AgentRunCreate) GetAgentID() string {
-	if o == nil {
+func (a *AgentRunCreate) GetAgentID() string {
+	if a == nil {
 		return ""
 	}
-	return o.AgentID
+	return a.AgentID
 }
 
-func (o *AgentRunCreate) GetInput() map[string]any {
-	if o == nil {
+func (a *AgentRunCreate) GetInput() map[string]any {
+	if a == nil {
 		return nil
 	}
-	return o.Input
+	return a.Input
 }
 
-func (o *AgentRunCreate) GetMessages() []Message {
-	if o == nil {
+func (a *AgentRunCreate) GetMessages() []Message {
+	if a == nil {
 		return nil
 	}
-	return o.Messages
+	return a.Messages
 }
 
-func (o *AgentRunCreate) GetMetadata() map[string]any {
-	if o == nil {
+func (a *AgentRunCreate) GetMetadata() map[string]any {
+	if a == nil {
 		return nil
 	}
-	return o.Metadata
+	return a.Metadata
 }

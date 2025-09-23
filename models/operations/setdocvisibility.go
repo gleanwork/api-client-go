@@ -12,16 +12,16 @@ type SetdocvisibilityResponse struct {
 	UpdateDocumentVisibilityOverridesResponse *components.UpdateDocumentVisibilityOverridesResponse
 }
 
-func (o *SetdocvisibilityResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (s *SetdocvisibilityResponse) GetHTTPMeta() components.HTTPMetadata {
+	if s == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return s.HTTPMeta
 }
 
-func (o *SetdocvisibilityResponse) GetUpdateDocumentVisibilityOverridesResponse() *components.UpdateDocumentVisibilityOverridesResponse {
-	if o == nil {
+func (s *SetdocvisibilityResponse) GetUpdateDocumentVisibilityOverridesResponse() *components.UpdateDocumentVisibilityOverridesResponse {
+	if s == nil {
 		return nil
 	}
-	return o.UpdateDocumentVisibilityOverridesResponse
+	return s.UpdateDocumentVisibilityOverridesResponse
 }

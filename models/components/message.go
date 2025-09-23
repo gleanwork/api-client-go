@@ -7,18 +7,18 @@ type MessageTextBlock struct {
 	Type ContentType `json:"type"`
 }
 
-func (o *MessageTextBlock) GetText() string {
-	if o == nil {
+func (m *MessageTextBlock) GetText() string {
+	if m == nil {
 		return ""
 	}
-	return o.Text
+	return m.Text
 }
 
-func (o *MessageTextBlock) GetType() ContentType {
-	if o == nil {
+func (m *MessageTextBlock) GetType() ContentType {
+	if m == nil {
 		return ContentType("")
 	}
-	return o.Type
+	return m.Type
 }
 
 type Message struct {
@@ -28,16 +28,16 @@ type Message struct {
 	Content []MessageTextBlock `json:"content,omitempty"`
 }
 
-func (o *Message) GetRole() *string {
-	if o == nil {
+func (m *Message) GetRole() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Role
+	return m.Role
 }
 
-func (o *Message) GetContent() []MessageTextBlock {
-	if o == nil {
+func (m *Message) GetContent() []MessageTextBlock {
+	if m == nil {
 		return nil
 	}
-	return o.Content
+	return m.Content
 }

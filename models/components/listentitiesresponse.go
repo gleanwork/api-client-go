@@ -19,65 +19,65 @@ type ListEntitiesResponse struct {
 	CustomFacetNames []string `json:"customFacetNames,omitempty"`
 }
 
-func (o *ListEntitiesResponse) GetResults() []Person {
-	if o == nil {
+func (l *ListEntitiesResponse) GetResults() []Person {
+	if l == nil {
 		return nil
 	}
-	return o.Results
+	return l.Results
 }
 
-func (o *ListEntitiesResponse) GetTeamResults() []Team {
-	if o == nil {
+func (l *ListEntitiesResponse) GetTeamResults() []Team {
+	if l == nil {
 		return nil
 	}
-	return o.TeamResults
+	return l.TeamResults
 }
 
-func (o *ListEntitiesResponse) GetCustomEntityResults() []CustomEntity {
-	if o == nil {
+func (l *ListEntitiesResponse) GetCustomEntityResults() []CustomEntity {
+	if l == nil {
 		return nil
 	}
-	return o.CustomEntityResults
+	return l.CustomEntityResults
 }
 
-func (o *ListEntitiesResponse) GetFacetResults() []FacetResult {
-	if o == nil {
+func (l *ListEntitiesResponse) GetFacetResults() []FacetResult {
+	if l == nil {
 		return nil
 	}
-	return o.FacetResults
+	return l.FacetResults
 }
 
-func (o *ListEntitiesResponse) GetCursor() *string {
-	if o == nil {
+func (l *ListEntitiesResponse) GetCursor() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Cursor
+	return l.Cursor
 }
 
-func (o *ListEntitiesResponse) GetTotalCount() *int64 {
-	if o == nil {
+func (l *ListEntitiesResponse) GetTotalCount() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.TotalCount
+	return l.TotalCount
 }
 
-func (o *ListEntitiesResponse) GetHasMoreResults() *bool {
-	if o == nil {
+func (l *ListEntitiesResponse) GetHasMoreResults() *bool {
+	if l == nil {
 		return nil
 	}
-	return o.HasMoreResults
+	return l.HasMoreResults
 }
 
-func (o *ListEntitiesResponse) GetSortOptions() []EntitiesSortOrder {
-	if o == nil {
+func (l *ListEntitiesResponse) GetSortOptions() []EntitiesSortOrder {
+	if l == nil {
 		return nil
 	}
-	return o.SortOptions
+	return l.SortOptions
 }
 
-func (o *ListEntitiesResponse) GetCustomFacetNames() []string {
-	if o == nil {
+func (l *ListEntitiesResponse) GetCustomFacetNames() []string {
+	if l == nil {
 		return nil
 	}
-	return o.CustomFacetNames
+	return l.CustomFacetNames
 }

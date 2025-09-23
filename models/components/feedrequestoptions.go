@@ -6,11 +6,11 @@ type CategoryToResultSize struct {
 	ResultSize *int64 `json:"resultSize,omitempty"`
 }
 
-func (o *CategoryToResultSize) GetResultSize() *int64 {
-	if o == nil {
+func (c *CategoryToResultSize) GetResultSize() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.ResultSize
+	return c.ResultSize
 }
 
 type FeedRequestOptions struct {
@@ -25,37 +25,37 @@ type FeedRequestOptions struct {
 	ChatZeroStateSuggestionOptions *ChatZeroStateSuggestionOptions `json:"chatZeroStateSuggestionOptions,omitempty"`
 }
 
-func (o *FeedRequestOptions) GetResultSize() int64 {
-	if o == nil {
+func (f *FeedRequestOptions) GetResultSize() int64 {
+	if f == nil {
 		return 0
 	}
-	return o.ResultSize
+	return f.ResultSize
 }
 
-func (o *FeedRequestOptions) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (f *FeedRequestOptions) GetTimezoneOffset() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return f.TimezoneOffset
 }
 
-func (o *FeedRequestOptions) GetCategoryToResultSize() map[string]CategoryToResultSize {
-	if o == nil {
+func (f *FeedRequestOptions) GetCategoryToResultSize() map[string]CategoryToResultSize {
+	if f == nil {
 		return nil
 	}
-	return o.CategoryToResultSize
+	return f.CategoryToResultSize
 }
 
-func (o *FeedRequestOptions) GetDatasourceFilter() []string {
-	if o == nil {
+func (f *FeedRequestOptions) GetDatasourceFilter() []string {
+	if f == nil {
 		return nil
 	}
-	return o.DatasourceFilter
+	return f.DatasourceFilter
 }
 
-func (o *FeedRequestOptions) GetChatZeroStateSuggestionOptions() *ChatZeroStateSuggestionOptions {
-	if o == nil {
+func (f *FeedRequestOptions) GetChatZeroStateSuggestionOptions() *ChatZeroStateSuggestionOptions {
+	if f == nil {
 		return nil
 	}
-	return o.ChatZeroStateSuggestionOptions
+	return f.ChatZeroStateSuggestionOptions
 }

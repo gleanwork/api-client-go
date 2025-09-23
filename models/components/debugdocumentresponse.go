@@ -10,16 +10,16 @@ type DebugDocumentResponse struct {
 	UploadedPermissions *DocumentPermissionsDefinition `json:"uploadedPermissions,omitempty"`
 }
 
-func (o *DebugDocumentResponse) GetStatus() *DocumentStatusResponse {
-	if o == nil {
+func (d *DebugDocumentResponse) GetStatus() *DocumentStatusResponse {
+	if d == nil {
 		return nil
 	}
-	return o.Status
+	return d.Status
 }
 
-func (o *DebugDocumentResponse) GetUploadedPermissions() *DocumentPermissionsDefinition {
-	if o == nil {
+func (d *DebugDocumentResponse) GetUploadedPermissions() *DocumentPermissionsDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.UploadedPermissions
+	return d.UploadedPermissions
 }

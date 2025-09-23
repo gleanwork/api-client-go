@@ -46,16 +46,16 @@ type DocumentVisibilityOverride struct {
 	Override *DocumentVisibilityOverrideOverride `json:"override,omitempty"`
 }
 
-func (o *DocumentVisibilityOverride) GetDocID() *string {
-	if o == nil {
+func (d *DocumentVisibilityOverride) GetDocID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocID
+	return d.DocID
 }
 
-func (o *DocumentVisibilityOverride) GetOverride() *DocumentVisibilityOverrideOverride {
-	if o == nil {
+func (d *DocumentVisibilityOverride) GetOverride() *DocumentVisibilityOverrideOverride {
+	if d == nil {
 		return nil
 	}
-	return o.Override
+	return d.Override
 }

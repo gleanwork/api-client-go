@@ -29,79 +29,79 @@ type TeamInfoDefinition struct {
 	AdditionalFields []AdditionalFieldDefinition `json:"additionalFields,omitempty"`
 }
 
-func (o *TeamInfoDefinition) GetID() string {
-	if o == nil {
+func (t *TeamInfoDefinition) GetID() string {
+	if t == nil {
 		return ""
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *TeamInfoDefinition) GetName() string {
-	if o == nil {
+func (t *TeamInfoDefinition) GetName() string {
+	if t == nil {
 		return ""
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *TeamInfoDefinition) GetDescription() *string {
-	if o == nil {
+func (t *TeamInfoDefinition) GetDescription() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Description
+	return t.Description
 }
 
-func (o *TeamInfoDefinition) GetBusinessUnit() *string {
-	if o == nil {
+func (t *TeamInfoDefinition) GetBusinessUnit() *string {
+	if t == nil {
 		return nil
 	}
-	return o.BusinessUnit
+	return t.BusinessUnit
 }
 
-func (o *TeamInfoDefinition) GetDepartment() *string {
-	if o == nil {
+func (t *TeamInfoDefinition) GetDepartment() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Department
+	return t.Department
 }
 
-func (o *TeamInfoDefinition) GetPhotoURL() *string {
-	if o == nil {
+func (t *TeamInfoDefinition) GetPhotoURL() *string {
+	if t == nil {
 		return nil
 	}
-	return o.PhotoURL
+	return t.PhotoURL
 }
 
-func (o *TeamInfoDefinition) GetExternalLink() *string {
-	if o == nil {
+func (t *TeamInfoDefinition) GetExternalLink() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ExternalLink
+	return t.ExternalLink
 }
 
-func (o *TeamInfoDefinition) GetEmails() []TeamEmail {
-	if o == nil {
+func (t *TeamInfoDefinition) GetEmails() []TeamEmail {
+	if t == nil {
 		return nil
 	}
-	return o.Emails
+	return t.Emails
 }
 
-func (o *TeamInfoDefinition) GetDatasourceProfiles() []DatasourceProfile {
-	if o == nil {
+func (t *TeamInfoDefinition) GetDatasourceProfiles() []DatasourceProfile {
+	if t == nil {
 		return nil
 	}
-	return o.DatasourceProfiles
+	return t.DatasourceProfiles
 }
 
-func (o *TeamInfoDefinition) GetMembers() []TeamMember {
-	if o == nil {
+func (t *TeamInfoDefinition) GetMembers() []TeamMember {
+	if t == nil {
 		return []TeamMember{}
 	}
-	return o.Members
+	return t.Members
 }
 
-func (o *TeamInfoDefinition) GetAdditionalFields() []AdditionalFieldDefinition {
-	if o == nil {
+func (t *TeamInfoDefinition) GetAdditionalFields() []AdditionalFieldDefinition {
+	if t == nil {
 		return nil
 	}
-	return o.AdditionalFields
+	return t.AdditionalFields
 }

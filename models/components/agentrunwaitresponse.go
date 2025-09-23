@@ -8,16 +8,16 @@ type AgentRunWaitResponse struct {
 	Messages []Message `json:"messages,omitempty"`
 }
 
-func (o *AgentRunWaitResponse) GetRun() *AgentRun {
-	if o == nil {
+func (a *AgentRunWaitResponse) GetRun() *AgentRun {
+	if a == nil {
 		return nil
 	}
-	return o.Run
+	return a.Run
 }
 
-func (o *AgentRunWaitResponse) GetMessages() []Message {
-	if o == nil {
+func (a *AgentRunWaitResponse) GetMessages() []Message {
+	if a == nil {
 		return nil
 	}
-	return o.Messages
+	return a.Messages
 }

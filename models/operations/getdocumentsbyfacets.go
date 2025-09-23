@@ -12,16 +12,16 @@ type GetdocumentsbyfacetsResponse struct {
 	GetDocumentsByFacetsResponse *components.GetDocumentsByFacetsResponse
 }
 
-func (o *GetdocumentsbyfacetsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetdocumentsbyfacetsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetdocumentsbyfacetsResponse) GetGetDocumentsByFacetsResponse() *components.GetDocumentsByFacetsResponse {
-	if o == nil {
+func (g *GetdocumentsbyfacetsResponse) GetGetDocumentsByFacetsResponse() *components.GetDocumentsByFacetsResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetDocumentsByFacetsResponse
+	return g.GetDocumentsByFacetsResponse
 }

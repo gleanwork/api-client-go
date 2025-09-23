@@ -12,16 +12,16 @@ type AddverificationreminderResponse struct {
 	Verification *components.Verification
 }
 
-func (o *AddverificationreminderResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (a *AddverificationreminderResponse) GetHTTPMeta() components.HTTPMetadata {
+	if a == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return a.HTTPMeta
 }
 
-func (o *AddverificationreminderResponse) GetVerification() *components.Verification {
-	if o == nil {
+func (a *AddverificationreminderResponse) GetVerification() *components.Verification {
+	if a == nil {
 		return nil
 	}
-	return o.Verification
+	return a.Verification
 }

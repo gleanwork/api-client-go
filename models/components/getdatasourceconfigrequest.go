@@ -8,9 +8,9 @@ type GetDatasourceConfigRequest struct {
 	Datasource string `json:"datasource"`
 }
 
-func (o *GetDatasourceConfigRequest) GetDatasource() string {
-	if o == nil {
+func (g *GetDatasourceConfigRequest) GetDatasource() string {
+	if g == nil {
 		return ""
 	}
-	return o.Datasource
+	return g.Datasource
 }

@@ -16,58 +16,58 @@ type ResultsResponse struct {
 	BackendTimeMillis *int64 `json:"backendTimeMillis,omitempty"`
 }
 
-func (o *ResultsResponse) GetTrackingToken() *string {
-	if o == nil {
+func (r *ResultsResponse) GetTrackingToken() *string {
+	if r == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return r.TrackingToken
 }
 
-func (o *ResultsResponse) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (r *ResultsResponse) GetSessionInfo() *SessionInfo {
+	if r == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return r.SessionInfo
 }
 
-func (o *ResultsResponse) GetResults() []SearchResult {
-	if o == nil {
+func (r *ResultsResponse) GetResults() []SearchResult {
+	if r == nil {
 		return nil
 	}
-	return o.Results
+	return r.Results
 }
 
-func (o *ResultsResponse) GetStructuredResults() []StructuredResult {
-	if o == nil {
+func (r *ResultsResponse) GetStructuredResults() []StructuredResult {
+	if r == nil {
 		return nil
 	}
-	return o.StructuredResults
+	return r.StructuredResults
 }
 
-func (o *ResultsResponse) GetGeneratedQnaResult() *GeneratedQna {
-	if o == nil {
+func (r *ResultsResponse) GetGeneratedQnaResult() *GeneratedQna {
+	if r == nil {
 		return nil
 	}
-	return o.GeneratedQnaResult
+	return r.GeneratedQnaResult
 }
 
-func (o *ResultsResponse) GetGleanDataError() *GleanDataError {
-	if o == nil {
+func (r *ResultsResponse) GetGleanDataError() *GleanDataError {
+	if r == nil {
 		return nil
 	}
-	return o.GleanDataError
+	return r.GleanDataError
 }
 
-func (o *ResultsResponse) GetRequestID() *string {
-	if o == nil {
+func (r *ResultsResponse) GetRequestID() *string {
+	if r == nil {
 		return nil
 	}
-	return o.RequestID
+	return r.RequestID
 }
 
-func (o *ResultsResponse) GetBackendTimeMillis() *int64 {
-	if o == nil {
+func (r *ResultsResponse) GetBackendTimeMillis() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.BackendTimeMillis
+	return r.BackendTimeMillis
 }

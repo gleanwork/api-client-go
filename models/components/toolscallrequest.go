@@ -9,16 +9,16 @@ type ToolsCallRequest struct {
 	Parameters map[string]ToolsCallParameter `json:"parameters"`
 }
 
-func (o *ToolsCallRequest) GetName() string {
-	if o == nil {
+func (t *ToolsCallRequest) GetName() string {
+	if t == nil {
 		return ""
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *ToolsCallRequest) GetParameters() map[string]ToolsCallParameter {
-	if o == nil {
+func (t *ToolsCallRequest) GetParameters() map[string]ToolsCallParameter {
+	if t == nil {
 		return map[string]ToolsCallParameter{}
 	}
-	return o.Parameters
+	return t.Parameters
 }

@@ -10,16 +10,16 @@ type ProcessingHistoryEvent struct {
 	EndTime *string `json:"endTime,omitempty"`
 }
 
-func (o *ProcessingHistoryEvent) GetStartTime() *string {
-	if o == nil {
+func (p *ProcessingHistoryEvent) GetStartTime() *string {
+	if p == nil {
 		return nil
 	}
-	return o.StartTime
+	return p.StartTime
 }
 
-func (o *ProcessingHistoryEvent) GetEndTime() *string {
-	if o == nil {
+func (p *ProcessingHistoryEvent) GetEndTime() *string {
+	if p == nil {
 		return nil
 	}
-	return o.EndTime
+	return p.EndTime
 }

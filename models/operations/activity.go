@@ -10,9 +10,9 @@ type ActivityResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *ActivityResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (a *ActivityResponse) GetHTTPMeta() components.HTTPMetadata {
+	if a == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return a.HTTPMeta
 }

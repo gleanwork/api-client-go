@@ -9,16 +9,16 @@ type GetAnswerRequest struct {
 	DocID *string `json:"docId,omitempty"`
 }
 
-func (o *GetAnswerRequest) GetID() *int64 {
-	if o == nil {
+func (g *GetAnswerRequest) GetID() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.ID
+	return g.ID
 }
 
-func (o *GetAnswerRequest) GetDocID() *string {
-	if o == nil {
+func (g *GetAnswerRequest) GetDocID() *string {
+	if g == nil {
 		return nil
 	}
-	return o.DocID
+	return g.DocID
 }

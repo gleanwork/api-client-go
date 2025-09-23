@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type DocumentInteractions struct {
 	// The count of comments (thread replies in the case of slack).
 	NumComments *int64 `json:"numComments,omitempty"`
@@ -17,44 +21,55 @@ type DocumentInteractions struct {
 	VisitorCount *CountInfo `json:"visitorCount,omitempty"`
 }
 
-func (o *DocumentInteractions) GetNumComments() *int64 {
-	if o == nil {
-		return nil
-	}
-	return o.NumComments
+func (d DocumentInteractions) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
 }
 
-func (o *DocumentInteractions) GetNumReactions() *int64 {
-	if o == nil {
-		return nil
+func (d *DocumentInteractions) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, nil); err != nil {
+		return err
 	}
-	return o.NumReactions
+	return nil
 }
 
-func (o *DocumentInteractions) GetReactions() []string {
-	if o == nil {
+func (d *DocumentInteractions) GetNumComments() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Reactions
+	return d.NumComments
 }
 
-func (o *DocumentInteractions) GetReacts() []Reaction {
-	if o == nil {
+func (d *DocumentInteractions) GetNumReactions() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Reacts
+	return d.NumReactions
 }
 
-func (o *DocumentInteractions) GetShares() []Share {
-	if o == nil {
+func (d *DocumentInteractions) GetReactions() []string {
+	if d == nil {
 		return nil
 	}
-	return o.Shares
+	return d.Reactions
 }
 
-func (o *DocumentInteractions) GetVisitorCount() *CountInfo {
-	if o == nil {
+func (d *DocumentInteractions) GetReacts() []Reaction {
+	if d == nil {
 		return nil
 	}
-	return o.VisitorCount
+	return d.Reacts
+}
+
+func (d *DocumentInteractions) GetShares() []Share {
+	if d == nil {
+		return nil
+	}
+	return d.Shares
+}
+
+func (d *DocumentInteractions) GetVisitorCount() *CountInfo {
+	if d == nil {
+		return nil
+	}
+	return d.VisitorCount
 }

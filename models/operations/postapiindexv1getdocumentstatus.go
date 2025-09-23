@@ -12,16 +12,16 @@ type PostAPIIndexV1GetdocumentstatusResponse struct {
 	GetDocumentStatusResponse *components.GetDocumentStatusResponse
 }
 
-func (o *PostAPIIndexV1GetdocumentstatusResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIIndexV1GetdocumentstatusResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostAPIIndexV1GetdocumentstatusResponse) GetGetDocumentStatusResponse() *components.GetDocumentStatusResponse {
-	if o == nil {
+func (p *PostAPIIndexV1GetdocumentstatusResponse) GetGetDocumentStatusResponse() *components.GetDocumentStatusResponse {
+	if p == nil {
 		return nil
 	}
-	return o.GetDocumentStatusResponse
+	return p.GetDocumentStatusResponse
 }

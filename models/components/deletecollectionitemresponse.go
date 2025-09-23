@@ -6,9 +6,9 @@ type DeleteCollectionItemResponse struct {
 	Collection *Collection `json:"collection,omitempty"`
 }
 
-func (o *DeleteCollectionItemResponse) GetCollection() *Collection {
-	if o == nil {
+func (d *DeleteCollectionItemResponse) GetCollection() *Collection {
+	if d == nil {
 		return nil
 	}
-	return o.Collection
+	return d.Collection
 }

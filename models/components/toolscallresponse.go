@@ -9,16 +9,16 @@ type ToolsCallResponse struct {
 	Error *string `json:"error,omitempty"`
 }
 
-func (o *ToolsCallResponse) GetRawResponse() map[string]any {
-	if o == nil {
+func (t *ToolsCallResponse) GetRawResponse() map[string]any {
+	if t == nil {
 		return nil
 	}
-	return o.RawResponse
+	return t.RawResponse
 }
 
-func (o *ToolsCallResponse) GetError() *string {
-	if o == nil {
+func (t *ToolsCallResponse) GetError() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Error
+	return t.Error
 }

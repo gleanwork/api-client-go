@@ -38,16 +38,16 @@ type GetAnswerError struct {
 	AnswerAuthor *Person                  `json:"answerAuthor,omitempty"`
 }
 
-func (o *GetAnswerError) GetErrorType() *GetAnswerErrorErrorType {
-	if o == nil {
+func (g *GetAnswerError) GetErrorType() *GetAnswerErrorErrorType {
+	if g == nil {
 		return nil
 	}
-	return o.ErrorType
+	return g.ErrorType
 }
 
-func (o *GetAnswerError) GetAnswerAuthor() *Person {
-	if o == nil {
+func (g *GetAnswerError) GetAnswerAuthor() *Person {
+	if g == nil {
 		return nil
 	}
-	return o.AnswerAuthor
+	return g.AnswerAuthor
 }

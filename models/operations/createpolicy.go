@@ -12,16 +12,16 @@ type CreatepolicyResponse struct {
 	CreateDlpReportResponse *components.CreateDlpReportResponse
 }
 
-func (o *CreatepolicyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreatepolicyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreatepolicyResponse) GetCreateDlpReportResponse() *components.CreateDlpReportResponse {
-	if o == nil {
+func (c *CreatepolicyResponse) GetCreateDlpReportResponse() *components.CreateDlpReportResponse {
+	if c == nil {
 		return nil
 	}
-	return o.CreateDlpReportResponse
+	return c.CreateDlpReportResponse
 }

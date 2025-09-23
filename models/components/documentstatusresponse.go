@@ -16,37 +16,37 @@ type DocumentStatusResponse struct {
 	PermissionIdentityStatus *string `json:"permissionIdentityStatus,omitempty"`
 }
 
-func (o *DocumentStatusResponse) GetUploadStatus() *string {
-	if o == nil {
+func (d *DocumentStatusResponse) GetUploadStatus() *string {
+	if d == nil {
 		return nil
 	}
-	return o.UploadStatus
+	return d.UploadStatus
 }
 
-func (o *DocumentStatusResponse) GetLastUploadedAt() *string {
-	if o == nil {
+func (d *DocumentStatusResponse) GetLastUploadedAt() *string {
+	if d == nil {
 		return nil
 	}
-	return o.LastUploadedAt
+	return d.LastUploadedAt
 }
 
-func (o *DocumentStatusResponse) GetIndexingStatus() *string {
-	if o == nil {
+func (d *DocumentStatusResponse) GetIndexingStatus() *string {
+	if d == nil {
 		return nil
 	}
-	return o.IndexingStatus
+	return d.IndexingStatus
 }
 
-func (o *DocumentStatusResponse) GetLastIndexedAt() *string {
-	if o == nil {
+func (d *DocumentStatusResponse) GetLastIndexedAt() *string {
+	if d == nil {
 		return nil
 	}
-	return o.LastIndexedAt
+	return d.LastIndexedAt
 }
 
-func (o *DocumentStatusResponse) GetPermissionIdentityStatus() *string {
-	if o == nil {
+func (d *DocumentStatusResponse) GetPermissionIdentityStatus() *string {
+	if d == nil {
 		return nil
 	}
-	return o.PermissionIdentityStatus
+	return d.PermissionIdentityStatus
 }

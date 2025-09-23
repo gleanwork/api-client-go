@@ -16,37 +16,37 @@ type ChatFileMetadata struct {
 	MimeType *string `json:"mimeType,omitempty"`
 }
 
-func (o *ChatFileMetadata) GetStatus() *ChatFileStatus {
-	if o == nil {
+func (c *ChatFileMetadata) GetStatus() *ChatFileStatus {
+	if c == nil {
 		return nil
 	}
-	return o.Status
+	return c.Status
 }
 
-func (o *ChatFileMetadata) GetUploadTime() *int64 {
-	if o == nil {
+func (c *ChatFileMetadata) GetUploadTime() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.UploadTime
+	return c.UploadTime
 }
 
-func (o *ChatFileMetadata) GetProcessedSize() *int64 {
-	if o == nil {
+func (c *ChatFileMetadata) GetProcessedSize() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.ProcessedSize
+	return c.ProcessedSize
 }
 
-func (o *ChatFileMetadata) GetFailureReason() *ChatFileFailureReason {
-	if o == nil {
+func (c *ChatFileMetadata) GetFailureReason() *ChatFileFailureReason {
+	if c == nil {
 		return nil
 	}
-	return o.FailureReason
+	return c.FailureReason
 }
 
-func (o *ChatFileMetadata) GetMimeType() *string {
-	if o == nil {
+func (c *ChatFileMetadata) GetMimeType() *string {
+	if c == nil {
 		return nil
 	}
-	return o.MimeType
+	return c.MimeType
 }

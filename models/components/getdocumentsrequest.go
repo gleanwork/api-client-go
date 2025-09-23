@@ -46,16 +46,16 @@ type GetDocumentsRequest struct {
 	IncludeFields []GetDocumentsRequestIncludeField `json:"includeFields,omitempty"`
 }
 
-func (o *GetDocumentsRequest) GetDocumentSpecs() []DocumentSpecUnion {
-	if o == nil {
+func (g *GetDocumentsRequest) GetDocumentSpecs() []DocumentSpecUnion {
+	if g == nil {
 		return []DocumentSpecUnion{}
 	}
-	return o.DocumentSpecs
+	return g.DocumentSpecs
 }
 
-func (o *GetDocumentsRequest) GetIncludeFields() []GetDocumentsRequestIncludeField {
-	if o == nil {
+func (g *GetDocumentsRequest) GetIncludeFields() []GetDocumentsRequestIncludeField {
+	if g == nil {
 		return nil
 	}
-	return o.IncludeFields
+	return g.IncludeFields
 }

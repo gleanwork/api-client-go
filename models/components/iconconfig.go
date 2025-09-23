@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 type IconType string
@@ -81,58 +82,69 @@ type IconConfig struct {
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *IconConfig) GetGeneratedBackgroundColorKey() *string {
-	if o == nil {
-		return nil
-	}
-	return o.GeneratedBackgroundColorKey
+func (i IconConfig) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(i, "", false)
 }
 
-func (o *IconConfig) GetBackgroundColor() *string {
-	if o == nil {
-		return nil
+func (i *IconConfig) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &i, "", false, nil); err != nil {
+		return err
 	}
-	return o.BackgroundColor
+	return nil
 }
 
-func (o *IconConfig) GetColor() *string {
-	if o == nil {
+func (i *IconConfig) GetGeneratedBackgroundColorKey() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Color
+	return i.GeneratedBackgroundColorKey
 }
 
-func (o *IconConfig) GetKey() *string {
-	if o == nil {
+func (i *IconConfig) GetBackgroundColor() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Key
+	return i.BackgroundColor
 }
 
-func (o *IconConfig) GetIconType() *IconType {
-	if o == nil {
+func (i *IconConfig) GetColor() *string {
+	if i == nil {
 		return nil
 	}
-	return o.IconType
+	return i.Color
 }
 
-func (o *IconConfig) GetMasked() *bool {
-	if o == nil {
+func (i *IconConfig) GetKey() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Masked
+	return i.Key
 }
 
-func (o *IconConfig) GetName() *string {
-	if o == nil {
+func (i *IconConfig) GetIconType() *IconType {
+	if i == nil {
 		return nil
 	}
-	return o.Name
+	return i.IconType
 }
 
-func (o *IconConfig) GetURL() *string {
-	if o == nil {
+func (i *IconConfig) GetMasked() *bool {
+	if i == nil {
 		return nil
 	}
-	return o.URL
+	return i.Masked
+}
+
+func (i *IconConfig) GetName() *string {
+	if i == nil {
+		return nil
+	}
+	return i.Name
+}
+
+func (i *IconConfig) GetURL() *string {
+	if i == nil {
+		return nil
+	}
+	return i.URL
 }

@@ -9,16 +9,16 @@ type InvalidOperatorValueError struct {
 	Value *string `json:"value,omitempty"`
 }
 
-func (o *InvalidOperatorValueError) GetKey() *string {
-	if o == nil {
+func (i *InvalidOperatorValueError) GetKey() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Key
+	return i.Key
 }
 
-func (o *InvalidOperatorValueError) GetValue() *string {
-	if o == nil {
+func (i *InvalidOperatorValueError) GetValue() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Value
+	return i.Value
 }

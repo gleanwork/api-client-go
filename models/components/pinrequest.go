@@ -11,23 +11,23 @@ type PinRequest struct {
 	DocumentID *string `json:"documentId,omitempty"`
 }
 
-func (o *PinRequest) GetQueries() []string {
-	if o == nil {
+func (p *PinRequest) GetQueries() []string {
+	if p == nil {
 		return nil
 	}
-	return o.Queries
+	return p.Queries
 }
 
-func (o *PinRequest) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (p *PinRequest) GetAudienceFilters() []FacetFilter {
+	if p == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return p.AudienceFilters
 }
 
-func (o *PinRequest) GetDocumentID() *string {
-	if o == nil {
+func (p *PinRequest) GetDocumentID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.DocumentID
+	return p.DocumentID
 }

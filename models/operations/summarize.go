@@ -12,16 +12,16 @@ type SummarizeResponse struct {
 	SummarizeResponse *components.SummarizeResponse
 }
 
-func (o *SummarizeResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (s *SummarizeResponse) GetHTTPMeta() components.HTTPMetadata {
+	if s == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return s.HTTPMeta
 }
 
-func (o *SummarizeResponse) GetSummarizeResponse() *components.SummarizeResponse {
-	if o == nil {
+func (s *SummarizeResponse) GetSummarizeResponse() *components.SummarizeResponse {
+	if s == nil {
 		return nil
 	}
-	return o.SummarizeResponse
+	return s.SummarizeResponse
 }

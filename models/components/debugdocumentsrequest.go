@@ -8,9 +8,9 @@ type DebugDocumentsRequest struct {
 	DebugDocuments []DebugDocumentRequest `json:"debugDocuments"`
 }
 
-func (o *DebugDocumentsRequest) GetDebugDocuments() []DebugDocumentRequest {
-	if o == nil {
+func (d *DebugDocumentsRequest) GetDebugDocuments() []DebugDocumentRequest {
+	if d == nil {
 		return []DebugDocumentRequest{}
 	}
-	return o.DebugDocuments
+	return d.DebugDocuments
 }

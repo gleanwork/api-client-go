@@ -12,16 +12,16 @@ type CreateshortcutResponse struct {
 	CreateShortcutResponse *components.CreateShortcutResponse
 }
 
-func (o *CreateshortcutResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateshortcutResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateshortcutResponse) GetCreateShortcutResponse() *components.CreateShortcutResponse {
-	if o == nil {
+func (c *CreateshortcutResponse) GetCreateShortcutResponse() *components.CreateShortcutResponse {
+	if c == nil {
 		return nil
 	}
-	return o.CreateShortcutResponse
+	return c.CreateShortcutResponse
 }

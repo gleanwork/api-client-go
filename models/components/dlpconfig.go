@@ -33,93 +33,93 @@ type DlpConfig struct {
 	AllowlistOptions *AllowlistOptions `json:"allowlistOptions,omitempty"`
 }
 
-func (o *DlpConfig) GetVersion() *int64 {
-	if o == nil {
+func (d *DlpConfig) GetVersion() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Version
+	return d.Version
 }
 
-func (o *DlpConfig) GetSensitiveInfoTypes() []SensitiveInfoType {
-	if o == nil {
+func (d *DlpConfig) GetSensitiveInfoTypes() []SensitiveInfoType {
+	if d == nil {
 		return nil
 	}
-	return o.SensitiveInfoTypes
+	return d.SensitiveInfoTypes
 }
 
-func (o *DlpConfig) GetInputOptions() *InputOptions {
-	if o == nil {
+func (d *DlpConfig) GetInputOptions() *InputOptions {
+	if d == nil {
 		return nil
 	}
-	return o.InputOptions
+	return d.InputOptions
 }
 
-func (o *DlpConfig) GetExternalSharingOptions() *ExternalSharingOptions {
-	if o == nil {
+func (d *DlpConfig) GetExternalSharingOptions() *ExternalSharingOptions {
+	if d == nil {
 		return nil
 	}
-	return o.ExternalSharingOptions
+	return d.ExternalSharingOptions
 }
 
-func (o *DlpConfig) GetBroadSharingOptions() *SharingOptions {
-	if o == nil {
+func (d *DlpConfig) GetBroadSharingOptions() *SharingOptions {
+	if d == nil {
 		return nil
 	}
-	return o.BroadSharingOptions
+	return d.BroadSharingOptions
 }
 
-func (o *DlpConfig) GetSensitiveContentOptions() *SensitiveContentOptions {
-	if o == nil {
+func (d *DlpConfig) GetSensitiveContentOptions() *SensitiveContentOptions {
+	if d == nil {
 		return nil
 	}
-	return o.SensitiveContentOptions
+	return d.SensitiveContentOptions
 }
 
-func (o *DlpConfig) GetReportName() *string {
-	if o == nil {
+func (d *DlpConfig) GetReportName() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ReportName
+	return d.ReportName
 }
 
-func (o *DlpConfig) GetFrequency() *string {
-	if o == nil {
+func (d *DlpConfig) GetFrequency() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Frequency
+	return d.Frequency
 }
 
-func (o *DlpConfig) GetCreatedBy() *DlpPerson {
-	if o == nil {
+func (d *DlpConfig) GetCreatedBy() *DlpPerson {
+	if d == nil {
 		return nil
 	}
-	return o.CreatedBy
+	return d.CreatedBy
 }
 
-func (o *DlpConfig) GetCreatedAt() *string {
-	if o == nil {
+func (d *DlpConfig) GetCreatedAt() *string {
+	if d == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return d.CreatedAt
 }
 
-func (o *DlpConfig) GetRedactQuote() *bool {
-	if o == nil {
+func (d *DlpConfig) GetRedactQuote() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.RedactQuote
+	return d.RedactQuote
 }
 
-func (o *DlpConfig) GetAutoHideDocs() *bool {
-	if o == nil {
+func (d *DlpConfig) GetAutoHideDocs() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.AutoHideDocs
+	return d.AutoHideDocs
 }
 
-func (o *DlpConfig) GetAllowlistOptions() *AllowlistOptions {
-	if o == nil {
+func (d *DlpConfig) GetAllowlistOptions() *AllowlistOptions {
+	if d == nil {
 		return nil
 	}
-	return o.AllowlistOptions
+	return d.AllowlistOptions
 }

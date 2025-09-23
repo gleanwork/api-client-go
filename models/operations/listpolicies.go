@@ -13,18 +13,18 @@ type ListpoliciesRequest struct {
 	Frequency *string `queryParam:"style=form,explode=true,name=frequency"`
 }
 
-func (o *ListpoliciesRequest) GetAutoHide() *bool {
-	if o == nil {
+func (l *ListpoliciesRequest) GetAutoHide() *bool {
+	if l == nil {
 		return nil
 	}
-	return o.AutoHide
+	return l.AutoHide
 }
 
-func (o *ListpoliciesRequest) GetFrequency() *string {
-	if o == nil {
+func (l *ListpoliciesRequest) GetFrequency() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Frequency
+	return l.Frequency
 }
 
 type ListpoliciesResponse struct {
@@ -33,16 +33,16 @@ type ListpoliciesResponse struct {
 	ListDlpReportsResponse *components.ListDlpReportsResponse
 }
 
-func (o *ListpoliciesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListpoliciesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListpoliciesResponse) GetListDlpReportsResponse() *components.ListDlpReportsResponse {
-	if o == nil {
+func (l *ListpoliciesResponse) GetListDlpReportsResponse() *components.ListDlpReportsResponse {
+	if l == nil {
 		return nil
 	}
-	return o.ListDlpReportsResponse
+	return l.ListDlpReportsResponse
 }

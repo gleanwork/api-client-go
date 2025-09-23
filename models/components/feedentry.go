@@ -38,18 +38,18 @@ type UIConfig struct {
 	AdditionalFlags *DisplayableListItemUIConfig `json:"additionalFlags,omitempty"`
 }
 
-func (o *UIConfig) GetFormat() *Format {
-	if o == nil {
+func (u *UIConfig) GetFormat() *Format {
+	if u == nil {
 		return nil
 	}
-	return o.Format
+	return u.Format
 }
 
-func (o *UIConfig) GetAdditionalFlags() *DisplayableListItemUIConfig {
-	if o == nil {
+func (u *UIConfig) GetAdditionalFlags() *DisplayableListItemUIConfig {
+	if u == nil {
 		return nil
 	}
-	return o.AdditionalFlags
+	return u.AdditionalFlags
 }
 
 // JustificationType - Type of the justification.
@@ -88,6 +88,8 @@ const (
 	JustificationTypeZeroStatePromptTemplateSuggestion JustificationType = "ZERO_STATE_PROMPT_TEMPLATE_SUGGESTION"
 	JustificationTypeZeroStateStaticWorkflowSuggestion JustificationType = "ZERO_STATE_STATIC_WORKFLOW_SUGGESTION"
 	JustificationTypeZeroStateAgentSuggestion          JustificationType = "ZERO_STATE_AGENT_SUGGESTION"
+	JustificationTypePersonalizedChatSuggestion        JustificationType = "PERSONALIZED_CHAT_SUGGESTION"
+	JustificationTypeDailyDigest                       JustificationType = "DAILY_DIGEST"
 )
 
 func (e JustificationType) ToPointer() *JustificationType {
@@ -162,6 +164,10 @@ func (e *JustificationType) UnmarshalJSON(data []byte) error {
 	case "ZERO_STATE_STATIC_WORKFLOW_SUGGESTION":
 		fallthrough
 	case "ZERO_STATE_AGENT_SUGGESTION":
+		fallthrough
+	case "PERSONALIZED_CHAT_SUGGESTION":
+		fallthrough
+	case "DAILY_DIGEST":
 		*e = JustificationType(v)
 		return nil
 	default:
@@ -188,10 +194,12 @@ type FeedEntry struct {
 	Document       *Document             `json:"document,omitempty"`
 	Event          *CalendarEvent        `json:"event,omitempty"`
 	Announcement   *Announcement         `json:"announcement,omitempty"`
+	Digest         *Digest               `json:"digest,omitempty"`
 	Collection     *Collection           `json:"collection,omitempty"`
 	CollectionItem *CollectionItem       `json:"collectionItem,omitempty"`
 	Person         *Person               `json:"person,omitempty"`
 	App            *AppResult            `json:"app,omitempty"`
+	ChatSuggestion *ChatSuggestion       `json:"chatSuggestion,omitempty"`
 	PromptTemplate *PromptTemplateResult `json:"promptTemplate,omitempty"`
 	Workflow       *WorkflowResult       `json:"workflow,omitempty"`
 	// List of activity where each activity has user, action, timestamp.
@@ -199,142 +207,156 @@ type FeedEntry struct {
 	DocumentVisitorCount *CountInfo     `json:"documentVisitorCount,omitempty"`
 }
 
-func (o *FeedEntry) GetEntryID() *string {
-	if o == nil {
+func (f *FeedEntry) GetEntryID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.EntryID
+	return f.EntryID
 }
 
-func (o *FeedEntry) GetTitle() string {
-	if o == nil {
+func (f *FeedEntry) GetTitle() string {
+	if f == nil {
 		return ""
 	}
-	return o.Title
+	return f.Title
 }
 
-func (o *FeedEntry) GetThumbnail() *Thumbnail {
-	if o == nil {
+func (f *FeedEntry) GetThumbnail() *Thumbnail {
+	if f == nil {
 		return nil
 	}
-	return o.Thumbnail
+	return f.Thumbnail
 }
 
-func (o *FeedEntry) GetCreatedBy() *Person {
-	if o == nil {
+func (f *FeedEntry) GetCreatedBy() *Person {
+	if f == nil {
 		return nil
 	}
-	return o.CreatedBy
+	return f.CreatedBy
 }
 
-func (o *FeedEntry) GetUIConfig() *UIConfig {
-	if o == nil {
+func (f *FeedEntry) GetUIConfig() *UIConfig {
+	if f == nil {
 		return nil
 	}
-	return o.UIConfig
+	return f.UIConfig
 }
 
-func (o *FeedEntry) GetJustificationType() *JustificationType {
-	if o == nil {
+func (f *FeedEntry) GetJustificationType() *JustificationType {
+	if f == nil {
 		return nil
 	}
-	return o.JustificationType
+	return f.JustificationType
 }
 
-func (o *FeedEntry) GetJustification() *string {
-	if o == nil {
+func (f *FeedEntry) GetJustification() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Justification
+	return f.Justification
 }
 
-func (o *FeedEntry) GetTrackingToken() *string {
-	if o == nil {
+func (f *FeedEntry) GetTrackingToken() *string {
+	if f == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return f.TrackingToken
 }
 
-func (o *FeedEntry) GetViewURL() *string {
-	if o == nil {
+func (f *FeedEntry) GetViewURL() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ViewURL
+	return f.ViewURL
 }
 
-func (o *FeedEntry) GetDocument() *Document {
-	if o == nil {
+func (f *FeedEntry) GetDocument() *Document {
+	if f == nil {
 		return nil
 	}
-	return o.Document
+	return f.Document
 }
 
-func (o *FeedEntry) GetEvent() *CalendarEvent {
-	if o == nil {
+func (f *FeedEntry) GetEvent() *CalendarEvent {
+	if f == nil {
 		return nil
 	}
-	return o.Event
+	return f.Event
 }
 
-func (o *FeedEntry) GetAnnouncement() *Announcement {
-	if o == nil {
+func (f *FeedEntry) GetAnnouncement() *Announcement {
+	if f == nil {
 		return nil
 	}
-	return o.Announcement
+	return f.Announcement
 }
 
-func (o *FeedEntry) GetCollection() *Collection {
-	if o == nil {
+func (f *FeedEntry) GetDigest() *Digest {
+	if f == nil {
 		return nil
 	}
-	return o.Collection
+	return f.Digest
 }
 
-func (o *FeedEntry) GetCollectionItem() *CollectionItem {
-	if o == nil {
+func (f *FeedEntry) GetCollection() *Collection {
+	if f == nil {
 		return nil
 	}
-	return o.CollectionItem
+	return f.Collection
 }
 
-func (o *FeedEntry) GetPerson() *Person {
-	if o == nil {
+func (f *FeedEntry) GetCollectionItem() *CollectionItem {
+	if f == nil {
 		return nil
 	}
-	return o.Person
+	return f.CollectionItem
 }
 
-func (o *FeedEntry) GetApp() *AppResult {
-	if o == nil {
+func (f *FeedEntry) GetPerson() *Person {
+	if f == nil {
 		return nil
 	}
-	return o.App
+	return f.Person
 }
 
-func (o *FeedEntry) GetPromptTemplate() *PromptTemplateResult {
-	if o == nil {
+func (f *FeedEntry) GetApp() *AppResult {
+	if f == nil {
 		return nil
 	}
-	return o.PromptTemplate
+	return f.App
 }
 
-func (o *FeedEntry) GetWorkflow() *WorkflowResult {
-	if o == nil {
+func (f *FeedEntry) GetChatSuggestion() *ChatSuggestion {
+	if f == nil {
 		return nil
 	}
-	return o.Workflow
+	return f.ChatSuggestion
 }
 
-func (o *FeedEntry) GetActivities() []UserActivity {
-	if o == nil {
+func (f *FeedEntry) GetPromptTemplate() *PromptTemplateResult {
+	if f == nil {
 		return nil
 	}
-	return o.Activities
+	return f.PromptTemplate
 }
 
-func (o *FeedEntry) GetDocumentVisitorCount() *CountInfo {
-	if o == nil {
+func (f *FeedEntry) GetWorkflow() *WorkflowResult {
+	if f == nil {
 		return nil
 	}
-	return o.DocumentVisitorCount
+	return f.Workflow
+}
+
+func (f *FeedEntry) GetActivities() []UserActivity {
+	if f == nil {
+		return nil
+	}
+	return f.Activities
+}
+
+func (f *FeedEntry) GetDocumentVisitorCount() *CountInfo {
+	if f == nil {
+		return nil
+	}
+	return f.DocumentVisitorCount
 }

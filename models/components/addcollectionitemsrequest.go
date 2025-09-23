@@ -9,16 +9,16 @@ type AddCollectionItemsRequest struct {
 	AddedCollectionItemDescriptors []CollectionItemDescriptor `json:"addedCollectionItemDescriptors,omitempty"`
 }
 
-func (o *AddCollectionItemsRequest) GetCollectionID() float64 {
-	if o == nil {
+func (a *AddCollectionItemsRequest) GetCollectionID() float64 {
+	if a == nil {
 		return 0.0
 	}
-	return o.CollectionID
+	return a.CollectionID
 }
 
-func (o *AddCollectionItemsRequest) GetAddedCollectionItemDescriptors() []CollectionItemDescriptor {
-	if o == nil {
+func (a *AddCollectionItemsRequest) GetAddedCollectionItemDescriptors() []CollectionItemDescriptor {
+	if a == nil {
 		return nil
 	}
-	return o.AddedCollectionItemDescriptors
+	return a.AddedCollectionItemDescriptors
 }

@@ -18,22 +18,22 @@ func (a AnswerLike) MarshalJSON() ([]byte, error) {
 }
 
 func (a *AnswerLike) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *AnswerLike) GetUser() *Person {
-	if o == nil {
+func (a *AnswerLike) GetUser() *Person {
+	if a == nil {
 		return nil
 	}
-	return o.User
+	return a.User
 }
 
-func (o *AnswerLike) GetCreateTime() *time.Time {
-	if o == nil {
+func (a *AnswerLike) GetCreateTime() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.CreateTime
+	return a.CreateTime
 }

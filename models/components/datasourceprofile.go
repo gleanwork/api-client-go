@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type DatasourceProfile struct {
 	// The datasource the profile is of.
 	Datasource string `json:"datasource"`
@@ -15,37 +19,48 @@ type DatasourceProfile struct {
 	IsUserGenerated *bool `json:"isUserGenerated,omitempty"`
 }
 
-func (o *DatasourceProfile) GetDatasource() string {
-	if o == nil {
+func (d DatasourceProfile) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
+}
+
+func (d *DatasourceProfile) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, []string{"datasource", "handle"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (d *DatasourceProfile) GetDatasource() string {
+	if d == nil {
 		return ""
 	}
-	return o.Datasource
+	return d.Datasource
 }
 
-func (o *DatasourceProfile) GetHandle() string {
-	if o == nil {
+func (d *DatasourceProfile) GetHandle() string {
+	if d == nil {
 		return ""
 	}
-	return o.Handle
+	return d.Handle
 }
 
-func (o *DatasourceProfile) GetURL() *string {
-	if o == nil {
+func (d *DatasourceProfile) GetURL() *string {
+	if d == nil {
 		return nil
 	}
-	return o.URL
+	return d.URL
 }
 
-func (o *DatasourceProfile) GetNativeAppURL() *string {
-	if o == nil {
+func (d *DatasourceProfile) GetNativeAppURL() *string {
+	if d == nil {
 		return nil
 	}
-	return o.NativeAppURL
+	return d.NativeAppURL
 }
 
-func (o *DatasourceProfile) GetIsUserGenerated() *bool {
-	if o == nil {
+func (d *DatasourceProfile) GetIsUserGenerated() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.IsUserGenerated
+	return d.IsUserGenerated
 }

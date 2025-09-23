@@ -12,16 +12,16 @@ type GetpinResponse struct {
 	GetPinResponse *components.GetPinResponse
 }
 
-func (o *GetpinResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetpinResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetpinResponse) GetGetPinResponse() *components.GetPinResponse {
-	if o == nil {
+func (g *GetpinResponse) GetGetPinResponse() *components.GetPinResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetPinResponse
+	return g.GetPinResponse
 }

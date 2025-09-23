@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type Person struct {
 	// The display name.
 	Name string `json:"name"`
@@ -12,30 +16,41 @@ type Person struct {
 	Metadata         *PersonMetadata    `json:"metadata,omitempty"`
 }
 
-func (o *Person) GetName() string {
-	if o == nil {
+func (p Person) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *Person) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, []string{"name", "obfuscatedId"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (p *Person) GetName() string {
+	if p == nil {
 		return ""
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *Person) GetObfuscatedID() string {
-	if o == nil {
+func (p *Person) GetObfuscatedID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ObfuscatedID
+	return p.ObfuscatedID
 }
 
-func (o *Person) GetRelatedDocuments() []RelatedDocuments {
-	if o == nil {
+func (p *Person) GetRelatedDocuments() []RelatedDocuments {
+	if p == nil {
 		return nil
 	}
-	return o.RelatedDocuments
+	return p.RelatedDocuments
 }
 
-func (o *Person) GetMetadata() *PersonMetadata {
-	if o == nil {
+func (p *Person) GetMetadata() *PersonMetadata {
+	if p == nil {
 		return nil
 	}
-	return o.Metadata
+	return p.Metadata
 }

@@ -9,16 +9,16 @@ type DatasourceObjectTypeDocumentCountEntry struct {
 	Count *int64 `json:"count,omitempty"`
 }
 
-func (o *DatasourceObjectTypeDocumentCountEntry) GetObjectType() *string {
-	if o == nil {
+func (d *DatasourceObjectTypeDocumentCountEntry) GetObjectType() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ObjectType
+	return d.ObjectType
 }
 
-func (o *DatasourceObjectTypeDocumentCountEntry) GetCount() *int64 {
-	if o == nil {
+func (d *DatasourceObjectTypeDocumentCountEntry) GetCount() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Count
+	return d.Count
 }

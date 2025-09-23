@@ -19,22 +19,22 @@ func (t TeamEmail) MarshalJSON() ([]byte, error) {
 }
 
 func (t *TeamEmail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &t, "", false, []string{"email"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *TeamEmail) GetEmail() string {
-	if o == nil {
+func (t *TeamEmail) GetEmail() string {
+	if t == nil {
 		return ""
 	}
-	return o.Email
+	return t.Email
 }
 
-func (o *TeamEmail) GetType() *string {
-	if o == nil {
+func (t *TeamEmail) GetType() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Type
+	return t.Type
 }

@@ -12,16 +12,16 @@ type DeletecollectionitemResponse struct {
 	DeleteCollectionItemResponse *components.DeleteCollectionItemResponse
 }
 
-func (o *DeletecollectionitemResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeletecollectionitemResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }
 
-func (o *DeletecollectionitemResponse) GetDeleteCollectionItemResponse() *components.DeleteCollectionItemResponse {
-	if o == nil {
+func (d *DeletecollectionitemResponse) GetDeleteCollectionItemResponse() *components.DeleteCollectionItemResponse {
+	if d == nil {
 		return nil
 	}
-	return o.DeleteCollectionItemResponse
+	return d.DeleteCollectionItemResponse
 }

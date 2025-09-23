@@ -32,15 +32,15 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 			Text: "From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light.",
 			StructuredList: []components.StructuredTextItem{
 				components.StructuredTextItem{
-					Link: apiclientgo.String("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
+					Link: apiclientgo.Pointer("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
 					Document: &components.Document{
 						Metadata: &components.DocumentMetadata{
-							Datasource: apiclientgo.String("datasource"),
-							ObjectType: apiclientgo.String("Feature Request"),
-							Container:  apiclientgo.String("container"),
-							ParentID:   apiclientgo.String("JIRA_EN-1337"),
-							MimeType:   apiclientgo.String("mimeType"),
-							DocumentID: apiclientgo.String("documentId"),
+							Datasource: apiclientgo.Pointer("datasource"),
+							ObjectType: apiclientgo.Pointer("Feature Request"),
+							Container:  apiclientgo.Pointer("container"),
+							ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+							MimeType:   apiclientgo.Pointer("mimeType"),
+							DocumentID: apiclientgo.Pointer("documentId"),
 							CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 							UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 							Author: &components.Person{
@@ -51,27 +51,27 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 										QuerySuggestion: &components.QuerySuggestion{
 											Query: "app:github type:pull author:mortimer",
 											SearchProviderInfo: &components.SearchProviderInfo{
-												Name:                  apiclientgo.String("Google"),
-												SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+												Name:                  apiclientgo.Pointer("Google"),
+												SearchLinkURLTemplate: apiclientgo.Pointer("https://www.google.com/search?q={query}&hl=en"),
 											},
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 											RequestOptions: &components.SearchRequestOptions{
-												DatasourceFilter: apiclientgo.String("JIRA"),
+												DatasourceFilter: apiclientgo.Pointer("JIRA"),
 												DatasourcesFilter: []string{
 													"JIRA",
 												},
-												QueryOverridesFacetFilters: apiclientgo.Bool(true),
+												QueryOverridesFacetFilters: apiclientgo.Pointer(true),
 												FacetFilters: []components.FacetFilter{
 													components.FacetFilter{
-														FieldName: apiclientgo.String("type"),
+														FieldName: apiclientgo.Pointer("type"),
 														Values: []components.FacetFilterValue{
 															components.FacetFilterValue{
-																Value:        apiclientgo.String("Spreadsheet"),
+																Value:        apiclientgo.Pointer("Spreadsheet"),
 																RelationType: components.RelationTypeEquals.ToPointer(),
 															},
 															components.FacetFilterValue{
-																Value:        apiclientgo.String("Presentation"),
+																Value:        apiclientgo.Pointer("Presentation"),
 																RelationType: components.RelationTypeEquals.ToPointer(),
 															},
 														},
@@ -81,14 +81,14 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													components.FacetFilterSet{
 														Filters: []components.FacetFilter{
 															components.FacetFilter{
-																FieldName: apiclientgo.String("type"),
+																FieldName: apiclientgo.Pointer("type"),
 																Values: []components.FacetFilterValue{
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Spreadsheet"),
+																		Value:        apiclientgo.Pointer("Spreadsheet"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Presentation"),
+																		Value:        apiclientgo.Pointer("Presentation"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																},
@@ -101,9 +101,9 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													components.AuthToken{
 														AccessToken: "123abc",
 														Datasource:  "gmail",
-														Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
-														TokenType:   apiclientgo.String("Bearer"),
-														AuthUser:    apiclientgo.String("1"),
+														Scope:       apiclientgo.Pointer("email profile https://www.googleapis.com/auth/gmail.readonly"),
+														TokenType:   apiclientgo.Pointer("Bearer"),
+														AuthUser:    apiclientgo.Pointer("1"),
 													},
 												},
 											},
@@ -119,18 +119,18 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												},
 											},
 											InputDetails: &components.SearchRequestInputDetails{
-												HasCopyPaste: apiclientgo.Bool(true),
+												HasCopyPaste: apiclientgo.Pointer(true),
 											},
 										},
 										Results: []components.SearchResult{
 											components.SearchResult{
-												Title:        apiclientgo.String("title"),
+												Title:        apiclientgo.Pointer("title"),
 												URL:          "https://example.com/foo/bar",
-												NativeAppURL: apiclientgo.String("slack://foo/bar"),
+												NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 												Snippets: []components.SearchResultSnippet{
 													components.SearchResultSnippet{
+														MimeType: apiclientgo.Pointer("mimeType"),
 														Snippet:  "snippet",
-														MimeType: apiclientgo.String("mimeType"),
 													},
 												},
 											},
@@ -139,12 +139,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								},
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -164,8 +164,8 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 										Suggestions: []components.QuerySuggestion{
 											components.QuerySuggestion{
 												Query:      "app:github type:pull author:mortimer",
-												Label:      apiclientgo.String("Mortimer's PRs"),
-												Datasource: apiclientgo.String("github"),
+												Label:      apiclientgo.Pointer("Mortimer's PRs"),
+												Datasource: apiclientgo.Pointer("github"),
 											},
 										},
 									},
@@ -198,13 +198,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -215,12 +215,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -232,13 +232,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -254,19 +254,19 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								"Backend",
 								"Networking",
 							},
-							Status: apiclientgo.String("[\"Done\"]"),
+							Status: apiclientgo.Pointer("[\"Done\"]"),
 							Pins: []components.PinDocument{
 								components.PinDocument{
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -278,12 +278,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -295,13 +295,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -312,12 +312,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -329,13 +329,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -348,12 +348,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -365,13 +365,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -382,12 +382,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -399,13 +399,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -422,12 +422,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -443,13 +443,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -465,12 +465,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -482,13 +482,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -502,12 +502,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -523,13 +523,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -540,14 +540,14 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									},
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -559,12 +559,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -576,13 +576,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -593,12 +593,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -610,13 +610,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -630,12 +630,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -651,13 +651,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -673,12 +673,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -690,13 +690,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -728,12 +728,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -753,13 +753,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -776,12 +776,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -793,13 +793,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -812,12 +812,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -837,13 +837,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -854,12 +854,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -875,13 +875,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -896,12 +896,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -921,13 +921,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -938,12 +938,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -955,13 +955,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -985,12 +985,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -1010,13 +1010,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -1024,18 +1024,18 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 							},
 						},
 					},
-					Text: apiclientgo.String("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
+					Text: apiclientgo.Pointer("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
 				},
 				components.StructuredTextItem{
-					Link: apiclientgo.String("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
+					Link: apiclientgo.Pointer("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
 					Document: &components.Document{
 						Metadata: &components.DocumentMetadata{
-							Datasource: apiclientgo.String("datasource"),
-							ObjectType: apiclientgo.String("Feature Request"),
-							Container:  apiclientgo.String("container"),
-							ParentID:   apiclientgo.String("JIRA_EN-1337"),
-							MimeType:   apiclientgo.String("mimeType"),
-							DocumentID: apiclientgo.String("documentId"),
+							Datasource: apiclientgo.Pointer("datasource"),
+							ObjectType: apiclientgo.Pointer("Feature Request"),
+							Container:  apiclientgo.Pointer("container"),
+							ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+							MimeType:   apiclientgo.Pointer("mimeType"),
+							DocumentID: apiclientgo.Pointer("documentId"),
 							CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 							UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 							Author: &components.Person{
@@ -1043,12 +1043,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -1060,13 +1060,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -1077,12 +1077,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -1094,13 +1094,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -1110,18 +1110,18 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								"Backend",
 								"Networking",
 							},
-							Status: apiclientgo.String("[\"Done\"]"),
+							Status: apiclientgo.Pointer("[\"Done\"]"),
 							AssignedTo: &components.Person{
 								Name:         "George Clooney",
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -1137,13 +1137,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -1154,12 +1154,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -1179,13 +1179,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -1200,12 +1200,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -1225,13 +1225,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -1243,12 +1243,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -1260,13 +1260,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -1277,12 +1277,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -1298,13 +1298,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -1322,12 +1322,12 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -1343,13 +1343,13 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -1357,20 +1357,20 @@ func TestAnnouncements_Createannouncement(t *testing.T) {
 							},
 						},
 					},
-					Text: apiclientgo.String("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
+					Text: apiclientgo.Pointer("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
 				},
 			},
 		},
 		AudienceFilters: []components.FacetFilter{
 			components.FacetFilter{
-				FieldName: apiclientgo.String("type"),
+				FieldName: apiclientgo.Pointer("type"),
 				Values: []components.FacetFilterValue{
 					components.FacetFilterValue{
-						Value:        apiclientgo.String("Spreadsheet"),
+						Value:        apiclientgo.Pointer("Spreadsheet"),
 						RelationType: components.RelationTypeEquals.ToPointer(),
 					},
 					components.FacetFilterValue{
-						Value:        apiclientgo.String("Presentation"),
+						Value:        apiclientgo.Pointer("Presentation"),
 						RelationType: components.RelationTypeEquals.ToPointer(),
 					},
 				},
@@ -1456,15 +1456,15 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 			Text: "From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light.",
 			StructuredList: []components.StructuredTextItem{
 				components.StructuredTextItem{
-					Link: apiclientgo.String("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
+					Link: apiclientgo.Pointer("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
 					Document: &components.Document{
 						Metadata: &components.DocumentMetadata{
-							Datasource: apiclientgo.String("datasource"),
-							ObjectType: apiclientgo.String("Feature Request"),
-							Container:  apiclientgo.String("container"),
-							ParentID:   apiclientgo.String("JIRA_EN-1337"),
-							MimeType:   apiclientgo.String("mimeType"),
-							DocumentID: apiclientgo.String("documentId"),
+							Datasource: apiclientgo.Pointer("datasource"),
+							ObjectType: apiclientgo.Pointer("Feature Request"),
+							Container:  apiclientgo.Pointer("container"),
+							ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+							MimeType:   apiclientgo.Pointer("mimeType"),
+							DocumentID: apiclientgo.Pointer("documentId"),
 							CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 							UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 							Author: &components.Person{
@@ -1475,27 +1475,27 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										QuerySuggestion: &components.QuerySuggestion{
 											Query: "app:github type:pull author:mortimer",
 											SearchProviderInfo: &components.SearchProviderInfo{
-												Name:                  apiclientgo.String("Google"),
-												SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+												Name:                  apiclientgo.Pointer("Google"),
+												SearchLinkURLTemplate: apiclientgo.Pointer("https://www.google.com/search?q={query}&hl=en"),
 											},
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 											RequestOptions: &components.SearchRequestOptions{
-												DatasourceFilter: apiclientgo.String("JIRA"),
+												DatasourceFilter: apiclientgo.Pointer("JIRA"),
 												DatasourcesFilter: []string{
 													"JIRA",
 												},
-												QueryOverridesFacetFilters: apiclientgo.Bool(true),
+												QueryOverridesFacetFilters: apiclientgo.Pointer(true),
 												FacetFilters: []components.FacetFilter{
 													components.FacetFilter{
-														FieldName: apiclientgo.String("type"),
+														FieldName: apiclientgo.Pointer("type"),
 														Values: []components.FacetFilterValue{
 															components.FacetFilterValue{
-																Value:        apiclientgo.String("Spreadsheet"),
+																Value:        apiclientgo.Pointer("Spreadsheet"),
 																RelationType: components.RelationTypeEquals.ToPointer(),
 															},
 															components.FacetFilterValue{
-																Value:        apiclientgo.String("Presentation"),
+																Value:        apiclientgo.Pointer("Presentation"),
 																RelationType: components.RelationTypeEquals.ToPointer(),
 															},
 														},
@@ -1505,14 +1505,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													components.FacetFilterSet{
 														Filters: []components.FacetFilter{
 															components.FacetFilter{
-																FieldName: apiclientgo.String("type"),
+																FieldName: apiclientgo.Pointer("type"),
 																Values: []components.FacetFilterValue{
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Spreadsheet"),
+																		Value:        apiclientgo.Pointer("Spreadsheet"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Presentation"),
+																		Value:        apiclientgo.Pointer("Presentation"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																},
@@ -1522,14 +1522,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													components.FacetFilterSet{
 														Filters: []components.FacetFilter{
 															components.FacetFilter{
-																FieldName: apiclientgo.String("type"),
+																FieldName: apiclientgo.Pointer("type"),
 																Values: []components.FacetFilterValue{
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Spreadsheet"),
+																		Value:        apiclientgo.Pointer("Spreadsheet"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Presentation"),
+																		Value:        apiclientgo.Pointer("Presentation"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																},
@@ -1542,9 +1542,9 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													components.AuthToken{
 														AccessToken: "123abc",
 														Datasource:  "gmail",
-														Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
-														TokenType:   apiclientgo.String("Bearer"),
-														AuthUser:    apiclientgo.String("1"),
+														Scope:       apiclientgo.Pointer("email profile https://www.googleapis.com/auth/gmail.readonly"),
+														TokenType:   apiclientgo.Pointer("Bearer"),
+														AuthUser:    apiclientgo.Pointer("1"),
 													},
 												},
 											},
@@ -1560,18 +1560,18 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												},
 											},
 											InputDetails: &components.SearchRequestInputDetails{
-												HasCopyPaste: apiclientgo.Bool(true),
+												HasCopyPaste: apiclientgo.Pointer(true),
 											},
 										},
 										Results: []components.SearchResult{
 											components.SearchResult{
-												Title:        apiclientgo.String("title"),
+												Title:        apiclientgo.Pointer("title"),
 												URL:          "https://example.com/foo/bar",
-												NativeAppURL: apiclientgo.String("slack://foo/bar"),
+												NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 												Snippets: []components.SearchResultSnippet{
 													components.SearchResultSnippet{
+														MimeType: apiclientgo.Pointer("mimeType"),
 														Snippet:  "snippet",
-														MimeType: apiclientgo.String("mimeType"),
 													},
 												},
 											},
@@ -1581,27 +1581,27 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										QuerySuggestion: &components.QuerySuggestion{
 											Query: "app:github type:pull author:mortimer",
 											SearchProviderInfo: &components.SearchProviderInfo{
-												Name:                  apiclientgo.String("Google"),
-												SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+												Name:                  apiclientgo.Pointer("Google"),
+												SearchLinkURLTemplate: apiclientgo.Pointer("https://www.google.com/search?q={query}&hl=en"),
 											},
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 											RequestOptions: &components.SearchRequestOptions{
-												DatasourceFilter: apiclientgo.String("JIRA"),
+												DatasourceFilter: apiclientgo.Pointer("JIRA"),
 												DatasourcesFilter: []string{
 													"JIRA",
 												},
-												QueryOverridesFacetFilters: apiclientgo.Bool(true),
+												QueryOverridesFacetFilters: apiclientgo.Pointer(true),
 												FacetFilters: []components.FacetFilter{
 													components.FacetFilter{
-														FieldName: apiclientgo.String("type"),
+														FieldName: apiclientgo.Pointer("type"),
 														Values: []components.FacetFilterValue{
 															components.FacetFilterValue{
-																Value:        apiclientgo.String("Spreadsheet"),
+																Value:        apiclientgo.Pointer("Spreadsheet"),
 																RelationType: components.RelationTypeEquals.ToPointer(),
 															},
 															components.FacetFilterValue{
-																Value:        apiclientgo.String("Presentation"),
+																Value:        apiclientgo.Pointer("Presentation"),
 																RelationType: components.RelationTypeEquals.ToPointer(),
 															},
 														},
@@ -1611,14 +1611,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													components.FacetFilterSet{
 														Filters: []components.FacetFilter{
 															components.FacetFilter{
-																FieldName: apiclientgo.String("type"),
+																FieldName: apiclientgo.Pointer("type"),
 																Values: []components.FacetFilterValue{
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Spreadsheet"),
+																		Value:        apiclientgo.Pointer("Spreadsheet"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Presentation"),
+																		Value:        apiclientgo.Pointer("Presentation"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																},
@@ -1631,14 +1631,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													components.AuthToken{
 														AccessToken: "123abc",
 														Datasource:  "gmail",
-														Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
-														TokenType:   apiclientgo.String("Bearer"),
-														AuthUser:    apiclientgo.String("1"),
+														Scope:       apiclientgo.Pointer("email profile https://www.googleapis.com/auth/gmail.readonly"),
+														TokenType:   apiclientgo.Pointer("Bearer"),
+														AuthUser:    apiclientgo.Pointer("1"),
 													},
 												},
 											},
 											InputDetails: &components.SearchRequestInputDetails{
-												HasCopyPaste: apiclientgo.Bool(true),
+												HasCopyPaste: apiclientgo.Pointer(true),
 											},
 										},
 									},
@@ -1646,27 +1646,27 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										QuerySuggestion: &components.QuerySuggestion{
 											Query: "app:github type:pull author:mortimer",
 											SearchProviderInfo: &components.SearchProviderInfo{
-												Name:                  apiclientgo.String("Google"),
-												SearchLinkURLTemplate: apiclientgo.String("https://www.google.com/search?q={query}&hl=en"),
+												Name:                  apiclientgo.Pointer("Google"),
+												SearchLinkURLTemplate: apiclientgo.Pointer("https://www.google.com/search?q={query}&hl=en"),
 											},
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 											RequestOptions: &components.SearchRequestOptions{
-												DatasourceFilter: apiclientgo.String("JIRA"),
+												DatasourceFilter: apiclientgo.Pointer("JIRA"),
 												DatasourcesFilter: []string{
 													"JIRA",
 												},
-												QueryOverridesFacetFilters: apiclientgo.Bool(true),
+												QueryOverridesFacetFilters: apiclientgo.Pointer(true),
 												FacetFilters: []components.FacetFilter{
 													components.FacetFilter{
-														FieldName: apiclientgo.String("type"),
+														FieldName: apiclientgo.Pointer("type"),
 														Values: []components.FacetFilterValue{
 															components.FacetFilterValue{
-																Value:        apiclientgo.String("Spreadsheet"),
+																Value:        apiclientgo.Pointer("Spreadsheet"),
 																RelationType: components.RelationTypeEquals.ToPointer(),
 															},
 															components.FacetFilterValue{
-																Value:        apiclientgo.String("Presentation"),
+																Value:        apiclientgo.Pointer("Presentation"),
 																RelationType: components.RelationTypeEquals.ToPointer(),
 															},
 														},
@@ -1676,14 +1676,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													components.FacetFilterSet{
 														Filters: []components.FacetFilter{
 															components.FacetFilter{
-																FieldName: apiclientgo.String("type"),
+																FieldName: apiclientgo.Pointer("type"),
 																Values: []components.FacetFilterValue{
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Spreadsheet"),
+																		Value:        apiclientgo.Pointer("Spreadsheet"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																	components.FacetFilterValue{
-																		Value:        apiclientgo.String("Presentation"),
+																		Value:        apiclientgo.Pointer("Presentation"),
 																		RelationType: components.RelationTypeEquals.ToPointer(),
 																	},
 																},
@@ -1696,26 +1696,26 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													components.AuthToken{
 														AccessToken: "123abc",
 														Datasource:  "gmail",
-														Scope:       apiclientgo.String("email profile https://www.googleapis.com/auth/gmail.readonly"),
-														TokenType:   apiclientgo.String("Bearer"),
-														AuthUser:    apiclientgo.String("1"),
+														Scope:       apiclientgo.Pointer("email profile https://www.googleapis.com/auth/gmail.readonly"),
+														TokenType:   apiclientgo.Pointer("Bearer"),
+														AuthUser:    apiclientgo.Pointer("1"),
 													},
 												},
 											},
 											InputDetails: &components.SearchRequestInputDetails{
-												HasCopyPaste: apiclientgo.Bool(true),
+												HasCopyPaste: apiclientgo.Pointer(true),
 											},
 										},
 									},
 								},
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -1735,8 +1735,8 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										Suggestions: []components.QuerySuggestion{
 											components.QuerySuggestion{
 												Query:      "app:github type:pull author:mortimer",
-												Label:      apiclientgo.String("Mortimer's PRs"),
-												Datasource: apiclientgo.String("github"),
+												Label:      apiclientgo.Pointer("Mortimer's PRs"),
+												Datasource: apiclientgo.Pointer("github"),
 											},
 										},
 									},
@@ -1767,13 +1767,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -1784,12 +1784,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -1809,13 +1809,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -1831,19 +1831,19 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								"Backend",
 								"Networking",
 							},
-							Status: apiclientgo.String("[\"Done\"]"),
+							Status: apiclientgo.Pointer("[\"Done\"]"),
 							Pins: []components.PinDocument{
 								components.PinDocument{
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1855,12 +1855,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -1876,13 +1876,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -1893,12 +1893,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -1914,13 +1914,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -1930,14 +1930,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								components.PinDocument{
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1949,12 +1949,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -1966,13 +1966,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -1983,12 +1983,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2000,13 +2000,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2016,14 +2016,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								components.PinDocument{
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2035,12 +2035,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2056,13 +2056,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2073,12 +2073,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2098,13 +2098,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2117,12 +2117,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -2142,13 +2142,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -2159,12 +2159,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -2184,13 +2184,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -2207,12 +2207,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2228,13 +2228,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2248,12 +2248,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2269,13 +2269,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2291,12 +2291,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2308,13 +2308,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2328,12 +2328,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2345,13 +2345,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2362,14 +2362,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									},
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2381,12 +2381,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2398,13 +2398,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2415,12 +2415,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2436,13 +2436,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2456,12 +2456,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2477,13 +2477,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2498,12 +2498,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2515,13 +2515,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2537,12 +2537,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2562,13 +2562,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2583,14 +2583,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									Description: "misjudge scare cinema ouch weary euphonium",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2602,12 +2602,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2627,13 +2627,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2644,12 +2644,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2661,13 +2661,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2679,14 +2679,14 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									Description: "exotic fussy shadowy",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2698,12 +2698,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2715,13 +2715,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2732,12 +2732,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2749,13 +2749,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2784,12 +2784,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -2801,13 +2801,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -2824,12 +2824,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -2849,13 +2849,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -2868,12 +2868,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2893,13 +2893,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2910,12 +2910,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												ObfuscatedID: "abc123",
 												Metadata: &components.PersonMetadata{
 													Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-													Title:      apiclientgo.String("Actor"),
-													Department: apiclientgo.String("Movies"),
-													Email:      apiclientgo.String("george@example.com"),
-													Location:   apiclientgo.String("Hollywood, CA"),
-													Phone:      apiclientgo.String("6505551234"),
-													PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+													Title:      apiclientgo.Pointer("Actor"),
+													Department: apiclientgo.Pointer("Movies"),
+													Email:      apiclientgo.Pointer("george@example.com"),
+													Location:   apiclientgo.Pointer("Hollywood, CA"),
+													Phone:      apiclientgo.Pointer("6505551234"),
+													PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 													StartDate:  types.MustNewDateFromString("2000-01-23"),
 													DatasourceProfile: []components.DatasourceProfile{
 														components.DatasourceProfile{
@@ -2931,13 +2931,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 													InviteInfo:       &components.InviteInfo{},
 													Badges: []components.Badge{
 														components.Badge{
-															Key:         apiclientgo.String("deployment_name_new_hire"),
-															DisplayName: apiclientgo.String("New hire"),
+															Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+															DisplayName: apiclientgo.Pointer("New hire"),
 															IconConfig: &components.IconConfig{
-																Color:    apiclientgo.String("#343CED"),
-																Key:      apiclientgo.String("person_icon"),
+																Color:    apiclientgo.Pointer("#343CED"),
+																Key:      apiclientgo.Pointer("person_icon"),
 																IconType: components.IconTypeGlyph.ToPointer(),
-																Name:     apiclientgo.String("user"),
+																Name:     apiclientgo.Pointer("user"),
 															},
 														},
 													},
@@ -2952,12 +2952,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -2969,13 +2969,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -2986,12 +2986,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -3003,13 +3003,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -3033,12 +3033,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -3050,13 +3050,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -3064,18 +3064,18 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 							},
 						},
 					},
-					Text: apiclientgo.String("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
+					Text: apiclientgo.Pointer("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
 				},
 				components.StructuredTextItem{
-					Link: apiclientgo.String("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
+					Link: apiclientgo.Pointer("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
 					Document: &components.Document{
 						Metadata: &components.DocumentMetadata{
-							Datasource: apiclientgo.String("datasource"),
-							ObjectType: apiclientgo.String("Feature Request"),
-							Container:  apiclientgo.String("container"),
-							ParentID:   apiclientgo.String("JIRA_EN-1337"),
-							MimeType:   apiclientgo.String("mimeType"),
-							DocumentID: apiclientgo.String("documentId"),
+							Datasource: apiclientgo.Pointer("datasource"),
+							ObjectType: apiclientgo.Pointer("Feature Request"),
+							Container:  apiclientgo.Pointer("container"),
+							ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+							MimeType:   apiclientgo.Pointer("mimeType"),
+							DocumentID: apiclientgo.Pointer("documentId"),
 							CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 							UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 							Author: &components.Person{
@@ -3083,12 +3083,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -3108,13 +3108,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -3125,12 +3125,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -3146,13 +3146,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -3162,18 +3162,18 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								"Backend",
 								"Networking",
 							},
-							Status: apiclientgo.String("[\"Done\"]"),
+							Status: apiclientgo.Pointer("[\"Done\"]"),
 							AssignedTo: &components.Person{
 								Name:         "George Clooney",
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -3193,13 +3193,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -3210,12 +3210,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -3227,13 +3227,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -3248,12 +3248,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 										ObfuscatedID: "abc123",
 										Metadata: &components.PersonMetadata{
 											Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-											Title:      apiclientgo.String("Actor"),
-											Department: apiclientgo.String("Movies"),
-											Email:      apiclientgo.String("george@example.com"),
-											Location:   apiclientgo.String("Hollywood, CA"),
-											Phone:      apiclientgo.String("6505551234"),
-											PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+											Title:      apiclientgo.Pointer("Actor"),
+											Department: apiclientgo.Pointer("Movies"),
+											Email:      apiclientgo.Pointer("george@example.com"),
+											Location:   apiclientgo.Pointer("Hollywood, CA"),
+											Phone:      apiclientgo.Pointer("6505551234"),
+											PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 											StartDate:  types.MustNewDateFromString("2000-01-23"),
 											DatasourceProfile: []components.DatasourceProfile{
 												components.DatasourceProfile{
@@ -3265,13 +3265,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											InviteInfo:       &components.InviteInfo{},
 											Badges: []components.Badge{
 												components.Badge{
-													Key:         apiclientgo.String("deployment_name_new_hire"),
-													DisplayName: apiclientgo.String("New hire"),
+													Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+													DisplayName: apiclientgo.Pointer("New hire"),
 													IconConfig: &components.IconConfig{
-														Color:    apiclientgo.String("#343CED"),
-														Key:      apiclientgo.String("person_icon"),
+														Color:    apiclientgo.Pointer("#343CED"),
+														Key:      apiclientgo.Pointer("person_icon"),
 														IconType: components.IconTypeGlyph.ToPointer(),
-														Name:     apiclientgo.String("user"),
+														Name:     apiclientgo.Pointer("user"),
 													},
 												},
 											},
@@ -3283,12 +3283,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -3300,13 +3300,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -3317,12 +3317,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 											ObfuscatedID: "abc123",
 											Metadata: &components.PersonMetadata{
 												Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-												Title:      apiclientgo.String("Actor"),
-												Department: apiclientgo.String("Movies"),
-												Email:      apiclientgo.String("george@example.com"),
-												Location:   apiclientgo.String("Hollywood, CA"),
-												Phone:      apiclientgo.String("6505551234"),
-												PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+												Title:      apiclientgo.Pointer("Actor"),
+												Department: apiclientgo.Pointer("Movies"),
+												Email:      apiclientgo.Pointer("george@example.com"),
+												Location:   apiclientgo.Pointer("Hollywood, CA"),
+												Phone:      apiclientgo.Pointer("6505551234"),
+												PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 												StartDate:  types.MustNewDateFromString("2000-01-23"),
 												DatasourceProfile: []components.DatasourceProfile{
 													components.DatasourceProfile{
@@ -3342,13 +3342,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 												InviteInfo:       &components.InviteInfo{},
 												Badges: []components.Badge{
 													components.Badge{
-														Key:         apiclientgo.String("deployment_name_new_hire"),
-														DisplayName: apiclientgo.String("New hire"),
+														Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+														DisplayName: apiclientgo.Pointer("New hire"),
 														IconConfig: &components.IconConfig{
-															Color:    apiclientgo.String("#343CED"),
-															Key:      apiclientgo.String("person_icon"),
+															Color:    apiclientgo.Pointer("#343CED"),
+															Key:      apiclientgo.Pointer("person_icon"),
 															IconType: components.IconTypeGlyph.ToPointer(),
-															Name:     apiclientgo.String("user"),
+															Name:     apiclientgo.Pointer("user"),
 														},
 													},
 												},
@@ -3366,12 +3366,12 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 								ObfuscatedID: "abc123",
 								Metadata: &components.PersonMetadata{
 									Type:       components.PersonMetadataTypeFullTime.ToPointer(),
-									Title:      apiclientgo.String("Actor"),
-									Department: apiclientgo.String("Movies"),
-									Email:      apiclientgo.String("george@example.com"),
-									Location:   apiclientgo.String("Hollywood, CA"),
-									Phone:      apiclientgo.String("6505551234"),
-									PhotoURL:   apiclientgo.String("https://example.com/george.jpg"),
+									Title:      apiclientgo.Pointer("Actor"),
+									Department: apiclientgo.Pointer("Movies"),
+									Email:      apiclientgo.Pointer("george@example.com"),
+									Location:   apiclientgo.Pointer("Hollywood, CA"),
+									Phone:      apiclientgo.Pointer("6505551234"),
+									PhotoURL:   apiclientgo.Pointer("https://example.com/george.jpg"),
 									StartDate:  types.MustNewDateFromString("2000-01-23"),
 									DatasourceProfile: []components.DatasourceProfile{
 										components.DatasourceProfile{
@@ -3387,13 +3387,13 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 									InviteInfo:       &components.InviteInfo{},
 									Badges: []components.Badge{
 										components.Badge{
-											Key:         apiclientgo.String("deployment_name_new_hire"),
-											DisplayName: apiclientgo.String("New hire"),
+											Key:         apiclientgo.Pointer("deployment_name_new_hire"),
+											DisplayName: apiclientgo.Pointer("New hire"),
 											IconConfig: &components.IconConfig{
-												Color:    apiclientgo.String("#343CED"),
-												Key:      apiclientgo.String("person_icon"),
+												Color:    apiclientgo.Pointer("#343CED"),
+												Key:      apiclientgo.Pointer("person_icon"),
 												IconType: components.IconTypeGlyph.ToPointer(),
-												Name:     apiclientgo.String("user"),
+												Name:     apiclientgo.Pointer("user"),
 											},
 										},
 									},
@@ -3401,20 +3401,20 @@ func TestAnnouncements_Updateannouncement(t *testing.T) {
 							},
 						},
 					},
-					Text: apiclientgo.String("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
+					Text: apiclientgo.Pointer("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
 				},
 			},
 		},
 		AudienceFilters: []components.FacetFilter{
 			components.FacetFilter{
-				FieldName: apiclientgo.String("type"),
+				FieldName: apiclientgo.Pointer("type"),
 				Values: []components.FacetFilterValue{
 					components.FacetFilterValue{
-						Value:        apiclientgo.String("Spreadsheet"),
+						Value:        apiclientgo.Pointer("Spreadsheet"),
 						RelationType: components.RelationTypeEquals.ToPointer(),
 					},
 					components.FacetFilterValue{
-						Value:        apiclientgo.String("Presentation"),
+						Value:        apiclientgo.Pointer("Presentation"),
 						RelationType: components.RelationTypeEquals.ToPointer(),
 					},
 				},

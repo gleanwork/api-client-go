@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // FollowupAction - A follow-up action that can be invoked by the user after a response. The action parameters are not included and need to be predicted/filled separately.
 type FollowupAction struct {
 	// Unique identifier for this actionRun recommendation event.
@@ -18,44 +22,55 @@ type FollowupAction struct {
 	UserConfirmationRequired *bool `json:"userConfirmationRequired,omitempty"`
 }
 
-func (o *FollowupAction) GetActionRunID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.ActionRunID
+func (f FollowupAction) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(f, "", false)
 }
 
-func (o *FollowupAction) GetActionInstanceID() *string {
-	if o == nil {
-		return nil
+func (f *FollowupAction) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &f, "", false, nil); err != nil {
+		return err
 	}
-	return o.ActionInstanceID
+	return nil
 }
 
-func (o *FollowupAction) GetActionID() *string {
-	if o == nil {
+func (f *FollowupAction) GetActionRunID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ActionID
+	return f.ActionRunID
 }
 
-func (o *FollowupAction) GetRecommendationText() *string {
-	if o == nil {
+func (f *FollowupAction) GetActionInstanceID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.RecommendationText
+	return f.ActionInstanceID
 }
 
-func (o *FollowupAction) GetActionLabel() *string {
-	if o == nil {
+func (f *FollowupAction) GetActionID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ActionLabel
+	return f.ActionID
 }
 
-func (o *FollowupAction) GetUserConfirmationRequired() *bool {
-	if o == nil {
+func (f *FollowupAction) GetRecommendationText() *string {
+	if f == nil {
 		return nil
 	}
-	return o.UserConfirmationRequired
+	return f.RecommendationText
+}
+
+func (f *FollowupAction) GetActionLabel() *string {
+	if f == nil {
+		return nil
+	}
+	return f.ActionLabel
+}
+
+func (f *FollowupAction) GetUserConfirmationRequired() *bool {
+	if f == nil {
+		return nil
+	}
+	return f.UserConfirmationRequired
 }

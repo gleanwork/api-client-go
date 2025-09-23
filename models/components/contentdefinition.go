@@ -11,23 +11,23 @@ type ContentDefinition struct {
 	BinaryContent *string `json:"binaryContent,omitempty"`
 }
 
-func (o *ContentDefinition) GetMimeType() string {
-	if o == nil {
+func (c *ContentDefinition) GetMimeType() string {
+	if c == nil {
 		return ""
 	}
-	return o.MimeType
+	return c.MimeType
 }
 
-func (o *ContentDefinition) GetTextContent() *string {
-	if o == nil {
+func (c *ContentDefinition) GetTextContent() *string {
+	if c == nil {
 		return nil
 	}
-	return o.TextContent
+	return c.TextContent
 }
 
-func (o *ContentDefinition) GetBinaryContent() *string {
-	if o == nil {
+func (c *ContentDefinition) GetBinaryContent() *string {
+	if c == nil {
 		return nil
 	}
-	return o.BinaryContent
+	return c.BinaryContent
 }

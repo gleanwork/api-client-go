@@ -7,16 +7,16 @@ type AddCollectionItemsResponse struct {
 	Error      *AddCollectionItemsError `json:"error,omitempty"`
 }
 
-func (o *AddCollectionItemsResponse) GetCollection() *Collection {
-	if o == nil {
+func (a *AddCollectionItemsResponse) GetCollection() *Collection {
+	if a == nil {
 		return nil
 	}
-	return o.Collection
+	return a.Collection
 }
 
-func (o *AddCollectionItemsResponse) GetError() *AddCollectionItemsError {
-	if o == nil {
+func (a *AddCollectionItemsResponse) GetError() *AddCollectionItemsError {
+	if a == nil {
 		return nil
 	}
-	return o.Error
+	return a.Error
 }

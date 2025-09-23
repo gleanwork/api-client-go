@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type AppResult struct {
 	// The app or other repository type this represents
 	Datasource string `json:"datasource"`
@@ -13,30 +17,41 @@ type AppResult struct {
 	IconURL *string `json:"iconUrl,omitempty"`
 }
 
-func (o *AppResult) GetDatasource() string {
-	if o == nil {
+func (a AppResult) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *AppResult) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, []string{"datasource"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *AppResult) GetDatasource() string {
+	if a == nil {
 		return ""
 	}
-	return o.Datasource
+	return a.Datasource
 }
 
-func (o *AppResult) GetDocType() *string {
-	if o == nil {
+func (a *AppResult) GetDocType() *string {
+	if a == nil {
 		return nil
 	}
-	return o.DocType
+	return a.DocType
 }
 
-func (o *AppResult) GetMimeType() *string {
-	if o == nil {
+func (a *AppResult) GetMimeType() *string {
+	if a == nil {
 		return nil
 	}
-	return o.MimeType
+	return a.MimeType
 }
 
-func (o *AppResult) GetIconURL() *string {
-	if o == nil {
+func (a *AppResult) GetIconURL() *string {
+	if a == nil {
 		return nil
 	}
-	return o.IconURL
+	return a.IconURL
 }

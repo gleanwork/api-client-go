@@ -6,9 +6,9 @@ type StructuredTextMutableProperties struct {
 	Text string `json:"text"`
 }
 
-func (o *StructuredTextMutableProperties) GetText() string {
-	if o == nil {
+func (s *StructuredTextMutableProperties) GetText() string {
+	if s == nil {
 		return ""
 	}
-	return o.Text
+	return s.Text
 }

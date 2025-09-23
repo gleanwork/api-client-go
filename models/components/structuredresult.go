@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 // Prominence - The level of visual distinction that should be given to a result.
@@ -96,156 +97,167 @@ type StructuredResult struct {
 	Source *StructuredResultSource `json:"source,omitempty"`
 }
 
-func (o *StructuredResult) GetDocument() *Document {
-	if o == nil {
-		return nil
-	}
-	return o.Document
+func (s StructuredResult) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (o *StructuredResult) GetPerson() *Person {
-	if o == nil {
-		return nil
+func (s *StructuredResult) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
+		return err
 	}
-	return o.Person
+	return nil
 }
 
-func (o *StructuredResult) GetCustomer() *Customer {
-	if o == nil {
+func (s *StructuredResult) GetDocument() *Document {
+	if s == nil {
 		return nil
 	}
-	return o.Customer
+	return s.Document
 }
 
-func (o *StructuredResult) GetTeam() *Team {
-	if o == nil {
+func (s *StructuredResult) GetPerson() *Person {
+	if s == nil {
 		return nil
 	}
-	return o.Team
+	return s.Person
 }
 
-func (o *StructuredResult) GetCustomEntity() *CustomEntity {
-	if o == nil {
+func (s *StructuredResult) GetCustomer() *Customer {
+	if s == nil {
 		return nil
 	}
-	return o.CustomEntity
+	return s.Customer
 }
 
-func (o *StructuredResult) GetAnswer() *Answer {
-	if o == nil {
+func (s *StructuredResult) GetTeam() *Team {
+	if s == nil {
 		return nil
 	}
-	return o.Answer
+	return s.Team
 }
 
-func (o *StructuredResult) GetGeneratedQna() *GeneratedQna {
-	if o == nil {
+func (s *StructuredResult) GetCustomEntity() *CustomEntity {
+	if s == nil {
 		return nil
 	}
-	return o.GeneratedQna
+	return s.CustomEntity
 }
 
-func (o *StructuredResult) GetExtractedQnA() *ExtractedQnA {
-	if o == nil {
+func (s *StructuredResult) GetAnswer() *Answer {
+	if s == nil {
 		return nil
 	}
-	return o.ExtractedQnA
+	return s.Answer
 }
 
-func (o *StructuredResult) GetMeeting() *Meeting {
-	if o == nil {
+func (s *StructuredResult) GetGeneratedQna() *GeneratedQna {
+	if s == nil {
 		return nil
 	}
-	return o.Meeting
+	return s.GeneratedQna
 }
 
-func (o *StructuredResult) GetApp() *AppResult {
-	if o == nil {
+func (s *StructuredResult) GetExtractedQnA() *ExtractedQnA {
+	if s == nil {
 		return nil
 	}
-	return o.App
+	return s.ExtractedQnA
 }
 
-func (o *StructuredResult) GetCollection() *Collection {
-	if o == nil {
+func (s *StructuredResult) GetMeeting() *Meeting {
+	if s == nil {
 		return nil
 	}
-	return o.Collection
+	return s.Meeting
 }
 
-func (o *StructuredResult) GetAnswerBoard() *AnswerBoard {
-	if o == nil {
+func (s *StructuredResult) GetApp() *AppResult {
+	if s == nil {
 		return nil
 	}
-	return o.AnswerBoard
+	return s.App
 }
 
-func (o *StructuredResult) GetCode() *Code {
-	if o == nil {
+func (s *StructuredResult) GetCollection() *Collection {
+	if s == nil {
 		return nil
 	}
-	return o.Code
+	return s.Collection
 }
 
-func (o *StructuredResult) GetShortcut() *Shortcut {
-	if o == nil {
+func (s *StructuredResult) GetAnswerBoard() *AnswerBoard {
+	if s == nil {
 		return nil
 	}
-	return o.Shortcut
+	return s.AnswerBoard
 }
 
-func (o *StructuredResult) GetQuerySuggestions() *QuerySuggestionList {
-	if o == nil {
+func (s *StructuredResult) GetCode() *Code {
+	if s == nil {
 		return nil
 	}
-	return o.QuerySuggestions
+	return s.Code
 }
 
-func (o *StructuredResult) GetRelatedDocuments() []RelatedDocuments {
-	if o == nil {
+func (s *StructuredResult) GetShortcut() *Shortcut {
+	if s == nil {
 		return nil
 	}
-	return o.RelatedDocuments
+	return s.Shortcut
 }
 
-func (o *StructuredResult) GetRelatedQuestion() *RelatedQuestion {
-	if o == nil {
+func (s *StructuredResult) GetQuerySuggestions() *QuerySuggestionList {
+	if s == nil {
 		return nil
 	}
-	return o.RelatedQuestion
+	return s.QuerySuggestions
 }
 
-func (o *StructuredResult) GetDisambiguation() *Disambiguation {
-	if o == nil {
+func (s *StructuredResult) GetRelatedDocuments() []RelatedDocuments {
+	if s == nil {
 		return nil
 	}
-	return o.Disambiguation
+	return s.RelatedDocuments
 }
 
-func (o *StructuredResult) GetSnippets() []SearchResultSnippet {
-	if o == nil {
+func (s *StructuredResult) GetRelatedQuestion() *RelatedQuestion {
+	if s == nil {
 		return nil
 	}
-	return o.Snippets
+	return s.RelatedQuestion
 }
 
-func (o *StructuredResult) GetTrackingToken() *string {
-	if o == nil {
+func (s *StructuredResult) GetDisambiguation() *Disambiguation {
+	if s == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return s.Disambiguation
 }
 
-func (o *StructuredResult) GetProminence() *Prominence {
-	if o == nil {
+func (s *StructuredResult) GetSnippets() []SearchResultSnippet {
+	if s == nil {
 		return nil
 	}
-	return o.Prominence
+	return s.Snippets
 }
 
-func (o *StructuredResult) GetSource() *StructuredResultSource {
-	if o == nil {
+func (s *StructuredResult) GetTrackingToken() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Source
+	return s.TrackingToken
+}
+
+func (s *StructuredResult) GetProminence() *Prominence {
+	if s == nil {
+		return nil
+	}
+	return s.Prominence
+}
+
+func (s *StructuredResult) GetSource() *StructuredResultSource {
+	if s == nil {
+		return nil
+	}
+	return s.Source
 }

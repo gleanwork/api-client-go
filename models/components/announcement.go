@@ -70,18 +70,18 @@ type AnnouncementViewerInfo struct {
 	IsRead *bool `json:"isRead,omitempty"`
 }
 
-func (o *AnnouncementViewerInfo) GetIsDismissed() *bool {
-	if o == nil {
+func (a *AnnouncementViewerInfo) GetIsDismissed() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.IsDismissed
+	return a.IsDismissed
 }
 
-func (o *AnnouncementViewerInfo) GetIsRead() *bool {
-	if o == nil {
+func (a *AnnouncementViewerInfo) GetIsRead() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.IsRead
+	return a.IsRead
 }
 
 type Announcement struct {
@@ -132,176 +132,176 @@ func (a Announcement) MarshalJSON() ([]byte, error) {
 }
 
 func (a *Announcement) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Announcement) GetStartTime() *time.Time {
-	if o == nil {
+func (a *Announcement) GetStartTime() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.StartTime
+	return a.StartTime
 }
 
-func (o *Announcement) GetEndTime() *time.Time {
-	if o == nil {
+func (a *Announcement) GetEndTime() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.EndTime
+	return a.EndTime
 }
 
-func (o *Announcement) GetTitle() *string {
-	if o == nil {
+func (a *Announcement) GetTitle() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Title
+	return a.Title
 }
 
-func (o *Announcement) GetBody() *StructuredText {
-	if o == nil {
+func (a *Announcement) GetBody() *StructuredText {
+	if a == nil {
 		return nil
 	}
-	return o.Body
+	return a.Body
 }
 
-func (o *Announcement) GetEmoji() *string {
-	if o == nil {
+func (a *Announcement) GetEmoji() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Emoji
+	return a.Emoji
 }
 
-func (o *Announcement) GetThumbnail() *Thumbnail {
-	if o == nil {
+func (a *Announcement) GetThumbnail() *Thumbnail {
+	if a == nil {
 		return nil
 	}
-	return o.Thumbnail
+	return a.Thumbnail
 }
 
-func (o *Announcement) GetBanner() *Thumbnail {
-	if o == nil {
+func (a *Announcement) GetBanner() *Thumbnail {
+	if a == nil {
 		return nil
 	}
-	return o.Banner
+	return a.Banner
 }
 
-func (o *Announcement) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (a *Announcement) GetAudienceFilters() []FacetFilter {
+	if a == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return a.AudienceFilters
 }
 
-func (o *Announcement) GetSourceDocumentID() *string {
-	if o == nil {
+func (a *Announcement) GetSourceDocumentID() *string {
+	if a == nil {
 		return nil
 	}
-	return o.SourceDocumentID
+	return a.SourceDocumentID
 }
 
-func (o *Announcement) GetHideAttribution() *bool {
-	if o == nil {
+func (a *Announcement) GetHideAttribution() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.HideAttribution
+	return a.HideAttribution
 }
 
-func (o *Announcement) GetChannel() *AnnouncementChannel {
-	if o == nil {
+func (a *Announcement) GetChannel() *AnnouncementChannel {
+	if a == nil {
 		return nil
 	}
-	return o.Channel
+	return a.Channel
 }
 
-func (o *Announcement) GetPostType() *AnnouncementPostType {
-	if o == nil {
+func (a *Announcement) GetPostType() *AnnouncementPostType {
+	if a == nil {
 		return nil
 	}
-	return o.PostType
+	return a.PostType
 }
 
-func (o *Announcement) GetIsPrioritized() *bool {
-	if o == nil {
+func (a *Announcement) GetIsPrioritized() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.IsPrioritized
+	return a.IsPrioritized
 }
 
-func (o *Announcement) GetViewURL() *string {
-	if o == nil {
+func (a *Announcement) GetViewURL() *string {
+	if a == nil {
 		return nil
 	}
-	return o.ViewURL
+	return a.ViewURL
 }
 
-func (o *Announcement) GetDraftID() *int64 {
-	if o == nil {
+func (a *Announcement) GetDraftID() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.DraftID
+	return a.DraftID
 }
 
-func (o *Announcement) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (a *Announcement) GetPermissions() *ObjectPermissions {
+	if a == nil {
 		return nil
 	}
-	return o.Permissions
+	return a.Permissions
 }
 
-func (o *Announcement) GetID() *int64 {
-	if o == nil {
+func (a *Announcement) GetID() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.ID
+	return a.ID
 }
 
-func (o *Announcement) GetAuthor() *Person {
-	if o == nil {
+func (a *Announcement) GetAuthor() *Person {
+	if a == nil {
 		return nil
 	}
-	return o.Author
+	return a.Author
 }
 
-func (o *Announcement) GetCreateTimestamp() *int64 {
-	if o == nil {
+func (a *Announcement) GetCreateTimestamp() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.CreateTimestamp
+	return a.CreateTimestamp
 }
 
-func (o *Announcement) GetLastUpdateTimestamp() *int64 {
-	if o == nil {
+func (a *Announcement) GetLastUpdateTimestamp() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.LastUpdateTimestamp
+	return a.LastUpdateTimestamp
 }
 
-func (o *Announcement) GetUpdatedBy() *Person {
-	if o == nil {
+func (a *Announcement) GetUpdatedBy() *Person {
+	if a == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return a.UpdatedBy
 }
 
-func (o *Announcement) GetViewerInfo() *AnnouncementViewerInfo {
-	if o == nil {
+func (a *Announcement) GetViewerInfo() *AnnouncementViewerInfo {
+	if a == nil {
 		return nil
 	}
-	return o.ViewerInfo
+	return a.ViewerInfo
 }
 
-func (o *Announcement) GetSourceDocument() *Document {
-	if o == nil {
+func (a *Announcement) GetSourceDocument() *Document {
+	if a == nil {
 		return nil
 	}
-	return o.SourceDocument
+	return a.SourceDocument
 }
 
-func (o *Announcement) GetIsPublished() *bool {
-	if o == nil {
+func (a *Announcement) GetIsPublished() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.IsPublished
+	return a.IsPublished
 }

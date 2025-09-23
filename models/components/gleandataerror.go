@@ -12,30 +12,30 @@ type GleanDataError struct {
 	ErrorMessages    []ErrorMessage              `json:"errorMessages,omitempty"`
 }
 
-func (o *GleanDataError) GetBadGmailToken() *bool {
-	if o == nil {
+func (g *GleanDataError) GetBadGmailToken() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.BadGmailToken
+	return g.BadGmailToken
 }
 
-func (o *GleanDataError) GetBadOutlookToken() *bool {
-	if o == nil {
+func (g *GleanDataError) GetBadOutlookToken() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.BadOutlookToken
+	return g.BadOutlookToken
 }
 
-func (o *GleanDataError) GetInvalidOperators() []InvalidOperatorValueError {
-	if o == nil {
+func (g *GleanDataError) GetInvalidOperators() []InvalidOperatorValueError {
+	if g == nil {
 		return nil
 	}
-	return o.InvalidOperators
+	return g.InvalidOperators
 }
 
-func (o *GleanDataError) GetErrorMessages() []ErrorMessage {
-	if o == nil {
+func (g *GleanDataError) GetErrorMessages() []ErrorMessage {
+	if g == nil {
 		return nil
 	}
-	return o.ErrorMessages
+	return g.ErrorMessages
 }

@@ -12,23 +12,23 @@ type IndexMembershipRequest struct {
 	Membership DatasourceMembershipDefinition `json:"membership"`
 }
 
-func (o *IndexMembershipRequest) GetVersion() *int64 {
-	if o == nil {
+func (i *IndexMembershipRequest) GetVersion() *int64 {
+	if i == nil {
 		return nil
 	}
-	return o.Version
+	return i.Version
 }
 
-func (o *IndexMembershipRequest) GetDatasource() string {
-	if o == nil {
+func (i *IndexMembershipRequest) GetDatasource() string {
+	if i == nil {
 		return ""
 	}
-	return o.Datasource
+	return i.Datasource
 }
 
-func (o *IndexMembershipRequest) GetMembership() DatasourceMembershipDefinition {
-	if o == nil {
+func (i *IndexMembershipRequest) GetMembership() DatasourceMembershipDefinition {
+	if i == nil {
 		return DatasourceMembershipDefinition{}
 	}
-	return o.Membership
+	return i.Membership
 }

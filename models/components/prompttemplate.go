@@ -27,93 +27,93 @@ type PromptTemplate struct {
 	Roles []UserRoleSpecification `json:"roles,omitempty"`
 }
 
-func (o *PromptTemplate) GetName() *string {
-	if o == nil {
+func (p *PromptTemplate) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PromptTemplate) GetTemplate() string {
-	if o == nil {
+func (p *PromptTemplate) GetTemplate() string {
+	if p == nil {
 		return ""
 	}
-	return o.Template
+	return p.Template
 }
 
-func (o *PromptTemplate) GetApplicationID() *string {
-	if o == nil {
+func (p *PromptTemplate) GetApplicationID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ApplicationID
+	return p.ApplicationID
 }
 
-func (o *PromptTemplate) GetInclusions() *ChatRestrictionFilters {
-	if o == nil {
+func (p *PromptTemplate) GetInclusions() *ChatRestrictionFilters {
+	if p == nil {
 		return nil
 	}
-	return o.Inclusions
+	return p.Inclusions
 }
 
-func (o *PromptTemplate) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (p *PromptTemplate) GetAddedRoles() []UserRoleSpecification {
+	if p == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return p.AddedRoles
 }
 
-func (o *PromptTemplate) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (p *PromptTemplate) GetRemovedRoles() []UserRoleSpecification {
+	if p == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return p.RemovedRoles
 }
 
-func (o *PromptTemplate) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (p *PromptTemplate) GetPermissions() *ObjectPermissions {
+	if p == nil {
 		return nil
 	}
-	return o.Permissions
+	return p.Permissions
 }
 
-func (o *PromptTemplate) GetID() *string {
-	if o == nil {
+func (p *PromptTemplate) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PromptTemplate) GetAuthor() *Person {
-	if o == nil {
+func (p *PromptTemplate) GetAuthor() *Person {
+	if p == nil {
 		return nil
 	}
-	return o.Author
+	return p.Author
 }
 
-func (o *PromptTemplate) GetCreateTimestamp() *int64 {
-	if o == nil {
+func (p *PromptTemplate) GetCreateTimestamp() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.CreateTimestamp
+	return p.CreateTimestamp
 }
 
-func (o *PromptTemplate) GetLastUpdateTimestamp() *int64 {
-	if o == nil {
+func (p *PromptTemplate) GetLastUpdateTimestamp() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.LastUpdateTimestamp
+	return p.LastUpdateTimestamp
 }
 
-func (o *PromptTemplate) GetLastUpdatedBy() *Person {
-	if o == nil {
+func (p *PromptTemplate) GetLastUpdatedBy() *Person {
+	if p == nil {
 		return nil
 	}
-	return o.LastUpdatedBy
+	return p.LastUpdatedBy
 }
 
-func (o *PromptTemplate) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (p *PromptTemplate) GetRoles() []UserRoleSpecification {
+	if p == nil {
 		return nil
 	}
-	return o.Roles
+	return p.Roles
 }

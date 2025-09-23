@@ -10,16 +10,16 @@ type IndexTeamRequest struct {
 	Version *int64 `json:"version,omitempty"`
 }
 
-func (o *IndexTeamRequest) GetTeam() TeamInfoDefinition {
-	if o == nil {
+func (i *IndexTeamRequest) GetTeam() TeamInfoDefinition {
+	if i == nil {
 		return TeamInfoDefinition{}
 	}
-	return o.Team
+	return i.Team
 }
 
-func (o *IndexTeamRequest) GetVersion() *int64 {
-	if o == nil {
+func (i *IndexTeamRequest) GetVersion() *int64 {
+	if i == nil {
 		return nil
 	}
-	return o.Version
+	return i.Version
 }

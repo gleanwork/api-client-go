@@ -12,16 +12,16 @@ type ListentitiesResponse struct {
 	ListEntitiesResponse *components.ListEntitiesResponse
 }
 
-func (o *ListentitiesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListentitiesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListentitiesResponse) GetListEntitiesResponse() *components.ListEntitiesResponse {
-	if o == nil {
+func (l *ListentitiesResponse) GetListEntitiesResponse() *components.ListEntitiesResponse {
+	if l == nil {
 		return nil
 	}
-	return o.ListEntitiesResponse
+	return l.ListEntitiesResponse
 }

@@ -9,23 +9,23 @@ type ChatRestrictionFilters struct {
 	DatasourceInstances []string            `json:"datasourceInstances,omitempty"`
 }
 
-func (o *ChatRestrictionFilters) GetContainerSpecs() []DocumentSpecUnion {
-	if o == nil {
+func (c *ChatRestrictionFilters) GetContainerSpecs() []DocumentSpecUnion {
+	if c == nil {
 		return nil
 	}
-	return o.ContainerSpecs
+	return c.ContainerSpecs
 }
 
-func (o *ChatRestrictionFilters) GetDocumentSpecs() []DocumentSpecUnion {
-	if o == nil {
+func (c *ChatRestrictionFilters) GetDocumentSpecs() []DocumentSpecUnion {
+	if c == nil {
 		return nil
 	}
-	return o.DocumentSpecs
+	return c.DocumentSpecs
 }
 
-func (o *ChatRestrictionFilters) GetDatasourceInstances() []string {
-	if o == nil {
+func (c *ChatRestrictionFilters) GetDatasourceInstances() []string {
+	if c == nil {
 		return nil
 	}
-	return o.DatasourceInstances
+	return c.DatasourceInstances
 }

@@ -14,37 +14,37 @@ type AiAppsInsightsResponse struct {
 	Departments []string `json:"departments,omitempty"`
 }
 
-func (o *AiAppsInsightsResponse) GetLastLogTimestamp() *int64 {
-	if o == nil {
+func (a *AiAppsInsightsResponse) GetLastLogTimestamp() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.LastLogTimestamp
+	return a.LastLogTimestamp
 }
 
-func (o *AiAppsInsightsResponse) GetAiAppInsights() []UserActivityInsight {
-	if o == nil {
+func (a *AiAppsInsightsResponse) GetAiAppInsights() []UserActivityInsight {
+	if a == nil {
 		return nil
 	}
-	return o.AiAppInsights
+	return a.AiAppInsights
 }
 
-func (o *AiAppsInsightsResponse) GetTotalActiveUsers() *int64 {
-	if o == nil {
+func (a *AiAppsInsightsResponse) GetTotalActiveUsers() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalActiveUsers
+	return a.TotalActiveUsers
 }
 
-func (o *AiAppsInsightsResponse) GetActionCounts() *AiAppActionCounts {
-	if o == nil {
+func (a *AiAppsInsightsResponse) GetActionCounts() *AiAppActionCounts {
+	if a == nil {
 		return nil
 	}
-	return o.ActionCounts
+	return a.ActionCounts
 }
 
-func (o *AiAppsInsightsResponse) GetDepartments() []string {
-	if o == nil {
+func (a *AiAppsInsightsResponse) GetDepartments() []string {
+	if a == nil {
 		return nil
 	}
-	return o.Departments
+	return a.Departments
 }

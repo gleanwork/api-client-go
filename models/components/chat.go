@@ -18,70 +18,87 @@ type Chat struct {
 	// The display name of the AI App that this Chat is associated to.
 	ApplicationName *string `json:"applicationName,omitempty"`
 	// Defines how to render an icon
-	Icon *IconConfig `json:"icon,omitempty"`
+	Icon        *IconConfig        `json:"icon,omitempty"`
+	Permissions *ObjectPermissions `json:"permissions,omitempty"`
 	// The chat messages within a Chat.
 	Messages []ChatMessage `json:"messages,omitempty"`
+	// A list of roles for this Chat.
+	Roles []UserRoleSpecification `json:"roles,omitempty"`
 }
 
-func (o *Chat) GetID() *string {
-	if o == nil {
+func (c *Chat) GetID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *Chat) GetCreateTime() *int64 {
-	if o == nil {
+func (c *Chat) GetCreateTime() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.CreateTime
+	return c.CreateTime
 }
 
-func (o *Chat) GetCreatedBy() *Person {
-	if o == nil {
+func (c *Chat) GetCreatedBy() *Person {
+	if c == nil {
 		return nil
 	}
-	return o.CreatedBy
+	return c.CreatedBy
 }
 
-func (o *Chat) GetUpdateTime() *int64 {
-	if o == nil {
+func (c *Chat) GetUpdateTime() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return c.UpdateTime
 }
 
-func (o *Chat) GetName() *string {
-	if o == nil {
+func (c *Chat) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *Chat) GetApplicationID() *string {
-	if o == nil {
+func (c *Chat) GetApplicationID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ApplicationID
+	return c.ApplicationID
 }
 
-func (o *Chat) GetApplicationName() *string {
-	if o == nil {
+func (c *Chat) GetApplicationName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ApplicationName
+	return c.ApplicationName
 }
 
-func (o *Chat) GetIcon() *IconConfig {
-	if o == nil {
+func (c *Chat) GetIcon() *IconConfig {
+	if c == nil {
 		return nil
 	}
-	return o.Icon
+	return c.Icon
 }
 
-func (o *Chat) GetMessages() []ChatMessage {
-	if o == nil {
+func (c *Chat) GetPermissions() *ObjectPermissions {
+	if c == nil {
 		return nil
 	}
-	return o.Messages
+	return c.Permissions
+}
+
+func (c *Chat) GetMessages() []ChatMessage {
+	if c == nil {
+		return nil
+	}
+	return c.Messages
+}
+
+func (c *Chat) GetRoles() []UserRoleSpecification {
+	if c == nil {
+		return nil
+	}
+	return c.Roles
 }

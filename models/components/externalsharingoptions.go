@@ -25,65 +25,65 @@ type ExternalSharingOptions struct {
 	DomainAccessEnabled *bool    `json:"domainAccessEnabled,omitempty"`
 }
 
-func (o *ExternalSharingOptions) GetEnabled() *bool {
-	if o == nil {
+func (e *ExternalSharingOptions) GetEnabled() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.Enabled
+	return e.Enabled
 }
 
-func (o *ExternalSharingOptions) GetThreshold() *int64 {
-	if o == nil {
+func (e *ExternalSharingOptions) GetThreshold() *int64 {
+	if e == nil {
 		return nil
 	}
-	return o.Threshold
+	return e.Threshold
 }
 
-func (o *ExternalSharingOptions) GetThresholdEnabled() *bool {
-	if o == nil {
+func (e *ExternalSharingOptions) GetThresholdEnabled() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.ThresholdEnabled
+	return e.ThresholdEnabled
 }
 
-func (o *ExternalSharingOptions) GetAnyoneWithLinkEnabled() *bool {
-	if o == nil {
+func (e *ExternalSharingOptions) GetAnyoneWithLinkEnabled() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.AnyoneWithLinkEnabled
+	return e.AnyoneWithLinkEnabled
 }
 
-func (o *ExternalSharingOptions) GetAnyoneInternalEnabled() *bool {
-	if o == nil {
+func (e *ExternalSharingOptions) GetAnyoneInternalEnabled() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.AnyoneInternalEnabled
+	return e.AnyoneInternalEnabled
 }
 
-func (o *ExternalSharingOptions) GetAnonymousAccessEnabled() *bool {
-	if o == nil {
+func (e *ExternalSharingOptions) GetAnonymousAccessEnabled() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.AnonymousAccessEnabled
+	return e.AnonymousAccessEnabled
 }
 
-func (o *ExternalSharingOptions) GetUserAccessEnabled() *bool {
-	if o == nil {
+func (e *ExternalSharingOptions) GetUserAccessEnabled() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.UserAccessEnabled
+	return e.UserAccessEnabled
 }
 
-func (o *ExternalSharingOptions) GetUserIds() []string {
-	if o == nil {
+func (e *ExternalSharingOptions) GetUserIds() []string {
+	if e == nil {
 		return nil
 	}
-	return o.UserIds
+	return e.UserIds
 }
 
-func (o *ExternalSharingOptions) GetDomainAccessEnabled() *bool {
-	if o == nil {
+func (e *ExternalSharingOptions) GetDomainAccessEnabled() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.DomainAccessEnabled
+	return e.DomainAccessEnabled
 }

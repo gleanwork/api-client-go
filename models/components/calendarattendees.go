@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CalendarAttendees struct {
 	// Full details of some of the attendees of this event
 	People []CalendarAttendee `json:"people,omitempty"`
@@ -19,51 +23,62 @@ type CalendarAttendees struct {
 	NumTentative *int64 `json:"numTentative,omitempty"`
 }
 
-func (o *CalendarAttendees) GetPeople() []CalendarAttendee {
-	if o == nil {
-		return nil
-	}
-	return o.People
+func (c CalendarAttendees) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CalendarAttendees) GetIsLimit() *bool {
-	if o == nil {
-		return nil
+func (c *CalendarAttendees) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
 	}
-	return o.IsLimit
+	return nil
 }
 
-func (o *CalendarAttendees) GetTotal() *int64 {
-	if o == nil {
+func (c *CalendarAttendees) GetPeople() []CalendarAttendee {
+	if c == nil {
 		return nil
 	}
-	return o.Total
+	return c.People
 }
 
-func (o *CalendarAttendees) GetNumAccepted() *int64 {
-	if o == nil {
+func (c *CalendarAttendees) GetIsLimit() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.NumAccepted
+	return c.IsLimit
 }
 
-func (o *CalendarAttendees) GetNumDeclined() *int64 {
-	if o == nil {
+func (c *CalendarAttendees) GetTotal() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.NumDeclined
+	return c.Total
 }
 
-func (o *CalendarAttendees) GetNumNoResponse() *int64 {
-	if o == nil {
+func (c *CalendarAttendees) GetNumAccepted() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.NumNoResponse
+	return c.NumAccepted
 }
 
-func (o *CalendarAttendees) GetNumTentative() *int64 {
-	if o == nil {
+func (c *CalendarAttendees) GetNumDeclined() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.NumTentative
+	return c.NumDeclined
+}
+
+func (c *CalendarAttendees) GetNumNoResponse() *int64 {
+	if c == nil {
+		return nil
+	}
+	return c.NumNoResponse
+}
+
+func (c *CalendarAttendees) GetNumTentative() *int64 {
+	if c == nil {
+		return nil
+	}
+	return c.NumTentative
 }

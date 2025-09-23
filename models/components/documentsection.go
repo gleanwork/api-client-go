@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type DocumentSection struct {
 	// The title of the document section (e.g. the section header).
 	Title *string `json:"title,omitempty"`
@@ -9,16 +13,27 @@ type DocumentSection struct {
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *DocumentSection) GetTitle() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Title
+func (d DocumentSection) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
 }
 
-func (o *DocumentSection) GetURL() *string {
-	if o == nil {
+func (d *DocumentSection) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (d *DocumentSection) GetTitle() *string {
+	if d == nil {
 		return nil
 	}
-	return o.URL
+	return d.Title
+}
+
+func (d *DocumentSection) GetURL() *string {
+	if d == nil {
+		return nil
+	}
+	return d.URL
 }

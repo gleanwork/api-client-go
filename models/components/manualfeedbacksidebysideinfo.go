@@ -86,58 +86,58 @@ type ManualFeedbackSideBySideInfo struct {
 	Comments *string `json:"comments,omitempty"`
 }
 
-func (o *ManualFeedbackSideBySideInfo) GetEmail() *string {
-	if o == nil {
+func (m *ManualFeedbackSideBySideInfo) GetEmail() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Email
+	return m.Email
 }
 
-func (o *ManualFeedbackSideBySideInfo) GetSource() *ManualFeedbackSideBySideInfoSource {
-	if o == nil {
+func (m *ManualFeedbackSideBySideInfo) GetSource() *ManualFeedbackSideBySideInfoSource {
+	if m == nil {
 		return nil
 	}
-	return o.Source
+	return m.Source
 }
 
-func (o *ManualFeedbackSideBySideInfo) GetQuery() *string {
-	if o == nil {
+func (m *ManualFeedbackSideBySideInfo) GetQuery() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Query
+	return m.Query
 }
 
-func (o *ManualFeedbackSideBySideInfo) GetImplementations() []SideBySideImplementation {
-	if o == nil {
+func (m *ManualFeedbackSideBySideInfo) GetImplementations() []SideBySideImplementation {
+	if m == nil {
 		return nil
 	}
-	return o.Implementations
+	return m.Implementations
 }
 
-func (o *ManualFeedbackSideBySideInfo) GetEvaluationSessionID() *string {
-	if o == nil {
+func (m *ManualFeedbackSideBySideInfo) GetEvaluationSessionID() *string {
+	if m == nil {
 		return nil
 	}
-	return o.EvaluationSessionID
+	return m.EvaluationSessionID
 }
 
-func (o *ManualFeedbackSideBySideInfo) GetImplementationID() *string {
-	if o == nil {
+func (m *ManualFeedbackSideBySideInfo) GetImplementationID() *string {
+	if m == nil {
 		return nil
 	}
-	return o.ImplementationID
+	return m.ImplementationID
 }
 
-func (o *ManualFeedbackSideBySideInfo) GetVote() *ManualFeedbackSideBySideInfoVote {
-	if o == nil {
+func (m *ManualFeedbackSideBySideInfo) GetVote() *ManualFeedbackSideBySideInfoVote {
+	if m == nil {
 		return nil
 	}
-	return o.Vote
+	return m.Vote
 }
 
-func (o *ManualFeedbackSideBySideInfo) GetComments() *string {
-	if o == nil {
+func (m *ManualFeedbackSideBySideInfo) GetComments() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Comments
+	return m.Comments
 }

@@ -2,22 +2,37 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CollectionPinMetadata struct {
 	// The ID of the Collection.
 	ID     int64               `json:"id"`
 	Target CollectionPinTarget `json:"target"`
 }
 
-func (o *CollectionPinMetadata) GetID() int64 {
-	if o == nil {
-		return 0
-	}
-	return o.ID
+func (c CollectionPinMetadata) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CollectionPinMetadata) GetTarget() CollectionPinTarget {
-	if o == nil {
+func (c *CollectionPinMetadata) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"id", "target"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CollectionPinMetadata) GetID() int64 {
+	if c == nil {
+		return 0
+	}
+	return c.ID
+}
+
+func (c *CollectionPinMetadata) GetTarget() CollectionPinTarget {
+	if c == nil {
 		return CollectionPinTarget{}
 	}
-	return o.Target
+	return c.Target
 }

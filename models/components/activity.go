@@ -6,9 +6,9 @@ type Activity struct {
 	Events []ActivityEvent `json:"events"`
 }
 
-func (o *Activity) GetEvents() []ActivityEvent {
-	if o == nil {
+func (a *Activity) GetEvents() []ActivityEvent {
+	if a == nil {
 		return []ActivityEvent{}
 	}
-	return o.Events
+	return a.Events
 }

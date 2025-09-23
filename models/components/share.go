@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // Share - Search endpoint will only fill out numDays ago since that's all we need to display shared badge; docmetadata endpoint will fill out all the fields so that we can display shared badge tooltip
 type Share struct {
 	// The number of days that has passed since the share happened
@@ -10,23 +14,34 @@ type Share struct {
 	SharingDocument *Document `json:"sharingDocument,omitempty"`
 }
 
-func (o *Share) GetNumDaysAgo() int64 {
-	if o == nil {
+func (s Share) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *Share) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"numDaysAgo"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *Share) GetNumDaysAgo() int64 {
+	if s == nil {
 		return 0
 	}
-	return o.NumDaysAgo
+	return s.NumDaysAgo
 }
 
-func (o *Share) GetSharer() *Person {
-	if o == nil {
+func (s *Share) GetSharer() *Person {
+	if s == nil {
 		return nil
 	}
-	return o.Sharer
+	return s.Sharer
 }
 
-func (o *Share) GetSharingDocument() *Document {
-	if o == nil {
+func (s *Share) GetSharingDocument() *Document {
+	if s == nil {
 		return nil
 	}
-	return o.SharingDocument
+	return s.SharingDocument
 }

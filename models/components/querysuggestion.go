@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type QuerySuggestion struct {
 	// A query term missing from the original query on which this suggestion is based.
 	MissingTerm *string `json:"missingTerm,omitempty"`
@@ -18,58 +22,69 @@ type QuerySuggestion struct {
 	InputDetails *SearchRequestInputDetails `json:"inputDetails,omitempty"`
 }
 
-func (o *QuerySuggestion) GetMissingTerm() *string {
-	if o == nil {
-		return nil
-	}
-	return o.MissingTerm
+func (q QuerySuggestion) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(q, "", false)
 }
 
-func (o *QuerySuggestion) GetQuery() string {
-	if o == nil {
+func (q *QuerySuggestion) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &q, "", false, []string{"query"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (q *QuerySuggestion) GetMissingTerm() *string {
+	if q == nil {
+		return nil
+	}
+	return q.MissingTerm
+}
+
+func (q *QuerySuggestion) GetQuery() string {
+	if q == nil {
 		return ""
 	}
-	return o.Query
+	return q.Query
 }
 
-func (o *QuerySuggestion) GetSearchProviderInfo() *SearchProviderInfo {
-	if o == nil {
+func (q *QuerySuggestion) GetSearchProviderInfo() *SearchProviderInfo {
+	if q == nil {
 		return nil
 	}
-	return o.SearchProviderInfo
+	return q.SearchProviderInfo
 }
 
-func (o *QuerySuggestion) GetLabel() *string {
-	if o == nil {
+func (q *QuerySuggestion) GetLabel() *string {
+	if q == nil {
 		return nil
 	}
-	return o.Label
+	return q.Label
 }
 
-func (o *QuerySuggestion) GetDatasource() *string {
-	if o == nil {
+func (q *QuerySuggestion) GetDatasource() *string {
+	if q == nil {
 		return nil
 	}
-	return o.Datasource
+	return q.Datasource
 }
 
-func (o *QuerySuggestion) GetRequestOptions() *SearchRequestOptions {
-	if o == nil {
+func (q *QuerySuggestion) GetRequestOptions() *SearchRequestOptions {
+	if q == nil {
 		return nil
 	}
-	return o.RequestOptions
+	return q.RequestOptions
 }
 
-func (o *QuerySuggestion) GetRanges() []TextRange {
-	if o == nil {
+func (q *QuerySuggestion) GetRanges() []TextRange {
+	if q == nil {
 		return nil
 	}
-	return o.Ranges
+	return q.Ranges
 }
 
-func (o *QuerySuggestion) GetInputDetails() *SearchRequestInputDetails {
-	if o == nil {
+func (q *QuerySuggestion) GetInputDetails() *SearchRequestInputDetails {
+	if q == nil {
 		return nil
 	}
-	return o.InputDetails
+	return q.InputDetails
 }

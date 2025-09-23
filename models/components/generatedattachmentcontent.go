@@ -10,16 +10,16 @@ type GeneratedAttachmentContent struct {
 	Text *string `json:"text,omitempty"`
 }
 
-func (o *GeneratedAttachmentContent) GetDisplayHeader() *string {
-	if o == nil {
+func (g *GeneratedAttachmentContent) GetDisplayHeader() *string {
+	if g == nil {
 		return nil
 	}
-	return o.DisplayHeader
+	return g.DisplayHeader
 }
 
-func (o *GeneratedAttachmentContent) GetText() *string {
-	if o == nil {
+func (g *GeneratedAttachmentContent) GetText() *string {
+	if g == nil {
 		return nil
 	}
-	return o.Text
+	return g.Text
 }

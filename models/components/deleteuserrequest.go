@@ -12,23 +12,23 @@ type DeleteUserRequest struct {
 	Email string `json:"email"`
 }
 
-func (o *DeleteUserRequest) GetVersion() *int64 {
-	if o == nil {
+func (d *DeleteUserRequest) GetVersion() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Version
+	return d.Version
 }
 
-func (o *DeleteUserRequest) GetDatasource() string {
-	if o == nil {
+func (d *DeleteUserRequest) GetDatasource() string {
+	if d == nil {
 		return ""
 	}
-	return o.Datasource
+	return d.Datasource
 }
 
-func (o *DeleteUserRequest) GetEmail() string {
-	if o == nil {
+func (d *DeleteUserRequest) GetEmail() string {
+	if d == nil {
 		return ""
 	}
-	return o.Email
+	return d.Email
 }

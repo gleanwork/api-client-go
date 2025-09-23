@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type RelatedQuestion struct {
 	// The text of the related question
 	Question *string `json:"question,omitempty"`
@@ -11,23 +15,34 @@ type RelatedQuestion struct {
 	Ranges []TextRange `json:"ranges,omitempty"`
 }
 
-func (o *RelatedQuestion) GetQuestion() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Question
+func (r RelatedQuestion) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
 }
 
-func (o *RelatedQuestion) GetAnswer() *string {
-	if o == nil {
-		return nil
+func (r *RelatedQuestion) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
+		return err
 	}
-	return o.Answer
+	return nil
 }
 
-func (o *RelatedQuestion) GetRanges() []TextRange {
-	if o == nil {
+func (r *RelatedQuestion) GetQuestion() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Ranges
+	return r.Question
+}
+
+func (r *RelatedQuestion) GetAnswer() *string {
+	if r == nil {
+		return nil
+	}
+	return r.Answer
+}
+
+func (r *RelatedQuestion) GetRanges() []TextRange {
+	if r == nil {
+		return nil
+	}
+	return r.Ranges
 }

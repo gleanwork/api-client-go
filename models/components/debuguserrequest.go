@@ -8,9 +8,9 @@ type DebugUserRequest struct {
 	Email string `json:"email"`
 }
 
-func (o *DebugUserRequest) GetEmail() string {
-	if o == nil {
+func (d *DebugUserRequest) GetEmail() string {
+	if d == nil {
 		return ""
 	}
-	return o.Email
+	return d.Email
 }

@@ -11,20 +11,20 @@ type DeleteallchatsRequest struct {
 	TimezoneOffset *int64 `queryParam:"style=form,explode=true,name=timezoneOffset"`
 }
 
-func (o *DeleteallchatsRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (d *DeleteallchatsRequest) GetTimezoneOffset() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return d.TimezoneOffset
 }
 
 type DeleteallchatsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteallchatsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteallchatsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

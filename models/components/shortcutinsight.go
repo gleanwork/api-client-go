@@ -8,23 +8,23 @@ type ShortcutInsight struct {
 	VisitorCount *CountInfo `json:"visitorCount,omitempty"`
 }
 
-func (o *ShortcutInsight) GetShortcut() Shortcut {
-	if o == nil {
+func (s *ShortcutInsight) GetShortcut() Shortcut {
+	if s == nil {
 		return Shortcut{}
 	}
-	return o.Shortcut
+	return s.Shortcut
 }
 
-func (o *ShortcutInsight) GetVisitCount() *CountInfo {
-	if o == nil {
+func (s *ShortcutInsight) GetVisitCount() *CountInfo {
+	if s == nil {
 		return nil
 	}
-	return o.VisitCount
+	return s.VisitCount
 }
 
-func (o *ShortcutInsight) GetVisitorCount() *CountInfo {
-	if o == nil {
+func (s *ShortcutInsight) GetVisitorCount() *CountInfo {
+	if s == nil {
 		return nil
 	}
-	return o.VisitorCount
+	return s.VisitorCount
 }

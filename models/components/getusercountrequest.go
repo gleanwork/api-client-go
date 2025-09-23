@@ -8,9 +8,9 @@ type GetUserCountRequest struct {
 	Datasource string `json:"datasource"`
 }
 
-func (o *GetUserCountRequest) GetDatasource() string {
-	if o == nil {
+func (g *GetUserCountRequest) GetDatasource() string {
+	if g == nil {
 		return ""
 	}
-	return o.Datasource
+	return g.Datasource
 }

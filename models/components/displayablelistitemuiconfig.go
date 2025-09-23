@@ -8,9 +8,9 @@ type DisplayableListItemUIConfig struct {
 	ShowNewIndicator *bool `json:"showNewIndicator,omitempty"`
 }
 
-func (o *DisplayableListItemUIConfig) GetShowNewIndicator() *bool {
-	if o == nil {
+func (d *DisplayableListItemUIConfig) GetShowNewIndicator() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.ShowNewIndicator
+	return d.ShowNewIndicator
 }

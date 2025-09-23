@@ -7,9 +7,9 @@ type GetDocPermissionsRequest struct {
 	DocumentID *string `json:"documentId,omitempty"`
 }
 
-func (o *GetDocPermissionsRequest) GetDocumentID() *string {
-	if o == nil {
+func (g *GetDocPermissionsRequest) GetDocumentID() *string {
+	if g == nil {
 		return nil
 	}
-	return o.DocumentID
+	return g.DocumentID
 }

@@ -88,155 +88,155 @@ func (t Team) MarshalJSON() ([]byte, error) {
 }
 
 func (t *Team) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &t, "", false, []string{"id", "name"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Team) GetRelatedObjects() map[string]RelatedObjectEdge {
-	if o == nil {
+func (t *Team) GetRelatedObjects() map[string]RelatedObjectEdge {
+	if t == nil {
 		return nil
 	}
-	return o.RelatedObjects
+	return t.RelatedObjects
 }
 
-func (o *Team) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (t *Team) GetPermissions() *ObjectPermissions {
+	if t == nil {
 		return nil
 	}
-	return o.Permissions
+	return t.Permissions
 }
 
-func (o *Team) GetID() string {
-	if o == nil {
+func (t *Team) GetID() string {
+	if t == nil {
 		return ""
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *Team) GetName() string {
-	if o == nil {
+func (t *Team) GetName() string {
+	if t == nil {
 		return ""
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *Team) GetDescription() *string {
-	if o == nil {
+func (t *Team) GetDescription() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Description
+	return t.Description
 }
 
-func (o *Team) GetBusinessUnit() *string {
-	if o == nil {
+func (t *Team) GetBusinessUnit() *string {
+	if t == nil {
 		return nil
 	}
-	return o.BusinessUnit
+	return t.BusinessUnit
 }
 
-func (o *Team) GetDepartment() *string {
-	if o == nil {
+func (t *Team) GetDepartment() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Department
+	return t.Department
 }
 
-func (o *Team) GetPhotoURL() *string {
-	if o == nil {
+func (t *Team) GetPhotoURL() *string {
+	if t == nil {
 		return nil
 	}
-	return o.PhotoURL
+	return t.PhotoURL
 }
 
-func (o *Team) GetBannerURL() *string {
-	if o == nil {
+func (t *Team) GetBannerURL() *string {
+	if t == nil {
 		return nil
 	}
-	return o.BannerURL
+	return t.BannerURL
 }
 
-func (o *Team) GetExternalLink() *string {
-	if o == nil {
+func (t *Team) GetExternalLink() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ExternalLink
+	return t.ExternalLink
 }
 
-func (o *Team) GetMembers() []PersonToTeamRelationship {
-	if o == nil {
+func (t *Team) GetMembers() []PersonToTeamRelationship {
+	if t == nil {
 		return nil
 	}
-	return o.Members
+	return t.Members
 }
 
-func (o *Team) GetMemberCount() *int64 {
-	if o == nil {
+func (t *Team) GetMemberCount() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.MemberCount
+	return t.MemberCount
 }
 
-func (o *Team) GetEmails() []TeamEmail {
-	if o == nil {
+func (t *Team) GetEmails() []TeamEmail {
+	if t == nil {
 		return nil
 	}
-	return o.Emails
+	return t.Emails
 }
 
-func (o *Team) GetCustomFields() []CustomFieldData {
-	if o == nil {
+func (t *Team) GetCustomFields() []CustomFieldData {
+	if t == nil {
 		return nil
 	}
-	return o.CustomFields
+	return t.CustomFields
 }
 
-func (o *Team) GetDatasourceProfiles() []DatasourceProfile {
-	if o == nil {
+func (t *Team) GetDatasourceProfiles() []DatasourceProfile {
+	if t == nil {
 		return nil
 	}
-	return o.DatasourceProfiles
+	return t.DatasourceProfiles
 }
 
-func (o *Team) GetDatasource() *string {
-	if o == nil {
+func (t *Team) GetDatasource() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Datasource
+	return t.Datasource
 }
 
-func (o *Team) GetCreatedFrom() *string {
-	if o == nil {
+func (t *Team) GetCreatedFrom() *string {
+	if t == nil {
 		return nil
 	}
-	return o.CreatedFrom
+	return t.CreatedFrom
 }
 
-func (o *Team) GetLastUpdatedAt() *time.Time {
-	if o == nil {
+func (t *Team) GetLastUpdatedAt() *time.Time {
+	if t == nil {
 		return nil
 	}
-	return o.LastUpdatedAt
+	return t.LastUpdatedAt
 }
 
-func (o *Team) GetStatus() *TeamStatus {
-	if o == nil {
+func (t *Team) GetStatus() *TeamStatus {
+	if t == nil {
 		return nil
 	}
-	return o.Status
+	return t.Status
 }
 
-func (o *Team) GetCanBeDeleted() *bool {
-	if o == nil {
+func (t *Team) GetCanBeDeleted() *bool {
+	if t == nil {
 		return nil
 	}
-	return o.CanBeDeleted
+	return t.CanBeDeleted
 }
 
-func (o *Team) GetLoggingID() *string {
-	if o == nil {
+func (t *Team) GetLoggingID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.LoggingID
+	return t.LoggingID
 }

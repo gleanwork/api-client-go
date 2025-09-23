@@ -10,16 +10,16 @@ type IndexDocumentRequest struct {
 	Document DocumentDefinition `json:"document"`
 }
 
-func (o *IndexDocumentRequest) GetVersion() *int64 {
-	if o == nil {
+func (i *IndexDocumentRequest) GetVersion() *int64 {
+	if i == nil {
 		return nil
 	}
-	return o.Version
+	return i.Version
 }
 
-func (o *IndexDocumentRequest) GetDocument() DocumentDefinition {
-	if o == nil {
+func (i *IndexDocumentRequest) GetDocument() DocumentDefinition {
+	if i == nil {
 		return DocumentDefinition{}
 	}
-	return o.Document
+	return i.Document
 }

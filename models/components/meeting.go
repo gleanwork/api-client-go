@@ -22,57 +22,57 @@ func (m Meeting) MarshalJSON() ([]byte, error) {
 }
 
 func (m *Meeting) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &m, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &m, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Meeting) GetID() *string {
-	if o == nil {
+func (m *Meeting) GetID() *string {
+	if m == nil {
 		return nil
 	}
-	return o.ID
+	return m.ID
 }
 
-func (o *Meeting) GetTitle() *string {
-	if o == nil {
+func (m *Meeting) GetTitle() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Title
+	return m.Title
 }
 
-func (o *Meeting) GetDescription() *string {
-	if o == nil {
+func (m *Meeting) GetDescription() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Description
+	return m.Description
 }
 
-func (o *Meeting) GetURL() *string {
-	if o == nil {
+func (m *Meeting) GetURL() *string {
+	if m == nil {
 		return nil
 	}
-	return o.URL
+	return m.URL
 }
 
-func (o *Meeting) GetStartTime() *time.Time {
-	if o == nil {
+func (m *Meeting) GetStartTime() *time.Time {
+	if m == nil {
 		return nil
 	}
-	return o.StartTime
+	return m.StartTime
 }
 
-func (o *Meeting) GetEndTime() *time.Time {
-	if o == nil {
+func (m *Meeting) GetEndTime() *time.Time {
+	if m == nil {
 		return nil
 	}
-	return o.EndTime
+	return m.EndTime
 }
 
-func (o *Meeting) GetAttendees() *CalendarAttendees {
-	if o == nil {
+func (m *Meeting) GetAttendees() *CalendarAttendees {
+	if m == nil {
 		return nil
 	}
-	return o.Attendees
+	return m.Attendees
 }

@@ -8,9 +8,9 @@ type DeleteTeamRequest struct {
 	ID string `json:"id"`
 }
 
-func (o *DeleteTeamRequest) GetID() string {
-	if o == nil {
+func (d *DeleteTeamRequest) GetID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ID
+	return d.ID
 }

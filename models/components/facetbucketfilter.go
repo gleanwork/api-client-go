@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type FacetBucketFilter struct {
 	// The facet whose buckets should be filtered.
 	Facet *string `json:"facet,omitempty"`
@@ -9,16 +13,27 @@ type FacetBucketFilter struct {
 	Prefix *string `json:"prefix,omitempty"`
 }
 
-func (o *FacetBucketFilter) GetFacet() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Facet
+func (f FacetBucketFilter) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(f, "", false)
 }
 
-func (o *FacetBucketFilter) GetPrefix() *string {
-	if o == nil {
+func (f *FacetBucketFilter) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &f, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (f *FacetBucketFilter) GetFacet() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Prefix
+	return f.Facet
+}
+
+func (f *FacetBucketFilter) GetPrefix() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Prefix
 }

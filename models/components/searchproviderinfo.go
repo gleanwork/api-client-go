@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type SearchProviderInfo struct {
 	// Name of the search provider.
 	Name *string `json:"name,omitempty"`
@@ -11,23 +15,34 @@ type SearchProviderInfo struct {
 	SearchLinkURLTemplate *string `json:"searchLinkUrlTemplate,omitempty"`
 }
 
-func (o *SearchProviderInfo) GetName() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Name
+func (s SearchProviderInfo) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (o *SearchProviderInfo) GetLogoURL() *string {
-	if o == nil {
-		return nil
+func (s *SearchProviderInfo) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
+		return err
 	}
-	return o.LogoURL
+	return nil
 }
 
-func (o *SearchProviderInfo) GetSearchLinkURLTemplate() *string {
-	if o == nil {
+func (s *SearchProviderInfo) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.SearchLinkURLTemplate
+	return s.Name
+}
+
+func (s *SearchProviderInfo) GetLogoURL() *string {
+	if s == nil {
+		return nil
+	}
+	return s.LogoURL
+}
+
+func (s *SearchProviderInfo) GetSearchLinkURLTemplate() *string {
+	if s == nil {
+		return nil
+	}
+	return s.SearchLinkURLTemplate
 }

@@ -70,86 +70,86 @@ type DlpReport struct {
 	UpdatedBy *DlpPerson `json:"updatedBy,omitempty"`
 }
 
-func (o *DlpReport) GetID() *string {
-	if o == nil {
+func (d *DlpReport) GetID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ID
+	return d.ID
 }
 
-func (o *DlpReport) GetName() *string {
-	if o == nil {
+func (d *DlpReport) GetName() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Name
+	return d.Name
 }
 
-func (o *DlpReport) GetConfig() *DlpConfig {
-	if o == nil {
+func (d *DlpReport) GetConfig() *DlpConfig {
+	if d == nil {
 		return nil
 	}
-	return o.Config
+	return d.Config
 }
 
-func (o *DlpReport) GetFrequency() *DlpFrequency {
-	if o == nil {
+func (d *DlpReport) GetFrequency() *DlpFrequency {
+	if d == nil {
 		return nil
 	}
-	return o.Frequency
+	return d.Frequency
 }
 
-func (o *DlpReport) GetStatus() *DlpReportStatus {
-	if o == nil {
+func (d *DlpReport) GetStatus() *DlpReportStatus {
+	if d == nil {
 		return nil
 	}
-	return o.Status
+	return d.Status
 }
 
-func (o *DlpReport) GetCreatedBy() *DlpPerson {
-	if o == nil {
+func (d *DlpReport) GetCreatedBy() *DlpPerson {
+	if d == nil {
 		return nil
 	}
-	return o.CreatedBy
+	return d.CreatedBy
 }
 
-func (o *DlpReport) GetCreatedAt() *string {
-	if o == nil {
+func (d *DlpReport) GetCreatedAt() *string {
+	if d == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return d.CreatedAt
 }
 
-func (o *DlpReport) GetLastUpdatedAt() *string {
-	if o == nil {
+func (d *DlpReport) GetLastUpdatedAt() *string {
+	if d == nil {
 		return nil
 	}
-	return o.LastUpdatedAt
+	return d.LastUpdatedAt
 }
 
-func (o *DlpReport) GetAutoHideDocs() *bool {
-	if o == nil {
+func (d *DlpReport) GetAutoHideDocs() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.AutoHideDocs
+	return d.AutoHideDocs
 }
 
-func (o *DlpReport) GetLastScanStatus() *LastScanStatus {
-	if o == nil {
+func (d *DlpReport) GetLastScanStatus() *LastScanStatus {
+	if d == nil {
 		return nil
 	}
-	return o.LastScanStatus
+	return d.LastScanStatus
 }
 
-func (o *DlpReport) GetLastScanStartTime() *string {
-	if o == nil {
+func (d *DlpReport) GetLastScanStartTime() *string {
+	if d == nil {
 		return nil
 	}
-	return o.LastScanStartTime
+	return d.LastScanStartTime
 }
 
-func (o *DlpReport) GetUpdatedBy() *DlpPerson {
-	if o == nil {
+func (d *DlpReport) GetUpdatedBy() *DlpPerson {
+	if d == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return d.UpdatedBy
 }

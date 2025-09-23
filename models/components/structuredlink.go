@@ -12,23 +12,23 @@ type StructuredLink struct {
 	IconConfig *IconConfig `json:"iconConfig,omitempty"`
 }
 
-func (o *StructuredLink) GetName() *string {
-	if o == nil {
+func (s *StructuredLink) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Name
+	return s.Name
 }
 
-func (o *StructuredLink) GetURL() *string {
-	if o == nil {
+func (s *StructuredLink) GetURL() *string {
+	if s == nil {
 		return nil
 	}
-	return o.URL
+	return s.URL
 }
 
-func (o *StructuredLink) GetIconConfig() *IconConfig {
-	if o == nil {
+func (s *StructuredLink) GetIconConfig() *IconConfig {
+	if s == nil {
 		return nil
 	}
-	return o.IconConfig
+	return s.IconConfig
 }

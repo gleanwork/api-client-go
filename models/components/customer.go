@@ -33,78 +33,78 @@ func (c Customer) MarshalJSON() ([]byte, error) {
 }
 
 func (c *Customer) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"id", "company"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Customer) GetID() string {
-	if o == nil {
+func (c *Customer) GetID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *Customer) GetDomains() []string {
-	if o == nil {
+func (c *Customer) GetDomains() []string {
+	if c == nil {
 		return nil
 	}
-	return o.Domains
+	return c.Domains
 }
 
-func (o *Customer) GetCompany() Company {
-	if o == nil {
+func (c *Customer) GetCompany() Company {
+	if c == nil {
 		return Company{}
 	}
-	return o.Company
+	return c.Company
 }
 
-func (o *Customer) GetDocumentCounts() map[string]int64 {
-	if o == nil {
+func (c *Customer) GetDocumentCounts() map[string]int64 {
+	if c == nil {
 		return nil
 	}
-	return o.DocumentCounts
+	return c.DocumentCounts
 }
 
-func (o *Customer) GetPoc() []Person {
-	if o == nil {
+func (c *Customer) GetPoc() []Person {
+	if c == nil {
 		return nil
 	}
-	return o.Poc
+	return c.Poc
 }
 
-func (o *Customer) GetMetadata() *CustomerMetadata {
-	if o == nil {
+func (c *Customer) GetMetadata() *CustomerMetadata {
+	if c == nil {
 		return nil
 	}
-	return o.Metadata
+	return c.Metadata
 }
 
-func (o *Customer) GetMergedCustomers() []Customer {
-	if o == nil {
+func (c *Customer) GetMergedCustomers() []Customer {
+	if c == nil {
 		return nil
 	}
-	return o.MergedCustomers
+	return c.MergedCustomers
 }
 
-func (o *Customer) GetStartDate() *types.Date {
-	if o == nil {
+func (c *Customer) GetStartDate() *types.Date {
+	if c == nil {
 		return nil
 	}
-	return o.StartDate
+	return c.StartDate
 }
 
-func (o *Customer) GetContractAnnualRevenue() *float64 {
-	if o == nil {
+func (c *Customer) GetContractAnnualRevenue() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.ContractAnnualRevenue
+	return c.ContractAnnualRevenue
 }
 
-func (o *Customer) GetNotes() *string {
-	if o == nil {
+func (c *Customer) GetNotes() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Notes
+	return c.Notes
 }

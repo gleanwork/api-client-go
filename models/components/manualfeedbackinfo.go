@@ -167,6 +167,8 @@ func (e *ManualFeedbackInfoVote) UnmarshalJSON(data []byte) error {
 
 type ManualFeedbackInfo struct {
 	// The email address of the user who submitted the Feedback.event.MANUAL_FEEDBACK event.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 	Email *string `json:"email,omitempty"`
 	// The source associated with the Feedback.event.MANUAL_FEEDBACK event.
 	Source *ManualFeedbackInfoSource `json:"source,omitempty"`
@@ -204,121 +206,121 @@ type ManualFeedbackInfo struct {
 	RatingScale *int64 `json:"ratingScale,omitempty"`
 }
 
-func (o *ManualFeedbackInfo) GetEmail() *string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetEmail() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Email
+	return m.Email
 }
 
-func (o *ManualFeedbackInfo) GetSource() *ManualFeedbackInfoSource {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetSource() *ManualFeedbackInfoSource {
+	if m == nil {
 		return nil
 	}
-	return o.Source
+	return m.Source
 }
 
-func (o *ManualFeedbackInfo) GetIssue() *string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetIssue() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Issue
+	return m.Issue
 }
 
-func (o *ManualFeedbackInfo) GetIssues() []Issue {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetIssues() []Issue {
+	if m == nil {
 		return nil
 	}
-	return o.Issues
+	return m.Issues
 }
 
-func (o *ManualFeedbackInfo) GetImageUrls() []string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetImageUrls() []string {
+	if m == nil {
 		return nil
 	}
-	return o.ImageUrls
+	return m.ImageUrls
 }
 
-func (o *ManualFeedbackInfo) GetQuery() *string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetQuery() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Query
+	return m.Query
 }
 
-func (o *ManualFeedbackInfo) GetObscuredQuery() *string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetObscuredQuery() *string {
+	if m == nil {
 		return nil
 	}
-	return o.ObscuredQuery
+	return m.ObscuredQuery
 }
 
-func (o *ManualFeedbackInfo) GetActiveTab() *string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetActiveTab() *string {
+	if m == nil {
 		return nil
 	}
-	return o.ActiveTab
+	return m.ActiveTab
 }
 
-func (o *ManualFeedbackInfo) GetComments() *string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetComments() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Comments
+	return m.Comments
 }
 
-func (o *ManualFeedbackInfo) GetSearchResults() []string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetSearchResults() []string {
+	if m == nil {
 		return nil
 	}
-	return o.SearchResults
+	return m.SearchResults
 }
 
-func (o *ManualFeedbackInfo) GetPreviousMessages() []string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetPreviousMessages() []string {
+	if m == nil {
 		return nil
 	}
-	return o.PreviousMessages
+	return m.PreviousMessages
 }
 
-func (o *ManualFeedbackInfo) GetChatTranscript() []FeedbackChatExchange {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetChatTranscript() []FeedbackChatExchange {
+	if m == nil {
 		return nil
 	}
-	return o.ChatTranscript
+	return m.ChatTranscript
 }
 
-func (o *ManualFeedbackInfo) GetNumQueriesFromFirstRun() *int64 {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetNumQueriesFromFirstRun() *int64 {
+	if m == nil {
 		return nil
 	}
-	return o.NumQueriesFromFirstRun
+	return m.NumQueriesFromFirstRun
 }
 
-func (o *ManualFeedbackInfo) GetVote() *ManualFeedbackInfoVote {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetVote() *ManualFeedbackInfoVote {
+	if m == nil {
 		return nil
 	}
-	return o.Vote
+	return m.Vote
 }
 
-func (o *ManualFeedbackInfo) GetRating() *int64 {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetRating() *int64 {
+	if m == nil {
 		return nil
 	}
-	return o.Rating
+	return m.Rating
 }
 
-func (o *ManualFeedbackInfo) GetRatingKey() *string {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetRatingKey() *string {
+	if m == nil {
 		return nil
 	}
-	return o.RatingKey
+	return m.RatingKey
 }
 
-func (o *ManualFeedbackInfo) GetRatingScale() *int64 {
-	if o == nil {
+func (m *ManualFeedbackInfo) GetRatingScale() *int64 {
+	if m == nil {
 		return nil
 	}
-	return o.RatingScale
+	return m.RatingScale
 }

@@ -426,12 +426,12 @@ func (s *Collections) Create(ctx context.Context, request components.CreateColle
 				return nil, err
 			}
 
-			var out components.CreateCollectionResponse
+			var out operations.CreatecollectionResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.CreateCollectionResponse = &out
+			res.OneOf = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

@@ -12,16 +12,16 @@ type GetdocpermissionsResponse struct {
 	GetDocPermissionsResponse *components.GetDocPermissionsResponse
 }
 
-func (o *GetdocpermissionsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetdocpermissionsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetdocpermissionsResponse) GetGetDocPermissionsResponse() *components.GetDocPermissionsResponse {
-	if o == nil {
+func (g *GetdocpermissionsResponse) GetGetDocPermissionsResponse() *components.GetDocPermissionsResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetDocPermissionsResponse
+	return g.GetDocPermissionsResponse
 }

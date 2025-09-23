@@ -59,93 +59,93 @@ type CalendarEvent struct {
 	GeneratedAttachments []GeneratedAttachment `json:"generatedAttachments,omitempty"`
 }
 
-func (o *CalendarEvent) GetTime() *TimeInterval {
-	if o == nil {
+func (c *CalendarEvent) GetTime() *TimeInterval {
+	if c == nil {
 		return nil
 	}
-	return o.Time
+	return c.Time
 }
 
-func (o *CalendarEvent) GetEventType() *CalendarEventEventType {
-	if o == nil {
+func (c *CalendarEvent) GetEventType() *CalendarEventEventType {
+	if c == nil {
 		return nil
 	}
-	return o.EventType
+	return c.EventType
 }
 
-func (o *CalendarEvent) GetID() string {
-	if o == nil {
+func (c *CalendarEvent) GetID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *CalendarEvent) GetURL() string {
-	if o == nil {
+func (c *CalendarEvent) GetURL() string {
+	if c == nil {
 		return ""
 	}
-	return o.URL
+	return c.URL
 }
 
-func (o *CalendarEvent) GetAttendees() *CalendarAttendees {
-	if o == nil {
+func (c *CalendarEvent) GetAttendees() *CalendarAttendees {
+	if c == nil {
 		return nil
 	}
-	return o.Attendees
+	return c.Attendees
 }
 
-func (o *CalendarEvent) GetLocation() *string {
-	if o == nil {
+func (c *CalendarEvent) GetLocation() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Location
+	return c.Location
 }
 
-func (o *CalendarEvent) GetConferenceData() *ConferenceData {
-	if o == nil {
+func (c *CalendarEvent) GetConferenceData() *ConferenceData {
+	if c == nil {
 		return nil
 	}
-	return o.ConferenceData
+	return c.ConferenceData
 }
 
-func (o *CalendarEvent) GetDescription() *string {
-	if o == nil {
+func (c *CalendarEvent) GetDescription() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CalendarEvent) GetDatasource() *string {
-	if o == nil {
+func (c *CalendarEvent) GetDatasource() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Datasource
+	return c.Datasource
 }
 
-func (o *CalendarEvent) GetHasTranscript() *bool {
-	if o == nil {
+func (c *CalendarEvent) GetHasTranscript() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.HasTranscript
+	return c.HasTranscript
 }
 
-func (o *CalendarEvent) GetTranscriptURL() *string {
-	if o == nil {
+func (c *CalendarEvent) GetTranscriptURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.TranscriptURL
+	return c.TranscriptURL
 }
 
-func (o *CalendarEvent) GetClassifications() []EventClassification {
-	if o == nil {
+func (c *CalendarEvent) GetClassifications() []EventClassification {
+	if c == nil {
 		return nil
 	}
-	return o.Classifications
+	return c.Classifications
 }
 
-func (o *CalendarEvent) GetGeneratedAttachments() []GeneratedAttachment {
-	if o == nil {
+func (c *CalendarEvent) GetGeneratedAttachments() []GeneratedAttachment {
+	if c == nil {
 		return nil
 	}
-	return o.GeneratedAttachments
+	return c.GeneratedAttachments
 }

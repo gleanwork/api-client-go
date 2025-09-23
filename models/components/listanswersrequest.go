@@ -7,9 +7,9 @@ type ListAnswersRequest struct {
 	BoardID *int64 `json:"boardId,omitempty"`
 }
 
-func (o *ListAnswersRequest) GetBoardID() *int64 {
-	if o == nil {
+func (l *ListAnswersRequest) GetBoardID() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.BoardID
+	return l.BoardID
 }

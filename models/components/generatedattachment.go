@@ -14,44 +14,44 @@ type GeneratedAttachment struct {
 	Content       []GeneratedAttachmentContent `json:"content,omitempty"`
 }
 
-func (o *GeneratedAttachment) GetStrategyName() *EventStrategyName {
-	if o == nil {
+func (g *GeneratedAttachment) GetStrategyName() *EventStrategyName {
+	if g == nil {
 		return nil
 	}
-	return o.StrategyName
+	return g.StrategyName
 }
 
-func (o *GeneratedAttachment) GetDocuments() []Document {
-	if o == nil {
+func (g *GeneratedAttachment) GetDocuments() []Document {
+	if g == nil {
 		return nil
 	}
-	return o.Documents
+	return g.Documents
 }
 
-func (o *GeneratedAttachment) GetPerson() *Person {
-	if o == nil {
+func (g *GeneratedAttachment) GetPerson() *Person {
+	if g == nil {
 		return nil
 	}
-	return o.Person
+	return g.Person
 }
 
-func (o *GeneratedAttachment) GetCustomer() *Customer {
-	if o == nil {
+func (g *GeneratedAttachment) GetCustomer() *Customer {
+	if g == nil {
 		return nil
 	}
-	return o.Customer
+	return g.Customer
 }
 
-func (o *GeneratedAttachment) GetExternalLinks() []StructuredLink {
-	if o == nil {
+func (g *GeneratedAttachment) GetExternalLinks() []StructuredLink {
+	if g == nil {
 		return nil
 	}
-	return o.ExternalLinks
+	return g.ExternalLinks
 }
 
-func (o *GeneratedAttachment) GetContent() []GeneratedAttachmentContent {
-	if o == nil {
+func (g *GeneratedAttachment) GetContent() []GeneratedAttachmentContent {
+	if g == nil {
 		return nil
 	}
-	return o.Content
+	return g.Content
 }

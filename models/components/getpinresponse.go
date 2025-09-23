@@ -6,9 +6,9 @@ type GetPinResponse struct {
 	Pin *PinDocument `json:"pin,omitempty"`
 }
 
-func (o *GetPinResponse) GetPin() *PinDocument {
-	if o == nil {
+func (g *GetPinResponse) GetPin() *PinDocument {
+	if g == nil {
 		return nil
 	}
-	return o.Pin
+	return g.Pin
 }

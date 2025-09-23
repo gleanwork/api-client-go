@@ -16,37 +16,37 @@ type UploadShortcutsRequest struct {
 	Shortcuts []IndexingShortcut `json:"shortcuts"`
 }
 
-func (o *UploadShortcutsRequest) GetUploadID() string {
-	if o == nil {
+func (u *UploadShortcutsRequest) GetUploadID() string {
+	if u == nil {
 		return ""
 	}
-	return o.UploadID
+	return u.UploadID
 }
 
-func (o *UploadShortcutsRequest) GetIsFirstPage() *bool {
-	if o == nil {
+func (u *UploadShortcutsRequest) GetIsFirstPage() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.IsFirstPage
+	return u.IsFirstPage
 }
 
-func (o *UploadShortcutsRequest) GetIsLastPage() *bool {
-	if o == nil {
+func (u *UploadShortcutsRequest) GetIsLastPage() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.IsLastPage
+	return u.IsLastPage
 }
 
-func (o *UploadShortcutsRequest) GetForceRestartUpload() *bool {
-	if o == nil {
+func (u *UploadShortcutsRequest) GetForceRestartUpload() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.ForceRestartUpload
+	return u.ForceRestartUpload
 }
 
-func (o *UploadShortcutsRequest) GetShortcuts() []IndexingShortcut {
-	if o == nil {
+func (u *UploadShortcutsRequest) GetShortcuts() []IndexingShortcut {
+	if u == nil {
 		return []IndexingShortcut{}
 	}
-	return o.Shortcuts
+	return u.Shortcuts
 }

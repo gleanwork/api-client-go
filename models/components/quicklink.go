@@ -58,44 +58,44 @@ type Quicklink struct {
 	Scopes []Scope `json:"scopes,omitempty"`
 }
 
-func (o *Quicklink) GetName() *string {
-	if o == nil {
+func (q *Quicklink) GetName() *string {
+	if q == nil {
 		return nil
 	}
-	return o.Name
+	return q.Name
 }
 
-func (o *Quicklink) GetShortName() *string {
-	if o == nil {
+func (q *Quicklink) GetShortName() *string {
+	if q == nil {
 		return nil
 	}
-	return o.ShortName
+	return q.ShortName
 }
 
-func (o *Quicklink) GetURL() *string {
-	if o == nil {
+func (q *Quicklink) GetURL() *string {
+	if q == nil {
 		return nil
 	}
-	return o.URL
+	return q.URL
 }
 
-func (o *Quicklink) GetIconConfig() *IconConfig {
-	if o == nil {
+func (q *Quicklink) GetIconConfig() *IconConfig {
+	if q == nil {
 		return nil
 	}
-	return o.IconConfig
+	return q.IconConfig
 }
 
-func (o *Quicklink) GetID() *string {
-	if o == nil {
+func (q *Quicklink) GetID() *string {
+	if q == nil {
 		return nil
 	}
-	return o.ID
+	return q.ID
 }
 
-func (o *Quicklink) GetScopes() []Scope {
-	if o == nil {
+func (q *Quicklink) GetScopes() []Scope {
+	if q == nil {
 		return nil
 	}
-	return o.Scopes
+	return q.Scopes
 }

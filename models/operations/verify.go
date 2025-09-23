@@ -12,16 +12,16 @@ type VerifyResponse struct {
 	Verification *components.Verification
 }
 
-func (o *VerifyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *VerifyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *VerifyResponse) GetVerification() *components.Verification {
-	if o == nil {
+func (v *VerifyResponse) GetVerification() *components.Verification {
+	if v == nil {
 		return nil
 	}
-	return o.Verification
+	return v.Verification
 }

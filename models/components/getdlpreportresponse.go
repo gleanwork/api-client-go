@@ -7,9 +7,9 @@ type GetDlpReportResponse struct {
 	Report *DlpReport `json:"report,omitempty"`
 }
 
-func (o *GetDlpReportResponse) GetReport() *DlpReport {
-	if o == nil {
+func (g *GetDlpReportResponse) GetReport() *DlpReport {
+	if g == nil {
 		return nil
 	}
-	return o.Report
+	return g.Report
 }

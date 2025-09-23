@@ -7,9 +7,9 @@ type ChatZeroStateSuggestionOptions struct {
 	ApplicationID *string `json:"applicationId,omitempty"`
 }
 
-func (o *ChatZeroStateSuggestionOptions) GetApplicationID() *string {
-	if o == nil {
+func (c *ChatZeroStateSuggestionOptions) GetApplicationID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ApplicationID
+	return c.ApplicationID
 }

@@ -23,65 +23,65 @@ type UpdateShortcutRequest struct {
 	RemovedRoles []UserRoleSpecification `json:"removedRoles,omitempty"`
 }
 
-func (o *UpdateShortcutRequest) GetID() int64 {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetID() int64 {
+	if u == nil {
 		return 0
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UpdateShortcutRequest) GetInputAlias() *string {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetInputAlias() *string {
+	if u == nil {
 		return nil
 	}
-	return o.InputAlias
+	return u.InputAlias
 }
 
-func (o *UpdateShortcutRequest) GetDestinationURL() *string {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetDestinationURL() *string {
+	if u == nil {
 		return nil
 	}
-	return o.DestinationURL
+	return u.DestinationURL
 }
 
-func (o *UpdateShortcutRequest) GetDestinationDocumentID() *string {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetDestinationDocumentID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.DestinationDocumentID
+	return u.DestinationDocumentID
 }
 
-func (o *UpdateShortcutRequest) GetDescription() *string {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetDescription() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Description
+	return u.Description
 }
 
-func (o *UpdateShortcutRequest) GetUnlisted() *bool {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetUnlisted() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.Unlisted
+	return u.Unlisted
 }
 
-func (o *UpdateShortcutRequest) GetURLTemplate() *string {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetURLTemplate() *string {
+	if u == nil {
 		return nil
 	}
-	return o.URLTemplate
+	return u.URLTemplate
 }
 
-func (o *UpdateShortcutRequest) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetAddedRoles() []UserRoleSpecification {
+	if u == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return u.AddedRoles
 }
 
-func (o *UpdateShortcutRequest) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (u *UpdateShortcutRequest) GetRemovedRoles() []UserRoleSpecification {
+	if u == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return u.RemovedRoles
 }

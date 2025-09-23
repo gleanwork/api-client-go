@@ -16,37 +16,37 @@ type UpdatePermissionsRequest struct {
 	Permissions DocumentPermissionsDefinition `json:"permissions"`
 }
 
-func (o *UpdatePermissionsRequest) GetDatasource() string {
-	if o == nil {
+func (u *UpdatePermissionsRequest) GetDatasource() string {
+	if u == nil {
 		return ""
 	}
-	return o.Datasource
+	return u.Datasource
 }
 
-func (o *UpdatePermissionsRequest) GetObjectType() *string {
-	if o == nil {
+func (u *UpdatePermissionsRequest) GetObjectType() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ObjectType
+	return u.ObjectType
 }
 
-func (o *UpdatePermissionsRequest) GetID() *string {
-	if o == nil {
+func (u *UpdatePermissionsRequest) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UpdatePermissionsRequest) GetViewURL() *string {
-	if o == nil {
+func (u *UpdatePermissionsRequest) GetViewURL() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ViewURL
+	return u.ViewURL
 }
 
-func (o *UpdatePermissionsRequest) GetPermissions() DocumentPermissionsDefinition {
-	if o == nil {
+func (u *UpdatePermissionsRequest) GetPermissions() DocumentPermissionsDefinition {
+	if u == nil {
 		return DocumentPermissionsDefinition{}
 	}
-	return o.Permissions
+	return u.Permissions
 }

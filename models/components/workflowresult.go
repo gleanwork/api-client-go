@@ -6,9 +6,9 @@ type WorkflowResult struct {
 	Workflow Workflow `json:"workflow"`
 }
 
-func (o *WorkflowResult) GetWorkflow() Workflow {
-	if o == nil {
+func (w *WorkflowResult) GetWorkflow() Workflow {
+	if w == nil {
 		return Workflow{}
 	}
-	return o.Workflow
+	return w.Workflow
 }

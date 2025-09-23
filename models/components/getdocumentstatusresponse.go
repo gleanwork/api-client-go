@@ -14,30 +14,30 @@ type GetDocumentStatusResponse struct {
 	LastIndexedAt *int64 `json:"lastIndexedAt,omitempty"`
 }
 
-func (o *GetDocumentStatusResponse) GetUploadStatus() *string {
-	if o == nil {
+func (g *GetDocumentStatusResponse) GetUploadStatus() *string {
+	if g == nil {
 		return nil
 	}
-	return o.UploadStatus
+	return g.UploadStatus
 }
 
-func (o *GetDocumentStatusResponse) GetLastUploadedAt() *int64 {
-	if o == nil {
+func (g *GetDocumentStatusResponse) GetLastUploadedAt() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.LastUploadedAt
+	return g.LastUploadedAt
 }
 
-func (o *GetDocumentStatusResponse) GetIndexingStatus() *string {
-	if o == nil {
+func (g *GetDocumentStatusResponse) GetIndexingStatus() *string {
+	if g == nil {
 		return nil
 	}
-	return o.IndexingStatus
+	return g.IndexingStatus
 }
 
-func (o *GetDocumentStatusResponse) GetLastIndexedAt() *int64 {
-	if o == nil {
+func (g *GetDocumentStatusResponse) GetLastIndexedAt() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.LastIndexedAt
+	return g.LastIndexedAt
 }

@@ -29,3 +29,5 @@ Category of the result, one of the requested categories in incoming request.
 | `FeedResultCategoryZeroStateWorkflowFavorites`   | ZERO_STATE_WORKFLOW_FAVORITES                    |
 | `FeedResultCategoryZeroStateWorkflowPopular`     | ZERO_STATE_WORKFLOW_POPULAR                      |
 | `FeedResultCategoryZeroStateWorkflowSuggestion`  | ZERO_STATE_WORKFLOW_SUGGESTION                   |
+| `FeedResultCategoryPersonalizedChatSuggestion`   | PERSONALIZED_CHAT_SUGGESTION                     |
+| `FeedResultCategoryDailyDigest`                  | DAILY_DIGEST                                     |

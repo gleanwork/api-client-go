@@ -11,11 +11,11 @@ type ListchatsRequest struct {
 	TimezoneOffset *int64 `queryParam:"style=form,explode=true,name=timezoneOffset"`
 }
 
-func (o *ListchatsRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (l *ListchatsRequest) GetTimezoneOffset() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return l.TimezoneOffset
 }
 
 type ListchatsResponse struct {
@@ -24,16 +24,16 @@ type ListchatsResponse struct {
 	ListChatsResponse *components.ListChatsResponse
 }
 
-func (o *ListchatsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListchatsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListchatsResponse) GetListChatsResponse() *components.ListChatsResponse {
-	if o == nil {
+func (l *ListchatsResponse) GetListChatsResponse() *components.ListChatsResponse {
+	if l == nil {
 		return nil
 	}
-	return o.ListChatsResponse
+	return l.ListChatsResponse
 }

@@ -12,16 +12,16 @@ type PinResponse struct {
 	PinDocument *components.PinDocument
 }
 
-func (o *PinResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PinResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PinResponse) GetPinDocument() *components.PinDocument {
-	if o == nil {
+func (p *PinResponse) GetPinDocument() *components.PinDocument {
+	if p == nil {
 		return nil
 	}
-	return o.PinDocument
+	return p.PinDocument
 }

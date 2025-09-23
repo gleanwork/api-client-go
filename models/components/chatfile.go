@@ -14,30 +14,30 @@ type ChatFile struct {
 	Metadata *ChatFileMetadata `json:"metadata,omitempty"`
 }
 
-func (o *ChatFile) GetID() *string {
-	if o == nil {
+func (c *ChatFile) GetID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *ChatFile) GetURL() *string {
-	if o == nil {
+func (c *ChatFile) GetURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.URL
+	return c.URL
 }
 
-func (o *ChatFile) GetName() *string {
-	if o == nil {
+func (c *ChatFile) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *ChatFile) GetMetadata() *ChatFileMetadata {
-	if o == nil {
+func (c *ChatFile) GetMetadata() *ChatFileMetadata {
+	if c == nil {
 		return nil
 	}
-	return o.Metadata
+	return c.Metadata
 }

@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type Document struct {
 	// The Glean Document ID.
 	ID *string `json:"id,omitempty"`
@@ -23,79 +27,90 @@ type Document struct {
 	Sections []DocumentSection `json:"sections,omitempty"`
 }
 
-func (o *Document) GetID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.ID
+func (d Document) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
 }
 
-func (o *Document) GetDatasource() *string {
-	if o == nil {
-		return nil
+func (d *Document) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, nil); err != nil {
+		return err
 	}
-	return o.Datasource
+	return nil
 }
 
-func (o *Document) GetConnectorType() *ConnectorType {
-	if o == nil {
+func (d *Document) GetID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ConnectorType
+	return d.ID
 }
 
-func (o *Document) GetDocType() *string {
-	if o == nil {
+func (d *Document) GetDatasource() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocType
+	return d.Datasource
 }
 
-func (o *Document) GetContent() *DocumentContent {
-	if o == nil {
+func (d *Document) GetConnectorType() *ConnectorType {
+	if d == nil {
 		return nil
 	}
-	return o.Content
+	return d.ConnectorType
 }
 
-func (o *Document) GetContainerDocument() *Document {
-	if o == nil {
+func (d *Document) GetDocType() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ContainerDocument
+	return d.DocType
 }
 
-func (o *Document) GetParentDocument() *Document {
-	if o == nil {
+func (d *Document) GetContent() *DocumentContent {
+	if d == nil {
 		return nil
 	}
-	return o.ParentDocument
+	return d.Content
 }
 
-func (o *Document) GetTitle() *string {
-	if o == nil {
+func (d *Document) GetContainerDocument() *Document {
+	if d == nil {
 		return nil
 	}
-	return o.Title
+	return d.ContainerDocument
 }
 
-func (o *Document) GetURL() *string {
-	if o == nil {
+func (d *Document) GetParentDocument() *Document {
+	if d == nil {
 		return nil
 	}
-	return o.URL
+	return d.ParentDocument
 }
 
-func (o *Document) GetMetadata() *DocumentMetadata {
-	if o == nil {
+func (d *Document) GetTitle() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Metadata
+	return d.Title
 }
 
-func (o *Document) GetSections() []DocumentSection {
-	if o == nil {
+func (d *Document) GetURL() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Sections
+	return d.URL
+}
+
+func (d *Document) GetMetadata() *DocumentMetadata {
+	if d == nil {
+		return nil
+	}
+	return d.Metadata
+}
+
+func (d *Document) GetSections() []DocumentSection {
+	if d == nil {
+		return nil
+	}
+	return d.Sections
 }

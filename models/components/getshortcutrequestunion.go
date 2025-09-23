@@ -13,11 +13,22 @@ type GetShortcutRequest struct {
 	Alias string `json:"alias"`
 }
 
-func (o *GetShortcutRequest) GetAlias() string {
-	if o == nil {
+func (g GetShortcutRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetShortcutRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, []string{"alias"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (g *GetShortcutRequest) GetAlias() string {
+	if g == nil {
 		return ""
 	}
-	return o.Alias
+	return g.Alias
 }
 
 type GetShortcutRequestUnionType string
@@ -28,8 +39,8 @@ const (
 )
 
 type GetShortcutRequestUnion struct {
-	UserGeneratedContentID *UserGeneratedContentID `queryParam:"inline"`
-	GetShortcutRequest     *GetShortcutRequest     `queryParam:"inline"`
+	UserGeneratedContentID *UserGeneratedContentID `queryParam:"inline" name:"GetShortcutRequest"`
+	GetShortcutRequest     *GetShortcutRequest     `queryParam:"inline" name:"GetShortcutRequest"`
 
 	Type GetShortcutRequestUnionType
 }
@@ -54,17 +65,17 @@ func CreateGetShortcutRequestUnionGetShortcutRequest(getShortcutRequest GetShort
 
 func (u *GetShortcutRequestUnion) UnmarshalJSON(data []byte) error {
 
-	var userGeneratedContentID UserGeneratedContentID = UserGeneratedContentID{}
-	if err := utils.UnmarshalJSON(data, &userGeneratedContentID, "", true, true); err == nil {
-		u.UserGeneratedContentID = &userGeneratedContentID
-		u.Type = GetShortcutRequestUnionTypeUserGeneratedContentID
+	var getShortcutRequest GetShortcutRequest = GetShortcutRequest{}
+	if err := utils.UnmarshalJSON(data, &getShortcutRequest, "", true, nil); err == nil {
+		u.GetShortcutRequest = &getShortcutRequest
+		u.Type = GetShortcutRequestUnionTypeGetShortcutRequest
 		return nil
 	}
 
-	var getShortcutRequest GetShortcutRequest = GetShortcutRequest{}
-	if err := utils.UnmarshalJSON(data, &getShortcutRequest, "", true, true); err == nil {
-		u.GetShortcutRequest = &getShortcutRequest
-		u.Type = GetShortcutRequestUnionTypeGetShortcutRequest
+	var userGeneratedContentID UserGeneratedContentID = UserGeneratedContentID{}
+	if err := utils.UnmarshalJSON(data, &userGeneratedContentID, "", true, nil); err == nil {
+		u.UserGeneratedContentID = &userGeneratedContentID
+		u.Type = GetShortcutRequestUnionTypeUserGeneratedContentID
 		return nil
 	}
 

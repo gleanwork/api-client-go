@@ -15,37 +15,37 @@ type QueryInsightsResponse struct {
 	MinVisitorThreshold *int64 `json:"minVisitorThreshold,omitempty"`
 }
 
-func (o *QueryInsightsResponse) GetLastLogTimestamp() *int64 {
-	if o == nil {
+func (q *QueryInsightsResponse) GetLastLogTimestamp() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.LastLogTimestamp
+	return q.LastLogTimestamp
 }
 
-func (o *QueryInsightsResponse) GetQueryInsights() []QueryInsight {
-	if o == nil {
+func (q *QueryInsightsResponse) GetQueryInsights() []QueryInsight {
+	if q == nil {
 		return nil
 	}
-	return o.QueryInsights
+	return q.QueryInsights
 }
 
-func (o *QueryInsightsResponse) GetLowPerformingQueryInsights() []QueryInsight {
-	if o == nil {
+func (q *QueryInsightsResponse) GetLowPerformingQueryInsights() []QueryInsight {
+	if q == nil {
 		return nil
 	}
-	return o.LowPerformingQueryInsights
+	return q.LowPerformingQueryInsights
 }
 
-func (o *QueryInsightsResponse) GetDepartments() []string {
-	if o == nil {
+func (q *QueryInsightsResponse) GetDepartments() []string {
+	if q == nil {
 		return nil
 	}
-	return o.Departments
+	return q.Departments
 }
 
-func (o *QueryInsightsResponse) GetMinVisitorThreshold() *int64 {
-	if o == nil {
+func (q *QueryInsightsResponse) GetMinVisitorThreshold() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.MinVisitorThreshold
+	return q.MinVisitorThreshold
 }

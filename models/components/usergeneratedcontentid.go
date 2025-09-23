@@ -2,14 +2,29 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type UserGeneratedContentID struct {
 	// The opaque id of the user generated content.
 	ID *int64 `json:"id,omitempty"`
 }
 
-func (o *UserGeneratedContentID) GetID() *int64 {
-	if o == nil {
+func (u UserGeneratedContentID) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
+}
+
+func (u *UserGeneratedContentID) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (u *UserGeneratedContentID) GetID() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }

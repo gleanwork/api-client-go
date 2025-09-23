@@ -12,30 +12,30 @@ type FacetValue struct {
 	IconConfig *IconConfig `json:"iconConfig,omitempty"`
 }
 
-func (o *FacetValue) GetStringValue() *string {
-	if o == nil {
+func (f *FacetValue) GetStringValue() *string {
+	if f == nil {
 		return nil
 	}
-	return o.StringValue
+	return f.StringValue
 }
 
-func (o *FacetValue) GetIntegerValue() *int64 {
-	if o == nil {
+func (f *FacetValue) GetIntegerValue() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.IntegerValue
+	return f.IntegerValue
 }
 
-func (o *FacetValue) GetDisplayLabel() *string {
-	if o == nil {
+func (f *FacetValue) GetDisplayLabel() *string {
+	if f == nil {
 		return nil
 	}
-	return o.DisplayLabel
+	return f.DisplayLabel
 }
 
-func (o *FacetValue) GetIconConfig() *IconConfig {
-	if o == nil {
+func (f *FacetValue) GetIconConfig() *IconConfig {
+	if f == nil {
 		return nil
 	}
-	return o.IconConfig
+	return f.IconConfig
 }

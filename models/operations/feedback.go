@@ -12,27 +12,27 @@ type FeedbackRequest struct {
 	Feedback1              *components.Feedback `request:"mediaType=application/json"`
 }
 
-func (o *FeedbackRequest) GetFeedbackQueryParameter() *string {
-	if o == nil {
+func (f *FeedbackRequest) GetFeedbackQueryParameter() *string {
+	if f == nil {
 		return nil
 	}
-	return o.FeedbackQueryParameter
+	return f.FeedbackQueryParameter
 }
 
-func (o *FeedbackRequest) GetFeedback1() *components.Feedback {
-	if o == nil {
+func (f *FeedbackRequest) GetFeedback1() *components.Feedback {
+	if f == nil {
 		return nil
 	}
-	return o.Feedback1
+	return f.Feedback1
 }
 
 type FeedbackResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *FeedbackResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (f *FeedbackResponse) GetHTTPMeta() components.HTTPMetadata {
+	if f == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return f.HTTPMeta
 }

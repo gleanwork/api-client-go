@@ -29,43 +29,43 @@ func (i InviteInfo) MarshalJSON() ([]byte, error) {
 }
 
 func (i *InviteInfo) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &i, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &i, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *InviteInfo) GetSignUpTime() *time.Time {
-	if o == nil {
+func (i *InviteInfo) GetSignUpTime() *time.Time {
+	if i == nil {
 		return nil
 	}
-	return o.SignUpTime
+	return i.SignUpTime
 }
 
-func (o *InviteInfo) GetInvites() []ChannelInviteInfo {
-	if o == nil {
+func (i *InviteInfo) GetInvites() []ChannelInviteInfo {
+	if i == nil {
 		return nil
 	}
-	return o.Invites
+	return i.Invites
 }
 
-func (o *InviteInfo) GetInviter() *Person {
-	if o == nil {
+func (i *InviteInfo) GetInviter() *Person {
+	if i == nil {
 		return nil
 	}
-	return o.Inviter
+	return i.Inviter
 }
 
-func (o *InviteInfo) GetInviteTime() *time.Time {
-	if o == nil {
+func (i *InviteInfo) GetInviteTime() *time.Time {
+	if i == nil {
 		return nil
 	}
-	return o.InviteTime
+	return i.InviteTime
 }
 
-func (o *InviteInfo) GetReminderTime() *time.Time {
-	if o == nil {
+func (i *InviteInfo) GetReminderTime() *time.Time {
+	if i == nil {
 		return nil
 	}
-	return o.ReminderTime
+	return i.ReminderTime
 }

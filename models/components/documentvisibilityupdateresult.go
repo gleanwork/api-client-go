@@ -48,23 +48,23 @@ type DocumentVisibilityUpdateResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-func (o *DocumentVisibilityUpdateResult) GetDocID() *string {
-	if o == nil {
+func (d *DocumentVisibilityUpdateResult) GetDocID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocID
+	return d.DocID
 }
 
-func (o *DocumentVisibilityUpdateResult) GetOverride() *DocumentVisibilityUpdateResultOverride {
-	if o == nil {
+func (d *DocumentVisibilityUpdateResult) GetOverride() *DocumentVisibilityUpdateResultOverride {
+	if d == nil {
 		return nil
 	}
-	return o.Override
+	return d.Override
 }
 
-func (o *DocumentVisibilityUpdateResult) GetSuccess() *bool {
-	if o == nil {
+func (d *DocumentVisibilityUpdateResult) GetSuccess() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.Success
+	return d.Success
 }

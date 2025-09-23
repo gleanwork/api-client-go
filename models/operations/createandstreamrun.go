@@ -12,16 +12,16 @@ type CreateAndStreamRunResponse struct {
 	Res *string
 }
 
-func (o *CreateAndStreamRunResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateAndStreamRunResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateAndStreamRunResponse) GetRes() *string {
-	if o == nil {
+func (c *CreateAndStreamRunResponse) GetRes() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Res
+	return c.Res
 }

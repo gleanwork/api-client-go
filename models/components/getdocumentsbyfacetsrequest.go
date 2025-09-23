@@ -11,23 +11,23 @@ type GetDocumentsByFacetsRequest struct {
 	Cursor *string `json:"cursor,omitempty"`
 }
 
-func (o *GetDocumentsByFacetsRequest) GetDatasourcesFilter() []string {
-	if o == nil {
+func (g *GetDocumentsByFacetsRequest) GetDatasourcesFilter() []string {
+	if g == nil {
 		return nil
 	}
-	return o.DatasourcesFilter
+	return g.DatasourcesFilter
 }
 
-func (o *GetDocumentsByFacetsRequest) GetFilterSets() []FacetFilterSet {
-	if o == nil {
+func (g *GetDocumentsByFacetsRequest) GetFilterSets() []FacetFilterSet {
+	if g == nil {
 		return []FacetFilterSet{}
 	}
-	return o.FilterSets
+	return g.FilterSets
 }
 
-func (o *GetDocumentsByFacetsRequest) GetCursor() *string {
-	if o == nil {
+func (g *GetDocumentsByFacetsRequest) GetCursor() *string {
+	if g == nil {
 		return nil
 	}
-	return o.Cursor
+	return g.Cursor
 }

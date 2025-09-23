@@ -15,37 +15,37 @@ type FacetResult struct {
 	GroupName *string `json:"groupName,omitempty"`
 }
 
-func (o *FacetResult) GetSourceName() *string {
-	if o == nil {
+func (f *FacetResult) GetSourceName() *string {
+	if f == nil {
 		return nil
 	}
-	return o.SourceName
+	return f.SourceName
 }
 
-func (o *FacetResult) GetOperatorName() *string {
-	if o == nil {
+func (f *FacetResult) GetOperatorName() *string {
+	if f == nil {
 		return nil
 	}
-	return o.OperatorName
+	return f.OperatorName
 }
 
-func (o *FacetResult) GetBuckets() []FacetBucket {
-	if o == nil {
+func (f *FacetResult) GetBuckets() []FacetBucket {
+	if f == nil {
 		return nil
 	}
-	return o.Buckets
+	return f.Buckets
 }
 
-func (o *FacetResult) GetHasMoreBuckets() *bool {
-	if o == nil {
+func (f *FacetResult) GetHasMoreBuckets() *bool {
+	if f == nil {
 		return nil
 	}
-	return o.HasMoreBuckets
+	return f.HasMoreBuckets
 }
 
-func (o *FacetResult) GetGroupName() *string {
-	if o == nil {
+func (f *FacetResult) GetGroupName() *string {
+	if f == nil {
 		return nil
 	}
-	return o.GroupName
+	return f.GroupName
 }

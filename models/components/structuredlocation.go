@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // StructuredLocation - Detailed location with information about country, state, city etc.
 type StructuredLocation struct {
 	// Desk number.
@@ -24,65 +28,76 @@ type StructuredLocation struct {
 	CountryCode *string `json:"countryCode,omitempty"`
 }
 
-func (o *StructuredLocation) GetDeskLocation() *string {
-	if o == nil {
-		return nil
-	}
-	return o.DeskLocation
+func (s StructuredLocation) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (o *StructuredLocation) GetTimezone() *string {
-	if o == nil {
-		return nil
+func (s *StructuredLocation) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
+		return err
 	}
-	return o.Timezone
+	return nil
 }
 
-func (o *StructuredLocation) GetAddress() *string {
-	if o == nil {
+func (s *StructuredLocation) GetDeskLocation() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Address
+	return s.DeskLocation
 }
 
-func (o *StructuredLocation) GetCity() *string {
-	if o == nil {
+func (s *StructuredLocation) GetTimezone() *string {
+	if s == nil {
 		return nil
 	}
-	return o.City
+	return s.Timezone
 }
 
-func (o *StructuredLocation) GetState() *string {
-	if o == nil {
+func (s *StructuredLocation) GetAddress() *string {
+	if s == nil {
 		return nil
 	}
-	return o.State
+	return s.Address
 }
 
-func (o *StructuredLocation) GetRegion() *string {
-	if o == nil {
+func (s *StructuredLocation) GetCity() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Region
+	return s.City
 }
 
-func (o *StructuredLocation) GetZipCode() *string {
-	if o == nil {
+func (s *StructuredLocation) GetState() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ZipCode
+	return s.State
 }
 
-func (o *StructuredLocation) GetCountry() *string {
-	if o == nil {
+func (s *StructuredLocation) GetRegion() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Country
+	return s.Region
 }
 
-func (o *StructuredLocation) GetCountryCode() *string {
-	if o == nil {
+func (s *StructuredLocation) GetZipCode() *string {
+	if s == nil {
 		return nil
 	}
-	return o.CountryCode
+	return s.ZipCode
+}
+
+func (s *StructuredLocation) GetCountry() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Country
+}
+
+func (s *StructuredLocation) GetCountryCode() *string {
+	if s == nil {
+		return nil
+	}
+	return s.CountryCode
 }

@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 type TextRangeType string
@@ -51,37 +52,48 @@ type TextRange struct {
 	Document *Document `json:"document,omitempty"`
 }
 
-func (o *TextRange) GetStartIndex() int64 {
-	if o == nil {
+func (t TextRange) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TextRange) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, []string{"startIndex"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (t *TextRange) GetStartIndex() int64 {
+	if t == nil {
 		return 0
 	}
-	return o.StartIndex
+	return t.StartIndex
 }
 
-func (o *TextRange) GetEndIndex() *int64 {
-	if o == nil {
+func (t *TextRange) GetEndIndex() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.EndIndex
+	return t.EndIndex
 }
 
-func (o *TextRange) GetType() *TextRangeType {
-	if o == nil {
+func (t *TextRange) GetType() *TextRangeType {
+	if t == nil {
 		return nil
 	}
-	return o.Type
+	return t.Type
 }
 
-func (o *TextRange) GetURL() *string {
-	if o == nil {
+func (t *TextRange) GetURL() *string {
+	if t == nil {
 		return nil
 	}
-	return o.URL
+	return t.URL
 }
 
-func (o *TextRange) GetDocument() *Document {
-	if o == nil {
+func (t *TextRange) GetDocument() *Document {
+	if t == nil {
 		return nil
 	}
-	return o.Document
+	return t.Document
 }

@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type UserRoleSpecification struct {
 	SourceDocumentSpec *DocumentSpecUnion `json:"sourceDocumentSpec,omitempty"`
 	Person             *Person            `json:"person,omitempty"`
@@ -10,30 +14,41 @@ type UserRoleSpecification struct {
 	Role UserRole `json:"role"`
 }
 
-func (o *UserRoleSpecification) GetSourceDocumentSpec() *DocumentSpecUnion {
-	if o == nil {
-		return nil
-	}
-	return o.SourceDocumentSpec
+func (u UserRoleSpecification) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
 }
 
-func (o *UserRoleSpecification) GetPerson() *Person {
-	if o == nil {
-		return nil
+func (u *UserRoleSpecification) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, []string{"role"}); err != nil {
+		return err
 	}
-	return o.Person
+	return nil
 }
 
-func (o *UserRoleSpecification) GetGroup() *Group {
-	if o == nil {
+func (u *UserRoleSpecification) GetSourceDocumentSpec() *DocumentSpecUnion {
+	if u == nil {
 		return nil
 	}
-	return o.Group
+	return u.SourceDocumentSpec
 }
 
-func (o *UserRoleSpecification) GetRole() UserRole {
-	if o == nil {
+func (u *UserRoleSpecification) GetPerson() *Person {
+	if u == nil {
+		return nil
+	}
+	return u.Person
+}
+
+func (u *UserRoleSpecification) GetGroup() *Group {
+	if u == nil {
+		return nil
+	}
+	return u.Group
+}
+
+func (u *UserRoleSpecification) GetRole() UserRole {
+	if u == nil {
 		return UserRole("")
 	}
-	return o.Role
+	return u.Role
 }

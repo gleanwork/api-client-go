@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type Reaction struct {
 	Type *string `json:"type,omitempty"`
 	// The count of the reaction type on the document.
@@ -11,30 +15,41 @@ type Reaction struct {
 	ReactedByViewer *bool `json:"reactedByViewer,omitempty"`
 }
 
-func (o *Reaction) GetType() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Type
+func (r Reaction) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
 }
 
-func (o *Reaction) GetCount() *int64 {
-	if o == nil {
-		return nil
+func (r *Reaction) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
+		return err
 	}
-	return o.Count
+	return nil
 }
 
-func (o *Reaction) GetReactors() []Person {
-	if o == nil {
+func (r *Reaction) GetType() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Reactors
+	return r.Type
 }
 
-func (o *Reaction) GetReactedByViewer() *bool {
-	if o == nil {
+func (r *Reaction) GetCount() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.ReactedByViewer
+	return r.Count
+}
+
+func (r *Reaction) GetReactors() []Person {
+	if r == nil {
+		return nil
+	}
+	return r.Reactors
+}
+
+func (r *Reaction) GetReactedByViewer() *bool {
+	if r == nil {
+		return nil
+	}
+	return r.ReactedByViewer
 }

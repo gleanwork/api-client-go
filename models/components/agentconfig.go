@@ -72,16 +72,16 @@ type AgentConfig struct {
 	Mode *Mode `json:"mode,omitempty"`
 }
 
-func (o *AgentConfig) GetAgent() *AgentEnum {
-	if o == nil {
+func (a *AgentConfig) GetAgent() *AgentEnum {
+	if a == nil {
 		return nil
 	}
-	return o.Agent
+	return a.Agent
 }
 
-func (o *AgentConfig) GetMode() *Mode {
-	if o == nil {
+func (a *AgentConfig) GetMode() *Mode {
+	if a == nil {
 		return nil
 	}
-	return o.Mode
+	return a.Mode
 }

@@ -12,18 +12,18 @@ type PostAPIIndexV1DebugDatasourceUserRequest struct {
 	DebugUserRequest components.DebugUserRequest `request:"mediaType=application/json"`
 }
 
-func (o *PostAPIIndexV1DebugDatasourceUserRequest) GetDatasource() string {
-	if o == nil {
+func (p *PostAPIIndexV1DebugDatasourceUserRequest) GetDatasource() string {
+	if p == nil {
 		return ""
 	}
-	return o.Datasource
+	return p.Datasource
 }
 
-func (o *PostAPIIndexV1DebugDatasourceUserRequest) GetDebugUserRequest() components.DebugUserRequest {
-	if o == nil {
+func (p *PostAPIIndexV1DebugDatasourceUserRequest) GetDebugUserRequest() components.DebugUserRequest {
+	if p == nil {
 		return components.DebugUserRequest{}
 	}
-	return o.DebugUserRequest
+	return p.DebugUserRequest
 }
 
 type PostAPIIndexV1DebugDatasourceUserResponse struct {
@@ -32,16 +32,16 @@ type PostAPIIndexV1DebugDatasourceUserResponse struct {
 	DebugUserResponse *components.DebugUserResponse
 }
 
-func (o *PostAPIIndexV1DebugDatasourceUserResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIIndexV1DebugDatasourceUserResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostAPIIndexV1DebugDatasourceUserResponse) GetDebugUserResponse() *components.DebugUserResponse {
-	if o == nil {
+func (p *PostAPIIndexV1DebugDatasourceUserResponse) GetDebugUserResponse() *components.DebugUserResponse {
+	if p == nil {
 		return nil
 	}
-	return o.DebugUserResponse
+	return p.DebugUserResponse
 }

@@ -12,23 +12,23 @@ type IndexGroupRequest struct {
 	Group DatasourceGroupDefinition `json:"group"`
 }
 
-func (o *IndexGroupRequest) GetVersion() *int64 {
-	if o == nil {
+func (i *IndexGroupRequest) GetVersion() *int64 {
+	if i == nil {
 		return nil
 	}
-	return o.Version
+	return i.Version
 }
 
-func (o *IndexGroupRequest) GetDatasource() string {
-	if o == nil {
+func (i *IndexGroupRequest) GetDatasource() string {
+	if i == nil {
 		return ""
 	}
-	return o.Datasource
+	return i.Datasource
 }
 
-func (o *IndexGroupRequest) GetGroup() DatasourceGroupDefinition {
-	if o == nil {
+func (i *IndexGroupRequest) GetGroup() DatasourceGroupDefinition {
+	if i == nil {
 		return DatasourceGroupDefinition{}
 	}
-	return o.Group
+	return i.Group
 }

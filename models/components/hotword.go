@@ -7,16 +7,16 @@ type Hotword struct {
 	Proximity *HotwordProximity `json:"proximity,omitempty"`
 }
 
-func (o *Hotword) GetRegex() *string {
-	if o == nil {
+func (h *Hotword) GetRegex() *string {
+	if h == nil {
 		return nil
 	}
-	return o.Regex
+	return h.Regex
 }
 
-func (o *Hotword) GetProximity() *HotwordProximity {
-	if o == nil {
+func (h *Hotword) GetProximity() *HotwordProximity {
+	if h == nil {
 		return nil
 	}
-	return o.Proximity
+	return h.Proximity
 }

@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 // State - The verification state for the document.
@@ -43,16 +44,27 @@ type Verification struct {
 	Metadata *VerificationMetadata `json:"metadata,omitempty"`
 }
 
-func (o *Verification) GetState() State {
-	if o == nil {
-		return State("")
-	}
-	return o.State
+func (v Verification) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(v, "", false)
 }
 
-func (o *Verification) GetMetadata() *VerificationMetadata {
-	if o == nil {
+func (v *Verification) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &v, "", false, []string{"state"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (v *Verification) GetState() State {
+	if v == nil {
+		return State("")
+	}
+	return v.State
+}
+
+func (v *Verification) GetMetadata() *VerificationMetadata {
+	if v == nil {
 		return nil
 	}
-	return o.Metadata
+	return v.Metadata
 }

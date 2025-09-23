@@ -9,16 +9,16 @@ type DeleteAnswerRequest struct {
 	DocID *string `json:"docId,omitempty"`
 }
 
-func (o *DeleteAnswerRequest) GetID() int64 {
-	if o == nil {
+func (d *DeleteAnswerRequest) GetID() int64 {
+	if d == nil {
 		return 0
 	}
-	return o.ID
+	return d.ID
 }
 
-func (o *DeleteAnswerRequest) GetDocID() *string {
-	if o == nil {
+func (d *DeleteAnswerRequest) GetDocID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocID
+	return d.DocID
 }

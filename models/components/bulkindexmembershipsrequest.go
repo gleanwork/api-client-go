@@ -20,51 +20,51 @@ type BulkIndexMembershipsRequest struct {
 	Memberships []DatasourceBulkMembershipDefinition `json:"memberships"`
 }
 
-func (o *BulkIndexMembershipsRequest) GetUploadID() string {
-	if o == nil {
+func (b *BulkIndexMembershipsRequest) GetUploadID() string {
+	if b == nil {
 		return ""
 	}
-	return o.UploadID
+	return b.UploadID
 }
 
-func (o *BulkIndexMembershipsRequest) GetIsFirstPage() *bool {
-	if o == nil {
+func (b *BulkIndexMembershipsRequest) GetIsFirstPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsFirstPage
+	return b.IsFirstPage
 }
 
-func (o *BulkIndexMembershipsRequest) GetIsLastPage() *bool {
-	if o == nil {
+func (b *BulkIndexMembershipsRequest) GetIsLastPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsLastPage
+	return b.IsLastPage
 }
 
-func (o *BulkIndexMembershipsRequest) GetForceRestartUpload() *bool {
-	if o == nil {
+func (b *BulkIndexMembershipsRequest) GetForceRestartUpload() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.ForceRestartUpload
+	return b.ForceRestartUpload
 }
 
-func (o *BulkIndexMembershipsRequest) GetDatasource() string {
-	if o == nil {
+func (b *BulkIndexMembershipsRequest) GetDatasource() string {
+	if b == nil {
 		return ""
 	}
-	return o.Datasource
+	return b.Datasource
 }
 
-func (o *BulkIndexMembershipsRequest) GetGroup() *string {
-	if o == nil {
+func (b *BulkIndexMembershipsRequest) GetGroup() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Group
+	return b.Group
 }
 
-func (o *BulkIndexMembershipsRequest) GetMemberships() []DatasourceBulkMembershipDefinition {
-	if o == nil {
+func (b *BulkIndexMembershipsRequest) GetMemberships() []DatasourceBulkMembershipDefinition {
+	if b == nil {
 		return []DatasourceBulkMembershipDefinition{}
 	}
-	return o.Memberships
+	return b.Memberships
 }

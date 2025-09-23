@@ -20,93 +20,93 @@ type InsightsResponse struct {
 	Departments []string `json:"departments,omitempty"`
 }
 
-func (o *InsightsResponse) GetTimeseries() []LabeledCountInfo {
-	if o == nil {
+func (i *InsightsResponse) GetTimeseries() []LabeledCountInfo {
+	if i == nil {
 		return nil
 	}
-	return o.Timeseries
+	return i.Timeseries
 }
 
-func (o *InsightsResponse) GetUsers() *UserInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetUsers() *UserInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.Users
+	return i.Users
 }
 
-func (o *InsightsResponse) GetContent() *ContentInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetContent() *ContentInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.Content
+	return i.Content
 }
 
-func (o *InsightsResponse) GetQueries() *QueryInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetQueries() *QueryInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.Queries
+	return i.Queries
 }
 
-func (o *InsightsResponse) GetCollections() *ContentInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetCollections() *ContentInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.Collections
+	return i.Collections
 }
 
-func (o *InsightsResponse) GetCollectionsV2() *ContentInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetCollectionsV2() *ContentInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.CollectionsV2
+	return i.CollectionsV2
 }
 
-func (o *InsightsResponse) GetShortcuts() *ShortcutInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetShortcuts() *ShortcutInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.Shortcuts
+	return i.Shortcuts
 }
 
-func (o *InsightsResponse) GetAnnouncements() *ContentInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetAnnouncements() *ContentInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.Announcements
+	return i.Announcements
 }
 
-func (o *InsightsResponse) GetAnswers() *ContentInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetAnswers() *ContentInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.Answers
+	return i.Answers
 }
 
-func (o *InsightsResponse) GetAi() *AiInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetAi() *AiInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.Ai
+	return i.Ai
 }
 
-func (o *InsightsResponse) GetAiApps() *AiAppsInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetAiApps() *AiAppsInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.AiApps
+	return i.AiApps
 }
 
-func (o *InsightsResponse) GetGleanAssist() *GleanAssistInsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetGleanAssist() *GleanAssistInsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.GleanAssist
+	return i.GleanAssist
 }
 
-func (o *InsightsResponse) GetDepartments() []string {
-	if o == nil {
+func (i *InsightsResponse) GetDepartments() []string {
+	if i == nil {
 		return nil
 	}
-	return o.Departments
+	return i.Departments
 }

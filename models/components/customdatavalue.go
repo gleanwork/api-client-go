@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CustomDataValue struct {
 	DisplayLabel *string `json:"displayLabel,omitempty"`
 	StringValue  *string `json:"stringValue,omitempty"`
@@ -11,37 +15,48 @@ type CustomDataValue struct {
 	BooleanValue    *bool    `json:"booleanValue,omitempty"`
 }
 
-func (o *CustomDataValue) GetDisplayLabel() *string {
-	if o == nil {
-		return nil
-	}
-	return o.DisplayLabel
+func (c CustomDataValue) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CustomDataValue) GetStringValue() *string {
-	if o == nil {
-		return nil
+func (c *CustomDataValue) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
 	}
-	return o.StringValue
+	return nil
 }
 
-func (o *CustomDataValue) GetStringListValue() []string {
-	if o == nil {
+func (c *CustomDataValue) GetDisplayLabel() *string {
+	if c == nil {
 		return nil
 	}
-	return o.StringListValue
+	return c.DisplayLabel
 }
 
-func (o *CustomDataValue) GetNumberValue() *float64 {
-	if o == nil {
+func (c *CustomDataValue) GetStringValue() *string {
+	if c == nil {
 		return nil
 	}
-	return o.NumberValue
+	return c.StringValue
 }
 
-func (o *CustomDataValue) GetBooleanValue() *bool {
-	if o == nil {
+func (c *CustomDataValue) GetStringListValue() []string {
+	if c == nil {
 		return nil
 	}
-	return o.BooleanValue
+	return c.StringListValue
+}
+
+func (c *CustomDataValue) GetNumberValue() *float64 {
+	if c == nil {
+		return nil
+	}
+	return c.NumberValue
+}
+
+func (c *CustomDataValue) GetBooleanValue() *bool {
+	if c == nil {
+		return nil
+	}
+	return c.BooleanValue
 }

@@ -10,16 +10,16 @@ type CanonicalizingRegexType struct {
 	RewriteRegex *string `json:"rewriteRegex,omitempty"`
 }
 
-func (o *CanonicalizingRegexType) GetMatchRegex() *string {
-	if o == nil {
+func (c *CanonicalizingRegexType) GetMatchRegex() *string {
+	if c == nil {
 		return nil
 	}
-	return o.MatchRegex
+	return c.MatchRegex
 }
 
-func (o *CanonicalizingRegexType) GetRewriteRegex() *string {
-	if o == nil {
+func (c *CanonicalizingRegexType) GetRewriteRegex() *string {
+	if c == nil {
 		return nil
 	}
-	return o.RewriteRegex
+	return c.RewriteRegex
 }

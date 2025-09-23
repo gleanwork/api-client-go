@@ -35,14 +35,14 @@ func main() {
 
     res, err := s.Indexing.Datasources.Add(ctx, components.CustomDatasourceConfig{
         Name: "<value>",
-        URLRegex: apiclientgo.String("https://example-company.datasource.com/.*"),
+        URLRegex: apiclientgo.Pointer("https://example-company.datasource.com/.*"),
         Quicklinks: []components.Quicklink{
             components.Quicklink{
                 IconConfig: &components.IconConfig{
-                    Color: apiclientgo.String("#343CED"),
-                    Key: apiclientgo.String("person_icon"),
+                    Color: apiclientgo.Pointer("#343CED"),
+                    Key: apiclientgo.Pointer("person_icon"),
                     IconType: components.IconTypeGlyph.ToPointer(),
-                    Name: apiclientgo.String("user"),
+                    Name: apiclientgo.Pointer("user"),
                 },
             },
         },

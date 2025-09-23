@@ -16,37 +16,37 @@ type AgentRun struct {
 	Status *AgentExecutionStatus `json:"status,omitempty"`
 }
 
-func (o *AgentRun) GetAgentID() string {
-	if o == nil {
+func (a *AgentRun) GetAgentID() string {
+	if a == nil {
 		return ""
 	}
-	return o.AgentID
+	return a.AgentID
 }
 
-func (o *AgentRun) GetInput() map[string]any {
-	if o == nil {
+func (a *AgentRun) GetInput() map[string]any {
+	if a == nil {
 		return nil
 	}
-	return o.Input
+	return a.Input
 }
 
-func (o *AgentRun) GetMessages() []Message {
-	if o == nil {
+func (a *AgentRun) GetMessages() []Message {
+	if a == nil {
 		return nil
 	}
-	return o.Messages
+	return a.Messages
 }
 
-func (o *AgentRun) GetMetadata() map[string]any {
-	if o == nil {
+func (a *AgentRun) GetMetadata() map[string]any {
+	if a == nil {
 		return nil
 	}
-	return o.Metadata
+	return a.Metadata
 }
 
-func (o *AgentRun) GetStatus() *AgentExecutionStatus {
-	if o == nil {
+func (a *AgentRun) GetStatus() *AgentExecutionStatus {
+	if a == nil {
 		return nil
 	}
-	return o.Status
+	return a.Status
 }

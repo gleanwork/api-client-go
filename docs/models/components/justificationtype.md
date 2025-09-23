@@ -39,3 +39,5 @@ Type of the justification.
 | `JustificationTypeZeroStatePromptTemplateSuggestion` | ZERO_STATE_PROMPT_TEMPLATE_SUGGESTION                |
 | `JustificationTypeZeroStateStaticWorkflowSuggestion` | ZERO_STATE_STATIC_WORKFLOW_SUGGESTION                |
 | `JustificationTypeZeroStateAgentSuggestion`          | ZERO_STATE_AGENT_SUGGESTION                          |
+| `JustificationTypePersonalizedChatSuggestion`        | PERSONALIZED_CHAT_SUGGESTION                         |
+| `JustificationTypeDailyDigest`                       | DAILY_DIGEST                                         |

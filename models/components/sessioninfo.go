@@ -23,36 +23,36 @@ func (s SessionInfo) MarshalJSON() ([]byte, error) {
 }
 
 func (s *SessionInfo) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *SessionInfo) GetSessionTrackingToken() *string {
-	if o == nil {
+func (s *SessionInfo) GetSessionTrackingToken() *string {
+	if s == nil {
 		return nil
 	}
-	return o.SessionTrackingToken
+	return s.SessionTrackingToken
 }
 
-func (o *SessionInfo) GetTabID() *string {
-	if o == nil {
+func (s *SessionInfo) GetTabID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.TabID
+	return s.TabID
 }
 
-func (o *SessionInfo) GetLastSeen() *time.Time {
-	if o == nil {
+func (s *SessionInfo) GetLastSeen() *time.Time {
+	if s == nil {
 		return nil
 	}
-	return o.LastSeen
+	return s.LastSeen
 }
 
-func (o *SessionInfo) GetLastQuery() *string {
-	if o == nil {
+func (s *SessionInfo) GetLastQuery() *string {
+	if s == nil {
 		return nil
 	}
-	return o.LastQuery
+	return s.LastQuery
 }

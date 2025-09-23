@@ -24,79 +24,79 @@ type ChatRequest struct {
 	Stream *bool `json:"stream,omitempty"`
 }
 
-func (o *ChatRequest) GetSaveChat() *bool {
-	if o == nil {
+func (c *ChatRequest) GetSaveChat() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.SaveChat
+	return c.SaveChat
 }
 
-func (o *ChatRequest) GetChatID() *string {
-	if o == nil {
+func (c *ChatRequest) GetChatID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ChatID
+	return c.ChatID
 }
 
-func (o *ChatRequest) GetMessages() []ChatMessage {
-	if o == nil {
+func (c *ChatRequest) GetMessages() []ChatMessage {
+	if c == nil {
 		return []ChatMessage{}
 	}
-	return o.Messages
+	return c.Messages
 }
 
-func (o *ChatRequest) GetAgentConfig() *AgentConfig {
-	if o == nil {
+func (c *ChatRequest) GetAgentConfig() *AgentConfig {
+	if c == nil {
 		return nil
 	}
-	return o.AgentConfig
+	return c.AgentConfig
 }
 
-func (o *ChatRequest) GetInclusions() *ChatRestrictionFilters {
-	if o == nil {
+func (c *ChatRequest) GetInclusions() *ChatRestrictionFilters {
+	if c == nil {
 		return nil
 	}
-	return o.Inclusions
+	return c.Inclusions
 }
 
-func (o *ChatRequest) GetExclusions() *ChatRestrictionFilters {
-	if o == nil {
+func (c *ChatRequest) GetExclusions() *ChatRestrictionFilters {
+	if c == nil {
 		return nil
 	}
-	return o.Exclusions
+	return c.Exclusions
 }
 
-func (o *ChatRequest) GetTimeoutMillis() *int64 {
-	if o == nil {
+func (c *ChatRequest) GetTimeoutMillis() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.TimeoutMillis
+	return c.TimeoutMillis
 }
 
-func (o *ChatRequest) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (c *ChatRequest) GetSessionInfo() *SessionInfo {
+	if c == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return c.SessionInfo
 }
 
-func (o *ChatRequest) GetApplicationID() *string {
-	if o == nil {
+func (c *ChatRequest) GetApplicationID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ApplicationID
+	return c.ApplicationID
 }
 
-func (o *ChatRequest) GetAgentID() *string {
-	if o == nil {
+func (c *ChatRequest) GetAgentID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.AgentID
+	return c.AgentID
 }
 
-func (o *ChatRequest) GetStream() *bool {
-	if o == nil {
+func (c *ChatRequest) GetStream() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.Stream
+	return c.Stream
 }

@@ -41,99 +41,99 @@ func (c Company) MarshalJSON() ([]byte, error) {
 }
 
 func (c *Company) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"name"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Company) GetName() string {
-	if o == nil {
+func (c *Company) GetName() string {
+	if c == nil {
 		return ""
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *Company) GetProfileURL() *string {
-	if o == nil {
+func (c *Company) GetProfileURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ProfileURL
+	return c.ProfileURL
 }
 
-func (o *Company) GetWebsiteUrls() []string {
-	if o == nil {
+func (c *Company) GetWebsiteUrls() []string {
+	if c == nil {
 		return nil
 	}
-	return o.WebsiteUrls
+	return c.WebsiteUrls
 }
 
-func (o *Company) GetLogoURL() *string {
-	if o == nil {
+func (c *Company) GetLogoURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.LogoURL
+	return c.LogoURL
 }
 
-func (o *Company) GetLocation() *string {
-	if o == nil {
+func (c *Company) GetLocation() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Location
+	return c.Location
 }
 
-func (o *Company) GetPhone() *string {
-	if o == nil {
+func (c *Company) GetPhone() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Phone
+	return c.Phone
 }
 
-func (o *Company) GetFax() *string {
-	if o == nil {
+func (c *Company) GetFax() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Fax
+	return c.Fax
 }
 
-func (o *Company) GetIndustry() *string {
-	if o == nil {
+func (c *Company) GetIndustry() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Industry
+	return c.Industry
 }
 
-func (o *Company) GetAnnualRevenue() *float64 {
-	if o == nil {
+func (c *Company) GetAnnualRevenue() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.AnnualRevenue
+	return c.AnnualRevenue
 }
 
-func (o *Company) GetNumberOfEmployees() *int64 {
-	if o == nil {
+func (c *Company) GetNumberOfEmployees() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.NumberOfEmployees
+	return c.NumberOfEmployees
 }
 
-func (o *Company) GetStockSymbol() *string {
-	if o == nil {
+func (c *Company) GetStockSymbol() *string {
+	if c == nil {
 		return nil
 	}
-	return o.StockSymbol
+	return c.StockSymbol
 }
 
-func (o *Company) GetFoundedDate() *types.Date {
-	if o == nil {
+func (c *Company) GetFoundedDate() *types.Date {
+	if c == nil {
 		return nil
 	}
-	return o.FoundedDate
+	return c.FoundedDate
 }
 
-func (o *Company) GetAbout() *string {
-	if o == nil {
+func (c *Company) GetAbout() *string {
+	if c == nil {
 		return nil
 	}
-	return o.About
+	return c.About
 }

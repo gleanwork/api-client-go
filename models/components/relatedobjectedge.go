@@ -2,13 +2,28 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type RelatedObjectEdge struct {
 	Objects []RelatedObject `json:"objects,omitempty"`
 }
 
-func (o *RelatedObjectEdge) GetObjects() []RelatedObject {
-	if o == nil {
+func (r RelatedObjectEdge) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelatedObjectEdge) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (r *RelatedObjectEdge) GetObjects() []RelatedObject {
+	if r == nil {
 		return nil
 	}
-	return o.Objects
+	return r.Objects
 }

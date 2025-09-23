@@ -21,29 +21,29 @@ func (t TimeRange) MarshalJSON() ([]byte, error) {
 }
 
 func (t *TimeRange) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &t, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *TimeRange) GetStartTime() *time.Time {
-	if o == nil {
+func (t *TimeRange) GetStartTime() *time.Time {
+	if t == nil {
 		return nil
 	}
-	return o.StartTime
+	return t.StartTime
 }
 
-func (o *TimeRange) GetEndTime() *time.Time {
-	if o == nil {
+func (t *TimeRange) GetEndTime() *time.Time {
+	if t == nil {
 		return nil
 	}
-	return o.EndTime
+	return t.EndTime
 }
 
-func (o *TimeRange) GetLastNDaysValue() *int64 {
-	if o == nil {
+func (t *TimeRange) GetLastNDaysValue() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.LastNDaysValue
+	return t.LastNDaysValue
 }

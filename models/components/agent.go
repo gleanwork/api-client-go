@@ -27,31 +27,31 @@ func (a AgentCapabilities) MarshalJSON() ([]byte, error) {
 }
 
 func (a *AgentCapabilities) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *AgentCapabilities) GetApIoMessages() *bool {
-	if o == nil {
+func (a *AgentCapabilities) GetApIoMessages() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.ApIoMessages
+	return a.ApIoMessages
 }
 
-func (o *AgentCapabilities) GetApIoStreaming() *bool {
-	if o == nil {
+func (a *AgentCapabilities) GetApIoStreaming() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.ApIoStreaming
+	return a.ApIoStreaming
 }
 
-func (o *AgentCapabilities) GetAdditionalProperties() map[string]any {
-	if o == nil {
+func (a *AgentCapabilities) GetAdditionalProperties() map[string]any {
+	if a == nil {
 		return nil
 	}
-	return o.AdditionalProperties
+	return a.AdditionalProperties
 }
 
 type Agent struct {
@@ -70,37 +70,37 @@ type Agent struct {
 	Capabilities AgentCapabilities `json:"capabilities"`
 }
 
-func (o *Agent) GetAgentID() string {
-	if o == nil {
+func (a *Agent) GetAgentID() string {
+	if a == nil {
 		return ""
 	}
-	return o.AgentID
+	return a.AgentID
 }
 
-func (o *Agent) GetName() string {
-	if o == nil {
+func (a *Agent) GetName() string {
+	if a == nil {
 		return ""
 	}
-	return o.Name
+	return a.Name
 }
 
-func (o *Agent) GetDescription() *string {
-	if o == nil {
+func (a *Agent) GetDescription() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Description
+	return a.Description
 }
 
-func (o *Agent) GetMetadata() *AgentMetadata {
-	if o == nil {
+func (a *Agent) GetMetadata() *AgentMetadata {
+	if a == nil {
 		return nil
 	}
-	return o.Metadata
+	return a.Metadata
 }
 
-func (o *Agent) GetCapabilities() AgentCapabilities {
-	if o == nil {
+func (a *Agent) GetCapabilities() AgentCapabilities {
+	if a == nil {
 		return AgentCapabilities{}
 	}
-	return o.Capabilities
+	return a.Capabilities
 }

@@ -9,23 +9,23 @@ type ListShortcutsPaginatedResponse struct {
 	Meta         ShortcutsPaginationMetadata `json:"meta"`
 }
 
-func (o *ListShortcutsPaginatedResponse) GetShortcuts() []Shortcut {
-	if o == nil {
+func (l *ListShortcutsPaginatedResponse) GetShortcuts() []Shortcut {
+	if l == nil {
 		return []Shortcut{}
 	}
-	return o.Shortcuts
+	return l.Shortcuts
 }
 
-func (o *ListShortcutsPaginatedResponse) GetFacetResults() []FacetResult {
-	if o == nil {
+func (l *ListShortcutsPaginatedResponse) GetFacetResults() []FacetResult {
+	if l == nil {
 		return nil
 	}
-	return o.FacetResults
+	return l.FacetResults
 }
 
-func (o *ListShortcutsPaginatedResponse) GetMeta() ShortcutsPaginationMetadata {
-	if o == nil {
+func (l *ListShortcutsPaginatedResponse) GetMeta() ShortcutsPaginationMetadata {
+	if l == nil {
 		return ShortcutsPaginationMetadata{}
 	}
-	return o.Meta
+	return l.Meta
 }

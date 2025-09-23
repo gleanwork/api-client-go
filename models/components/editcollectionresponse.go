@@ -100,190 +100,190 @@ func (e EditCollectionResponse) MarshalJSON() ([]byte, error) {
 }
 
 func (e *EditCollectionResponse) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &e, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &e, "", false, []string{"name", "description", "id", "errorCode"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *EditCollectionResponse) GetName() string {
-	if o == nil {
+func (e *EditCollectionResponse) GetName() string {
+	if e == nil {
 		return ""
 	}
-	return o.Name
+	return e.Name
 }
 
-func (o *EditCollectionResponse) GetDescription() string {
-	if o == nil {
+func (e *EditCollectionResponse) GetDescription() string {
+	if e == nil {
 		return ""
 	}
-	return o.Description
+	return e.Description
 }
 
-func (o *EditCollectionResponse) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (e *EditCollectionResponse) GetAddedRoles() []UserRoleSpecification {
+	if e == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return e.AddedRoles
 }
 
-func (o *EditCollectionResponse) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (e *EditCollectionResponse) GetRemovedRoles() []UserRoleSpecification {
+	if e == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return e.RemovedRoles
 }
 
-func (o *EditCollectionResponse) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (e *EditCollectionResponse) GetAudienceFilters() []FacetFilter {
+	if e == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return e.AudienceFilters
 }
 
-func (o *EditCollectionResponse) GetIcon() *string {
-	if o == nil {
+func (e *EditCollectionResponse) GetIcon() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Icon
+	return e.Icon
 }
 
-func (o *EditCollectionResponse) GetAdminLocked() *bool {
-	if o == nil {
+func (e *EditCollectionResponse) GetAdminLocked() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.AdminLocked
+	return e.AdminLocked
 }
 
-func (o *EditCollectionResponse) GetParentID() *int64 {
-	if o == nil {
+func (e *EditCollectionResponse) GetParentID() *int64 {
+	if e == nil {
 		return nil
 	}
-	return o.ParentID
+	return e.ParentID
 }
 
-func (o *EditCollectionResponse) GetThumbnail() *Thumbnail {
-	if o == nil {
+func (e *EditCollectionResponse) GetThumbnail() *Thumbnail {
+	if e == nil {
 		return nil
 	}
-	return o.Thumbnail
+	return e.Thumbnail
 }
 
-func (o *EditCollectionResponse) GetAllowedDatasource() *string {
-	if o == nil {
+func (e *EditCollectionResponse) GetAllowedDatasource() *string {
+	if e == nil {
 		return nil
 	}
-	return o.AllowedDatasource
+	return e.AllowedDatasource
 }
 
-func (o *EditCollectionResponse) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (e *EditCollectionResponse) GetPermissions() *ObjectPermissions {
+	if e == nil {
 		return nil
 	}
-	return o.Permissions
+	return e.Permissions
 }
 
-func (o *EditCollectionResponse) GetID() int64 {
-	if o == nil {
+func (e *EditCollectionResponse) GetID() int64 {
+	if e == nil {
 		return 0
 	}
-	return o.ID
+	return e.ID
 }
 
-func (o *EditCollectionResponse) GetCreateTime() *time.Time {
-	if o == nil {
+func (e *EditCollectionResponse) GetCreateTime() *time.Time {
+	if e == nil {
 		return nil
 	}
-	return o.CreateTime
+	return e.CreateTime
 }
 
-func (o *EditCollectionResponse) GetUpdateTime() *time.Time {
-	if o == nil {
+func (e *EditCollectionResponse) GetUpdateTime() *time.Time {
+	if e == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return e.UpdateTime
 }
 
-func (o *EditCollectionResponse) GetCreator() *Person {
-	if o == nil {
+func (e *EditCollectionResponse) GetCreator() *Person {
+	if e == nil {
 		return nil
 	}
-	return o.Creator
+	return e.Creator
 }
 
-func (o *EditCollectionResponse) GetUpdatedBy() *Person {
-	if o == nil {
+func (e *EditCollectionResponse) GetUpdatedBy() *Person {
+	if e == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return e.UpdatedBy
 }
 
-func (o *EditCollectionResponse) GetItemCount() *int64 {
-	if o == nil {
+func (e *EditCollectionResponse) GetItemCount() *int64 {
+	if e == nil {
 		return nil
 	}
-	return o.ItemCount
+	return e.ItemCount
 }
 
-func (o *EditCollectionResponse) GetChildCount() *int64 {
-	if o == nil {
+func (e *EditCollectionResponse) GetChildCount() *int64 {
+	if e == nil {
 		return nil
 	}
-	return o.ChildCount
+	return e.ChildCount
 }
 
-func (o *EditCollectionResponse) GetItems() []CollectionItem {
-	if o == nil {
+func (e *EditCollectionResponse) GetItems() []CollectionItem {
+	if e == nil {
 		return nil
 	}
-	return o.Items
+	return e.Items
 }
 
-func (o *EditCollectionResponse) GetPinMetadata() *CollectionPinnedMetadata {
-	if o == nil {
+func (e *EditCollectionResponse) GetPinMetadata() *CollectionPinnedMetadata {
+	if e == nil {
 		return nil
 	}
-	return o.PinMetadata
+	return e.PinMetadata
 }
 
-func (o *EditCollectionResponse) GetShortcuts() []string {
-	if o == nil {
+func (e *EditCollectionResponse) GetShortcuts() []string {
+	if e == nil {
 		return nil
 	}
-	return o.Shortcuts
+	return e.Shortcuts
 }
 
-func (o *EditCollectionResponse) GetChildren() []Collection {
-	if o == nil {
+func (e *EditCollectionResponse) GetChildren() []Collection {
+	if e == nil {
 		return nil
 	}
-	return o.Children
+	return e.Children
 }
 
-func (o *EditCollectionResponse) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (e *EditCollectionResponse) GetRoles() []UserRoleSpecification {
+	if e == nil {
 		return nil
 	}
-	return o.Roles
+	return e.Roles
 }
 
-func (o *EditCollectionResponse) GetErrorCode() EditCollectionResponseErrorCode {
-	if o == nil {
+func (e *EditCollectionResponse) GetErrorCode() EditCollectionResponseErrorCode {
+	if e == nil {
 		return EditCollectionResponseErrorCode("")
 	}
-	return o.ErrorCode
+	return e.ErrorCode
 }
 
-func (o *EditCollectionResponse) GetCollection() *Collection {
-	if o == nil {
+func (e *EditCollectionResponse) GetCollection() *Collection {
+	if e == nil {
 		return nil
 	}
-	return o.Collection
+	return e.Collection
 }
 
-func (o *EditCollectionResponse) GetError() *CollectionError {
-	if o == nil {
+func (e *EditCollectionResponse) GetError() *CollectionError {
+	if e == nil {
 		return nil
 	}
-	return o.Error
+	return e.Error
 }

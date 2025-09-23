@@ -12,23 +12,23 @@ type UserStatusResponse struct {
 	LastUploadedAt *string `json:"lastUploadedAt,omitempty"`
 }
 
-func (o *UserStatusResponse) GetIsActiveUser() *bool {
-	if o == nil {
+func (u *UserStatusResponse) GetIsActiveUser() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.IsActiveUser
+	return u.IsActiveUser
 }
 
-func (o *UserStatusResponse) GetUploadStatus() *UploadStatusEnum {
-	if o == nil {
+func (u *UserStatusResponse) GetUploadStatus() *UploadStatusEnum {
+	if u == nil {
 		return nil
 	}
-	return o.UploadStatus
+	return u.UploadStatus
 }
 
-func (o *UserStatusResponse) GetLastUploadedAt() *string {
-	if o == nil {
+func (u *UserStatusResponse) GetLastUploadedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.LastUploadedAt
+	return u.LastUploadedAt
 }

@@ -10,16 +10,16 @@ type DebugDocumentRequest struct {
 	DocID string `json:"docId"`
 }
 
-func (o *DebugDocumentRequest) GetObjectType() string {
-	if o == nil {
+func (d *DebugDocumentRequest) GetObjectType() string {
+	if d == nil {
 		return ""
 	}
-	return o.ObjectType
+	return d.ObjectType
 }
 
-func (o *DebugDocumentRequest) GetDocID() string {
-	if o == nil {
+func (d *DebugDocumentRequest) GetDocID() string {
+	if d == nil {
 		return ""
 	}
-	return o.DocID
+	return d.DocID
 }

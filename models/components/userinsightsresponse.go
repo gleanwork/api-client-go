@@ -17,44 +17,44 @@ type UserInsightsResponse struct {
 	Departments []string `json:"departments,omitempty"`
 }
 
-func (o *UserInsightsResponse) GetLastLogTimestamp() *int64 {
-	if o == nil {
+func (u *UserInsightsResponse) GetLastLogTimestamp() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.LastLogTimestamp
+	return u.LastLogTimestamp
 }
 
-func (o *UserInsightsResponse) GetActivityInsights() []UserActivityInsight {
-	if o == nil {
+func (u *UserInsightsResponse) GetActivityInsights() []UserActivityInsight {
+	if u == nil {
 		return nil
 	}
-	return o.ActivityInsights
+	return u.ActivityInsights
 }
 
-func (o *UserInsightsResponse) GetInactiveInsights() []UserActivityInsight {
-	if o == nil {
+func (u *UserInsightsResponse) GetInactiveInsights() []UserActivityInsight {
+	if u == nil {
 		return nil
 	}
-	return o.InactiveInsights
+	return u.InactiveInsights
 }
 
-func (o *UserInsightsResponse) GetTotalTeammates() *int64 {
-	if o == nil {
+func (u *UserInsightsResponse) GetTotalTeammates() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.TotalTeammates
+	return u.TotalTeammates
 }
 
-func (o *UserInsightsResponse) GetTotalActiveUsers() *int64 {
-	if o == nil {
+func (u *UserInsightsResponse) GetTotalActiveUsers() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.TotalActiveUsers
+	return u.TotalActiveUsers
 }
 
-func (o *UserInsightsResponse) GetDepartments() []string {
-	if o == nil {
+func (u *UserInsightsResponse) GetDepartments() []string {
+	if u == nil {
 		return nil
 	}
-	return o.Departments
+	return u.Departments
 }

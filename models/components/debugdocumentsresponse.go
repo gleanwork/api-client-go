@@ -8,9 +8,9 @@ type DebugDocumentsResponse struct {
 	DocumentStatuses []DebugDocumentsResponseItem `json:"documentStatuses,omitempty"`
 }
 
-func (o *DebugDocumentsResponse) GetDocumentStatuses() []DebugDocumentsResponseItem {
-	if o == nil {
+func (d *DebugDocumentsResponse) GetDocumentStatuses() []DebugDocumentsResponseItem {
+	if d == nil {
 		return nil
 	}
-	return o.DocumentStatuses
+	return d.DocumentStatuses
 }

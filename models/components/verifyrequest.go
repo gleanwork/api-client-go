@@ -44,16 +44,16 @@ type VerifyRequest struct {
 	Action *VerifyRequestAction `json:"action,omitempty"`
 }
 
-func (o *VerifyRequest) GetDocumentID() string {
-	if o == nil {
+func (v *VerifyRequest) GetDocumentID() string {
+	if v == nil {
 		return ""
 	}
-	return o.DocumentID
+	return v.DocumentID
 }
 
-func (o *VerifyRequest) GetAction() *VerifyRequestAction {
-	if o == nil {
+func (v *VerifyRequest) GetAction() *VerifyRequestAction {
+	if v == nil {
 		return nil
 	}
-	return o.Action
+	return v.Action
 }

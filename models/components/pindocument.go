@@ -27,64 +27,64 @@ func (p PinDocument) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PinDocument) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, []string{"documentId"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *PinDocument) GetQueries() []string {
-	if o == nil {
+func (p *PinDocument) GetQueries() []string {
+	if p == nil {
 		return nil
 	}
-	return o.Queries
+	return p.Queries
 }
 
-func (o *PinDocument) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (p *PinDocument) GetAudienceFilters() []FacetFilter {
+	if p == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return p.AudienceFilters
 }
 
-func (o *PinDocument) GetID() *string {
-	if o == nil {
+func (p *PinDocument) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PinDocument) GetDocumentID() string {
-	if o == nil {
+func (p *PinDocument) GetDocumentID() string {
+	if p == nil {
 		return ""
 	}
-	return o.DocumentID
+	return p.DocumentID
 }
 
-func (o *PinDocument) GetAttribution() *Person {
-	if o == nil {
+func (p *PinDocument) GetAttribution() *Person {
+	if p == nil {
 		return nil
 	}
-	return o.Attribution
+	return p.Attribution
 }
 
-func (o *PinDocument) GetUpdatedBy() *Person {
-	if o == nil {
+func (p *PinDocument) GetUpdatedBy() *Person {
+	if p == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return p.UpdatedBy
 }
 
-func (o *PinDocument) GetCreateTime() *time.Time {
-	if o == nil {
+func (p *PinDocument) GetCreateTime() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.CreateTime
+	return p.CreateTime
 }
 
-func (o *PinDocument) GetUpdateTime() *time.Time {
-	if o == nil {
+func (p *PinDocument) GetUpdateTime() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return p.UpdateTime
 }

@@ -87,37 +87,37 @@ type BulkUploadHistoryEvent struct {
 	ProcessingState *ProcessingState `json:"processingState,omitempty"`
 }
 
-func (o *BulkUploadHistoryEvent) GetUploadID() *string {
-	if o == nil {
+func (b *BulkUploadHistoryEvent) GetUploadID() *string {
+	if b == nil {
 		return nil
 	}
-	return o.UploadID
+	return b.UploadID
 }
 
-func (o *BulkUploadHistoryEvent) GetStartTime() *string {
-	if o == nil {
+func (b *BulkUploadHistoryEvent) GetStartTime() *string {
+	if b == nil {
 		return nil
 	}
-	return o.StartTime
+	return b.StartTime
 }
 
-func (o *BulkUploadHistoryEvent) GetEndTime() *string {
-	if o == nil {
+func (b *BulkUploadHistoryEvent) GetEndTime() *string {
+	if b == nil {
 		return nil
 	}
-	return o.EndTime
+	return b.EndTime
 }
 
-func (o *BulkUploadHistoryEvent) GetStatus() *BulkUploadHistoryEventStatus {
-	if o == nil {
+func (b *BulkUploadHistoryEvent) GetStatus() *BulkUploadHistoryEventStatus {
+	if b == nil {
 		return nil
 	}
-	return o.Status
+	return b.Status
 }
 
-func (o *BulkUploadHistoryEvent) GetProcessingState() *ProcessingState {
-	if o == nil {
+func (b *BulkUploadHistoryEvent) GetProcessingState() *ProcessingState {
+	if b == nil {
 		return nil
 	}
-	return o.ProcessingState
+	return b.ProcessingState
 }

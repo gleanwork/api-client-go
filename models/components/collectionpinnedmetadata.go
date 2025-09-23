@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CollectionPinnedMetadata struct {
 	// List of targets this Collection is pinned to.
 	ExistingPins []CollectionPinTarget `json:"existingPins,omitempty"`
@@ -9,16 +13,27 @@ type CollectionPinnedMetadata struct {
 	EligiblePins []CollectionPinMetadata `json:"eligiblePins,omitempty"`
 }
 
-func (o *CollectionPinnedMetadata) GetExistingPins() []CollectionPinTarget {
-	if o == nil {
-		return nil
-	}
-	return o.ExistingPins
+func (c CollectionPinnedMetadata) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CollectionPinnedMetadata) GetEligiblePins() []CollectionPinMetadata {
-	if o == nil {
+func (c *CollectionPinnedMetadata) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CollectionPinnedMetadata) GetExistingPins() []CollectionPinTarget {
+	if c == nil {
 		return nil
 	}
-	return o.EligiblePins
+	return c.ExistingPins
+}
+
+func (c *CollectionPinnedMetadata) GetEligiblePins() []CollectionPinMetadata {
+	if c == nil {
+		return nil
+	}
+	return c.EligiblePins
 }

@@ -10,16 +10,16 @@ type PropertyGroup struct {
 	DisplayLabel *string `json:"displayLabel,omitempty"`
 }
 
-func (o *PropertyGroup) GetName() *string {
-	if o == nil {
+func (p *PropertyGroup) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PropertyGroup) GetDisplayLabel() *string {
-	if o == nil {
+func (p *PropertyGroup) GetDisplayLabel() *string {
+	if p == nil {
 		return nil
 	}
-	return o.DisplayLabel
+	return p.DisplayLabel
 }

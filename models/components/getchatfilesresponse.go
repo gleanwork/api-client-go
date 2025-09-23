@@ -7,9 +7,9 @@ type GetChatFilesResponse struct {
 	Files map[string]ChatFile `json:"files,omitempty"`
 }
 
-func (o *GetChatFilesResponse) GetFiles() map[string]ChatFile {
-	if o == nil {
+func (g *GetChatFilesResponse) GetFiles() map[string]ChatFile {
+	if g == nil {
 		return nil
 	}
-	return o.Files
+	return g.Files
 }

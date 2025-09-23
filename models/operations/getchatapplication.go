@@ -12,18 +12,18 @@ type GetchatapplicationRequest struct {
 	GetChatApplicationRequest components.GetChatApplicationRequest `request:"mediaType=application/json"`
 }
 
-func (o *GetchatapplicationRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (g *GetchatapplicationRequest) GetTimezoneOffset() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return g.TimezoneOffset
 }
 
-func (o *GetchatapplicationRequest) GetGetChatApplicationRequest() components.GetChatApplicationRequest {
-	if o == nil {
+func (g *GetchatapplicationRequest) GetGetChatApplicationRequest() components.GetChatApplicationRequest {
+	if g == nil {
 		return components.GetChatApplicationRequest{}
 	}
-	return o.GetChatApplicationRequest
+	return g.GetChatApplicationRequest
 }
 
 type GetchatapplicationResponse struct {
@@ -32,16 +32,16 @@ type GetchatapplicationResponse struct {
 	GetChatApplicationResponse *components.GetChatApplicationResponse
 }
 
-func (o *GetchatapplicationResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetchatapplicationResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetchatapplicationResponse) GetGetChatApplicationResponse() *components.GetChatApplicationResponse {
-	if o == nil {
+func (g *GetchatapplicationResponse) GetGetChatApplicationResponse() *components.GetChatApplicationResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetChatApplicationResponse
+	return g.GetChatApplicationResponse
 }

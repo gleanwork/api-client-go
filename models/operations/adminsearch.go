@@ -12,16 +12,16 @@ type AdminsearchResponse struct {
 	SearchResponse *components.SearchResponse
 }
 
-func (o *AdminsearchResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (a *AdminsearchResponse) GetHTTPMeta() components.HTTPMetadata {
+	if a == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return a.HTTPMeta
 }
 
-func (o *AdminsearchResponse) GetSearchResponse() *components.SearchResponse {
-	if o == nil {
+func (a *AdminsearchResponse) GetSearchResponse() *components.SearchResponse {
+	if a == nil {
 		return nil
 	}
-	return o.SearchResponse
+	return a.SearchResponse
 }

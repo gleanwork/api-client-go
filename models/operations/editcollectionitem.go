@@ -12,16 +12,16 @@ type EditcollectionitemResponse struct {
 	EditCollectionItemResponse *components.EditCollectionItemResponse
 }
 
-func (o *EditcollectionitemResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (e *EditcollectionitemResponse) GetHTTPMeta() components.HTTPMetadata {
+	if e == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return e.HTTPMeta
 }
 
-func (o *EditcollectionitemResponse) GetEditCollectionItemResponse() *components.EditCollectionItemResponse {
-	if o == nil {
+func (e *EditcollectionitemResponse) GetEditCollectionItemResponse() *components.EditCollectionItemResponse {
+	if e == nil {
 		return nil
 	}
-	return o.EditCollectionItemResponse
+	return e.EditCollectionItemResponse
 }

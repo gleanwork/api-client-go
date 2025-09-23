@@ -55,44 +55,44 @@ type WriteActionParameter struct {
 	PossibleValues []PossibleValue `json:"possibleValues,omitempty"`
 }
 
-func (o *WriteActionParameter) GetType() *WriteActionParameterType {
-	if o == nil {
+func (w *WriteActionParameter) GetType() *WriteActionParameterType {
+	if w == nil {
 		return nil
 	}
-	return o.Type
+	return w.Type
 }
 
-func (o *WriteActionParameter) GetDisplayName() *string {
-	if o == nil {
+func (w *WriteActionParameter) GetDisplayName() *string {
+	if w == nil {
 		return nil
 	}
-	return o.DisplayName
+	return w.DisplayName
 }
 
-func (o *WriteActionParameter) GetValue() *string {
-	if o == nil {
+func (w *WriteActionParameter) GetValue() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Value
+	return w.Value
 }
 
-func (o *WriteActionParameter) GetIsRequired() *bool {
-	if o == nil {
+func (w *WriteActionParameter) GetIsRequired() *bool {
+	if w == nil {
 		return nil
 	}
-	return o.IsRequired
+	return w.IsRequired
 }
 
-func (o *WriteActionParameter) GetDescription() *string {
-	if o == nil {
+func (w *WriteActionParameter) GetDescription() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Description
+	return w.Description
 }
 
-func (o *WriteActionParameter) GetPossibleValues() []PossibleValue {
-	if o == nil {
+func (w *WriteActionParameter) GetPossibleValues() []PossibleValue {
+	if w == nil {
 		return nil
 	}
-	return o.PossibleValues
+	return w.PossibleValues
 }

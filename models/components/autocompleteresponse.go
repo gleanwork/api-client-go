@@ -16,51 +16,51 @@ type AutocompleteResponse struct {
 	BackendTimeMillis *int64 `json:"backendTimeMillis,omitempty"`
 }
 
-func (o *AutocompleteResponse) GetExperimentIds() []int64 {
-	if o == nil {
+func (a *AutocompleteResponse) GetExperimentIds() []int64 {
+	if a == nil {
 		return nil
 	}
-	return o.ExperimentIds
+	return a.ExperimentIds
 }
 
-func (o *AutocompleteResponse) GetTrackingToken() *string {
-	if o == nil {
+func (a *AutocompleteResponse) GetTrackingToken() *string {
+	if a == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return a.TrackingToken
 }
 
-func (o *AutocompleteResponse) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (a *AutocompleteResponse) GetSessionInfo() *SessionInfo {
+	if a == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return a.SessionInfo
 }
 
-func (o *AutocompleteResponse) GetResults() []AutocompleteResult {
-	if o == nil {
+func (a *AutocompleteResponse) GetResults() []AutocompleteResult {
+	if a == nil {
 		return nil
 	}
-	return o.Results
+	return a.Results
 }
 
-func (o *AutocompleteResponse) GetGroups() []AutocompleteResultGroup {
-	if o == nil {
+func (a *AutocompleteResponse) GetGroups() []AutocompleteResultGroup {
+	if a == nil {
 		return nil
 	}
-	return o.Groups
+	return a.Groups
 }
 
-func (o *AutocompleteResponse) GetGleanDataError() *GleanDataError {
-	if o == nil {
+func (a *AutocompleteResponse) GetGleanDataError() *GleanDataError {
+	if a == nil {
 		return nil
 	}
-	return o.GleanDataError
+	return a.GleanDataError
 }
 
-func (o *AutocompleteResponse) GetBackendTimeMillis() *int64 {
-	if o == nil {
+func (a *AutocompleteResponse) GetBackendTimeMillis() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.BackendTimeMillis
+	return a.BackendTimeMillis
 }

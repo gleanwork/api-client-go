@@ -12,16 +12,16 @@ type InsightsResponse struct {
 	InsightsResponse *components.InsightsResponse
 }
 
-func (o *InsightsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (i *InsightsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if i == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return i.HTTPMeta
 }
 
-func (o *InsightsResponse) GetInsightsResponse() *components.InsightsResponse {
-	if o == nil {
+func (i *InsightsResponse) GetInsightsResponse() *components.InsightsResponse {
+	if i == nil {
 		return nil
 	}
-	return o.InsightsResponse
+	return i.InsightsResponse
 }

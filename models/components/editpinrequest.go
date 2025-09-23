@@ -11,23 +11,23 @@ type EditPinRequest struct {
 	ID *string `json:"id,omitempty"`
 }
 
-func (o *EditPinRequest) GetQueries() []string {
-	if o == nil {
+func (e *EditPinRequest) GetQueries() []string {
+	if e == nil {
 		return nil
 	}
-	return o.Queries
+	return e.Queries
 }
 
-func (o *EditPinRequest) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (e *EditPinRequest) GetAudienceFilters() []FacetFilter {
+	if e == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return e.AudienceFilters
 }
 
-func (o *EditPinRequest) GetID() *string {
-	if o == nil {
+func (e *EditPinRequest) GetID() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ID
+	return e.ID
 }

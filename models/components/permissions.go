@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // Permissions - Describes the permissions levels that a user has for permissioned features. When the client sends this, Permissions.read and Permissions.write are the additional permissions granted to a user on top of what they have via their roles.
 // When the server sends this, Permissions.read and Permissions.write are the complete (merged) set of permissions the user has, and Permissions.roles is just for display purposes.
 type Permissions struct {
@@ -23,58 +27,69 @@ type Permissions struct {
 	Roles []string `json:"roles,omitempty"`
 }
 
-func (o *Permissions) GetCanAdminSearch() *bool {
-	if o == nil {
-		return nil
-	}
-	return o.CanAdminSearch
+func (p Permissions) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
 }
 
-func (o *Permissions) GetCanAdminClientAPIGlobalTokens() *bool {
-	if o == nil {
-		return nil
+func (p *Permissions) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
 	}
-	return o.CanAdminClientAPIGlobalTokens
+	return nil
 }
 
-func (o *Permissions) GetCanDlp() *bool {
-	if o == nil {
+func (p *Permissions) GetCanAdminSearch() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.CanDlp
+	return p.CanAdminSearch
 }
 
-func (o *Permissions) GetRead() map[string][]ReadPermission {
-	if o == nil {
+func (p *Permissions) GetCanAdminClientAPIGlobalTokens() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.Read
+	return p.CanAdminClientAPIGlobalTokens
 }
 
-func (o *Permissions) GetWrite() map[string][]WritePermission {
-	if o == nil {
+func (p *Permissions) GetCanDlp() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.Write
+	return p.CanDlp
 }
 
-func (o *Permissions) GetGrant() map[string][]GrantPermission {
-	if o == nil {
+func (p *Permissions) GetRead() map[string][]ReadPermission {
+	if p == nil {
 		return nil
 	}
-	return o.Grant
+	return p.Read
 }
 
-func (o *Permissions) GetRole() *string {
-	if o == nil {
+func (p *Permissions) GetWrite() map[string][]WritePermission {
+	if p == nil {
 		return nil
 	}
-	return o.Role
+	return p.Write
 }
 
-func (o *Permissions) GetRoles() []string {
-	if o == nil {
+func (p *Permissions) GetGrant() map[string][]GrantPermission {
+	if p == nil {
 		return nil
 	}
-	return o.Roles
+	return p.Grant
+}
+
+func (p *Permissions) GetRole() *string {
+	if p == nil {
+		return nil
+	}
+	return p.Role
+}
+
+func (p *Permissions) GetRoles() []string {
+	if p == nil {
+		return nil
+	}
+	return p.Roles
 }

@@ -9,16 +9,16 @@ type CreateAuthTokenResponse struct {
 	ExpirationTime int64 `json:"expirationTime"`
 }
 
-func (o *CreateAuthTokenResponse) GetToken() string {
-	if o == nil {
+func (c *CreateAuthTokenResponse) GetToken() string {
+	if c == nil {
 		return ""
 	}
-	return o.Token
+	return c.Token
 }
 
-func (o *CreateAuthTokenResponse) GetExpirationTime() int64 {
-	if o == nil {
+func (c *CreateAuthTokenResponse) GetExpirationTime() int64 {
+	if c == nil {
 		return 0
 	}
-	return o.ExpirationTime
+	return c.ExpirationTime
 }

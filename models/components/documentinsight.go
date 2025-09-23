@@ -8,23 +8,23 @@ type DocumentInsight struct {
 	VisitorCount *CountInfo `json:"visitorCount,omitempty"`
 }
 
-func (o *DocumentInsight) GetDocument() Document {
-	if o == nil {
+func (d *DocumentInsight) GetDocument() Document {
+	if d == nil {
 		return Document{}
 	}
-	return o.Document
+	return d.Document
 }
 
-func (o *DocumentInsight) GetViewCount() *CountInfo {
-	if o == nil {
+func (d *DocumentInsight) GetViewCount() *CountInfo {
+	if d == nil {
 		return nil
 	}
-	return o.ViewCount
+	return d.ViewCount
 }
 
-func (o *DocumentInsight) GetVisitorCount() *CountInfo {
-	if o == nil {
+func (d *DocumentInsight) GetVisitorCount() *CountInfo {
+	if d == nil {
 		return nil
 	}
-	return o.VisitorCount
+	return d.VisitorCount
 }

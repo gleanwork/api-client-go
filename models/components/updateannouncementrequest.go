@@ -98,113 +98,113 @@ func (u UpdateAnnouncementRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (u *UpdateAnnouncementRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &u, "", false, []string{"startTime", "endTime", "title", "id"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UpdateAnnouncementRequest) GetStartTime() time.Time {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetStartTime() time.Time {
+	if u == nil {
 		return time.Time{}
 	}
-	return o.StartTime
+	return u.StartTime
 }
 
-func (o *UpdateAnnouncementRequest) GetEndTime() time.Time {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetEndTime() time.Time {
+	if u == nil {
 		return time.Time{}
 	}
-	return o.EndTime
+	return u.EndTime
 }
 
-func (o *UpdateAnnouncementRequest) GetTitle() string {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetTitle() string {
+	if u == nil {
 		return ""
 	}
-	return o.Title
+	return u.Title
 }
 
-func (o *UpdateAnnouncementRequest) GetBody() *StructuredText {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetBody() *StructuredText {
+	if u == nil {
 		return nil
 	}
-	return o.Body
+	return u.Body
 }
 
-func (o *UpdateAnnouncementRequest) GetEmoji() *string {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetEmoji() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Emoji
+	return u.Emoji
 }
 
-func (o *UpdateAnnouncementRequest) GetThumbnail() *Thumbnail {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetThumbnail() *Thumbnail {
+	if u == nil {
 		return nil
 	}
-	return o.Thumbnail
+	return u.Thumbnail
 }
 
-func (o *UpdateAnnouncementRequest) GetBanner() *Thumbnail {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetBanner() *Thumbnail {
+	if u == nil {
 		return nil
 	}
-	return o.Banner
+	return u.Banner
 }
 
-func (o *UpdateAnnouncementRequest) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetAudienceFilters() []FacetFilter {
+	if u == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return u.AudienceFilters
 }
 
-func (o *UpdateAnnouncementRequest) GetSourceDocumentID() *string {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetSourceDocumentID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.SourceDocumentID
+	return u.SourceDocumentID
 }
 
-func (o *UpdateAnnouncementRequest) GetHideAttribution() *bool {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetHideAttribution() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.HideAttribution
+	return u.HideAttribution
 }
 
-func (o *UpdateAnnouncementRequest) GetChannel() *UpdateAnnouncementRequestChannel {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetChannel() *UpdateAnnouncementRequestChannel {
+	if u == nil {
 		return nil
 	}
-	return o.Channel
+	return u.Channel
 }
 
-func (o *UpdateAnnouncementRequest) GetPostType() *UpdateAnnouncementRequestPostType {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetPostType() *UpdateAnnouncementRequestPostType {
+	if u == nil {
 		return nil
 	}
-	return o.PostType
+	return u.PostType
 }
 
-func (o *UpdateAnnouncementRequest) GetIsPrioritized() *bool {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetIsPrioritized() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.IsPrioritized
+	return u.IsPrioritized
 }
 
-func (o *UpdateAnnouncementRequest) GetViewURL() *string {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetViewURL() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ViewURL
+	return u.ViewURL
 }
 
-func (o *UpdateAnnouncementRequest) GetID() int64 {
-	if o == nil {
+func (u *UpdateAnnouncementRequest) GetID() int64 {
+	if u == nil {
 		return 0
 	}
-	return o.ID
+	return u.ID
 }

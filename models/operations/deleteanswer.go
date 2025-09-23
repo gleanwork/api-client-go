@@ -10,9 +10,9 @@ type DeleteanswerResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteanswerResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteanswerResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

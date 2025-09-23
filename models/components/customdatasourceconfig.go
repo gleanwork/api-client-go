@@ -29,6 +29,7 @@ const (
 	DatasourceCategoryExternalShortcut     DatasourceCategory = "EXTERNAL_SHORTCUT"
 	DatasourceCategoryEntity               DatasourceCategory = "ENTITY"
 	DatasourceCategoryCalendar             DatasourceCategory = "CALENDAR"
+	DatasourceCategoryAgents               DatasourceCategory = "AGENTS"
 )
 
 func (e DatasourceCategory) ToPointer() *DatasourceCategory {
@@ -73,6 +74,8 @@ func (e *DatasourceCategory) UnmarshalJSON(data []byte) error {
 	case "ENTITY":
 		fallthrough
 	case "CALENDAR":
+		fallthrough
+	case "AGENTS":
 		*e = DatasourceCategory(v)
 		return nil
 	default:
@@ -219,197 +222,197 @@ func (c CustomDatasourceConfig) MarshalJSON() ([]byte, error) {
 }
 
 func (c *CustomDatasourceConfig) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"name"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CustomDatasourceConfig) GetName() string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetName() string {
+	if c == nil {
 		return ""
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CustomDatasourceConfig) GetDisplayName() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetDisplayName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.DisplayName
+	return c.DisplayName
 }
 
-func (o *CustomDatasourceConfig) GetDatasourceCategory() *DatasourceCategory {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetDatasourceCategory() *DatasourceCategory {
+	if c == nil {
 		return nil
 	}
-	return o.DatasourceCategory
+	return c.DatasourceCategory
 }
 
-func (o *CustomDatasourceConfig) GetURLRegex() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetURLRegex() *string {
+	if c == nil {
 		return nil
 	}
-	return o.URLRegex
+	return c.URLRegex
 }
 
-func (o *CustomDatasourceConfig) GetIconURL() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetIconURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.IconURL
+	return c.IconURL
 }
 
-func (o *CustomDatasourceConfig) GetObjectDefinitions() []ObjectDefinition {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetObjectDefinitions() []ObjectDefinition {
+	if c == nil {
 		return nil
 	}
-	return o.ObjectDefinitions
+	return c.ObjectDefinitions
 }
 
-func (o *CustomDatasourceConfig) GetSuggestionText() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetSuggestionText() *string {
+	if c == nil {
 		return nil
 	}
-	return o.SuggestionText
+	return c.SuggestionText
 }
 
-func (o *CustomDatasourceConfig) GetHomeURL() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetHomeURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.HomeURL
+	return c.HomeURL
 }
 
-func (o *CustomDatasourceConfig) GetCrawlerSeedUrls() []string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetCrawlerSeedUrls() []string {
+	if c == nil {
 		return nil
 	}
-	return o.CrawlerSeedUrls
+	return c.CrawlerSeedUrls
 }
 
-func (o *CustomDatasourceConfig) GetIconDarkURL() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetIconDarkURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.IconDarkURL
+	return c.IconDarkURL
 }
 
-func (o *CustomDatasourceConfig) GetHideBuiltInFacets() []HideBuiltInFacet {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetHideBuiltInFacets() []HideBuiltInFacet {
+	if c == nil {
 		return nil
 	}
-	return o.HideBuiltInFacets
+	return c.HideBuiltInFacets
 }
 
-func (o *CustomDatasourceConfig) GetCanonicalizingURLRegex() []CanonicalizingRegexType {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetCanonicalizingURLRegex() []CanonicalizingRegexType {
+	if c == nil {
 		return nil
 	}
-	return o.CanonicalizingURLRegex
+	return c.CanonicalizingURLRegex
 }
 
-func (o *CustomDatasourceConfig) GetCanonicalizingTitleRegex() []CanonicalizingRegexType {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetCanonicalizingTitleRegex() []CanonicalizingRegexType {
+	if c == nil {
 		return nil
 	}
-	return o.CanonicalizingTitleRegex
+	return c.CanonicalizingTitleRegex
 }
 
-func (o *CustomDatasourceConfig) GetRedlistTitleRegex() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetRedlistTitleRegex() *string {
+	if c == nil {
 		return nil
 	}
-	return o.RedlistTitleRegex
+	return c.RedlistTitleRegex
 }
 
-func (o *CustomDatasourceConfig) GetConnectorType() *CustomDatasourceConfigConnectorType {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetConnectorType() *CustomDatasourceConfigConnectorType {
+	if c == nil {
 		return nil
 	}
-	return o.ConnectorType
+	return c.ConnectorType
 }
 
-func (o *CustomDatasourceConfig) GetQuicklinks() []Quicklink {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetQuicklinks() []Quicklink {
+	if c == nil {
 		return nil
 	}
-	return o.Quicklinks
+	return c.Quicklinks
 }
 
-func (o *CustomDatasourceConfig) GetRenderConfigPreset() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetRenderConfigPreset() *string {
+	if c == nil {
 		return nil
 	}
-	return o.RenderConfigPreset
+	return c.RenderConfigPreset
 }
 
-func (o *CustomDatasourceConfig) GetAliases() []string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetAliases() []string {
+	if c == nil {
 		return nil
 	}
-	return o.Aliases
+	return c.Aliases
 }
 
-func (o *CustomDatasourceConfig) GetIsOnPrem() *bool {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetIsOnPrem() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.IsOnPrem
+	return c.IsOnPrem
 }
 
-func (o *CustomDatasourceConfig) GetTrustURLRegexForViewActivity() *bool {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetTrustURLRegexForViewActivity() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.TrustURLRegexForViewActivity
+	return c.TrustURLRegexForViewActivity
 }
 
-func (o *CustomDatasourceConfig) GetIncludeUtmSource() *bool {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetIncludeUtmSource() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.IncludeUtmSource
+	return c.IncludeUtmSource
 }
 
-func (o *CustomDatasourceConfig) GetStripFragmentInCanonicalURL() *bool {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetStripFragmentInCanonicalURL() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.StripFragmentInCanonicalURL
+	return c.StripFragmentInCanonicalURL
 }
 
-func (o *CustomDatasourceConfig) GetIdentityDatasourceName() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetIdentityDatasourceName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.IdentityDatasourceName
+	return c.IdentityDatasourceName
 }
 
-func (o *CustomDatasourceConfig) GetProductAccessGroup() *string {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetProductAccessGroup() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ProductAccessGroup
+	return c.ProductAccessGroup
 }
 
-func (o *CustomDatasourceConfig) GetIsUserReferencedByEmail() *bool {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetIsUserReferencedByEmail() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.IsUserReferencedByEmail
+	return c.IsUserReferencedByEmail
 }
 
-func (o *CustomDatasourceConfig) GetIsEntityDatasource() *bool {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetIsEntityDatasource() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.IsEntityDatasource
+	return c.IsEntityDatasource
 }
 
-func (o *CustomDatasourceConfig) GetIsTestDatasource() *bool {
-	if o == nil {
+func (c *CustomDatasourceConfig) GetIsTestDatasource() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.IsTestDatasource
+	return c.IsTestDatasource
 }

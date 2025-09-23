@@ -16,51 +16,51 @@ type Workflow struct {
 	ID *string `json:"id,omitempty"`
 }
 
-func (o *Workflow) GetName() *string {
-	if o == nil {
+func (w *Workflow) GetName() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Name
+	return w.Name
 }
 
-func (o *Workflow) GetAuthor() *Person {
-	if o == nil {
+func (w *Workflow) GetAuthor() *Person {
+	if w == nil {
 		return nil
 	}
-	return o.Author
+	return w.Author
 }
 
-func (o *Workflow) GetCreateTimestamp() *int64 {
-	if o == nil {
+func (w *Workflow) GetCreateTimestamp() *int64 {
+	if w == nil {
 		return nil
 	}
-	return o.CreateTimestamp
+	return w.CreateTimestamp
 }
 
-func (o *Workflow) GetLastUpdateTimestamp() *int64 {
-	if o == nil {
+func (w *Workflow) GetLastUpdateTimestamp() *int64 {
+	if w == nil {
 		return nil
 	}
-	return o.LastUpdateTimestamp
+	return w.LastUpdateTimestamp
 }
 
-func (o *Workflow) GetLastUpdatedBy() *Person {
-	if o == nil {
+func (w *Workflow) GetLastUpdatedBy() *Person {
+	if w == nil {
 		return nil
 	}
-	return o.LastUpdatedBy
+	return w.LastUpdatedBy
 }
 
-func (o *Workflow) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (w *Workflow) GetPermissions() *ObjectPermissions {
+	if w == nil {
 		return nil
 	}
-	return o.Permissions
+	return w.Permissions
 }
 
-func (o *Workflow) GetID() *string {
-	if o == nil {
+func (w *Workflow) GetID() *string {
+	if w == nil {
 		return nil
 	}
-	return o.ID
+	return w.ID
 }

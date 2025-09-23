@@ -7,16 +7,16 @@ type GetAnswerResponse struct {
 	Error        *GetAnswerError `json:"error,omitempty"`
 }
 
-func (o *GetAnswerResponse) GetAnswerResult() *AnswerResult {
-	if o == nil {
+func (g *GetAnswerResponse) GetAnswerResult() *AnswerResult {
+	if g == nil {
 		return nil
 	}
-	return o.AnswerResult
+	return g.AnswerResult
 }
 
-func (o *GetAnswerResponse) GetError() *GetAnswerError {
-	if o == nil {
+func (g *GetAnswerResponse) GetError() *GetAnswerError {
+	if g == nil {
 		return nil
 	}
-	return o.Error
+	return g.Error
 }

@@ -55,162 +55,162 @@ func (s Shortcut) MarshalJSON() ([]byte, error) {
 }
 
 func (s *Shortcut) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"inputAlias"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Shortcut) GetID() *int64 {
-	if o == nil {
+func (s *Shortcut) GetID() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *Shortcut) GetInputAlias() string {
-	if o == nil {
+func (s *Shortcut) GetInputAlias() string {
+	if s == nil {
 		return ""
 	}
-	return o.InputAlias
+	return s.InputAlias
 }
 
-func (o *Shortcut) GetDestinationURL() *string {
-	if o == nil {
+func (s *Shortcut) GetDestinationURL() *string {
+	if s == nil {
 		return nil
 	}
-	return o.DestinationURL
+	return s.DestinationURL
 }
 
-func (o *Shortcut) GetDestinationDocumentID() *string {
-	if o == nil {
+func (s *Shortcut) GetDestinationDocumentID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.DestinationDocumentID
+	return s.DestinationDocumentID
 }
 
-func (o *Shortcut) GetDescription() *string {
-	if o == nil {
+func (s *Shortcut) GetDescription() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Description
+	return s.Description
 }
 
-func (o *Shortcut) GetUnlisted() *bool {
-	if o == nil {
+func (s *Shortcut) GetUnlisted() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.Unlisted
+	return s.Unlisted
 }
 
-func (o *Shortcut) GetURLTemplate() *string {
-	if o == nil {
+func (s *Shortcut) GetURLTemplate() *string {
+	if s == nil {
 		return nil
 	}
-	return o.URLTemplate
+	return s.URLTemplate
 }
 
-func (o *Shortcut) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (s *Shortcut) GetAddedRoles() []UserRoleSpecification {
+	if s == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return s.AddedRoles
 }
 
-func (o *Shortcut) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (s *Shortcut) GetRemovedRoles() []UserRoleSpecification {
+	if s == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return s.RemovedRoles
 }
 
-func (o *Shortcut) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (s *Shortcut) GetPermissions() *ObjectPermissions {
+	if s == nil {
 		return nil
 	}
-	return o.Permissions
+	return s.Permissions
 }
 
-func (o *Shortcut) GetCreatedBy() *Person {
-	if o == nil {
+func (s *Shortcut) GetCreatedBy() *Person {
+	if s == nil {
 		return nil
 	}
-	return o.CreatedBy
+	return s.CreatedBy
 }
 
-func (o *Shortcut) GetCreateTime() *time.Time {
-	if o == nil {
+func (s *Shortcut) GetCreateTime() *time.Time {
+	if s == nil {
 		return nil
 	}
-	return o.CreateTime
+	return s.CreateTime
 }
 
-func (o *Shortcut) GetUpdatedBy() *Person {
-	if o == nil {
+func (s *Shortcut) GetUpdatedBy() *Person {
+	if s == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return s.UpdatedBy
 }
 
-func (o *Shortcut) GetUpdateTime() *time.Time {
-	if o == nil {
+func (s *Shortcut) GetUpdateTime() *time.Time {
+	if s == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return s.UpdateTime
 }
 
-func (o *Shortcut) GetDestinationDocument() *Document {
-	if o == nil {
+func (s *Shortcut) GetDestinationDocument() *Document {
+	if s == nil {
 		return nil
 	}
-	return o.DestinationDocument
+	return s.DestinationDocument
 }
 
-func (o *Shortcut) GetIntermediateURL() *string {
-	if o == nil {
+func (s *Shortcut) GetIntermediateURL() *string {
+	if s == nil {
 		return nil
 	}
-	return o.IntermediateURL
+	return s.IntermediateURL
 }
 
-func (o *Shortcut) GetViewPrefix() *string {
-	if o == nil {
+func (s *Shortcut) GetViewPrefix() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ViewPrefix
+	return s.ViewPrefix
 }
 
-func (o *Shortcut) GetIsExternal() *bool {
-	if o == nil {
+func (s *Shortcut) GetIsExternal() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.IsExternal
+	return s.IsExternal
 }
 
-func (o *Shortcut) GetEditURL() *string {
-	if o == nil {
+func (s *Shortcut) GetEditURL() *string {
+	if s == nil {
 		return nil
 	}
-	return o.EditURL
+	return s.EditURL
 }
 
-func (o *Shortcut) GetAlias() *string {
-	if o == nil {
+func (s *Shortcut) GetAlias() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Alias
+	return s.Alias
 }
 
-func (o *Shortcut) GetTitle() *string {
-	if o == nil {
+func (s *Shortcut) GetTitle() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Title
+	return s.Title
 }
 
-func (o *Shortcut) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (s *Shortcut) GetRoles() []UserRoleSpecification {
+	if s == nil {
 		return nil
 	}
-	return o.Roles
+	return s.Roles
 }

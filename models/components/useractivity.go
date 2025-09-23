@@ -79,30 +79,30 @@ type UserActivity struct {
 	AggregateVisitCount *CountInfo          `json:"aggregateVisitCount,omitempty"`
 }
 
-func (o *UserActivity) GetActor() *Person {
-	if o == nil {
+func (u *UserActivity) GetActor() *Person {
+	if u == nil {
 		return nil
 	}
-	return o.Actor
+	return u.Actor
 }
 
-func (o *UserActivity) GetTimestamp() *int64 {
-	if o == nil {
+func (u *UserActivity) GetTimestamp() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.Timestamp
+	return u.Timestamp
 }
 
-func (o *UserActivity) GetAction() *UserActivityAction {
-	if o == nil {
+func (u *UserActivity) GetAction() *UserActivityAction {
+	if u == nil {
 		return nil
 	}
-	return o.Action
+	return u.Action
 }
 
-func (o *UserActivity) GetAggregateVisitCount() *CountInfo {
-	if o == nil {
+func (u *UserActivity) GetAggregateVisitCount() *CountInfo {
+	if u == nil {
 		return nil
 	}
-	return o.AggregateVisitCount
+	return u.AggregateVisitCount
 }

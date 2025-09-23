@@ -28,86 +28,86 @@ type AiInsightsResponse struct {
 	Departments []string `json:"departments,omitempty"`
 }
 
-func (o *AiInsightsResponse) GetLastLogTimestamp() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetLastLogTimestamp() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.LastLogTimestamp
+	return a.LastLogTimestamp
 }
 
-func (o *AiInsightsResponse) GetAssistantInsights() []UserActivityInsight {
-	if o == nil {
+func (a *AiInsightsResponse) GetAssistantInsights() []UserActivityInsight {
+	if a == nil {
 		return nil
 	}
-	return o.AssistantInsights
+	return a.AssistantInsights
 }
 
-func (o *AiInsightsResponse) GetTotalActiveAssistantUsers() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalActiveAssistantUsers() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalActiveAssistantUsers
+	return a.TotalActiveAssistantUsers
 }
 
-func (o *AiInsightsResponse) GetTotalChatMessages() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalChatMessages() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalChatMessages
+	return a.TotalChatMessages
 }
 
-func (o *AiInsightsResponse) GetTotalAiSummarizations() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalAiSummarizations() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalAiSummarizations
+	return a.TotalAiSummarizations
 }
 
-func (o *AiInsightsResponse) GetTotalAiAnswers() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalAiAnswers() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalAiAnswers
+	return a.TotalAiAnswers
 }
 
-func (o *AiInsightsResponse) GetTotalUpvotes() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalUpvotes() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalUpvotes
+	return a.TotalUpvotes
 }
 
-func (o *AiInsightsResponse) GetTotalDownvotes() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalDownvotes() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalDownvotes
+	return a.TotalDownvotes
 }
 
-func (o *AiInsightsResponse) GetTotalGleanbotResponses() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalGleanbotResponses() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalGleanbotResponses
+	return a.TotalGleanbotResponses
 }
 
-func (o *AiInsightsResponse) GetTotalGleanbotResponsesShared() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalGleanbotResponsesShared() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalGleanbotResponsesShared
+	return a.TotalGleanbotResponsesShared
 }
 
-func (o *AiInsightsResponse) GetTotalGleanbotResponsesNotHelpful() *int64 {
-	if o == nil {
+func (a *AiInsightsResponse) GetTotalGleanbotResponsesNotHelpful() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalGleanbotResponsesNotHelpful
+	return a.TotalGleanbotResponsesNotHelpful
 }
 
-func (o *AiInsightsResponse) GetDepartments() []string {
-	if o == nil {
+func (a *AiInsightsResponse) GetDepartments() []string {
+	if a == nil {
 		return nil
 	}
-	return o.Departments
+	return a.Departments
 }

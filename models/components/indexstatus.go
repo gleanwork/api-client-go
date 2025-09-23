@@ -19,22 +19,22 @@ func (i IndexStatus) MarshalJSON() ([]byte, error) {
 }
 
 func (i *IndexStatus) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &i, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &i, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *IndexStatus) GetLastCrawledTime() *time.Time {
-	if o == nil {
+func (i *IndexStatus) GetLastCrawledTime() *time.Time {
+	if i == nil {
 		return nil
 	}
-	return o.LastCrawledTime
+	return i.LastCrawledTime
 }
 
-func (o *IndexStatus) GetLastIndexedTime() *time.Time {
-	if o == nil {
+func (i *IndexStatus) GetLastIndexedTime() *time.Time {
+	if i == nil {
 		return nil
 	}
-	return o.LastIndexedTime
+	return i.LastIndexedTime
 }

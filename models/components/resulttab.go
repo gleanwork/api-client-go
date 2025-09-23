@@ -13,30 +13,30 @@ type ResultTab struct {
 	DatasourceInstance *string `json:"datasourceInstance,omitempty"`
 }
 
-func (o *ResultTab) GetID() *string {
-	if o == nil {
+func (r *ResultTab) GetID() *string {
+	if r == nil {
 		return nil
 	}
-	return o.ID
+	return r.ID
 }
 
-func (o *ResultTab) GetCount() *int64 {
-	if o == nil {
+func (r *ResultTab) GetCount() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.Count
+	return r.Count
 }
 
-func (o *ResultTab) GetDatasource() *string {
-	if o == nil {
+func (r *ResultTab) GetDatasource() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Datasource
+	return r.Datasource
 }
 
-func (o *ResultTab) GetDatasourceInstance() *string {
-	if o == nil {
+func (r *ResultTab) GetDatasourceInstance() *string {
+	if r == nil {
 		return nil
 	}
-	return o.DatasourceInstance
+	return r.DatasourceInstance
 }

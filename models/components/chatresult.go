@@ -9,16 +9,16 @@ type ChatResult struct {
 	TrackingToken *string `json:"trackingToken,omitempty"`
 }
 
-func (o *ChatResult) GetChat() *Chat {
-	if o == nil {
+func (c *ChatResult) GetChat() *Chat {
+	if c == nil {
 		return nil
 	}
-	return o.Chat
+	return c.Chat
 }
 
-func (o *ChatResult) GetTrackingToken() *string {
-	if o == nil {
+func (c *ChatResult) GetTrackingToken() *string {
+	if c == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return c.TrackingToken
 }

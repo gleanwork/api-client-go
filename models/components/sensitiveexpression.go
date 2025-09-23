@@ -9,16 +9,16 @@ type SensitiveExpression struct {
 	Hotwords []Hotword `json:"hotwords,omitempty"`
 }
 
-func (o *SensitiveExpression) GetExpression() *string {
-	if o == nil {
+func (s *SensitiveExpression) GetExpression() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Expression
+	return s.Expression
 }
 
-func (o *SensitiveExpression) GetHotwords() []Hotword {
-	if o == nil {
+func (s *SensitiveExpression) GetHotwords() []Hotword {
+	if s == nil {
 		return nil
 	}
-	return o.Hotwords
+	return s.Hotwords
 }

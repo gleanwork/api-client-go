@@ -6,9 +6,9 @@ type ListDlpReportsResponse struct {
 	Reports []DlpReport `json:"reports,omitempty"`
 }
 
-func (o *ListDlpReportsResponse) GetReports() []DlpReport {
-	if o == nil {
+func (l *ListDlpReportsResponse) GetReports() []DlpReport {
+	if l == nil {
 		return nil
 	}
-	return o.Reports
+	return l.Reports
 }

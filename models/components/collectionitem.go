@@ -70,99 +70,99 @@ func (c CollectionItem) MarshalJSON() ([]byte, error) {
 }
 
 func (c *CollectionItem) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"collectionId", "itemType"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CollectionItem) GetName() *string {
-	if o == nil {
+func (c *CollectionItem) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CollectionItem) GetDescription() *string {
-	if o == nil {
+func (c *CollectionItem) GetDescription() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CollectionItem) GetIcon() *string {
-	if o == nil {
+func (c *CollectionItem) GetIcon() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Icon
+	return c.Icon
 }
 
-func (o *CollectionItem) GetCollectionID() int64 {
-	if o == nil {
+func (c *CollectionItem) GetCollectionID() int64 {
+	if c == nil {
 		return 0
 	}
-	return o.CollectionID
+	return c.CollectionID
 }
 
-func (o *CollectionItem) GetDocumentID() *string {
-	if o == nil {
+func (c *CollectionItem) GetDocumentID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.DocumentID
+	return c.DocumentID
 }
 
-func (o *CollectionItem) GetURL() *string {
-	if o == nil {
+func (c *CollectionItem) GetURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.URL
+	return c.URL
 }
 
-func (o *CollectionItem) GetItemID() *string {
-	if o == nil {
+func (c *CollectionItem) GetItemID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ItemID
+	return c.ItemID
 }
 
-func (o *CollectionItem) GetCreatedBy() *Person {
-	if o == nil {
+func (c *CollectionItem) GetCreatedBy() *Person {
+	if c == nil {
 		return nil
 	}
-	return o.CreatedBy
+	return c.CreatedBy
 }
 
-func (o *CollectionItem) GetCreatedAt() *time.Time {
-	if o == nil {
+func (c *CollectionItem) GetCreatedAt() *time.Time {
+	if c == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return c.CreatedAt
 }
 
-func (o *CollectionItem) GetDocument() *Document {
-	if o == nil {
+func (c *CollectionItem) GetDocument() *Document {
+	if c == nil {
 		return nil
 	}
-	return o.Document
+	return c.Document
 }
 
-func (o *CollectionItem) GetShortcut() *Shortcut {
-	if o == nil {
+func (c *CollectionItem) GetShortcut() *Shortcut {
+	if c == nil {
 		return nil
 	}
-	return o.Shortcut
+	return c.Shortcut
 }
 
-func (o *CollectionItem) GetCollection() *Collection {
-	if o == nil {
+func (c *CollectionItem) GetCollection() *Collection {
+	if c == nil {
 		return nil
 	}
-	return o.Collection
+	return c.Collection
 }
 
-func (o *CollectionItem) GetItemType() CollectionItemItemType {
-	if o == nil {
+func (c *CollectionItem) GetItemType() CollectionItemItemType {
+	if c == nil {
 		return CollectionItemItemType("")
 	}
-	return o.ItemType
+	return c.ItemType
 }

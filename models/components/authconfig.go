@@ -143,78 +143,78 @@ func (a AuthConfig) MarshalJSON() ([]byte, error) {
 }
 
 func (a *AuthConfig) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *AuthConfig) GetIsOnPrem() *bool {
-	if o == nil {
+func (a *AuthConfig) GetIsOnPrem() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.IsOnPrem
+	return a.IsOnPrem
 }
 
-func (o *AuthConfig) GetUsesCentralAuth() *bool {
-	if o == nil {
+func (a *AuthConfig) GetUsesCentralAuth() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.UsesCentralAuth
+	return a.UsesCentralAuth
 }
 
-func (o *AuthConfig) GetType() *AuthConfigType {
-	if o == nil {
+func (a *AuthConfig) GetType() *AuthConfigType {
+	if a == nil {
 		return nil
 	}
-	return o.Type
+	return a.Type
 }
 
-func (o *AuthConfig) GetGrantType() *GrantType {
-	if o == nil {
+func (a *AuthConfig) GetGrantType() *GrantType {
+	if a == nil {
 		return nil
 	}
-	return o.GrantType
+	return a.GrantType
 }
 
-func (o *AuthConfig) GetStatus() *AuthConfigStatus {
-	if o == nil {
+func (a *AuthConfig) GetStatus() *AuthConfigStatus {
+	if a == nil {
 		return nil
 	}
-	return o.Status
+	return a.Status
 }
 
-func (o *AuthConfig) GetClientURL() *string {
-	if o == nil {
+func (a *AuthConfig) GetClientURL() *string {
+	if a == nil {
 		return nil
 	}
-	return o.ClientURL
+	return a.ClientURL
 }
 
-func (o *AuthConfig) GetScopes() []string {
-	if o == nil {
+func (a *AuthConfig) GetScopes() []string {
+	if a == nil {
 		return nil
 	}
-	return o.Scopes
+	return a.Scopes
 }
 
-func (o *AuthConfig) GetAudiences() []string {
-	if o == nil {
+func (a *AuthConfig) GetAudiences() []string {
+	if a == nil {
 		return nil
 	}
-	return o.Audiences
+	return a.Audiences
 }
 
-func (o *AuthConfig) GetAuthorizationURL() *string {
-	if o == nil {
+func (a *AuthConfig) GetAuthorizationURL() *string {
+	if a == nil {
 		return nil
 	}
-	return o.AuthorizationURL
+	return a.AuthorizationURL
 }
 
-func (o *AuthConfig) GetLastAuthorizedAt() *time.Time {
-	if o == nil {
+func (a *AuthConfig) GetLastAuthorizedAt() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.LastAuthorizedAt
+	return a.LastAuthorizedAt
 }

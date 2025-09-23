@@ -11,11 +11,11 @@ type PostAPIIndexV1DebugDatasourceStatusRequest struct {
 	Datasource string `pathParam:"style=simple,explode=false,name=datasource"`
 }
 
-func (o *PostAPIIndexV1DebugDatasourceStatusRequest) GetDatasource() string {
-	if o == nil {
+func (p *PostAPIIndexV1DebugDatasourceStatusRequest) GetDatasource() string {
+	if p == nil {
 		return ""
 	}
-	return o.Datasource
+	return p.Datasource
 }
 
 type PostAPIIndexV1DebugDatasourceStatusResponse struct {
@@ -24,16 +24,16 @@ type PostAPIIndexV1DebugDatasourceStatusResponse struct {
 	DebugDatasourceStatusResponse *components.DebugDatasourceStatusResponse
 }
 
-func (o *PostAPIIndexV1DebugDatasourceStatusResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIIndexV1DebugDatasourceStatusResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostAPIIndexV1DebugDatasourceStatusResponse) GetDebugDatasourceStatusResponse() *components.DebugDatasourceStatusResponse {
-	if o == nil {
+func (p *PostAPIIndexV1DebugDatasourceStatusResponse) GetDebugDatasourceStatusResponse() *components.DebugDatasourceStatusResponse {
+	if p == nil {
 		return nil
 	}
-	return o.DebugDatasourceStatusResponse
+	return p.DebugDatasourceStatusResponse
 }

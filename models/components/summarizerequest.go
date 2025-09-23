@@ -26,43 +26,43 @@ func (s SummarizeRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (s *SummarizeRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"documentSpecs"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *SummarizeRequest) GetTimestamp() *time.Time {
-	if o == nil {
+func (s *SummarizeRequest) GetTimestamp() *time.Time {
+	if s == nil {
 		return nil
 	}
-	return o.Timestamp
+	return s.Timestamp
 }
 
-func (o *SummarizeRequest) GetQuery() *string {
-	if o == nil {
+func (s *SummarizeRequest) GetQuery() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Query
+	return s.Query
 }
 
-func (o *SummarizeRequest) GetPreferredSummaryLength() *int64 {
-	if o == nil {
+func (s *SummarizeRequest) GetPreferredSummaryLength() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.PreferredSummaryLength
+	return s.PreferredSummaryLength
 }
 
-func (o *SummarizeRequest) GetDocumentSpecs() []DocumentSpecUnion {
-	if o == nil {
+func (s *SummarizeRequest) GetDocumentSpecs() []DocumentSpecUnion {
+	if s == nil {
 		return []DocumentSpecUnion{}
 	}
-	return o.DocumentSpecs
+	return s.DocumentSpecs
 }
 
-func (o *SummarizeRequest) GetTrackingToken() *string {
-	if o == nil {
+func (s *SummarizeRequest) GetTrackingToken() *string {
+	if s == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return s.TrackingToken
 }

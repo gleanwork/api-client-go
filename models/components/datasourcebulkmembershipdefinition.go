@@ -10,16 +10,16 @@ type DatasourceBulkMembershipDefinition struct {
 	MemberGroupName *string `json:"memberGroupName,omitempty"`
 }
 
-func (o *DatasourceBulkMembershipDefinition) GetMemberUserID() *string {
-	if o == nil {
+func (d *DatasourceBulkMembershipDefinition) GetMemberUserID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.MemberUserID
+	return d.MemberUserID
 }
 
-func (o *DatasourceBulkMembershipDefinition) GetMemberGroupName() *string {
-	if o == nil {
+func (d *DatasourceBulkMembershipDefinition) GetMemberGroupName() *string {
+	if d == nil {
 		return nil
 	}
-	return o.MemberGroupName
+	return d.MemberGroupName
 }

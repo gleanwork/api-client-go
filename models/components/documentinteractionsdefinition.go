@@ -9,23 +9,23 @@ type DocumentInteractionsDefinition struct {
 	NumComments *int64 `json:"numComments,omitempty"`
 }
 
-func (o *DocumentInteractionsDefinition) GetNumViews() *int64 {
-	if o == nil {
+func (d *DocumentInteractionsDefinition) GetNumViews() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.NumViews
+	return d.NumViews
 }
 
-func (o *DocumentInteractionsDefinition) GetNumLikes() *int64 {
-	if o == nil {
+func (d *DocumentInteractionsDefinition) GetNumLikes() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.NumLikes
+	return d.NumLikes
 }
 
-func (o *DocumentInteractionsDefinition) GetNumComments() *int64 {
-	if o == nil {
+func (d *DocumentInteractionsDefinition) GetNumComments() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.NumComments
+	return d.NumComments
 }

@@ -51,163 +51,163 @@ type DocumentDefinition struct {
 	CustomProperties []CustomProperty `json:"customProperties,omitempty"`
 }
 
-func (o *DocumentDefinition) GetTitle() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetTitle() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Title
+	return d.Title
 }
 
-func (o *DocumentDefinition) GetFilename() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetFilename() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Filename
+	return d.Filename
 }
 
-func (o *DocumentDefinition) GetContainer() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetContainer() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Container
+	return d.Container
 }
 
-func (o *DocumentDefinition) GetContainerDatasourceID() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetContainerDatasourceID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ContainerDatasourceID
+	return d.ContainerDatasourceID
 }
 
-func (o *DocumentDefinition) GetContainerObjectType() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetContainerObjectType() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ContainerObjectType
+	return d.ContainerObjectType
 }
 
-func (o *DocumentDefinition) GetDatasource() string {
-	if o == nil {
+func (d *DocumentDefinition) GetDatasource() string {
+	if d == nil {
 		return ""
 	}
-	return o.Datasource
+	return d.Datasource
 }
 
-func (o *DocumentDefinition) GetObjectType() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetObjectType() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ObjectType
+	return d.ObjectType
 }
 
-func (o *DocumentDefinition) GetViewURL() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetViewURL() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ViewURL
+	return d.ViewURL
 }
 
-func (o *DocumentDefinition) GetID() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ID
+	return d.ID
 }
 
-func (o *DocumentDefinition) GetSummary() *ContentDefinition {
-	if o == nil {
+func (d *DocumentDefinition) GetSummary() *ContentDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.Summary
+	return d.Summary
 }
 
-func (o *DocumentDefinition) GetBody() *ContentDefinition {
-	if o == nil {
+func (d *DocumentDefinition) GetBody() *ContentDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.Body
+	return d.Body
 }
 
-func (o *DocumentDefinition) GetAuthor() *UserReferenceDefinition {
-	if o == nil {
+func (d *DocumentDefinition) GetAuthor() *UserReferenceDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.Author
+	return d.Author
 }
 
-func (o *DocumentDefinition) GetOwner() *UserReferenceDefinition {
-	if o == nil {
+func (d *DocumentDefinition) GetOwner() *UserReferenceDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.Owner
+	return d.Owner
 }
 
-func (o *DocumentDefinition) GetPermissions() *DocumentPermissionsDefinition {
-	if o == nil {
+func (d *DocumentDefinition) GetPermissions() *DocumentPermissionsDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.Permissions
+	return d.Permissions
 }
 
-func (o *DocumentDefinition) GetCreatedAt() *int64 {
-	if o == nil {
+func (d *DocumentDefinition) GetCreatedAt() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return d.CreatedAt
 }
 
-func (o *DocumentDefinition) GetUpdatedAt() *int64 {
-	if o == nil {
+func (d *DocumentDefinition) GetUpdatedAt() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return d.UpdatedAt
 }
 
-func (o *DocumentDefinition) GetUpdatedBy() *UserReferenceDefinition {
-	if o == nil {
+func (d *DocumentDefinition) GetUpdatedBy() *UserReferenceDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return d.UpdatedBy
 }
 
-func (o *DocumentDefinition) GetTags() []string {
-	if o == nil {
+func (d *DocumentDefinition) GetTags() []string {
+	if d == nil {
 		return nil
 	}
-	return o.Tags
+	return d.Tags
 }
 
-func (o *DocumentDefinition) GetInteractions() *DocumentInteractionsDefinition {
-	if o == nil {
+func (d *DocumentDefinition) GetInteractions() *DocumentInteractionsDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.Interactions
+	return d.Interactions
 }
 
-func (o *DocumentDefinition) GetStatus() *string {
-	if o == nil {
+func (d *DocumentDefinition) GetStatus() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Status
+	return d.Status
 }
 
-func (o *DocumentDefinition) GetAdditionalUrls() []string {
-	if o == nil {
+func (d *DocumentDefinition) GetAdditionalUrls() []string {
+	if d == nil {
 		return nil
 	}
-	return o.AdditionalUrls
+	return d.AdditionalUrls
 }
 
-func (o *DocumentDefinition) GetComments() []CommentDefinition {
-	if o == nil {
+func (d *DocumentDefinition) GetComments() []CommentDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.Comments
+	return d.Comments
 }
 
-func (o *DocumentDefinition) GetCustomProperties() []CustomProperty {
-	if o == nil {
+func (d *DocumentDefinition) GetCustomProperties() []CustomProperty {
+	if d == nil {
 		return nil
 	}
-	return o.CustomProperties
+	return d.CustomProperties
 }

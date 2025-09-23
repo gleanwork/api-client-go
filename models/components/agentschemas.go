@@ -20,23 +20,23 @@ type AgentSchemas struct {
 	OutputSchema OutputSchema `json:"output_schema"`
 }
 
-func (o *AgentSchemas) GetAgentID() string {
-	if o == nil {
+func (a *AgentSchemas) GetAgentID() string {
+	if a == nil {
 		return ""
 	}
-	return o.AgentID
+	return a.AgentID
 }
 
-func (o *AgentSchemas) GetInputSchema() InputSchema {
-	if o == nil {
+func (a *AgentSchemas) GetInputSchema() InputSchema {
+	if a == nil {
 		return InputSchema{}
 	}
-	return o.InputSchema
+	return a.InputSchema
 }
 
-func (o *AgentSchemas) GetOutputSchema() OutputSchema {
-	if o == nil {
+func (a *AgentSchemas) GetOutputSchema() OutputSchema {
+	if a == nil {
 		return OutputSchema{}
 	}
-	return o.OutputSchema
+	return a.OutputSchema
 }

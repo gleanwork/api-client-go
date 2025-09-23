@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type TimePoint struct {
 	// Epoch seconds. Has precedence over daysFromNow.
 	EpochSeconds *int64 `json:"epochSeconds,omitempty"`
@@ -9,16 +13,27 @@ type TimePoint struct {
 	DaysFromNow *int64 `json:"daysFromNow,omitempty"`
 }
 
-func (o *TimePoint) GetEpochSeconds() *int64 {
-	if o == nil {
-		return nil
-	}
-	return o.EpochSeconds
+func (t TimePoint) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-func (o *TimePoint) GetDaysFromNow() *int64 {
-	if o == nil {
+func (t *TimePoint) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (t *TimePoint) GetEpochSeconds() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.DaysFromNow
+	return t.EpochSeconds
+}
+
+func (t *TimePoint) GetDaysFromNow() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.DaysFromNow
 }

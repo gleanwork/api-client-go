@@ -2,14 +2,29 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CustomEntityMetadata struct {
 	// Custom fields specific to individual datasources
 	CustomData map[string]CustomDataValue `json:"customData,omitempty"`
 }
 
-func (o *CustomEntityMetadata) GetCustomData() map[string]CustomDataValue {
-	if o == nil {
+func (c CustomEntityMetadata) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CustomEntityMetadata) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CustomEntityMetadata) GetCustomData() map[string]CustomDataValue {
+	if c == nil {
 		return nil
 	}
-	return o.CustomData
+	return c.CustomData
 }

@@ -12,16 +12,16 @@ type ListshortcutsResponse struct {
 	ListShortcutsPaginatedResponse *components.ListShortcutsPaginatedResponse
 }
 
-func (o *ListshortcutsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListshortcutsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListshortcutsResponse) GetListShortcutsPaginatedResponse() *components.ListShortcutsPaginatedResponse {
-	if o == nil {
+func (l *ListshortcutsResponse) GetListShortcutsPaginatedResponse() *components.ListShortcutsPaginatedResponse {
+	if l == nil {
 		return nil
 	}
-	return o.ListShortcutsPaginatedResponse
+	return l.ListShortcutsPaginatedResponse
 }

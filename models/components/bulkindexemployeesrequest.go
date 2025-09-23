@@ -18,44 +18,44 @@ type BulkIndexEmployeesRequest struct {
 	DisableStaleDataDeletionCheck *bool `json:"disableStaleDataDeletionCheck,omitempty"`
 }
 
-func (o *BulkIndexEmployeesRequest) GetUploadID() string {
-	if o == nil {
+func (b *BulkIndexEmployeesRequest) GetUploadID() string {
+	if b == nil {
 		return ""
 	}
-	return o.UploadID
+	return b.UploadID
 }
 
-func (o *BulkIndexEmployeesRequest) GetIsFirstPage() *bool {
-	if o == nil {
+func (b *BulkIndexEmployeesRequest) GetIsFirstPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsFirstPage
+	return b.IsFirstPage
 }
 
-func (o *BulkIndexEmployeesRequest) GetIsLastPage() *bool {
-	if o == nil {
+func (b *BulkIndexEmployeesRequest) GetIsLastPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsLastPage
+	return b.IsLastPage
 }
 
-func (o *BulkIndexEmployeesRequest) GetForceRestartUpload() *bool {
-	if o == nil {
+func (b *BulkIndexEmployeesRequest) GetForceRestartUpload() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.ForceRestartUpload
+	return b.ForceRestartUpload
 }
 
-func (o *BulkIndexEmployeesRequest) GetEmployees() []EmployeeInfoDefinition {
-	if o == nil {
+func (b *BulkIndexEmployeesRequest) GetEmployees() []EmployeeInfoDefinition {
+	if b == nil {
 		return []EmployeeInfoDefinition{}
 	}
-	return o.Employees
+	return b.Employees
 }
 
-func (o *BulkIndexEmployeesRequest) GetDisableStaleDataDeletionCheck() *bool {
-	if o == nil {
+func (b *BulkIndexEmployeesRequest) GetDisableStaleDataDeletionCheck() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.DisableStaleDataDeletionCheck
+	return b.DisableStaleDataDeletionCheck
 }

@@ -20,51 +20,51 @@ type BulkIndexGroupsRequest struct {
 	DisableStaleDataDeletionCheck *bool `json:"disableStaleDataDeletionCheck,omitempty"`
 }
 
-func (o *BulkIndexGroupsRequest) GetUploadID() string {
-	if o == nil {
+func (b *BulkIndexGroupsRequest) GetUploadID() string {
+	if b == nil {
 		return ""
 	}
-	return o.UploadID
+	return b.UploadID
 }
 
-func (o *BulkIndexGroupsRequest) GetIsFirstPage() *bool {
-	if o == nil {
+func (b *BulkIndexGroupsRequest) GetIsFirstPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsFirstPage
+	return b.IsFirstPage
 }
 
-func (o *BulkIndexGroupsRequest) GetIsLastPage() *bool {
-	if o == nil {
+func (b *BulkIndexGroupsRequest) GetIsLastPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsLastPage
+	return b.IsLastPage
 }
 
-func (o *BulkIndexGroupsRequest) GetForceRestartUpload() *bool {
-	if o == nil {
+func (b *BulkIndexGroupsRequest) GetForceRestartUpload() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.ForceRestartUpload
+	return b.ForceRestartUpload
 }
 
-func (o *BulkIndexGroupsRequest) GetDatasource() string {
-	if o == nil {
+func (b *BulkIndexGroupsRequest) GetDatasource() string {
+	if b == nil {
 		return ""
 	}
-	return o.Datasource
+	return b.Datasource
 }
 
-func (o *BulkIndexGroupsRequest) GetGroups() []DatasourceGroupDefinition {
-	if o == nil {
+func (b *BulkIndexGroupsRequest) GetGroups() []DatasourceGroupDefinition {
+	if b == nil {
 		return []DatasourceGroupDefinition{}
 	}
-	return o.Groups
+	return b.Groups
 }
 
-func (o *BulkIndexGroupsRequest) GetDisableStaleDataDeletionCheck() *bool {
-	if o == nil {
+func (b *BulkIndexGroupsRequest) GetDisableStaleDataDeletionCheck() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.DisableStaleDataDeletionCheck
+	return b.DisableStaleDataDeletionCheck
 }

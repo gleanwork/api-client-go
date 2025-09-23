@@ -43,9 +43,9 @@ type ShortcutError struct {
 	ErrorType *ShortcutErrorErrorType `json:"errorType,omitempty"`
 }
 
-func (o *ShortcutError) GetErrorType() *ShortcutErrorErrorType {
-	if o == nil {
+func (s *ShortcutError) GetErrorType() *ShortcutErrorErrorType {
+	if s == nil {
 		return nil
 	}
-	return o.ErrorType
+	return s.ErrorType
 }

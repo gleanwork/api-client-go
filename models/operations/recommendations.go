@@ -12,16 +12,16 @@ type RecommendationsResponse struct {
 	ResultsResponse *components.ResultsResponse
 }
 
-func (o *RecommendationsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (r *RecommendationsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if r == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return r.HTTPMeta
 }
 
-func (o *RecommendationsResponse) GetResultsResponse() *components.ResultsResponse {
-	if o == nil {
+func (r *RecommendationsResponse) GetResultsResponse() *components.ResultsResponse {
+	if r == nil {
 		return nil
 	}
-	return o.ResultsResponse
+	return r.ResultsResponse
 }

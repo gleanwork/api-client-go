@@ -23,65 +23,65 @@ type ActivityEventParams struct {
 	Truncated *bool `json:"truncated,omitempty"`
 }
 
-func (o *ActivityEventParams) GetBodyContent() *string {
-	if o == nil {
+func (a *ActivityEventParams) GetBodyContent() *string {
+	if a == nil {
 		return nil
 	}
-	return o.BodyContent
+	return a.BodyContent
 }
 
-func (o *ActivityEventParams) GetDatasourceInstance() *string {
-	if o == nil {
+func (a *ActivityEventParams) GetDatasourceInstance() *string {
+	if a == nil {
 		return nil
 	}
-	return o.DatasourceInstance
+	return a.DatasourceInstance
 }
 
-func (o *ActivityEventParams) GetDatasource() *string {
-	if o == nil {
+func (a *ActivityEventParams) GetDatasource() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Datasource
+	return a.Datasource
 }
 
-func (o *ActivityEventParams) GetInstanceOnlyName() *string {
-	if o == nil {
+func (a *ActivityEventParams) GetInstanceOnlyName() *string {
+	if a == nil {
 		return nil
 	}
-	return o.InstanceOnlyName
+	return a.InstanceOnlyName
 }
 
-func (o *ActivityEventParams) GetDuration() *int64 {
-	if o == nil {
+func (a *ActivityEventParams) GetDuration() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.Duration
+	return a.Duration
 }
 
-func (o *ActivityEventParams) GetQuery() *string {
-	if o == nil {
+func (a *ActivityEventParams) GetQuery() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Query
+	return a.Query
 }
 
-func (o *ActivityEventParams) GetReferrer() *string {
-	if o == nil {
+func (a *ActivityEventParams) GetReferrer() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Referrer
+	return a.Referrer
 }
 
-func (o *ActivityEventParams) GetTitle() *string {
-	if o == nil {
+func (a *ActivityEventParams) GetTitle() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Title
+	return a.Title
 }
 
-func (o *ActivityEventParams) GetTruncated() *bool {
-	if o == nil {
+func (a *ActivityEventParams) GetTruncated() *bool {
+	if a == nil {
 		return nil
 	}
-	return o.Truncated
+	return a.Truncated
 }

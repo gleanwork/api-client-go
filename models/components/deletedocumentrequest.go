@@ -14,30 +14,30 @@ type DeleteDocumentRequest struct {
 	ID string `json:"id"`
 }
 
-func (o *DeleteDocumentRequest) GetVersion() *int64 {
-	if o == nil {
+func (d *DeleteDocumentRequest) GetVersion() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Version
+	return d.Version
 }
 
-func (o *DeleteDocumentRequest) GetDatasource() string {
-	if o == nil {
+func (d *DeleteDocumentRequest) GetDatasource() string {
+	if d == nil {
 		return ""
 	}
-	return o.Datasource
+	return d.Datasource
 }
 
-func (o *DeleteDocumentRequest) GetObjectType() string {
-	if o == nil {
+func (d *DeleteDocumentRequest) GetObjectType() string {
+	if d == nil {
 		return ""
 	}
-	return o.ObjectType
+	return d.ObjectType
 }
 
-func (o *DeleteDocumentRequest) GetID() string {
-	if o == nil {
+func (d *DeleteDocumentRequest) GetID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ID
+	return d.ID
 }

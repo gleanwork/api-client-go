@@ -9,16 +9,16 @@ type UpdateDlpConfigRequest struct {
 	Frequency *string `json:"frequency,omitempty"`
 }
 
-func (o *UpdateDlpConfigRequest) GetConfig() *DlpConfig {
-	if o == nil {
+func (u *UpdateDlpConfigRequest) GetConfig() *DlpConfig {
+	if u == nil {
 		return nil
 	}
-	return o.Config
+	return u.Config
 }
 
-func (o *UpdateDlpConfigRequest) GetFrequency() *string {
-	if o == nil {
+func (u *UpdateDlpConfigRequest) GetFrequency() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Frequency
+	return u.Frequency
 }

@@ -12,23 +12,23 @@ type DebugDocumentsResponseItem struct {
 	DebugInfo *DebugDocumentResponse `json:"debugInfo,omitempty"`
 }
 
-func (o *DebugDocumentsResponseItem) GetDocID() *string {
-	if o == nil {
+func (d *DebugDocumentsResponseItem) GetDocID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocID
+	return d.DocID
 }
 
-func (o *DebugDocumentsResponseItem) GetObjectType() *string {
-	if o == nil {
+func (d *DebugDocumentsResponseItem) GetObjectType() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ObjectType
+	return d.ObjectType
 }
 
-func (o *DebugDocumentsResponseItem) GetDebugInfo() *DebugDocumentResponse {
-	if o == nil {
+func (d *DebugDocumentsResponseItem) GetDebugInfo() *DebugDocumentResponse {
+	if d == nil {
 		return nil
 	}
-	return o.DebugInfo
+	return d.DebugInfo
 }

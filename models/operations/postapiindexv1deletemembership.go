@@ -10,9 +10,9 @@ type PostAPIIndexV1DeletemembershipResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *PostAPIIndexV1DeletemembershipResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIIndexV1DeletemembershipResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }

@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CustomFieldValueHyperlink struct {
 	// Anchor text for hyperlink.
 	URLAnchor *string `json:"urlAnchor,omitempty"`
@@ -9,16 +13,27 @@ type CustomFieldValueHyperlink struct {
 	URLLink *string `json:"urlLink,omitempty"`
 }
 
-func (o *CustomFieldValueHyperlink) GetURLAnchor() *string {
-	if o == nil {
-		return nil
-	}
-	return o.URLAnchor
+func (c CustomFieldValueHyperlink) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CustomFieldValueHyperlink) GetURLLink() *string {
-	if o == nil {
+func (c *CustomFieldValueHyperlink) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CustomFieldValueHyperlink) GetURLAnchor() *string {
+	if c == nil {
 		return nil
 	}
-	return o.URLLink
+	return c.URLAnchor
+}
+
+func (c *CustomFieldValueHyperlink) GetURLLink() *string {
+	if c == nil {
+		return nil
+	}
+	return c.URLLink
 }

@@ -8,16 +8,16 @@ type Summary struct {
 	FollowUpPrompts []string `json:"followUpPrompts,omitempty"`
 }
 
-func (o *Summary) GetText() *string {
-	if o == nil {
+func (s *Summary) GetText() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Text
+	return s.Text
 }
 
-func (o *Summary) GetFollowUpPrompts() []string {
-	if o == nil {
+func (s *Summary) GetFollowUpPrompts() []string {
+	if s == nil {
 		return nil
 	}
-	return o.FollowUpPrompts
+	return s.FollowUpPrompts
 }

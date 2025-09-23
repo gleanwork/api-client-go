@@ -9,16 +9,16 @@ type EventClassification struct {
 	Strategies []EventStrategyName      `json:"strategies,omitempty"`
 }
 
-func (o *EventClassification) GetName() *EventClassificationName {
-	if o == nil {
+func (e *EventClassification) GetName() *EventClassificationName {
+	if e == nil {
 		return nil
 	}
-	return o.Name
+	return e.Name
 }
 
-func (o *EventClassification) GetStrategies() []EventStrategyName {
-	if o == nil {
+func (e *EventClassification) GetStrategies() []EventStrategyName {
+	if e == nil {
 		return nil
 	}
-	return o.Strategies
+	return e.Strategies
 }

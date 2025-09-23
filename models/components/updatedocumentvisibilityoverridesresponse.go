@@ -7,9 +7,9 @@ type UpdateDocumentVisibilityOverridesResponse struct {
 	Results []DocumentVisibilityUpdateResult `json:"results,omitempty"`
 }
 
-func (o *UpdateDocumentVisibilityOverridesResponse) GetResults() []DocumentVisibilityUpdateResult {
-	if o == nil {
+func (u *UpdateDocumentVisibilityOverridesResponse) GetResults() []DocumentVisibilityUpdateResult {
+	if u == nil {
 		return nil
 	}
-	return o.Results
+	return u.Results
 }

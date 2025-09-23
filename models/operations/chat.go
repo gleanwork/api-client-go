@@ -13,18 +13,18 @@ type ChatRequest struct {
 	ChatRequest components.ChatRequest `request:"mediaType=application/json"`
 }
 
-func (o *ChatRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (c *ChatRequest) GetTimezoneOffset() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return c.TimezoneOffset
 }
 
-func (o *ChatRequest) GetChatRequest() components.ChatRequest {
-	if o == nil {
+func (c *ChatRequest) GetChatRequest() components.ChatRequest {
+	if c == nil {
 		return components.ChatRequest{}
 	}
-	return o.ChatRequest
+	return c.ChatRequest
 }
 
 type ChatResponse struct {
@@ -33,16 +33,16 @@ type ChatResponse struct {
 	ChatResponse *components.ChatResponse
 }
 
-func (o *ChatResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *ChatResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *ChatResponse) GetChatResponse() *components.ChatResponse {
-	if o == nil {
+func (c *ChatResponse) GetChatResponse() *components.ChatResponse {
+	if c == nil {
 		return nil
 	}
-	return o.ChatResponse
+	return c.ChatResponse
 }

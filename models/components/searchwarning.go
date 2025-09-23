@@ -60,30 +60,30 @@ type SearchWarning struct {
 	IgnoredTerms []string `json:"ignoredTerms,omitempty"`
 }
 
-func (o *SearchWarning) GetWarningType() WarningType {
-	if o == nil {
+func (s *SearchWarning) GetWarningType() WarningType {
+	if s == nil {
 		return WarningType("")
 	}
-	return o.WarningType
+	return s.WarningType
 }
 
-func (o *SearchWarning) GetLastUsedTerm() *string {
-	if o == nil {
+func (s *SearchWarning) GetLastUsedTerm() *string {
+	if s == nil {
 		return nil
 	}
-	return o.LastUsedTerm
+	return s.LastUsedTerm
 }
 
-func (o *SearchWarning) GetQuotesIgnoredQuery() *string {
-	if o == nil {
+func (s *SearchWarning) GetQuotesIgnoredQuery() *string {
+	if s == nil {
 		return nil
 	}
-	return o.QuotesIgnoredQuery
+	return s.QuotesIgnoredQuery
 }
 
-func (o *SearchWarning) GetIgnoredTerms() []string {
-	if o == nil {
+func (s *SearchWarning) GetIgnoredTerms() []string {
+	if s == nil {
 		return nil
 	}
-	return o.IgnoredTerms
+	return s.IgnoredTerms
 }

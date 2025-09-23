@@ -12,23 +12,23 @@ type IndexDocumentsRequest struct {
 	Documents []DocumentDefinition `json:"documents"`
 }
 
-func (o *IndexDocumentsRequest) GetUploadID() *string {
-	if o == nil {
+func (i *IndexDocumentsRequest) GetUploadID() *string {
+	if i == nil {
 		return nil
 	}
-	return o.UploadID
+	return i.UploadID
 }
 
-func (o *IndexDocumentsRequest) GetDatasource() string {
-	if o == nil {
+func (i *IndexDocumentsRequest) GetDatasource() string {
+	if i == nil {
 		return ""
 	}
-	return o.Datasource
+	return i.Datasource
 }
 
-func (o *IndexDocumentsRequest) GetDocuments() []DocumentDefinition {
-	if o == nil {
+func (i *IndexDocumentsRequest) GetDocuments() []DocumentDefinition {
+	if i == nil {
 		return []DocumentDefinition{}
 	}
-	return o.Documents
+	return i.Documents
 }

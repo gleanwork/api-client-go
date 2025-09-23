@@ -13,18 +13,18 @@ type GetAgentSchemasRequest struct {
 	AgentID string `pathParam:"style=simple,explode=false,name=agent_id"`
 }
 
-func (o *GetAgentSchemasRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (g *GetAgentSchemasRequest) GetTimezoneOffset() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return g.TimezoneOffset
 }
 
-func (o *GetAgentSchemasRequest) GetAgentID() string {
-	if o == nil {
+func (g *GetAgentSchemasRequest) GetAgentID() string {
+	if g == nil {
 		return ""
 	}
-	return o.AgentID
+	return g.AgentID
 }
 
 type GetAgentSchemasResponse struct {
@@ -33,16 +33,16 @@ type GetAgentSchemasResponse struct {
 	AgentSchemas *components.AgentSchemas
 }
 
-func (o *GetAgentSchemasResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetAgentSchemasResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetAgentSchemasResponse) GetAgentSchemas() *components.AgentSchemas {
-	if o == nil {
+func (g *GetAgentSchemasResponse) GetAgentSchemas() *components.AgentSchemas {
+	if g == nil {
 		return nil
 	}
-	return o.AgentSchemas
+	return g.AgentSchemas
 }

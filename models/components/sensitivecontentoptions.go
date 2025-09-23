@@ -12,23 +12,23 @@ type SensitiveContentOptions struct {
 	SensitiveRegexes []SensitiveExpression `json:"sensitiveRegexes,omitempty"`
 }
 
-func (o *SensitiveContentOptions) GetSensitiveInfoTypes() []SensitiveInfoType {
-	if o == nil {
+func (s *SensitiveContentOptions) GetSensitiveInfoTypes() []SensitiveInfoType {
+	if s == nil {
 		return nil
 	}
-	return o.SensitiveInfoTypes
+	return s.SensitiveInfoTypes
 }
 
-func (o *SensitiveContentOptions) GetSensitiveTerms() []SensitiveExpression {
-	if o == nil {
+func (s *SensitiveContentOptions) GetSensitiveTerms() []SensitiveExpression {
+	if s == nil {
 		return nil
 	}
-	return o.SensitiveTerms
+	return s.SensitiveTerms
 }
 
-func (o *SensitiveContentOptions) GetSensitiveRegexes() []SensitiveExpression {
-	if o == nil {
+func (s *SensitiveContentOptions) GetSensitiveRegexes() []SensitiveExpression {
+	if s == nil {
 		return nil
 	}
-	return o.SensitiveRegexes
+	return s.SensitiveRegexes
 }

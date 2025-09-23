@@ -15,3 +15,4 @@ Semantically groups content of a certain type. It can be used for purposes such 
 | `MessageTypeError`         | ERROR                      |
 | `MessageTypeHeading`       | HEADING                    |
 | `MessageTypeWarning`       | WARNING                    |
+| `MessageTypeServerTool`    | SERVER_TOOL                |

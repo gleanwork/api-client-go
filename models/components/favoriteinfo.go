@@ -12,30 +12,30 @@ type FavoriteInfo struct {
 	FavoritedByUser *bool `json:"favoritedByUser,omitempty"`
 }
 
-func (o *FavoriteInfo) GetUgcType() *UgcType {
-	if o == nil {
+func (f *FavoriteInfo) GetUgcType() *UgcType {
+	if f == nil {
 		return nil
 	}
-	return o.UgcType
+	return f.UgcType
 }
 
-func (o *FavoriteInfo) GetID() *string {
-	if o == nil {
+func (f *FavoriteInfo) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *FavoriteInfo) GetCount() *int64 {
-	if o == nil {
+func (f *FavoriteInfo) GetCount() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.Count
+	return f.Count
 }
 
-func (o *FavoriteInfo) GetFavoritedByUser() *bool {
-	if o == nil {
+func (f *FavoriteInfo) GetFavoritedByUser() *bool {
+	if f == nil {
 		return nil
 	}
-	return o.FavoritedByUser
+	return f.FavoritedByUser
 }

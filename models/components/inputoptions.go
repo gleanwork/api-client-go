@@ -89,44 +89,44 @@ type InputOptions struct {
 	CustomTimeRange *TimeRange      `json:"customTimeRange,omitempty"`
 }
 
-func (o *InputOptions) GetURLGreenlist() []string {
-	if o == nil {
+func (i *InputOptions) GetURLGreenlist() []string {
+	if i == nil {
 		return nil
 	}
-	return o.URLGreenlist
+	return i.URLGreenlist
 }
 
-func (o *InputOptions) GetDatasourcesType() *DatasourcesType {
-	if o == nil {
+func (i *InputOptions) GetDatasourcesType() *DatasourcesType {
+	if i == nil {
 		return nil
 	}
-	return o.DatasourcesType
+	return i.DatasourcesType
 }
 
-func (o *InputOptions) GetDatasources() []string {
-	if o == nil {
+func (i *InputOptions) GetDatasources() []string {
+	if i == nil {
 		return nil
 	}
-	return o.Datasources
+	return i.Datasources
 }
 
-func (o *InputOptions) GetDatasourceInstances() []string {
-	if o == nil {
+func (i *InputOptions) GetDatasourceInstances() []string {
+	if i == nil {
 		return nil
 	}
-	return o.DatasourceInstances
+	return i.DatasourceInstances
 }
 
-func (o *InputOptions) GetTimePeriodType() *TimePeriodType {
-	if o == nil {
+func (i *InputOptions) GetTimePeriodType() *TimePeriodType {
+	if i == nil {
 		return nil
 	}
-	return o.TimePeriodType
+	return i.TimePeriodType
 }
 
-func (o *InputOptions) GetCustomTimeRange() *TimeRange {
-	if o == nil {
+func (i *InputOptions) GetCustomTimeRange() *TimeRange {
+	if i == nil {
 		return nil
 	}
-	return o.CustomTimeRange
+	return i.CustomTimeRange
 }

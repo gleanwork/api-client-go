@@ -37,99 +37,99 @@ func (s SearchRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (s *SearchRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"query"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *SearchRequest) GetTimestamp() *time.Time {
-	if o == nil {
+func (s *SearchRequest) GetTimestamp() *time.Time {
+	if s == nil {
 		return nil
 	}
-	return o.Timestamp
+	return s.Timestamp
 }
 
-func (o *SearchRequest) GetTrackingToken() *string {
-	if o == nil {
+func (s *SearchRequest) GetTrackingToken() *string {
+	if s == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return s.TrackingToken
 }
 
-func (o *SearchRequest) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (s *SearchRequest) GetSessionInfo() *SessionInfo {
+	if s == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return s.SessionInfo
 }
 
-func (o *SearchRequest) GetSourceDocument() *Document {
-	if o == nil {
+func (s *SearchRequest) GetSourceDocument() *Document {
+	if s == nil {
 		return nil
 	}
-	return o.SourceDocument
+	return s.SourceDocument
 }
 
-func (o *SearchRequest) GetPageSize() *int64 {
-	if o == nil {
+func (s *SearchRequest) GetPageSize() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.PageSize
+	return s.PageSize
 }
 
-func (o *SearchRequest) GetMaxSnippetSize() *int64 {
-	if o == nil {
+func (s *SearchRequest) GetMaxSnippetSize() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.MaxSnippetSize
+	return s.MaxSnippetSize
 }
 
-func (o *SearchRequest) GetQuery() string {
-	if o == nil {
+func (s *SearchRequest) GetQuery() string {
+	if s == nil {
 		return ""
 	}
-	return o.Query
+	return s.Query
 }
 
-func (o *SearchRequest) GetCursor() *string {
-	if o == nil {
+func (s *SearchRequest) GetCursor() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Cursor
+	return s.Cursor
 }
 
-func (o *SearchRequest) GetResultTabIds() []string {
-	if o == nil {
+func (s *SearchRequest) GetResultTabIds() []string {
+	if s == nil {
 		return nil
 	}
-	return o.ResultTabIds
+	return s.ResultTabIds
 }
 
-func (o *SearchRequest) GetInputDetails() *SearchRequestInputDetails {
-	if o == nil {
+func (s *SearchRequest) GetInputDetails() *SearchRequestInputDetails {
+	if s == nil {
 		return nil
 	}
-	return o.InputDetails
+	return s.InputDetails
 }
 
-func (o *SearchRequest) GetRequestOptions() *SearchRequestOptions {
-	if o == nil {
+func (s *SearchRequest) GetRequestOptions() *SearchRequestOptions {
+	if s == nil {
 		return nil
 	}
-	return o.RequestOptions
+	return s.RequestOptions
 }
 
-func (o *SearchRequest) GetTimeoutMillis() *int64 {
-	if o == nil {
+func (s *SearchRequest) GetTimeoutMillis() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.TimeoutMillis
+	return s.TimeoutMillis
 }
 
-func (o *SearchRequest) GetDisableSpellcheck() *bool {
-	if o == nil {
+func (s *SearchRequest) GetDisableSpellcheck() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.DisableSpellcheck
+	return s.DisableSpellcheck
 }

@@ -12,23 +12,23 @@ type ListCollectionsRequest struct {
 	AllowedDatasource *string `json:"allowedDatasource,omitempty"`
 }
 
-func (o *ListCollectionsRequest) GetIncludeAudience() *bool {
-	if o == nil {
+func (l *ListCollectionsRequest) GetIncludeAudience() *bool {
+	if l == nil {
 		return nil
 	}
-	return o.IncludeAudience
+	return l.IncludeAudience
 }
 
-func (o *ListCollectionsRequest) GetIncludeRoles() *bool {
-	if o == nil {
+func (l *ListCollectionsRequest) GetIncludeRoles() *bool {
+	if l == nil {
 		return nil
 	}
-	return o.IncludeRoles
+	return l.IncludeRoles
 }
 
-func (o *ListCollectionsRequest) GetAllowedDatasource() *string {
-	if o == nil {
+func (l *ListCollectionsRequest) GetAllowedDatasource() *string {
+	if l == nil {
 		return nil
 	}
-	return o.AllowedDatasource
+	return l.AllowedDatasource
 }

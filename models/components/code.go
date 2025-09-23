@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type Code struct {
 	RepoName *string    `json:"repoName,omitempty"`
 	FileName *string    `json:"fileName,omitempty"`
@@ -11,37 +15,48 @@ type Code struct {
 	IsLastMatch *bool `json:"isLastMatch,omitempty"`
 }
 
-func (o *Code) GetRepoName() *string {
-	if o == nil {
-		return nil
-	}
-	return o.RepoName
+func (c Code) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *Code) GetFileName() *string {
-	if o == nil {
-		return nil
+func (c *Code) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
 	}
-	return o.FileName
+	return nil
 }
 
-func (o *Code) GetFileURL() *string {
-	if o == nil {
+func (c *Code) GetRepoName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.FileURL
+	return c.RepoName
 }
 
-func (o *Code) GetLines() []CodeLine {
-	if o == nil {
+func (c *Code) GetFileName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Lines
+	return c.FileName
 }
 
-func (o *Code) GetIsLastMatch() *bool {
-	if o == nil {
+func (c *Code) GetFileURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.IsLastMatch
+	return c.FileURL
+}
+
+func (c *Code) GetLines() []CodeLine {
+	if c == nil {
+		return nil
+	}
+	return c.Lines
+}
+
+func (c *Code) GetIsLastMatch() *bool {
+	if c == nil {
+		return nil
+	}
+	return c.IsLastMatch
 }

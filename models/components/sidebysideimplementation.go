@@ -12,25 +12,25 @@ type ResponseMetadata struct {
 	ModelUsed *string `json:"modelUsed,omitempty"`
 }
 
-func (o *ResponseMetadata) GetLatencyMs() *int64 {
-	if o == nil {
+func (r *ResponseMetadata) GetLatencyMs() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.LatencyMs
+	return r.LatencyMs
 }
 
-func (o *ResponseMetadata) GetTokenCount() *int64 {
-	if o == nil {
+func (r *ResponseMetadata) GetTokenCount() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.TokenCount
+	return r.TokenCount
 }
 
-func (o *ResponseMetadata) GetModelUsed() *string {
-	if o == nil {
+func (r *ResponseMetadata) GetModelUsed() *string {
+	if r == nil {
 		return nil
 	}
-	return o.ModelUsed
+	return r.ModelUsed
 }
 
 type SideBySideImplementation struct {
@@ -46,37 +46,37 @@ type SideBySideImplementation struct {
 	ResponseMetadata *ResponseMetadata `json:"responseMetadata,omitempty"`
 }
 
-func (o *SideBySideImplementation) GetImplementationID() *string {
-	if o == nil {
+func (s *SideBySideImplementation) GetImplementationID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ImplementationID
+	return s.ImplementationID
 }
 
-func (o *SideBySideImplementation) GetImplementationName() *string {
-	if o == nil {
+func (s *SideBySideImplementation) GetImplementationName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ImplementationName
+	return s.ImplementationName
 }
 
-func (o *SideBySideImplementation) GetSearchParams() map[string]string {
-	if o == nil {
+func (s *SideBySideImplementation) GetSearchParams() map[string]string {
+	if s == nil {
 		return nil
 	}
-	return o.SearchParams
+	return s.SearchParams
 }
 
-func (o *SideBySideImplementation) GetResponse() *string {
-	if o == nil {
+func (s *SideBySideImplementation) GetResponse() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Response
+	return s.Response
 }
 
-func (o *SideBySideImplementation) GetResponseMetadata() *ResponseMetadata {
-	if o == nil {
+func (s *SideBySideImplementation) GetResponseMetadata() *ResponseMetadata {
+	if s == nil {
 		return nil
 	}
-	return o.ResponseMetadata
+	return s.ResponseMetadata
 }

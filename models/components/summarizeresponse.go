@@ -6,11 +6,11 @@ type Error struct {
 	Message *string `json:"message,omitempty"`
 }
 
-func (o *Error) GetMessage() *string {
-	if o == nil {
+func (e *Error) GetMessage() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Message
+	return e.Message
 }
 
 type SummarizeResponse struct {
@@ -20,23 +20,23 @@ type SummarizeResponse struct {
 	TrackingToken *string `json:"trackingToken,omitempty"`
 }
 
-func (o *SummarizeResponse) GetError() *Error {
-	if o == nil {
+func (s *SummarizeResponse) GetError() *Error {
+	if s == nil {
 		return nil
 	}
-	return o.Error
+	return s.Error
 }
 
-func (o *SummarizeResponse) GetSummary() *Summary {
-	if o == nil {
+func (s *SummarizeResponse) GetSummary() *Summary {
+	if s == nil {
 		return nil
 	}
-	return o.Summary
+	return s.Summary
 }
 
-func (o *SummarizeResponse) GetTrackingToken() *string {
-	if o == nil {
+func (s *SummarizeResponse) GetTrackingToken() *string {
+	if s == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return s.TrackingToken
 }

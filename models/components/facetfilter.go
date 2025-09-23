@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type FacetFilter struct {
 	FieldName *string `json:"fieldName,omitempty"`
 	// Within a single FacetFilter, the values are to be treated like an OR. For example, fieldName type with values [EQUALS Presentation, EQUALS Spreadsheet] means we want to show a document if it's a Presentation OR a Spreadsheet.
@@ -10,23 +14,34 @@ type FacetFilter struct {
 	GroupName *string `json:"groupName,omitempty"`
 }
 
-func (o *FacetFilter) GetFieldName() *string {
-	if o == nil {
-		return nil
-	}
-	return o.FieldName
+func (f FacetFilter) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(f, "", false)
 }
 
-func (o *FacetFilter) GetValues() []FacetFilterValue {
-	if o == nil {
-		return nil
+func (f *FacetFilter) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &f, "", false, nil); err != nil {
+		return err
 	}
-	return o.Values
+	return nil
 }
 
-func (o *FacetFilter) GetGroupName() *string {
-	if o == nil {
+func (f *FacetFilter) GetFieldName() *string {
+	if f == nil {
 		return nil
 	}
-	return o.GroupName
+	return f.FieldName
+}
+
+func (f *FacetFilter) GetValues() []FacetFilterValue {
+	if f == nil {
+		return nil
+	}
+	return f.Values
+}
+
+func (f *FacetFilter) GetGroupName() *string {
+	if f == nil {
+		return nil
+	}
+	return f.GroupName
 }

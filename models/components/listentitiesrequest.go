@@ -137,78 +137,78 @@ func (l ListEntitiesRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (l *ListEntitiesRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &l, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ListEntitiesRequest) GetFilter() []FacetFilter {
-	if o == nil {
+func (l *ListEntitiesRequest) GetFilter() []FacetFilter {
+	if l == nil {
 		return nil
 	}
-	return o.Filter
+	return l.Filter
 }
 
-func (o *ListEntitiesRequest) GetSort() []SortOptions {
-	if o == nil {
+func (l *ListEntitiesRequest) GetSort() []SortOptions {
+	if l == nil {
 		return nil
 	}
-	return o.Sort
+	return l.Sort
 }
 
-func (o *ListEntitiesRequest) GetEntityType() *ListEntitiesRequestEntityType {
-	if o == nil {
+func (l *ListEntitiesRequest) GetEntityType() *ListEntitiesRequestEntityType {
+	if l == nil {
 		return nil
 	}
-	return o.EntityType
+	return l.EntityType
 }
 
-func (o *ListEntitiesRequest) GetDatasource() *string {
-	if o == nil {
+func (l *ListEntitiesRequest) GetDatasource() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Datasource
+	return l.Datasource
 }
 
-func (o *ListEntitiesRequest) GetQuery() *string {
-	if o == nil {
+func (l *ListEntitiesRequest) GetQuery() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Query
+	return l.Query
 }
 
-func (o *ListEntitiesRequest) GetIncludeFields() []ListEntitiesRequestIncludeField {
-	if o == nil {
+func (l *ListEntitiesRequest) GetIncludeFields() []ListEntitiesRequestIncludeField {
+	if l == nil {
 		return nil
 	}
-	return o.IncludeFields
+	return l.IncludeFields
 }
 
-func (o *ListEntitiesRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListEntitiesRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
-func (o *ListEntitiesRequest) GetCursor() *string {
-	if o == nil {
+func (l *ListEntitiesRequest) GetCursor() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Cursor
+	return l.Cursor
 }
 
-func (o *ListEntitiesRequest) GetSource() *string {
-	if o == nil {
+func (l *ListEntitiesRequest) GetSource() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Source
+	return l.Source
 }
 
-func (o *ListEntitiesRequest) GetRequestType() *RequestType {
-	if o == nil {
+func (l *ListEntitiesRequest) GetRequestType() *RequestType {
+	if l == nil {
 		return nil
 	}
-	return o.RequestType
+	return l.RequestType
 }

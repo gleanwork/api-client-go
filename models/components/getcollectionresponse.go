@@ -10,30 +10,30 @@ type GetCollectionResponse struct {
 	Error         *CollectionError `json:"error,omitempty"`
 }
 
-func (o *GetCollectionResponse) GetCollection() *Collection {
-	if o == nil {
+func (g *GetCollectionResponse) GetCollection() *Collection {
+	if g == nil {
 		return nil
 	}
-	return o.Collection
+	return g.Collection
 }
 
-func (o *GetCollectionResponse) GetRootCollection() *Collection {
-	if o == nil {
+func (g *GetCollectionResponse) GetRootCollection() *Collection {
+	if g == nil {
 		return nil
 	}
-	return o.RootCollection
+	return g.RootCollection
 }
 
-func (o *GetCollectionResponse) GetTrackingToken() *string {
-	if o == nil {
+func (g *GetCollectionResponse) GetTrackingToken() *string {
+	if g == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return g.TrackingToken
 }
 
-func (o *GetCollectionResponse) GetError() *CollectionError {
-	if o == nil {
+func (g *GetCollectionResponse) GetError() *CollectionError {
+	if g == nil {
 		return nil
 	}
-	return o.Error
+	return g.Error
 }

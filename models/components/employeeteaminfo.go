@@ -12,23 +12,23 @@ type EmployeeTeamInfo struct {
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *EmployeeTeamInfo) GetID() *string {
-	if o == nil {
+func (e *EmployeeTeamInfo) GetID() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ID
+	return e.ID
 }
 
-func (o *EmployeeTeamInfo) GetName() *string {
-	if o == nil {
+func (e *EmployeeTeamInfo) GetName() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Name
+	return e.Name
 }
 
-func (o *EmployeeTeamInfo) GetURL() *string {
-	if o == nil {
+func (e *EmployeeTeamInfo) GetURL() *string {
+	if e == nil {
 		return nil
 	}
-	return o.URL
+	return e.URL
 }

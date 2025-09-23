@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type AnswerLikes struct {
 	LikedBy []AnswerLike `json:"likedBy"`
 	// Whether the user in context liked the answer.
@@ -10,23 +14,34 @@ type AnswerLikes struct {
 	NumLikes int64 `json:"numLikes"`
 }
 
-func (o *AnswerLikes) GetLikedBy() []AnswerLike {
-	if o == nil {
+func (a AnswerLikes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *AnswerLikes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, []string{"likedBy", "likedByUser", "numLikes"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *AnswerLikes) GetLikedBy() []AnswerLike {
+	if a == nil {
 		return []AnswerLike{}
 	}
-	return o.LikedBy
+	return a.LikedBy
 }
 
-func (o *AnswerLikes) GetLikedByUser() bool {
-	if o == nil {
+func (a *AnswerLikes) GetLikedByUser() bool {
+	if a == nil {
 		return false
 	}
-	return o.LikedByUser
+	return a.LikedByUser
 }
 
-func (o *AnswerLikes) GetNumLikes() int64 {
-	if o == nil {
+func (a *AnswerLikes) GetNumLikes() int64 {
+	if a == nil {
 		return 0
 	}
-	return o.NumLikes
+	return a.NumLikes
 }

@@ -11,23 +11,23 @@ type DeleteCollectionItemRequest struct {
 	DocumentID *string `json:"documentId,omitempty"`
 }
 
-func (o *DeleteCollectionItemRequest) GetCollectionID() float64 {
-	if o == nil {
+func (d *DeleteCollectionItemRequest) GetCollectionID() float64 {
+	if d == nil {
 		return 0.0
 	}
-	return o.CollectionID
+	return d.CollectionID
 }
 
-func (o *DeleteCollectionItemRequest) GetItemID() string {
-	if o == nil {
+func (d *DeleteCollectionItemRequest) GetItemID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ItemID
+	return d.ItemID
 }
 
-func (o *DeleteCollectionItemRequest) GetDocumentID() *string {
-	if o == nil {
+func (d *DeleteCollectionItemRequest) GetDocumentID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocumentID
+	return d.DocumentID
 }

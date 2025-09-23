@@ -79,288 +79,288 @@ func (d DocumentMetadata) MarshalJSON() ([]byte, error) {
 }
 
 func (d *DocumentMetadata) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &d, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &d, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *DocumentMetadata) GetDatasource() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetDatasource() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Datasource
+	return d.Datasource
 }
 
-func (o *DocumentMetadata) GetDatasourceInstance() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetDatasourceInstance() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DatasourceInstance
+	return d.DatasourceInstance
 }
 
-func (o *DocumentMetadata) GetObjectType() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetObjectType() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ObjectType
+	return d.ObjectType
 }
 
-func (o *DocumentMetadata) GetContainer() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetContainer() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Container
+	return d.Container
 }
 
-func (o *DocumentMetadata) GetContainerID() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetContainerID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ContainerID
+	return d.ContainerID
 }
 
-func (o *DocumentMetadata) GetSuperContainerID() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetSuperContainerID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.SuperContainerID
+	return d.SuperContainerID
 }
 
-func (o *DocumentMetadata) GetParentID() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetParentID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ParentID
+	return d.ParentID
 }
 
-func (o *DocumentMetadata) GetMimeType() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetMimeType() *string {
+	if d == nil {
 		return nil
 	}
-	return o.MimeType
+	return d.MimeType
 }
 
-func (o *DocumentMetadata) GetDocumentID() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetDocumentID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocumentID
+	return d.DocumentID
 }
 
-func (o *DocumentMetadata) GetLoggingID() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetLoggingID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.LoggingID
+	return d.LoggingID
 }
 
-func (o *DocumentMetadata) GetDocumentIDHash() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetDocumentIDHash() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocumentIDHash
+	return d.DocumentIDHash
 }
 
-func (o *DocumentMetadata) GetCreateTime() *time.Time {
-	if o == nil {
+func (d *DocumentMetadata) GetCreateTime() *time.Time {
+	if d == nil {
 		return nil
 	}
-	return o.CreateTime
+	return d.CreateTime
 }
 
-func (o *DocumentMetadata) GetUpdateTime() *time.Time {
-	if o == nil {
+func (d *DocumentMetadata) GetUpdateTime() *time.Time {
+	if d == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return d.UpdateTime
 }
 
-func (o *DocumentMetadata) GetAuthor() *Person {
-	if o == nil {
+func (d *DocumentMetadata) GetAuthor() *Person {
+	if d == nil {
 		return nil
 	}
-	return o.Author
+	return d.Author
 }
 
-func (o *DocumentMetadata) GetOwner() *Person {
-	if o == nil {
+func (d *DocumentMetadata) GetOwner() *Person {
+	if d == nil {
 		return nil
 	}
-	return o.Owner
+	return d.Owner
 }
 
-func (o *DocumentMetadata) GetMentionedPeople() []Person {
-	if o == nil {
+func (d *DocumentMetadata) GetMentionedPeople() []Person {
+	if d == nil {
 		return nil
 	}
-	return o.MentionedPeople
+	return d.MentionedPeople
 }
 
-func (o *DocumentMetadata) GetVisibility() *DocumentVisibility {
-	if o == nil {
+func (d *DocumentMetadata) GetVisibility() *DocumentVisibility {
+	if d == nil {
 		return nil
 	}
-	return o.Visibility
+	return d.Visibility
 }
 
-func (o *DocumentMetadata) GetComponents() []string {
-	if o == nil {
+func (d *DocumentMetadata) GetComponents() []string {
+	if d == nil {
 		return nil
 	}
-	return o.Components
+	return d.Components
 }
 
-func (o *DocumentMetadata) GetStatus() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetStatus() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Status
+	return d.Status
 }
 
-func (o *DocumentMetadata) GetStatusCategory() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetStatusCategory() *string {
+	if d == nil {
 		return nil
 	}
-	return o.StatusCategory
+	return d.StatusCategory
 }
 
-func (o *DocumentMetadata) GetPins() []PinDocument {
-	if o == nil {
+func (d *DocumentMetadata) GetPins() []PinDocument {
+	if d == nil {
 		return nil
 	}
-	return o.Pins
+	return d.Pins
 }
 
-func (o *DocumentMetadata) GetPriority() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetPriority() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Priority
+	return d.Priority
 }
 
-func (o *DocumentMetadata) GetAssignedTo() *Person {
-	if o == nil {
+func (d *DocumentMetadata) GetAssignedTo() *Person {
+	if d == nil {
 		return nil
 	}
-	return o.AssignedTo
+	return d.AssignedTo
 }
 
-func (o *DocumentMetadata) GetUpdatedBy() *Person {
-	if o == nil {
+func (d *DocumentMetadata) GetUpdatedBy() *Person {
+	if d == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return d.UpdatedBy
 }
 
-func (o *DocumentMetadata) GetLabels() []string {
-	if o == nil {
+func (d *DocumentMetadata) GetLabels() []string {
+	if d == nil {
 		return nil
 	}
-	return o.Labels
+	return d.Labels
 }
 
-func (o *DocumentMetadata) GetCollections() []Collection {
-	if o == nil {
+func (d *DocumentMetadata) GetCollections() []Collection {
+	if d == nil {
 		return nil
 	}
-	return o.Collections
+	return d.Collections
 }
 
-func (o *DocumentMetadata) GetDatasourceID() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetDatasourceID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DatasourceID
+	return d.DatasourceID
 }
 
-func (o *DocumentMetadata) GetInteractions() *DocumentInteractions {
-	if o == nil {
+func (d *DocumentMetadata) GetInteractions() *DocumentInteractions {
+	if d == nil {
 		return nil
 	}
-	return o.Interactions
+	return d.Interactions
 }
 
-func (o *DocumentMetadata) GetVerification() *Verification {
-	if o == nil {
+func (d *DocumentMetadata) GetVerification() *Verification {
+	if d == nil {
 		return nil
 	}
-	return o.Verification
+	return d.Verification
 }
 
-func (o *DocumentMetadata) GetViewerInfo() *ViewerInfo {
-	if o == nil {
+func (d *DocumentMetadata) GetViewerInfo() *ViewerInfo {
+	if d == nil {
 		return nil
 	}
-	return o.ViewerInfo
+	return d.ViewerInfo
 }
 
-func (o *DocumentMetadata) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (d *DocumentMetadata) GetPermissions() *ObjectPermissions {
+	if d == nil {
 		return nil
 	}
-	return o.Permissions
+	return d.Permissions
 }
 
-func (o *DocumentMetadata) GetVisitCount() *CountInfo {
-	if o == nil {
+func (d *DocumentMetadata) GetVisitCount() *CountInfo {
+	if d == nil {
 		return nil
 	}
-	return o.VisitCount
+	return d.VisitCount
 }
 
-func (o *DocumentMetadata) GetShortcuts() []Shortcut {
-	if o == nil {
+func (d *DocumentMetadata) GetShortcuts() []Shortcut {
+	if d == nil {
 		return nil
 	}
-	return o.Shortcuts
+	return d.Shortcuts
 }
 
-func (o *DocumentMetadata) GetPath() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetPath() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Path
+	return d.Path
 }
 
-func (o *DocumentMetadata) GetCustomData() map[string]CustomDataValue {
-	if o == nil {
+func (d *DocumentMetadata) GetCustomData() map[string]CustomDataValue {
+	if d == nil {
 		return nil
 	}
-	return o.CustomData
+	return d.CustomData
 }
 
-func (o *DocumentMetadata) GetDocumentCategory() *string {
-	if o == nil {
+func (d *DocumentMetadata) GetDocumentCategory() *string {
+	if d == nil {
 		return nil
 	}
-	return o.DocumentCategory
+	return d.DocumentCategory
 }
 
-func (o *DocumentMetadata) GetContactPerson() *Person {
-	if o == nil {
+func (d *DocumentMetadata) GetContactPerson() *Person {
+	if d == nil {
 		return nil
 	}
-	return o.ContactPerson
+	return d.ContactPerson
 }
 
-func (o *DocumentMetadata) GetThumbnail() *Thumbnail {
-	if o == nil {
+func (d *DocumentMetadata) GetThumbnail() *Thumbnail {
+	if d == nil {
 		return nil
 	}
-	return o.Thumbnail
+	return d.Thumbnail
 }
 
-func (o *DocumentMetadata) GetIndexStatus() *IndexStatus {
-	if o == nil {
+func (d *DocumentMetadata) GetIndexStatus() *IndexStatus {
+	if d == nil {
 		return nil
 	}
-	return o.IndexStatus
+	return d.IndexStatus
 }
 
-func (o *DocumentMetadata) GetAncestors() []Document {
-	if o == nil {
+func (d *DocumentMetadata) GetAncestors() []Document {
+	if d == nil {
 		return nil
 	}
-	return o.Ancestors
+	return d.Ancestors
 }

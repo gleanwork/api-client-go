@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // Disambiguation - A disambiguation between multiple entities with the same name
 type Disambiguation struct {
 	// Name of the ambiguous entity
@@ -12,23 +16,34 @@ type Disambiguation struct {
 	Type *EntityType `json:"type,omitempty"`
 }
 
-func (o *Disambiguation) GetName() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Name
+func (d Disambiguation) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
 }
 
-func (o *Disambiguation) GetID() *string {
-	if o == nil {
-		return nil
+func (d *Disambiguation) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, nil); err != nil {
+		return err
 	}
-	return o.ID
+	return nil
 }
 
-func (o *Disambiguation) GetType() *EntityType {
-	if o == nil {
+func (d *Disambiguation) GetName() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Type
+	return d.Name
+}
+
+func (d *Disambiguation) GetID() *string {
+	if d == nil {
+		return nil
+	}
+	return d.ID
+}
+
+func (d *Disambiguation) GetType() *EntityType {
+	if d == nil {
+		return nil
+	}
+	return d.Type
 }

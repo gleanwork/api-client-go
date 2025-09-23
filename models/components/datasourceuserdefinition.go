@@ -12,30 +12,30 @@ type DatasourceUserDefinition struct {
 	IsActive *bool `json:"isActive,omitempty"`
 }
 
-func (o *DatasourceUserDefinition) GetEmail() string {
-	if o == nil {
+func (d *DatasourceUserDefinition) GetEmail() string {
+	if d == nil {
 		return ""
 	}
-	return o.Email
+	return d.Email
 }
 
-func (o *DatasourceUserDefinition) GetUserID() *string {
-	if o == nil {
+func (d *DatasourceUserDefinition) GetUserID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.UserID
+	return d.UserID
 }
 
-func (o *DatasourceUserDefinition) GetName() string {
-	if o == nil {
+func (d *DatasourceUserDefinition) GetName() string {
+	if d == nil {
 		return ""
 	}
-	return o.Name
+	return d.Name
 }
 
-func (o *DatasourceUserDefinition) GetIsActive() *bool {
-	if o == nil {
+func (d *DatasourceUserDefinition) GetIsActive() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.IsActive
+	return d.IsActive
 }

@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CountInfo struct {
 	// The counter value
 	Count  int64   `json:"count"`
@@ -10,23 +14,34 @@ type CountInfo struct {
 	Org *string `json:"org,omitempty"`
 }
 
-func (o *CountInfo) GetCount() int64 {
-	if o == nil {
+func (c CountInfo) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CountInfo) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"count"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CountInfo) GetCount() int64 {
+	if c == nil {
 		return 0
 	}
-	return o.Count
+	return c.Count
 }
 
-func (o *CountInfo) GetPeriod() *Period {
-	if o == nil {
+func (c *CountInfo) GetPeriod() *Period {
+	if c == nil {
 		return nil
 	}
-	return o.Period
+	return c.Period
 }
 
-func (o *CountInfo) GetOrg() *string {
-	if o == nil {
+func (c *CountInfo) GetOrg() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Org
+	return c.Org
 }

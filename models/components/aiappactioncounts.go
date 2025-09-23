@@ -28,57 +28,57 @@ func (a AiAppActionCounts) MarshalJSON() ([]byte, error) {
 }
 
 func (a *AiAppActionCounts) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *AiAppActionCounts) GetTotalSlackbotResponses() *int64 {
-	if o == nil {
+func (a *AiAppActionCounts) GetTotalSlackbotResponses() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalSlackbotResponses
+	return a.TotalSlackbotResponses
 }
 
-func (o *AiAppActionCounts) GetTotalSlackbotResponsesShared() *int64 {
-	if o == nil {
+func (a *AiAppActionCounts) GetTotalSlackbotResponsesShared() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalSlackbotResponsesShared
+	return a.TotalSlackbotResponsesShared
 }
 
-func (o *AiAppActionCounts) GetTotalSlackbotResponsesNotHelpful() *int64 {
-	if o == nil {
+func (a *AiAppActionCounts) GetTotalSlackbotResponsesNotHelpful() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalSlackbotResponsesNotHelpful
+	return a.TotalSlackbotResponsesNotHelpful
 }
 
-func (o *AiAppActionCounts) GetTotalChatMessages() *int64 {
-	if o == nil {
+func (a *AiAppActionCounts) GetTotalChatMessages() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalChatMessages
+	return a.TotalChatMessages
 }
 
-func (o *AiAppActionCounts) GetTotalUpvotes() *int64 {
-	if o == nil {
+func (a *AiAppActionCounts) GetTotalUpvotes() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalUpvotes
+	return a.TotalUpvotes
 }
 
-func (o *AiAppActionCounts) GetTotalDownvotes() *int64 {
-	if o == nil {
+func (a *AiAppActionCounts) GetTotalDownvotes() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.TotalDownvotes
+	return a.TotalDownvotes
 }
 
-func (o *AiAppActionCounts) GetAdditionalProperties() map[string]int64 {
-	if o == nil {
+func (a *AiAppActionCounts) GetAdditionalProperties() map[string]int64 {
+	if a == nil {
 		return nil
 	}
-	return o.AdditionalProperties
+	return a.AdditionalProperties
 }

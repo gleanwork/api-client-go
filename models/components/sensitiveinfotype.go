@@ -43,16 +43,16 @@ type SensitiveInfoType struct {
 	InfoType *string `json:"infoType,omitempty"`
 }
 
-func (o *SensitiveInfoType) GetLikelihoodThreshold() *LikelihoodThreshold {
-	if o == nil {
+func (s *SensitiveInfoType) GetLikelihoodThreshold() *LikelihoodThreshold {
+	if s == nil {
 		return nil
 	}
-	return o.LikelihoodThreshold
+	return s.LikelihoodThreshold
 }
 
-func (o *SensitiveInfoType) GetInfoType() *string {
-	if o == nil {
+func (s *SensitiveInfoType) GetInfoType() *string {
+	if s == nil {
 		return nil
 	}
-	return o.InfoType
+	return s.InfoType
 }

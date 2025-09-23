@@ -98,65 +98,65 @@ type PropertyDefinition struct {
 	Group *string `json:"group,omitempty"`
 }
 
-func (o *PropertyDefinition) GetName() *string {
-	if o == nil {
+func (p *PropertyDefinition) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PropertyDefinition) GetDisplayLabel() *string {
-	if o == nil {
+func (p *PropertyDefinition) GetDisplayLabel() *string {
+	if p == nil {
 		return nil
 	}
-	return o.DisplayLabel
+	return p.DisplayLabel
 }
 
-func (o *PropertyDefinition) GetDisplayLabelPlural() *string {
-	if o == nil {
+func (p *PropertyDefinition) GetDisplayLabelPlural() *string {
+	if p == nil {
 		return nil
 	}
-	return o.DisplayLabelPlural
+	return p.DisplayLabelPlural
 }
 
-func (o *PropertyDefinition) GetPropertyType() *PropertyType {
-	if o == nil {
+func (p *PropertyDefinition) GetPropertyType() *PropertyType {
+	if p == nil {
 		return nil
 	}
-	return o.PropertyType
+	return p.PropertyType
 }
 
-func (o *PropertyDefinition) GetUIOptions() *UIOptions {
-	if o == nil {
+func (p *PropertyDefinition) GetUIOptions() *UIOptions {
+	if p == nil {
 		return nil
 	}
-	return o.UIOptions
+	return p.UIOptions
 }
 
-func (o *PropertyDefinition) GetHideUIFacet() *bool {
-	if o == nil {
+func (p *PropertyDefinition) GetHideUIFacet() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.HideUIFacet
+	return p.HideUIFacet
 }
 
-func (o *PropertyDefinition) GetUIFacetOrder() *int64 {
-	if o == nil {
+func (p *PropertyDefinition) GetUIFacetOrder() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.UIFacetOrder
+	return p.UIFacetOrder
 }
 
-func (o *PropertyDefinition) GetSkipIndexing() *bool {
-	if o == nil {
+func (p *PropertyDefinition) GetSkipIndexing() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.SkipIndexing
+	return p.SkipIndexing
 }
 
-func (o *PropertyDefinition) GetGroup() *string {
-	if o == nil {
+func (p *PropertyDefinition) GetGroup() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Group
+	return p.Group
 }

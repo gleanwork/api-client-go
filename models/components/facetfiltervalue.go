@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 type RelationType string
@@ -51,23 +52,34 @@ type FacetFilterValue struct {
 	IsNegated *bool `json:"isNegated,omitempty"`
 }
 
-func (o *FacetFilterValue) GetValue() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Value
+func (f FacetFilterValue) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(f, "", false)
 }
 
-func (o *FacetFilterValue) GetRelationType() *RelationType {
-	if o == nil {
-		return nil
+func (f *FacetFilterValue) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &f, "", false, nil); err != nil {
+		return err
 	}
-	return o.RelationType
+	return nil
 }
 
-func (o *FacetFilterValue) GetIsNegated() *bool {
-	if o == nil {
+func (f *FacetFilterValue) GetValue() *string {
+	if f == nil {
 		return nil
 	}
-	return o.IsNegated
+	return f.Value
+}
+
+func (f *FacetFilterValue) GetRelationType() *RelationType {
+	if f == nil {
+		return nil
+	}
+	return f.RelationType
+}
+
+func (f *FacetFilterValue) GetIsNegated() *bool {
+	if f == nil {
+		return nil
+	}
+	return f.IsNegated
 }

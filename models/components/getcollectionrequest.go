@@ -13,30 +13,30 @@ type GetCollectionRequest struct {
 	AllowedDatasource *string `json:"allowedDatasource,omitempty"`
 }
 
-func (o *GetCollectionRequest) GetID() int64 {
-	if o == nil {
+func (g *GetCollectionRequest) GetID() int64 {
+	if g == nil {
 		return 0
 	}
-	return o.ID
+	return g.ID
 }
 
-func (o *GetCollectionRequest) GetWithItems() *bool {
-	if o == nil {
+func (g *GetCollectionRequest) GetWithItems() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.WithItems
+	return g.WithItems
 }
 
-func (o *GetCollectionRequest) GetWithHierarchy() *bool {
-	if o == nil {
+func (g *GetCollectionRequest) GetWithHierarchy() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.WithHierarchy
+	return g.WithHierarchy
 }
 
-func (o *GetCollectionRequest) GetAllowedDatasource() *string {
-	if o == nil {
+func (g *GetCollectionRequest) GetAllowedDatasource() *string {
+	if g == nil {
 		return nil
 	}
-	return o.AllowedDatasource
+	return g.AllowedDatasource
 }

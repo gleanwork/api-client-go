@@ -6,9 +6,9 @@ type CreateShortcutRequest struct {
 	Data ShortcutMutableProperties `json:"data"`
 }
 
-func (o *CreateShortcutRequest) GetData() ShortcutMutableProperties {
-	if o == nil {
+func (c *CreateShortcutRequest) GetData() ShortcutMutableProperties {
+	if c == nil {
 		return ShortcutMutableProperties{}
 	}
-	return o.Data
+	return c.Data
 }

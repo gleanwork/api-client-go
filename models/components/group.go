@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type Group struct {
 	// The type of user group
 	Type GroupType `json:"type"`
@@ -9,25 +13,54 @@ type Group struct {
 	ID string `json:"id"`
 	// Name of the group.
 	Name *string `json:"name,omitempty"`
+	// Datasource instance if the group belongs to one e.g. external groups.
+	DatasourceInstance *string `json:"datasourceInstance,omitempty"`
+	// identifier for greenlist provisioning, aka sciokey
+	ProvisioningID *string `json:"provisioningId,omitempty"`
 }
 
-func (o *Group) GetType() GroupType {
-	if o == nil {
+func (g Group) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *Group) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, []string{"type", "id"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (g *Group) GetType() GroupType {
+	if g == nil {
 		return GroupType("")
 	}
-	return o.Type
+	return g.Type
 }
 
-func (o *Group) GetID() string {
-	if o == nil {
+func (g *Group) GetID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ID
+	return g.ID
 }
 
-func (o *Group) GetName() *string {
-	if o == nil {
+func (g *Group) GetName() *string {
+	if g == nil {
 		return nil
 	}
-	return o.Name
+	return g.Name
+}
+
+func (g *Group) GetDatasourceInstance() *string {
+	if g == nil {
+		return nil
+	}
+	return g.DatasourceInstance
+}
+
+func (g *Group) GetProvisioningID() *string {
+	if g == nil {
+		return nil
+	}
+	return g.ProvisioningID
 }

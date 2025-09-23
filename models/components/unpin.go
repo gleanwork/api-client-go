@@ -7,9 +7,9 @@ type Unpin struct {
 	ID *string `json:"id,omitempty"`
 }
 
-func (o *Unpin) GetID() *string {
-	if o == nil {
+func (u *Unpin) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }

@@ -7,9 +7,9 @@ type DeleteAnnouncementRequest struct {
 	ID int64 `json:"id"`
 }
 
-func (o *DeleteAnnouncementRequest) GetID() int64 {
-	if o == nil {
+func (d *DeleteAnnouncementRequest) GetID() int64 {
+	if d == nil {
 		return 0
 	}
-	return o.ID
+	return d.ID
 }

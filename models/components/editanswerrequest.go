@@ -64,107 +64,107 @@ type EditAnswerRequest struct {
 	CombinedAnswerText *StructuredTextMutableProperties `json:"combinedAnswerText,omitempty"`
 }
 
-func (o *EditAnswerRequest) GetID() int64 {
-	if o == nil {
+func (e *EditAnswerRequest) GetID() int64 {
+	if e == nil {
 		return 0
 	}
-	return o.ID
+	return e.ID
 }
 
-func (o *EditAnswerRequest) GetDocID() *string {
-	if o == nil {
+func (e *EditAnswerRequest) GetDocID() *string {
+	if e == nil {
 		return nil
 	}
-	return o.DocID
+	return e.DocID
 }
 
-func (o *EditAnswerRequest) GetQuestion() *string {
-	if o == nil {
+func (e *EditAnswerRequest) GetQuestion() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Question
+	return e.Question
 }
 
-func (o *EditAnswerRequest) GetQuestionVariations() []string {
-	if o == nil {
+func (e *EditAnswerRequest) GetQuestionVariations() []string {
+	if e == nil {
 		return nil
 	}
-	return o.QuestionVariations
+	return e.QuestionVariations
 }
 
-func (o *EditAnswerRequest) GetBodyText() *string {
-	if o == nil {
+func (e *EditAnswerRequest) GetBodyText() *string {
+	if e == nil {
 		return nil
 	}
-	return o.BodyText
+	return e.BodyText
 }
 
-func (o *EditAnswerRequest) GetBoardID() *int64 {
-	if o == nil {
+func (e *EditAnswerRequest) GetBoardID() *int64 {
+	if e == nil {
 		return nil
 	}
-	return o.BoardID
+	return e.BoardID
 }
 
-func (o *EditAnswerRequest) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (e *EditAnswerRequest) GetAudienceFilters() []FacetFilter {
+	if e == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return e.AudienceFilters
 }
 
-func (o *EditAnswerRequest) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (e *EditAnswerRequest) GetAddedRoles() []UserRoleSpecification {
+	if e == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return e.AddedRoles
 }
 
-func (o *EditAnswerRequest) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (e *EditAnswerRequest) GetRemovedRoles() []UserRoleSpecification {
+	if e == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return e.RemovedRoles
 }
 
-func (o *EditAnswerRequest) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (e *EditAnswerRequest) GetRoles() []UserRoleSpecification {
+	if e == nil {
 		return nil
 	}
-	return o.Roles
+	return e.Roles
 }
 
-func (o *EditAnswerRequest) GetSourceDocumentSpec() *DocumentSpecUnion {
-	if o == nil {
+func (e *EditAnswerRequest) GetSourceDocumentSpec() *DocumentSpecUnion {
+	if e == nil {
 		return nil
 	}
-	return o.SourceDocumentSpec
+	return e.SourceDocumentSpec
 }
 
-func (o *EditAnswerRequest) GetSourceType() *EditAnswerRequestSourceType {
-	if o == nil {
+func (e *EditAnswerRequest) GetSourceType() *EditAnswerRequestSourceType {
+	if e == nil {
 		return nil
 	}
-	return o.SourceType
+	return e.SourceType
 }
 
-func (o *EditAnswerRequest) GetAddedCollections() []int64 {
-	if o == nil {
+func (e *EditAnswerRequest) GetAddedCollections() []int64 {
+	if e == nil {
 		return nil
 	}
-	return o.AddedCollections
+	return e.AddedCollections
 }
 
-func (o *EditAnswerRequest) GetRemovedCollections() []int64 {
-	if o == nil {
+func (e *EditAnswerRequest) GetRemovedCollections() []int64 {
+	if e == nil {
 		return nil
 	}
-	return o.RemovedCollections
+	return e.RemovedCollections
 }
 
-func (o *EditAnswerRequest) GetCombinedAnswerText() *StructuredTextMutableProperties {
-	if o == nil {
+func (e *EditAnswerRequest) GetCombinedAnswerText() *StructuredTextMutableProperties {
+	if e == nil {
 		return nil
 	}
-	return o.CombinedAnswerText
+	return e.CombinedAnswerText
 }

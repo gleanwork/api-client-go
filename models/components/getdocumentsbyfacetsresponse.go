@@ -11,23 +11,23 @@ type GetDocumentsByFacetsResponse struct {
 	Cursor *string `json:"cursor,omitempty"`
 }
 
-func (o *GetDocumentsByFacetsResponse) GetDocuments() []Document {
-	if o == nil {
+func (g *GetDocumentsByFacetsResponse) GetDocuments() []Document {
+	if g == nil {
 		return nil
 	}
-	return o.Documents
+	return g.Documents
 }
 
-func (o *GetDocumentsByFacetsResponse) GetHasMoreResults() *bool {
-	if o == nil {
+func (g *GetDocumentsByFacetsResponse) GetHasMoreResults() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.HasMoreResults
+	return g.HasMoreResults
 }
 
-func (o *GetDocumentsByFacetsResponse) GetCursor() *string {
-	if o == nil {
+func (g *GetDocumentsByFacetsResponse) GetCursor() *string {
+	if g == nil {
 		return nil
 	}
-	return o.Cursor
+	return g.Cursor
 }

@@ -69,23 +69,23 @@ type ConferenceData struct {
 	Source *ConferenceDataSource `json:"source,omitempty"`
 }
 
-func (o *ConferenceData) GetProvider() Provider {
-	if o == nil {
+func (c *ConferenceData) GetProvider() Provider {
+	if c == nil {
 		return Provider("")
 	}
-	return o.Provider
+	return c.Provider
 }
 
-func (o *ConferenceData) GetURI() string {
-	if o == nil {
+func (c *ConferenceData) GetURI() string {
+	if c == nil {
 		return ""
 	}
-	return o.URI
+	return c.URI
 }
 
-func (o *ConferenceData) GetSource() *ConferenceDataSource {
-	if o == nil {
+func (c *ConferenceData) GetSource() *ConferenceDataSource {
+	if c == nil {
 		return nil
 	}
-	return o.Source
+	return c.Source
 }

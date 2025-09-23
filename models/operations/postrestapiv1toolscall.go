@@ -12,16 +12,16 @@ type PostRestAPIV1ToolsCallResponse struct {
 	ToolsCallResponse *components.ToolsCallResponse
 }
 
-func (o *PostRestAPIV1ToolsCallResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostRestAPIV1ToolsCallResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostRestAPIV1ToolsCallResponse) GetToolsCallResponse() *components.ToolsCallResponse {
-	if o == nil {
+func (p *PostRestAPIV1ToolsCallResponse) GetToolsCallResponse() *components.ToolsCallResponse {
+	if p == nil {
 		return nil
 	}
-	return o.ToolsCallResponse
+	return p.ToolsCallResponse
 }

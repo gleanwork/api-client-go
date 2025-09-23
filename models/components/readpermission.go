@@ -2,15 +2,30 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // ReadPermission - Describes the read permission level that a user has for a specific feature
 type ReadPermission struct {
 	// Describes the scope for a ReadPermission, WritePermission, or GrantPermission object
 	ScopeType *ScopeType `json:"scopeType,omitempty"`
 }
 
-func (o *ReadPermission) GetScopeType() *ScopeType {
-	if o == nil {
+func (r ReadPermission) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *ReadPermission) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (r *ReadPermission) GetScopeType() *ScopeType {
+	if r == nil {
 		return nil
 	}
-	return o.ScopeType
+	return r.ScopeType
 }

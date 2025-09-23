@@ -16,16 +16,16 @@ type ListpinsResponse struct {
 	ListPinsResponse *components.ListPinsResponse
 }
 
-func (o *ListpinsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListpinsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListpinsResponse) GetListPinsResponse() *components.ListPinsResponse {
-	if o == nil {
+func (l *ListpinsResponse) GetListPinsResponse() *components.ListPinsResponse {
+	if l == nil {
 		return nil
 	}
-	return o.ListPinsResponse
+	return l.ListPinsResponse
 }

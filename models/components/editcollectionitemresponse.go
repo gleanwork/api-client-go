@@ -6,9 +6,9 @@ type EditCollectionItemResponse struct {
 	Collection *Collection `json:"collection,omitempty"`
 }
 
-func (o *EditCollectionItemResponse) GetCollection() *Collection {
-	if o == nil {
+func (e *EditCollectionItemResponse) GetCollection() *Collection {
+	if e == nil {
 		return nil
 	}
-	return o.Collection
+	return e.Collection
 }

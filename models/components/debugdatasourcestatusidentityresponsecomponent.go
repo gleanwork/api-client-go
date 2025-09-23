@@ -7,11 +7,11 @@ type DebugDatasourceStatusIdentityResponseComponentCounts struct {
 	Uploaded *int64 `json:"uploaded,omitempty"`
 }
 
-func (o *DebugDatasourceStatusIdentityResponseComponentCounts) GetUploaded() *int64 {
-	if o == nil {
+func (d *DebugDatasourceStatusIdentityResponseComponentCounts) GetUploaded() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Uploaded
+	return d.Uploaded
 }
 
 type DebugDatasourceStatusIdentityResponseComponent struct {
@@ -20,16 +20,16 @@ type DebugDatasourceStatusIdentityResponseComponent struct {
 	Counts            *DebugDatasourceStatusIdentityResponseComponentCounts `json:"counts,omitempty"`
 }
 
-func (o *DebugDatasourceStatusIdentityResponseComponent) GetBulkUploadHistory() []BulkUploadHistoryEvent {
-	if o == nil {
+func (d *DebugDatasourceStatusIdentityResponseComponent) GetBulkUploadHistory() []BulkUploadHistoryEvent {
+	if d == nil {
 		return nil
 	}
-	return o.BulkUploadHistory
+	return d.BulkUploadHistory
 }
 
-func (o *DebugDatasourceStatusIdentityResponseComponent) GetCounts() *DebugDatasourceStatusIdentityResponseComponentCounts {
-	if o == nil {
+func (d *DebugDatasourceStatusIdentityResponseComponent) GetCounts() *DebugDatasourceStatusIdentityResponseComponentCounts {
+	if d == nil {
 		return nil
 	}
-	return o.Counts
+	return d.Counts
 }

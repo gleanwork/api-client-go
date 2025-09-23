@@ -7,9 +7,9 @@ type SeenFeedbackInfo struct {
 	IsExplicit *bool `json:"isExplicit,omitempty"`
 }
 
-func (o *SeenFeedbackInfo) GetIsExplicit() *bool {
-	if o == nil {
+func (s *SeenFeedbackInfo) GetIsExplicit() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.IsExplicit
+	return s.IsExplicit
 }

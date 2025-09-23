@@ -31,121 +31,121 @@ type SearchResponse struct {
 	HasMoreResults *bool `json:"hasMoreResults,omitempty"`
 }
 
-func (o *SearchResponse) GetTrackingToken() *string {
-	if o == nil {
+func (s *SearchResponse) GetTrackingToken() *string {
+	if s == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return s.TrackingToken
 }
 
-func (o *SearchResponse) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (s *SearchResponse) GetSessionInfo() *SessionInfo {
+	if s == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return s.SessionInfo
 }
 
-func (o *SearchResponse) GetResults() []SearchResult {
-	if o == nil {
+func (s *SearchResponse) GetResults() []SearchResult {
+	if s == nil {
 		return nil
 	}
-	return o.Results
+	return s.Results
 }
 
-func (o *SearchResponse) GetStructuredResults() []StructuredResult {
-	if o == nil {
+func (s *SearchResponse) GetStructuredResults() []StructuredResult {
+	if s == nil {
 		return nil
 	}
-	return o.StructuredResults
+	return s.StructuredResults
 }
 
-func (o *SearchResponse) GetGeneratedQnaResult() *GeneratedQna {
-	if o == nil {
+func (s *SearchResponse) GetGeneratedQnaResult() *GeneratedQna {
+	if s == nil {
 		return nil
 	}
-	return o.GeneratedQnaResult
+	return s.GeneratedQnaResult
 }
 
-func (o *SearchResponse) GetGleanDataError() *GleanDataError {
-	if o == nil {
+func (s *SearchResponse) GetGleanDataError() *GleanDataError {
+	if s == nil {
 		return nil
 	}
-	return o.GleanDataError
+	return s.GleanDataError
 }
 
-func (o *SearchResponse) GetRequestID() *string {
-	if o == nil {
+func (s *SearchResponse) GetRequestID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.RequestID
+	return s.RequestID
 }
 
-func (o *SearchResponse) GetBackendTimeMillis() *int64 {
-	if o == nil {
+func (s *SearchResponse) GetBackendTimeMillis() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.BackendTimeMillis
+	return s.BackendTimeMillis
 }
 
-func (o *SearchResponse) GetExperimentIds() []int64 {
-	if o == nil {
+func (s *SearchResponse) GetExperimentIds() []int64 {
+	if s == nil {
 		return nil
 	}
-	return o.ExperimentIds
+	return s.ExperimentIds
 }
 
-func (o *SearchResponse) GetMetadata() *SearchResponseMetadata {
-	if o == nil {
+func (s *SearchResponse) GetMetadata() *SearchResponseMetadata {
+	if s == nil {
 		return nil
 	}
-	return o.Metadata
+	return s.Metadata
 }
 
-func (o *SearchResponse) GetFacetResults() []FacetResult {
-	if o == nil {
+func (s *SearchResponse) GetFacetResults() []FacetResult {
+	if s == nil {
 		return nil
 	}
-	return o.FacetResults
+	return s.FacetResults
 }
 
-func (o *SearchResponse) GetResultTabs() []ResultTab {
-	if o == nil {
+func (s *SearchResponse) GetResultTabs() []ResultTab {
+	if s == nil {
 		return nil
 	}
-	return o.ResultTabs
+	return s.ResultTabs
 }
 
-func (o *SearchResponse) GetResultTabIds() []string {
-	if o == nil {
+func (s *SearchResponse) GetResultTabIds() []string {
+	if s == nil {
 		return nil
 	}
-	return o.ResultTabIds
+	return s.ResultTabIds
 }
 
-func (o *SearchResponse) GetResultsDescription() *ResultsDescription {
-	if o == nil {
+func (s *SearchResponse) GetResultsDescription() *ResultsDescription {
+	if s == nil {
 		return nil
 	}
-	return o.ResultsDescription
+	return s.ResultsDescription
 }
 
-func (o *SearchResponse) GetRewrittenFacetFilters() []FacetFilter {
-	if o == nil {
+func (s *SearchResponse) GetRewrittenFacetFilters() []FacetFilter {
+	if s == nil {
 		return nil
 	}
-	return o.RewrittenFacetFilters
+	return s.RewrittenFacetFilters
 }
 
-func (o *SearchResponse) GetCursor() *string {
-	if o == nil {
+func (s *SearchResponse) GetCursor() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Cursor
+	return s.Cursor
 }
 
-func (o *SearchResponse) GetHasMoreResults() *bool {
-	if o == nil {
+func (s *SearchResponse) GetHasMoreResults() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.HasMoreResults
+	return s.HasMoreResults
 }

@@ -22,29 +22,29 @@ func (t TeamMember) MarshalJSON() ([]byte, error) {
 }
 
 func (t *TeamMember) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &t, "", false, []string{"email"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *TeamMember) GetEmail() string {
-	if o == nil {
+func (t *TeamMember) GetEmail() string {
+	if t == nil {
 		return ""
 	}
-	return o.Email
+	return t.Email
 }
 
-func (o *TeamMember) GetRelationship() *string {
-	if o == nil {
+func (t *TeamMember) GetRelationship() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Relationship
+	return t.Relationship
 }
 
-func (o *TeamMember) GetJoinDate() *types.Date {
-	if o == nil {
+func (t *TeamMember) GetJoinDate() *types.Date {
+	if t == nil {
 		return nil
 	}
-	return o.JoinDate
+	return t.JoinDate
 }

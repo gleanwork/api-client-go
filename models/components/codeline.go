@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CodeLine struct {
 	LineNumber *int64  `json:"lineNumber,omitempty"`
 	Content    *string `json:"content,omitempty"`
@@ -9,23 +13,34 @@ type CodeLine struct {
 	Ranges []TextRange `json:"ranges,omitempty"`
 }
 
-func (o *CodeLine) GetLineNumber() *int64 {
-	if o == nil {
-		return nil
-	}
-	return o.LineNumber
+func (c CodeLine) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CodeLine) GetContent() *string {
-	if o == nil {
-		return nil
+func (c *CodeLine) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
 	}
-	return o.Content
+	return nil
 }
 
-func (o *CodeLine) GetRanges() []TextRange {
-	if o == nil {
+func (c *CodeLine) GetLineNumber() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.Ranges
+	return c.LineNumber
+}
+
+func (c *CodeLine) GetContent() *string {
+	if c == nil {
+		return nil
+	}
+	return c.Content
+}
+
+func (c *CodeLine) GetRanges() []TextRange {
+	if c == nil {
+		return nil
+	}
+	return c.Ranges
 }

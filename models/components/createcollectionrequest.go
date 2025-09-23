@@ -26,79 +26,79 @@ type CreateCollectionRequest struct {
 	NewNextItemID *string `json:"newNextItemId,omitempty"`
 }
 
-func (o *CreateCollectionRequest) GetName() string {
-	if o == nil {
+func (c *CreateCollectionRequest) GetName() string {
+	if c == nil {
 		return ""
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CreateCollectionRequest) GetDescription() *string {
-	if o == nil {
+func (c *CreateCollectionRequest) GetDescription() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CreateCollectionRequest) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (c *CreateCollectionRequest) GetAddedRoles() []UserRoleSpecification {
+	if c == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return c.AddedRoles
 }
 
-func (o *CreateCollectionRequest) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (c *CreateCollectionRequest) GetRemovedRoles() []UserRoleSpecification {
+	if c == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return c.RemovedRoles
 }
 
-func (o *CreateCollectionRequest) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (c *CreateCollectionRequest) GetAudienceFilters() []FacetFilter {
+	if c == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return c.AudienceFilters
 }
 
-func (o *CreateCollectionRequest) GetIcon() *string {
-	if o == nil {
+func (c *CreateCollectionRequest) GetIcon() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Icon
+	return c.Icon
 }
 
-func (o *CreateCollectionRequest) GetAdminLocked() *bool {
-	if o == nil {
+func (c *CreateCollectionRequest) GetAdminLocked() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.AdminLocked
+	return c.AdminLocked
 }
 
-func (o *CreateCollectionRequest) GetParentID() *int64 {
-	if o == nil {
+func (c *CreateCollectionRequest) GetParentID() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.ParentID
+	return c.ParentID
 }
 
-func (o *CreateCollectionRequest) GetThumbnail() *Thumbnail {
-	if o == nil {
+func (c *CreateCollectionRequest) GetThumbnail() *Thumbnail {
+	if c == nil {
 		return nil
 	}
-	return o.Thumbnail
+	return c.Thumbnail
 }
 
-func (o *CreateCollectionRequest) GetAllowedDatasource() *string {
-	if o == nil {
+func (c *CreateCollectionRequest) GetAllowedDatasource() *string {
+	if c == nil {
 		return nil
 	}
-	return o.AllowedDatasource
+	return c.AllowedDatasource
 }
 
-func (o *CreateCollectionRequest) GetNewNextItemID() *string {
-	if o == nil {
+func (c *CreateCollectionRequest) GetNewNextItemID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.NewNextItemID
+	return c.NewNextItemID
 }

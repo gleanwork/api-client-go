@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 type ResponseStatus string
@@ -50,37 +51,48 @@ type CalendarAttendee struct {
 	ResponseStatus *ResponseStatus    `json:"responseStatus,omitempty"`
 }
 
-func (o *CalendarAttendee) GetIsOrganizer() *bool {
-	if o == nil {
-		return nil
-	}
-	return o.IsOrganizer
+func (c CalendarAttendee) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CalendarAttendee) GetIsInGroup() *bool {
-	if o == nil {
-		return nil
+func (c *CalendarAttendee) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"person"}); err != nil {
+		return err
 	}
-	return o.IsInGroup
+	return nil
 }
 
-func (o *CalendarAttendee) GetPerson() Person {
-	if o == nil {
+func (c *CalendarAttendee) GetIsOrganizer() *bool {
+	if c == nil {
+		return nil
+	}
+	return c.IsOrganizer
+}
+
+func (c *CalendarAttendee) GetIsInGroup() *bool {
+	if c == nil {
+		return nil
+	}
+	return c.IsInGroup
+}
+
+func (c *CalendarAttendee) GetPerson() Person {
+	if c == nil {
 		return Person{}
 	}
-	return o.Person
+	return c.Person
 }
 
-func (o *CalendarAttendee) GetGroupAttendees() []CalendarAttendee {
-	if o == nil {
+func (c *CalendarAttendee) GetGroupAttendees() []CalendarAttendee {
+	if c == nil {
 		return nil
 	}
-	return o.GroupAttendees
+	return c.GroupAttendees
 }
 
-func (o *CalendarAttendee) GetResponseStatus() *ResponseStatus {
-	if o == nil {
+func (c *CalendarAttendee) GetResponseStatus() *ResponseStatus {
+	if c == nil {
 		return nil
 	}
-	return o.ResponseStatus
+	return c.ResponseStatus
 }

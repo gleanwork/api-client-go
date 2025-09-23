@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type ClusterGroup struct {
 	// A list of results that should be displayed as associated with this result.
 	ClusteredResults []SearchResult `json:"clusteredResults,omitempty"`
@@ -11,23 +15,34 @@ type ClusterGroup struct {
 	VisibleCountHint int64 `json:"visibleCountHint"`
 }
 
-func (o *ClusterGroup) GetClusteredResults() []SearchResult {
-	if o == nil {
-		return nil
-	}
-	return o.ClusteredResults
+func (c ClusterGroup) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *ClusterGroup) GetClusterType() *ClusterTypeEnum {
-	if o == nil {
-		return nil
+func (c *ClusterGroup) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"visibleCountHint"}); err != nil {
+		return err
 	}
-	return o.ClusterType
+	return nil
 }
 
-func (o *ClusterGroup) GetVisibleCountHint() int64 {
-	if o == nil {
+func (c *ClusterGroup) GetClusteredResults() []SearchResult {
+	if c == nil {
+		return nil
+	}
+	return c.ClusteredResults
+}
+
+func (c *ClusterGroup) GetClusterType() *ClusterTypeEnum {
+	if c == nil {
+		return nil
+	}
+	return c.ClusterType
+}
+
+func (c *ClusterGroup) GetVisibleCountHint() int64 {
+	if c == nil {
 		return 0
 	}
-	return o.VisibleCountHint
+	return c.VisibleCountHint
 }

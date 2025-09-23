@@ -2,14 +2,29 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CustomFieldValueStr struct {
 	// Text field for string value.
 	StrText *string `json:"strText,omitempty"`
 }
 
-func (o *CustomFieldValueStr) GetStrText() *string {
-	if o == nil {
+func (c CustomFieldValueStr) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CustomFieldValueStr) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CustomFieldValueStr) GetStrText() *string {
+	if c == nil {
 		return nil
 	}
-	return o.StrText
+	return c.StrText
 }

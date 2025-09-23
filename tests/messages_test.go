@@ -26,7 +26,7 @@ func TestMessages_Messages(t *testing.T) {
 	res, err := s.Client.Messages.Retrieve(ctx, components.MessagesRequest{
 		IDType:          components.IDTypeConversationID,
 		ID:              "<id>",
-		TimestampMillis: apiclientgo.Int64(558834),
+		TimestampMillis: apiclientgo.Pointer[int64](558834),
 	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)

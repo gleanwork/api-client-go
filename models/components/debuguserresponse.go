@@ -10,16 +10,16 @@ type DebugUserResponse struct {
 	UploadedGroups []DatasourceGroupDefinition `json:"uploadedGroups,omitempty"`
 }
 
-func (o *DebugUserResponse) GetStatus() *UserStatusResponse {
-	if o == nil {
+func (d *DebugUserResponse) GetStatus() *UserStatusResponse {
+	if d == nil {
 		return nil
 	}
-	return o.Status
+	return d.Status
 }
 
-func (o *DebugUserResponse) GetUploadedGroups() []DatasourceGroupDefinition {
-	if o == nil {
+func (d *DebugUserResponse) GetUploadedGroups() []DatasourceGroupDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.UploadedGroups
+	return d.UploadedGroups
 }

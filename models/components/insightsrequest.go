@@ -106,51 +106,51 @@ type InsightsRequest struct {
 	DisablePerUserInsights *bool `json:"disablePerUserInsights,omitempty"`
 }
 
-func (o *InsightsRequest) GetCategories() []InsightsRequestCategory {
-	if o == nil {
+func (i *InsightsRequest) GetCategories() []InsightsRequestCategory {
+	if i == nil {
 		return []InsightsRequestCategory{}
 	}
-	return o.Categories
+	return i.Categories
 }
 
-func (o *InsightsRequest) GetDepartments() []string {
-	if o == nil {
+func (i *InsightsRequest) GetDepartments() []string {
+	if i == nil {
 		return nil
 	}
-	return o.Departments
+	return i.Departments
 }
 
-func (o *InsightsRequest) GetDayRange() *Period {
-	if o == nil {
+func (i *InsightsRequest) GetDayRange() *Period {
+	if i == nil {
 		return nil
 	}
-	return o.DayRange
+	return i.DayRange
 }
 
-func (o *InsightsRequest) GetAiAppRequestOptions() *InsightsAiAppRequestOptions {
-	if o == nil {
+func (i *InsightsRequest) GetAiAppRequestOptions() *InsightsAiAppRequestOptions {
+	if i == nil {
 		return nil
 	}
-	return o.AiAppRequestOptions
+	return i.AiAppRequestOptions
 }
 
-func (o *InsightsRequest) GetAgentsRequestOptions() *InsightsAgentsRequestOptions {
-	if o == nil {
+func (i *InsightsRequest) GetAgentsRequestOptions() *InsightsAgentsRequestOptions {
+	if i == nil {
 		return nil
 	}
-	return o.AgentsRequestOptions
+	return i.AgentsRequestOptions
 }
 
-func (o *InsightsRequest) GetAssistantActivityTypes() []AssistantActivityType {
-	if o == nil {
+func (i *InsightsRequest) GetAssistantActivityTypes() []AssistantActivityType {
+	if i == nil {
 		return nil
 	}
-	return o.AssistantActivityTypes
+	return i.AssistantActivityTypes
 }
 
-func (o *InsightsRequest) GetDisablePerUserInsights() *bool {
-	if o == nil {
+func (i *InsightsRequest) GetDisablePerUserInsights() *bool {
+	if i == nil {
 		return nil
 	}
-	return o.DisablePerUserInsights
+	return i.DisablePerUserInsights
 }

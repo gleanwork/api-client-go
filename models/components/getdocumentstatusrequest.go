@@ -12,23 +12,23 @@ type GetDocumentStatusRequest struct {
 	DocID string `json:"docId"`
 }
 
-func (o *GetDocumentStatusRequest) GetDatasource() string {
-	if o == nil {
+func (g *GetDocumentStatusRequest) GetDatasource() string {
+	if g == nil {
 		return ""
 	}
-	return o.Datasource
+	return g.Datasource
 }
 
-func (o *GetDocumentStatusRequest) GetObjectType() string {
-	if o == nil {
+func (g *GetDocumentStatusRequest) GetObjectType() string {
+	if g == nil {
 		return ""
 	}
-	return o.ObjectType
+	return g.ObjectType
 }
 
-func (o *GetDocumentStatusRequest) GetDocID() string {
-	if o == nil {
+func (g *GetDocumentStatusRequest) GetDocID() string {
+	if g == nil {
 		return ""
 	}
-	return o.DocID
+	return g.DocID
 }

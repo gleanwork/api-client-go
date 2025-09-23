@@ -12,16 +12,16 @@ type AddcollectionitemsResponse struct {
 	AddCollectionItemsResponse *components.AddCollectionItemsResponse
 }
 
-func (o *AddcollectionitemsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (a *AddcollectionitemsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if a == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return a.HTTPMeta
 }
 
-func (o *AddcollectionitemsResponse) GetAddCollectionItemsResponse() *components.AddCollectionItemsResponse {
-	if o == nil {
+func (a *AddcollectionitemsResponse) GetAddCollectionItemsResponse() *components.AddCollectionItemsResponse {
+	if a == nil {
 		return nil
 	}
-	return o.AddCollectionItemsResponse
+	return a.AddCollectionItemsResponse
 }

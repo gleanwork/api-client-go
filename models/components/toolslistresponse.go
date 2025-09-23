@@ -6,9 +6,9 @@ type ToolsListResponse struct {
 	Tools []Tool `json:"tools,omitempty"`
 }
 
-func (o *ToolsListResponse) GetTools() []Tool {
-	if o == nil {
+func (t *ToolsListResponse) GetTools() []Tool {
+	if t == nil {
 		return nil
 	}
-	return o.Tools
+	return t.Tools
 }

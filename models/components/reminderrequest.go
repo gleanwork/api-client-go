@@ -13,30 +13,30 @@ type ReminderRequest struct {
 	Reason *string `json:"reason,omitempty"`
 }
 
-func (o *ReminderRequest) GetDocumentID() string {
-	if o == nil {
+func (r *ReminderRequest) GetDocumentID() string {
+	if r == nil {
 		return ""
 	}
-	return o.DocumentID
+	return r.DocumentID
 }
 
-func (o *ReminderRequest) GetAssignee() *string {
-	if o == nil {
+func (r *ReminderRequest) GetAssignee() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Assignee
+	return r.Assignee
 }
 
-func (o *ReminderRequest) GetRemindInDays() *int64 {
-	if o == nil {
+func (r *ReminderRequest) GetRemindInDays() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.RemindInDays
+	return r.RemindInDays
 }
 
-func (o *ReminderRequest) GetReason() *string {
-	if o == nil {
+func (r *ReminderRequest) GetReason() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Reason
+	return r.Reason
 }

@@ -59,51 +59,51 @@ type ToolParameter struct {
 	Properties map[string]ToolParameter `json:"properties,omitempty"`
 }
 
-func (o *ToolParameter) GetType() *ToolParameterType {
-	if o == nil {
+func (t *ToolParameter) GetType() *ToolParameterType {
+	if t == nil {
 		return nil
 	}
-	return o.Type
+	return t.Type
 }
 
-func (o *ToolParameter) GetName() *string {
-	if o == nil {
+func (t *ToolParameter) GetName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *ToolParameter) GetDescription() *string {
-	if o == nil {
+func (t *ToolParameter) GetDescription() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Description
+	return t.Description
 }
 
-func (o *ToolParameter) GetIsRequired() *bool {
-	if o == nil {
+func (t *ToolParameter) GetIsRequired() *bool {
+	if t == nil {
 		return nil
 	}
-	return o.IsRequired
+	return t.IsRequired
 }
 
-func (o *ToolParameter) GetPossibleValues() []string {
-	if o == nil {
+func (t *ToolParameter) GetPossibleValues() []string {
+	if t == nil {
 		return nil
 	}
-	return o.PossibleValues
+	return t.PossibleValues
 }
 
-func (o *ToolParameter) GetItems() *ToolParameter {
-	if o == nil {
+func (t *ToolParameter) GetItems() *ToolParameter {
+	if t == nil {
 		return nil
 	}
-	return o.Items
+	return t.Items
 }
 
-func (o *ToolParameter) GetProperties() map[string]ToolParameter {
-	if o == nil {
+func (t *ToolParameter) GetProperties() map[string]ToolParameter {
+	if t == nil {
 		return nil
 	}
-	return o.Properties
+	return t.Properties
 }

@@ -13,44 +13,44 @@ type QueryInsight struct {
 	SimilarQueries []QueryInsight `json:"similarQueries,omitempty"`
 }
 
-func (o *QueryInsight) GetQuery() string {
-	if o == nil {
+func (q *QueryInsight) GetQuery() string {
+	if q == nil {
 		return ""
 	}
-	return o.Query
+	return q.Query
 }
 
-func (o *QueryInsight) GetSearchCount() *CountInfo {
-	if o == nil {
+func (q *QueryInsight) GetSearchCount() *CountInfo {
+	if q == nil {
 		return nil
 	}
-	return o.SearchCount
+	return q.SearchCount
 }
 
-func (o *QueryInsight) GetSearchorCount() *CountInfo {
-	if o == nil {
+func (q *QueryInsight) GetSearchorCount() *CountInfo {
+	if q == nil {
 		return nil
 	}
-	return o.SearchorCount
+	return q.SearchorCount
 }
 
-func (o *QueryInsight) GetSearchWithClickCount() *CountInfo {
-	if o == nil {
+func (q *QueryInsight) GetSearchWithClickCount() *CountInfo {
+	if q == nil {
 		return nil
 	}
-	return o.SearchWithClickCount
+	return q.SearchWithClickCount
 }
 
-func (o *QueryInsight) GetClickCount() *CountInfo {
-	if o == nil {
+func (q *QueryInsight) GetClickCount() *CountInfo {
+	if q == nil {
 		return nil
 	}
-	return o.ClickCount
+	return q.ClickCount
 }
 
-func (o *QueryInsight) GetSimilarQueries() []QueryInsight {
-	if o == nil {
+func (q *QueryInsight) GetSimilarQueries() []QueryInsight {
+	if q == nil {
 		return nil
 	}
-	return o.SimilarQueries
+	return q.SimilarQueries
 }

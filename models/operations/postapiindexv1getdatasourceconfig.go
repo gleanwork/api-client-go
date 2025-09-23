@@ -12,16 +12,16 @@ type PostAPIIndexV1GetdatasourceconfigResponse struct {
 	CustomDatasourceConfig *components.CustomDatasourceConfig
 }
 
-func (o *PostAPIIndexV1GetdatasourceconfigResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIIndexV1GetdatasourceconfigResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostAPIIndexV1GetdatasourceconfigResponse) GetCustomDatasourceConfig() *components.CustomDatasourceConfig {
-	if o == nil {
+func (p *PostAPIIndexV1GetdatasourceconfigResponse) GetCustomDatasourceConfig() *components.CustomDatasourceConfig {
+	if p == nil {
 		return nil
 	}
-	return o.CustomDatasourceConfig
+	return p.CustomDatasourceConfig
 }

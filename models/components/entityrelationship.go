@@ -10,16 +10,16 @@ type EntityRelationship struct {
 	Email string `json:"email"`
 }
 
-func (o *EntityRelationship) GetName() string {
-	if o == nil {
+func (e *EntityRelationship) GetName() string {
+	if e == nil {
 		return ""
 	}
-	return o.Name
+	return e.Name
 }
 
-func (o *EntityRelationship) GetEmail() string {
-	if o == nil {
+func (e *EntityRelationship) GetEmail() string {
+	if e == nil {
 		return ""
 	}
-	return o.Email
+	return e.Email
 }

@@ -15,37 +15,37 @@ type EditCollectionItemRequest struct {
 	ItemID string `json:"itemId"`
 }
 
-func (o *EditCollectionItemRequest) GetName() *string {
-	if o == nil {
+func (e *EditCollectionItemRequest) GetName() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Name
+	return e.Name
 }
 
-func (o *EditCollectionItemRequest) GetDescription() *string {
-	if o == nil {
+func (e *EditCollectionItemRequest) GetDescription() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Description
+	return e.Description
 }
 
-func (o *EditCollectionItemRequest) GetIcon() *string {
-	if o == nil {
+func (e *EditCollectionItemRequest) GetIcon() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Icon
+	return e.Icon
 }
 
-func (o *EditCollectionItemRequest) GetCollectionID() int64 {
-	if o == nil {
+func (e *EditCollectionItemRequest) GetCollectionID() int64 {
+	if e == nil {
 		return 0
 	}
-	return o.CollectionID
+	return e.CollectionID
 }
 
-func (o *EditCollectionItemRequest) GetItemID() string {
-	if o == nil {
+func (e *EditCollectionItemRequest) GetItemID() string {
+	if e == nil {
 		return ""
 	}
-	return o.ItemID
+	return e.ItemID
 }

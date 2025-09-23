@@ -10,16 +10,16 @@ type PossibleValue struct {
 	Label *string `json:"label,omitempty"`
 }
 
-func (o *PossibleValue) GetValue() *string {
-	if o == nil {
+func (p *PossibleValue) GetValue() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Value
+	return p.Value
 }
 
-func (o *PossibleValue) GetLabel() *string {
-	if o == nil {
+func (p *PossibleValue) GetLabel() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Label
+	return p.Label
 }

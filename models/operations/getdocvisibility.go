@@ -11,11 +11,11 @@ type GetdocvisibilityRequest struct {
 	DocIds []string `queryParam:"style=form,explode=true,name=docIds"`
 }
 
-func (o *GetdocvisibilityRequest) GetDocIds() []string {
-	if o == nil {
+func (g *GetdocvisibilityRequest) GetDocIds() []string {
+	if g == nil {
 		return nil
 	}
-	return o.DocIds
+	return g.DocIds
 }
 
 type GetdocvisibilityResponse struct {
@@ -24,16 +24,16 @@ type GetdocvisibilityResponse struct {
 	GetDocumentVisibilityOverridesResponse *components.GetDocumentVisibilityOverridesResponse
 }
 
-func (o *GetdocvisibilityResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetdocvisibilityResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetdocvisibilityResponse) GetGetDocumentVisibilityOverridesResponse() *components.GetDocumentVisibilityOverridesResponse {
-	if o == nil {
+func (g *GetdocvisibilityResponse) GetGetDocumentVisibilityOverridesResponse() *components.GetDocumentVisibilityOverridesResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetDocumentVisibilityOverridesResponse
+	return g.GetDocumentVisibilityOverridesResponse
 }

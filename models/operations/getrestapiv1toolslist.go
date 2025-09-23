@@ -11,11 +11,11 @@ type GetRestAPIV1ToolsListRequest struct {
 	ToolNames []string `queryParam:"style=form,explode=false,name=toolNames"`
 }
 
-func (o *GetRestAPIV1ToolsListRequest) GetToolNames() []string {
-	if o == nil {
+func (g *GetRestAPIV1ToolsListRequest) GetToolNames() []string {
+	if g == nil {
 		return nil
 	}
-	return o.ToolNames
+	return g.ToolNames
 }
 
 type GetRestAPIV1ToolsListResponse struct {
@@ -24,16 +24,16 @@ type GetRestAPIV1ToolsListResponse struct {
 	ToolsListResponse *components.ToolsListResponse
 }
 
-func (o *GetRestAPIV1ToolsListResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetRestAPIV1ToolsListResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetRestAPIV1ToolsListResponse) GetToolsListResponse() *components.ToolsListResponse {
-	if o == nil {
+func (g *GetRestAPIV1ToolsListResponse) GetToolsListResponse() *components.ToolsListResponse {
+	if g == nil {
 		return nil
 	}
-	return o.ToolsListResponse
+	return g.ToolsListResponse
 }

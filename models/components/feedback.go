@@ -243,155 +243,155 @@ func (f Feedback) MarshalJSON() ([]byte, error) {
 }
 
 func (f *Feedback) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &f, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &f, "", false, []string{"trackingTokens", "event"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Feedback) GetID() *string {
-	if o == nil {
+func (f *Feedback) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *Feedback) GetCategory() *FeedbackCategory {
-	if o == nil {
+func (f *Feedback) GetCategory() *FeedbackCategory {
+	if f == nil {
 		return nil
 	}
-	return o.Category
+	return f.Category
 }
 
-func (o *Feedback) GetTrackingTokens() []string {
-	if o == nil {
+func (f *Feedback) GetTrackingTokens() []string {
+	if f == nil {
 		return []string{}
 	}
-	return o.TrackingTokens
+	return f.TrackingTokens
 }
 
-func (o *Feedback) GetEvent() Event {
-	if o == nil {
+func (f *Feedback) GetEvent() Event {
+	if f == nil {
 		return Event("")
 	}
-	return o.Event
+	return f.Event
 }
 
-func (o *Feedback) GetPosition() *int64 {
-	if o == nil {
+func (f *Feedback) GetPosition() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.Position
+	return f.Position
 }
 
-func (o *Feedback) GetPayload() *string {
-	if o == nil {
+func (f *Feedback) GetPayload() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Payload
+	return f.Payload
 }
 
-func (o *Feedback) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (f *Feedback) GetSessionInfo() *SessionInfo {
+	if f == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return f.SessionInfo
 }
 
-func (o *Feedback) GetTimestamp() *time.Time {
-	if o == nil {
+func (f *Feedback) GetTimestamp() *time.Time {
+	if f == nil {
 		return nil
 	}
-	return o.Timestamp
+	return f.Timestamp
 }
 
-func (o *Feedback) GetUser() *User {
-	if o == nil {
+func (f *Feedback) GetUser() *User {
+	if f == nil {
 		return nil
 	}
-	return o.User
+	return f.User
 }
 
-func (o *Feedback) GetPathname() *string {
-	if o == nil {
+func (f *Feedback) GetPathname() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Pathname
+	return f.Pathname
 }
 
-func (o *Feedback) GetChannels() []FeedbackChannel {
-	if o == nil {
+func (f *Feedback) GetChannels() []FeedbackChannel {
+	if f == nil {
 		return nil
 	}
-	return o.Channels
+	return f.Channels
 }
 
-func (o *Feedback) GetURL() *string {
-	if o == nil {
+func (f *Feedback) GetURL() *string {
+	if f == nil {
 		return nil
 	}
-	return o.URL
+	return f.URL
 }
 
-func (o *Feedback) GetUITree() []string {
-	if o == nil {
+func (f *Feedback) GetUITree() []string {
+	if f == nil {
 		return nil
 	}
-	return o.UITree
+	return f.UITree
 }
 
-func (o *Feedback) GetUIElement() *string {
-	if o == nil {
+func (f *Feedback) GetUIElement() *string {
+	if f == nil {
 		return nil
 	}
-	return o.UIElement
+	return f.UIElement
 }
 
-func (o *Feedback) GetManualFeedbackInfo() *ManualFeedbackInfo {
-	if o == nil {
+func (f *Feedback) GetManualFeedbackInfo() *ManualFeedbackInfo {
+	if f == nil {
 		return nil
 	}
-	return o.ManualFeedbackInfo
+	return f.ManualFeedbackInfo
 }
 
-func (o *Feedback) GetManualFeedbackSideBySideInfo() *ManualFeedbackSideBySideInfo {
-	if o == nil {
+func (f *Feedback) GetManualFeedbackSideBySideInfo() *ManualFeedbackSideBySideInfo {
+	if f == nil {
 		return nil
 	}
-	return o.ManualFeedbackSideBySideInfo
+	return f.ManualFeedbackSideBySideInfo
 }
 
-func (o *Feedback) GetSeenFeedbackInfo() *SeenFeedbackInfo {
-	if o == nil {
+func (f *Feedback) GetSeenFeedbackInfo() *SeenFeedbackInfo {
+	if f == nil {
 		return nil
 	}
-	return o.SeenFeedbackInfo
+	return f.SeenFeedbackInfo
 }
 
-func (o *Feedback) GetUserViewInfo() *UserViewInfo {
-	if o == nil {
+func (f *Feedback) GetUserViewInfo() *UserViewInfo {
+	if f == nil {
 		return nil
 	}
-	return o.UserViewInfo
+	return f.UserViewInfo
 }
 
-func (o *Feedback) GetWorkflowFeedbackInfo() *WorkflowFeedbackInfo {
-	if o == nil {
+func (f *Feedback) GetWorkflowFeedbackInfo() *WorkflowFeedbackInfo {
+	if f == nil {
 		return nil
 	}
-	return o.WorkflowFeedbackInfo
+	return f.WorkflowFeedbackInfo
 }
 
-func (o *Feedback) GetApplicationID() *string {
-	if o == nil {
+func (f *Feedback) GetApplicationID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ApplicationID
+	return f.ApplicationID
 }
 
-func (o *Feedback) GetAgentID() *string {
-	if o == nil {
+func (f *Feedback) GetAgentID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.AgentID
+	return f.AgentID
 }

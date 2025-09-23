@@ -11,11 +11,11 @@ type DownloadreportcsvRequest struct {
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
-func (o *DownloadreportcsvRequest) GetID() string {
-	if o == nil {
+func (d *DownloadreportcsvRequest) GetID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ID
+	return d.ID
 }
 
 type DownloadreportcsvResponse struct {
@@ -24,16 +24,16 @@ type DownloadreportcsvResponse struct {
 	Res *string
 }
 
-func (o *DownloadreportcsvResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DownloadreportcsvResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }
 
-func (o *DownloadreportcsvResponse) GetRes() *string {
-	if o == nil {
+func (d *DownloadreportcsvResponse) GetRes() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Res
+	return d.Res
 }

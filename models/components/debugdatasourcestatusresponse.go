@@ -14,18 +14,18 @@ type DebugDatasourceStatusResponseCounts struct {
 	Indexed []DatasourceObjectTypeDocumentCountEntry `json:"indexed,omitempty"`
 }
 
-func (o *DebugDatasourceStatusResponseCounts) GetUploaded() []DatasourceObjectTypeDocumentCountEntry {
-	if o == nil {
+func (d *DebugDatasourceStatusResponseCounts) GetUploaded() []DatasourceObjectTypeDocumentCountEntry {
+	if d == nil {
 		return nil
 	}
-	return o.Uploaded
+	return d.Uploaded
 }
 
-func (o *DebugDatasourceStatusResponseCounts) GetIndexed() []DatasourceObjectTypeDocumentCountEntry {
-	if o == nil {
+func (d *DebugDatasourceStatusResponseCounts) GetIndexed() []DatasourceObjectTypeDocumentCountEntry {
+	if d == nil {
 		return nil
 	}
-	return o.Indexed
+	return d.Indexed
 }
 
 type Documents struct {
@@ -36,25 +36,25 @@ type Documents struct {
 	ProcessingHistory []ProcessingHistoryEvent `json:"processingHistory,omitempty"`
 }
 
-func (o *Documents) GetBulkUploadHistory() []BulkUploadHistoryEvent {
-	if o == nil {
+func (d *Documents) GetBulkUploadHistory() []BulkUploadHistoryEvent {
+	if d == nil {
 		return nil
 	}
-	return o.BulkUploadHistory
+	return d.BulkUploadHistory
 }
 
-func (o *Documents) GetCounts() *DebugDatasourceStatusResponseCounts {
-	if o == nil {
+func (d *Documents) GetCounts() *DebugDatasourceStatusResponseCounts {
+	if d == nil {
 		return nil
 	}
-	return o.Counts
+	return d.Counts
 }
 
-func (o *Documents) GetProcessingHistory() []ProcessingHistoryEvent {
-	if o == nil {
+func (d *Documents) GetProcessingHistory() []ProcessingHistoryEvent {
+	if d == nil {
 		return nil
 	}
-	return o.ProcessingHistory
+	return d.ProcessingHistory
 }
 
 type Identity struct {
@@ -65,32 +65,32 @@ type Identity struct {
 	Memberships       *DebugDatasourceStatusIdentityResponseComponent `json:"memberships,omitempty"`
 }
 
-func (o *Identity) GetProcessingHistory() []ProcessingHistoryEvent {
-	if o == nil {
+func (i *Identity) GetProcessingHistory() []ProcessingHistoryEvent {
+	if i == nil {
 		return nil
 	}
-	return o.ProcessingHistory
+	return i.ProcessingHistory
 }
 
-func (o *Identity) GetUsers() *DebugDatasourceStatusIdentityResponseComponent {
-	if o == nil {
+func (i *Identity) GetUsers() *DebugDatasourceStatusIdentityResponseComponent {
+	if i == nil {
 		return nil
 	}
-	return o.Users
+	return i.Users
 }
 
-func (o *Identity) GetGroups() *DebugDatasourceStatusIdentityResponseComponent {
-	if o == nil {
+func (i *Identity) GetGroups() *DebugDatasourceStatusIdentityResponseComponent {
+	if i == nil {
 		return nil
 	}
-	return o.Groups
+	return i.Groups
 }
 
-func (o *Identity) GetMemberships() *DebugDatasourceStatusIdentityResponseComponent {
-	if o == nil {
+func (i *Identity) GetMemberships() *DebugDatasourceStatusIdentityResponseComponent {
+	if i == nil {
 		return nil
 	}
-	return o.Memberships
+	return i.Memberships
 }
 
 // DatasourceVisibility - The visibility of the datasource, an enum of VISIBLE_TO_ALL, VISIBLE_TO_TEST_GROUP, NOT_VISIBLE
@@ -131,23 +131,23 @@ type DebugDatasourceStatusResponse struct {
 	DatasourceVisibility *DatasourceVisibility `json:"datasourceVisibility,omitempty"`
 }
 
-func (o *DebugDatasourceStatusResponse) GetDocuments() *Documents {
-	if o == nil {
+func (d *DebugDatasourceStatusResponse) GetDocuments() *Documents {
+	if d == nil {
 		return nil
 	}
-	return o.Documents
+	return d.Documents
 }
 
-func (o *DebugDatasourceStatusResponse) GetIdentity() *Identity {
-	if o == nil {
+func (d *DebugDatasourceStatusResponse) GetIdentity() *Identity {
+	if d == nil {
 		return nil
 	}
-	return o.Identity
+	return d.Identity
 }
 
-func (o *DebugDatasourceStatusResponse) GetDatasourceVisibility() *DatasourceVisibility {
-	if o == nil {
+func (d *DebugDatasourceStatusResponse) GetDatasourceVisibility() *DatasourceVisibility {
+	if d == nil {
 		return nil
 	}
-	return o.DatasourceVisibility
+	return d.DatasourceVisibility
 }

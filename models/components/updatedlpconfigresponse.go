@@ -8,16 +8,16 @@ type UpdateDlpConfigResponse struct {
 	ReportID *string `json:"reportId,omitempty"`
 }
 
-func (o *UpdateDlpConfigResponse) GetResult() *DlpSimpleResult {
-	if o == nil {
+func (u *UpdateDlpConfigResponse) GetResult() *DlpSimpleResult {
+	if u == nil {
 		return nil
 	}
-	return o.Result
+	return u.Result
 }
 
-func (o *UpdateDlpConfigResponse) GetReportID() *string {
-	if o == nil {
+func (u *UpdateDlpConfigResponse) GetReportID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ReportID
+	return u.ReportID
 }

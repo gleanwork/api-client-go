@@ -6,9 +6,9 @@ type ListChatsResponse struct {
 	ChatResults []ChatMetadataResult `json:"chatResults,omitempty"`
 }
 
-func (o *ListChatsResponse) GetChatResults() []ChatMetadataResult {
-	if o == nil {
+func (l *ListChatsResponse) GetChatResults() []ChatMetadataResult {
+	if l == nil {
 		return nil
 	}
-	return o.ChatResults
+	return l.ChatResults
 }

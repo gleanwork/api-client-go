@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type SocialNetwork struct {
 	// Possible values are "twitter", "linkedin".
 	Name string `json:"name"`
@@ -11,23 +15,34 @@ type SocialNetwork struct {
 	ProfileURL string `json:"profileUrl"`
 }
 
-func (o *SocialNetwork) GetName() string {
-	if o == nil {
-		return ""
-	}
-	return o.Name
+func (s SocialNetwork) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (o *SocialNetwork) GetProfileName() *string {
-	if o == nil {
+func (s *SocialNetwork) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"name", "profileUrl"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *SocialNetwork) GetName() string {
+	if s == nil {
+		return ""
+	}
+	return s.Name
+}
+
+func (s *SocialNetwork) GetProfileName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ProfileName
+	return s.ProfileName
 }
 
-func (o *SocialNetwork) GetProfileURL() string {
-	if o == nil {
+func (s *SocialNetwork) GetProfileURL() string {
+	if s == nil {
 		return ""
 	}
-	return o.ProfileURL
+	return s.ProfileURL
 }

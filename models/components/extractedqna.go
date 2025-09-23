@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type ExtractedQnA struct {
 	// Heading text that was matched to produce this result.
 	Heading *string `json:"heading,omitempty"`
@@ -10,23 +14,34 @@ type ExtractedQnA struct {
 	QuestionResult *SearchResult `json:"questionResult,omitempty"`
 }
 
-func (o *ExtractedQnA) GetHeading() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Heading
+func (e ExtractedQnA) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(e, "", false)
 }
 
-func (o *ExtractedQnA) GetQuestion() *string {
-	if o == nil {
-		return nil
+func (e *ExtractedQnA) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &e, "", false, nil); err != nil {
+		return err
 	}
-	return o.Question
+	return nil
 }
 
-func (o *ExtractedQnA) GetQuestionResult() *SearchResult {
-	if o == nil {
+func (e *ExtractedQnA) GetHeading() *string {
+	if e == nil {
 		return nil
 	}
-	return o.QuestionResult
+	return e.Heading
+}
+
+func (e *ExtractedQnA) GetQuestion() *string {
+	if e == nil {
+		return nil
+	}
+	return e.Question
+}
+
+func (e *ExtractedQnA) GetQuestionResult() *SearchResult {
+	if e == nil {
+		return nil
+	}
+	return e.QuestionResult
 }

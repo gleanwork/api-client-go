@@ -183,134 +183,134 @@ func (t ToolMetadata) MarshalJSON() ([]byte, error) {
 }
 
 func (t *ToolMetadata) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &t, "", false, []string{"type", "name", "displayName", "displayDescription"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ToolMetadata) GetType() ToolMetadataType {
-	if o == nil {
+func (t *ToolMetadata) GetType() ToolMetadataType {
+	if t == nil {
 		return ToolMetadataType("")
 	}
-	return o.Type
+	return t.Type
 }
 
-func (o *ToolMetadata) GetName() string {
-	if o == nil {
+func (t *ToolMetadata) GetName() string {
+	if t == nil {
 		return ""
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *ToolMetadata) GetDisplayName() string {
-	if o == nil {
+func (t *ToolMetadata) GetDisplayName() string {
+	if t == nil {
 		return ""
 	}
-	return o.DisplayName
+	return t.DisplayName
 }
 
-func (o *ToolMetadata) GetToolID() *string {
-	if o == nil {
+func (t *ToolMetadata) GetToolID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ToolID
+	return t.ToolID
 }
 
-func (o *ToolMetadata) GetDisplayDescription() string {
-	if o == nil {
+func (t *ToolMetadata) GetDisplayDescription() string {
+	if t == nil {
 		return ""
 	}
-	return o.DisplayDescription
+	return t.DisplayDescription
 }
 
-func (o *ToolMetadata) GetLogoURL() *string {
-	if o == nil {
+func (t *ToolMetadata) GetLogoURL() *string {
+	if t == nil {
 		return nil
 	}
-	return o.LogoURL
+	return t.LogoURL
 }
 
-func (o *ToolMetadata) GetObjectName() *string {
-	if o == nil {
+func (t *ToolMetadata) GetObjectName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ObjectName
+	return t.ObjectName
 }
 
-func (o *ToolMetadata) GetKnowledgeType() *KnowledgeType {
-	if o == nil {
+func (t *ToolMetadata) GetKnowledgeType() *KnowledgeType {
+	if t == nil {
 		return nil
 	}
-	return o.KnowledgeType
+	return t.KnowledgeType
 }
 
-func (o *ToolMetadata) GetCreatedBy() *PersonObject {
-	if o == nil {
+func (t *ToolMetadata) GetCreatedBy() *PersonObject {
+	if t == nil {
 		return nil
 	}
-	return o.CreatedBy
+	return t.CreatedBy
 }
 
-func (o *ToolMetadata) GetLastUpdatedBy() *PersonObject {
-	if o == nil {
+func (t *ToolMetadata) GetLastUpdatedBy() *PersonObject {
+	if t == nil {
 		return nil
 	}
-	return o.LastUpdatedBy
+	return t.LastUpdatedBy
 }
 
-func (o *ToolMetadata) GetCreatedAt() *time.Time {
-	if o == nil {
+func (t *ToolMetadata) GetCreatedAt() *time.Time {
+	if t == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return t.CreatedAt
 }
 
-func (o *ToolMetadata) GetLastUpdatedAt() *time.Time {
-	if o == nil {
+func (t *ToolMetadata) GetLastUpdatedAt() *time.Time {
+	if t == nil {
 		return nil
 	}
-	return o.LastUpdatedAt
+	return t.LastUpdatedAt
 }
 
-func (o *ToolMetadata) GetWriteActionType() *WriteActionType {
-	if o == nil {
+func (t *ToolMetadata) GetWriteActionType() *WriteActionType {
+	if t == nil {
 		return nil
 	}
-	return o.WriteActionType
+	return t.WriteActionType
 }
 
-func (o *ToolMetadata) GetAuthType() *AuthType {
-	if o == nil {
+func (t *ToolMetadata) GetAuthType() *AuthType {
+	if t == nil {
 		return nil
 	}
-	return o.AuthType
+	return t.AuthType
 }
 
-func (o *ToolMetadata) GetAuth() *AuthConfig {
-	if o == nil {
+func (t *ToolMetadata) GetAuth() *AuthConfig {
+	if t == nil {
 		return nil
 	}
-	return o.Auth
+	return t.Auth
 }
 
-func (o *ToolMetadata) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (t *ToolMetadata) GetPermissions() *ObjectPermissions {
+	if t == nil {
 		return nil
 	}
-	return o.Permissions
+	return t.Permissions
 }
 
-func (o *ToolMetadata) GetUsageInstructions() *string {
-	if o == nil {
+func (t *ToolMetadata) GetUsageInstructions() *string {
+	if t == nil {
 		return nil
 	}
-	return o.UsageInstructions
+	return t.UsageInstructions
 }
 
-func (o *ToolMetadata) GetIsSetupFinished() *bool {
-	if o == nil {
+func (t *ToolMetadata) GetIsSetupFinished() *bool {
+	if t == nil {
 		return nil
 	}
-	return o.IsSetupFinished
+	return t.IsSetupFinished
 }

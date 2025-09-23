@@ -12,16 +12,16 @@ type GetdocumentsResponse struct {
 	GetDocumentsResponse *components.GetDocumentsResponse
 }
 
-func (o *GetdocumentsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetdocumentsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetdocumentsResponse) GetGetDocumentsResponse() *components.GetDocumentsResponse {
-	if o == nil {
+func (g *GetdocumentsResponse) GetGetDocumentsResponse() *components.GetDocumentsResponse {
+	if g == nil {
 		return nil
 	}
-	return o.GetDocumentsResponse
+	return g.GetDocumentsResponse
 }

@@ -12,23 +12,23 @@ type IndexUserRequest struct {
 	User DatasourceUserDefinition `json:"user"`
 }
 
-func (o *IndexUserRequest) GetVersion() *int64 {
-	if o == nil {
+func (i *IndexUserRequest) GetVersion() *int64 {
+	if i == nil {
 		return nil
 	}
-	return o.Version
+	return i.Version
 }
 
-func (o *IndexUserRequest) GetDatasource() string {
-	if o == nil {
+func (i *IndexUserRequest) GetDatasource() string {
+	if i == nil {
 		return ""
 	}
-	return o.Datasource
+	return i.Datasource
 }
 
-func (o *IndexUserRequest) GetUser() DatasourceUserDefinition {
-	if o == nil {
+func (i *IndexUserRequest) GetUser() DatasourceUserDefinition {
+	if i == nil {
 		return DatasourceUserDefinition{}
 	}
-	return o.User
+	return i.User
 }

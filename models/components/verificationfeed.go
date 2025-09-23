@@ -7,9 +7,9 @@ type VerificationFeed struct {
 	Documents []Verification `json:"documents,omitempty"`
 }
 
-func (o *VerificationFeed) GetDocuments() []Verification {
-	if o == nil {
+func (v *VerificationFeed) GetDocuments() []Verification {
+	if v == nil {
 		return nil
 	}
-	return o.Documents
+	return v.Documents
 }

@@ -29,16 +29,16 @@ type AdditionalFieldDefinition struct {
 	Value []Value `json:"value,omitempty"`
 }
 
-func (o *AdditionalFieldDefinition) GetKey() *string {
-	if o == nil {
+func (a *AdditionalFieldDefinition) GetKey() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Key
+	return a.Key
 }
 
-func (o *AdditionalFieldDefinition) GetValue() []Value {
-	if o == nil {
+func (a *AdditionalFieldDefinition) GetValue() []Value {
+	if a == nil {
 		return nil
 	}
-	return o.Value
+	return a.Value
 }

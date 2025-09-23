@@ -16,37 +16,37 @@ type DocumentPermissionsDefinition struct {
 	AllowAllDatasourceUsersAccess *bool `json:"allowAllDatasourceUsersAccess,omitempty"`
 }
 
-func (o *DocumentPermissionsDefinition) GetAllowedUsers() []UserReferenceDefinition {
-	if o == nil {
+func (d *DocumentPermissionsDefinition) GetAllowedUsers() []UserReferenceDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.AllowedUsers
+	return d.AllowedUsers
 }
 
-func (o *DocumentPermissionsDefinition) GetAllowedGroups() []string {
-	if o == nil {
+func (d *DocumentPermissionsDefinition) GetAllowedGroups() []string {
+	if d == nil {
 		return nil
 	}
-	return o.AllowedGroups
+	return d.AllowedGroups
 }
 
-func (o *DocumentPermissionsDefinition) GetAllowedGroupIntersections() []PermissionsGroupIntersectionDefinition {
-	if o == nil {
+func (d *DocumentPermissionsDefinition) GetAllowedGroupIntersections() []PermissionsGroupIntersectionDefinition {
+	if d == nil {
 		return nil
 	}
-	return o.AllowedGroupIntersections
+	return d.AllowedGroupIntersections
 }
 
-func (o *DocumentPermissionsDefinition) GetAllowAnonymousAccess() *bool {
-	if o == nil {
+func (d *DocumentPermissionsDefinition) GetAllowAnonymousAccess() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.AllowAnonymousAccess
+	return d.AllowAnonymousAccess
 }
 
-func (o *DocumentPermissionsDefinition) GetAllowAllDatasourceUsersAccess() *bool {
-	if o == nil {
+func (d *DocumentPermissionsDefinition) GetAllowAllDatasourceUsersAccess() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.AllowAllDatasourceUsersAccess
+	return d.AllowAllDatasourceUsersAccess
 }

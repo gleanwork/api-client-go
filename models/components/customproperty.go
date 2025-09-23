@@ -9,16 +9,16 @@ type CustomProperty struct {
 	Value any `json:"value,omitempty"`
 }
 
-func (o *CustomProperty) GetName() *string {
-	if o == nil {
+func (c *CustomProperty) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CustomProperty) GetValue() any {
-	if o == nil {
+func (c *CustomProperty) GetValue() any {
+	if c == nil {
 		return nil
 	}
-	return o.Value
+	return c.Value
 }

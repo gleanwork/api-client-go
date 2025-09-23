@@ -2,14 +2,29 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type SearchRequestInputDetails struct {
 	// Whether the associated query was at least partially copy-pasted.  If subsequent requests are issued after a copy-pasted query is constructed (e.g. with facet modifications), this bit should continue to be set for those requests.
 	HasCopyPaste *bool `json:"hasCopyPaste,omitempty"`
 }
 
-func (o *SearchRequestInputDetails) GetHasCopyPaste() *bool {
-	if o == nil {
+func (s SearchRequestInputDetails) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *SearchRequestInputDetails) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *SearchRequestInputDetails) GetHasCopyPaste() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.HasCopyPaste
+	return s.HasCopyPaste
 }

@@ -12,23 +12,23 @@ type AutocompleteResultGroup struct {
 	Title *string `json:"title,omitempty"`
 }
 
-func (o *AutocompleteResultGroup) GetStartIndex() *int64 {
-	if o == nil {
+func (a *AutocompleteResultGroup) GetStartIndex() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.StartIndex
+	return a.StartIndex
 }
 
-func (o *AutocompleteResultGroup) GetEndIndex() *int64 {
-	if o == nil {
+func (a *AutocompleteResultGroup) GetEndIndex() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.EndIndex
+	return a.EndIndex
 }
 
-func (o *AutocompleteResultGroup) GetTitle() *string {
-	if o == nil {
+func (a *AutocompleteResultGroup) GetTitle() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Title
+	return a.Title
 }

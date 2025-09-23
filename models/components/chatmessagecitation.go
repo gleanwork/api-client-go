@@ -14,37 +14,37 @@ type ChatMessageCitation struct {
 	ReferenceRanges []ReferenceRange `json:"referenceRanges,omitempty"`
 }
 
-func (o *ChatMessageCitation) GetTrackingToken() *string {
-	if o == nil {
+func (c *ChatMessageCitation) GetTrackingToken() *string {
+	if c == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return c.TrackingToken
 }
 
-func (o *ChatMessageCitation) GetSourceDocument() *Document {
-	if o == nil {
+func (c *ChatMessageCitation) GetSourceDocument() *Document {
+	if c == nil {
 		return nil
 	}
-	return o.SourceDocument
+	return c.SourceDocument
 }
 
-func (o *ChatMessageCitation) GetSourceFile() *ChatFile {
-	if o == nil {
+func (c *ChatMessageCitation) GetSourceFile() *ChatFile {
+	if c == nil {
 		return nil
 	}
-	return o.SourceFile
+	return c.SourceFile
 }
 
-func (o *ChatMessageCitation) GetSourcePerson() *Person {
-	if o == nil {
+func (c *ChatMessageCitation) GetSourcePerson() *Person {
+	if c == nil {
 		return nil
 	}
-	return o.SourcePerson
+	return c.SourcePerson
 }
 
-func (o *ChatMessageCitation) GetReferenceRanges() []ReferenceRange {
-	if o == nil {
+func (c *ChatMessageCitation) GetReferenceRanges() []ReferenceRange {
+	if c == nil {
 		return nil
 	}
-	return o.ReferenceRanges
+	return c.ReferenceRanges
 }

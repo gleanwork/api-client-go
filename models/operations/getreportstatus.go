@@ -11,11 +11,11 @@ type GetreportstatusRequest struct {
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
-func (o *GetreportstatusRequest) GetID() string {
-	if o == nil {
+func (g *GetreportstatusRequest) GetID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ID
+	return g.ID
 }
 
 type GetreportstatusResponse struct {
@@ -24,16 +24,16 @@ type GetreportstatusResponse struct {
 	ReportStatusResponse *components.ReportStatusResponse
 }
 
-func (o *GetreportstatusResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetreportstatusResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetreportstatusResponse) GetReportStatusResponse() *components.ReportStatusResponse {
-	if o == nil {
+func (g *GetreportstatusResponse) GetReportStatusResponse() *components.ReportStatusResponse {
+	if g == nil {
 		return nil
 	}
-	return o.ReportStatusResponse
+	return g.ReportStatusResponse
 }

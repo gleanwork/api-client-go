@@ -19,29 +19,29 @@ func (c CustomFieldData) MarshalJSON() ([]byte, error) {
 }
 
 func (c *CustomFieldData) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"label", "values"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *CustomFieldData) GetLabel() string {
-	if o == nil {
+func (c *CustomFieldData) GetLabel() string {
+	if c == nil {
 		return ""
 	}
-	return o.Label
+	return c.Label
 }
 
-func (o *CustomFieldData) GetValues() []CustomFieldValue {
-	if o == nil {
+func (c *CustomFieldData) GetValues() []CustomFieldValue {
+	if c == nil {
 		return []CustomFieldValue{}
 	}
-	return o.Values
+	return c.Values
 }
 
-func (o *CustomFieldData) GetDisplayable() *bool {
-	if o == nil {
+func (c *CustomFieldData) GetDisplayable() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.Displayable
+	return c.Displayable
 }

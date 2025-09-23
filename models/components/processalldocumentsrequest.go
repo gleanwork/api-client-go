@@ -8,9 +8,9 @@ type ProcessAllDocumentsRequest struct {
 	Datasource *string `json:"datasource,omitempty"`
 }
 
-func (o *ProcessAllDocumentsRequest) GetDatasource() *string {
-	if o == nil {
+func (p *ProcessAllDocumentsRequest) GetDatasource() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Datasource
+	return p.Datasource
 }

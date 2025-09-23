@@ -15,37 +15,37 @@ type ContentInsightsResponse struct {
 	MinVisitorThreshold *int64 `json:"minVisitorThreshold,omitempty"`
 }
 
-func (o *ContentInsightsResponse) GetLastLogTimestamp() *int64 {
-	if o == nil {
+func (c *ContentInsightsResponse) GetLastLogTimestamp() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.LastLogTimestamp
+	return c.LastLogTimestamp
 }
 
-func (o *ContentInsightsResponse) GetDocumentInsights() []DocumentInsight {
-	if o == nil {
+func (c *ContentInsightsResponse) GetDocumentInsights() []DocumentInsight {
+	if c == nil {
 		return nil
 	}
-	return o.DocumentInsights
+	return c.DocumentInsights
 }
 
-func (o *ContentInsightsResponse) GetDepartments() []string {
-	if o == nil {
+func (c *ContentInsightsResponse) GetDepartments() []string {
+	if c == nil {
 		return nil
 	}
-	return o.Departments
+	return c.Departments
 }
 
-func (o *ContentInsightsResponse) GetMinDepartmentSizeThreshold() *int64 {
-	if o == nil {
+func (c *ContentInsightsResponse) GetMinDepartmentSizeThreshold() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.MinDepartmentSizeThreshold
+	return c.MinDepartmentSizeThreshold
 }
 
-func (o *ContentInsightsResponse) GetMinVisitorThreshold() *int64 {
-	if o == nil {
+func (c *ContentInsightsResponse) GetMinVisitorThreshold() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.MinVisitorThreshold
+	return c.MinVisitorThreshold
 }

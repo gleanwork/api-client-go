@@ -12,27 +12,27 @@ type DeletechatfilesRequest struct {
 	DeleteChatFilesRequest components.DeleteChatFilesRequest `request:"mediaType=application/json"`
 }
 
-func (o *DeletechatfilesRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (d *DeletechatfilesRequest) GetTimezoneOffset() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return d.TimezoneOffset
 }
 
-func (o *DeletechatfilesRequest) GetDeleteChatFilesRequest() components.DeleteChatFilesRequest {
-	if o == nil {
+func (d *DeletechatfilesRequest) GetDeleteChatFilesRequest() components.DeleteChatFilesRequest {
+	if d == nil {
 		return components.DeleteChatFilesRequest{}
 	}
-	return o.DeleteChatFilesRequest
+	return d.DeleteChatFilesRequest
 }
 
 type DeletechatfilesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeletechatfilesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeletechatfilesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

@@ -188,10 +188,9 @@ func TestClientChat_ChatStreamDefaultExample(t *testing.T) {
 	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
-				Author: components.AuthorUser.ToPointer(),
 				Fragments: []components.ChatMessageFragment{
 					components.ChatMessageFragment{
-						Text: apiclientgo.String("What are the company holidays this year?"),
+						Text: apiclientgo.Pointer("What are the company holidays this year?"),
 					},
 				},
 			},
@@ -216,10 +215,9 @@ func TestClientChat_ChatStreamGptAgentExample(t *testing.T) {
 	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
-				Author: components.AuthorUser.ToPointer(),
 				Fragments: []components.ChatMessageFragment{
 					components.ChatMessageFragment{
-						Text: apiclientgo.String("Who was the first person to land on the moon?"),
+						Text: apiclientgo.Pointer("Who was the first person to land on the moon?"),
 					},
 				},
 			},
@@ -246,7 +244,7 @@ func TestClientChat_ChatStreamStreamingExample(t *testing.T) {
 
 	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages:      []components.ChatMessage{},
-		TimeoutMillis: apiclientgo.Int64(30000),
+		TimeoutMillis: apiclientgo.Pointer[int64](30000),
 	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
@@ -267,17 +265,16 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
-				Author: components.AuthorUser.ToPointer(),
 				Citations: []components.ChatMessageCitation{
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -288,16 +285,16 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -309,12 +306,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 485333,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -325,7 +322,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -334,8 +331,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -344,12 +341,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 159062,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -360,7 +357,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -369,8 +366,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -379,12 +376,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 369746,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -395,7 +392,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -404,8 +401,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -418,12 +415,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -434,7 +431,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -448,9 +445,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
 									Poc: []components.Person{
 										components.Person{
@@ -458,7 +455,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											ObfuscatedID: "abc123",
 										},
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -542,19 +539,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -589,15 +586,15 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Text: "From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light.",
 										StructuredList: []components.StructuredTextItem{
 											components.StructuredTextItem{
-												Link: apiclientgo.String("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
+												Link: apiclientgo.Pointer("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
 												Document: &components.Document{
 													Metadata: &components.DocumentMetadata{
-														Datasource: apiclientgo.String("datasource"),
-														ObjectType: apiclientgo.String("Feature Request"),
-														Container:  apiclientgo.String("container"),
-														ParentID:   apiclientgo.String("JIRA_EN-1337"),
-														MimeType:   apiclientgo.String("mimeType"),
-														DocumentID: apiclientgo.String("documentId"),
+														Datasource: apiclientgo.Pointer("datasource"),
+														ObjectType: apiclientgo.Pointer("Feature Request"),
+														Container:  apiclientgo.Pointer("container"),
+														ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+														MimeType:   apiclientgo.Pointer("mimeType"),
+														DocumentID: apiclientgo.Pointer("documentId"),
 														CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 														UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 														Author: &components.Person{
@@ -608,13 +605,13 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 															"Backend",
 															"Networking",
 														},
-														Status: apiclientgo.String("[\"Done\"]"),
+														Status: apiclientgo.Pointer("[\"Done\"]"),
 														CustomData: map[string]components.CustomDataValue{
 															"someCustomField": components.CustomDataValue{},
 														},
 													},
 												},
-												Text: apiclientgo.String("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
+												Text: apiclientgo.Pointer("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
 											},
 										},
 									},
@@ -647,12 +644,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -663,7 +660,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -728,14 +725,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "stage atop minion which best sturdy enormously afore circumference duh",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -757,14 +754,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											Description: "wring blank who sate woot",
 											AudienceFilters: []components.FacetFilter{
 												components.FacetFilter{
-													FieldName: apiclientgo.String("type"),
+													FieldName: apiclientgo.Pointer("type"),
 													Values: []components.FacetFilterValue{
 														components.FacetFilterValue{
-															Value:        apiclientgo.String("Spreadsheet"),
+															Value:        apiclientgo.Pointer("Spreadsheet"),
 															RelationType: components.RelationTypeEquals.ToPointer(),
 														},
 														components.FacetFilterValue{
-															Value:        apiclientgo.String("Presentation"),
+															Value:        apiclientgo.Pointer("Presentation"),
 															RelationType: components.RelationTypeEquals.ToPointer(),
 														},
 													},
@@ -788,12 +785,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 													},
 													Document: &components.Document{
 														Metadata: &components.DocumentMetadata{
-															Datasource: apiclientgo.String("datasource"),
-															ObjectType: apiclientgo.String("Feature Request"),
-															Container:  apiclientgo.String("container"),
-															ParentID:   apiclientgo.String("JIRA_EN-1337"),
-															MimeType:   apiclientgo.String("mimeType"),
-															DocumentID: apiclientgo.String("documentId"),
+															Datasource: apiclientgo.Pointer("datasource"),
+															ObjectType: apiclientgo.Pointer("Feature Request"),
+															Container:  apiclientgo.Pointer("container"),
+															ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+															MimeType:   apiclientgo.Pointer("mimeType"),
+															DocumentID: apiclientgo.Pointer("documentId"),
 															CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															Author: &components.Person{
@@ -804,7 +801,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 																"Backend",
 																"Networking",
 															},
-															Status: apiclientgo.String("[\"Done\"]"),
+															Status: apiclientgo.Pointer("[\"Done\"]"),
 															CustomData: map[string]components.CustomDataValue{
 																"someCustomField": components.CustomDataValue{},
 															},
@@ -822,12 +819,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														},
 														DestinationDocument: &components.Document{
 															Metadata: &components.DocumentMetadata{
-																Datasource: apiclientgo.String("datasource"),
-																ObjectType: apiclientgo.String("Feature Request"),
-																Container:  apiclientgo.String("container"),
-																ParentID:   apiclientgo.String("JIRA_EN-1337"),
-																MimeType:   apiclientgo.String("mimeType"),
-																DocumentID: apiclientgo.String("documentId"),
+																Datasource: apiclientgo.Pointer("datasource"),
+																ObjectType: apiclientgo.Pointer("Feature Request"),
+																Container:  apiclientgo.Pointer("container"),
+																ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+																MimeType:   apiclientgo.Pointer("mimeType"),
+																DocumentID: apiclientgo.Pointer("documentId"),
 																CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																Author: &components.Person{
@@ -838,7 +835,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 																	"Backend",
 																	"Networking",
 																},
-																Status: apiclientgo.String("[\"Done\"]"),
+																Status: apiclientgo.Pointer("[\"Done\"]"),
 																CustomData: map[string]components.CustomDataValue{
 																	"someCustomField": components.CustomDataValue{},
 																},
@@ -855,12 +852,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 													},
 													Document: &components.Document{
 														Metadata: &components.DocumentMetadata{
-															Datasource: apiclientgo.String("datasource"),
-															ObjectType: apiclientgo.String("Feature Request"),
-															Container:  apiclientgo.String("container"),
-															ParentID:   apiclientgo.String("JIRA_EN-1337"),
-															MimeType:   apiclientgo.String("mimeType"),
-															DocumentID: apiclientgo.String("documentId"),
+															Datasource: apiclientgo.Pointer("datasource"),
+															ObjectType: apiclientgo.Pointer("Feature Request"),
+															Container:  apiclientgo.Pointer("container"),
+															ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+															MimeType:   apiclientgo.Pointer("mimeType"),
+															DocumentID: apiclientgo.Pointer("documentId"),
 															CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															Author: &components.Person{
@@ -871,7 +868,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 																"Backend",
 																"Networking",
 															},
-															Status: apiclientgo.String("[\"Done\"]"),
+															Status: apiclientgo.Pointer("[\"Done\"]"),
 															CustomData: map[string]components.CustomDataValue{
 																"someCustomField": components.CustomDataValue{},
 															},
@@ -889,12 +886,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														},
 														DestinationDocument: &components.Document{
 															Metadata: &components.DocumentMetadata{
-																Datasource: apiclientgo.String("datasource"),
-																ObjectType: apiclientgo.String("Feature Request"),
-																Container:  apiclientgo.String("container"),
-																ParentID:   apiclientgo.String("JIRA_EN-1337"),
-																MimeType:   apiclientgo.String("mimeType"),
-																DocumentID: apiclientgo.String("documentId"),
+																Datasource: apiclientgo.Pointer("datasource"),
+																ObjectType: apiclientgo.Pointer("Feature Request"),
+																Container:  apiclientgo.Pointer("container"),
+																ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+																MimeType:   apiclientgo.Pointer("mimeType"),
+																DocumentID: apiclientgo.Pointer("documentId"),
 																CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																Author: &components.Person{
@@ -905,7 +902,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 																	"Backend",
 																	"Networking",
 																},
-																Status: apiclientgo.String("[\"Done\"]"),
+																Status: apiclientgo.Pointer("[\"Done\"]"),
 																CustomData: map[string]components.CustomDataValue{
 																	"someCustomField": components.CustomDataValue{},
 																},
@@ -921,14 +918,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											Description: "keenly until phew veto calculus",
 											AudienceFilters: []components.FacetFilter{
 												components.FacetFilter{
-													FieldName: apiclientgo.String("type"),
+													FieldName: apiclientgo.Pointer("type"),
 													Values: []components.FacetFilterValue{
 														components.FacetFilterValue{
-															Value:        apiclientgo.String("Spreadsheet"),
+															Value:        apiclientgo.Pointer("Spreadsheet"),
 															RelationType: components.RelationTypeEquals.ToPointer(),
 														},
 														components.FacetFilterValue{
-															Value:        apiclientgo.String("Presentation"),
+															Value:        apiclientgo.Pointer("Presentation"),
 															RelationType: components.RelationTypeEquals.ToPointer(),
 														},
 													},
@@ -947,12 +944,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -963,7 +960,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -972,9 +969,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -1000,14 +997,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "veg welcome boss manage freely",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1028,14 +1025,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "after er grouchy stained plus buck",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1052,8 +1049,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -1067,12 +1064,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -1083,7 +1080,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -1094,8 +1091,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Suggestions: []components.QuerySuggestion{
 										components.QuerySuggestion{
 											Query:      "app:github type:pull author:mortimer",
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 										},
 									},
 									Person: &components.Person{
@@ -1107,29 +1104,29 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									components.RelatedDocuments{
 										QuerySuggestion: &components.QuerySuggestion{
 											Query:      "app:github type:pull author:mortimer",
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 										},
 										Results: []components.SearchResult{
 											components.SearchResult{
-												Title:        apiclientgo.String("title"),
+												Title:        apiclientgo.Pointer("title"),
 												URL:          "https://example.com/foo/bar",
-												NativeAppURL: apiclientgo.String("slack://foo/bar"),
+												NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 											},
 										},
 									},
 									components.RelatedDocuments{
 										QuerySuggestion: &components.QuerySuggestion{
 											Query:      "app:github type:pull author:mortimer",
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 										},
 									},
 									components.RelatedDocuments{
 										QuerySuggestion: &components.QuerySuggestion{
 											Query:      "app:github type:pull author:mortimer",
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 										},
 									},
 								},
@@ -1139,12 +1136,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											StartIndex: 1054,
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -1155,7 +1152,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -1168,13 +1165,13 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -1182,7 +1179,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Brianne.OReilly19",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
@@ -1191,12 +1188,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -1207,7 +1204,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -1221,11 +1218,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -1244,19 +1241,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1287,12 +1284,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -1303,7 +1300,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -1327,14 +1324,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "finally waist inasmuch woot ignorance",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -1352,12 +1349,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -1368,7 +1365,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -1377,9 +1374,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -1390,14 +1387,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "even metal boo blindly for steak gadzooks ick monthly heating",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1418,14 +1415,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "geez huzzah oof webbed certainly degenerate along inure cow zowie",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1442,8 +1439,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -1457,12 +1454,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -1473,7 +1470,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -1491,13 +1488,13 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -1505,7 +1502,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Elinor_Champlin",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
@@ -1514,12 +1511,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -1530,7 +1527,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -1544,11 +1541,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -1571,19 +1568,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1614,12 +1611,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -1630,7 +1627,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -1654,14 +1651,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "the across instead into aching where descent shark lest times",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -1679,12 +1676,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -1695,7 +1692,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -1704,9 +1701,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -1717,14 +1714,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "woefully optimal beside tame",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1745,14 +1742,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "impanel hydrant spectacles justly hence absolve after sleet drat",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1769,8 +1766,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -1784,12 +1781,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -1800,7 +1797,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -1818,12 +1815,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -1834,7 +1831,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -1848,11 +1845,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -1871,19 +1868,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -1914,12 +1911,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -1930,7 +1927,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -1954,14 +1951,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "amongst uh-huh reassemble upset concrete",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -1979,12 +1976,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -1995,7 +1992,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2004,9 +2001,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -2017,14 +2014,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "behind boyfriend slime nor",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2045,14 +2042,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "psst um devil gazebo save",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2069,8 +2066,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -2084,12 +2081,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2100,7 +2097,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2118,12 +2115,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -2134,7 +2131,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -2148,11 +2145,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -2167,19 +2164,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2210,12 +2207,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -2226,7 +2223,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -2250,14 +2247,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "except gadzooks geez",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -2275,12 +2272,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2291,7 +2288,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2300,9 +2297,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -2313,14 +2310,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "aha hence nectarine within airbus so stylish while",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2341,14 +2338,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "surprise outside whether ack",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2365,8 +2362,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -2380,12 +2377,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2396,7 +2393,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2414,13 +2411,13 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -2428,24 +2425,23 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Chanel.Kshlerin",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
 				},
 			},
 			components.ChatMessage{
-				Author: components.AuthorUser.ToPointer(),
 				Citations: []components.ChatMessageCitation{
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -2456,16 +2452,16 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -2477,12 +2473,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 537317,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2493,7 +2489,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2502,8 +2498,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -2512,12 +2508,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 302109,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2528,7 +2524,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2537,8 +2533,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -2547,12 +2543,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -2563,16 +2559,16 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -2584,12 +2580,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 494612,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2600,7 +2596,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2609,8 +2605,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -2619,12 +2615,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -2635,16 +2631,16 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -2656,12 +2652,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 767229,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2672,7 +2668,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2681,8 +2677,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -2691,12 +2687,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 437321,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2707,7 +2703,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2716,8 +2712,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -2726,12 +2722,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									StartIndex: 949459,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2742,7 +2738,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2751,8 +2747,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -2765,12 +2761,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -2781,7 +2777,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -2795,11 +2791,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -2818,19 +2814,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2861,12 +2857,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -2877,7 +2873,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -2901,14 +2897,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "short-term suffice why rightfully",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -2926,12 +2922,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -2942,7 +2938,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -2951,9 +2947,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -2964,14 +2960,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "times loudly upon dramatize",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -2992,14 +2988,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "er reconsideration triumphantly meaty yearly fragrant delightfully though painfully robust",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3016,8 +3012,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -3031,12 +3027,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -3047,7 +3043,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -3065,12 +3061,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -3081,7 +3077,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -3095,11 +3091,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -3118,19 +3114,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3161,12 +3157,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -3177,7 +3173,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -3201,14 +3197,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "planula presume mismatch of commandeer ready mortally although",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -3226,12 +3222,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -3242,7 +3238,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -3251,9 +3247,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -3264,14 +3260,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "phooey aw than proceed perky",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3292,14 +3288,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "rundown recklessly favorite supposing dull politely soon ignorant",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3316,8 +3312,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -3331,12 +3327,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -3347,7 +3343,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -3365,12 +3361,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -3381,7 +3377,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -3395,11 +3391,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -3418,19 +3414,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3461,12 +3457,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -3477,7 +3473,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -3501,14 +3497,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "striking confound wilderness but rapid an convection scoop litter than",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -3526,12 +3522,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -3542,7 +3538,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -3551,9 +3547,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -3564,14 +3560,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "extra-large innocent impassioned stealthily yet gum onset blah second-hand",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3592,14 +3588,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "meaty impure round",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3616,8 +3612,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -3631,12 +3627,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -3647,7 +3643,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -3665,13 +3661,13 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -3679,7 +3675,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Lauren53",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
@@ -3688,12 +3684,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -3704,7 +3700,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -3718,11 +3714,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -3741,19 +3737,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3784,12 +3780,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -3800,7 +3796,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -3824,14 +3820,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "intrigue psst furthermore personalise actually showboat eek punctuation ownership ah",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -3849,12 +3845,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -3865,7 +3861,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -3874,9 +3870,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -3887,14 +3883,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "irresponsible meanwhile supposing classic than loyalty before who",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3915,14 +3911,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "colorfully aha where",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -3939,8 +3935,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -3954,12 +3950,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -3970,7 +3966,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -3988,12 +3984,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -4004,7 +4000,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -4018,11 +4014,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -4045,19 +4041,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -4088,12 +4084,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -4104,7 +4100,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -4128,14 +4124,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "hence inquisitively proud meh yahoo",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -4153,12 +4149,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4169,7 +4165,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4178,9 +4174,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -4191,14 +4187,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "indeed enthusiastically airman facilitate",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -4219,14 +4215,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "excluding severe amongst bump farm zowie prickly why",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -4243,8 +4239,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -4258,12 +4254,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4274,7 +4270,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4292,12 +4288,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -4308,7 +4304,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -4322,11 +4318,11 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -4349,19 +4345,19 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -4392,12 +4388,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -4408,7 +4404,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -4432,14 +4428,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 										Description: "approach hm gadzooks yahoo shameless underneath negative",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -4457,12 +4453,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4473,7 +4469,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4482,9 +4478,9 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -4495,14 +4491,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "jogging however inwardly yahoo although bah monthly lively colorfully justly",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -4523,14 +4519,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									Description: "guidance zen cross-contamination ick pry mundane thoroughly oof ha",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -4547,8 +4543,8 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -4562,12 +4558,12 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4578,7 +4574,7 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4596,13 +4592,13 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -4610,14 +4606,14 @@ func TestClientChat_ChatStreamUpdateResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Brooklyn64",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
 				},
 			},
 		},
-		TimeoutMillis: apiclientgo.Int64(30000),
+		TimeoutMillis: apiclientgo.Pointer[int64](30000),
 	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
@@ -4638,17 +4634,16 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 	res, err := s.Client.Chat.CreateStream(ctx, components.ChatRequest{
 		Messages: []components.ChatMessage{
 			components.ChatMessage{
-				Author: components.AuthorUser.ToPointer(),
 				Citations: []components.ChatMessageCitation{
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -4659,16 +4654,16 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -4680,12 +4675,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 436071,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4696,7 +4691,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4705,8 +4700,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -4715,12 +4710,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 735937,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4731,7 +4726,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4740,8 +4735,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -4750,12 +4745,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -4766,16 +4761,16 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -4787,12 +4782,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 418969,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4803,7 +4798,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4812,8 +4807,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -4822,12 +4817,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 510246,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4838,7 +4833,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4847,8 +4842,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -4857,12 +4852,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 760612,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -4873,7 +4868,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -4882,8 +4877,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -4896,12 +4891,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -4912,7 +4907,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -4926,9 +4921,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
 									Poc: []components.Person{
 										components.Person{
@@ -4936,7 +4931,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											ObfuscatedID: "abc123",
 										},
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -5018,19 +5013,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -5058,15 +5053,15 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Text: "From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light.",
 										StructuredList: []components.StructuredTextItem{
 											components.StructuredTextItem{
-												Link: apiclientgo.String("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
+												Link: apiclientgo.Pointer("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
 												Document: &components.Document{
 													Metadata: &components.DocumentMetadata{
-														Datasource: apiclientgo.String("datasource"),
-														ObjectType: apiclientgo.String("Feature Request"),
-														Container:  apiclientgo.String("container"),
-														ParentID:   apiclientgo.String("JIRA_EN-1337"),
-														MimeType:   apiclientgo.String("mimeType"),
-														DocumentID: apiclientgo.String("documentId"),
+														Datasource: apiclientgo.Pointer("datasource"),
+														ObjectType: apiclientgo.Pointer("Feature Request"),
+														Container:  apiclientgo.Pointer("container"),
+														ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+														MimeType:   apiclientgo.Pointer("mimeType"),
+														DocumentID: apiclientgo.Pointer("documentId"),
 														CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 														UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 														Author: &components.Person{
@@ -5077,24 +5072,24 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 															"Backend",
 															"Networking",
 														},
-														Status: apiclientgo.String("[\"Done\"]"),
+														Status: apiclientgo.Pointer("[\"Done\"]"),
 														CustomData: map[string]components.CustomDataValue{
 															"someCustomField": components.CustomDataValue{},
 														},
 													},
 												},
-												Text: apiclientgo.String("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
+												Text: apiclientgo.Pointer("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
 											},
 											components.StructuredTextItem{
-												Link: apiclientgo.String("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
+												Link: apiclientgo.Pointer("https://en.wikipedia.org/wiki/Diffuse_sky_radiation"),
 												Document: &components.Document{
 													Metadata: &components.DocumentMetadata{
-														Datasource: apiclientgo.String("datasource"),
-														ObjectType: apiclientgo.String("Feature Request"),
-														Container:  apiclientgo.String("container"),
-														ParentID:   apiclientgo.String("JIRA_EN-1337"),
-														MimeType:   apiclientgo.String("mimeType"),
-														DocumentID: apiclientgo.String("documentId"),
+														Datasource: apiclientgo.Pointer("datasource"),
+														ObjectType: apiclientgo.Pointer("Feature Request"),
+														Container:  apiclientgo.Pointer("container"),
+														ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+														MimeType:   apiclientgo.Pointer("mimeType"),
+														DocumentID: apiclientgo.Pointer("documentId"),
 														CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 														UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 														Author: &components.Person{
@@ -5105,13 +5100,13 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 															"Backend",
 															"Networking",
 														},
-														Status: apiclientgo.String("[\"Done\"]"),
+														Status: apiclientgo.Pointer("[\"Done\"]"),
 														CustomData: map[string]components.CustomDataValue{
 															"someCustomField": components.CustomDataValue{},
 														},
 													},
 												},
-												Text: apiclientgo.String("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
+												Text: apiclientgo.Pointer("Because its wavelengths are shorter, blue light is more strongly scattered than the longer-wavelength lights, red or green. Hence the result that when looking at the sky away from the direct incident sunlight, the human eye perceives the sky to be blue."),
 											},
 										},
 									},
@@ -5137,12 +5132,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -5153,7 +5148,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -5207,14 +5202,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "extent emotional white oil buck",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -5236,14 +5231,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											Description: "an french sans astride duh dreamily weary disloyal woot eke",
 											AudienceFilters: []components.FacetFilter{
 												components.FacetFilter{
-													FieldName: apiclientgo.String("type"),
+													FieldName: apiclientgo.Pointer("type"),
 													Values: []components.FacetFilterValue{
 														components.FacetFilterValue{
-															Value:        apiclientgo.String("Spreadsheet"),
+															Value:        apiclientgo.Pointer("Spreadsheet"),
 															RelationType: components.RelationTypeEquals.ToPointer(),
 														},
 														components.FacetFilterValue{
-															Value:        apiclientgo.String("Presentation"),
+															Value:        apiclientgo.Pointer("Presentation"),
 															RelationType: components.RelationTypeEquals.ToPointer(),
 														},
 													},
@@ -5267,12 +5262,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 													},
 													Document: &components.Document{
 														Metadata: &components.DocumentMetadata{
-															Datasource: apiclientgo.String("datasource"),
-															ObjectType: apiclientgo.String("Feature Request"),
-															Container:  apiclientgo.String("container"),
-															ParentID:   apiclientgo.String("JIRA_EN-1337"),
-															MimeType:   apiclientgo.String("mimeType"),
-															DocumentID: apiclientgo.String("documentId"),
+															Datasource: apiclientgo.Pointer("datasource"),
+															ObjectType: apiclientgo.Pointer("Feature Request"),
+															Container:  apiclientgo.Pointer("container"),
+															ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+															MimeType:   apiclientgo.Pointer("mimeType"),
+															DocumentID: apiclientgo.Pointer("documentId"),
 															CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															Author: &components.Person{
@@ -5283,7 +5278,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 																"Backend",
 																"Networking",
 															},
-															Status: apiclientgo.String("[\"Done\"]"),
+															Status: apiclientgo.Pointer("[\"Done\"]"),
 															CustomData: map[string]components.CustomDataValue{
 																"someCustomField": components.CustomDataValue{},
 															},
@@ -5301,12 +5296,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														},
 														DestinationDocument: &components.Document{
 															Metadata: &components.DocumentMetadata{
-																Datasource: apiclientgo.String("datasource"),
-																ObjectType: apiclientgo.String("Feature Request"),
-																Container:  apiclientgo.String("container"),
-																ParentID:   apiclientgo.String("JIRA_EN-1337"),
-																MimeType:   apiclientgo.String("mimeType"),
-																DocumentID: apiclientgo.String("documentId"),
+																Datasource: apiclientgo.Pointer("datasource"),
+																ObjectType: apiclientgo.Pointer("Feature Request"),
+																Container:  apiclientgo.Pointer("container"),
+																ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+																MimeType:   apiclientgo.Pointer("mimeType"),
+																DocumentID: apiclientgo.Pointer("documentId"),
 																CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																Author: &components.Person{
@@ -5317,7 +5312,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 																	"Backend",
 																	"Networking",
 																},
-																Status: apiclientgo.String("[\"Done\"]"),
+																Status: apiclientgo.Pointer("[\"Done\"]"),
 																CustomData: map[string]components.CustomDataValue{
 																	"someCustomField": components.CustomDataValue{},
 																},
@@ -5334,12 +5329,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 													},
 													Document: &components.Document{
 														Metadata: &components.DocumentMetadata{
-															Datasource: apiclientgo.String("datasource"),
-															ObjectType: apiclientgo.String("Feature Request"),
-															Container:  apiclientgo.String("container"),
-															ParentID:   apiclientgo.String("JIRA_EN-1337"),
-															MimeType:   apiclientgo.String("mimeType"),
-															DocumentID: apiclientgo.String("documentId"),
+															Datasource: apiclientgo.Pointer("datasource"),
+															ObjectType: apiclientgo.Pointer("Feature Request"),
+															Container:  apiclientgo.Pointer("container"),
+															ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+															MimeType:   apiclientgo.Pointer("mimeType"),
+															DocumentID: apiclientgo.Pointer("documentId"),
 															CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															Author: &components.Person{
@@ -5350,7 +5345,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 																"Backend",
 																"Networking",
 															},
-															Status: apiclientgo.String("[\"Done\"]"),
+															Status: apiclientgo.Pointer("[\"Done\"]"),
 															CustomData: map[string]components.CustomDataValue{
 																"someCustomField": components.CustomDataValue{},
 															},
@@ -5368,12 +5363,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														},
 														DestinationDocument: &components.Document{
 															Metadata: &components.DocumentMetadata{
-																Datasource: apiclientgo.String("datasource"),
-																ObjectType: apiclientgo.String("Feature Request"),
-																Container:  apiclientgo.String("container"),
-																ParentID:   apiclientgo.String("JIRA_EN-1337"),
-																MimeType:   apiclientgo.String("mimeType"),
-																DocumentID: apiclientgo.String("documentId"),
+																Datasource: apiclientgo.Pointer("datasource"),
+																ObjectType: apiclientgo.Pointer("Feature Request"),
+																Container:  apiclientgo.Pointer("container"),
+																ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+																MimeType:   apiclientgo.Pointer("mimeType"),
+																DocumentID: apiclientgo.Pointer("documentId"),
 																CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																Author: &components.Person{
@@ -5384,7 +5379,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 																	"Backend",
 																	"Networking",
 																},
-																Status: apiclientgo.String("[\"Done\"]"),
+																Status: apiclientgo.Pointer("[\"Done\"]"),
 																CustomData: map[string]components.CustomDataValue{
 																	"someCustomField": components.CustomDataValue{},
 																},
@@ -5401,12 +5396,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 													},
 													Document: &components.Document{
 														Metadata: &components.DocumentMetadata{
-															Datasource: apiclientgo.String("datasource"),
-															ObjectType: apiclientgo.String("Feature Request"),
-															Container:  apiclientgo.String("container"),
-															ParentID:   apiclientgo.String("JIRA_EN-1337"),
-															MimeType:   apiclientgo.String("mimeType"),
-															DocumentID: apiclientgo.String("documentId"),
+															Datasource: apiclientgo.Pointer("datasource"),
+															ObjectType: apiclientgo.Pointer("Feature Request"),
+															Container:  apiclientgo.Pointer("container"),
+															ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+															MimeType:   apiclientgo.Pointer("mimeType"),
+															DocumentID: apiclientgo.Pointer("documentId"),
 															CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 															Author: &components.Person{
@@ -5417,7 +5412,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 																"Backend",
 																"Networking",
 															},
-															Status: apiclientgo.String("[\"Done\"]"),
+															Status: apiclientgo.Pointer("[\"Done\"]"),
 															CustomData: map[string]components.CustomDataValue{
 																"someCustomField": components.CustomDataValue{},
 															},
@@ -5435,12 +5430,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														},
 														DestinationDocument: &components.Document{
 															Metadata: &components.DocumentMetadata{
-																Datasource: apiclientgo.String("datasource"),
-																ObjectType: apiclientgo.String("Feature Request"),
-																Container:  apiclientgo.String("container"),
-																ParentID:   apiclientgo.String("JIRA_EN-1337"),
-																MimeType:   apiclientgo.String("mimeType"),
-																DocumentID: apiclientgo.String("documentId"),
+																Datasource: apiclientgo.Pointer("datasource"),
+																ObjectType: apiclientgo.Pointer("Feature Request"),
+																Container:  apiclientgo.Pointer("container"),
+																ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+																MimeType:   apiclientgo.Pointer("mimeType"),
+																DocumentID: apiclientgo.Pointer("documentId"),
 																CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 																Author: &components.Person{
@@ -5451,7 +5446,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 																	"Backend",
 																	"Networking",
 																},
-																Status: apiclientgo.String("[\"Done\"]"),
+																Status: apiclientgo.Pointer("[\"Done\"]"),
 																CustomData: map[string]components.CustomDataValue{
 																	"someCustomField": components.CustomDataValue{},
 																},
@@ -5465,12 +5460,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -5481,7 +5476,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -5490,9 +5485,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -5524,14 +5519,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "matter lest spark oof unfurl jubilantly across",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -5552,14 +5547,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "communicate prudent powerful considering quietly with tromp spring brr",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -5576,8 +5571,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -5591,12 +5586,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -5607,7 +5602,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -5618,8 +5613,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Suggestions: []components.QuerySuggestion{
 										components.QuerySuggestion{
 											Query:      "app:github type:pull author:mortimer",
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 										},
 									},
 									Person: &components.Person{
@@ -5631,14 +5626,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									components.RelatedDocuments{
 										QuerySuggestion: &components.QuerySuggestion{
 											Query:      "app:github type:pull author:mortimer",
-											Label:      apiclientgo.String("Mortimer's PRs"),
-											Datasource: apiclientgo.String("github"),
+											Label:      apiclientgo.Pointer("Mortimer's PRs"),
+											Datasource: apiclientgo.Pointer("github"),
 										},
 										Results: []components.SearchResult{
 											components.SearchResult{
-												Title:        apiclientgo.String("title"),
+												Title:        apiclientgo.Pointer("title"),
 												URL:          "https://example.com/foo/bar",
-												NativeAppURL: apiclientgo.String("slack://foo/bar"),
+												NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 											},
 										},
 									},
@@ -5649,12 +5644,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											StartIndex: 516098,
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -5665,7 +5660,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -5676,12 +5671,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											StartIndex: 358039,
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -5692,7 +5687,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -5705,13 +5700,13 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -5719,7 +5714,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Blaise87",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
@@ -5728,12 +5723,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -5744,7 +5739,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -5758,11 +5753,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -5777,19 +5772,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -5820,12 +5815,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -5836,7 +5831,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -5860,14 +5855,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "materialise likewise ew bah scarper instead",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -5885,12 +5880,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -5901,7 +5896,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -5910,9 +5905,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -5923,14 +5918,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "whup bah scarcely on although royal",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -5951,14 +5946,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "heavenly status yippee whose blushing",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -5975,8 +5970,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -5990,12 +5985,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6006,7 +6001,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6024,12 +6019,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -6040,7 +6035,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -6054,11 +6049,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -6073,19 +6068,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -6116,12 +6111,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -6132,7 +6127,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -6156,14 +6151,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "manipulate explode out",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -6181,12 +6176,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6197,7 +6192,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6206,9 +6201,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -6219,14 +6214,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "bus outrun boldly opposite",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -6247,14 +6242,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "complete help um live beyond for huzzah rowdy foot cross",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -6271,8 +6266,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -6286,12 +6281,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6302,7 +6297,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6320,12 +6315,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -6336,7 +6331,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -6350,11 +6345,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -6369,19 +6364,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -6412,12 +6407,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -6428,7 +6423,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -6452,14 +6447,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "lobotomise below psst duh interchange poetry",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -6477,12 +6472,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6493,7 +6488,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6502,9 +6497,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -6515,14 +6510,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "fooey handle supposing greedily contrail whenever geez yahoo broadcast",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -6543,14 +6538,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "fashion bleakly thankfully indeed fully",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -6567,8 +6562,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -6582,12 +6577,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6598,7 +6593,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6616,13 +6611,13 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -6630,24 +6625,23 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Alfred_Wilderman",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
 				},
 			},
 			components.ChatMessage{
-				Author: components.AuthorUser.ToPointer(),
 				Citations: []components.ChatMessageCitation{
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -6658,16 +6652,16 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -6679,12 +6673,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 222131,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6695,7 +6689,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6704,8 +6698,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -6714,12 +6708,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 453578,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6730,7 +6724,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6739,8 +6733,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -6749,12 +6743,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 137281,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6765,7 +6759,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6774,8 +6768,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -6788,12 +6782,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -6804,7 +6798,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -6818,11 +6812,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -6845,19 +6839,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -6888,12 +6882,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -6904,7 +6898,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -6928,14 +6922,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "minus oof dazzling ew for forearm utterly hm onto unexpectedly",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -6953,12 +6947,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -6969,7 +6963,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -6978,9 +6972,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -6991,14 +6985,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "through garrote nor",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -7019,14 +7013,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "elderly since boohoo appropriate righteously vice following complete impartial sans",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -7043,8 +7037,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -7058,12 +7052,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7074,7 +7068,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7092,12 +7086,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -7108,7 +7102,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -7122,11 +7116,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -7149,19 +7143,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -7192,12 +7186,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -7208,7 +7202,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -7232,14 +7226,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "netsuke stump terrorise ugh zowie",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -7257,12 +7251,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7273,7 +7267,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7282,9 +7276,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -7295,14 +7289,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "cheetah amid lest nor instead consequently upbeat fuel incidentally",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -7323,14 +7317,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "abaft tightly blah redound qua",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -7347,8 +7341,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -7362,12 +7356,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7378,7 +7372,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7396,12 +7390,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -7412,7 +7406,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -7426,11 +7420,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -7445,19 +7439,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -7488,12 +7482,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -7504,7 +7498,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -7528,14 +7522,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "gratefully failing square consequently discourse since",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -7553,12 +7547,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7569,7 +7563,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7578,9 +7572,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -7591,14 +7585,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "futon geez oof coolly selfishly proselytise lest fooey and",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -7619,14 +7613,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "able mockingly boo entice softly furthermore woeful",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -7643,8 +7637,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -7658,12 +7652,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7674,7 +7668,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7692,13 +7686,13 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -7706,24 +7700,23 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Dylan_Schowalter48",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
 				},
 			},
 			components.ChatMessage{
-				Author: components.AuthorUser.ToPointer(),
 				Citations: []components.ChatMessageCitation{
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -7734,16 +7727,16 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -7755,12 +7748,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 171021,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7771,7 +7764,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7780,8 +7773,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -7790,12 +7783,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 383744,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7806,7 +7799,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7815,8 +7808,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -7825,12 +7818,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -7841,16 +7834,16 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -7862,12 +7855,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 343186,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7878,7 +7871,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7887,8 +7880,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -7897,12 +7890,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 227225,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7913,7 +7906,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7922,8 +7915,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -7932,12 +7925,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 55034,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -7948,7 +7941,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -7957,8 +7950,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -7967,12 +7960,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 					components.ChatMessageCitation{
 						SourceDocument: &components.Document{
 							Metadata: &components.DocumentMetadata{
-								Datasource: apiclientgo.String("datasource"),
-								ObjectType: apiclientgo.String("Feature Request"),
-								Container:  apiclientgo.String("container"),
-								ParentID:   apiclientgo.String("JIRA_EN-1337"),
-								MimeType:   apiclientgo.String("mimeType"),
-								DocumentID: apiclientgo.String("documentId"),
+								Datasource: apiclientgo.Pointer("datasource"),
+								ObjectType: apiclientgo.Pointer("Feature Request"),
+								Container:  apiclientgo.Pointer("container"),
+								ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+								MimeType:   apiclientgo.Pointer("mimeType"),
+								DocumentID: apiclientgo.Pointer("documentId"),
 								CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 								Author: &components.Person{
@@ -7983,16 +7976,16 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									"Backend",
 									"Networking",
 								},
-								Status: apiclientgo.String("[\"Done\"]"),
+								Status: apiclientgo.Pointer("[\"Done\"]"),
 								CustomData: map[string]components.CustomDataValue{
 									"someCustomField": components.CustomDataValue{},
 								},
 							},
 						},
 						SourceFile: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						SourcePerson: &components.Person{
 							Name:         "George Clooney",
@@ -8004,12 +7997,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 935065,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -8020,7 +8013,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -8029,8 +8022,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -8039,12 +8032,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									StartIndex: 816251,
 									Document: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -8055,7 +8048,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -8064,8 +8057,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								Snippets: []components.SearchResultSnippet{
 									components.SearchResultSnippet{
+										MimeType: apiclientgo.Pointer("mimeType"),
 										Snippet:  "snippet",
-										MimeType: apiclientgo.String("mimeType"),
 									},
 								},
 							},
@@ -8078,12 +8071,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -8094,7 +8087,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -8108,11 +8101,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -8135,19 +8128,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8178,12 +8171,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -8194,7 +8187,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -8218,14 +8211,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "affiliate who lamp blushing plait after violent",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -8243,12 +8236,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -8259,7 +8252,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -8268,9 +8261,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -8281,14 +8274,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "thankfully bliss merge inside without regarding how endow",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8309,14 +8302,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "gee edge scholarship",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8333,8 +8326,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -8348,12 +8341,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -8364,7 +8357,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -8382,12 +8375,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -8398,7 +8391,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -8412,11 +8405,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -8435,19 +8428,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8478,12 +8471,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -8494,7 +8487,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -8518,14 +8511,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "rust forenenst phew immediately",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -8543,12 +8536,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -8559,7 +8552,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -8568,9 +8561,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -8581,14 +8574,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "till likewise boiling yesterday gah upward brr",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8609,14 +8602,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "blah lowball who moor following folklore as or",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8633,8 +8626,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -8648,12 +8641,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -8664,7 +8657,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -8682,12 +8675,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -8698,7 +8691,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -8712,11 +8705,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -8739,19 +8732,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8782,12 +8775,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -8798,7 +8791,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -8822,14 +8815,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "among under although ack gee atop horn",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -8847,12 +8840,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -8863,7 +8856,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -8872,9 +8865,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -8885,14 +8878,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "owlishly genuine woot ocelot nor next",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8913,14 +8906,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "finally jaggedly nightlife surface",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -8937,8 +8930,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -8952,12 +8945,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -8968,7 +8961,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -8986,13 +8979,13 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -9000,7 +8993,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Solon.Schmitt10",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
@@ -9009,12 +9002,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -9025,7 +9018,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -9039,11 +9032,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -9062,19 +9055,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9105,12 +9098,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -9121,7 +9114,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -9145,14 +9138,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "ah once gee",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -9170,12 +9163,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -9186,7 +9179,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -9195,9 +9188,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -9208,14 +9201,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "toe yowza yum soon hypothesize",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9236,14 +9229,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "godparent before colorize",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9260,8 +9253,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -9275,12 +9268,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -9291,7 +9284,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -9309,12 +9302,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -9325,7 +9318,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -9339,11 +9332,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -9362,19 +9355,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9405,12 +9398,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -9421,7 +9414,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -9445,14 +9438,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "uh-huh ha notwithstanding so near troubled onto volunteer hm",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -9470,12 +9463,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -9486,7 +9479,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -9495,9 +9488,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -9508,14 +9501,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "for now role baseboard woot entrench",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9536,14 +9529,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "meanwhile instead colorfully overheard",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9560,8 +9553,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -9575,12 +9568,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -9591,7 +9584,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -9609,12 +9602,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 							components.StructuredResult{
 								Document: &components.Document{
 									Metadata: &components.DocumentMetadata{
-										Datasource: apiclientgo.String("datasource"),
-										ObjectType: apiclientgo.String("Feature Request"),
-										Container:  apiclientgo.String("container"),
-										ParentID:   apiclientgo.String("JIRA_EN-1337"),
-										MimeType:   apiclientgo.String("mimeType"),
-										DocumentID: apiclientgo.String("documentId"),
+										Datasource: apiclientgo.Pointer("datasource"),
+										ObjectType: apiclientgo.Pointer("Feature Request"),
+										Container:  apiclientgo.Pointer("container"),
+										ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+										MimeType:   apiclientgo.Pointer("mimeType"),
+										DocumentID: apiclientgo.Pointer("documentId"),
 										CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 										Author: &components.Person{
@@ -9625,7 +9618,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											"Backend",
 											"Networking",
 										},
-										Status: apiclientgo.String("[\"Done\"]"),
+										Status: apiclientgo.Pointer("[\"Done\"]"),
 										CustomData: map[string]components.CustomDataValue{
 											"someCustomField": components.CustomDataValue{},
 										},
@@ -9639,11 +9632,11 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									ID: "<id>",
 									Company: components.Company{
 										Name:     "<value>",
-										Location: apiclientgo.String("New York City"),
-										Industry: apiclientgo.String("Finances"),
-										About:    apiclientgo.String("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
+										Location: apiclientgo.Pointer("New York City"),
+										Industry: apiclientgo.Pointer("Finances"),
+										About:    apiclientgo.Pointer("Financial, software, data, and media company headquartered in Midtown Manhattan, New York City"),
 									},
-									Notes: apiclientgo.String("CIO is interested in trying out the product."),
+									Notes: apiclientgo.Pointer("CIO is interested in trying out the product."),
 								},
 								Team: &components.Team{
 									ID:   "<id>",
@@ -9666,19 +9659,19 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								CustomEntity: &components.CustomEntity{},
 								Answer: &components.Answer{
 									ID:       3,
-									DocID:    apiclientgo.String("ANSWERS_answer_3"),
-									Question: apiclientgo.String("Why is the sky blue?"),
-									BodyText: apiclientgo.String("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
+									DocID:    apiclientgo.Pointer("ANSWERS_answer_3"),
+									Question: apiclientgo.Pointer("Why is the sky blue?"),
+									BodyText: apiclientgo.Pointer("From https://en.wikipedia.org/wiki/Diffuse_sky_radiation, the sky is blue because blue light is more strongly scattered than longer-wavelength light."),
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9709,12 +9702,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 											},
 											Document: &components.Document{
 												Metadata: &components.DocumentMetadata{
-													Datasource: apiclientgo.String("datasource"),
-													ObjectType: apiclientgo.String("Feature Request"),
-													Container:  apiclientgo.String("container"),
-													ParentID:   apiclientgo.String("JIRA_EN-1337"),
-													MimeType:   apiclientgo.String("mimeType"),
-													DocumentID: apiclientgo.String("documentId"),
+													Datasource: apiclientgo.Pointer("datasource"),
+													ObjectType: apiclientgo.Pointer("Feature Request"),
+													Container:  apiclientgo.Pointer("container"),
+													ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+													MimeType:   apiclientgo.Pointer("mimeType"),
+													DocumentID: apiclientgo.Pointer("documentId"),
 													CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 													Author: &components.Person{
@@ -9725,7 +9718,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 														"Backend",
 														"Networking",
 													},
-													Status: apiclientgo.String("[\"Done\"]"),
+													Status: apiclientgo.Pointer("[\"Done\"]"),
 													CustomData: map[string]components.CustomDataValue{
 														"someCustomField": components.CustomDataValue{},
 													},
@@ -9749,14 +9742,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 										Description: "indelible aha yuck loyally",
 										AudienceFilters: []components.FacetFilter{
 											components.FacetFilter{
-												FieldName: apiclientgo.String("type"),
+												FieldName: apiclientgo.Pointer("type"),
 												Values: []components.FacetFilterValue{
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Spreadsheet"),
+														Value:        apiclientgo.Pointer("Spreadsheet"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 													components.FacetFilterValue{
-														Value:        apiclientgo.String("Presentation"),
+														Value:        apiclientgo.Pointer("Presentation"),
 														RelationType: components.RelationTypeEquals.ToPointer(),
 													},
 												},
@@ -9774,12 +9767,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									SourceDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -9790,7 +9783,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -9799,9 +9792,9 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								},
 								ExtractedQnA: &components.ExtractedQnA{
 									QuestionResult: &components.SearchResult{
-										Title:        apiclientgo.String("title"),
+										Title:        apiclientgo.Pointer("title"),
 										URL:          "https://example.com/foo/bar",
-										NativeAppURL: apiclientgo.String("slack://foo/bar"),
+										NativeAppURL: apiclientgo.Pointer("slack://foo/bar"),
 									},
 								},
 								Meeting: &components.Meeting{
@@ -9812,14 +9805,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "throughout though reluctantly healthily furlough minister unique simple over sidetrack",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9840,14 +9833,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									Description: "frequent aw above ultimate into till pish husky wetly agitated",
 									AudienceFilters: []components.FacetFilter{
 										components.FacetFilter{
-											FieldName: apiclientgo.String("type"),
+											FieldName: apiclientgo.Pointer("type"),
 											Values: []components.FacetFilterValue{
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Spreadsheet"),
+													Value:        apiclientgo.Pointer("Spreadsheet"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 												components.FacetFilterValue{
-													Value:        apiclientgo.String("Presentation"),
+													Value:        apiclientgo.Pointer("Presentation"),
 													RelationType: components.RelationTypeEquals.ToPointer(),
 												},
 											},
@@ -9864,8 +9857,8 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 								},
 								Code: &components.Code{
-									RepoName: apiclientgo.String("scio"),
-									FileName: apiclientgo.String("README.md"),
+									RepoName: apiclientgo.Pointer("scio"),
+									FileName: apiclientgo.Pointer("README.md"),
 								},
 								Shortcut: &components.Shortcut{
 									InputAlias: "<value>",
@@ -9879,12 +9872,12 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 									},
 									DestinationDocument: &components.Document{
 										Metadata: &components.DocumentMetadata{
-											Datasource: apiclientgo.String("datasource"),
-											ObjectType: apiclientgo.String("Feature Request"),
-											Container:  apiclientgo.String("container"),
-											ParentID:   apiclientgo.String("JIRA_EN-1337"),
-											MimeType:   apiclientgo.String("mimeType"),
-											DocumentID: apiclientgo.String("documentId"),
+											Datasource: apiclientgo.Pointer("datasource"),
+											ObjectType: apiclientgo.Pointer("Feature Request"),
+											Container:  apiclientgo.Pointer("container"),
+											ParentID:   apiclientgo.Pointer("JIRA_EN-1337"),
+											MimeType:   apiclientgo.Pointer("mimeType"),
+											DocumentID: apiclientgo.Pointer("documentId"),
 											CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
 											Author: &components.Person{
@@ -9895,7 +9888,7 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 												"Backend",
 												"Networking",
 											},
-											Status: apiclientgo.String("[\"Done\"]"),
+											Status: apiclientgo.Pointer("[\"Done\"]"),
 											CustomData: map[string]components.CustomDataValue{
 												"someCustomField": components.CustomDataValue{},
 											},
@@ -9913,13 +9906,13 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 						},
 						QuerySuggestion: &components.QuerySuggestion{
 							Query:      "app:github type:pull author:mortimer",
-							Label:      apiclientgo.String("Mortimer's PRs"),
-							Datasource: apiclientgo.String("github"),
+							Label:      apiclientgo.Pointer("Mortimer's PRs"),
+							Datasource: apiclientgo.Pointer("github"),
 						},
 						File: &components.ChatFile{
-							ID:   apiclientgo.String("FILE_1234"),
-							URL:  apiclientgo.String("www.google.com"),
-							Name: apiclientgo.String("sample.pdf"),
+							ID:   apiclientgo.Pointer("FILE_1234"),
+							URL:  apiclientgo.Pointer("www.google.com"),
+							Name: apiclientgo.Pointer("sample.pdf"),
 						},
 						Action: &components.ToolInfo{
 							Metadata: &components.ToolMetadata{
@@ -9927,14 +9920,14 @@ func TestClientChat_ChatStreamCitationResponse(t *testing.T) {
 								Name:               "<value>",
 								DisplayName:        "Nannie.McDermott",
 								DisplayDescription: "<value>",
-								ObjectName:         apiclientgo.String("[\"HR ticket\",\"Email\",\"Chat message\"]"),
+								ObjectName:         apiclientgo.Pointer("[\"HR ticket\",\"Email\",\"Chat message\"]"),
 							},
 						},
 					},
 				},
 			},
 		},
-		TimeoutMillis: apiclientgo.Int64(30000),
+		TimeoutMillis: apiclientgo.Pointer[int64](30000),
 	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)

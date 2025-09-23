@@ -7,9 +7,9 @@ type GetDocumentsResponse struct {
 	Documents map[string]DocumentOrErrorUnion `json:"documents,omitempty"`
 }
 
-func (o *GetDocumentsResponse) GetDocuments() map[string]DocumentOrErrorUnion {
-	if o == nil {
+func (g *GetDocumentsResponse) GetDocuments() map[string]DocumentOrErrorUnion {
+	if g == nil {
 		return nil
 	}
-	return o.Documents
+	return g.Documents
 }

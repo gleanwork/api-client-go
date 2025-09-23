@@ -15,37 +15,37 @@ type GleanAssistInsightsResponse struct {
 	Departments []string `json:"departments,omitempty"`
 }
 
-func (o *GleanAssistInsightsResponse) GetLastLogTimestamp() *int64 {
-	if o == nil {
+func (g *GleanAssistInsightsResponse) GetLastLogTimestamp() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.LastLogTimestamp
+	return g.LastLogTimestamp
 }
 
-func (o *GleanAssistInsightsResponse) GetActivityInsights() []UserActivityInsight {
-	if o == nil {
+func (g *GleanAssistInsightsResponse) GetActivityInsights() []UserActivityInsight {
+	if g == nil {
 		return nil
 	}
-	return o.ActivityInsights
+	return g.ActivityInsights
 }
 
-func (o *GleanAssistInsightsResponse) GetTotalActiveUsers() *int64 {
-	if o == nil {
+func (g *GleanAssistInsightsResponse) GetTotalActiveUsers() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.TotalActiveUsers
+	return g.TotalActiveUsers
 }
 
-func (o *GleanAssistInsightsResponse) GetDatasourceInstances() []string {
-	if o == nil {
+func (g *GleanAssistInsightsResponse) GetDatasourceInstances() []string {
+	if g == nil {
 		return nil
 	}
-	return o.DatasourceInstances
+	return g.DatasourceInstances
 }
 
-func (o *GleanAssistInsightsResponse) GetDepartments() []string {
-	if o == nil {
+func (g *GleanAssistInsightsResponse) GetDepartments() []string {
+	if g == nil {
 		return nil
 	}
-	return o.Departments
+	return g.Departments
 }

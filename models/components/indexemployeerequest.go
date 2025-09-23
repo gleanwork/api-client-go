@@ -10,16 +10,16 @@ type IndexEmployeeRequest struct {
 	Version *int64 `json:"version,omitempty"`
 }
 
-func (o *IndexEmployeeRequest) GetEmployee() EmployeeInfoDefinition {
-	if o == nil {
+func (i *IndexEmployeeRequest) GetEmployee() EmployeeInfoDefinition {
+	if i == nil {
 		return EmployeeInfoDefinition{}
 	}
-	return o.Employee
+	return i.Employee
 }
 
-func (o *IndexEmployeeRequest) GetVersion() *int64 {
-	if o == nil {
+func (i *IndexEmployeeRequest) GetVersion() *int64 {
+	if i == nil {
 		return nil
 	}
-	return o.Version
+	return i.Version
 }

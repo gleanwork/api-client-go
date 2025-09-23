@@ -7,16 +7,16 @@ type HotwordProximity struct {
 	WindowAfter  *int64 `json:"windowAfter,omitempty"`
 }
 
-func (o *HotwordProximity) GetWindowBefore() *int64 {
-	if o == nil {
+func (h *HotwordProximity) GetWindowBefore() *int64 {
+	if h == nil {
 		return nil
 	}
-	return o.WindowBefore
+	return h.WindowBefore
 }
 
-func (o *HotwordProximity) GetWindowAfter() *int64 {
-	if o == nil {
+func (h *HotwordProximity) GetWindowAfter() *int64 {
+	if h == nil {
 		return nil
 	}
-	return o.WindowAfter
+	return h.WindowAfter
 }

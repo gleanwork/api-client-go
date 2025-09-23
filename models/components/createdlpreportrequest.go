@@ -13,30 +13,30 @@ type CreateDlpReportRequest struct {
 	AutoHideDocs *bool `json:"autoHideDocs,omitempty"`
 }
 
-func (o *CreateDlpReportRequest) GetName() *string {
-	if o == nil {
+func (c *CreateDlpReportRequest) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CreateDlpReportRequest) GetConfig() *DlpConfig {
-	if o == nil {
+func (c *CreateDlpReportRequest) GetConfig() *DlpConfig {
+	if c == nil {
 		return nil
 	}
-	return o.Config
+	return c.Config
 }
 
-func (o *CreateDlpReportRequest) GetFrequency() *DlpFrequency {
-	if o == nil {
+func (c *CreateDlpReportRequest) GetFrequency() *DlpFrequency {
+	if c == nil {
 		return nil
 	}
-	return o.Frequency
+	return c.Frequency
 }
 
-func (o *CreateDlpReportRequest) GetAutoHideDocs() *bool {
-	if o == nil {
+func (c *CreateDlpReportRequest) GetAutoHideDocs() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.AutoHideDocs
+	return c.AutoHideDocs
 }

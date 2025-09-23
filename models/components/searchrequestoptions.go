@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 // ResponseHint - Hints for the response content.
@@ -71,127 +72,138 @@ type SearchRequestOptions struct {
 	DisableSpellcheck *bool `json:"disableSpellcheck,omitempty"`
 	// Disables automatic adjustment of the input query for spelling corrections or other reasons.
 	DisableQueryAutocorrect *bool `json:"disableQueryAutocorrect,omitempty"`
-	// [beta] Enables expanded content to be returned for LLM usage. The size of content per result returned should be modified using maxSnippetSize. Server may return less or more than what is specified in maxSnippetSize. For more details, https://docs.google.com/document/d/1CTOLSxWWT9WDEnHVLoCUaxbGYyXYP8kctPRF-RluSQY/edit. Requires sufficient permissions.
+	// Enables expanded content to be returned for LLM usage. The size of content per result returned should be modified using maxSnippetSize. Server may return less or more than what is specified in maxSnippetSize. For more details, see https://developers.glean.com/guides/search/llm-content.
 	ReturnLlmContentOverSnippets *bool               `json:"returnLlmContentOverSnippets,omitempty"`
 	Inclusions                   *RestrictionFilters `json:"inclusions,omitempty"`
 	Exclusions                   *RestrictionFilters `json:"exclusions,omitempty"`
 }
 
-func (o *SearchRequestOptions) GetDatasourceFilter() *string {
-	if o == nil {
-		return nil
-	}
-	return o.DatasourceFilter
+func (s SearchRequestOptions) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (o *SearchRequestOptions) GetDatasourcesFilter() []string {
-	if o == nil {
-		return nil
+func (s *SearchRequestOptions) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"facetBucketSize"}); err != nil {
+		return err
 	}
-	return o.DatasourcesFilter
+	return nil
 }
 
-func (o *SearchRequestOptions) GetQueryOverridesFacetFilters() *bool {
-	if o == nil {
+func (s *SearchRequestOptions) GetDatasourceFilter() *string {
+	if s == nil {
 		return nil
 	}
-	return o.QueryOverridesFacetFilters
+	return s.DatasourceFilter
 }
 
-func (o *SearchRequestOptions) GetFacetFilters() []FacetFilter {
-	if o == nil {
+func (s *SearchRequestOptions) GetDatasourcesFilter() []string {
+	if s == nil {
 		return nil
 	}
-	return o.FacetFilters
+	return s.DatasourcesFilter
 }
 
-func (o *SearchRequestOptions) GetFacetFilterSets() []FacetFilterSet {
-	if o == nil {
+func (s *SearchRequestOptions) GetQueryOverridesFacetFilters() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.FacetFilterSets
+	return s.QueryOverridesFacetFilters
 }
 
-func (o *SearchRequestOptions) GetFacetBucketFilter() *FacetBucketFilter {
-	if o == nil {
+func (s *SearchRequestOptions) GetFacetFilters() []FacetFilter {
+	if s == nil {
 		return nil
 	}
-	return o.FacetBucketFilter
+	return s.FacetFilters
 }
 
-func (o *SearchRequestOptions) GetFacetBucketSize() int64 {
-	if o == nil {
+func (s *SearchRequestOptions) GetFacetFilterSets() []FacetFilterSet {
+	if s == nil {
+		return nil
+	}
+	return s.FacetFilterSets
+}
+
+func (s *SearchRequestOptions) GetFacetBucketFilter() *FacetBucketFilter {
+	if s == nil {
+		return nil
+	}
+	return s.FacetBucketFilter
+}
+
+func (s *SearchRequestOptions) GetFacetBucketSize() int64 {
+	if s == nil {
 		return 0
 	}
-	return o.FacetBucketSize
+	return s.FacetBucketSize
 }
 
-func (o *SearchRequestOptions) GetDefaultFacets() []string {
-	if o == nil {
+func (s *SearchRequestOptions) GetDefaultFacets() []string {
+	if s == nil {
 		return nil
 	}
-	return o.DefaultFacets
+	return s.DefaultFacets
 }
 
-func (o *SearchRequestOptions) GetAuthTokens() []AuthToken {
-	if o == nil {
+func (s *SearchRequestOptions) GetAuthTokens() []AuthToken {
+	if s == nil {
 		return nil
 	}
-	return o.AuthTokens
+	return s.AuthTokens
 }
 
-func (o *SearchRequestOptions) GetFetchAllDatasourceCounts() *bool {
-	if o == nil {
+func (s *SearchRequestOptions) GetFetchAllDatasourceCounts() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.FetchAllDatasourceCounts
+	return s.FetchAllDatasourceCounts
 }
 
-func (o *SearchRequestOptions) GetResponseHints() []ResponseHint {
-	if o == nil {
+func (s *SearchRequestOptions) GetResponseHints() []ResponseHint {
+	if s == nil {
 		return nil
 	}
-	return o.ResponseHints
+	return s.ResponseHints
 }
 
-func (o *SearchRequestOptions) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (s *SearchRequestOptions) GetTimezoneOffset() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return s.TimezoneOffset
 }
 
-func (o *SearchRequestOptions) GetDisableSpellcheck() *bool {
-	if o == nil {
+func (s *SearchRequestOptions) GetDisableSpellcheck() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.DisableSpellcheck
+	return s.DisableSpellcheck
 }
 
-func (o *SearchRequestOptions) GetDisableQueryAutocorrect() *bool {
-	if o == nil {
+func (s *SearchRequestOptions) GetDisableQueryAutocorrect() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.DisableQueryAutocorrect
+	return s.DisableQueryAutocorrect
 }
 
-func (o *SearchRequestOptions) GetReturnLlmContentOverSnippets() *bool {
-	if o == nil {
+func (s *SearchRequestOptions) GetReturnLlmContentOverSnippets() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.ReturnLlmContentOverSnippets
+	return s.ReturnLlmContentOverSnippets
 }
 
-func (o *SearchRequestOptions) GetInclusions() *RestrictionFilters {
-	if o == nil {
+func (s *SearchRequestOptions) GetInclusions() *RestrictionFilters {
+	if s == nil {
 		return nil
 	}
-	return o.Inclusions
+	return s.Inclusions
 }
 
-func (o *SearchRequestOptions) GetExclusions() *RestrictionFilters {
-	if o == nil {
+func (s *SearchRequestOptions) GetExclusions() *RestrictionFilters {
+	if s == nil {
 		return nil
 	}
-	return o.Exclusions
+	return s.Exclusions
 }

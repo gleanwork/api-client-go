@@ -22,58 +22,58 @@ type SharingOptions struct {
 	UserIds []string `json:"userIds,omitempty"`
 }
 
-func (o *SharingOptions) GetEnabled() *bool {
-	if o == nil {
+func (s *SharingOptions) GetEnabled() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.Enabled
+	return s.Enabled
 }
 
-func (o *SharingOptions) GetThreshold() *int64 {
-	if o == nil {
+func (s *SharingOptions) GetThreshold() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.Threshold
+	return s.Threshold
 }
 
-func (o *SharingOptions) GetThresholdEnabled() *bool {
-	if o == nil {
+func (s *SharingOptions) GetThresholdEnabled() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.ThresholdEnabled
+	return s.ThresholdEnabled
 }
 
-func (o *SharingOptions) GetAnyoneWithLinkEnabled() *bool {
-	if o == nil {
+func (s *SharingOptions) GetAnyoneWithLinkEnabled() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.AnyoneWithLinkEnabled
+	return s.AnyoneWithLinkEnabled
 }
 
-func (o *SharingOptions) GetAnyoneInternalEnabled() *bool {
-	if o == nil {
+func (s *SharingOptions) GetAnyoneInternalEnabled() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.AnyoneInternalEnabled
+	return s.AnyoneInternalEnabled
 }
 
-func (o *SharingOptions) GetAnonymousAccessEnabled() *bool {
-	if o == nil {
+func (s *SharingOptions) GetAnonymousAccessEnabled() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.AnonymousAccessEnabled
+	return s.AnonymousAccessEnabled
 }
 
-func (o *SharingOptions) GetUserAccessEnabled() *bool {
-	if o == nil {
+func (s *SharingOptions) GetUserAccessEnabled() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.UserAccessEnabled
+	return s.UserAccessEnabled
 }
 
-func (o *SharingOptions) GetUserIds() []string {
-	if o == nil {
+func (s *SharingOptions) GetUserIds() []string {
+	if s == nil {
 		return nil
 	}
-	return o.UserIds
+	return s.UserIds
 }

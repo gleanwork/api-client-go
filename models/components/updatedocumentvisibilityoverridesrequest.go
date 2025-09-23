@@ -6,9 +6,9 @@ type UpdateDocumentVisibilityOverridesRequest struct {
 	VisibilityOverrides []DocumentVisibilityOverride `json:"visibilityOverrides,omitempty"`
 }
 
-func (o *UpdateDocumentVisibilityOverridesRequest) GetVisibilityOverrides() []DocumentVisibilityOverride {
-	if o == nil {
+func (u *UpdateDocumentVisibilityOverridesRequest) GetVisibilityOverrides() []DocumentVisibilityOverride {
+	if u == nil {
 		return nil
 	}
-	return o.VisibilityOverrides
+	return u.VisibilityOverrides
 }

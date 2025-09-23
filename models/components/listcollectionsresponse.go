@@ -7,9 +7,9 @@ type ListCollectionsResponse struct {
 	Collections []Collection `json:"collections"`
 }
 
-func (o *ListCollectionsResponse) GetCollections() []Collection {
-	if o == nil {
+func (l *ListCollectionsResponse) GetCollections() []Collection {
+	if l == nil {
 		return []Collection{}
 	}
-	return o.Collections
+	return l.Collections
 }

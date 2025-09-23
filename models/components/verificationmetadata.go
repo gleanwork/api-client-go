@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type VerificationMetadata struct {
 	LastVerifier *Person `json:"lastVerifier,omitempty"`
 	// The unix timestamp of the verification (in seconds since epoch UTC).
@@ -18,58 +22,69 @@ type VerificationMetadata struct {
 	CandidateVerifiers []Person `json:"candidateVerifiers,omitempty"`
 }
 
-func (o *VerificationMetadata) GetLastVerifier() *Person {
-	if o == nil {
-		return nil
-	}
-	return o.LastVerifier
+func (v VerificationMetadata) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(v, "", false)
 }
 
-func (o *VerificationMetadata) GetLastVerificationTs() *int64 {
-	if o == nil {
-		return nil
+func (v *VerificationMetadata) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &v, "", false, nil); err != nil {
+		return err
 	}
-	return o.LastVerificationTs
+	return nil
 }
 
-func (o *VerificationMetadata) GetExpirationTs() *int64 {
-	if o == nil {
+func (v *VerificationMetadata) GetLastVerifier() *Person {
+	if v == nil {
 		return nil
 	}
-	return o.ExpirationTs
+	return v.LastVerifier
 }
 
-func (o *VerificationMetadata) GetDocument() *Document {
-	if o == nil {
+func (v *VerificationMetadata) GetLastVerificationTs() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.Document
+	return v.LastVerificationTs
 }
 
-func (o *VerificationMetadata) GetReminders() []Reminder {
-	if o == nil {
+func (v *VerificationMetadata) GetExpirationTs() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.Reminders
+	return v.ExpirationTs
 }
 
-func (o *VerificationMetadata) GetLastReminder() *Reminder {
-	if o == nil {
+func (v *VerificationMetadata) GetDocument() *Document {
+	if v == nil {
 		return nil
 	}
-	return o.LastReminder
+	return v.Document
 }
 
-func (o *VerificationMetadata) GetVisitorCount() []CountInfo {
-	if o == nil {
+func (v *VerificationMetadata) GetReminders() []Reminder {
+	if v == nil {
 		return nil
 	}
-	return o.VisitorCount
+	return v.Reminders
 }
 
-func (o *VerificationMetadata) GetCandidateVerifiers() []Person {
-	if o == nil {
+func (v *VerificationMetadata) GetLastReminder() *Reminder {
+	if v == nil {
 		return nil
 	}
-	return o.CandidateVerifiers
+	return v.LastReminder
+}
+
+func (v *VerificationMetadata) GetVisitorCount() []CountInfo {
+	if v == nil {
+		return nil
+	}
+	return v.VisitorCount
+}
+
+func (v *VerificationMetadata) GetCandidateVerifiers() []Person {
+	if v == nil {
+		return nil
+	}
+	return v.CandidateVerifiers
 }

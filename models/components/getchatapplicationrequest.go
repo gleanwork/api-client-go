@@ -7,9 +7,9 @@ type GetChatApplicationRequest struct {
 	ID string `json:"id"`
 }
 
-func (o *GetChatApplicationRequest) GetID() string {
-	if o == nil {
+func (g *GetChatApplicationRequest) GetID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ID
+	return g.ID
 }

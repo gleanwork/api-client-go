@@ -54,22 +54,22 @@ func (v ViewerInfo) MarshalJSON() ([]byte, error) {
 }
 
 func (v *ViewerInfo) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &v, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *ViewerInfo) GetRole() *Role {
-	if o == nil {
+func (v *ViewerInfo) GetRole() *Role {
+	if v == nil {
 		return nil
 	}
-	return o.Role
+	return v.Role
 }
 
-func (o *ViewerInfo) GetLastViewedTime() *time.Time {
-	if o == nil {
+func (v *ViewerInfo) GetLastViewedTime() *time.Time {
+	if v == nil {
 		return nil
 	}
-	return o.LastViewedTime
+	return v.LastViewedTime
 }

@@ -12,23 +12,23 @@ type RotateTokenResponse struct {
 	RotationPeriodMinutes *int64 `json:"rotationPeriodMinutes,omitempty"`
 }
 
-func (o *RotateTokenResponse) GetRawSecret() *string {
-	if o == nil {
+func (r *RotateTokenResponse) GetRawSecret() *string {
+	if r == nil {
 		return nil
 	}
-	return o.RawSecret
+	return r.RawSecret
 }
 
-func (o *RotateTokenResponse) GetCreatedAt() *int64 {
-	if o == nil {
+func (r *RotateTokenResponse) GetCreatedAt() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return r.CreatedAt
 }
 
-func (o *RotateTokenResponse) GetRotationPeriodMinutes() *int64 {
-	if o == nil {
+func (r *RotateTokenResponse) GetRotationPeriodMinutes() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.RotationPeriodMinutes
+	return r.RotationPeriodMinutes
 }

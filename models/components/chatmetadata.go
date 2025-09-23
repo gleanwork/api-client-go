@@ -21,58 +21,58 @@ type ChatMetadata struct {
 	Icon *IconConfig `json:"icon,omitempty"`
 }
 
-func (o *ChatMetadata) GetID() *string {
-	if o == nil {
+func (c *ChatMetadata) GetID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *ChatMetadata) GetCreateTime() *int64 {
-	if o == nil {
+func (c *ChatMetadata) GetCreateTime() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.CreateTime
+	return c.CreateTime
 }
 
-func (o *ChatMetadata) GetCreatedBy() *Person {
-	if o == nil {
+func (c *ChatMetadata) GetCreatedBy() *Person {
+	if c == nil {
 		return nil
 	}
-	return o.CreatedBy
+	return c.CreatedBy
 }
 
-func (o *ChatMetadata) GetUpdateTime() *int64 {
-	if o == nil {
+func (c *ChatMetadata) GetUpdateTime() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return c.UpdateTime
 }
 
-func (o *ChatMetadata) GetName() *string {
-	if o == nil {
+func (c *ChatMetadata) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *ChatMetadata) GetApplicationID() *string {
-	if o == nil {
+func (c *ChatMetadata) GetApplicationID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ApplicationID
+	return c.ApplicationID
 }
 
-func (o *ChatMetadata) GetApplicationName() *string {
-	if o == nil {
+func (c *ChatMetadata) GetApplicationName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ApplicationName
+	return c.ApplicationName
 }
 
-func (o *ChatMetadata) GetIcon() *IconConfig {
-	if o == nil {
+func (c *ChatMetadata) GetIcon() *IconConfig {
+	if c == nil {
 		return nil
 	}
-	return o.Icon
+	return c.Icon
 }

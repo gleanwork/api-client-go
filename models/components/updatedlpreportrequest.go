@@ -15,37 +15,37 @@ type UpdateDlpReportRequest struct {
 	ReportName *string `json:"reportName,omitempty"`
 }
 
-func (o *UpdateDlpReportRequest) GetConfig() *DlpConfig {
-	if o == nil {
+func (u *UpdateDlpReportRequest) GetConfig() *DlpConfig {
+	if u == nil {
 		return nil
 	}
-	return o.Config
+	return u.Config
 }
 
-func (o *UpdateDlpReportRequest) GetFrequency() *DlpFrequency {
-	if o == nil {
+func (u *UpdateDlpReportRequest) GetFrequency() *DlpFrequency {
+	if u == nil {
 		return nil
 	}
-	return o.Frequency
+	return u.Frequency
 }
 
-func (o *UpdateDlpReportRequest) GetStatus() *DlpReportStatus {
-	if o == nil {
+func (u *UpdateDlpReportRequest) GetStatus() *DlpReportStatus {
+	if u == nil {
 		return nil
 	}
-	return o.Status
+	return u.Status
 }
 
-func (o *UpdateDlpReportRequest) GetAutoHideDocs() *bool {
-	if o == nil {
+func (u *UpdateDlpReportRequest) GetAutoHideDocs() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.AutoHideDocs
+	return u.AutoHideDocs
 }
 
-func (o *UpdateDlpReportRequest) GetReportName() *string {
-	if o == nil {
+func (u *UpdateDlpReportRequest) GetReportName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ReportName
+	return u.ReportName
 }

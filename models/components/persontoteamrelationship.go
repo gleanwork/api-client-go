@@ -61,36 +61,36 @@ func (p PersonToTeamRelationship) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PersonToTeamRelationship) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, []string{"person"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *PersonToTeamRelationship) GetPerson() Person {
-	if o == nil {
+func (p *PersonToTeamRelationship) GetPerson() Person {
+	if p == nil {
 		return Person{}
 	}
-	return o.Person
+	return p.Person
 }
 
-func (o *PersonToTeamRelationship) GetRelationship() *PersonToTeamRelationshipRelationship {
-	if o == nil {
+func (p *PersonToTeamRelationship) GetRelationship() *PersonToTeamRelationshipRelationship {
+	if p == nil {
 		return nil
 	}
-	return o.Relationship
+	return p.Relationship
 }
 
-func (o *PersonToTeamRelationship) GetCustomRelationshipStr() *string {
-	if o == nil {
+func (p *PersonToTeamRelationship) GetCustomRelationshipStr() *string {
+	if p == nil {
 		return nil
 	}
-	return o.CustomRelationshipStr
+	return p.CustomRelationshipStr
 }
 
-func (o *PersonToTeamRelationship) GetJoinDate() *time.Time {
-	if o == nil {
+func (p *PersonToTeamRelationship) GetJoinDate() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.JoinDate
+	return p.JoinDate
 }

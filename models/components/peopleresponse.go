@@ -11,23 +11,23 @@ type PeopleResponse struct {
 	Errors []string `json:"errors,omitempty"`
 }
 
-func (o *PeopleResponse) GetResults() []Person {
-	if o == nil {
+func (p *PeopleResponse) GetResults() []Person {
+	if p == nil {
 		return nil
 	}
-	return o.Results
+	return p.Results
 }
 
-func (o *PeopleResponse) GetRelatedDocuments() []RelatedDocuments {
-	if o == nil {
+func (p *PeopleResponse) GetRelatedDocuments() []RelatedDocuments {
+	if p == nil {
 		return nil
 	}
-	return o.RelatedDocuments
+	return p.RelatedDocuments
 }
 
-func (o *PeopleResponse) GetErrors() []string {
-	if o == nil {
+func (p *PeopleResponse) GetErrors() []string {
+	if p == nil {
 		return nil
 	}
-	return o.Errors
+	return p.Errors
 }

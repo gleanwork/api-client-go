@@ -42,9 +42,9 @@ type WorkflowFeedbackInfo struct {
 	Source *WorkflowFeedbackInfoSource `json:"source,omitempty"`
 }
 
-func (o *WorkflowFeedbackInfo) GetSource() *WorkflowFeedbackInfoSource {
-	if o == nil {
+func (w *WorkflowFeedbackInfo) GetSource() *WorkflowFeedbackInfoSource {
+	if w == nil {
 		return nil
 	}
-	return o.Source
+	return w.Source
 }

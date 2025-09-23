@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type Period struct {
 	// DEPRECATED - The number of days from now in the past to define upper boundary of time period.
 	//
@@ -15,30 +19,41 @@ type Period struct {
 	End            *TimePoint `json:"end,omitempty"`
 }
 
-func (o *Period) GetMinDaysFromNow() *int64 {
-	if o == nil {
-		return nil
-	}
-	return o.MinDaysFromNow
+func (p Period) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
 }
 
-func (o *Period) GetMaxDaysFromNow() *int64 {
-	if o == nil {
-		return nil
+func (p *Period) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
 	}
-	return o.MaxDaysFromNow
+	return nil
 }
 
-func (o *Period) GetStart() *TimePoint {
-	if o == nil {
+func (p *Period) GetMinDaysFromNow() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.Start
+	return p.MinDaysFromNow
 }
 
-func (o *Period) GetEnd() *TimePoint {
-	if o == nil {
+func (p *Period) GetMaxDaysFromNow() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.End
+	return p.MaxDaysFromNow
+}
+
+func (p *Period) GetStart() *TimePoint {
+	if p == nil {
+		return nil
+	}
+	return p.Start
+}
+
+func (p *Period) GetEnd() *TimePoint {
+	if p == nil {
+		return nil
+	}
+	return p.End
 }

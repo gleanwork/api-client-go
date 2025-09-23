@@ -9,16 +9,16 @@ type DlpPersonMetadata struct {
 	Email *string `json:"email,omitempty"`
 }
 
-func (o *DlpPersonMetadata) GetFirstName() *string {
-	if o == nil {
+func (d *DlpPersonMetadata) GetFirstName() *string {
+	if d == nil {
 		return nil
 	}
-	return o.FirstName
+	return d.FirstName
 }
 
-func (o *DlpPersonMetadata) GetEmail() *string {
-	if o == nil {
+func (d *DlpPersonMetadata) GetEmail() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Email
+	return d.Email
 }

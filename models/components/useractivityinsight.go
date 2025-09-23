@@ -44,37 +44,37 @@ type UserActivityInsight struct {
 	ActiveDayCount        *CountInfo `json:"activeDayCount,omitempty"`
 }
 
-func (o *UserActivityInsight) GetUser() Person {
-	if o == nil {
+func (u *UserActivityInsight) GetUser() Person {
+	if u == nil {
 		return Person{}
 	}
-	return o.User
+	return u.User
 }
 
-func (o *UserActivityInsight) GetActivity() ActivityEnum {
-	if o == nil {
+func (u *UserActivityInsight) GetActivity() ActivityEnum {
+	if u == nil {
 		return ActivityEnum("")
 	}
-	return o.Activity
+	return u.Activity
 }
 
-func (o *UserActivityInsight) GetLastActivityTimestamp() *int64 {
-	if o == nil {
+func (u *UserActivityInsight) GetLastActivityTimestamp() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.LastActivityTimestamp
+	return u.LastActivityTimestamp
 }
 
-func (o *UserActivityInsight) GetActivityCount() *CountInfo {
-	if o == nil {
+func (u *UserActivityInsight) GetActivityCount() *CountInfo {
+	if u == nil {
 		return nil
 	}
-	return o.ActivityCount
+	return u.ActivityCount
 }
 
-func (o *UserActivityInsight) GetActiveDayCount() *CountInfo {
-	if o == nil {
+func (u *UserActivityInsight) GetActiveDayCount() *CountInfo {
+	if u == nil {
 		return nil
 	}
-	return o.ActiveDayCount
+	return u.ActiveDayCount
 }

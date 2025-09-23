@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 // GeneratedQnaStatus - Status of backend generating the answer
@@ -71,58 +72,69 @@ type GeneratedQna struct {
 	TrackingToken *string `json:"trackingToken,omitempty"`
 }
 
-func (o *GeneratedQna) GetQuestion() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Question
+func (g GeneratedQna) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
 }
 
-func (o *GeneratedQna) GetAnswer() *string {
-	if o == nil {
-		return nil
+func (g *GeneratedQna) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, nil); err != nil {
+		return err
 	}
-	return o.Answer
+	return nil
 }
 
-func (o *GeneratedQna) GetFollowUpPrompts() []string {
-	if o == nil {
+func (g *GeneratedQna) GetQuestion() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FollowUpPrompts
+	return g.Question
 }
 
-func (o *GeneratedQna) GetFollowupActions() []FollowupAction {
-	if o == nil {
+func (g *GeneratedQna) GetAnswer() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FollowupActions
+	return g.Answer
 }
 
-func (o *GeneratedQna) GetRanges() []TextRange {
-	if o == nil {
+func (g *GeneratedQna) GetFollowUpPrompts() []string {
+	if g == nil {
 		return nil
 	}
-	return o.Ranges
+	return g.FollowUpPrompts
 }
 
-func (o *GeneratedQna) GetStatus() *GeneratedQnaStatus {
-	if o == nil {
+func (g *GeneratedQna) GetFollowupActions() []FollowupAction {
+	if g == nil {
 		return nil
 	}
-	return o.Status
+	return g.FollowupActions
 }
 
-func (o *GeneratedQna) GetCursor() *string {
-	if o == nil {
+func (g *GeneratedQna) GetRanges() []TextRange {
+	if g == nil {
 		return nil
 	}
-	return o.Cursor
+	return g.Ranges
 }
 
-func (o *GeneratedQna) GetTrackingToken() *string {
-	if o == nil {
+func (g *GeneratedQna) GetStatus() *GeneratedQnaStatus {
+	if g == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return g.Status
+}
+
+func (g *GeneratedQna) GetCursor() *string {
+	if g == nil {
+		return nil
+	}
+	return g.Cursor
+}
+
+func (g *GeneratedQna) GetTrackingToken() *string {
+	if g == nil {
+		return nil
+	}
+	return g.TrackingToken
 }

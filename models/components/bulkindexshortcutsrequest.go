@@ -16,37 +16,37 @@ type BulkIndexShortcutsRequest struct {
 	Shortcuts []ExternalShortcut `json:"shortcuts"`
 }
 
-func (o *BulkIndexShortcutsRequest) GetUploadID() string {
-	if o == nil {
+func (b *BulkIndexShortcutsRequest) GetUploadID() string {
+	if b == nil {
 		return ""
 	}
-	return o.UploadID
+	return b.UploadID
 }
 
-func (o *BulkIndexShortcutsRequest) GetIsFirstPage() *bool {
-	if o == nil {
+func (b *BulkIndexShortcutsRequest) GetIsFirstPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsFirstPage
+	return b.IsFirstPage
 }
 
-func (o *BulkIndexShortcutsRequest) GetIsLastPage() *bool {
-	if o == nil {
+func (b *BulkIndexShortcutsRequest) GetIsLastPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsLastPage
+	return b.IsLastPage
 }
 
-func (o *BulkIndexShortcutsRequest) GetForceRestartUpload() *bool {
-	if o == nil {
+func (b *BulkIndexShortcutsRequest) GetForceRestartUpload() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.ForceRestartUpload
+	return b.ForceRestartUpload
 }
 
-func (o *BulkIndexShortcutsRequest) GetShortcuts() []ExternalShortcut {
-	if o == nil {
+func (b *BulkIndexShortcutsRequest) GetShortcuts() []ExternalShortcut {
+	if b == nil {
 		return []ExternalShortcut{}
 	}
-	return o.Shortcuts
+	return b.Shortcuts
 }

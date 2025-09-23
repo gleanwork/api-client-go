@@ -7,18 +7,18 @@ type ResultDocument struct {
 	URL   *string `json:"url,omitempty"`
 }
 
-func (o *ResultDocument) GetTitle() *string {
-	if o == nil {
+func (r *ResultDocument) GetTitle() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Title
+	return r.Title
 }
 
-func (o *ResultDocument) GetURL() *string {
-	if o == nil {
+func (r *ResultDocument) GetURL() *string {
+	if r == nil {
 		return nil
 	}
-	return o.URL
+	return r.URL
 }
 
 type FeedbackChatExchange struct {
@@ -35,44 +35,44 @@ type FeedbackChatExchange struct {
 	Response        *string          `json:"response,omitempty"`
 }
 
-func (o *FeedbackChatExchange) GetTimestamp() *int64 {
-	if o == nil {
+func (f *FeedbackChatExchange) GetTimestamp() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.Timestamp
+	return f.Timestamp
 }
 
-func (o *FeedbackChatExchange) GetAgent() *string {
-	if o == nil {
+func (f *FeedbackChatExchange) GetAgent() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Agent
+	return f.Agent
 }
 
-func (o *FeedbackChatExchange) GetUserQuery() *string {
-	if o == nil {
+func (f *FeedbackChatExchange) GetUserQuery() *string {
+	if f == nil {
 		return nil
 	}
-	return o.UserQuery
+	return f.UserQuery
 }
 
-func (o *FeedbackChatExchange) GetSearchQuery() *string {
-	if o == nil {
+func (f *FeedbackChatExchange) GetSearchQuery() *string {
+	if f == nil {
 		return nil
 	}
-	return o.SearchQuery
+	return f.SearchQuery
 }
 
-func (o *FeedbackChatExchange) GetResultDocuments() []ResultDocument {
-	if o == nil {
+func (f *FeedbackChatExchange) GetResultDocuments() []ResultDocument {
+	if f == nil {
 		return nil
 	}
-	return o.ResultDocuments
+	return f.ResultDocuments
 }
 
-func (o *FeedbackChatExchange) GetResponse() *string {
-	if o == nil {
+func (f *FeedbackChatExchange) GetResponse() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Response
+	return f.Response
 }

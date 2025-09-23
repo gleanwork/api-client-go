@@ -12,16 +12,16 @@ type PeopleResponse struct {
 	PeopleResponse *components.PeopleResponse
 }
 
-func (o *PeopleResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PeopleResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PeopleResponse) GetPeopleResponse() *components.PeopleResponse {
-	if o == nil {
+func (p *PeopleResponse) GetPeopleResponse() *components.PeopleResponse {
+	if p == nil {
 		return nil
 	}
-	return o.PeopleResponse
+	return p.PeopleResponse
 }

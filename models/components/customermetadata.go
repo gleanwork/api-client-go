@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type CustomerMetadata struct {
 	// The user visible id of the salesforce customer account.
 	DatasourceID *string `json:"datasourceId,omitempty"`
@@ -9,16 +13,27 @@ type CustomerMetadata struct {
 	CustomData map[string]CustomDataValue `json:"customData,omitempty"`
 }
 
-func (o *CustomerMetadata) GetDatasourceID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.DatasourceID
+func (c CustomerMetadata) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
 }
 
-func (o *CustomerMetadata) GetCustomData() map[string]CustomDataValue {
-	if o == nil {
+func (c *CustomerMetadata) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CustomerMetadata) GetDatasourceID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.CustomData
+	return c.DatasourceID
+}
+
+func (c *CustomerMetadata) GetCustomData() map[string]CustomDataValue {
+	if c == nil {
+		return nil
+	}
+	return c.CustomData
 }

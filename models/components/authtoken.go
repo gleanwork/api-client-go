@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type AuthToken struct {
 	AccessToken string  `json:"accessToken"`
 	Datasource  string  `json:"datasource"`
@@ -13,44 +17,55 @@ type AuthToken struct {
 	Expiration *int64 `json:"expiration,omitempty"`
 }
 
-func (o *AuthToken) GetAccessToken() string {
-	if o == nil {
+func (a AuthToken) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *AuthToken) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, []string{"accessToken", "datasource"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *AuthToken) GetAccessToken() string {
+	if a == nil {
 		return ""
 	}
-	return o.AccessToken
+	return a.AccessToken
 }
 
-func (o *AuthToken) GetDatasource() string {
-	if o == nil {
+func (a *AuthToken) GetDatasource() string {
+	if a == nil {
 		return ""
 	}
-	return o.Datasource
+	return a.Datasource
 }
 
-func (o *AuthToken) GetScope() *string {
-	if o == nil {
+func (a *AuthToken) GetScope() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Scope
+	return a.Scope
 }
 
-func (o *AuthToken) GetTokenType() *string {
-	if o == nil {
+func (a *AuthToken) GetTokenType() *string {
+	if a == nil {
 		return nil
 	}
-	return o.TokenType
+	return a.TokenType
 }
 
-func (o *AuthToken) GetAuthUser() *string {
-	if o == nil {
+func (a *AuthToken) GetAuthUser() *string {
+	if a == nil {
 		return nil
 	}
-	return o.AuthUser
+	return a.AuthUser
 }
 
-func (o *AuthToken) GetExpiration() *int64 {
-	if o == nil {
+func (a *AuthToken) GetExpiration() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.Expiration
+	return a.Expiration
 }

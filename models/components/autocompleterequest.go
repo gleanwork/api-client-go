@@ -84,58 +84,58 @@ type AutocompleteRequest struct {
 	AuthTokens []AuthToken `json:"authTokens,omitempty"`
 }
 
-func (o *AutocompleteRequest) GetTrackingToken() *string {
-	if o == nil {
+func (a *AutocompleteRequest) GetTrackingToken() *string {
+	if a == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return a.TrackingToken
 }
 
-func (o *AutocompleteRequest) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (a *AutocompleteRequest) GetSessionInfo() *SessionInfo {
+	if a == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return a.SessionInfo
 }
 
-func (o *AutocompleteRequest) GetQuery() *string {
-	if o == nil {
+func (a *AutocompleteRequest) GetQuery() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Query
+	return a.Query
 }
 
-func (o *AutocompleteRequest) GetDatasourcesFilter() []string {
-	if o == nil {
+func (a *AutocompleteRequest) GetDatasourcesFilter() []string {
+	if a == nil {
 		return nil
 	}
-	return o.DatasourcesFilter
+	return a.DatasourcesFilter
 }
 
-func (o *AutocompleteRequest) GetDatasource() *string {
-	if o == nil {
+func (a *AutocompleteRequest) GetDatasource() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Datasource
+	return a.Datasource
 }
 
-func (o *AutocompleteRequest) GetResultTypes() []AutocompleteRequestResultType {
-	if o == nil {
+func (a *AutocompleteRequest) GetResultTypes() []AutocompleteRequestResultType {
+	if a == nil {
 		return nil
 	}
-	return o.ResultTypes
+	return a.ResultTypes
 }
 
-func (o *AutocompleteRequest) GetResultSize() *int64 {
-	if o == nil {
+func (a *AutocompleteRequest) GetResultSize() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.ResultSize
+	return a.ResultSize
 }
 
-func (o *AutocompleteRequest) GetAuthTokens() []AuthToken {
-	if o == nil {
+func (a *AutocompleteRequest) GetAuthTokens() []AuthToken {
+	if a == nil {
 		return nil
 	}
-	return o.AuthTokens
+	return a.AuthTokens
 }

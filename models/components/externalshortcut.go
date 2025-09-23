@@ -27,79 +27,79 @@ type ExternalShortcut struct {
 	EditURL *string `json:"editUrl,omitempty"`
 }
 
-func (o *ExternalShortcut) GetInputAlias() string {
-	if o == nil {
+func (e *ExternalShortcut) GetInputAlias() string {
+	if e == nil {
 		return ""
 	}
-	return o.InputAlias
+	return e.InputAlias
 }
 
-func (o *ExternalShortcut) GetDescription() *string {
-	if o == nil {
+func (e *ExternalShortcut) GetDescription() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Description
+	return e.Description
 }
 
-func (o *ExternalShortcut) GetDestinationURL() string {
-	if o == nil {
+func (e *ExternalShortcut) GetDestinationURL() string {
+	if e == nil {
 		return ""
 	}
-	return o.DestinationURL
+	return e.DestinationURL
 }
 
-func (o *ExternalShortcut) GetCreatedBy() string {
-	if o == nil {
+func (e *ExternalShortcut) GetCreatedBy() string {
+	if e == nil {
 		return ""
 	}
-	return o.CreatedBy
+	return e.CreatedBy
 }
 
-func (o *ExternalShortcut) GetCreateTime() *int64 {
-	if o == nil {
+func (e *ExternalShortcut) GetCreateTime() *int64 {
+	if e == nil {
 		return nil
 	}
-	return o.CreateTime
+	return e.CreateTime
 }
 
-func (o *ExternalShortcut) GetUpdatedBy() *string {
-	if o == nil {
+func (e *ExternalShortcut) GetUpdatedBy() *string {
+	if e == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return e.UpdatedBy
 }
 
-func (o *ExternalShortcut) GetUpdateTime() *int64 {
-	if o == nil {
+func (e *ExternalShortcut) GetUpdateTime() *int64 {
+	if e == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return e.UpdateTime
 }
 
-func (o *ExternalShortcut) GetTitle() *string {
-	if o == nil {
+func (e *ExternalShortcut) GetTitle() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Title
+	return e.Title
 }
 
-func (o *ExternalShortcut) GetIntermediateURL() string {
-	if o == nil {
+func (e *ExternalShortcut) GetIntermediateURL() string {
+	if e == nil {
 		return ""
 	}
-	return o.IntermediateURL
+	return e.IntermediateURL
 }
 
-func (o *ExternalShortcut) GetDecayedVisitScore() *float64 {
-	if o == nil {
+func (e *ExternalShortcut) GetDecayedVisitScore() *float64 {
+	if e == nil {
 		return nil
 	}
-	return o.DecayedVisitScore
+	return e.DecayedVisitScore
 }
 
-func (o *ExternalShortcut) GetEditURL() *string {
-	if o == nil {
+func (e *ExternalShortcut) GetEditURL() *string {
+	if e == nil {
 		return nil
 	}
-	return o.EditURL
+	return e.EditURL
 }

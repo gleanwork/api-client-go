@@ -37,29 +37,29 @@ func main() {
     )
 
     res, err := s.Client.Search.QueryAsAdmin(ctx, components.SearchRequest{
-        TrackingToken: apiclientgo.String("trackingToken"),
-        PageSize: apiclientgo.Int64(10),
+        TrackingToken: apiclientgo.Pointer("trackingToken"),
+        PageSize: apiclientgo.Pointer[int64](10),
         Query: "vacation policy",
         RequestOptions: &components.SearchRequestOptions{
             FacetFilters: []components.FacetFilter{
                 components.FacetFilter{
-                    FieldName: apiclientgo.String("type"),
+                    FieldName: apiclientgo.Pointer("type"),
                     Values: []components.FacetFilterValue{
                         components.FacetFilterValue{
-                            Value: apiclientgo.String("article"),
+                            Value: apiclientgo.Pointer("article"),
                             RelationType: components.RelationTypeEquals.ToPointer(),
                         },
                         components.FacetFilterValue{
-                            Value: apiclientgo.String("document"),
+                            Value: apiclientgo.Pointer("document"),
                             RelationType: components.RelationTypeEquals.ToPointer(),
                         },
                     },
                 },
                 components.FacetFilter{
-                    FieldName: apiclientgo.String("department"),
+                    FieldName: apiclientgo.Pointer("department"),
                     Values: []components.FacetFilterValue{
                         components.FacetFilterValue{
-                            Value: apiclientgo.String("engineering"),
+                            Value: apiclientgo.Pointer("engineering"),
                             RelationType: components.RelationTypeEquals.ToPointer(),
                         },
                     },
@@ -122,10 +122,10 @@ func main() {
     )
 
     res, err := s.Client.Search.Autocomplete(ctx, components.AutocompleteRequest{
-        TrackingToken: apiclientgo.String("trackingToken"),
-        Query: apiclientgo.String("what is a que"),
-        Datasource: apiclientgo.String("GDRIVE"),
-        ResultSize: apiclientgo.Int64(10),
+        TrackingToken: apiclientgo.Pointer("trackingToken"),
+        Query: apiclientgo.Pointer("what is a que"),
+        Datasource: apiclientgo.Pointer("GDRIVE"),
+        ResultSize: apiclientgo.Pointer[int64](10),
     })
     if err != nil {
         log.Fatal(err)
@@ -180,7 +180,7 @@ func main() {
     )
 
     res, err := s.Client.Search.RetrieveFeed(ctx, components.FeedRequest{
-        TimeoutMillis: apiclientgo.Int64(5000),
+        TimeoutMillis: apiclientgo.Pointer[int64](5000),
     })
     if err != nil {
         log.Fatal(err)
@@ -239,12 +239,12 @@ func main() {
         SourceDocument: &components.Document{
             ContainerDocument: &components.Document{
                 Metadata: &components.DocumentMetadata{
-                    Datasource: apiclientgo.String("datasource"),
-                    ObjectType: apiclientgo.String("Feature Request"),
-                    Container: apiclientgo.String("container"),
-                    ParentID: apiclientgo.String("JIRA_EN-1337"),
-                    MimeType: apiclientgo.String("mimeType"),
-                    DocumentID: apiclientgo.String("documentId"),
+                    Datasource: apiclientgo.Pointer("datasource"),
+                    ObjectType: apiclientgo.Pointer("Feature Request"),
+                    Container: apiclientgo.Pointer("container"),
+                    ParentID: apiclientgo.Pointer("JIRA_EN-1337"),
+                    MimeType: apiclientgo.Pointer("mimeType"),
+                    DocumentID: apiclientgo.Pointer("documentId"),
                     CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                     UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                     Author: &components.Person{
@@ -255,7 +255,7 @@ func main() {
                         "Backend",
                         "Networking",
                     },
-                    Status: apiclientgo.String("[\"Done\"]"),
+                    Status: apiclientgo.Pointer("[\"Done\"]"),
                     CustomData: map[string]components.CustomDataValue{
                         "someCustomField": components.CustomDataValue{},
                     },
@@ -263,12 +263,12 @@ func main() {
             },
             ParentDocument: &components.Document{
                 Metadata: &components.DocumentMetadata{
-                    Datasource: apiclientgo.String("datasource"),
-                    ObjectType: apiclientgo.String("Feature Request"),
-                    Container: apiclientgo.String("container"),
-                    ParentID: apiclientgo.String("JIRA_EN-1337"),
-                    MimeType: apiclientgo.String("mimeType"),
-                    DocumentID: apiclientgo.String("documentId"),
+                    Datasource: apiclientgo.Pointer("datasource"),
+                    ObjectType: apiclientgo.Pointer("Feature Request"),
+                    Container: apiclientgo.Pointer("container"),
+                    ParentID: apiclientgo.Pointer("JIRA_EN-1337"),
+                    MimeType: apiclientgo.Pointer("mimeType"),
+                    DocumentID: apiclientgo.Pointer("documentId"),
                     CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                     UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                     Author: &components.Person{
@@ -279,19 +279,19 @@ func main() {
                         "Backend",
                         "Networking",
                     },
-                    Status: apiclientgo.String("[\"Done\"]"),
+                    Status: apiclientgo.Pointer("[\"Done\"]"),
                     CustomData: map[string]components.CustomDataValue{
                         "someCustomField": components.CustomDataValue{},
                     },
                 },
             },
             Metadata: &components.DocumentMetadata{
-                Datasource: apiclientgo.String("datasource"),
-                ObjectType: apiclientgo.String("Feature Request"),
-                Container: apiclientgo.String("container"),
-                ParentID: apiclientgo.String("JIRA_EN-1337"),
-                MimeType: apiclientgo.String("mimeType"),
-                DocumentID: apiclientgo.String("documentId"),
+                Datasource: apiclientgo.Pointer("datasource"),
+                ObjectType: apiclientgo.Pointer("Feature Request"),
+                Container: apiclientgo.Pointer("container"),
+                ParentID: apiclientgo.Pointer("JIRA_EN-1337"),
+                MimeType: apiclientgo.Pointer("mimeType"),
+                DocumentID: apiclientgo.Pointer("documentId"),
                 CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                 UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                 Author: &components.Person{
@@ -302,27 +302,27 @@ func main() {
                     "Backend",
                     "Networking",
                 },
-                Status: apiclientgo.String("[\"Done\"]"),
+                Status: apiclientgo.Pointer("[\"Done\"]"),
                 CustomData: map[string]components.CustomDataValue{
                     "someCustomField": components.CustomDataValue{},
                 },
             },
         },
-        PageSize: apiclientgo.Int64(100),
-        MaxSnippetSize: apiclientgo.Int64(400),
+        PageSize: apiclientgo.Pointer[int64](100),
+        MaxSnippetSize: apiclientgo.Pointer[int64](400),
         RequestOptions: &components.RecommendationsRequestOptions{
             FacetFilterSets: []components.FacetFilterSet{
                 components.FacetFilterSet{
                     Filters: []components.FacetFilter{
                         components.FacetFilter{
-                            FieldName: apiclientgo.String("type"),
+                            FieldName: apiclientgo.Pointer("type"),
                             Values: []components.FacetFilterValue{
                                 components.FacetFilterValue{
-                                    Value: apiclientgo.String("Spreadsheet"),
+                                    Value: apiclientgo.Pointer("Spreadsheet"),
                                     RelationType: components.RelationTypeEquals.ToPointer(),
                                 },
                                 components.FacetFilterValue{
-                                    Value: apiclientgo.String("Presentation"),
+                                    Value: apiclientgo.Pointer("Presentation"),
                                     RelationType: components.RelationTypeEquals.ToPointer(),
                                 },
                             },
@@ -332,14 +332,14 @@ func main() {
                 components.FacetFilterSet{
                     Filters: []components.FacetFilter{
                         components.FacetFilter{
-                            FieldName: apiclientgo.String("type"),
+                            FieldName: apiclientgo.Pointer("type"),
                             Values: []components.FacetFilterValue{
                                 components.FacetFilterValue{
-                                    Value: apiclientgo.String("Spreadsheet"),
+                                    Value: apiclientgo.Pointer("Spreadsheet"),
                                     RelationType: components.RelationTypeEquals.ToPointer(),
                                 },
                                 components.FacetFilterValue{
-                                    Value: apiclientgo.String("Presentation"),
+                                    Value: apiclientgo.Pointer("Presentation"),
                                     RelationType: components.RelationTypeEquals.ToPointer(),
                                 },
                             },
@@ -349,14 +349,14 @@ func main() {
                 components.FacetFilterSet{
                     Filters: []components.FacetFilter{
                         components.FacetFilter{
-                            FieldName: apiclientgo.String("type"),
+                            FieldName: apiclientgo.Pointer("type"),
                             Values: []components.FacetFilterValue{
                                 components.FacetFilterValue{
-                                    Value: apiclientgo.String("Spreadsheet"),
+                                    Value: apiclientgo.Pointer("Spreadsheet"),
                                     RelationType: components.RelationTypeEquals.ToPointer(),
                                 },
                                 components.FacetFilterValue{
-                                    Value: apiclientgo.String("Presentation"),
+                                    Value: apiclientgo.Pointer("Presentation"),
                                     RelationType: components.RelationTypeEquals.ToPointer(),
                                 },
                             },
@@ -367,12 +367,12 @@ func main() {
             Context: &components.Document{
                 ContainerDocument: &components.Document{
                     Metadata: &components.DocumentMetadata{
-                        Datasource: apiclientgo.String("datasource"),
-                        ObjectType: apiclientgo.String("Feature Request"),
-                        Container: apiclientgo.String("container"),
-                        ParentID: apiclientgo.String("JIRA_EN-1337"),
-                        MimeType: apiclientgo.String("mimeType"),
-                        DocumentID: apiclientgo.String("documentId"),
+                        Datasource: apiclientgo.Pointer("datasource"),
+                        ObjectType: apiclientgo.Pointer("Feature Request"),
+                        Container: apiclientgo.Pointer("container"),
+                        ParentID: apiclientgo.Pointer("JIRA_EN-1337"),
+                        MimeType: apiclientgo.Pointer("mimeType"),
+                        DocumentID: apiclientgo.Pointer("documentId"),
                         CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                         UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                         Author: &components.Person{
@@ -383,7 +383,7 @@ func main() {
                             "Backend",
                             "Networking",
                         },
-                        Status: apiclientgo.String("[\"Done\"]"),
+                        Status: apiclientgo.Pointer("[\"Done\"]"),
                         CustomData: map[string]components.CustomDataValue{
                             "someCustomField": components.CustomDataValue{},
                         },
@@ -391,12 +391,12 @@ func main() {
                 },
                 ParentDocument: &components.Document{
                     Metadata: &components.DocumentMetadata{
-                        Datasource: apiclientgo.String("datasource"),
-                        ObjectType: apiclientgo.String("Feature Request"),
-                        Container: apiclientgo.String("container"),
-                        ParentID: apiclientgo.String("JIRA_EN-1337"),
-                        MimeType: apiclientgo.String("mimeType"),
-                        DocumentID: apiclientgo.String("documentId"),
+                        Datasource: apiclientgo.Pointer("datasource"),
+                        ObjectType: apiclientgo.Pointer("Feature Request"),
+                        Container: apiclientgo.Pointer("container"),
+                        ParentID: apiclientgo.Pointer("JIRA_EN-1337"),
+                        MimeType: apiclientgo.Pointer("mimeType"),
+                        DocumentID: apiclientgo.Pointer("documentId"),
                         CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                         UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                         Author: &components.Person{
@@ -407,19 +407,19 @@ func main() {
                             "Backend",
                             "Networking",
                         },
-                        Status: apiclientgo.String("[\"Done\"]"),
+                        Status: apiclientgo.Pointer("[\"Done\"]"),
                         CustomData: map[string]components.CustomDataValue{
                             "someCustomField": components.CustomDataValue{},
                         },
                     },
                 },
                 Metadata: &components.DocumentMetadata{
-                    Datasource: apiclientgo.String("datasource"),
-                    ObjectType: apiclientgo.String("Feature Request"),
-                    Container: apiclientgo.String("container"),
-                    ParentID: apiclientgo.String("JIRA_EN-1337"),
-                    MimeType: apiclientgo.String("mimeType"),
-                    DocumentID: apiclientgo.String("documentId"),
+                    Datasource: apiclientgo.Pointer("datasource"),
+                    ObjectType: apiclientgo.Pointer("Feature Request"),
+                    Container: apiclientgo.Pointer("container"),
+                    ParentID: apiclientgo.Pointer("JIRA_EN-1337"),
+                    MimeType: apiclientgo.Pointer("mimeType"),
+                    DocumentID: apiclientgo.Pointer("documentId"),
                     CreateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                     UpdateTime: types.MustNewTimeFromString("2000-01-23T04:56:07.000Z"),
                     Author: &components.Person{
@@ -430,7 +430,7 @@ func main() {
                         "Backend",
                         "Networking",
                     },
-                    Status: apiclientgo.String("[\"Done\"]"),
+                    Status: apiclientgo.Pointer("[\"Done\"]"),
                     CustomData: map[string]components.CustomDataValue{
                         "someCustomField": components.CustomDataValue{},
                     },
@@ -491,29 +491,29 @@ func main() {
     )
 
     res, err := s.Client.Search.Query(ctx, components.SearchRequest{
-        TrackingToken: apiclientgo.String("trackingToken"),
-        PageSize: apiclientgo.Int64(10),
+        TrackingToken: apiclientgo.Pointer("trackingToken"),
+        PageSize: apiclientgo.Pointer[int64](10),
         Query: "vacation policy",
         RequestOptions: &components.SearchRequestOptions{
             FacetFilters: []components.FacetFilter{
                 components.FacetFilter{
-                    FieldName: apiclientgo.String("type"),
+                    FieldName: apiclientgo.Pointer("type"),
                     Values: []components.FacetFilterValue{
                         components.FacetFilterValue{
-                            Value: apiclientgo.String("article"),
+                            Value: apiclientgo.Pointer("article"),
                             RelationType: components.RelationTypeEquals.ToPointer(),
                         },
                         components.FacetFilterValue{
-                            Value: apiclientgo.String("document"),
+                            Value: apiclientgo.Pointer("document"),
                             RelationType: components.RelationTypeEquals.ToPointer(),
                         },
                     },
                 },
                 components.FacetFilter{
-                    FieldName: apiclientgo.String("department"),
+                    FieldName: apiclientgo.Pointer("department"),
                     Values: []components.FacetFilterValue{
                         components.FacetFilterValue{
-                            Value: apiclientgo.String("engineering"),
+                            Value: apiclientgo.Pointer("engineering"),
                             RelationType: components.RelationTypeEquals.ToPointer(),
                         },
                     },

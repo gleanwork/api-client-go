@@ -7,9 +7,9 @@ type InsightsAiAppRequestOptions struct {
 	AiAppIds []string `json:"aiAppIds,omitempty"`
 }
 
-func (o *InsightsAiAppRequestOptions) GetAiAppIds() []string {
-	if o == nil {
+func (i *InsightsAiAppRequestOptions) GetAiAppIds() []string {
+	if i == nil {
 		return nil
 	}
-	return o.AiAppIds
+	return i.AiAppIds
 }

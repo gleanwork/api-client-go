@@ -11,23 +11,23 @@ type DlpPerson struct {
 	Metadata     *DlpPersonMetadata `json:"metadata,omitempty"`
 }
 
-func (o *DlpPerson) GetName() string {
-	if o == nil {
+func (d *DlpPerson) GetName() string {
+	if d == nil {
 		return ""
 	}
-	return o.Name
+	return d.Name
 }
 
-func (o *DlpPerson) GetObfuscatedID() string {
-	if o == nil {
+func (d *DlpPerson) GetObfuscatedID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ObfuscatedID
+	return d.ObfuscatedID
 }
 
-func (o *DlpPerson) GetMetadata() *DlpPersonMetadata {
-	if o == nil {
+func (d *DlpPerson) GetMetadata() *DlpPersonMetadata {
+	if d == nil {
 		return nil
 	}
-	return o.Metadata
+	return d.Metadata
 }

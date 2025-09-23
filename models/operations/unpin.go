@@ -10,9 +10,9 @@ type UnpinResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *UnpinResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UnpinResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }

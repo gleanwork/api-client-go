@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type TimeInterval struct {
 	// The RFC3339 timestamp formatted start time of this event.
 	Start string `json:"start"`
@@ -9,16 +13,27 @@ type TimeInterval struct {
 	End string `json:"end"`
 }
 
-func (o *TimeInterval) GetStart() string {
-	if o == nil {
-		return ""
-	}
-	return o.Start
+func (t TimeInterval) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-func (o *TimeInterval) GetEnd() string {
-	if o == nil {
+func (t *TimeInterval) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, []string{"start", "end"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (t *TimeInterval) GetStart() string {
+	if t == nil {
 		return ""
 	}
-	return o.End
+	return t.Start
+}
+
+func (t *TimeInterval) GetEnd() string {
+	if t == nil {
+		return ""
+	}
+	return t.End
 }

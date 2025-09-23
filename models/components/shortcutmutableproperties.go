@@ -21,58 +21,58 @@ type ShortcutMutableProperties struct {
 	RemovedRoles []UserRoleSpecification `json:"removedRoles,omitempty"`
 }
 
-func (o *ShortcutMutableProperties) GetInputAlias() *string {
-	if o == nil {
+func (s *ShortcutMutableProperties) GetInputAlias() *string {
+	if s == nil {
 		return nil
 	}
-	return o.InputAlias
+	return s.InputAlias
 }
 
-func (o *ShortcutMutableProperties) GetDestinationURL() *string {
-	if o == nil {
+func (s *ShortcutMutableProperties) GetDestinationURL() *string {
+	if s == nil {
 		return nil
 	}
-	return o.DestinationURL
+	return s.DestinationURL
 }
 
-func (o *ShortcutMutableProperties) GetDestinationDocumentID() *string {
-	if o == nil {
+func (s *ShortcutMutableProperties) GetDestinationDocumentID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.DestinationDocumentID
+	return s.DestinationDocumentID
 }
 
-func (o *ShortcutMutableProperties) GetDescription() *string {
-	if o == nil {
+func (s *ShortcutMutableProperties) GetDescription() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Description
+	return s.Description
 }
 
-func (o *ShortcutMutableProperties) GetUnlisted() *bool {
-	if o == nil {
+func (s *ShortcutMutableProperties) GetUnlisted() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.Unlisted
+	return s.Unlisted
 }
 
-func (o *ShortcutMutableProperties) GetURLTemplate() *string {
-	if o == nil {
+func (s *ShortcutMutableProperties) GetURLTemplate() *string {
+	if s == nil {
 		return nil
 	}
-	return o.URLTemplate
+	return s.URLTemplate
 }
 
-func (o *ShortcutMutableProperties) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (s *ShortcutMutableProperties) GetAddedRoles() []UserRoleSpecification {
+	if s == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return s.AddedRoles
 }
 
-func (o *ShortcutMutableProperties) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (s *ShortcutMutableProperties) GetRemovedRoles() []UserRoleSpecification {
+	if s == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return s.RemovedRoles
 }

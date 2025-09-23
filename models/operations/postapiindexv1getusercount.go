@@ -12,16 +12,16 @@ type PostAPIIndexV1GetusercountResponse struct {
 	GetUserCountResponse *components.GetUserCountResponse
 }
 
-func (o *PostAPIIndexV1GetusercountResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIIndexV1GetusercountResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostAPIIndexV1GetusercountResponse) GetGetUserCountResponse() *components.GetUserCountResponse {
-	if o == nil {
+func (p *PostAPIIndexV1GetusercountResponse) GetGetUserCountResponse() *components.GetUserCountResponse {
+	if p == nil {
 		return nil
 	}
-	return o.GetUserCountResponse
+	return p.GetUserCountResponse
 }

@@ -2,17 +2,32 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // RelatedObjectMetadata - Some metadata of the object which can be displayed, while not having the actual object.
 type RelatedObjectMetadata struct {
 	// Placeholder name of the object, not the relationship.
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *RelatedObjectMetadata) GetName() *string {
-	if o == nil {
+func (r RelatedObjectMetadata) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelatedObjectMetadata) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (r *RelatedObjectMetadata) GetName() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Name
+	return r.Name
 }
 
 type RelatedObject struct {
@@ -22,16 +37,27 @@ type RelatedObject struct {
 	Metadata *RelatedObjectMetadata `json:"metadata,omitempty"`
 }
 
-func (o *RelatedObject) GetID() string {
-	if o == nil {
-		return ""
-	}
-	return o.ID
+func (r RelatedObject) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
 }
 
-func (o *RelatedObject) GetMetadata() *RelatedObjectMetadata {
-	if o == nil {
+func (r *RelatedObject) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, []string{"id"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (r *RelatedObject) GetID() string {
+	if r == nil {
+		return ""
+	}
+	return r.ID
+}
+
+func (r *RelatedObject) GetMetadata() *RelatedObjectMetadata {
+	if r == nil {
 		return nil
 	}
-	return o.Metadata
+	return r.Metadata
 }

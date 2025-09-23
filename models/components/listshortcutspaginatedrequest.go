@@ -46,44 +46,44 @@ type ListShortcutsPaginatedRequest struct {
 	Query *string `json:"query,omitempty"`
 }
 
-func (o *ListShortcutsPaginatedRequest) GetIncludeFields() []ListShortcutsPaginatedRequestIncludeField {
-	if o == nil {
+func (l *ListShortcutsPaginatedRequest) GetIncludeFields() []ListShortcutsPaginatedRequestIncludeField {
+	if l == nil {
 		return nil
 	}
-	return o.IncludeFields
+	return l.IncludeFields
 }
 
-func (o *ListShortcutsPaginatedRequest) GetPageSize() int64 {
-	if o == nil {
+func (l *ListShortcutsPaginatedRequest) GetPageSize() int64 {
+	if l == nil {
 		return 0
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
-func (o *ListShortcutsPaginatedRequest) GetCursor() *string {
-	if o == nil {
+func (l *ListShortcutsPaginatedRequest) GetCursor() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Cursor
+	return l.Cursor
 }
 
-func (o *ListShortcutsPaginatedRequest) GetFilters() []FacetFilter {
-	if o == nil {
+func (l *ListShortcutsPaginatedRequest) GetFilters() []FacetFilter {
+	if l == nil {
 		return nil
 	}
-	return o.Filters
+	return l.Filters
 }
 
-func (o *ListShortcutsPaginatedRequest) GetSort() *SortOptions {
-	if o == nil {
+func (l *ListShortcutsPaginatedRequest) GetSort() *SortOptions {
+	if l == nil {
 		return nil
 	}
-	return o.Sort
+	return l.Sort
 }
 
-func (o *ListShortcutsPaginatedRequest) GetQuery() *string {
-	if o == nil {
+func (l *ListShortcutsPaginatedRequest) GetQuery() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Query
+	return l.Query
 }

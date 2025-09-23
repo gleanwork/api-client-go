@@ -82,176 +82,176 @@ func (a Answer) MarshalJSON() ([]byte, error) {
 }
 
 func (a *Answer) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &a, "", false, []string{"id"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Answer) GetID() int64 {
-	if o == nil {
+func (a *Answer) GetID() int64 {
+	if a == nil {
 		return 0
 	}
-	return o.ID
+	return a.ID
 }
 
-func (o *Answer) GetDocID() *string {
-	if o == nil {
+func (a *Answer) GetDocID() *string {
+	if a == nil {
 		return nil
 	}
-	return o.DocID
+	return a.DocID
 }
 
-func (o *Answer) GetQuestion() *string {
-	if o == nil {
+func (a *Answer) GetQuestion() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Question
+	return a.Question
 }
 
-func (o *Answer) GetQuestionVariations() []string {
-	if o == nil {
+func (a *Answer) GetQuestionVariations() []string {
+	if a == nil {
 		return nil
 	}
-	return o.QuestionVariations
+	return a.QuestionVariations
 }
 
-func (o *Answer) GetBodyText() *string {
-	if o == nil {
+func (a *Answer) GetBodyText() *string {
+	if a == nil {
 		return nil
 	}
-	return o.BodyText
+	return a.BodyText
 }
 
-func (o *Answer) GetBoardID() *int64 {
-	if o == nil {
+func (a *Answer) GetBoardID() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.BoardID
+	return a.BoardID
 }
 
-func (o *Answer) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (a *Answer) GetAudienceFilters() []FacetFilter {
+	if a == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return a.AudienceFilters
 }
 
-func (o *Answer) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *Answer) GetAddedRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return a.AddedRoles
 }
 
-func (o *Answer) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *Answer) GetRemovedRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return a.RemovedRoles
 }
 
-func (o *Answer) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *Answer) GetRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.Roles
+	return a.Roles
 }
 
-func (o *Answer) GetSourceDocumentSpec() *DocumentSpecUnion {
-	if o == nil {
+func (a *Answer) GetSourceDocumentSpec() *DocumentSpecUnion {
+	if a == nil {
 		return nil
 	}
-	return o.SourceDocumentSpec
+	return a.SourceDocumentSpec
 }
 
-func (o *Answer) GetSourceType() *AnswerSourceType {
-	if o == nil {
+func (a *Answer) GetSourceType() *AnswerSourceType {
+	if a == nil {
 		return nil
 	}
-	return o.SourceType
+	return a.SourceType
 }
 
-func (o *Answer) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (a *Answer) GetPermissions() *ObjectPermissions {
+	if a == nil {
 		return nil
 	}
-	return o.Permissions
+	return a.Permissions
 }
 
-func (o *Answer) GetCombinedAnswerText() *StructuredText {
-	if o == nil {
+func (a *Answer) GetCombinedAnswerText() *StructuredText {
+	if a == nil {
 		return nil
 	}
-	return o.CombinedAnswerText
+	return a.CombinedAnswerText
 }
 
-func (o *Answer) GetLikes() *AnswerLikes {
-	if o == nil {
+func (a *Answer) GetLikes() *AnswerLikes {
+	if a == nil {
 		return nil
 	}
-	return o.Likes
+	return a.Likes
 }
 
-func (o *Answer) GetAuthor() *Person {
-	if o == nil {
+func (a *Answer) GetAuthor() *Person {
+	if a == nil {
 		return nil
 	}
-	return o.Author
+	return a.Author
 }
 
-func (o *Answer) GetCreateTime() *time.Time {
-	if o == nil {
+func (a *Answer) GetCreateTime() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.CreateTime
+	return a.CreateTime
 }
 
-func (o *Answer) GetUpdateTime() *time.Time {
-	if o == nil {
+func (a *Answer) GetUpdateTime() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return a.UpdateTime
 }
 
-func (o *Answer) GetUpdatedBy() *Person {
-	if o == nil {
+func (a *Answer) GetUpdatedBy() *Person {
+	if a == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return a.UpdatedBy
 }
 
-func (o *Answer) GetVerification() *Verification {
-	if o == nil {
+func (a *Answer) GetVerification() *Verification {
+	if a == nil {
 		return nil
 	}
-	return o.Verification
+	return a.Verification
 }
 
-func (o *Answer) GetBoard() *AnswerBoard {
-	if o == nil {
+func (a *Answer) GetBoard() *AnswerBoard {
+	if a == nil {
 		return nil
 	}
-	return o.Board
+	return a.Board
 }
 
-func (o *Answer) GetCollections() []Collection {
-	if o == nil {
+func (a *Answer) GetCollections() []Collection {
+	if a == nil {
 		return nil
 	}
-	return o.Collections
+	return a.Collections
 }
 
-func (o *Answer) GetDocumentCategory() *string {
-	if o == nil {
+func (a *Answer) GetDocumentCategory() *string {
+	if a == nil {
 		return nil
 	}
-	return o.DocumentCategory
+	return a.DocumentCategory
 }
 
-func (o *Answer) GetSourceDocument() *Document {
-	if o == nil {
+func (a *Answer) GetSourceDocument() *Document {
+	if a == nil {
 		return nil
 	}
-	return o.SourceDocument
+	return a.SourceDocument
 }

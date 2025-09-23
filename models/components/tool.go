@@ -47,37 +47,37 @@ type Tool struct {
 	Parameters map[string]ToolParameter `json:"parameters,omitempty"`
 }
 
-func (o *Tool) GetType() *ToolType {
-	if o == nil {
+func (t *Tool) GetType() *ToolType {
+	if t == nil {
 		return nil
 	}
-	return o.Type
+	return t.Type
 }
 
-func (o *Tool) GetName() *string {
-	if o == nil {
+func (t *Tool) GetName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *Tool) GetDisplayName() *string {
-	if o == nil {
+func (t *Tool) GetDisplayName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.DisplayName
+	return t.DisplayName
 }
 
-func (o *Tool) GetDescription() *string {
-	if o == nil {
+func (t *Tool) GetDescription() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Description
+	return t.Description
 }
 
-func (o *Tool) GetParameters() map[string]ToolParameter {
-	if o == nil {
+func (t *Tool) GetParameters() map[string]ToolParameter {
+	if t == nil {
 		return nil
 	}
-	return o.Parameters
+	return t.Parameters
 }

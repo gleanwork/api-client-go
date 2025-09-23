@@ -12,16 +12,16 @@ type FeedResponse struct {
 	FeedResponse *components.FeedResponse
 }
 
-func (o *FeedResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (f *FeedResponse) GetHTTPMeta() components.HTTPMetadata {
+	if f == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return f.HTTPMeta
 }
 
-func (o *FeedResponse) GetFeedResponse() *components.FeedResponse {
-	if o == nil {
+func (f *FeedResponse) GetFeedResponse() *components.FeedResponse {
+	if f == nil {
 		return nil
 	}
-	return o.FeedResponse
+	return f.FeedResponse
 }

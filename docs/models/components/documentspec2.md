@@ -5,4 +5,4 @@
 
 | Field                   | Type                    | Required                | Description             |
 | ----------------------- | ----------------------- | ----------------------- | ----------------------- |
-| `ID`                    | **string*               | :heavy_minus_sign:      | The ID of the document. |
+| `ID`                    | *string*                | :heavy_check_mark:      | The ID of the document. |

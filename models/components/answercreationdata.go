@@ -58,86 +58,86 @@ type AnswerCreationData struct {
 	CombinedAnswerText *StructuredTextMutableProperties `json:"combinedAnswerText,omitempty"`
 }
 
-func (o *AnswerCreationData) GetQuestion() *string {
-	if o == nil {
+func (a *AnswerCreationData) GetQuestion() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Question
+	return a.Question
 }
 
-func (o *AnswerCreationData) GetQuestionVariations() []string {
-	if o == nil {
+func (a *AnswerCreationData) GetQuestionVariations() []string {
+	if a == nil {
 		return nil
 	}
-	return o.QuestionVariations
+	return a.QuestionVariations
 }
 
-func (o *AnswerCreationData) GetBodyText() *string {
-	if o == nil {
+func (a *AnswerCreationData) GetBodyText() *string {
+	if a == nil {
 		return nil
 	}
-	return o.BodyText
+	return a.BodyText
 }
 
-func (o *AnswerCreationData) GetBoardID() *int64 {
-	if o == nil {
+func (a *AnswerCreationData) GetBoardID() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.BoardID
+	return a.BoardID
 }
 
-func (o *AnswerCreationData) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (a *AnswerCreationData) GetAudienceFilters() []FacetFilter {
+	if a == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return a.AudienceFilters
 }
 
-func (o *AnswerCreationData) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *AnswerCreationData) GetAddedRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return a.AddedRoles
 }
 
-func (o *AnswerCreationData) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *AnswerCreationData) GetRemovedRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return a.RemovedRoles
 }
 
-func (o *AnswerCreationData) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *AnswerCreationData) GetRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.Roles
+	return a.Roles
 }
 
-func (o *AnswerCreationData) GetSourceDocumentSpec() *DocumentSpecUnion {
-	if o == nil {
+func (a *AnswerCreationData) GetSourceDocumentSpec() *DocumentSpecUnion {
+	if a == nil {
 		return nil
 	}
-	return o.SourceDocumentSpec
+	return a.SourceDocumentSpec
 }
 
-func (o *AnswerCreationData) GetSourceType() *AnswerCreationDataSourceType {
-	if o == nil {
+func (a *AnswerCreationData) GetSourceType() *AnswerCreationDataSourceType {
+	if a == nil {
 		return nil
 	}
-	return o.SourceType
+	return a.SourceType
 }
 
-func (o *AnswerCreationData) GetAddedCollections() []int64 {
-	if o == nil {
+func (a *AnswerCreationData) GetAddedCollections() []int64 {
+	if a == nil {
 		return nil
 	}
-	return o.AddedCollections
+	return a.AddedCollections
 }
 
-func (o *AnswerCreationData) GetCombinedAnswerText() *StructuredTextMutableProperties {
-	if o == nil {
+func (a *AnswerCreationData) GetCombinedAnswerText() *StructuredTextMutableProperties {
+	if a == nil {
 		return nil
 	}
-	return o.CombinedAnswerText
+	return a.CombinedAnswerText
 }

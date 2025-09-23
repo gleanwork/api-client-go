@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type PersonDistance struct {
 	// The display name.
 	Name string `json:"name"`
@@ -11,23 +15,34 @@ type PersonDistance struct {
 	Distance float32 `json:"distance"`
 }
 
-func (o *PersonDistance) GetName() string {
-	if o == nil {
-		return ""
-	}
-	return o.Name
+func (p PersonDistance) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
 }
 
-func (o *PersonDistance) GetObfuscatedID() string {
-	if o == nil {
-		return ""
+func (p *PersonDistance) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, []string{"name", "obfuscatedId", "distance"}); err != nil {
+		return err
 	}
-	return o.ObfuscatedID
+	return nil
 }
 
-func (o *PersonDistance) GetDistance() float32 {
-	if o == nil {
+func (p *PersonDistance) GetName() string {
+	if p == nil {
+		return ""
+	}
+	return p.Name
+}
+
+func (p *PersonDistance) GetObfuscatedID() string {
+	if p == nil {
+		return ""
+	}
+	return p.ObfuscatedID
+}
+
+func (p *PersonDistance) GetDistance() float32 {
+	if p == nil {
 		return 0.0
 	}
-	return o.Distance
+	return p.Distance
 }

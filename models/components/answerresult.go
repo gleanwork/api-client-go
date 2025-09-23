@@ -8,16 +8,16 @@ type AnswerResult struct {
 	TrackingToken *string `json:"trackingToken,omitempty"`
 }
 
-func (o *AnswerResult) GetAnswer() Answer {
-	if o == nil {
+func (a *AnswerResult) GetAnswer() Answer {
+	if a == nil {
 		return Answer{}
 	}
-	return o.Answer
+	return a.Answer
 }
 
-func (o *AnswerResult) GetTrackingToken() *string {
-	if o == nil {
+func (a *AnswerResult) GetTrackingToken() *string {
+	if a == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return a.TrackingToken
 }

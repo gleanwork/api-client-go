@@ -6,9 +6,9 @@ type GetChatResponse struct {
 	ChatResult *ChatResult `json:"chatResult,omitempty"`
 }
 
-func (o *GetChatResponse) GetChatResult() *ChatResult {
-	if o == nil {
+func (g *GetChatResponse) GetChatResult() *ChatResult {
+	if g == nil {
 		return nil
 	}
-	return o.ChatResult
+	return g.ChatResult
 }

@@ -11,11 +11,11 @@ type DownloadpolicycsvRequest struct {
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
-func (o *DownloadpolicycsvRequest) GetID() string {
-	if o == nil {
+func (d *DownloadpolicycsvRequest) GetID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ID
+	return d.ID
 }
 
 type DownloadpolicycsvResponse struct {
@@ -24,16 +24,16 @@ type DownloadpolicycsvResponse struct {
 	Res *string
 }
 
-func (o *DownloadpolicycsvResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DownloadpolicycsvResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }
 
-func (o *DownloadpolicycsvResponse) GetRes() *string {
-	if o == nil {
+func (d *DownloadpolicycsvResponse) GetRes() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Res
+	return d.Res
 }

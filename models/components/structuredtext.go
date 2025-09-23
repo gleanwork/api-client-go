@@ -2,22 +2,37 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type StructuredText struct {
 	Text string `json:"text"`
 	// An array of objects each of which contains either a string or a link which optionally corresponds to a document.
 	StructuredList []StructuredTextItem `json:"structuredList,omitempty"`
 }
 
-func (o *StructuredText) GetText() string {
-	if o == nil {
-		return ""
-	}
-	return o.Text
+func (s StructuredText) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (o *StructuredText) GetStructuredList() []StructuredTextItem {
-	if o == nil {
+func (s *StructuredText) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"text"}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *StructuredText) GetText() string {
+	if s == nil {
+		return ""
+	}
+	return s.Text
+}
+
+func (s *StructuredText) GetStructuredList() []StructuredTextItem {
+	if s == nil {
 		return nil
 	}
-	return o.StructuredList
+	return s.StructuredList
 }

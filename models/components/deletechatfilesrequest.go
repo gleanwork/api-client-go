@@ -7,9 +7,9 @@ type DeleteChatFilesRequest struct {
 	FileIds []string `json:"fileIds"`
 }
 
-func (o *DeleteChatFilesRequest) GetFileIds() []string {
-	if o == nil {
+func (d *DeleteChatFilesRequest) GetFileIds() []string {
+	if d == nil {
 		return []string{}
 	}
-	return o.FileIds
+	return d.FileIds
 }

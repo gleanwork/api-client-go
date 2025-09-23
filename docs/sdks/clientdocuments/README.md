@@ -145,14 +145,14 @@ func main() {
             components.FacetFilterSet{
                 Filters: []components.FacetFilter{
                     components.FacetFilter{
-                        FieldName: apiclientgo.String("type"),
+                        FieldName: apiclientgo.Pointer("type"),
                         Values: []components.FacetFilterValue{
                             components.FacetFilterValue{
-                                Value: apiclientgo.String("Spreadsheet"),
+                                Value: apiclientgo.Pointer("Spreadsheet"),
                                 RelationType: components.RelationTypeEquals.ToPointer(),
                             },
                             components.FacetFilterValue{
-                                Value: apiclientgo.String("Presentation"),
+                                Value: apiclientgo.Pointer("Presentation"),
                                 RelationType: components.RelationTypeEquals.ToPointer(),
                             },
                         },
@@ -162,14 +162,14 @@ func main() {
             components.FacetFilterSet{
                 Filters: []components.FacetFilter{
                     components.FacetFilter{
-                        FieldName: apiclientgo.String("type"),
+                        FieldName: apiclientgo.Pointer("type"),
                         Values: []components.FacetFilterValue{
                             components.FacetFilterValue{
-                                Value: apiclientgo.String("Spreadsheet"),
+                                Value: apiclientgo.Pointer("Spreadsheet"),
                                 RelationType: components.RelationTypeEquals.ToPointer(),
                             },
                             components.FacetFilterValue{
-                                Value: apiclientgo.String("Presentation"),
+                                Value: apiclientgo.Pointer("Presentation"),
                                 RelationType: components.RelationTypeEquals.ToPointer(),
                             },
                         },
@@ -232,14 +232,22 @@ func main() {
 
     res, err := s.Client.Documents.Summarize(ctx, components.SummarizeRequest{
         DocumentSpecs: []components.DocumentSpecUnion{
-            components.CreateDocumentSpecUnionDocumentSpec1(
-                components.DocumentSpec1{},
+            components.CreateDocumentSpecUnionDocumentSpec4(
+                components.DocumentSpec4{
+                    UgcType: components.DocumentSpecUgcType2Chats,
+                    UgcID: "<id>",
+                },
             ),
-            components.CreateDocumentSpecUnionDocumentSpec1(
-                components.DocumentSpec1{},
+            components.CreateDocumentSpecUnionDocumentSpec4(
+                components.DocumentSpec4{
+                    UgcType: components.DocumentSpecUgcType2Chats,
+                    UgcID: "<id>",
+                },
             ),
-            components.CreateDocumentSpecUnionDocumentSpec1(
-                components.DocumentSpec1{},
+            components.CreateDocumentSpecUnionDocumentSpec2(
+                components.DocumentSpec2{
+                    ID: "<id>",
+                },
             ),
         },
     })

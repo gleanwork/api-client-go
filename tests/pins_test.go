@@ -27,14 +27,14 @@ func TestPins_Editpin(t *testing.T) {
 	res, err := s.Client.Pins.Update(ctx, components.EditPinRequest{
 		AudienceFilters: []components.FacetFilter{
 			components.FacetFilter{
-				FieldName: apiclientgo.String("type"),
+				FieldName: apiclientgo.Pointer("type"),
 				Values: []components.FacetFilterValue{
 					components.FacetFilterValue{
-						Value:        apiclientgo.String("Spreadsheet"),
+						Value:        apiclientgo.Pointer("Spreadsheet"),
 						RelationType: components.RelationTypeEquals.ToPointer(),
 					},
 					components.FacetFilterValue{
-						Value:        apiclientgo.String("Presentation"),
+						Value:        apiclientgo.Pointer("Presentation"),
 						RelationType: components.RelationTypeEquals.ToPointer(),
 					},
 				},
@@ -94,14 +94,14 @@ func TestPins_Pin(t *testing.T) {
 	res, err := s.Client.Pins.Create(ctx, components.PinRequest{
 		AudienceFilters: []components.FacetFilter{
 			components.FacetFilter{
-				FieldName: apiclientgo.String("type"),
+				FieldName: apiclientgo.Pointer("type"),
 				Values: []components.FacetFilterValue{
 					components.FacetFilterValue{
-						Value:        apiclientgo.String("Spreadsheet"),
+						Value:        apiclientgo.Pointer("Spreadsheet"),
 						RelationType: components.RelationTypeEquals.ToPointer(),
 					},
 					components.FacetFilterValue{
-						Value:        apiclientgo.String("Presentation"),
+						Value:        apiclientgo.Pointer("Presentation"),
 						RelationType: components.RelationTypeEquals.ToPointer(),
 					},
 				},

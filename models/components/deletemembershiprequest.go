@@ -12,23 +12,23 @@ type DeleteMembershipRequest struct {
 	Membership DatasourceMembershipDefinition `json:"membership"`
 }
 
-func (o *DeleteMembershipRequest) GetVersion() *int64 {
-	if o == nil {
+func (d *DeleteMembershipRequest) GetVersion() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.Version
+	return d.Version
 }
 
-func (o *DeleteMembershipRequest) GetDatasource() string {
-	if o == nil {
+func (d *DeleteMembershipRequest) GetDatasource() string {
+	if d == nil {
 		return ""
 	}
-	return o.Datasource
+	return d.Datasource
 }
 
-func (o *DeleteMembershipRequest) GetMembership() DatasourceMembershipDefinition {
-	if o == nil {
+func (d *DeleteMembershipRequest) GetMembership() DatasourceMembershipDefinition {
+	if d == nil {
 		return DatasourceMembershipDefinition{}
 	}
-	return o.Membership
+	return d.Membership
 }

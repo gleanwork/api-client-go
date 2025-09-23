@@ -12,16 +12,16 @@ type PostAPIIndexV1CheckdocumentaccessResponse struct {
 	CheckDocumentAccessResponse *components.CheckDocumentAccessResponse
 }
 
-func (o *PostAPIIndexV1CheckdocumentaccessResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIIndexV1CheckdocumentaccessResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostAPIIndexV1CheckdocumentaccessResponse) GetCheckDocumentAccessResponse() *components.CheckDocumentAccessResponse {
-	if o == nil {
+func (p *PostAPIIndexV1CheckdocumentaccessResponse) GetCheckDocumentAccessResponse() *components.CheckDocumentAccessResponse {
+	if p == nil {
 		return nil
 	}
-	return o.CheckDocumentAccessResponse
+	return p.CheckDocumentAccessResponse
 }

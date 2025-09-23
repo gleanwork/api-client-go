@@ -8,9 +8,9 @@ type GetUserCountResponse struct {
 	UserCount *int64 `json:"userCount,omitempty"`
 }
 
-func (o *GetUserCountResponse) GetUserCount() *int64 {
-	if o == nil {
+func (g *GetUserCountResponse) GetUserCount() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.UserCount
+	return g.UserCount
 }

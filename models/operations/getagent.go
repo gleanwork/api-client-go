@@ -13,18 +13,18 @@ type GetAgentRequest struct {
 	AgentID string `pathParam:"style=simple,explode=false,name=agent_id"`
 }
 
-func (o *GetAgentRequest) GetTimezoneOffset() *int64 {
-	if o == nil {
+func (g *GetAgentRequest) GetTimezoneOffset() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.TimezoneOffset
+	return g.TimezoneOffset
 }
 
-func (o *GetAgentRequest) GetAgentID() string {
-	if o == nil {
+func (g *GetAgentRequest) GetAgentID() string {
+	if g == nil {
 		return ""
 	}
-	return o.AgentID
+	return g.AgentID
 }
 
 type GetAgentResponse struct {
@@ -33,16 +33,16 @@ type GetAgentResponse struct {
 	Agent *components.Agent
 }
 
-func (o *GetAgentResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetAgentResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetAgentResponse) GetAgent() *components.Agent {
-	if o == nil {
+func (g *GetAgentResponse) GetAgent() *components.Agent {
+	if g == nil {
 		return nil
 	}
-	return o.Agent
+	return g.Agent
 }

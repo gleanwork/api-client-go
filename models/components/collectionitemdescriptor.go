@@ -52,51 +52,51 @@ type CollectionItemDescriptor struct {
 	ItemType      *CollectionItemDescriptorItemType `json:"itemType,omitempty"`
 }
 
-func (o *CollectionItemDescriptor) GetName() *string {
-	if o == nil {
+func (c *CollectionItemDescriptor) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CollectionItemDescriptor) GetDescription() *string {
-	if o == nil {
+func (c *CollectionItemDescriptor) GetDescription() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CollectionItemDescriptor) GetIcon() *string {
-	if o == nil {
+func (c *CollectionItemDescriptor) GetIcon() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Icon
+	return c.Icon
 }
 
-func (o *CollectionItemDescriptor) GetURL() *string {
-	if o == nil {
+func (c *CollectionItemDescriptor) GetURL() *string {
+	if c == nil {
 		return nil
 	}
-	return o.URL
+	return c.URL
 }
 
-func (o *CollectionItemDescriptor) GetDocumentID() *string {
-	if o == nil {
+func (c *CollectionItemDescriptor) GetDocumentID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.DocumentID
+	return c.DocumentID
 }
 
-func (o *CollectionItemDescriptor) GetNewNextItemID() *string {
-	if o == nil {
+func (c *CollectionItemDescriptor) GetNewNextItemID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.NewNextItemID
+	return c.NewNextItemID
 }
 
-func (o *CollectionItemDescriptor) GetItemType() *CollectionItemDescriptorItemType {
-	if o == nil {
+func (c *CollectionItemDescriptor) GetItemType() *CollectionItemDescriptorItemType {
+	if c == nil {
 		return nil
 	}
-	return o.ItemType
+	return c.ItemType
 }

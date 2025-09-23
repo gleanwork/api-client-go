@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type Thumbnail struct {
 	// Photo id if the thumbnail is from splash.
 	PhotoID *string `json:"photoId,omitempty"`
@@ -9,16 +13,27 @@ type Thumbnail struct {
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *Thumbnail) GetPhotoID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.PhotoID
+func (t Thumbnail) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-func (o *Thumbnail) GetURL() *string {
-	if o == nil {
+func (t *Thumbnail) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (t *Thumbnail) GetPhotoID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.URL
+	return t.PhotoID
+}
+
+func (t *Thumbnail) GetURL() *string {
+	if t == nil {
+		return nil
+	}
+	return t.URL
 }

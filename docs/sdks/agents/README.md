@@ -143,7 +143,7 @@ func main() {
     )
 
     res, err := s.Client.Agents.List(ctx, components.SearchAgentsRequest{
-        Name: apiclientgo.String("HR Policy Agent"),
+        Name: apiclientgo.Pointer("HR Policy Agent"),
     })
     if err != nil {
         log.Fatal(err)
@@ -201,7 +201,7 @@ func main() {
         AgentID: "<id>",
         Messages: []components.Message{
             components.Message{
-                Role: apiclientgo.String("USER"),
+                Role: apiclientgo.Pointer("USER"),
             },
         },
     })
@@ -261,7 +261,7 @@ func main() {
         AgentID: "<id>",
         Messages: []components.Message{
             components.Message{
-                Role: apiclientgo.String("USER"),
+                Role: apiclientgo.Pointer("USER"),
             },
         },
     })

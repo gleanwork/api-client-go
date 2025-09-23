@@ -32,6 +32,8 @@ const (
 	FeedRequestCategoryZeroStateWorkflowFavorites   FeedRequestCategory = "ZERO_STATE_WORKFLOW_FAVORITES"
 	FeedRequestCategoryZeroStateWorkflowPopular     FeedRequestCategory = "ZERO_STATE_WORKFLOW_POPULAR"
 	FeedRequestCategoryZeroStateWorkflowSuggestion  FeedRequestCategory = "ZERO_STATE_WORKFLOW_SUGGESTION"
+	FeedRequestCategoryPersonalizedChatSuggestion   FeedRequestCategory = "PERSONALIZED_CHAT_SUGGESTION"
+	FeedRequestCategoryDailyDigest                  FeedRequestCategory = "DAILY_DIGEST"
 )
 
 func (e FeedRequestCategory) ToPointer() *FeedRequestCategory {
@@ -86,6 +88,10 @@ func (e *FeedRequestCategory) UnmarshalJSON(data []byte) error {
 	case "ZERO_STATE_WORKFLOW_POPULAR":
 		fallthrough
 	case "ZERO_STATE_WORKFLOW_SUGGESTION":
+		fallthrough
+	case "PERSONALIZED_CHAT_SUGGESTION":
+		fallthrough
+	case "DAILY_DIGEST":
 		*e = FeedRequestCategory(v)
 		return nil
 	default:
@@ -102,30 +108,30 @@ type FeedRequest struct {
 	SessionInfo   *SessionInfo `json:"sessionInfo,omitempty"`
 }
 
-func (o *FeedRequest) GetCategories() []FeedRequestCategory {
-	if o == nil {
+func (f *FeedRequest) GetCategories() []FeedRequestCategory {
+	if f == nil {
 		return nil
 	}
-	return o.Categories
+	return f.Categories
 }
 
-func (o *FeedRequest) GetRequestOptions() *FeedRequestOptions {
-	if o == nil {
+func (f *FeedRequest) GetRequestOptions() *FeedRequestOptions {
+	if f == nil {
 		return nil
 	}
-	return o.RequestOptions
+	return f.RequestOptions
 }
 
-func (o *FeedRequest) GetTimeoutMillis() *int64 {
-	if o == nil {
+func (f *FeedRequest) GetTimeoutMillis() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.TimeoutMillis
+	return f.TimeoutMillis
 }
 
-func (o *FeedRequest) GetSessionInfo() *SessionInfo {
-	if o == nil {
+func (f *FeedRequest) GetSessionInfo() *SessionInfo {
+	if f == nil {
 		return nil
 	}
-	return o.SessionInfo
+	return f.SessionInfo
 }

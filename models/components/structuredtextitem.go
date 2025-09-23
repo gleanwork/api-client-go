@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type StructuredTextItem struct {
 	Link     *string   `json:"link,omitempty"`
 	Document *Document `json:"document,omitempty"`
@@ -10,30 +14,41 @@ type StructuredTextItem struct {
 	StructuredResult *StructuredResult `json:"structuredResult,omitempty"`
 }
 
-func (o *StructuredTextItem) GetLink() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Link
+func (s StructuredTextItem) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
 }
 
-func (o *StructuredTextItem) GetDocument() *Document {
-	if o == nil {
-		return nil
+func (s *StructuredTextItem) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
+		return err
 	}
-	return o.Document
+	return nil
 }
 
-func (o *StructuredTextItem) GetText() *string {
-	if o == nil {
+func (s *StructuredTextItem) GetLink() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Text
+	return s.Link
 }
 
-func (o *StructuredTextItem) GetStructuredResult() *StructuredResult {
-	if o == nil {
+func (s *StructuredTextItem) GetDocument() *Document {
+	if s == nil {
 		return nil
 	}
-	return o.StructuredResult
+	return s.Document
+}
+
+func (s *StructuredTextItem) GetText() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Text
+}
+
+func (s *StructuredTextItem) GetStructuredResult() *StructuredResult {
+	if s == nil {
+		return nil
+	}
+	return s.StructuredResult
 }

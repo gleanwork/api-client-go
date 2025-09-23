@@ -28,93 +28,93 @@ type SearchResponseMetadata struct {
 	IsNoQuotesSuggestion *bool `json:"isNoQuotesSuggestion,omitempty"`
 }
 
-func (o *SearchResponseMetadata) GetRewrittenQuery() *string {
-	if o == nil {
+func (s *SearchResponseMetadata) GetRewrittenQuery() *string {
+	if s == nil {
 		return nil
 	}
-	return o.RewrittenQuery
+	return s.RewrittenQuery
 }
 
-func (o *SearchResponseMetadata) GetSearchedQuery() *string {
-	if o == nil {
+func (s *SearchResponseMetadata) GetSearchedQuery() *string {
+	if s == nil {
 		return nil
 	}
-	return o.SearchedQuery
+	return s.SearchedQuery
 }
 
-func (o *SearchResponseMetadata) GetSearchedQueryWithoutNegation() *string {
-	if o == nil {
+func (s *SearchResponseMetadata) GetSearchedQueryWithoutNegation() *string {
+	if s == nil {
 		return nil
 	}
-	return o.SearchedQueryWithoutNegation
+	return s.SearchedQueryWithoutNegation
 }
 
-func (o *SearchResponseMetadata) GetSearchedQueryRanges() []TextRange {
-	if o == nil {
+func (s *SearchResponseMetadata) GetSearchedQueryRanges() []TextRange {
+	if s == nil {
 		return nil
 	}
-	return o.SearchedQueryRanges
+	return s.SearchedQueryRanges
 }
 
-func (o *SearchResponseMetadata) GetOriginalQuery() *string {
-	if o == nil {
+func (s *SearchResponseMetadata) GetOriginalQuery() *string {
+	if s == nil {
 		return nil
 	}
-	return o.OriginalQuery
+	return s.OriginalQuery
 }
 
-func (o *SearchResponseMetadata) GetQuerySuggestion() *QuerySuggestion {
-	if o == nil {
+func (s *SearchResponseMetadata) GetQuerySuggestion() *QuerySuggestion {
+	if s == nil {
 		return nil
 	}
-	return o.QuerySuggestion
+	return s.QuerySuggestion
 }
 
-func (o *SearchResponseMetadata) GetAdditionalQuerySuggestions() *QuerySuggestionList {
-	if o == nil {
+func (s *SearchResponseMetadata) GetAdditionalQuerySuggestions() *QuerySuggestionList {
+	if s == nil {
 		return nil
 	}
-	return o.AdditionalQuerySuggestions
+	return s.AdditionalQuerySuggestions
 }
 
-func (o *SearchResponseMetadata) GetNegatedTerms() []string {
-	if o == nil {
+func (s *SearchResponseMetadata) GetNegatedTerms() []string {
+	if s == nil {
 		return nil
 	}
-	return o.NegatedTerms
+	return s.NegatedTerms
 }
 
-func (o *SearchResponseMetadata) GetModifiedQueryWasUsed() *bool {
-	if o == nil {
+func (s *SearchResponseMetadata) GetModifiedQueryWasUsed() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.ModifiedQueryWasUsed
+	return s.ModifiedQueryWasUsed
 }
 
-func (o *SearchResponseMetadata) GetOriginalQueryHadNoResults() *bool {
-	if o == nil {
+func (s *SearchResponseMetadata) GetOriginalQueryHadNoResults() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.OriginalQueryHadNoResults
+	return s.OriginalQueryHadNoResults
 }
 
-func (o *SearchResponseMetadata) GetSearchWarning() *SearchWarning {
-	if o == nil {
+func (s *SearchResponseMetadata) GetSearchWarning() *SearchWarning {
+	if s == nil {
 		return nil
 	}
-	return o.SearchWarning
+	return s.SearchWarning
 }
 
-func (o *SearchResponseMetadata) GetTriggeredExpertDetection() *bool {
-	if o == nil {
+func (s *SearchResponseMetadata) GetTriggeredExpertDetection() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.TriggeredExpertDetection
+	return s.TriggeredExpertDetection
 }
 
-func (o *SearchResponseMetadata) GetIsNoQuotesSuggestion() *bool {
-	if o == nil {
+func (s *SearchResponseMetadata) GetIsNoQuotesSuggestion() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.IsNoQuotesSuggestion
+	return s.IsNoQuotesSuggestion
 }

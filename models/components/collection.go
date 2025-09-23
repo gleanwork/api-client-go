@@ -54,169 +54,169 @@ func (c Collection) MarshalJSON() ([]byte, error) {
 }
 
 func (c *Collection) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"name", "description", "id"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *Collection) GetName() string {
-	if o == nil {
+func (c *Collection) GetName() string {
+	if c == nil {
 		return ""
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *Collection) GetDescription() string {
-	if o == nil {
+func (c *Collection) GetDescription() string {
+	if c == nil {
 		return ""
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *Collection) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (c *Collection) GetAddedRoles() []UserRoleSpecification {
+	if c == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return c.AddedRoles
 }
 
-func (o *Collection) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (c *Collection) GetRemovedRoles() []UserRoleSpecification {
+	if c == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return c.RemovedRoles
 }
 
-func (o *Collection) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (c *Collection) GetAudienceFilters() []FacetFilter {
+	if c == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return c.AudienceFilters
 }
 
-func (o *Collection) GetIcon() *string {
-	if o == nil {
+func (c *Collection) GetIcon() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Icon
+	return c.Icon
 }
 
-func (o *Collection) GetAdminLocked() *bool {
-	if o == nil {
+func (c *Collection) GetAdminLocked() *bool {
+	if c == nil {
 		return nil
 	}
-	return o.AdminLocked
+	return c.AdminLocked
 }
 
-func (o *Collection) GetParentID() *int64 {
-	if o == nil {
+func (c *Collection) GetParentID() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.ParentID
+	return c.ParentID
 }
 
-func (o *Collection) GetThumbnail() *Thumbnail {
-	if o == nil {
+func (c *Collection) GetThumbnail() *Thumbnail {
+	if c == nil {
 		return nil
 	}
-	return o.Thumbnail
+	return c.Thumbnail
 }
 
-func (o *Collection) GetAllowedDatasource() *string {
-	if o == nil {
+func (c *Collection) GetAllowedDatasource() *string {
+	if c == nil {
 		return nil
 	}
-	return o.AllowedDatasource
+	return c.AllowedDatasource
 }
 
-func (o *Collection) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (c *Collection) GetPermissions() *ObjectPermissions {
+	if c == nil {
 		return nil
 	}
-	return o.Permissions
+	return c.Permissions
 }
 
-func (o *Collection) GetID() int64 {
-	if o == nil {
+func (c *Collection) GetID() int64 {
+	if c == nil {
 		return 0
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *Collection) GetCreateTime() *time.Time {
-	if o == nil {
+func (c *Collection) GetCreateTime() *time.Time {
+	if c == nil {
 		return nil
 	}
-	return o.CreateTime
+	return c.CreateTime
 }
 
-func (o *Collection) GetUpdateTime() *time.Time {
-	if o == nil {
+func (c *Collection) GetUpdateTime() *time.Time {
+	if c == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return c.UpdateTime
 }
 
-func (o *Collection) GetCreator() *Person {
-	if o == nil {
+func (c *Collection) GetCreator() *Person {
+	if c == nil {
 		return nil
 	}
-	return o.Creator
+	return c.Creator
 }
 
-func (o *Collection) GetUpdatedBy() *Person {
-	if o == nil {
+func (c *Collection) GetUpdatedBy() *Person {
+	if c == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return c.UpdatedBy
 }
 
-func (o *Collection) GetItemCount() *int64 {
-	if o == nil {
+func (c *Collection) GetItemCount() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.ItemCount
+	return c.ItemCount
 }
 
-func (o *Collection) GetChildCount() *int64 {
-	if o == nil {
+func (c *Collection) GetChildCount() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.ChildCount
+	return c.ChildCount
 }
 
-func (o *Collection) GetItems() []CollectionItem {
-	if o == nil {
+func (c *Collection) GetItems() []CollectionItem {
+	if c == nil {
 		return nil
 	}
-	return o.Items
+	return c.Items
 }
 
-func (o *Collection) GetPinMetadata() *CollectionPinnedMetadata {
-	if o == nil {
+func (c *Collection) GetPinMetadata() *CollectionPinnedMetadata {
+	if c == nil {
 		return nil
 	}
-	return o.PinMetadata
+	return c.PinMetadata
 }
 
-func (o *Collection) GetShortcuts() []string {
-	if o == nil {
+func (c *Collection) GetShortcuts() []string {
+	if c == nil {
 		return nil
 	}
-	return o.Shortcuts
+	return c.Shortcuts
 }
 
-func (o *Collection) GetChildren() []Collection {
-	if o == nil {
+func (c *Collection) GetChildren() []Collection {
+	if c == nil {
 		return nil
 	}
-	return o.Children
+	return c.Children
 }
 
-func (o *Collection) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (c *Collection) GetRoles() []UserRoleSpecification {
+	if c == nil {
 		return nil
 	}
-	return o.Roles
+	return c.Roles
 }

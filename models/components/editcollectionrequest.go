@@ -26,79 +26,79 @@ type EditCollectionRequest struct {
 	ID int64 `json:"id"`
 }
 
-func (o *EditCollectionRequest) GetName() string {
-	if o == nil {
+func (e *EditCollectionRequest) GetName() string {
+	if e == nil {
 		return ""
 	}
-	return o.Name
+	return e.Name
 }
 
-func (o *EditCollectionRequest) GetDescription() *string {
-	if o == nil {
+func (e *EditCollectionRequest) GetDescription() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Description
+	return e.Description
 }
 
-func (o *EditCollectionRequest) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (e *EditCollectionRequest) GetAddedRoles() []UserRoleSpecification {
+	if e == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return e.AddedRoles
 }
 
-func (o *EditCollectionRequest) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (e *EditCollectionRequest) GetRemovedRoles() []UserRoleSpecification {
+	if e == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return e.RemovedRoles
 }
 
-func (o *EditCollectionRequest) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (e *EditCollectionRequest) GetAudienceFilters() []FacetFilter {
+	if e == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return e.AudienceFilters
 }
 
-func (o *EditCollectionRequest) GetIcon() *string {
-	if o == nil {
+func (e *EditCollectionRequest) GetIcon() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Icon
+	return e.Icon
 }
 
-func (o *EditCollectionRequest) GetAdminLocked() *bool {
-	if o == nil {
+func (e *EditCollectionRequest) GetAdminLocked() *bool {
+	if e == nil {
 		return nil
 	}
-	return o.AdminLocked
+	return e.AdminLocked
 }
 
-func (o *EditCollectionRequest) GetParentID() *int64 {
-	if o == nil {
+func (e *EditCollectionRequest) GetParentID() *int64 {
+	if e == nil {
 		return nil
 	}
-	return o.ParentID
+	return e.ParentID
 }
 
-func (o *EditCollectionRequest) GetThumbnail() *Thumbnail {
-	if o == nil {
+func (e *EditCollectionRequest) GetThumbnail() *Thumbnail {
+	if e == nil {
 		return nil
 	}
-	return o.Thumbnail
+	return e.Thumbnail
 }
 
-func (o *EditCollectionRequest) GetAllowedDatasource() *string {
-	if o == nil {
+func (e *EditCollectionRequest) GetAllowedDatasource() *string {
+	if e == nil {
 		return nil
 	}
-	return o.AllowedDatasource
+	return e.AllowedDatasource
 }
 
-func (o *EditCollectionRequest) GetID() int64 {
-	if o == nil {
+func (e *EditCollectionRequest) GetID() int64 {
+	if e == nil {
 		return 0
 	}
-	return o.ID
+	return e.ID
 }

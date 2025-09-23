@@ -12,16 +12,16 @@ type EditpinResponse struct {
 	PinDocument *components.PinDocument
 }
 
-func (o *EditpinResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (e *EditpinResponse) GetHTTPMeta() components.HTTPMetadata {
+	if e == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return e.HTTPMeta
 }
 
-func (o *EditpinResponse) GetPinDocument() *components.PinDocument {
-	if o == nil {
+func (e *EditpinResponse) GetPinDocument() *components.PinDocument {
+	if e == nil {
 		return nil
 	}
-	return o.PinDocument
+	return e.PinDocument
 }

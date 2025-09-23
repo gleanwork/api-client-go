@@ -2,7 +2,7 @@
 
 package components
 
-// ChatMessageFragment - Represents a part of a ChatMessage that originates from a single action/tool. It is designed to support rich data formats beyond simple text, allowing for a more dynamic and interactive chat experience. Each fragment can include various types of content, such as text, search queries, action information, and more. Also, each ChatMessageFragment should only have one of structuredResults, querySuggestion, writeAction, followupAction, or file.
+// ChatMessageFragment - Represents a part of a ChatMessage that originates from a single action/tool. It is designed to support rich data formats beyond simple text, allowing for a more dynamic and interactive chat experience. Each fragment can include various types of content, such as text, search queries, action information, and more. Also, each ChatMessageFragment should only have one of structuredResults, querySuggestion, writeAction, followupAction, agentRecommendation or file.
 type ChatMessageFragment struct {
 	// An array of entities in the work graph retrieved via a data request.
 	StructuredResults []StructuredResult `json:"structuredResults,omitempty"`
@@ -17,51 +17,51 @@ type ChatMessageFragment struct {
 	Citation *ChatMessageCitation `json:"citation,omitempty"`
 }
 
-func (o *ChatMessageFragment) GetStructuredResults() []StructuredResult {
-	if o == nil {
+func (c *ChatMessageFragment) GetStructuredResults() []StructuredResult {
+	if c == nil {
 		return nil
 	}
-	return o.StructuredResults
+	return c.StructuredResults
 }
 
-func (o *ChatMessageFragment) GetTrackingToken() *string {
-	if o == nil {
+func (c *ChatMessageFragment) GetTrackingToken() *string {
+	if c == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return c.TrackingToken
 }
 
-func (o *ChatMessageFragment) GetText() *string {
-	if o == nil {
+func (c *ChatMessageFragment) GetText() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Text
+	return c.Text
 }
 
-func (o *ChatMessageFragment) GetQuerySuggestion() *QuerySuggestion {
-	if o == nil {
+func (c *ChatMessageFragment) GetQuerySuggestion() *QuerySuggestion {
+	if c == nil {
 		return nil
 	}
-	return o.QuerySuggestion
+	return c.QuerySuggestion
 }
 
-func (o *ChatMessageFragment) GetFile() *ChatFile {
-	if o == nil {
+func (c *ChatMessageFragment) GetFile() *ChatFile {
+	if c == nil {
 		return nil
 	}
-	return o.File
+	return c.File
 }
 
-func (o *ChatMessageFragment) GetAction() *ToolInfo {
-	if o == nil {
+func (c *ChatMessageFragment) GetAction() *ToolInfo {
+	if c == nil {
 		return nil
 	}
-	return o.Action
+	return c.Action
 }
 
-func (o *ChatMessageFragment) GetCitation() *ChatMessageCitation {
-	if o == nil {
+func (c *ChatMessageFragment) GetCitation() *ChatMessageCitation {
+	if c == nil {
 		return nil
 	}
-	return o.Citation
+	return c.Citation
 }

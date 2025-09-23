@@ -7,9 +7,9 @@ type DeleteChatsRequest struct {
 	Ids []string `json:"ids"`
 }
 
-func (o *DeleteChatsRequest) GetIds() []string {
-	if o == nil {
+func (d *DeleteChatsRequest) GetIds() []string {
+	if d == nil {
 		return []string{}
 	}
-	return o.Ids
+	return d.Ids
 }

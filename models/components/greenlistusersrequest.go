@@ -10,16 +10,16 @@ type GreenlistUsersRequest struct {
 	Emails []string `json:"emails"`
 }
 
-func (o *GreenlistUsersRequest) GetDatasource() string {
-	if o == nil {
+func (g *GreenlistUsersRequest) GetDatasource() string {
+	if g == nil {
 		return ""
 	}
-	return o.Datasource
+	return g.Datasource
 }
 
-func (o *GreenlistUsersRequest) GetEmails() []string {
-	if o == nil {
+func (g *GreenlistUsersRequest) GetEmails() []string {
+	if g == nil {
 		return []string{}
 	}
-	return o.Emails
+	return g.Emails
 }

@@ -16,37 +16,37 @@ type BulkIndexTeamsRequest struct {
 	Teams []TeamInfoDefinition `json:"teams"`
 }
 
-func (o *BulkIndexTeamsRequest) GetUploadID() string {
-	if o == nil {
+func (b *BulkIndexTeamsRequest) GetUploadID() string {
+	if b == nil {
 		return ""
 	}
-	return o.UploadID
+	return b.UploadID
 }
 
-func (o *BulkIndexTeamsRequest) GetIsFirstPage() *bool {
-	if o == nil {
+func (b *BulkIndexTeamsRequest) GetIsFirstPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsFirstPage
+	return b.IsFirstPage
 }
 
-func (o *BulkIndexTeamsRequest) GetIsLastPage() *bool {
-	if o == nil {
+func (b *BulkIndexTeamsRequest) GetIsLastPage() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.IsLastPage
+	return b.IsLastPage
 }
 
-func (o *BulkIndexTeamsRequest) GetForceRestartUpload() *bool {
-	if o == nil {
+func (b *BulkIndexTeamsRequest) GetForceRestartUpload() *bool {
+	if b == nil {
 		return nil
 	}
-	return o.ForceRestartUpload
+	return b.ForceRestartUpload
 }
 
-func (o *BulkIndexTeamsRequest) GetTeams() []TeamInfoDefinition {
-	if o == nil {
+func (b *BulkIndexTeamsRequest) GetTeams() []TeamInfoDefinition {
+	if b == nil {
 		return []TeamInfoDefinition{}
 	}
-	return o.Teams
+	return b.Teams
 }

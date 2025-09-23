@@ -12,16 +12,16 @@ type UpdateannouncementResponse struct {
 	Announcement *components.Announcement
 }
 
-func (o *UpdateannouncementResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdateannouncementResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdateannouncementResponse) GetAnnouncement() *components.Announcement {
-	if o == nil {
+func (u *UpdateannouncementResponse) GetAnnouncement() *components.Announcement {
+	if u == nil {
 		return nil
 	}
-	return o.Announcement
+	return u.Announcement
 }

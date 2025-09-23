@@ -64,43 +64,43 @@ func (p PersonTeam) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PersonTeam) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *PersonTeam) GetID() *string {
-	if o == nil {
+func (p *PersonTeam) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PersonTeam) GetName() *string {
-	if o == nil {
+func (p *PersonTeam) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PersonTeam) GetExternalLink() *string {
-	if o == nil {
+func (p *PersonTeam) GetExternalLink() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ExternalLink
+	return p.ExternalLink
 }
 
-func (o *PersonTeam) GetRelationship() *PersonTeamRelationship {
-	if o == nil {
+func (p *PersonTeam) GetRelationship() *PersonTeamRelationship {
+	if p == nil {
 		return nil
 	}
-	return o.Relationship
+	return p.Relationship
 }
 
-func (o *PersonTeam) GetJoinDate() *time.Time {
-	if o == nil {
+func (p *PersonTeam) GetJoinDate() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.JoinDate
+	return p.JoinDate
 }

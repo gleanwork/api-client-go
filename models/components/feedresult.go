@@ -33,6 +33,8 @@ const (
 	FeedResultCategoryZeroStateWorkflowFavorites   FeedResultCategory = "ZERO_STATE_WORKFLOW_FAVORITES"
 	FeedResultCategoryZeroStateWorkflowPopular     FeedResultCategory = "ZERO_STATE_WORKFLOW_POPULAR"
 	FeedResultCategoryZeroStateWorkflowSuggestion  FeedResultCategory = "ZERO_STATE_WORKFLOW_SUGGESTION"
+	FeedResultCategoryPersonalizedChatSuggestion   FeedResultCategory = "PERSONALIZED_CHAT_SUGGESTION"
+	FeedResultCategoryDailyDigest                  FeedResultCategory = "DAILY_DIGEST"
 )
 
 func (e FeedResultCategory) ToPointer() *FeedResultCategory {
@@ -87,6 +89,10 @@ func (e *FeedResultCategory) UnmarshalJSON(data []byte) error {
 	case "ZERO_STATE_WORKFLOW_POPULAR":
 		fallthrough
 	case "ZERO_STATE_WORKFLOW_SUGGESTION":
+		fallthrough
+	case "PERSONALIZED_CHAT_SUGGESTION":
+		fallthrough
+	case "DAILY_DIGEST":
 		*e = FeedResultCategory(v)
 		return nil
 	default:
@@ -104,30 +110,30 @@ type FeedResult struct {
 	Rank *int64 `json:"rank,omitempty"`
 }
 
-func (o *FeedResult) GetCategory() FeedResultCategory {
-	if o == nil {
+func (f *FeedResult) GetCategory() FeedResultCategory {
+	if f == nil {
 		return FeedResultCategory("")
 	}
-	return o.Category
+	return f.Category
 }
 
-func (o *FeedResult) GetPrimaryEntry() FeedEntry {
-	if o == nil {
+func (f *FeedResult) GetPrimaryEntry() FeedEntry {
+	if f == nil {
 		return FeedEntry{}
 	}
-	return o.PrimaryEntry
+	return f.PrimaryEntry
 }
 
-func (o *FeedResult) GetSecondaryEntries() []FeedEntry {
-	if o == nil {
+func (f *FeedResult) GetSecondaryEntries() []FeedEntry {
+	if f == nil {
 		return nil
 	}
-	return o.SecondaryEntries
+	return f.SecondaryEntries
 }
 
-func (o *FeedResult) GetRank() *int64 {
-	if o == nil {
+func (f *FeedResult) GetRank() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.Rank
+	return f.Rank
 }

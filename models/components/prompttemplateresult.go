@@ -10,30 +10,30 @@ type PromptTemplateResult struct {
 	RunCount      *CountInfo    `json:"runCount,omitempty"`
 }
 
-func (o *PromptTemplateResult) GetPromptTemplate() *PromptTemplate {
-	if o == nil {
+func (p *PromptTemplateResult) GetPromptTemplate() *PromptTemplate {
+	if p == nil {
 		return nil
 	}
-	return o.PromptTemplate
+	return p.PromptTemplate
 }
 
-func (o *PromptTemplateResult) GetTrackingToken() *string {
-	if o == nil {
+func (p *PromptTemplateResult) GetTrackingToken() *string {
+	if p == nil {
 		return nil
 	}
-	return o.TrackingToken
+	return p.TrackingToken
 }
 
-func (o *PromptTemplateResult) GetFavoriteInfo() *FavoriteInfo {
-	if o == nil {
+func (p *PromptTemplateResult) GetFavoriteInfo() *FavoriteInfo {
+	if p == nil {
 		return nil
 	}
-	return o.FavoriteInfo
+	return p.FavoriteInfo
 }
 
-func (o *PromptTemplateResult) GetRunCount() *CountInfo {
-	if o == nil {
+func (p *PromptTemplateResult) GetRunCount() *CountInfo {
+	if p == nil {
 		return nil
 	}
-	return o.RunCount
+	return p.RunCount
 }

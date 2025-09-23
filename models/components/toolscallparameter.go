@@ -13,30 +13,30 @@ type ToolsCallParameter struct {
 	Properties map[string]ToolsCallParameter `json:"properties,omitempty"`
 }
 
-func (o *ToolsCallParameter) GetName() string {
-	if o == nil {
+func (t *ToolsCallParameter) GetName() string {
+	if t == nil {
 		return ""
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *ToolsCallParameter) GetValue() string {
-	if o == nil {
+func (t *ToolsCallParameter) GetValue() string {
+	if t == nil {
 		return ""
 	}
-	return o.Value
+	return t.Value
 }
 
-func (o *ToolsCallParameter) GetItems() []ToolsCallParameter {
-	if o == nil {
+func (t *ToolsCallParameter) GetItems() []ToolsCallParameter {
+	if t == nil {
 		return nil
 	}
-	return o.Items
+	return t.Items
 }
 
-func (o *ToolsCallParameter) GetProperties() map[string]ToolsCallParameter {
-	if o == nil {
+func (t *ToolsCallParameter) GetProperties() map[string]ToolsCallParameter {
+	if t == nil {
 		return nil
 	}
-	return o.Properties
+	return t.Properties
 }

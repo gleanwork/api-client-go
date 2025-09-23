@@ -36,99 +36,99 @@ func (a AnswerBoard) MarshalJSON() ([]byte, error) {
 }
 
 func (a *AnswerBoard) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &a, "", false, []string{"name", "description", "id"}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *AnswerBoard) GetName() string {
-	if o == nil {
+func (a *AnswerBoard) GetName() string {
+	if a == nil {
 		return ""
 	}
-	return o.Name
+	return a.Name
 }
 
-func (o *AnswerBoard) GetDescription() string {
-	if o == nil {
+func (a *AnswerBoard) GetDescription() string {
+	if a == nil {
 		return ""
 	}
-	return o.Description
+	return a.Description
 }
 
-func (o *AnswerBoard) GetAddedRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *AnswerBoard) GetAddedRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.AddedRoles
+	return a.AddedRoles
 }
 
-func (o *AnswerBoard) GetRemovedRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *AnswerBoard) GetRemovedRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.RemovedRoles
+	return a.RemovedRoles
 }
 
-func (o *AnswerBoard) GetAudienceFilters() []FacetFilter {
-	if o == nil {
+func (a *AnswerBoard) GetAudienceFilters() []FacetFilter {
+	if a == nil {
 		return nil
 	}
-	return o.AudienceFilters
+	return a.AudienceFilters
 }
 
-func (o *AnswerBoard) GetPermissions() *ObjectPermissions {
-	if o == nil {
+func (a *AnswerBoard) GetPermissions() *ObjectPermissions {
+	if a == nil {
 		return nil
 	}
-	return o.Permissions
+	return a.Permissions
 }
 
-func (o *AnswerBoard) GetID() int64 {
-	if o == nil {
+func (a *AnswerBoard) GetID() int64 {
+	if a == nil {
 		return 0
 	}
-	return o.ID
+	return a.ID
 }
 
-func (o *AnswerBoard) GetCreateTime() *time.Time {
-	if o == nil {
+func (a *AnswerBoard) GetCreateTime() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.CreateTime
+	return a.CreateTime
 }
 
-func (o *AnswerBoard) GetUpdateTime() *time.Time {
-	if o == nil {
+func (a *AnswerBoard) GetUpdateTime() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.UpdateTime
+	return a.UpdateTime
 }
 
-func (o *AnswerBoard) GetCreator() *Person {
-	if o == nil {
+func (a *AnswerBoard) GetCreator() *Person {
+	if a == nil {
 		return nil
 	}
-	return o.Creator
+	return a.Creator
 }
 
-func (o *AnswerBoard) GetUpdatedBy() *Person {
-	if o == nil {
+func (a *AnswerBoard) GetUpdatedBy() *Person {
+	if a == nil {
 		return nil
 	}
-	return o.UpdatedBy
+	return a.UpdatedBy
 }
 
-func (o *AnswerBoard) GetItemCount() *int64 {
-	if o == nil {
+func (a *AnswerBoard) GetItemCount() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.ItemCount
+	return a.ItemCount
 }
 
-func (o *AnswerBoard) GetRoles() []UserRoleSpecification {
-	if o == nil {
+func (a *AnswerBoard) GetRoles() []UserRoleSpecification {
+	if a == nil {
 		return nil
 	}
-	return o.Roles
+	return a.Roles
 }
