@@ -890,7 +890,7 @@ func (s *Answers) Retrieve(ctx context.Context, request components.GetAnswerRequ
 // List Answers
 // List Answers created by the current user.
 //
-// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated: Deprecated on 2026-01-21, removal scheduled for 2026-10-15: Answer boards have been removed and this endpoint no longer serves a purpose.
 func (s *Answers) List(ctx context.Context, request components.ListAnswersRequest, opts ...operations.Option) (*operations.ListanswersResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

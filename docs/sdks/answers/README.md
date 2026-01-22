@@ -2506,7 +2506,7 @@ func main() {
 
 List Answers created by the current user.
 
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: Deprecated on 2026-01-21, removal scheduled for 2026-10-15: Answer boards have been removed and this endpoint no longer serves a purpose.
 
 ### Example Usage
 

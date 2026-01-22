@@ -10,6 +10,8 @@ type GleanDataError struct {
 	// Indicates results could not be fetched due to invalid operators in the query.
 	InvalidOperators []InvalidOperatorValueError `json:"invalidOperators,omitempty"`
 	ErrorMessages    []ErrorMessage              `json:"errorMessages,omitempty"`
+	// Indicates the federated search results could not be fetched due to rate limiting.
+	FederatedSearchRateLimitError *bool `json:"federatedSearchRateLimitError,omitempty"`
 }
 
 func (g *GleanDataError) GetBadGmailToken() *bool {
@@ -38,4 +40,11 @@ func (g *GleanDataError) GetErrorMessages() []ErrorMessage {
 		return nil
 	}
 	return g.ErrorMessages
+}
+
+func (g *GleanDataError) GetFederatedSearchRateLimitError() *bool {
+	if g == nil {
+		return nil
+	}
+	return g.FederatedSearchRateLimitError
 }

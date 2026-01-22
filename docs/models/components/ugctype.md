@@ -11,3 +11,4 @@
 | `UgcTypeShortcutsType`       | SHORTCUTS_TYPE               |
 | `UgcTypeWorkflowsType`       | WORKFLOWS_TYPE               |
 | `UgcTypePromptTemplatesType` | PROMPT_TEMPLATES_TYPE        |
+| `UgcTypePrismViewsType`      | PRISM_VIEWS_TYPE             |

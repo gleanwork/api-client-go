@@ -28,13 +28,12 @@ func TestSummarize_Summarize(t *testing.T) {
 			components.CreateDocumentSpecUnionDocumentSpec3(
 				components.DocumentSpec3{
 					UgcType:   components.DocumentSpecUgcType1Shortcuts,
-					ContentID: 602763,
+					ContentID: 544883,
 				},
 			),
-			components.CreateDocumentSpecUnionDocumentSpec3(
-				components.DocumentSpec3{
-					UgcType:   components.DocumentSpecUgcType1Shortcuts,
-					ContentID: 602763,
+			components.CreateDocumentSpecUnionDocumentSpec2(
+				components.DocumentSpec2{
+					ID: "<id>",
 				},
 			),
 		},
