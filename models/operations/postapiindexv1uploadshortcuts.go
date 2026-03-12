@@ -16,3 +16,6 @@ func (p *PostAPIIndexV1UploadshortcutsResponse) GetHTTPMeta() components.HTTPMet
 	}
 	return p.HTTPMeta
 }
+
+// #region class-body-postapiindexv1uploadshortcutsresponse
+// #endregion class-body-postapiindexv1uploadshortcutsresponse

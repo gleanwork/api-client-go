@@ -16,3 +16,6 @@ func (p *PostAPIIndexV1DeleteuserResponse) GetHTTPMeta() components.HTTPMetadata
 	}
 	return p.HTTPMeta
 }
+
+// #region class-body-postapiindexv1deleteuserresponse
+// #endregion class-body-postapiindexv1deleteuserresponse

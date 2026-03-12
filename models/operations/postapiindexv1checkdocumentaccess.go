@@ -25,3 +25,6 @@ func (p *PostAPIIndexV1CheckdocumentaccessResponse) GetCheckDocumentAccessRespon
 	}
 	return p.CheckDocumentAccessResponse
 }
+
+// #region class-body-postapiindexv1checkdocumentaccessresponse
+// #endregion class-body-postapiindexv1checkdocumentaccessresponse

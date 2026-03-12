@@ -18,6 +18,9 @@ func (g *GetRestAPIV1ToolsListRequest) GetToolNames() []string {
 	return g.ToolNames
 }
 
+// #region class-body-getrestapiv1toolslistrequest
+// #endregion class-body-getrestapiv1toolslistrequest
+
 type GetRestAPIV1ToolsListResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Successful operation
@@ -37,3 +40,6 @@ func (g *GetRestAPIV1ToolsListResponse) GetToolsListResponse() *components.Tools
 	}
 	return g.ToolsListResponse
 }
+
+// #region class-body-getrestapiv1toolslistresponse
+// #endregion class-body-getrestapiv1toolslistresponse

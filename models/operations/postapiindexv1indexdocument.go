@@ -16,3 +16,6 @@ func (p *PostAPIIndexV1IndexdocumentResponse) GetHTTPMeta() components.HTTPMetad
 	}
 	return p.HTTPMeta
 }
+
+// #region class-body-postapiindexv1indexdocumentresponse
+// #endregion class-body-postapiindexv1indexdocumentresponse
