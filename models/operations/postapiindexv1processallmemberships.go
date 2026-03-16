@@ -16,3 +16,6 @@ func (p *PostAPIIndexV1ProcessallmembershipsResponse) GetHTTPMeta() components.H
 	}
 	return p.HTTPMeta
 }
+
+// #region class-body-postapiindexv1processallmembershipsresponse
+// #endregion class-body-postapiindexv1processallmembershipsresponse

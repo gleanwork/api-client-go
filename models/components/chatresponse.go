@@ -7,6 +7,8 @@ type ChatResponse struct {
 	Messages []ChatMessage `json:"messages,omitempty"`
 	// The id of the associated Chat the messages belong to, if one exists.
 	ChatID *string `json:"chatId,omitempty"`
+	// Metadata of a Chat a user had with Glean Assistant. This contains no actual conversational content.
+	Chat *ChatMetadata `json:"chat,omitempty"`
 	// Follow-up prompts for the user to potentially use
 	FollowUpPrompts []string `json:"followUpPrompts,omitempty"`
 	// Time in milliseconds the backend took to respond to the request.
@@ -27,6 +29,13 @@ func (c *ChatResponse) GetChatID() *string {
 		return nil
 	}
 	return c.ChatID
+}
+
+func (c *ChatResponse) GetChat() *ChatMetadata {
+	if c == nil {
+		return nil
+	}
+	return c.Chat
 }
 
 func (c *ChatResponse) GetFollowUpPrompts() []string {

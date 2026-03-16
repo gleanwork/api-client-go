@@ -25,3 +25,6 @@ func (p *PostAPIIndexV1GetdocumentstatusResponse) GetGetDocumentStatusResponse()
 	}
 	return p.GetDocumentStatusResponse
 }
+
+// #region class-body-postapiindexv1getdocumentstatusresponse
+// #endregion class-body-postapiindexv1getdocumentstatusresponse

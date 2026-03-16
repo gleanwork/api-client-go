@@ -49,3 +49,5 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryPlanMyDay`                    | PLAN_MY_DAY                                      |
 | `FeedResultCategoryEndMyDay`                     | END_MY_DAY                                       |
 | `FeedResultCategoryStarterKit`                   | STARTER_KIT                                      |
+| `FeedResultCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                 |
+| `FeedResultCategoryQuerySuggestion`              | QUERY_SUGGESTION                                 |

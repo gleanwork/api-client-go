@@ -25,3 +25,6 @@ func (p *PostAPIIndexV1GetusercountResponse) GetGetUserCountResponse() *componen
 	}
 	return p.GetUserCountResponse
 }
+
+// #region class-body-postapiindexv1getusercountresponse
+// #endregion class-body-postapiindexv1getusercountresponse

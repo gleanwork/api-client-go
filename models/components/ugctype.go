@@ -5,13 +5,22 @@ package components
 type UgcType string
 
 const (
+	UgcTypeAgentType           UgcType = "AGENT_TYPE"
 	UgcTypeAnnouncementsType   UgcType = "ANNOUNCEMENTS_TYPE"
 	UgcTypeAnswersType         UgcType = "ANSWERS_TYPE"
+	UgcTypeChatsType           UgcType = "CHATS_TYPE"
 	UgcTypeCollectionsType     UgcType = "COLLECTIONS_TYPE"
-	UgcTypeShortcutsType       UgcType = "SHORTCUTS_TYPE"
-	UgcTypeWorkflowsType       UgcType = "WORKFLOWS_TYPE"
-	UgcTypePromptTemplatesType UgcType = "PROMPT_TEMPLATES_TYPE"
+	UgcTypeEmailType           UgcType = "EMAIL_TYPE"
+	UgcTypeHTMLCodeType        UgcType = "HTML_CODE_TYPE"
+	UgcTypeImageType           UgcType = "IMAGE_TYPE"
+	UgcTypeMessageType         UgcType = "MESSAGE_TYPE"
+	UgcTypePaperType           UgcType = "PAPER_TYPE"
 	UgcTypePrismViewsType      UgcType = "PRISM_VIEWS_TYPE"
+	UgcTypePromptTemplatesType UgcType = "PROMPT_TEMPLATES_TYPE"
+	UgcTypeScribesType         UgcType = "SCRIBES_TYPE"
+	UgcTypeShortcutsType       UgcType = "SHORTCUTS_TYPE"
+	UgcTypeSlideType           UgcType = "SLIDE_TYPE"
+	UgcTypeWorkflowsType       UgcType = "WORKFLOWS_TYPE"
 )
 
 func (e UgcType) ToPointer() *UgcType {
@@ -22,7 +31,7 @@ func (e UgcType) ToPointer() *UgcType {
 func (e *UgcType) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "ANNOUNCEMENTS_TYPE", "ANSWERS_TYPE", "COLLECTIONS_TYPE", "SHORTCUTS_TYPE", "WORKFLOWS_TYPE", "PROMPT_TEMPLATES_TYPE", "PRISM_VIEWS_TYPE":
+		case "AGENT_TYPE", "ANNOUNCEMENTS_TYPE", "ANSWERS_TYPE", "CHATS_TYPE", "COLLECTIONS_TYPE", "EMAIL_TYPE", "HTML_CODE_TYPE", "IMAGE_TYPE", "MESSAGE_TYPE", "PAPER_TYPE", "PRISM_VIEWS_TYPE", "PROMPT_TEMPLATES_TYPE", "SCRIBES_TYPE", "SHORTCUTS_TYPE", "SLIDE_TYPE", "WORKFLOWS_TYPE":
 			return true
 		}
 	}

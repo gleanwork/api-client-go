@@ -103,3 +103,6 @@ func (a *AgentsInsightsV2Response) GetDownvotesTimeseries() *LabeledCountInfo {
 	}
 	return a.DownvotesTimeseries
 }
+
+// #region class-body-agentsinsightsv2response
+// #endregion class-body-agentsinsightsv2response

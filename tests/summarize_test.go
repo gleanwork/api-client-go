@@ -32,8 +32,8 @@ func TestSummarize_Summarize(t *testing.T) {
 			),
 			components.CreateDocumentSpecUnionDocumentSpec3(
 				components.DocumentSpec3{
-					UgcType:   components.DocumentSpecUgcType1Answers,
-					ContentID: 754472,
+					UgcType:   components.DocumentSpecUgcType1Collections,
+					ContentID: 886976,
 				},
 			),
 		},

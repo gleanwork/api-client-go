@@ -32,12 +32,14 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: true
 go:
-  version: 0.11.30
+  version: 0.11.31
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: GleanError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: APIError
+  enableCustomCodeRegions: false
+  enableSkipDeserialization: false
   envVarPrefix: GLEAN
   flattenGlobalSecurity: true
   forwardCompatibleEnumsByDefault: true
