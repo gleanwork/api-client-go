@@ -25,3 +25,6 @@ func (p *PostAPIIndexV1GetdatasourceconfigResponse) GetCustomDatasourceConfig() 
 	}
 	return p.CustomDatasourceConfig
 }
+
+// #region class-body-postapiindexv1getdatasourceconfigresponse
+// #endregion class-body-postapiindexv1getdatasourceconfigresponse

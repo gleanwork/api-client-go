@@ -16,3 +16,6 @@ func (p *PostAPIIndexV1UpdatepermissionsResponse) GetHTTPMeta() components.HTTPM
 	}
 	return p.HTTPMeta
 }
+
+// #region class-body-postapiindexv1updatepermissionsresponse
+// #endregion class-body-postapiindexv1updatepermissionsresponse

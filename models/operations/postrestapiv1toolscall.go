@@ -25,3 +25,6 @@ func (p *PostRestAPIV1ToolsCallResponse) GetToolsCallResponse() *components.Tool
 	}
 	return p.ToolsCallResponse
 }
+
+// #region class-body-postrestapiv1toolscallresponse
+// #endregion class-body-postrestapiv1toolscallresponse

@@ -25,3 +25,6 @@ func (p *PostAPIIndexV1RotatetokenResponse) GetRotateTokenResponse() *components
 	}
 	return p.RotateTokenResponse
 }
+
+// #region class-body-postapiindexv1rotatetokenresponse
+// #endregion class-body-postapiindexv1rotatetokenresponse

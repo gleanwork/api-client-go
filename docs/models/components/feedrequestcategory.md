@@ -40,3 +40,9 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryZeroStateWorkflowSuggestion`  | ZERO_STATE_WORKFLOW_SUGGESTION                    |
 | `FeedRequestCategoryPersonalizedChatSuggestion`   | PERSONALIZED_CHAT_SUGGESTION                      |
 | `FeedRequestCategoryDailyDigest`                  | DAILY_DIGEST                                      |
+| `FeedRequestCategoryTask`                         | TASK                                              |
+| `FeedRequestCategoryPlanMyDay`                    | PLAN_MY_DAY                                       |
+| `FeedRequestCategoryEndMyDay`                     | END_MY_DAY                                        |
+| `FeedRequestCategoryStarterKit`                   | STARTER_KIT                                       |
+| `FeedRequestCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                  |
+| `FeedRequestCategoryQuerySuggestion`              | QUERY_SUGGESTION                                  |

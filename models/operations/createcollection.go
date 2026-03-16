@@ -60,6 +60,9 @@ func (r *ResponseBody2) GetError() components.CollectionError {
 	return r.Error
 }
 
+// #region class-body-responsebody2
+// #endregion class-body-responsebody2
+
 type ResponseBody1 struct {
 	Collection components.Collection       `json:"collection"`
 	Error      *components.CollectionError `json:"error,omitempty"`
@@ -89,6 +92,9 @@ func (r *ResponseBody1) GetError() *components.CollectionError {
 	}
 	return r.Error
 }
+
+// #region class-body-responsebody1
+// #endregion class-body-responsebody1
 
 type CreatecollectionResponseBodyType string
 

@@ -75,6 +75,9 @@ func (d *DocumentSpec4) GetDocType() *string {
 	return d.DocType
 }
 
+// #region class-body-documentspec4
+// #endregion class-body-documentspec4
+
 // DocumentSpecUgcType1 - The type of the user generated content (UGC datasource).
 type DocumentSpecUgcType1 string
 
@@ -142,6 +145,9 @@ func (d *DocumentSpec3) GetDocType() *string {
 	return d.DocType
 }
 
+// #region class-body-documentspec3
+// #endregion class-body-documentspec3
+
 type DocumentSpec2 struct {
 	// The ID of the document.
 	ID string `json:"id"`
@@ -165,6 +171,9 @@ func (d *DocumentSpec2) GetID() string {
 	return d.ID
 }
 
+// #region class-body-documentspec2
+// #endregion class-body-documentspec2
+
 type DocumentSpec1 struct {
 	// The URL of the document.
 	URL string `json:"url"`
@@ -187,6 +196,9 @@ func (d *DocumentSpec1) GetURL() string {
 	}
 	return d.URL
 }
+
+// #region class-body-documentspec1
+// #endregion class-body-documentspec1
 
 type DocumentSpecUnionType string
 

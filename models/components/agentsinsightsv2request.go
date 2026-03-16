@@ -30,3 +30,6 @@ func (a *AgentsInsightsV2Request) GetDayRange() *Period {
 	}
 	return a.DayRange
 }
+
+// #region class-body-agentsinsightsv2request
+// #endregion class-body-agentsinsightsv2request

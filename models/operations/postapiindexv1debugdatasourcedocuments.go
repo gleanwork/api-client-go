@@ -26,6 +26,9 @@ func (p *PostAPIIndexV1DebugDatasourceDocumentsRequest) GetDebugDocumentsRequest
 	return p.DebugDocumentsRequest
 }
 
+// #region class-body-postapiindexv1debugdatasourcedocumentsrequest
+// #endregion class-body-postapiindexv1debugdatasourcedocumentsrequest
+
 type PostAPIIndexV1DebugDatasourceDocumentsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
@@ -45,3 +48,6 @@ func (p *PostAPIIndexV1DebugDatasourceDocumentsResponse) GetDebugDocumentsRespon
 	}
 	return p.DebugDocumentsResponse
 }
+
+// #region class-body-postapiindexv1debugdatasourcedocumentsresponse
+// #endregion class-body-postapiindexv1debugdatasourcedocumentsresponse

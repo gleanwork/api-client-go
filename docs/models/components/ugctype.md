@@ -7,7 +7,7 @@ import (
 	"github.com/gleanwork/api-client-go/models/components"
 )
 
-value := components.UgcTypeAnnouncementsType
+value := components.UgcTypeAgentType
 
 // Open enum: custom values can be created with a direct type cast
 custom := components.UgcType("custom_value")
@@ -18,10 +18,19 @@ custom := components.UgcType("custom_value")
 
 | Name                         | Value                        |
 | ---------------------------- | ---------------------------- |
+| `UgcTypeAgentType`           | AGENT_TYPE                   |
 | `UgcTypeAnnouncementsType`   | ANNOUNCEMENTS_TYPE           |
 | `UgcTypeAnswersType`         | ANSWERS_TYPE                 |
+| `UgcTypeChatsType`           | CHATS_TYPE                   |
 | `UgcTypeCollectionsType`     | COLLECTIONS_TYPE             |
-| `UgcTypeShortcutsType`       | SHORTCUTS_TYPE               |
-| `UgcTypeWorkflowsType`       | WORKFLOWS_TYPE               |
-| `UgcTypePromptTemplatesType` | PROMPT_TEMPLATES_TYPE        |
+| `UgcTypeEmailType`           | EMAIL_TYPE                   |
+| `UgcTypeHTMLCodeType`        | HTML_CODE_TYPE               |
+| `UgcTypeImageType`           | IMAGE_TYPE                   |
+| `UgcTypeMessageType`         | MESSAGE_TYPE                 |
+| `UgcTypePaperType`           | PAPER_TYPE                   |
 | `UgcTypePrismViewsType`      | PRISM_VIEWS_TYPE             |
+| `UgcTypePromptTemplatesType` | PROMPT_TEMPLATES_TYPE        |
+| `UgcTypeScribesType`         | SCRIBES_TYPE                 |
+| `UgcTypeShortcutsType`       | SHORTCUTS_TYPE               |
+| `UgcTypeSlideType`           | SLIDE_TYPE                   |
+| `UgcTypeWorkflowsType`       | WORKFLOWS_TYPE               |

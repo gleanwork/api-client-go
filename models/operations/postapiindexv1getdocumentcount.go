@@ -25,3 +25,6 @@ func (p *PostAPIIndexV1GetdocumentcountResponse) GetGetDocumentCountResponse() *
 	}
 	return p.GetDocumentCountResponse
 }
+
+// #region class-body-postapiindexv1getdocumentcountresponse
+// #endregion class-body-postapiindexv1getdocumentcountresponse
