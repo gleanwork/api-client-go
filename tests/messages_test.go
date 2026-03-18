@@ -27,7 +27,7 @@ func TestMessages_Messages(t *testing.T) {
 		IDType:          components.IDTypeConversationID,
 		ID:              "<id>",
 		TimestampMillis: apiclientgo.Pointer[int64](558834),
-		Datasource:      components.DatasourceMicrosoftteams,
+		Datasource:      components.DatasourceGchat,
 	}, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)

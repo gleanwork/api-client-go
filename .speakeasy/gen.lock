@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 80548a2e50a9d6a392656d02cbb431f0
+  docChecksum: 2fab3e8959b00ae329cb184f27a113cc
   docVersion: 0.9.0
-  speakeasyVersion: 1.755.1
-  generationVersion: 2.865.2
-  releaseVersion: 0.11.32
-  configChecksum: 6e7a82e2946e6777eb9de333d9a1cc4f
+  speakeasyVersion: 1.757.0
+  generationVersion: 2.866.0
+  releaseVersion: 0.11.33
+  configChecksum: 13fc8887ff5ad1adbbd3aa5a79354826
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: f50a1a52-b657-4261-aebd-ae45cb859073
-  pristine_commit_hash: 2eb9b85072ba30e8f602fa0795370fd69b86ca19
-  pristine_tree_hash: 9ac70cf962692306d4c30bedd61cf4ab8aa9473b
+  generation_id: f32125ff-8a65-4573-b18b-ef6ec3df33de
+  pristine_commit_hash: 2a8289a78dd046dd30d0dedb71bbb35f4b0289a2
+  pristine_tree_hash: 93b5b49aeaa1eb29d326d571da1502eca04dab45
 features:
   go:
     additionalDependencies: 0.1.0
@@ -31,7 +31,7 @@ features:
     globalServerURLs: 2.83.1
     groups: 2.81.3
     intellisenseMarkdownSupport: 0.1.0
-    mockServer: 0.1.2
+    mockServer: 0.1.3
     nameOverrides: 2.81.4
     responseFormat: 0.1.2
     retries: 2.84.2
@@ -3286,8 +3286,8 @@ trackedFiles:
     pristine_git_object: 87f13ac7b1bb396e778a90fbb59d605bd00a9276
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:ae4b95b4432dc34332a95b02cecc3242d95a588a
-    pristine_git_object: dd1245c96658b643dc2ecb208484038f6fb48f6e
+    last_write_checksum: sha1:220a9083593030b72b2461dfaf2c0cbc91a88f37
+    pristine_git_object: 28bc01c9bf752664c08939e4aa352a55b9317388
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:86e3d2575dc26780579383eddbc5be5adbd21501
@@ -5742,8 +5742,8 @@ trackedFiles:
     pristine_git_object: 6d9cbca42012c2760de3ecaf4f569c53d32197da
   tests/messages_test.go:
     id: 3433c956b7a3
-    last_write_checksum: sha1:0e70d5a95dcfffb2d01931c47eae827d7c95129a
-    pristine_git_object: bc499ec73cc495c1502d01361347ce76a0fe5f18
+    last_write_checksum: sha1:63e7b1c9a68b43467855286635a88cb166b2bc79
+    pristine_git_object: febdc0e8a34b769bfc6dcfe3a9e33053b2267433
   tests/mockserver/.gitignore:
     last_write_checksum: sha1:228e1b05712a973948fd771323a2140a3b355ff4
   tests/mockserver/Dockerfile:
@@ -7138,8 +7138,8 @@ trackedFiles:
     pristine_git_object: 8276fc3a8313ccbdb884ac378657dea8e7a24776
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:18019f2ea08ad3bfa7b69f8e8ac93016344f5bde
-    pristine_git_object: d66471f15287caee050294062ec51dd277524032
+    last_write_checksum: sha1:ca6dc11ab46aab547f96cfa948c7d75dc3ef9cbc
+    pristine_git_object: 82e7014fe632efda0d2f05376b17812f945a5f1a
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
