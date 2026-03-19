@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 2fab3e8959b00ae329cb184f27a113cc
+  docChecksum: 34cd4112e4c32279bed69c71c169040f
   docVersion: 0.9.0
-  speakeasyVersion: 1.757.0
-  generationVersion: 2.866.0
-  releaseVersion: 0.11.33
-  configChecksum: 13fc8887ff5ad1adbbd3aa5a79354826
+  speakeasyVersion: 1.757.1
+  generationVersion: 2.866.2
+  releaseVersion: 0.11.34
+  configChecksum: 8539660793fbbf721e207604485e6f0b
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: f32125ff-8a65-4573-b18b-ef6ec3df33de
-  pristine_commit_hash: 2a8289a78dd046dd30d0dedb71bbb35f4b0289a2
-  pristine_tree_hash: 93b5b49aeaa1eb29d326d571da1502eca04dab45
+  generation_id: 417a50a5-f828-472a-8457-b185ea81458e
+  pristine_commit_hash: 67b67b08e0a64a4b868a12bb70d1e53c685705ce
+  pristine_tree_hash: 99fab20752513d7df4aa6220436816881ee623ff
 features:
   go:
     additionalDependencies: 0.1.0
@@ -2130,8 +2130,8 @@ trackedFiles:
     pristine_git_object: ec61ba554ddef63e2af7f7cb1ddfd8fe8a843a8d
   docs/models/components/timepoint.md:
     id: 034fcab01ee7
-    last_write_checksum: sha1:ac02eeac54ff28624dc66de46c4266b0c4c27c71
-    pristine_git_object: b718247981a34d75380a7551337600205ad865e0
+    last_write_checksum: sha1:3ef1218fa13514cd3a9a060f51fb75bf10633647
+    pristine_git_object: 9aeb981958dd7697b625bdee716195fb736ed2f5
   docs/models/components/timerange.md:
     id: 1576a9aa5693
     last_write_checksum: sha1:ca3f844405743635d3f69f29d1d760fbf782e880
@@ -3286,8 +3286,8 @@ trackedFiles:
     pristine_git_object: 87f13ac7b1bb396e778a90fbb59d605bd00a9276
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:220a9083593030b72b2461dfaf2c0cbc91a88f37
-    pristine_git_object: 28bc01c9bf752664c08939e4aa352a55b9317388
+    last_write_checksum: sha1:44eb224439622a2891facc4c45d532be328f1c08
+    pristine_git_object: 00fde73014ce6213d383518f61d0d8d40967b226
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:86e3d2575dc26780579383eddbc5be5adbd21501
@@ -4946,8 +4946,8 @@ trackedFiles:
     pristine_git_object: c9bffa20c0eb1535b8cc0d3e985488c896c87fcc
   models/components/timepoint.go:
     id: f2b14fb64eeb
-    last_write_checksum: sha1:422f2519abcf759327cf1b073d2775b973cfe29a
-    pristine_git_object: 250d703070e0648ff7b1118b20636d0f451f20ad
+    last_write_checksum: sha1:72e466876dbd21093286067dcb42205b09fe9e07
+    pristine_git_object: 002788f1489e2c173e406d656c29901042cbdd3c
   models/components/timerange.go:
     id: a63a2eae8305
     last_write_checksum: sha1:eafab338bc4ea87985fe9b330986b0ee67bf659b
@@ -5742,8 +5742,8 @@ trackedFiles:
     pristine_git_object: 6d9cbca42012c2760de3ecaf4f569c53d32197da
   tests/messages_test.go:
     id: 3433c956b7a3
-    last_write_checksum: sha1:63e7b1c9a68b43467855286635a88cb166b2bc79
-    pristine_git_object: febdc0e8a34b769bfc6dcfe3a9e33053b2267433
+    last_write_checksum: sha1:1cd91a5da0532448c95e970af3d91952394a6cb9
+    pristine_git_object: f927c36464e8eb191ae67582831be04e3db1e5dc
   tests/mockserver/.gitignore:
     last_write_checksum: sha1:228e1b05712a973948fd771323a2140a3b355ff4
   tests/mockserver/Dockerfile:
@@ -6737,7 +6737,7 @@ trackedFiles:
   tests/mockserver/internal/sdk/models/components/timeinterval.go:
     last_write_checksum: sha1:81705bb1ecaf99d821e06bab433ae8acb7f0a06f
   tests/mockserver/internal/sdk/models/components/timepoint.go:
-    last_write_checksum: sha1:67f919859cc4a59b8fad0788eb53c825d84f3dd2
+    last_write_checksum: sha1:f8729435a86cb935d5af211ecbd5cf1f2ef9e28e
   tests/mockserver/internal/sdk/models/components/timerange.go:
     last_write_checksum: sha1:128b8dd617902f688dd9dec7a0c09ad9c2572415
   tests/mockserver/internal/sdk/models/components/timerangefilter.go:
@@ -7138,8 +7138,8 @@ trackedFiles:
     pristine_git_object: 8276fc3a8313ccbdb884ac378657dea8e7a24776
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:ca6dc11ab46aab547f96cfa948c7d75dc3ef9cbc
-    pristine_git_object: 82e7014fe632efda0d2f05376b17812f945a5f1a
+    last_write_checksum: sha1:363bed5255b9e55cdb58a8d97fb8f2cc399d3877
+    pristine_git_object: cf370440c325e4da2b01e20af977447f35e35943
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
