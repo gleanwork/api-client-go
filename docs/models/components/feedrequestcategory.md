@@ -46,3 +46,4 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryStarterKit`                   | STARTER_KIT                                       |
 | `FeedRequestCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                  |
 | `FeedRequestCategoryQuerySuggestion`              | QUERY_SUGGESTION                                  |
+| `FeedRequestCategoryWeeklyMeetings`               | WEEKLY_MEETINGS                                   |

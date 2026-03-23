@@ -51,3 +51,4 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryStarterKit`                   | STARTER_KIT                                      |
 | `FeedResultCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                 |
 | `FeedResultCategoryQuerySuggestion`              | QUERY_SUGGESTION                                 |
+| `FeedResultCategoryWeeklyMeetings`               | WEEKLY_MEETINGS                                  |
