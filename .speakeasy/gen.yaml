@@ -32,7 +32,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: true
 go:
-  version: 0.11.35
+  version: 0.11.36
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: GleanError

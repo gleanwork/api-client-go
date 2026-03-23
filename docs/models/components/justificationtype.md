@@ -64,3 +64,4 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeActiveDiscussion`                  | ACTIVE_DISCUSSION                                    |
 | `JustificationTypeMidDayCatchUp`                     | MID_DAY_CATCH_UP                                     |
 | `JustificationTypeQuerySuggestion`                   | QUERY_SUGGESTION                                     |
+| `JustificationTypeWeeklyMeetings`                    | WEEKLY_MEETINGS                                      |
