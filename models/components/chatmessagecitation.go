@@ -8,8 +8,9 @@ type ChatMessageCitation struct {
 	TrackingToken  *string   `json:"trackingToken,omitempty"`
 	SourceDocument *Document `json:"sourceDocument,omitempty"`
 	// Structure for file uploaded by a user for Chat.
-	SourceFile   *ChatFile `json:"sourceFile,omitempty"`
-	SourcePerson *Person   `json:"sourcePerson,omitempty"`
+	SourceFile         *ChatFile     `json:"sourceFile,omitempty"`
+	SourcePerson       *Person       `json:"sourcePerson,omitempty"`
+	SourceCustomEntity *CustomEntity `json:"sourceCustomEntity,omitempty"`
 	// Each reference range and its corresponding snippets
 	ReferenceRanges []ReferenceRange `json:"referenceRanges,omitempty"`
 }
@@ -40,6 +41,13 @@ func (c *ChatMessageCitation) GetSourcePerson() *Person {
 		return nil
 	}
 	return c.SourcePerson
+}
+
+func (c *ChatMessageCitation) GetSourceCustomEntity() *CustomEntity {
+	if c == nil {
+		return nil
+	}
+	return c.SourceCustomEntity
 }
 
 func (c *ChatMessageCitation) GetReferenceRanges() []ReferenceRange {

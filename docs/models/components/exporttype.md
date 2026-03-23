@@ -19,3 +19,4 @@ value := components.ExportTypeFindings
 | --------------------- | --------------------- |
 | `ExportTypeFindings`  | FINDINGS              |
 | `ExportTypeDocuments` | DOCUMENTS             |
+| `ExportTypeIssues`    | ISSUES                |

@@ -12,11 +12,14 @@ type InsightsOverviewResponse struct {
 	// Number of current employees in the specified departments, according to the Org Chart.
 	EmployeeCount *int64 `json:"employeeCount,omitempty"`
 	// Number of current signed up employees in the specified departments, according to the Org Chart.
-	TotalSignups     *int64                 `json:"totalSignups,omitempty"`
-	SearchSummary    *InsightsSearchSummary `json:"searchSummary,omitempty"`
-	ChatSummary      *InsightsChatSummary   `json:"chatSummary,omitempty"`
-	ExtensionSummary *CurrentActiveUsers    `json:"extensionSummary,omitempty"`
-	UgcSummary       *CurrentActiveUsers    `json:"ugcSummary,omitempty"`
+	TotalSignups         *int64                 `json:"totalSignups,omitempty"`
+	SearchSummary        *InsightsSearchSummary `json:"searchSummary,omitempty"`
+	ChatSummary          *InsightsChatSummary   `json:"chatSummary,omitempty"`
+	SearchActiveUsers    *CurrentActiveUsers    `json:"searchActiveUsers,omitempty"`
+	AssistantActiveUsers *CurrentActiveUsers    `json:"assistantActiveUsers,omitempty"`
+	AgentsActiveUsers    *CurrentActiveUsers    `json:"agentsActiveUsers,omitempty"`
+	ExtensionSummary     *CurrentActiveUsers    `json:"extensionSummary,omitempty"`
+	UgcSummary           *CurrentActiveUsers    `json:"ugcSummary,omitempty"`
 	// Unix timestamp of the last update for the insights data in the response.
 	LastUpdatedTs *int64 `json:"lastUpdatedTs,omitempty"`
 	// Search session satisfaction rate, over the specified time period in the specified departments.
@@ -91,6 +94,27 @@ func (i *InsightsOverviewResponse) GetChatSummary() *InsightsChatSummary {
 		return nil
 	}
 	return i.ChatSummary
+}
+
+func (i *InsightsOverviewResponse) GetSearchActiveUsers() *CurrentActiveUsers {
+	if i == nil {
+		return nil
+	}
+	return i.SearchActiveUsers
+}
+
+func (i *InsightsOverviewResponse) GetAssistantActiveUsers() *CurrentActiveUsers {
+	if i == nil {
+		return nil
+	}
+	return i.AssistantActiveUsers
+}
+
+func (i *InsightsOverviewResponse) GetAgentsActiveUsers() *CurrentActiveUsers {
+	if i == nil {
+		return nil
+	}
+	return i.AgentsActiveUsers
 }
 
 func (i *InsightsOverviewResponse) GetExtensionSummary() *CurrentActiveUsers {
