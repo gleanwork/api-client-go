@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 34cd4112e4c32279bed69c71c169040f
+  docChecksum: bd83469a3c96e8732836267779bd09eb
   docVersion: 0.9.0
-  speakeasyVersion: 1.757.1
-  generationVersion: 2.866.2
-  releaseVersion: 0.11.34
-  configChecksum: 8539660793fbbf721e207604485e6f0b
+  speakeasyVersion: 1.759.1
+  generationVersion: 2.869.10
+  releaseVersion: 0.11.35
+  configChecksum: b3c3374686d97bf123c990e3b6cb0111
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: 417a50a5-f828-472a-8457-b185ea81458e
-  pristine_commit_hash: 67b67b08e0a64a4b868a12bb70d1e53c685705ce
-  pristine_tree_hash: 99fab20752513d7df4aa6220436816881ee623ff
+  generation_id: 9dc38d35-85e8-4b10-893b-82042e6122b3
+  pristine_commit_hash: 09d542d1140a7050bb0f06b245d642d12d1c258c
+  pristine_tree_hash: 58f74cf5d1ab64d581b1e10fc686b90ac9d58cf1
 features:
   go:
     additionalDependencies: 0.1.0
@@ -442,8 +442,8 @@ trackedFiles:
     pristine_git_object: 021175d3911ff3c4cf4a6abccbf24759e4b6a232
   docs/models/components/chatmessagecitation.md:
     id: f779f459e302
-    last_write_checksum: sha1:60bfa572819116ea31318866f051c4fcf5e202de
-    pristine_git_object: d02a6f3b1e255506bb6d678a9b6a86709288cdfc
+    last_write_checksum: sha1:ee149afa4c48eadfa593adcfd274fa407969d58e
+    pristine_git_object: 92ada0464db3a2c9c8f77c596549e9b0d0d3c263
   docs/models/components/chatmessagefragment.md:
     id: 3a80e2474b95
     last_write_checksum: sha1:4b786bb225b283f2897298f5d0de0b0792376e51
@@ -1106,8 +1106,8 @@ trackedFiles:
     pristine_git_object: 581a1773ef15847b7c0d38fa35bab6c3bc08aba8
   docs/models/components/exporttype.md:
     id: 5e29eec3c19b
-    last_write_checksum: sha1:586b4a752d0c8803418a6e0eefc574c2d911eaf3
-    pristine_git_object: ac556ea6b7511a219c62fd0ca5ffbb926aebf8e8
+    last_write_checksum: sha1:a2e8a87a53324a391cfd86aa2b50e3b2ab698d66
+    pristine_git_object: 9c36b043387fcaf7e406bf1f2f1839b115f68184
   docs/models/components/externalsharingoptions.md:
     id: 2af95cbad50c
     last_write_checksum: sha1:89305e047e5f0b547708bb12f47e7a78791001f7
@@ -1486,8 +1486,8 @@ trackedFiles:
     pristine_git_object: 1c56c012d3fec5d103299ec2cfa554ccf8358d7d
   docs/models/components/insightsoverviewresponse.md:
     id: e490ed19892d
-    last_write_checksum: sha1:38e127d6e64a29dae1cfaad74cd188f3faefebaa
-    pristine_git_object: b3110d46e43e6241c235ea1b10fe5ffee058116d
+    last_write_checksum: sha1:3dc72f0fa89d6c5847fb430ea755bfc6e8f37962
+    pristine_git_object: bb4cbf281fa75c1d19eff2c4ef5f84993c8280d4
   docs/models/components/insightsrequest.md:
     id: cf96ae543699
     last_write_checksum: sha1:f76505c6ea86309e8dc7798b77307ef90c208d49
@@ -3286,8 +3286,8 @@ trackedFiles:
     pristine_git_object: 87f13ac7b1bb396e778a90fbb59d605bd00a9276
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:44eb224439622a2891facc4c45d532be328f1c08
-    pristine_git_object: 00fde73014ce6213d383518f61d0d8d40967b226
+    last_write_checksum: sha1:3b7ea616254498fc50bd276586538832aedc3cdf
+    pristine_git_object: ff289f3a24bd5c475c504833a01c75534e24bdf2
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:86e3d2575dc26780579383eddbc5be5adbd21501
@@ -3630,8 +3630,8 @@ trackedFiles:
     pristine_git_object: 886427a4dd086dfa5aa122c6d612348b3842656e
   models/components/chatmessagecitation.go:
     id: ed01eb6fe323
-    last_write_checksum: sha1:94bea6a05c4084e3e5cb3840d01e3d5595513f30
-    pristine_git_object: ce70a3c90a511664b4458bb8fe93be39945fd86e
+    last_write_checksum: sha1:3b12cd0eecd1b84c90f9bece7936688a1b7ed200
+    pristine_git_object: cb73fb2f22e26699d87853f3bf5b0ad174198e92
   models/components/chatmessagefragment.go:
     id: 8b451ad53a7d
     last_write_checksum: sha1:0d8fbc173b3d0e0ca97ded6593a7e966af939fa1
@@ -4014,8 +4014,8 @@ trackedFiles:
     pristine_git_object: bf90d9d659178e023aa6f2f5d4e5b33b9542298d
   models/components/dlpexportfindingsrequest.go:
     id: 21cae6ace4f8
-    last_write_checksum: sha1:f3db2b4f549a9bf02b761dece093c4ef0a1f1510
-    pristine_git_object: 84e6ef6013eb9556c29dae6fe7a162effb02bbe4
+    last_write_checksum: sha1:4ff35b85a49ebc72d49463a6dbe1109effe2be68
+    pristine_git_object: d3b2091c33054812f6b092b737cda89b7c0fd6ac
   models/components/dlpfindingfilter.go:
     id: 31a6847e3151
     last_write_checksum: sha1:9ae5d969a57414e6eb2ac2fc3ff9f9d7ffb8e8b1
@@ -4470,8 +4470,8 @@ trackedFiles:
     pristine_git_object: b2ff4ceeed20d491ef94779a586f62759397c3fa
   models/components/insightsoverviewresponse.go:
     id: ac8d586dce6f
-    last_write_checksum: sha1:98904a987980934acf5a3e88ccffc1e76568025f
-    pristine_git_object: 8eba4094a43060e2adfb16fdb6ade85a3fbe8f45
+    last_write_checksum: sha1:d6d9db3d992467c8be552dec716e1ccd974cea7e
+    pristine_git_object: c968c42207bf93291083fb339e3d1d7943911ff5
   models/components/insightsrequest.go:
     id: 864d5ff0b637
     last_write_checksum: sha1:10c2b3d25ce68b783f5981548a0e21aa0a43a908
@@ -6079,7 +6079,7 @@ trackedFiles:
   tests/mockserver/internal/sdk/models/components/chatmessage.go:
     last_write_checksum: sha1:b813b4301b77532bbbc60fa85f3b44e21d7a740d
   tests/mockserver/internal/sdk/models/components/chatmessagecitation.go:
-    last_write_checksum: sha1:c6225814e79eac17f90ebb8d86a98bb0038c20b6
+    last_write_checksum: sha1:f5b371efdd863a1d6d2f83041371ceb7601bc07f
   tests/mockserver/internal/sdk/models/components/chatmessagefragment.go:
     last_write_checksum: sha1:1834d9a43544e8cca44d147a1e2f99e120fb09ae
   tests/mockserver/internal/sdk/models/components/chatmetadata.go:
@@ -6271,7 +6271,7 @@ trackedFiles:
   tests/mockserver/internal/sdk/models/components/dlpconfig.go:
     last_write_checksum: sha1:d7f7202ea98f70853dbe57afbbf046a63a59f8d0
   tests/mockserver/internal/sdk/models/components/dlpexportfindingsrequest.go:
-    last_write_checksum: sha1:0bc22bf0ef0c29a307616c120f898544e81660f7
+    last_write_checksum: sha1:3fe8136a1f411c8fc5a8afd6bd18fdd953e94d11
   tests/mockserver/internal/sdk/models/components/dlpfindingfilter.go:
     last_write_checksum: sha1:c71dd3ed02678385eda72478f6497fc342ad18a8
   tests/mockserver/internal/sdk/models/components/dlpfrequency.go:
@@ -6499,7 +6499,7 @@ trackedFiles:
   tests/mockserver/internal/sdk/models/components/insightsoverviewrequest.go:
     last_write_checksum: sha1:f41a223c0da4e4edee140cdd8a7697a45969a239
   tests/mockserver/internal/sdk/models/components/insightsoverviewresponse.go:
-    last_write_checksum: sha1:6b78d9baa749aa3e03c2e20964a9a5ddcaab97ad
+    last_write_checksum: sha1:926270f59a7276459f6efea061ad9d0a5fd0d857
   tests/mockserver/internal/sdk/models/components/insightsrequest.go:
     last_write_checksum: sha1:f8bb4f19bca0be78fec51bf4d8e90d29ad25b940
   tests/mockserver/internal/sdk/models/components/insightsresponse.go:
@@ -7138,8 +7138,8 @@ trackedFiles:
     pristine_git_object: 8276fc3a8313ccbdb884ac378657dea8e7a24776
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:363bed5255b9e55cdb58a8d97fb8f2cc399d3877
-    pristine_git_object: cf370440c325e4da2b01e20af977447f35e35943
+    last_write_checksum: sha1:6da9f736fef20def1b16946fe93d02a1c5cb94ec
+    pristine_git_object: 4bfe1645d67bb70c7dc680bf793b2c4d9ae38d2f
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -8105,6 +8105,7 @@ generatedTests:
   checkdatasourceauth: "2026-02-19T15:51:40Z"
   getDatasourceInstanceConfiguration: "2026-03-09T18:37:01Z"
   updateDatasourceInstanceConfiguration: "2026-03-09T18:37:01Z"
+releaseNotes: "## Go SDK Changes:\n* `Glean.Client.Chat.Create()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceCustomEntity` **Added**\n  *  `response.Messages[].Citations[].SourceCustomEntity` **Added**\n* `Glean.Client.Chat.Retrieve()`:  `response.ChatResult.Chat.Messages[].Citations[].SourceCustomEntity` **Added**\n* `Glean.Client.Chat.CreateStream()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceCustomEntity` **Added**\n* `Glean.Client.Insights.Retrieve()`:  `response.OverviewResponse` **Changed**\n* `Glean.Governance.Createfindingsexport()`: \n  *  `request.Request.ExportType.Enum(issues)` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
