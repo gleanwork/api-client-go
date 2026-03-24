@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 3e50d4f63b0168aa23157f21feb40c0c
+  docChecksum: 9a5e1fe30843ee1940f7e311c866ea9b
   docVersion: 0.9.0
   speakeasyVersion: 1.759.1
   generationVersion: 2.869.10
-  releaseVersion: 0.11.36
-  configChecksum: 6d8756d63a1d80d86a23c4527df200c3
+  releaseVersion: 0.11.37
+  configChecksum: db4f3d3d0885c59e877dc45b19a50ed8
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: b89d19f2-285f-4484-9e59-5cf6deb95a27
-  pristine_commit_hash: 6ec2c567b65f58d632b6341a3d066734900505f1
-  pristine_tree_hash: a37f7605bc625a82f01677c779a1b36f877719d5
+  generation_id: aa1fb8f3-9dfe-484c-bd02-e9064d03af14
+  pristine_commit_hash: 2d4dd2bd1c99e36f0d17cd682a524f21f8a16676
+  pristine_tree_hash: 399dcf87e630d337c0eb671f843673479779574c
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3286,8 +3286,8 @@ trackedFiles:
     pristine_git_object: 87f13ac7b1bb396e778a90fbb59d605bd00a9276
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:1a2ddbb822f18916a328a428f1d4cbd1505f0e9e
-    pristine_git_object: 7583e52c7f21e25adb44d4b9ca178488cdcc5fd4
+    last_write_checksum: sha1:70d991fb9a14a8d4fb987db8981a47394eb150d4
+    pristine_git_object: 017fa3df9f6a84cea32df5d0e31dab66cc7e7b19
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:86e3d2575dc26780579383eddbc5be5adbd21501
@@ -5893,7 +5893,7 @@ trackedFiles:
   tests/mockserver/internal/handler/pathpostrestapiv1getanswer.go:
     last_write_checksum: sha1:80bc08894cebfd78f82d3d80f93fd85a11b55d45
   tests/mockserver/internal/handler/pathpostrestapiv1getchat.go:
-    last_write_checksum: sha1:b48e2313407814ee4f8ed181b8e5299a84960c44
+    last_write_checksum: sha1:2267292ba8173cf8df70ddbc6ac02ff3439cb879
   tests/mockserver/internal/handler/pathpostrestapiv1getchatapplication.go:
     last_write_checksum: sha1:7b81898137fdb3a89b4dcfa318b9b5b92e8860c0
   tests/mockserver/internal/handler/pathpostrestapiv1getchatfiles.go:
@@ -7138,8 +7138,8 @@ trackedFiles:
     pristine_git_object: 8276fc3a8313ccbdb884ac378657dea8e7a24776
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:dfed75e0b9e7ac03c0e3e8b08dedf41010b00a9f
-    pristine_git_object: 712f098bf86bd12805fc035e9c4597e8140f25cd
+    last_write_checksum: sha1:b583f1dbd4730147478e1ba0c8df48a5458dd806
+    pristine_git_object: f7541551ea298e050b64210689cb51972be52877
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -8105,7 +8105,6 @@ generatedTests:
   checkdatasourceauth: "2026-02-19T15:51:40Z"
   getDatasourceInstanceConfiguration: "2026-03-09T18:37:01Z"
   updateDatasourceInstanceConfiguration: "2026-03-09T18:37:01Z"
-releaseNotes: "## Go SDK Changes:\n* `Glean.Client.Search.RetrieveFeed()`: \n  *  `request.FeedRequest.Categories[].Enum(weeklyMeetings)` **Added**\n  *  `response.Results[]` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
