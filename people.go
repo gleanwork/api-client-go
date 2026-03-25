@@ -480,7 +480,7 @@ func (s *People) Count(ctx context.Context, request components.GetUserCountReque
 }
 
 // Index employee
-// Adds an employee or updates information about an employee
+// Adds an employee or replaces the existing information about an employee.
 func (s *People) Index(ctx context.Context, request components.IndexEmployeeRequest, opts ...operations.Option) (*operations.PostAPIIndexV1IndexemployeeResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
