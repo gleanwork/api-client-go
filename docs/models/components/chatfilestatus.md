@@ -18,9 +18,10 @@ custom := components.ChatFileStatus("custom_value")
 
 ## Values
 
-| Name                       | Value                      |
-| -------------------------- | -------------------------- |
-| `ChatFileStatusProcessing` | PROCESSING                 |
-| `ChatFileStatusProcessed`  | PROCESSED                  |
-| `ChatFileStatusFailed`     | FAILED                     |
-| `ChatFileStatusDeleted`    | DELETED                    |
+| Name                               | Value                              |
+| ---------------------------------- | ---------------------------------- |
+| `ChatFileStatusProcessing`         | PROCESSING                         |
+| `ChatFileStatusProcessed`          | PROCESSED                          |
+| `ChatFileStatusPartiallyProcessed` | PARTIALLY_PROCESSED                |
+| `ChatFileStatusFailed`             | FAILED                             |
+| `ChatFileStatusDeleted`            | DELETED                            |

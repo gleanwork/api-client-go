@@ -6,10 +6,11 @@ package components
 type ChatFileStatus string
 
 const (
-	ChatFileStatusProcessing ChatFileStatus = "PROCESSING"
-	ChatFileStatusProcessed  ChatFileStatus = "PROCESSED"
-	ChatFileStatusFailed     ChatFileStatus = "FAILED"
-	ChatFileStatusDeleted    ChatFileStatus = "DELETED"
+	ChatFileStatusProcessing         ChatFileStatus = "PROCESSING"
+	ChatFileStatusProcessed          ChatFileStatus = "PROCESSED"
+	ChatFileStatusPartiallyProcessed ChatFileStatus = "PARTIALLY_PROCESSED"
+	ChatFileStatusFailed             ChatFileStatus = "FAILED"
+	ChatFileStatusDeleted            ChatFileStatus = "DELETED"
 )
 
 func (e ChatFileStatus) ToPointer() *ChatFileStatus {
@@ -20,7 +21,7 @@ func (e ChatFileStatus) ToPointer() *ChatFileStatus {
 func (e *ChatFileStatus) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "PROCESSING", "PROCESSED", "FAILED", "DELETED":
+		case "PROCESSING", "PROCESSED", "PARTIALLY_PROCESSED", "FAILED", "DELETED":
 			return true
 		}
 	}
