@@ -1357,7 +1357,7 @@ func (s *Chat) RetrieveApplication(ctx context.Context, getChatApplicationReques
 
 }
 
-// UploadFiles - Upload files for Chat.
+// UploadFiles - Upload files for Chat
 // Upload files for Chat.
 func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest components.UploadChatFilesRequest, locale *string, timezoneOffset *int64, opts ...operations.Option) (*operations.UploadchatfilesResponse, error) {
 	request := operations.UploadchatfilesRequest{
@@ -1588,7 +1588,7 @@ func (s *Chat) UploadFiles(ctx context.Context, uploadChatFilesRequest component
 
 }
 
-// RetrieveFiles - Get files uploaded by a user for Chat.
+// RetrieveFiles - Get files uploaded by a user for Chat
 // Get files uploaded by a user for Chat.
 func (s *Chat) RetrieveFiles(ctx context.Context, getChatFilesRequest components.GetChatFilesRequest, locale *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatfilesResponse, error) {
 	request := operations.GetchatfilesRequest{
@@ -1819,7 +1819,7 @@ func (s *Chat) RetrieveFiles(ctx context.Context, getChatFilesRequest components
 
 }
 
-// DeleteFiles - Delete files uploaded by a user for chat.
+// DeleteFiles - Delete files uploaded by a user for chat
 // Delete files uploaded by a user for Chat.
 func (s *Chat) DeleteFiles(ctx context.Context, deleteChatFilesRequest components.DeleteChatFilesRequest, locale *string, timezoneOffset *int64, opts ...operations.Option) (*operations.DeletechatfilesResponse, error) {
 	request := operations.DeletechatfilesRequest{

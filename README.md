@@ -294,9 +294,9 @@ For more information on obtaining the appropriate token type, please contact you
 * [Retrieve](docs/sdks/chat/README.md#retrieve) - Retrieves a Chat
 * [List](docs/sdks/chat/README.md#list) - Retrieves all saved Chats
 * [RetrieveApplication](docs/sdks/chat/README.md#retrieveapplication) - Gets the metadata for a custom Chat application
-* [UploadFiles](docs/sdks/chat/README.md#uploadfiles) - Upload files for Chat.
-* [RetrieveFiles](docs/sdks/chat/README.md#retrievefiles) - Get files uploaded by a user for Chat.
-* [DeleteFiles](docs/sdks/chat/README.md#deletefiles) - Delete files uploaded by a user for chat.
+* [UploadFiles](docs/sdks/chat/README.md#uploadfiles) - Upload files for Chat
+* [RetrieveFiles](docs/sdks/chat/README.md#retrievefiles) - Get files uploaded by a user for Chat
+* [DeleteFiles](docs/sdks/chat/README.md#deletefiles) - Delete files uploaded by a user for chat
 * [CreateStream](docs/sdks/chat/README.md#createstream) - Chat
 
 ### [Client.Collections](docs/sdks/collections/README.md)
