@@ -52,3 +52,7 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                 |
 | `FeedResultCategoryQuerySuggestion`              | QUERY_SUGGESTION                                 |
 | `FeedResultCategoryWeeklyMeetings`               | WEEKLY_MEETINGS                                  |
+| `FeedResultCategoryFollowUp`                     | FOLLOW_UP                                        |
+| `FeedResultCategoryMilestoneTimelineCheck`       | MILESTONE_TIMELINE_CHECK                         |
+| `FeedResultCategoryProjectDiscussionDigest`      | PROJECT_DISCUSSION_DIGEST                        |
+| `FeedResultCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                |

@@ -22,6 +22,7 @@ custom := components.DocumentSpecUgcType2("custom_value")
 | ----------------------------------- | ----------------------------------- |
 | `DocumentSpecUgcType2Announcements` | ANNOUNCEMENTS                       |
 | `DocumentSpecUgcType2Answers`       | ANSWERS                             |
+| `DocumentSpecUgcType2Artifacts`     | ARTIFACTS                           |
 | `DocumentSpecUgcType2Collections`   | COLLECTIONS                         |
 | `DocumentSpecUgcType2Shortcuts`     | SHORTCUTS                           |
 | `DocumentSpecUgcType2Chats`         | CHATS                               |

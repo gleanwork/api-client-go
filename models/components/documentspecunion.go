@@ -14,6 +14,7 @@ type DocumentSpecUgcType2 string
 const (
 	DocumentSpecUgcType2Announcements DocumentSpecUgcType2 = "ANNOUNCEMENTS"
 	DocumentSpecUgcType2Answers       DocumentSpecUgcType2 = "ANSWERS"
+	DocumentSpecUgcType2Artifacts     DocumentSpecUgcType2 = "ARTIFACTS"
 	DocumentSpecUgcType2Collections   DocumentSpecUgcType2 = "COLLECTIONS"
 	DocumentSpecUgcType2Shortcuts     DocumentSpecUgcType2 = "SHORTCUTS"
 	DocumentSpecUgcType2Chats         DocumentSpecUgcType2 = "CHATS"
@@ -27,7 +28,7 @@ func (e DocumentSpecUgcType2) ToPointer() *DocumentSpecUgcType2 {
 func (e *DocumentSpecUgcType2) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "ANNOUNCEMENTS", "ANSWERS", "COLLECTIONS", "SHORTCUTS", "CHATS":
+		case "ANNOUNCEMENTS", "ANSWERS", "ARTIFACTS", "COLLECTIONS", "SHORTCUTS", "CHATS":
 			return true
 		}
 	}
