@@ -47,3 +47,7 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                  |
 | `FeedRequestCategoryQuerySuggestion`              | QUERY_SUGGESTION                                  |
 | `FeedRequestCategoryWeeklyMeetings`               | WEEKLY_MEETINGS                                   |
+| `FeedRequestCategoryFollowUp`                     | FOLLOW_UP                                         |
+| `FeedRequestCategoryMilestoneTimelineCheck`       | MILESTONE_TIMELINE_CHECK                          |
+| `FeedRequestCategoryProjectDiscussionDigest`      | PROJECT_DISCUSSION_DIGEST                         |
+| `FeedRequestCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                 |

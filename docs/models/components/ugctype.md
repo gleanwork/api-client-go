@@ -30,6 +30,7 @@ custom := components.UgcType("custom_value")
 | `UgcTypePaperType`           | PAPER_TYPE                   |
 | `UgcTypePrismViewsType`      | PRISM_VIEWS_TYPE             |
 | `UgcTypePromptTemplatesType` | PROMPT_TEMPLATES_TYPE        |
+| `UgcTypePinsType`            | PINS_TYPE                    |
 | `UgcTypeScribesType`         | SCRIBES_TYPE                 |
 | `UgcTypeShortcutsType`       | SHORTCUTS_TYPE               |
 | `UgcTypeSlideType`           | SLIDE_TYPE                   |
