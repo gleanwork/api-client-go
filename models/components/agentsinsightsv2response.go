@@ -15,9 +15,14 @@ type AgentsInsightsV2Response struct {
 	TopAgentsInsights               []PerAgentInsight                `json:"topAgentsInsights,omitempty"`
 	AgentsUsageByDepartmentInsights []AgentsUsageByDepartmentInsight `json:"agentsUsageByDepartmentInsights,omitempty"`
 	AgentUsersInsights              []AgentUsersInsight              `json:"agentUsersInsights,omitempty"`
-	DailyAgentRunsTimeseries        *LabeledCountInfo                `json:"dailyAgentRunsTimeseries,omitempty"`
-	UpvotesTimeseries               *LabeledCountInfo                `json:"upvotesTimeseries,omitempty"`
-	DownvotesTimeseries             *LabeledCountInfo                `json:"downvotesTimeseries,omitempty"`
+	// Insights for agents time saved over the specified time period.
+	AgentsTimeSavedInsights  []AgentsTimeSavedInsight `json:"agentsTimeSavedInsights,omitempty"`
+	DailyAgentRunsTimeseries *LabeledCountInfo        `json:"dailyAgentRunsTimeseries,omitempty"`
+	SuccessfulRunsTimeseries *LabeledCountInfo        `json:"successfulRunsTimeseries,omitempty"`
+	FailedRunsTimeseries     *LabeledCountInfo        `json:"failedRunsTimeseries,omitempty"`
+	PausedRunsTimeseries     *LabeledCountInfo        `json:"pausedRunsTimeseries,omitempty"`
+	UpvotesTimeseries        *LabeledCountInfo        `json:"upvotesTimeseries,omitempty"`
+	DownvotesTimeseries      *LabeledCountInfo        `json:"downvotesTimeseries,omitempty"`
 }
 
 func (a *AgentsInsightsV2Response) GetMonthlyActiveUsers() *int64 {
@@ -83,11 +88,39 @@ func (a *AgentsInsightsV2Response) GetAgentUsersInsights() []AgentUsersInsight {
 	return a.AgentUsersInsights
 }
 
+func (a *AgentsInsightsV2Response) GetAgentsTimeSavedInsights() []AgentsTimeSavedInsight {
+	if a == nil {
+		return nil
+	}
+	return a.AgentsTimeSavedInsights
+}
+
 func (a *AgentsInsightsV2Response) GetDailyAgentRunsTimeseries() *LabeledCountInfo {
 	if a == nil {
 		return nil
 	}
 	return a.DailyAgentRunsTimeseries
+}
+
+func (a *AgentsInsightsV2Response) GetSuccessfulRunsTimeseries() *LabeledCountInfo {
+	if a == nil {
+		return nil
+	}
+	return a.SuccessfulRunsTimeseries
+}
+
+func (a *AgentsInsightsV2Response) GetFailedRunsTimeseries() *LabeledCountInfo {
+	if a == nil {
+		return nil
+	}
+	return a.FailedRunsTimeseries
+}
+
+func (a *AgentsInsightsV2Response) GetPausedRunsTimeseries() *LabeledCountInfo {
+	if a == nil {
+		return nil
+	}
+	return a.PausedRunsTimeseries
 }
 
 func (a *AgentsInsightsV2Response) GetUpvotesTimeseries() *LabeledCountInfo {

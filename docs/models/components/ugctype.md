@@ -34,4 +34,5 @@ custom := components.UgcType("custom_value")
 | `UgcTypeScribesType`         | SCRIBES_TYPE                 |
 | `UgcTypeShortcutsType`       | SHORTCUTS_TYPE               |
 | `UgcTypeSlideType`           | SLIDE_TYPE                   |
+| `UgcTypeSpreadsheetType`     | SPREADSHEET_TYPE             |
 | `UgcTypeWorkflowsType`       | WORKFLOWS_TYPE               |
