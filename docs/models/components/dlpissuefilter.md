@@ -1,0 +1,20 @@
+# DlpIssueFilter
+
+Filter for DLP issues. Includes document-level filters and issue-specific filters.
+
+
+## Fields
+
+| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `SearchText`                                                              | `*string`                                                                 | :heavy_minus_sign:                                                        | Text to search for in issue fields.                                       |
+| `Statuses`                                                                | [][components.DlpIssueStatus](../../models/components/dlpissuestatus.md)  | :heavy_minus_sign:                                                        | Filter by one or more issue statuses.                                     |
+| `AssigneeID`                                                              | `*string`                                                                 | :heavy_minus_sign:                                                        | Filter by assignee user ID.                                               |
+| `InfoType`                                                                | `*string`                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `RegexID`                                                                 | `*string`                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `ReportIds`                                                               | []`string`                                                                | :heavy_minus_sign:                                                        | Filter by one or more report/policy IDs.                                  |
+| `DocID`                                                                   | `*string`                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `Datasource`                                                              | `*string`                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `Visibility`                                                              | `*string`                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `Severities`                                                              | [][components.DlpSeverity](../../models/components/dlpseverity.md)        | :heavy_minus_sign:                                                        | Filter by one or more severity levels.                                    |
+| `TimeRange`                                                               | [*components.TimeRangeFilter](../../models/components/timerangefilter.md) | :heavy_minus_sign:                                                        | N/A                                                                       |

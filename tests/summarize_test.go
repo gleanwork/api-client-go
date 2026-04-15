@@ -25,15 +25,16 @@ func TestSummarize_Summarize(t *testing.T) {
 
 	res, err := s.Client.Documents.Summarize(ctx, components.SummarizeRequest{
 		DocumentSpecs: []components.DocumentSpecUnion{
-			components.CreateDocumentSpecUnionDocumentSpec2(
-				components.DocumentSpec2{
-					ID: "<id>",
+			components.CreateDocumentSpecUnionDocumentSpec4(
+				components.DocumentSpec4{
+					UgcType: components.DocumentSpecUgcType2Collections,
+					UgcID:   "<id>",
 				},
 			),
 			components.CreateDocumentSpecUnionDocumentSpec3(
 				components.DocumentSpec3{
-					UgcType:   components.DocumentSpecUgcType1Collections,
-					ContentID: 583083,
+					UgcType:   components.DocumentSpecUgcType1Answers,
+					ContentID: 823890,
 				},
 			),
 		},

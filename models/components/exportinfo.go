@@ -2,6 +2,30 @@
 
 package components
 
+// ExportInfoExportType - The type of export to perform
+type ExportInfoExportType string
+
+const (
+	ExportInfoExportTypeFindings  ExportInfoExportType = "FINDINGS"
+	ExportInfoExportTypeDocuments ExportInfoExportType = "DOCUMENTS"
+	ExportInfoExportTypeIssues    ExportInfoExportType = "ISSUES"
+)
+
+func (e ExportInfoExportType) ToPointer() *ExportInfoExportType {
+	return &e
+}
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *ExportInfoExportType) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "FINDINGS", "DOCUMENTS", "ISSUES":
+			return true
+		}
+	}
+	return false
+}
+
 // ExportInfoStatus - The status of the export
 type ExportInfoStatus string
 
@@ -36,8 +60,12 @@ type ExportInfo struct {
 	// The ID of the export
 	ExportID *string `json:"exportId,omitempty"`
 	// The name of the file to export the findings to
-	FileName *string           `json:"fileName,omitempty"`
-	Filter   *DlpFindingFilter `json:"filter,omitempty"`
+	FileName *string `json:"fileName,omitempty"`
+	// The type of export to perform
+	ExportType *ExportInfoExportType `json:"exportType,omitempty"`
+	Filter     *DlpFindingFilter     `json:"filter,omitempty"`
+	// Filter for DLP issues. Includes document-level filters and issue-specific filters.
+	IssueFilter *DlpIssueFilter `json:"issueFilter,omitempty"`
 	// The status of the export
 	Status *ExportInfoStatus `json:"status,omitempty"`
 	// The size of the exported file in bytes
@@ -79,11 +107,25 @@ func (e *ExportInfo) GetFileName() *string {
 	return e.FileName
 }
 
+func (e *ExportInfo) GetExportType() *ExportInfoExportType {
+	if e == nil {
+		return nil
+	}
+	return e.ExportType
+}
+
 func (e *ExportInfo) GetFilter() *DlpFindingFilter {
 	if e == nil {
 		return nil
 	}
 	return e.Filter
+}
+
+func (e *ExportInfo) GetIssueFilter() *DlpIssueFilter {
+	if e == nil {
+		return nil
+	}
+	return e.IssueFilter
 }
 
 func (e *ExportInfo) GetStatus() *ExportInfoStatus {
