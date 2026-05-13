@@ -16,6 +16,7 @@ const (
 	CollectionErrorErrorCodeHeightViolation         CollectionErrorErrorCode = "HEIGHT_VIOLATION"
 	CollectionErrorErrorCodeWidthViolation          CollectionErrorErrorCode = "WIDTH_VIOLATION"
 	CollectionErrorErrorCodeNoPermissions           CollectionErrorErrorCode = "NO_PERMISSIONS"
+	CollectionErrorErrorCodeCorruptItem             CollectionErrorErrorCode = "CORRUPT_ITEM"
 )
 
 func (e CollectionErrorErrorCode) ToPointer() *CollectionErrorErrorCode {
@@ -26,7 +27,7 @@ func (e CollectionErrorErrorCode) ToPointer() *CollectionErrorErrorCode {
 func (e *CollectionErrorErrorCode) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "NAME_EXISTS", "NOT_FOUND", "COLLECTION_PINNED", "CONCURRENT_HIERARCHY_EDIT", "HEIGHT_VIOLATION", "WIDTH_VIOLATION", "NO_PERMISSIONS":
+		case "NAME_EXISTS", "NOT_FOUND", "COLLECTION_PINNED", "CONCURRENT_HIERARCHY_EDIT", "HEIGHT_VIOLATION", "WIDTH_VIOLATION", "NO_PERMISSIONS", "CORRUPT_ITEM":
 			return true
 		}
 	}

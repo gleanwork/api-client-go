@@ -7,6 +7,7 @@ import (
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/internal/utils"
 	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/models/operations"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
@@ -70,4 +71,21 @@ func TestEntities_People(t *testing.T) {
 
 func TestEntities_Teams(t *testing.T) {
 	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step teams.test referencing operation teams not found in document`]")
+}
+
+func TestEntities_GetPersonPhoto(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("getPersonPhoto")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Entities.GetPersonPhoto(ctx, "<id>", nil, operations.WithAcceptHeaderOverride(operations.AcceptHeaderEnumImagePng))
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
 }

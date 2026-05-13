@@ -54,9 +54,11 @@ type Answer struct {
 	SourceDocumentSpec *DocumentSpecUnion      `json:"sourceDocumentSpec,omitempty"`
 	SourceType         *AnswerSourceType       `json:"sourceType,omitempty"`
 	Permissions        *ObjectPermissions      `json:"permissions,omitempty"`
-	CombinedAnswerText *StructuredText         `json:"combinedAnswerText,omitempty"`
-	Likes              *AnswerLikes            `json:"likes,omitempty"`
-	Author             *Person                 `json:"author,omitempty"`
+	// An opaque token that represents this particular UGC. To be used for `/feedback` reporting.
+	TrackingToken      *string         `json:"trackingToken,omitempty"`
+	CombinedAnswerText *StructuredText `json:"combinedAnswerText,omitempty"`
+	Likes              *AnswerLikes    `json:"likes,omitempty"`
+	Author             *Person         `json:"author,omitempty"`
 	// The time the answer was created in ISO format (ISO 8601).
 	CreateTime *time.Time `json:"createTime,omitempty"`
 	// The time the answer was last updated in ISO format (ISO 8601).
@@ -170,6 +172,13 @@ func (a *Answer) GetPermissions() *ObjectPermissions {
 		return nil
 	}
 	return a.Permissions
+}
+
+func (a *Answer) GetTrackingToken() *string {
+	if a == nil {
+		return nil
+	}
+	return a.TrackingToken
 }
 
 func (a *Answer) GetCombinedAnswerText() *StructuredText {

@@ -28,6 +28,8 @@ type Collection struct {
 	// The datasource type this Collection can hold.
 	AllowedDatasource *string            `json:"allowedDatasource,omitempty"`
 	Permissions       *ObjectPermissions `json:"permissions,omitempty"`
+	// An opaque token that represents this particular UGC. To be used for `/feedback` reporting.
+	TrackingToken *string `json:"trackingToken,omitempty"`
 	// The unique ID of the Collection.
 	ID         int64      `json:"id"`
 	CreateTime *time.Time `json:"createTime,omitempty"`
@@ -135,6 +137,13 @@ func (c *Collection) GetPermissions() *ObjectPermissions {
 		return nil
 	}
 	return c.Permissions
+}
+
+func (c *Collection) GetTrackingToken() *string {
+	if c == nil {
+		return nil
+	}
+	return c.TrackingToken
 }
 
 func (c *Collection) GetID() int64 {

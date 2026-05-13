@@ -66,79 +66,79 @@ func (e *FeedbackCategory) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// Event - The action the user took within a Glean client with respect to the object referred to by the given `trackingToken`.
-type Event string
+// FeedbackEvent - The action the user took within a Glean client with respect to the object referred to by the given `trackingToken`.
+type FeedbackEvent string
 
 const (
-	// EventClick The object's primary link was clicked with the intent to view its full representation. Depending on the object type, this may imply an external navigation or navigating to a new page or view within the Glean app.
-	EventClick Event = "CLICK"
-	// EventContainerClick A link to the object's parent container (e.g. the folder in which it's located) was clicked.
-	EventContainerClick Event = "CONTAINER_CLICK"
-	// EventCopyLink The user copied a link to the primary link.
-	EventCopyLink Event = "COPY_LINK"
-	// EventCreate The user creates a document.
-	EventCreate Event = "CREATE"
-	// EventDismiss The user dismissed the object such that it was hidden from view.
-	EventDismiss Event = "DISMISS"
-	// EventDownvote The user gave feedback that the object was not useful.
-	EventDownvote Event = "DOWNVOTE"
-	// EventEmail The user attempted to send an email.
-	EventEmail Event = "EMAIL"
-	// EventExecute The user executed the object (e.g. ran a workflow).
-	EventExecute Event = "EXECUTE"
-	// EventFilter The user applied a filter.
-	EventFilter Event = "FILTER"
-	// EventFirstToken The first token of a streaming response is received.
-	EventFirstToken Event = "FIRST_TOKEN"
-	// EventFocusIn The user clicked into an interactive element, e.g. the search box.
-	EventFocusIn Event = "FOCUS_IN"
-	// EventLastToken The final token of a streaming response is received.
-	EventLastToken Event = "LAST_TOKEN"
-	// EventManualFeedback The user submitted textual manual feedback regarding the object.
-	EventManualFeedback Event = "MANUAL_FEEDBACK"
-	// EventManualFeedbackSideBySide The user submitted comparative feedback for multiple side-by-side implementations.
-	EventManualFeedbackSideBySide Event = "MANUAL_FEEDBACK_SIDE_BY_SIDE"
-	// EventFeedbackTimeSaved The user submitted feedback about time saved by an agent or workflow.
-	EventFeedbackTimeSaved Event = "FEEDBACK_TIME_SAVED"
-	// EventMarkAsRead The user explicitly marked the content as read.
-	EventMarkAsRead Event = "MARK_AS_READ"
-	// EventMessage The user attempted to send a message using their default messaing app.
-	EventMessage Event = "MESSAGE"
-	// EventMiddleClick The user middle clicked the object's primary link with the intent to open its full representation in a new tab.
-	EventMiddleClick Event = "MIDDLE_CLICK"
-	// EventPageBlur The user puts a page out of focus but keeps it in the background.
-	EventPageBlur Event = "PAGE_BLUR"
-	// EventPageFocus The user puts a page in focus, meaning it is the first to receive keyboard events.
-	EventPageFocus Event = "PAGE_FOCUS"
-	// EventPageLeave The user leaves a page and it is unloaded (by clicking a link, closing the tab/window, etc).
-	EventPageLeave Event = "PAGE_LEAVE"
-	// EventPreview The user clicked the object's inline preview affordance.
-	EventPreview      Event = "PREVIEW"
-	EventRelatedClick Event = "RELATED_CLICK"
-	// EventRightClick The user right clicked the object's primary link. This may indicate an intent to open it in a new tab or copy it.
-	EventRightClick Event = "RIGHT_CLICK"
-	// EventSectionClick The user clicked a link to a subsection of the primary object.
-	EventSectionClick Event = "SECTION_CLICK"
-	// EventSeen The user has likely seen the object (e.g. took action to make the object visible within the user's viewport).
-	EventSeen Event = "SEEN"
-	// EventSelect The user explicitly selected something, eg. a chat response variant they prefer.
-	EventSelect Event = "SELECT"
-	// EventShare The user shared the object with another user.
-	EventShare Event = "SHARE"
-	// EventShowMore The user clicked the object's show more affordance.
-	EventShowMore Event = "SHOW_MORE"
-	// EventUpvote The user gave feedback that the object was useful.
-	EventUpvote Event = "UPVOTE"
-	// EventView The object was visible within the user's viewport.
-	EventView Event = "VIEW"
-	// EventVisible The object was visible within the user's viewport.
-	EventVisible Event = "VISIBLE"
+	// FeedbackEventClick The object's primary link was clicked with the intent to view its full representation. Depending on the object type, this may imply an external navigation or navigating to a new page or view within the Glean app.
+	FeedbackEventClick FeedbackEvent = "CLICK"
+	// FeedbackEventContainerClick A link to the object's parent container (e.g. the folder in which it's located) was clicked.
+	FeedbackEventContainerClick FeedbackEvent = "CONTAINER_CLICK"
+	// FeedbackEventCopyLink The user copied a link to the primary link.
+	FeedbackEventCopyLink FeedbackEvent = "COPY_LINK"
+	// FeedbackEventCreate The user creates a document.
+	FeedbackEventCreate FeedbackEvent = "CREATE"
+	// FeedbackEventDismiss The user dismissed the object such that it was hidden from view.
+	FeedbackEventDismiss FeedbackEvent = "DISMISS"
+	// FeedbackEventDownvote The user gave feedback that the object was not useful.
+	FeedbackEventDownvote FeedbackEvent = "DOWNVOTE"
+	// FeedbackEventEmail The user attempted to send an email.
+	FeedbackEventEmail FeedbackEvent = "EMAIL"
+	// FeedbackEventExecute The user executed the object (e.g. ran a workflow).
+	FeedbackEventExecute FeedbackEvent = "EXECUTE"
+	// FeedbackEventFilter The user applied a filter.
+	FeedbackEventFilter FeedbackEvent = "FILTER"
+	// FeedbackEventFirstToken The first token of a streaming response is received.
+	FeedbackEventFirstToken FeedbackEvent = "FIRST_TOKEN"
+	// FeedbackEventFocusIn The user clicked into an interactive element, e.g. the search box.
+	FeedbackEventFocusIn FeedbackEvent = "FOCUS_IN"
+	// FeedbackEventLastToken The final token of a streaming response is received.
+	FeedbackEventLastToken FeedbackEvent = "LAST_TOKEN"
+	// FeedbackEventManualFeedback The user submitted textual manual feedback regarding the object.
+	FeedbackEventManualFeedback FeedbackEvent = "MANUAL_FEEDBACK"
+	// FeedbackEventManualFeedbackSideBySide The user submitted comparative feedback for multiple side-by-side implementations.
+	FeedbackEventManualFeedbackSideBySide FeedbackEvent = "MANUAL_FEEDBACK_SIDE_BY_SIDE"
+	// FeedbackEventFeedbackTimeSaved The user submitted feedback about time saved by an agent or workflow.
+	FeedbackEventFeedbackTimeSaved FeedbackEvent = "FEEDBACK_TIME_SAVED"
+	// FeedbackEventMarkAsRead The user explicitly marked the content as read.
+	FeedbackEventMarkAsRead FeedbackEvent = "MARK_AS_READ"
+	// FeedbackEventMessage The user attempted to send a message using their default messaing app.
+	FeedbackEventMessage FeedbackEvent = "MESSAGE"
+	// FeedbackEventMiddleClick The user middle clicked the object's primary link with the intent to open its full representation in a new tab.
+	FeedbackEventMiddleClick FeedbackEvent = "MIDDLE_CLICK"
+	// FeedbackEventPageBlur The user puts a page out of focus but keeps it in the background.
+	FeedbackEventPageBlur FeedbackEvent = "PAGE_BLUR"
+	// FeedbackEventPageFocus The user puts a page in focus, meaning it is the first to receive keyboard events.
+	FeedbackEventPageFocus FeedbackEvent = "PAGE_FOCUS"
+	// FeedbackEventPageLeave The user leaves a page and it is unloaded (by clicking a link, closing the tab/window, etc).
+	FeedbackEventPageLeave FeedbackEvent = "PAGE_LEAVE"
+	// FeedbackEventPreview The user clicked the object's inline preview affordance.
+	FeedbackEventPreview      FeedbackEvent = "PREVIEW"
+	FeedbackEventRelatedClick FeedbackEvent = "RELATED_CLICK"
+	// FeedbackEventRightClick The user right clicked the object's primary link. This may indicate an intent to open it in a new tab or copy it.
+	FeedbackEventRightClick FeedbackEvent = "RIGHT_CLICK"
+	// FeedbackEventSectionClick The user clicked a link to a subsection of the primary object.
+	FeedbackEventSectionClick FeedbackEvent = "SECTION_CLICK"
+	// FeedbackEventSeen The user has likely seen the object (e.g. took action to make the object visible within the user's viewport).
+	FeedbackEventSeen FeedbackEvent = "SEEN"
+	// FeedbackEventSelect The user explicitly selected something, eg. a chat response variant they prefer.
+	FeedbackEventSelect FeedbackEvent = "SELECT"
+	// FeedbackEventShare The user shared the object with another user.
+	FeedbackEventShare FeedbackEvent = "SHARE"
+	// FeedbackEventShowMore The user clicked the object's show more affordance.
+	FeedbackEventShowMore FeedbackEvent = "SHOW_MORE"
+	// FeedbackEventUpvote The user gave feedback that the object was useful.
+	FeedbackEventUpvote FeedbackEvent = "UPVOTE"
+	// FeedbackEventView The object was visible within the user's viewport.
+	FeedbackEventView FeedbackEvent = "VIEW"
+	// FeedbackEventVisible The object was visible within the user's viewport.
+	FeedbackEventVisible FeedbackEvent = "VISIBLE"
 )
 
-func (e Event) ToPointer() *Event {
+func (e FeedbackEvent) ToPointer() *FeedbackEvent {
 	return &e
 }
-func (e *Event) UnmarshalJSON(data []byte) error {
+func (e *FeedbackEvent) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -207,10 +207,10 @@ func (e *Event) UnmarshalJSON(data []byte) error {
 	case "VIEW":
 		fallthrough
 	case "VISIBLE":
-		*e = Event(v)
+		*e = FeedbackEvent(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for Event: %v", v)
+		return fmt.Errorf("invalid value for FeedbackEvent: %v", v)
 	}
 }
 
@@ -248,7 +248,7 @@ type Feedback struct {
 	// A list of server-generated trackingTokens to which this event applies.
 	TrackingTokens []string `json:"trackingTokens"`
 	// The action the user took within a Glean client with respect to the object referred to by the given `trackingToken`.
-	Event Event `json:"event"`
+	Event FeedbackEvent `json:"event"`
 	// Position of the element in the case that the client controls order (such as feed and autocomplete).
 	Position *int64 `json:"position,omitempty"`
 	// For type MANUAL_FEEDBACK, contains string of user feedback. For autocomplete, partial query string. For feed, string of user feedback in addition to manual feedback signals extracted from all suggested content.
@@ -310,9 +310,9 @@ func (f *Feedback) GetTrackingTokens() []string {
 	return f.TrackingTokens
 }
 
-func (f *Feedback) GetEvent() Event {
+func (f *Feedback) GetEvent() FeedbackEvent {
 	if f == nil {
-		return Event("")
+		return FeedbackEvent("")
 	}
 	return f.Event
 }

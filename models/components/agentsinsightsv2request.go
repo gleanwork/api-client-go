@@ -7,7 +7,9 @@ type AgentsInsightsV2Request struct {
 	AgentIds []string `json:"agentIds,omitempty"`
 	// Departments for which Insights are requested.
 	Departments []string `json:"departments,omitempty"`
-	DayRange    *Period  `json:"dayRange,omitempty"`
+	// Manager emails whose teams should be filtered for. Empty array means no filtering.
+	ManagerEmails []string `json:"managerEmails,omitempty"`
+	DayRange      *Period  `json:"dayRange,omitempty"`
 }
 
 func (a *AgentsInsightsV2Request) GetAgentIds() []string {
@@ -22,6 +24,13 @@ func (a *AgentsInsightsV2Request) GetDepartments() []string {
 		return nil
 	}
 	return a.Departments
+}
+
+func (a *AgentsInsightsV2Request) GetManagerEmails() []string {
+	if a == nil {
+		return nil
+	}
+	return a.ManagerEmails
 }
 
 func (a *AgentsInsightsV2Request) GetDayRange() *Period {

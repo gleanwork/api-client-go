@@ -11,9 +11,12 @@ type Workflow struct {
 	// Server Unix timestamp of the last update time.
 	LastUpdateTimestamp *int64 `json:"lastUpdateTimestamp,omitempty"`
 	// Server Unix timestamp of the last time the draft was saved.
-	LastDraftSavedAt *int64             `json:"lastDraftSavedAt,omitempty"`
-	LastUpdatedBy    *Person            `json:"lastUpdatedBy,omitempty"`
-	Permissions      *ObjectPermissions `json:"permissions,omitempty"`
+	LastDraftSavedAt *int64  `json:"lastDraftSavedAt,omitempty"`
+	LastDraftSavedBy *Person `json:"lastDraftSavedBy,omitempty"`
+	// ID of the VCS user (e.g. GitHub username) who last saved the draft. Set only by the draft save path via the external Git integration API.
+	LastDraftGitAuthorID *string            `json:"lastDraftGitAuthorId,omitempty"`
+	LastUpdatedBy        *Person            `json:"lastUpdatedBy,omitempty"`
+	Permissions          *ObjectPermissions `json:"permissions,omitempty"`
 	// The ID of the workflow.
 	ID *string `json:"id,omitempty"`
 }
@@ -51,6 +54,20 @@ func (w *Workflow) GetLastDraftSavedAt() *int64 {
 		return nil
 	}
 	return w.LastDraftSavedAt
+}
+
+func (w *Workflow) GetLastDraftSavedBy() *Person {
+	if w == nil {
+		return nil
+	}
+	return w.LastDraftSavedBy
+}
+
+func (w *Workflow) GetLastDraftGitAuthorID() *string {
+	if w == nil {
+		return nil
+	}
+	return w.LastDraftGitAuthorID
 }
 
 func (w *Workflow) GetLastUpdatedBy() *Person {

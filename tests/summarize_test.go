@@ -25,10 +25,9 @@ func TestSummarize_Summarize(t *testing.T) {
 
 	res, err := s.Client.Documents.Summarize(ctx, components.SummarizeRequest{
 		DocumentSpecs: []components.DocumentSpecUnion{
-			components.CreateDocumentSpecUnionDocumentSpec3(
-				components.DocumentSpec3{
-					UgcType:   components.DocumentSpecUgcType1Collections,
-					ContentID: 993975,
+			components.CreateDocumentSpecUnionDocumentSpec1(
+				components.DocumentSpec1{
+					URL: "https://dim-glider.com/",
 				},
 			),
 			components.CreateDocumentSpecUnionDocumentSpec2(

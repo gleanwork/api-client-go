@@ -51,8 +51,12 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryStarterKit`                   | STARTER_KIT                                      |
 | `FeedResultCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                 |
 | `FeedResultCategoryQuerySuggestion`              | QUERY_SUGGESTION                                 |
+| `FeedResultCategoryCoworkCujPromo`               | COWORK_CUJ_PROMO                                 |
 | `FeedResultCategoryWeeklyMeetings`               | WEEKLY_MEETINGS                                  |
 | `FeedResultCategoryFollowUp`                     | FOLLOW_UP                                        |
 | `FeedResultCategoryMilestoneTimelineCheck`       | MILESTONE_TIMELINE_CHECK                         |
 | `FeedResultCategoryProjectDiscussionDigest`      | PROJECT_DISCUSSION_DIGEST                        |
+| `FeedResultCategoryProjectFocusBlock`            | PROJECT_FOCUS_BLOCK                              |
 | `FeedResultCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                |
+| `FeedResultCategoryDemoCard`                     | DEMO_CARD                                        |
+| `FeedResultCategoryOooPlanner`                   | OOO_PLANNER                                      |

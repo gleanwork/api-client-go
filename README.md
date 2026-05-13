@@ -251,22 +251,30 @@ For more information on obtaining the appropriate token type, please contact you
 <details open>
 <summary>Available methods</summary>
 
+### [Agents](docs/sdks/agents/README.md)
+
+* [EditAgent](docs/sdks/agents/README.md#editagent) - Edit an agent
+
 ### [Authentication](docs/sdks/authentication/README.md)
 
 * [Checkdatasourceauth](docs/sdks/authentication/README.md#checkdatasourceauth) - Check datasource authorization
+
+### [Chat](docs/sdks/chat/README.md)
+
+* [GetChatFile](docs/sdks/chat/README.md#getchatfile) - Download a chat file
 
 ### [Client.Activity](docs/sdks/activity/README.md)
 
 * [Report](docs/sdks/activity/README.md#report) - Report document activity
 * [Feedback](docs/sdks/activity/README.md#feedback) - Report client activity
 
-### [Client.Agents](docs/sdks/agents/README.md)
+### [Client.Agents](docs/sdks/clientagents/README.md)
 
-* [Retrieve](docs/sdks/agents/README.md#retrieve) - Retrieve an agent
-* [RetrieveSchemas](docs/sdks/agents/README.md#retrieveschemas) - List an agent's schemas
-* [List](docs/sdks/agents/README.md#list) - Search agents
-* [RunStream](docs/sdks/agents/README.md#runstream) - Create an agent run and stream the response
-* [Run](docs/sdks/agents/README.md#run) - Create an agent run and wait for the response
+* [Retrieve](docs/sdks/clientagents/README.md#retrieve) - Retrieve an agent
+* [RetrieveSchemas](docs/sdks/clientagents/README.md#retrieveschemas) - List an agent's schemas
+* [List](docs/sdks/clientagents/README.md#list) - Search agents
+* [RunStream](docs/sdks/clientagents/README.md#runstream) - Create an agent run and stream the response
+* [Run](docs/sdks/clientagents/README.md#run) - Create an agent run and wait for the response
 
 ### [Client.Announcements](docs/sdks/announcements/README.md)
 
@@ -286,18 +294,18 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [CreateToken](docs/sdks/clientauthentication/README.md#createtoken) - Create authentication token
 
-### [Client.Chat](docs/sdks/chat/README.md)
+### [Client.Chat](docs/sdks/clientchat/README.md)
 
-* [Create](docs/sdks/chat/README.md#create) - Chat
-* [DeleteAll](docs/sdks/chat/README.md#deleteall) - Deletes all saved Chats owned by a user
-* [Delete](docs/sdks/chat/README.md#delete) - Deletes saved Chats
-* [Retrieve](docs/sdks/chat/README.md#retrieve) - Retrieves a Chat
-* [List](docs/sdks/chat/README.md#list) - Retrieves all saved Chats
-* [RetrieveApplication](docs/sdks/chat/README.md#retrieveapplication) - Gets the metadata for a custom Chat application
-* [UploadFiles](docs/sdks/chat/README.md#uploadfiles) - Upload files for Chat
-* [RetrieveFiles](docs/sdks/chat/README.md#retrievefiles) - Get files uploaded by a user for Chat
-* [DeleteFiles](docs/sdks/chat/README.md#deletefiles) - Delete files uploaded by a user for chat
-* [CreateStream](docs/sdks/chat/README.md#createstream) - Chat
+* [Create](docs/sdks/clientchat/README.md#create) - Chat
+* [DeleteAll](docs/sdks/clientchat/README.md#deleteall) - Deletes all saved Chats owned by a user
+* [Delete](docs/sdks/clientchat/README.md#delete) - Deletes saved Chats
+* [Retrieve](docs/sdks/clientchat/README.md#retrieve) - Retrieves a Chat
+* [List](docs/sdks/clientchat/README.md#list) - Retrieves all saved Chats
+* [RetrieveApplication](docs/sdks/clientchat/README.md#retrieveapplication) - Gets the metadata for a custom Chat application
+* [UploadFiles](docs/sdks/clientchat/README.md#uploadfiles) - Upload files for Chat
+* [RetrieveFiles](docs/sdks/clientchat/README.md#retrievefiles) - Get files uploaded by a user for Chat
+* [DeleteFiles](docs/sdks/clientchat/README.md#deletefiles) - Delete files uploaded by a user for chat
+* [CreateStream](docs/sdks/clientchat/README.md#createstream) - Chat
 
 ### [Client.Collections](docs/sdks/collections/README.md)
 
@@ -317,10 +325,10 @@ For more information on obtaining the appropriate token type, please contact you
 * [RetrieveByFacets](docs/sdks/clientdocuments/README.md#retrievebyfacets) - Read documents by facets
 * [Summarize](docs/sdks/clientdocuments/README.md#summarize) - Summarize documents
 
-### [Client.Entities](docs/sdks/entities/README.md)
+### [Client.Entities](docs/sdks/cliententities/README.md)
 
-* [List](docs/sdks/entities/README.md#list) - List entities
-* [ReadPeople](docs/sdks/entities/README.md#readpeople) - Read people
+* [List](docs/sdks/cliententities/README.md#list) - List entities
+* [ReadPeople](docs/sdks/cliententities/README.md#readpeople) - Read people
 
 ### [Client.Governance.Data.Policies](docs/sdks/policies/README.md)
 
@@ -373,10 +381,10 @@ For more information on obtaining the appropriate token type, please contact you
 * [List](docs/sdks/clientshortcuts/README.md#list) - List shortcuts
 * [Update](docs/sdks/clientshortcuts/README.md#update) - Update shortcut
 
-### [Client.Tools](docs/sdks/tools/README.md)
+### [Client.Tools](docs/sdks/clienttools/README.md)
 
-* [List](docs/sdks/tools/README.md#list) - List available tools
-* [Run](docs/sdks/tools/README.md#run) - Execute the specified tool
+* [List](docs/sdks/clienttools/README.md#list) - List available tools
+* [Run](docs/sdks/clienttools/README.md#run) - Execute the specified tool
 
 ### [Client.Verification](docs/sdks/verification/README.md)
 
@@ -388,6 +396,12 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [GetDatasourceInstanceConfiguration](docs/sdks/datasources/README.md#getdatasourceinstanceconfiguration) - Get datasource instance configuration
 * [UpdateDatasourceInstanceConfiguration](docs/sdks/datasources/README.md#updatedatasourceinstanceconfiguration) - Update datasource instance configuration
+* [GetDatasourceCredentialStatus](docs/sdks/datasources/README.md#getdatasourcecredentialstatus) - Get datasource instance credential status
+* [RotateDatasourceCredentials](docs/sdks/datasources/README.md#rotatedatasourcecredentials) - Rotate datasource instance credentials
+
+### [Entities](docs/sdks/entities/README.md)
+
+* [GetPersonPhoto](docs/sdks/entities/README.md#getpersonphoto) - Get person photo
 
 ### [Governance](docs/sdks/governance/README.md)
 
@@ -457,6 +471,16 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [BulkIndex](docs/sdks/indexingshortcuts/README.md#bulkindex) - Bulk index external shortcuts
 * [Upload](docs/sdks/indexingshortcuts/README.md#upload) - Upload shortcuts
+
+### [Tools](docs/sdks/tools/README.md)
+
+* [GetActionPackAuthStatus](docs/sdks/tools/README.md#getactionpackauthstatus) - Get end-user authentication status for an action pack.
+* [AuthorizeActionPack](docs/sdks/tools/README.md#authorizeactionpack) - Start the OAuth authorization flow for an action pack.
+
+### [Troubleshooting](docs/sdks/troubleshooting/README.md)
+
+* [PostAPIIndexV1DebugDatasourceDocumentEvents](docs/sdks/troubleshooting/README.md#postapiindexv1debugdatasourcedocumentevents) - Beta: Get document lifecycle events
+
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
