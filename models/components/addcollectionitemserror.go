@@ -2,32 +2,26 @@
 
 package components
 
-import (
-	"encoding/json"
-	"fmt"
-)
-
 type AddCollectionItemsErrorErrorType string
 
 const (
 	AddCollectionItemsErrorErrorTypeExistingItem AddCollectionItemsErrorErrorType = "EXISTING_ITEM"
+	AddCollectionItemsErrorErrorTypeCorruptItem  AddCollectionItemsErrorErrorType = "CORRUPT_ITEM"
 )
 
 func (e AddCollectionItemsErrorErrorType) ToPointer() *AddCollectionItemsErrorErrorType {
 	return &e
 }
-func (e *AddCollectionItemsErrorErrorType) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *AddCollectionItemsErrorErrorType) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "EXISTING_ITEM", "CORRUPT_ITEM":
+			return true
+		}
 	}
-	switch v {
-	case "EXISTING_ITEM":
-		*e = AddCollectionItemsErrorErrorType(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for AddCollectionItemsErrorErrorType: %v", v)
-	}
+	return false
 }
 
 type AddCollectionItemsError struct {

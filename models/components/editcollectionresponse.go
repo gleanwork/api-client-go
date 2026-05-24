@@ -17,6 +17,7 @@ const (
 	EditCollectionResponseErrorCodeHeightViolation         EditCollectionResponseErrorCode = "HEIGHT_VIOLATION"
 	EditCollectionResponseErrorCodeWidthViolation          EditCollectionResponseErrorCode = "WIDTH_VIOLATION"
 	EditCollectionResponseErrorCodeNoPermissions           EditCollectionResponseErrorCode = "NO_PERMISSIONS"
+	EditCollectionResponseErrorCodeCorruptItem             EditCollectionResponseErrorCode = "CORRUPT_ITEM"
 )
 
 func (e EditCollectionResponseErrorCode) ToPointer() *EditCollectionResponseErrorCode {
@@ -27,7 +28,7 @@ func (e EditCollectionResponseErrorCode) ToPointer() *EditCollectionResponseErro
 func (e *EditCollectionResponseErrorCode) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "NAME_EXISTS", "NOT_FOUND", "COLLECTION_PINNED", "CONCURRENT_HIERARCHY_EDIT", "HEIGHT_VIOLATION", "WIDTH_VIOLATION", "NO_PERMISSIONS":
+		case "NAME_EXISTS", "NOT_FOUND", "COLLECTION_PINNED", "CONCURRENT_HIERARCHY_EDIT", "HEIGHT_VIOLATION", "WIDTH_VIOLATION", "NO_PERMISSIONS", "CORRUPT_ITEM":
 			return true
 		}
 	}
@@ -55,6 +56,8 @@ type EditCollectionResponse struct {
 	// The datasource type this Collection can hold.
 	AllowedDatasource *string            `json:"allowedDatasource,omitempty"`
 	Permissions       *ObjectPermissions `json:"permissions,omitempty"`
+	// An opaque token that represents this particular UGC. To be used for `/feedback` reporting.
+	TrackingToken *string `json:"trackingToken,omitempty"`
 	// The unique ID of the Collection.
 	ID         int64      `json:"id"`
 	CreateTime *time.Time `json:"createTime,omitempty"`
@@ -165,6 +168,13 @@ func (e *EditCollectionResponse) GetPermissions() *ObjectPermissions {
 		return nil
 	}
 	return e.Permissions
+}
+
+func (e *EditCollectionResponse) GetTrackingToken() *string {
+	if e == nil {
+		return nil
+	}
+	return e.TrackingToken
 }
 
 func (e *EditCollectionResponse) GetID() int64 {

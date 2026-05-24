@@ -1,0 +1,9 @@
+# PostAPIIndexV1DebugDatasourceDocumentEventsResponse
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                              | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                      | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `DebugDocumentLifecycleResponse`                                                                        | [*components.DebugDocumentLifecycleResponse](../../models/components/debugdocumentlifecycleresponse.md) | :heavy_minus_sign:                                                                                      | OK                                                                                                      |

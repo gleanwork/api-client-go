@@ -115,7 +115,7 @@ func main() {
         TrackingTokens: []string{
             "trackingTokens",
         },
-        Event: components.EventView,
+        Event: components.FeedbackEventView,
     })
     if err != nil {
         log.Fatal(err)

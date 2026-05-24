@@ -20,6 +20,8 @@ type PerUserInsight struct {
 	NumAiAnswers *int64 `json:"numAiAnswers,omitempty"`
 	// Total number of agent runs for this user over the specified time period.
 	NumAgentRuns *int64 `json:"numAgentRuns,omitempty"`
+	// Total number of MCP calls for this user over the specified time period.
+	NumMcpCalls *int64 `json:"numMcpCalls,omitempty"`
 }
 
 func (p *PerUserInsight) GetPerson() *Person {
@@ -83,4 +85,11 @@ func (p *PerUserInsight) GetNumAgentRuns() *int64 {
 		return nil
 	}
 	return p.NumAgentRuns
+}
+
+func (p *PerUserInsight) GetNumMcpCalls() *int64 {
+	if p == nil {
+		return nil
+	}
+	return p.NumMcpCalls
 }
