@@ -5,8 +5,12 @@ package components
 type ChatSuggestion struct {
 	// The actionable chat query to run when the user selects this suggestion.
 	Query *string `json:"query,omitempty"`
+	// Button text to show for the suggestion action.
+	Cta *string `json:"cta,omitempty"`
 	// Targeted Glean Chat feature for the suggestion.
 	Feature *string `json:"feature,omitempty"`
+	// Document IDs that grounded the suggestion.
+	SourceDocumentIds []string `json:"sourceDocumentIds,omitempty"`
 }
 
 func (c *ChatSuggestion) GetQuery() *string {
@@ -16,9 +20,23 @@ func (c *ChatSuggestion) GetQuery() *string {
 	return c.Query
 }
 
+func (c *ChatSuggestion) GetCta() *string {
+	if c == nil {
+		return nil
+	}
+	return c.Cta
+}
+
 func (c *ChatSuggestion) GetFeature() *string {
 	if c == nil {
 		return nil
 	}
 	return c.Feature
+}
+
+func (c *ChatSuggestion) GetSourceDocumentIds() []string {
+	if c == nil {
+		return nil
+	}
+	return c.SourceDocumentIds
 }

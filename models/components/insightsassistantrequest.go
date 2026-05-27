@@ -5,7 +5,9 @@ package components
 type InsightsAssistantRequest struct {
 	// Departments for which Insights are requested.
 	Departments []string `json:"departments,omitempty"`
-	DayRange    *Period  `json:"dayRange,omitempty"`
+	// Manager emails whose teams should be filtered for. Empty array means no filtering.
+	ManagerEmails []string `json:"managerEmails,omitempty"`
+	DayRange      *Period  `json:"dayRange,omitempty"`
 }
 
 func (i *InsightsAssistantRequest) GetDepartments() []string {
@@ -13,6 +15,13 @@ func (i *InsightsAssistantRequest) GetDepartments() []string {
 		return nil
 	}
 	return i.Departments
+}
+
+func (i *InsightsAssistantRequest) GetManagerEmails() []string {
+	if i == nil {
+		return nil
+	}
+	return i.ManagerEmails
 }
 
 func (i *InsightsAssistantRequest) GetDayRange() *Period {

@@ -64,8 +64,12 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeActiveDiscussion`                  | ACTIVE_DISCUSSION                                    |
 | `JustificationTypeMidDayCatchUp`                     | MID_DAY_CATCH_UP                                     |
 | `JustificationTypeQuerySuggestion`                   | QUERY_SUGGESTION                                     |
+| `JustificationTypeCoworkCujPromo`                    | COWORK_CUJ_PROMO                                     |
 | `JustificationTypeWeeklyMeetings`                    | WEEKLY_MEETINGS                                      |
 | `JustificationTypeFollowUp`                          | FOLLOW_UP                                            |
 | `JustificationTypeMilestoneTimelineCheck`            | MILESTONE_TIMELINE_CHECK                             |
 | `JustificationTypeProjectDiscussionDigest`           | PROJECT_DISCUSSION_DIGEST                            |
+| `JustificationTypeProjectFocusBlock`                 | PROJECT_FOCUS_BLOCK                                  |
 | `JustificationTypeProjectNextStep`                   | PROJECT_NEXT_STEP                                    |
+| `JustificationTypeDemoCard`                          | DEMO_CARD                                            |
+| `JustificationTypeOooPlanner`                        | OOO_PLANNER                                          |

@@ -12,18 +12,18 @@ type Client struct {
 	Announcements  *Announcements
 	Answers        *Answers
 	Authentication *ClientAuthentication
-	Chat           *Chat
-	Agents         *Agents
+	Chat           *ClientChat
+	Agents         *ClientAgents
 	Collections    *Collections
 	Documents      *ClientDocuments
 	Insights       *Insights
 	Messages       *Messages
 	Pins           *Pins
 	Search         *Search
-	Entities       *Entities
+	Entities       *ClientEntities
 	Shortcuts      *ClientShortcuts
 	Verification   *Verification
-	Tools          *Tools
+	Tools          *ClientTools
 	Governance     *ClientGovernance
 
 	rootSDK          *Glean
@@ -40,18 +40,18 @@ func newClient(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks.H
 		Announcements:    newAnnouncements(rootSDK, sdkConfig, hooks),
 		Answers:          newAnswers(rootSDK, sdkConfig, hooks),
 		Authentication:   newClientAuthentication(rootSDK, sdkConfig, hooks),
-		Chat:             newChat(rootSDK, sdkConfig, hooks),
-		Agents:           newAgents(rootSDK, sdkConfig, hooks),
+		Chat:             newClientChat(rootSDK, sdkConfig, hooks),
+		Agents:           newClientAgents(rootSDK, sdkConfig, hooks),
 		Collections:      newCollections(rootSDK, sdkConfig, hooks),
 		Documents:        newClientDocuments(rootSDK, sdkConfig, hooks),
 		Insights:         newInsights(rootSDK, sdkConfig, hooks),
 		Messages:         newMessages(rootSDK, sdkConfig, hooks),
 		Pins:             newPins(rootSDK, sdkConfig, hooks),
 		Search:           newSearch(rootSDK, sdkConfig, hooks),
-		Entities:         newEntities(rootSDK, sdkConfig, hooks),
+		Entities:         newClientEntities(rootSDK, sdkConfig, hooks),
 		Shortcuts:        newClientShortcuts(rootSDK, sdkConfig, hooks),
 		Verification:     newVerification(rootSDK, sdkConfig, hooks),
-		Tools:            newTools(rootSDK, sdkConfig, hooks),
+		Tools:            newClientTools(rootSDK, sdkConfig, hooks),
 		Governance:       newClientGovernance(rootSDK, sdkConfig, hooks),
 	}
 }

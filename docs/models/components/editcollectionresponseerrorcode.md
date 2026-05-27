@@ -25,3 +25,4 @@ custom := components.EditCollectionResponseErrorCode("custom_value")
 | `EditCollectionResponseErrorCodeHeightViolation`         | HEIGHT_VIOLATION                                         |
 | `EditCollectionResponseErrorCodeWidthViolation`          | WIDTH_VIOLATION                                          |
 | `EditCollectionResponseErrorCodeNoPermissions`           | NO_PERMISSIONS                                           |
+| `EditCollectionResponseErrorCodeCorruptItem`             | CORRUPT_ITEM                                             |

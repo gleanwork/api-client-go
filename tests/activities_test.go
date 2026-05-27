@@ -27,7 +27,7 @@ func TestActivities_Feedback(t *testing.T) {
 		TrackingTokens: []string{
 			"trackingTokens",
 		},
-		Event: components.EventView,
+		Event: components.FeedbackEventView,
 	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
