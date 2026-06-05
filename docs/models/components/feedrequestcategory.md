@@ -46,8 +46,13 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryStarterKit`                   | STARTER_KIT                                       |
 | `FeedRequestCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                  |
 | `FeedRequestCategoryQuerySuggestion`              | QUERY_SUGGESTION                                  |
+| `FeedRequestCategoryCoworkCujPromo`               | COWORK_CUJ_PROMO                                  |
 | `FeedRequestCategoryWeeklyMeetings`               | WEEKLY_MEETINGS                                   |
 | `FeedRequestCategoryFollowUp`                     | FOLLOW_UP                                         |
 | `FeedRequestCategoryMilestoneTimelineCheck`       | MILESTONE_TIMELINE_CHECK                          |
 | `FeedRequestCategoryProjectDiscussionDigest`      | PROJECT_DISCUSSION_DIGEST                         |
+| `FeedRequestCategoryProjectFocusBlock`            | PROJECT_FOCUS_BLOCK                               |
 | `FeedRequestCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                 |
+| `FeedRequestCategoryDemoCard`                     | DEMO_CARD                                         |
+| `FeedRequestCategoryOooPlanner`                   | OOO_PLANNER                                       |
+| `FeedRequestCategoryOooCatchUp`                   | OOO_CATCH_UP                                      |

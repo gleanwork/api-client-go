@@ -2,25 +2,25 @@
 
 package components
 
-// PropertyType - The type of custom property - this governs the search and faceting behavior. Note that MULTIPICKLIST is not yet supported.
-type PropertyType string
+// PropertyDefinitionPropertyType - The type of custom property - this governs the search and faceting behavior. Note that MULTIPICKLIST is not yet supported.
+type PropertyDefinitionPropertyType string
 
 const (
-	PropertyTypeText          PropertyType = "TEXT"
-	PropertyTypeDate          PropertyType = "DATE"
-	PropertyTypeInt           PropertyType = "INT"
-	PropertyTypeUserid        PropertyType = "USERID"
-	PropertyTypePicklist      PropertyType = "PICKLIST"
-	PropertyTypeTextlist      PropertyType = "TEXTLIST"
-	PropertyTypeMultipicklist PropertyType = "MULTIPICKLIST"
+	PropertyDefinitionPropertyTypeText          PropertyDefinitionPropertyType = "TEXT"
+	PropertyDefinitionPropertyTypeDate          PropertyDefinitionPropertyType = "DATE"
+	PropertyDefinitionPropertyTypeInt           PropertyDefinitionPropertyType = "INT"
+	PropertyDefinitionPropertyTypeUserid        PropertyDefinitionPropertyType = "USERID"
+	PropertyDefinitionPropertyTypePicklist      PropertyDefinitionPropertyType = "PICKLIST"
+	PropertyDefinitionPropertyTypeTextlist      PropertyDefinitionPropertyType = "TEXTLIST"
+	PropertyDefinitionPropertyTypeMultipicklist PropertyDefinitionPropertyType = "MULTIPICKLIST"
 )
 
-func (e PropertyType) ToPointer() *PropertyType {
+func (e PropertyDefinitionPropertyType) ToPointer() *PropertyDefinitionPropertyType {
 	return &e
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
-func (e *PropertyType) IsExact() bool {
+func (e *PropertyDefinitionPropertyType) IsExact() bool {
 	if e != nil {
 		switch *e {
 		case "TEXT", "DATE", "INT", "USERID", "PICKLIST", "TEXTLIST", "MULTIPICKLIST":
@@ -61,8 +61,8 @@ type PropertyDefinition struct {
 	// The user friendly label for the property that will be used if a plural context.
 	DisplayLabelPlural *string `json:"displayLabelPlural,omitempty"`
 	// The type of custom property - this governs the search and faceting behavior. Note that MULTIPICKLIST is not yet supported.
-	PropertyType *PropertyType `json:"propertyType,omitempty"`
-	UIOptions    *UIOptions    `json:"uiOptions,omitempty"`
+	PropertyType *PropertyDefinitionPropertyType `json:"propertyType,omitempty"`
+	UIOptions    *UIOptions                      `json:"uiOptions,omitempty"`
 	// If true then the property will not show up as a facet in the UI.
 	HideUIFacet *bool `json:"hideUiFacet,omitempty"`
 	// Will be used to set the order of facets in the UI, if present. If set for one facet, must be set for all non-hidden UI facets. Must take on an integer value from 1 (shown at the top) to N (shown last), where N is the number of non-hidden UI facets. These facets will be ordered below the built-in "Type" and "Tag" operators.
@@ -94,7 +94,7 @@ func (p *PropertyDefinition) GetDisplayLabelPlural() *string {
 	return p.DisplayLabelPlural
 }
 
-func (p *PropertyDefinition) GetPropertyType() *PropertyType {
+func (p *PropertyDefinition) GetPropertyType() *PropertyDefinitionPropertyType {
 	if p == nil {
 		return nil
 	}

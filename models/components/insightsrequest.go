@@ -3,9 +3,11 @@
 package components
 
 type InsightsRequest struct {
-	OverviewRequest  *InsightsOverviewRequest  `json:"overviewRequest,omitempty"`
-	AssistantRequest *InsightsAssistantRequest `json:"assistantRequest,omitempty"`
-	AgentsRequest    *AgentsInsightsV2Request  `json:"agentsRequest,omitempty"`
+	OverviewRequest     *InsightsOverviewRequest     `json:"overviewRequest,omitempty"`
+	AssistantRequest    *InsightsAssistantRequest    `json:"assistantRequest,omitempty"`
+	AgentsRequest       *AgentsInsightsV2Request     `json:"agentsRequest,omitempty"`
+	McpRequest          *McpInsightsRequest          `json:"mcpRequest,omitempty"`
+	McpBreakdownRequest *McpBreakdownInsightsRequest `json:"mcpBreakdownRequest,omitempty"`
 	// If true, suppresses the generation of per-user Insights in the response. Default is false.
 	DisablePerUserInsights *bool `json:"disablePerUserInsights,omitempty"`
 }
@@ -29,6 +31,20 @@ func (i *InsightsRequest) GetAgentsRequest() *AgentsInsightsV2Request {
 		return nil
 	}
 	return i.AgentsRequest
+}
+
+func (i *InsightsRequest) GetMcpRequest() *McpInsightsRequest {
+	if i == nil {
+		return nil
+	}
+	return i.McpRequest
+}
+
+func (i *InsightsRequest) GetMcpBreakdownRequest() *McpBreakdownInsightsRequest {
+	if i == nil {
+		return nil
+	}
+	return i.McpBreakdownRequest
 }
 
 func (i *InsightsRequest) GetDisablePerUserInsights() *bool {

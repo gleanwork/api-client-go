@@ -103,6 +103,8 @@ type Announcement struct {
 	// The opaque id of the associated draft.
 	DraftID     *int64             `json:"draftId,omitempty"`
 	Permissions *ObjectPermissions `json:"permissions,omitempty"`
+	// An opaque token that represents this particular UGC. To be used for `/feedback` reporting.
+	TrackingToken *string `json:"trackingToken,omitempty"`
 	// The opaque id of the announcement.
 	ID     *int64  `json:"id,omitempty"`
 	Author *Person `json:"author,omitempty"`
@@ -238,6 +240,13 @@ func (a *Announcement) GetPermissions() *ObjectPermissions {
 		return nil
 	}
 	return a.Permissions
+}
+
+func (a *Announcement) GetTrackingToken() *string {
+	if a == nil {
+		return nil
+	}
+	return a.TrackingToken
 }
 
 func (a *Announcement) GetID() *int64 {

@@ -18,6 +18,8 @@ value := components.FeedbackCategoryAnnouncement
 | Name                           | Value                          |
 | ------------------------------ | ------------------------------ |
 | `FeedbackCategoryAnnouncement` | ANNOUNCEMENT                   |
+| `FeedbackCategoryAnswers`      | ANSWERS                        |
+| `FeedbackCategoryArtifacts`    | ARTIFACTS                      |
 | `FeedbackCategoryAutocomplete` | AUTOCOMPLETE                   |
 | `FeedbackCategoryCollections`  | COLLECTIONS                    |
 | `FeedbackCategoryFeed`         | FEED                           |

@@ -2,7 +2,7 @@
 
 package apiclientgo
 
-// Generated from OpenAPI doc version 0.9.0 and generator version 2.881.2
+// Generated from OpenAPI doc version 0.9.0 and generator version 2.893.0
 
 import (
 	"context"
@@ -67,9 +67,14 @@ type Glean struct {
 	SDKVersion string
 	Client     *Client
 	// Manage indexing API tokens.
-	Authentication *Authentication
-	Indexing       *Indexing
-	Governance     *Governance
+	Authentication  *Authentication
+	Chat            *Chat
+	Agents          *Agents
+	Entities        *Entities
+	Tools           *Tools
+	Indexing        *Indexing
+	Troubleshooting *Troubleshooting
+	Governance      *Governance
 	// Manage datasources.
 	Datasources *Datasources
 
@@ -161,9 +166,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Glean {
 	sdk := &Glean{
-		SDKVersion: "0.11.43",
+		SDKVersion: "0.12.0",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.11.43 2.881.2 0.9.0 github.com/gleanwork/api-client-go",
+			UserAgent:  "speakeasy-sdk/go 0.12.0 2.893.0 0.9.0 github.com/gleanwork/api-client-go",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -198,7 +203,12 @@ func New(opts ...SDKOption) *Glean {
 
 	sdk.Client = newClient(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Authentication = newAuthentication(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Chat = newChat(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Agents = newAgents(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Entities = newEntities(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Tools = newTools(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Indexing = newIndexing(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Troubleshooting = newTroubleshooting(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Governance = newGovernance(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Datasources = newDatasources(sdk, sdk.sdkConfiguration, sdk.hooks)
 

@@ -14,7 +14,6 @@ import (
 	"github.com/gleanwork/api-client-go/models/operations"
 	"github.com/gleanwork/api-client-go/retry"
 	"net/http"
-	"net/url"
 )
 
 type Tools struct {
@@ -31,11 +30,13 @@ func newTools(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks.Ho
 	}
 }
 
-// List available tools
-// Returns a filtered set of available tools based on optional tool name parameters. If no filters are provided, all available tools are returned.
-func (s *Tools) List(ctx context.Context, toolNames []string, opts ...operations.Option) (*operations.GetRestAPIV1ToolsListResponse, error) {
-	request := operations.GetRestAPIV1ToolsListRequest{
-		ToolNames: toolNames,
+// GetActionPackAuthStatus - Get end-user authentication status for an action pack.
+// Reports whether the calling user is already authenticated against the third-party
+// tool backing the specified action pack. Intended for headless / server-driven clients
+// that render an "Authorize" prompt when the user has not yet consented to the tool.
+func (s *Tools) GetActionPackAuthStatus(ctx context.Context, actionPackID string, opts ...operations.Option) (*operations.GetActionPackAuthStatusResponse, error) {
+	request := operations.GetActionPackAuthStatusRequest{
+		ActionPackID: actionPackID,
 	}
 
 	o := operations.Options{}
@@ -56,7 +57,7 @@ func (s *Tools) List(ctx context.Context, toolNames []string, opts ...operations
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/rest/api/v1/tools/list")
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/rest/api/v1/actions/actionpack/{actionPackId}/auth", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -66,7 +67,7 @@ func (s *Tools) List(ctx context.Context, toolNames []string, opts ...operations
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "get_/rest/api/v1/tools/list",
+		OperationID:      "getActionPackAuthStatus",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -88,10 +89,6 @@ func (s *Tools) List(ctx context.Context, toolNames []string, opts ...operations
 	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-
-	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
-		return nil, fmt.Errorf("error populating query params: %w", err)
-	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -192,7 +189,7 @@ func (s *Tools) List(ctx context.Context, toolNames []string, opts ...operations
 		}
 	}
 
-	res := &operations.GetRestAPIV1ToolsListResponse{
+	res := &operations.GetActionPackAuthStatusResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -208,12 +205,12 @@ func (s *Tools) List(ctx context.Context, toolNames []string, opts ...operations
 				return nil, err
 			}
 
-			var out components.ToolsListResponse
+			var out components.ActionPackAuthStatusResponse
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.ToolsListResponse = &out
+			res.ActionPackAuthStatusResponse = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -253,9 +250,20 @@ func (s *Tools) List(ctx context.Context, toolNames []string, opts ...operations
 
 }
 
-// Run - Execute the specified tool
-// Execute the specified tool with provided parameters
-func (s *Tools) Run(ctx context.Context, request components.ToolsCallRequest, opts ...operations.Option) (*operations.PostRestAPIV1ToolsCallResponse, error) {
+// AuthorizeActionPack - Start the OAuth authorization flow for an action pack.
+// Starts the third-party OAuth flow for the specified action pack and returns the
+// redirect URL that the client should navigate the end user to. After the OAuth
+// callback completes, the user's browser is redirected back to `returnUrl` with a
+// status query parameter (`?glean_action_auth=success|error&actionPackId=...`).
+//
+// `returnUrl` must match the tenant's configured return URL allowlist; otherwise the
+// request is rejected with 400.
+func (s *Tools) AuthorizeActionPack(ctx context.Context, actionPackID string, authorizeActionPackRequest components.AuthorizeActionPackRequest, opts ...operations.Option) (*operations.AuthorizeActionPackResponse, error) {
+	request := operations.AuthorizeActionPackRequest{
+		ActionPackID:               actionPackID,
+		AuthorizeActionPackRequest: authorizeActionPackRequest,
+	}
+
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -274,7 +282,7 @@ func (s *Tools) Run(ctx context.Context, request components.ToolsCallRequest, op
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/rest/api/v1/tools/call")
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/rest/api/v1/actions/actionpack/{actionPackId}/auth", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -284,11 +292,11 @@ func (s *Tools) Run(ctx context.Context, request components.ToolsCallRequest, op
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "post_/rest/api/v1/tools/call",
+		OperationID:      "authorizeActionPack",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "AuthorizeActionPackRequest", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -413,7 +421,7 @@ func (s *Tools) Run(ctx context.Context, request components.ToolsCallRequest, op
 		}
 	}
 
-	res := &operations.PostRestAPIV1ToolsCallResponse{
+	res := &operations.AuthorizeActionPackResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -429,12 +437,12 @@ func (s *Tools) Run(ctx context.Context, request components.ToolsCallRequest, op
 				return nil, err
 			}
 
-			var out components.ToolsCallResponse
+			var out components.AuthorizeActionPackResponse
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.ToolsCallResponse = &out
+			res.AuthorizeActionPackResponse = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -445,6 +453,8 @@ func (s *Tools) Run(ctx context.Context, request components.ToolsCallRequest, op
 	case httpRes.StatusCode == 400:
 		fallthrough
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
 		fallthrough
 	case httpRes.StatusCode == 404:
 		fallthrough
