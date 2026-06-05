@@ -25,3 +25,4 @@ custom := components.CollectionErrorErrorCode("custom_value")
 | `CollectionErrorErrorCodeHeightViolation`         | HEIGHT_VIOLATION                                  |
 | `CollectionErrorErrorCodeWidthViolation`          | WIDTH_VIOLATION                                   |
 | `CollectionErrorErrorCodeNoPermissions`           | NO_PERMISSIONS                                    |
+| `CollectionErrorErrorCodeCorruptItem`             | CORRUPT_ITEM                                      |

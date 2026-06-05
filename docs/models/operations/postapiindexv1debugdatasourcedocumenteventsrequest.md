@@ -1,0 +1,9 @@
+# PostAPIIndexV1DebugDatasourceDocumentEventsRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `Datasource`                                                                                         | `string`                                                                                             | :heavy_check_mark:                                                                                   | The datasource to which the document belongs                                                         |
+| `DebugDocumentLifecycleRequest`                                                                      | [components.DebugDocumentLifecycleRequest](../../models/components/debugdocumentlifecyclerequest.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

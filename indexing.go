@@ -15,6 +15,7 @@ type Indexing struct {
 	Datasources    *IndexingDatasources
 	Authentication *IndexingAuthentication
 	Shortcuts      *IndexingShortcuts
+	CustomMetadata *CustomMetadata
 
 	rootSDK          *Glean
 	sdkConfiguration config.SDKConfiguration
@@ -33,5 +34,6 @@ func newIndexing(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks
 		Datasources:      newIndexingDatasources(rootSDK, sdkConfig, hooks),
 		Authentication:   newIndexingAuthentication(rootSDK, sdkConfig, hooks),
 		Shortcuts:        newIndexingShortcuts(rootSDK, sdkConfig, hooks),
+		CustomMetadata:   newCustomMetadata(rootSDK, sdkConfig, hooks),
 	}
 }
