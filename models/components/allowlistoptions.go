@@ -2,10 +2,12 @@
 
 package components
 
-// AllowlistOptions - Terms that are allow-listed during the scans. If any finding picked up by a rule exactly matches a term in the allow-list, it will not be counted as a violation.
+// AllowlistOptions - Terms and regexes that are allow-listed during the scans. If any finding picked up by a rule exactly matches a term, or matches a regex, in the allow-list, it will not be counted as a violation.
 type AllowlistOptions struct {
 	// list of words and phrases to consider as whitelisted content
 	Terms []string `json:"terms,omitempty"`
+	// list of regular expressions whose matches are considered whitelisted content
+	Regexes []string `json:"regexes,omitempty"`
 }
 
 func (a *AllowlistOptions) GetTerms() []string {
@@ -13,4 +15,11 @@ func (a *AllowlistOptions) GetTerms() []string {
 		return nil
 	}
 	return a.Terms
+}
+
+func (a *AllowlistOptions) GetRegexes() []string {
+	if a == nil {
+		return nil
+	}
+	return a.Regexes
 }
