@@ -38,6 +38,7 @@ const (
 	FeedResultCategoryMidDayCatchUp                FeedResultCategory = "MID_DAY_CATCH_UP"
 	FeedResultCategoryQuerySuggestion              FeedResultCategory = "QUERY_SUGGESTION"
 	FeedResultCategoryCoworkCujPromo               FeedResultCategory = "COWORK_CUJ_PROMO"
+	FeedResultCategoryCardStackPromo               FeedResultCategory = "CARD_STACK_PROMO"
 	FeedResultCategoryWeeklyMeetings               FeedResultCategory = "WEEKLY_MEETINGS"
 	FeedResultCategoryFollowUp                     FeedResultCategory = "FOLLOW_UP"
 	FeedResultCategoryMilestoneTimelineCheck       FeedResultCategory = "MILESTONE_TIMELINE_CHECK"
@@ -57,7 +58,30 @@ func (e FeedResultCategory) ToPointer() *FeedResultCategory {
 func (e *FeedResultCategory) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "DOCUMENT_SUGGESTION", "DOCUMENT_SUGGESTION_SCENARIO", "TRENDING_DOCUMENT", "USE_CASE", "VERIFICATION_REMINDER", "EVENT", "ANNOUNCEMENT", "MENTION", "DATASOURCE_AFFINITY", "RECENT", "COMPANY_RESOURCE", "EXPERIMENTAL", "PEOPLE_CELEBRATIONS", "SOCIAL_LINK", "EXTERNAL_TASKS", "DISPLAYABLE_LIST", "ZERO_STATE_CHAT_SUGGESTION", "ZERO_STATE_CHAT_TOOL_SUGGESTION", "ZERO_STATE_WORKFLOW_CREATED_BY_ME", "ZERO_STATE_WORKFLOW_FAVORITES", "ZERO_STATE_WORKFLOW_POPULAR", "ZERO_STATE_WORKFLOW_RECENT", "ZERO_STATE_WORKFLOW_SUGGESTION", "PERSONALIZED_CHAT_SUGGESTION", "DAILY_DIGEST", "TASK", "PLAN_MY_DAY", "END_MY_DAY", "STARTER_KIT", "MID_DAY_CATCH_UP", "QUERY_SUGGESTION", "COWORK_CUJ_PROMO", "WEEKLY_MEETINGS", "FOLLOW_UP", "MILESTONE_TIMELINE_CHECK", "PROJECT_DISCUSSION_DIGEST", "PROJECT_FOCUS_BLOCK", "PROJECT_NEXT_STEP", "DEMO_CARD", "OOO_PLANNER", "OOO_CATCH_UP":
+		case "DOCUMENT_SUGGESTION", "DOCUMENT_SUGGESTION_SCENARIO", "TRENDING_DOCUMENT", "USE_CASE", "VERIFICATION_REMINDER", "EVENT", "ANNOUNCEMENT", "MENTION", "DATASOURCE_AFFINITY", "RECENT", "COMPANY_RESOURCE", "EXPERIMENTAL", "PEOPLE_CELEBRATIONS", "SOCIAL_LINK", "EXTERNAL_TASKS", "DISPLAYABLE_LIST", "ZERO_STATE_CHAT_SUGGESTION", "ZERO_STATE_CHAT_TOOL_SUGGESTION", "ZERO_STATE_WORKFLOW_CREATED_BY_ME", "ZERO_STATE_WORKFLOW_FAVORITES", "ZERO_STATE_WORKFLOW_POPULAR", "ZERO_STATE_WORKFLOW_RECENT", "ZERO_STATE_WORKFLOW_SUGGESTION", "PERSONALIZED_CHAT_SUGGESTION", "DAILY_DIGEST", "TASK", "PLAN_MY_DAY", "END_MY_DAY", "STARTER_KIT", "MID_DAY_CATCH_UP", "QUERY_SUGGESTION", "COWORK_CUJ_PROMO", "CARD_STACK_PROMO", "WEEKLY_MEETINGS", "FOLLOW_UP", "MILESTONE_TIMELINE_CHECK", "PROJECT_DISCUSSION_DIGEST", "PROJECT_FOCUS_BLOCK", "PROJECT_NEXT_STEP", "DEMO_CARD", "OOO_PLANNER", "OOO_CATCH_UP":
+			return true
+		}
+	}
+	return false
+}
+
+// PlacementReason - Placement source for ranked feed results. ORGANIC means the card was emitted by normal feed ranking. PROMO means the card was inserted by the homepage cards promo framework.
+type PlacementReason string
+
+const (
+	PlacementReasonOrganic PlacementReason = "ORGANIC"
+	PlacementReasonPromo   PlacementReason = "PROMO"
+)
+
+func (e PlacementReason) ToPointer() *PlacementReason {
+	return &e
+}
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *PlacementReason) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "ORGANIC", "PROMO":
 			return true
 		}
 	}
@@ -72,6 +96,8 @@ type FeedResult struct {
 	SecondaryEntries []FeedEntry `json:"secondaryEntries,omitempty"`
 	// Rank of the result. Rank is suggested by server. Client side rank may differ.
 	Rank *int64 `json:"rank,omitempty"`
+	// Placement source for ranked feed results. ORGANIC means the card was emitted by normal feed ranking. PROMO means the card was inserted by the homepage cards promo framework.
+	PlacementReason *PlacementReason `json:"placementReason,omitempty"`
 }
 
 func (f *FeedResult) GetCategory() FeedResultCategory {
@@ -100,4 +126,11 @@ func (f *FeedResult) GetRank() *int64 {
 		return nil
 	}
 	return f.Rank
+}
+
+func (f *FeedResult) GetPlacementReason() *PlacementReason {
+	if f == nil {
+		return nil
+	}
+	return f.PlacementReason
 }

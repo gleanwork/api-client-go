@@ -30,9 +30,10 @@ func TestSummarize_Summarize(t *testing.T) {
 					ID: "<id>",
 				},
 			),
-			components.CreateDocumentSpecUnionDocumentSpec2(
-				components.DocumentSpec2{
-					ID: "<id>",
+			components.CreateDocumentSpecUnionDocumentSpec4(
+				components.DocumentSpec4{
+					UgcType: components.DocumentSpecUgcType2Shortcuts,
+					UgcID:   "<id>",
 				},
 			),
 		},

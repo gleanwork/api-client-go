@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: f945598f65bd3d18fa64e0f4961a6114
+  docChecksum: 939d2f12fecf92a82326fb98be3b67dc
   docVersion: 0.9.0
-  speakeasyVersion: 1.771.0
-  generationVersion: 2.893.0
-  releaseVersion: 0.12.0
-  configChecksum: 8bfe606b275bc5efc3ce7ed037c4056d
+  speakeasyVersion: 1.786.1
+  generationVersion: 2.913.3
+  releaseVersion: 0.12.1
+  configChecksum: 7b73ab5d36bcb2d2a4fa03e5e988aad3
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: ec30c6c9-b9e2-4c2c-b84b-c672748e1609
-  pristine_commit_hash: 275022a01801b24233a6b5525e7a26f607ac4b35
-  pristine_tree_hash: cae619579d3cbbd7562a9868b7be6dd0c79c1175
+  generation_id: 8638f6e8-47cf-4726-9445-2bf2562f6d6b
+  pristine_commit_hash: 642488bbf5fd9cdb70ce00859e06bd02a417a15c
+  pristine_tree_hash: 559bfcd8bbcdb5bbcba33c6d9cbded7ca4dfba16
 features:
   go:
     acceptHeaders: 2.81.2
@@ -37,7 +37,7 @@ features:
     mockServer: 0.1.4
     nameOverrides: 2.81.4
     responseFormat: 0.1.2
-    retries: 2.84.2
+    retries: 2.84.3
     sdkHooks: 0.3.0
     tests: 0.16.8
     unions: 2.87.7
@@ -69,8 +69,8 @@ trackedFiles:
     pristine_git_object: 9c4d301118236a7c81e8b0fffb6e387ed59361c2
   agents.go:
     id: 148cd435d94c
-    last_write_checksum: sha1:c5ef6f20a91b0dcdfad42e2a366cc5981993e700
-    pristine_git_object: 190fa026af817d70a69f5b4f5d7e796fc566ffd1
+    last_write_checksum: sha1:3ca213a46436799bbe44bdd1f951549439fc77e4
+    pristine_git_object: 785f0c4c656e79a757688989a57d832d2705f8ca
   announcements.go:
     id: 5da39fbc3664
     last_write_checksum: sha1:40db85bb384db08da04661a1524793d3f827d903
@@ -281,8 +281,8 @@ trackedFiles:
     pristine_git_object: 12f0bc5ffe50e66cf06b80dd2e2f14275bbe9aee
   docs/models/components/allowlistoptions.md:
     id: 4924799808ef
-    last_write_checksum: sha1:ae41d58f768fd76be590b5c750b73722b6bcbc6e
-    pristine_git_object: eec9b7fc0a80d0597cbeaee80958bb3fa911397e
+    last_write_checksum: sha1:006820eb4bc7b20b7411cca846916c1852060480
+    pristine_git_object: d03f820bedc2e8e770bbe6e74ee94d41e7cfd929
   docs/models/components/announcement.md:
     id: a4a18f09edf6
     last_write_checksum: sha1:6621449f7170b1c1f3c55921eefd98d66f419c01
@@ -695,6 +695,10 @@ trackedFiles:
     id: f21a858b0ee3
     last_write_checksum: sha1:0373dfb622a7b95e869dfe2b56bff1b332d5af79
     pristine_git_object: bdc4d03a63f32cba38f08d3ba0c73198d36ea58c
+  docs/models/components/createworkflowrequest.md:
+    id: 83322c7324ff
+    last_write_checksum: sha1:49d1d33d0c8ec5a5615e60cddd90c5e03ed5c12f
+    pristine_git_object: 04b9123c49c0f3d491c348954530fd6da4268650
   docs/models/components/currentactiveusers.md:
     id: 94cb04038236
     last_write_checksum: sha1:3b520a088a20751fff3ed69bd5b5e37b063f681b
@@ -973,8 +977,8 @@ trackedFiles:
     pristine_git_object: d8c3e9d86351bc0d85513a53148f5714a36fde1f
   docs/models/components/dlpconfig.md:
     id: 32b6de891696
-    last_write_checksum: sha1:7543e9fc9aa6977b9ddbebfb83150ce7d84303df
-    pristine_git_object: 79ba2e7ca8ce1a9ba4e7f333659913899ff3725a
+    last_write_checksum: sha1:e1f9ddce483b49e6683b16b1affc3482492b4d2d
+    pristine_git_object: 149f104fa28c2e398b387ec2b2f135f051e18e11
   docs/models/components/dlpexportfindingsrequest.md:
     id: f3b2752c4925
     last_write_checksum: sha1:61f99751e7e4e0be507f4d528eb5b4dc6568b78e
@@ -1285,8 +1289,8 @@ trackedFiles:
     pristine_git_object: c8e4adbb9259788d825acac24b08c9cd9afca960
   docs/models/components/feedrequestcategory.md:
     id: 801f1c3c64d4
-    last_write_checksum: sha1:7234d1dd7f4189e73da49b411c91eb05f8c90704
-    pristine_git_object: 6983b14a9f97b02186be2c797bc165db37d8b6ea
+    last_write_checksum: sha1:f2214a5d0bad008466e1e5fd586f305dbc51d830
+    pristine_git_object: e8ebfae36de56bf6cff5f4bb13776745bd4b4ece
   docs/models/components/feedrequestoptions.md:
     id: 76c5e4412304
     last_write_checksum: sha1:674915ceaa3b9eec9d9543dc9f0e6a85b394174e
@@ -1297,12 +1301,12 @@ trackedFiles:
     pristine_git_object: c053a79c66be5570c7e8dfb13885f5c0c050a574
   docs/models/components/feedresult.md:
     id: c3084f56c0cc
-    last_write_checksum: sha1:01f5be487240f045c4af61954100a410009b207f
-    pristine_git_object: 1a407813c5400167e6e0940fa546b008a8a2177d
+    last_write_checksum: sha1:b5233d7c70106e8c18d14ff9e9afd99bc28f4b62
+    pristine_git_object: a3d714f78ae220cd1f1ebda6e5c4ae2d51846208
   docs/models/components/feedresultcategory.md:
     id: 94c0249352b4
-    last_write_checksum: sha1:ff549de34c97cd9d83b448d8ba2c7a82fc0a35a1
-    pristine_git_object: d5f5dcef3a4c494d631c64982d044b1c5e72642f
+    last_write_checksum: sha1:c64cab9974961c414809851b518cb78430415a22
+    pristine_git_object: ddbeac8787384671c3857b8b9ea3755d93992f5c
   docs/models/components/fieldscope.md:
     id: 23caffb85bb7
     last_write_checksum: sha1:65cdffa9b7bf28a760c906f49dc7417f37b9e56f
@@ -1493,8 +1497,8 @@ trackedFiles:
     pristine_git_object: 3bc2faeab2b3d059c5ca2d5b65715697fb3d8a89
   docs/models/components/grouptype.md:
     id: e2545abf3697
-    last_write_checksum: sha1:c17f6c31eea959ea449a28e7300d50c3967fbc57
-    pristine_git_object: 97c6e3ed8770ddf5401d5c40a70f64fe2a6bc497
+    last_write_checksum: sha1:316a11503746d8e7f31be225f2d24b5ec87fb89f
+    pristine_git_object: 03d6f1c5a9622bed4854e2167ee7acc278c08e51
   docs/models/components/hidebuiltinfacet.md:
     id: 9466769b23b0
     last_write_checksum: sha1:6e587c2e9352108febf239261b623d2c6a548afa
@@ -1621,8 +1625,8 @@ trackedFiles:
     pristine_git_object: 1bea03f64d1d2cc4ba8bf2f9dc1323ce275348aa
   docs/models/components/justificationtype.md:
     id: 5a15880767a5
-    last_write_checksum: sha1:23ab2125d00c51ec3572efc6eb836b3b97037679
-    pristine_git_object: 75855017609934001dcb5f801641ee4211cc6c9a
+    last_write_checksum: sha1:f8709efc8fb735c9610b89065f93525593087651
+    pristine_git_object: 7a67633629ee641ce79bb6e4df696c26e600a4a5
   docs/models/components/knowledgetype.md:
     id: cf27a7cefa69
     last_write_checksum: sha1:f7294d6350e558a0a626ac41241ccbf0facacf10
@@ -1895,6 +1899,10 @@ trackedFiles:
     id: 13144145289b
     last_write_checksum: sha1:fbe30049c69433049a64d614fde5fda3c4724d6f
     pristine_git_object: 9d48703e1b73640c405b8d69c59f392333053671
+  docs/models/components/placementreason.md:
+    id: 4aca343a58b8
+    last_write_checksum: sha1:53884c743cf61c80b110a1d4f32d33efc2b79d28
+    pristine_git_object: 3a28581375dae69fbba45979f294764aa0b537a0
   docs/models/components/possiblevalue.md:
     id: 77671a7accb8
     last_write_checksum: sha1:36b94fefc8bd359225f1c9aa552fbddd507dd17d
@@ -2611,6 +2619,14 @@ trackedFiles:
     id: 9a084af35c0a
     last_write_checksum: sha1:ed59bffa0db823751cfed5e1b20ab0bbe6eecda6
     pristine_git_object: 7b4e4093b11c188c3a5fcbf6005afe4cb126bbe5
+  docs/models/operations/createagentrequest.md:
+    id: ef82cb982427
+    last_write_checksum: sha1:93d3173d7d41b5e84128c370cb66e2ba69b438a9
+    pristine_git_object: cd1d0e69f3a0e8e44e702e645cf940d9de1bfebc
+  docs/models/operations/createagentresponse.md:
+    id: 88fb8b150644
+    last_write_checksum: sha1:c5a78f35479e92340d4857c28ea78274a7597908
+    pristine_git_object: 7aec6c72ba7acd89a70fbc6b801fb86513eb2fe9
   docs/models/operations/createandstreamrunresponse.md:
     id: b2bfb28fb930
     last_write_checksum: sha1:2babff3d08910c0db2cf679e28fc578ec749bd34
@@ -3425,8 +3441,8 @@ trackedFiles:
     pristine_git_object: 018ef72bf766f3a72131d0539b29ae19162b8c75
   docs/sdks/agents/README.md:
     id: 5965d8232fd8
-    last_write_checksum: sha1:fb7b3f61fb0f2e9145a7b1a00a87aa20e3f3bd83
-    pristine_git_object: d34e421e21346a68013846a4d03173d11f944a10
+    last_write_checksum: sha1:79e6e7f09678b8941a1333aef17f8b06320e70bc
+    pristine_git_object: e806686f97076d941d5afb7e24532645b418887a
   docs/sdks/announcements/README.md:
     id: 3d2e130a217c
     last_write_checksum: sha1:97d528dc357f375132308cb8343e29e151f0ffa1
@@ -3569,8 +3585,8 @@ trackedFiles:
     pristine_git_object: 117e015a2b8fce0cb8a931963503e7ab1c7066d5
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:6caf2ea24108d149dbbfee0df4056224e72b8cf5
-    pristine_git_object: 719ad4b1e7c479982a00de86e66950d6c034868b
+    last_write_checksum: sha1:11e37fda6b480e2601b3c8919af1fcb037148f38
+    pristine_git_object: 80c28f541c815ccf936bbf82122611a7b8963c45
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:cf65a2c96e303858d4cf70e07d4c44d3f1c1db38
@@ -3789,8 +3805,8 @@ trackedFiles:
     pristine_git_object: 622e7824b05eb049595b71d99403273594d6d2fc
   models/components/allowlistoptions.go:
     id: e21274196fe8
-    last_write_checksum: sha1:89b411a5bdcca07a8f7470839f7bc38501066bcf
-    pristine_git_object: 9e035c195ecdd79c5bcbea9f6ed753add5d01e23
+    last_write_checksum: sha1:e0a1e57455066686b7999a307044d07e40d75b16
+    pristine_git_object: 02c36f140e515d60920ae1cc45e5189d82ee6d49
   models/components/announcement.go:
     id: f865c8524494
     last_write_checksum: sha1:c4bb0b76a5d2dd7f9d372e561ea412f368f2782a
@@ -4115,6 +4131,10 @@ trackedFiles:
     id: 45b1630b4056
     last_write_checksum: sha1:6f307a7edbaab3e81914a689b458e32826c4de1f
     pristine_git_object: cfac0880bbbc9cb1a70908990c4d458b2c64002d
+  models/components/createworkflowrequest.go:
+    id: 6280e28878f7
+    last_write_checksum: sha1:73b0204c60a21cf06f21fbd88913c56b2cde66f0
+    pristine_git_object: 10e8b57eace7f89e2c31dceede4aedb4a43f013b
   models/components/currentactiveusers.go:
     id: aa094b46ec70
     last_write_checksum: sha1:a5f4ec235cdb4b3a3779fd05bba67c392b0d542b
@@ -4353,8 +4373,8 @@ trackedFiles:
     pristine_git_object: 190fcea33ccc91806cf33275c890968ee4e2d356
   models/components/dlpconfig.go:
     id: 9bb1a2e2cb58
-    last_write_checksum: sha1:2afb117e481ecc2695ad4fc518d866094061c546
-    pristine_git_object: bf90d9d659178e023aa6f2f5d4e5b33b9542298d
+    last_write_checksum: sha1:66ddc0128828a9261ab7e28d15421575325afa36
+    pristine_git_object: 71d49712e0ef937ef7794d28e0a501b8b9d5f571
   models/components/dlpexportfindingsrequest.go:
     id: 21cae6ace4f8
     last_write_checksum: sha1:9684bf724d3374520d980181f5ed67aa0c60d7ae
@@ -4577,12 +4597,12 @@ trackedFiles:
     pristine_git_object: 220dbff76d0d3d12e6bdcb05787a6df030124ca5
   models/components/feedentry.go:
     id: 2826af1aa01a
-    last_write_checksum: sha1:23cb4c832af30841d0d456764325b90c40d12cfa
-    pristine_git_object: 4b2b445128f6baf494bd18d5ad5cc1d35eaa175f
+    last_write_checksum: sha1:a05d56fcecca15dd9a6ca51894e000138cf45810
+    pristine_git_object: c1d16a1fc3486d113f6738654d8792325da722ae
   models/components/feedrequest.go:
     id: 9f0a682fc981
-    last_write_checksum: sha1:514927456d1c2feb6401bb7f4cc5141060684208
-    pristine_git_object: 64a43533a5754b097e2f186b84f0bb8d882b7b9a
+    last_write_checksum: sha1:174903ec956c99c674dae98a7d218f48b132f8f3
+    pristine_git_object: 9e80202aa794ac71ad16cddd60f389f1a1154193
   models/components/feedrequestoptions.go:
     id: a56c104c989d
     last_write_checksum: sha1:7f238a9abb079c78202b1a9f65c87b82420f63ec
@@ -4593,8 +4613,8 @@ trackedFiles:
     pristine_git_object: 60cb4b19cbb9bd29e37128e3110b2bf0a8f80d30
   models/components/feedresult.go:
     id: f017ac6e3ac3
-    last_write_checksum: sha1:d8be9a7357790ab4936801113beb02d2f03b5677
-    pristine_git_object: 952d93d3bfb149f745bd1a2790518afa7fd2a68d
+    last_write_checksum: sha1:f25d0ed8d7048aeacdf409554668afc0c90fc9e6
+    pristine_git_object: cce71a7501ef27830cc45de95cd6c4b8cacc0da3
   models/components/followupaction.go:
     id: aba266d23418
     last_write_checksum: sha1:0a17407e6beba30680e5c38151e426a5ce7aab76
@@ -4753,8 +4773,8 @@ trackedFiles:
     pristine_git_object: cf6059d775dafd0bb2f869aa144b40f755e427c5
   models/components/grouptype.go:
     id: 989fa4b18ad8
-    last_write_checksum: sha1:0a53af36cb9c2097b25355ed9a2eb472274e9e27
-    pristine_git_object: b9add44b6a29dbb82e3817f88fbd310cd9724558
+    last_write_checksum: sha1:39f11030935082cda79de19f3f578f91e37b9b4f
+    pristine_git_object: 0b0b9552dd3c16e7f2bcf91cce6dbbb550d09274
   models/components/hotword.go:
     id: c8205d78a94a
     last_write_checksum: sha1:ff6bd2b85f17c0ab04020fd672b3e765117574a0
@@ -5579,6 +5599,10 @@ trackedFiles:
     id: 69465c5c3f1b
     last_write_checksum: sha1:df6a1cca454bdd63f8c538f43b4f686a655df8bc
     pristine_git_object: 3a38f7824c54db96d44fcc684afe21000820eddc
+  models/operations/createagent.go:
+    id: d08a3cb4b14a
+    last_write_checksum: sha1:046fcabf9502146ac350b22719b121b943645a16
+    pristine_git_object: b0737f13f2bb98b1c3c112c00a72d68c6543c7d4
   models/operations/createandstreamrun.go:
     id: 79b0f0117c93
     last_write_checksum: sha1:4af4c9ac0ea966cedb4caff240a43c80fe807a29
@@ -6093,8 +6117,8 @@ trackedFiles:
     pristine_git_object: 4c8759376d549295c1497c47c40a492c82b185c6
   retry/config.go:
     id: 82d673cb0389
-    last_write_checksum: sha1:7f7d96b59a18e95bac847ae09c63bbd911ee8432
-    pristine_git_object: 5b3dc7c122d8ab08905485342d7474f8f163888d
+    last_write_checksum: sha1:102d1953fbd7e9f312c4442c71ccca2eaaeaa27d
+    pristine_git_object: 767002c7898128324d8741ce9c534bd466492169
   search.go:
     id: 4c057402d2bf
     last_write_checksum: sha1:d6702b0ce551cf4d68ae4c33f0a48925ea6b9e4b
@@ -6105,8 +6129,8 @@ trackedFiles:
     pristine_git_object: e01e64d74275c548227d1230509ec9bc80bcc4ee
   tests/agents_test.go:
     id: 8512a40a0375
-    last_write_checksum: sha1:bec15931183a94711d06640b18fa8c0b4200766e
-    pristine_git_object: 8161b4c1c71169444b4c0229c6a2082f503a2a5c
+    last_write_checksum: sha1:eff748af5a12327c3d486b03afc5ba0ca0768abf
+    pristine_git_object: 03ff66b1d84e56a59324e559eefbfa692a311078
   tests/announcements_test.go:
     id: 983abc2e09c3
     last_write_checksum: sha1:cb5b57a0d61b67a848b2e21a1e4435b8f995a72e
@@ -6201,8 +6225,8 @@ trackedFiles:
     pristine_git_object: 6d9cbca42012c2760de3ecaf4f569c53d32197da
   tests/messages_test.go:
     id: 3433c956b7a3
-    last_write_checksum: sha1:63e7b1c9a68b43467855286635a88cb166b2bc79
-    pristine_git_object: febdc0e8a34b769bfc6dcfe3a9e33053b2267433
+    last_write_checksum: sha1:1cd91a5da0532448c95e970af3d91952394a6cb9
+    pristine_git_object: f927c36464e8eb191ae67582831be04e3db1e5dc
   tests/mockserver/.gitignore:
     id: 7705eb663274
     last_write_checksum: sha1:228e1b05712a973948fd771323a2140a3b355ff4
@@ -6257,8 +6281,8 @@ trackedFiles:
     pristine_git_object: 929558ef2e1165f7e09da6d0a64f016c90971655
   tests/mockserver/internal/handler/generated_handlers.go:
     id: 61ac4f7cce9e
-    last_write_checksum: sha1:1efa96a429f9879c5cdb7bd064661b396b568d31
-    pristine_git_object: 6400b090e0a8e321f6348ef79d2b14fb83571f7b
+    last_write_checksum: sha1:c68c837c6af8f55eb8172dbc62ba472d5dde04a8
+    pristine_git_object: a8a0a7558361f126dcbf7f995c52b33e660daa37
   tests/mockserver/internal/handler/pathdeleterestapiindexcustommetadataschemagroupname.go:
     id: 979e4583765b
     last_write_checksum: sha1:b1d4edb259d907c7a88b634bf16f0cf152321693
@@ -6439,6 +6463,10 @@ trackedFiles:
     id: 3c3d5555c20b
     last_write_checksum: sha1:8ef1b12ee725ee32fb6a0a1e0e812594df97e06f
     pristine_git_object: 26fdfdd7e2d2fdffa6ecc736b7a70d6eb1aa5327
+  tests/mockserver/internal/handler/pathpostrestapiv1agents.go:
+    id: b5d188f39094
+    last_write_checksum: sha1:b625a3bbaf0748388febcf87d2b92782167c2c63
+    pristine_git_object: 6c1367d61758e68e6cb415247e7473355d17c03a
   tests/mockserver/internal/handler/pathpostrestapiv1autocomplete.go:
     id: 9830ef01b25b
     last_write_checksum: sha1:094d64ddc73a91d38e64e3be18690ebb9d4ef3d3
@@ -6789,8 +6817,8 @@ trackedFiles:
     pristine_git_object: edfaaac094589522ad1ad4094131887b43780c92
   tests/mockserver/internal/sdk/models/components/allowlistoptions.go:
     id: 5dd666458357
-    last_write_checksum: sha1:db278a11846646ca8794392f2846087d1fba114f
-    pristine_git_object: cf238c9e67d94abd0f7de713e0922be55618dc75
+    last_write_checksum: sha1:dfd379408d88c7eb8de7c86d2c58e084faaa45bc
+    pristine_git_object: 05ea9fc7fd13d94c67f49984a1a73648a807689b
   tests/mockserver/internal/sdk/models/components/announcement.go:
     id: 657490dccd71
     last_write_checksum: sha1:038cda5de3f5d66db97e95c8a838f3c1a14bf265
@@ -7115,6 +7143,10 @@ trackedFiles:
     id: c5f526844132
     last_write_checksum: sha1:aa8fbfc7682edb55f79cd9e241d9795d4c8579ea
     pristine_git_object: df363e8a9dfca1f872da7b286ab2cf7505b2c127
+  tests/mockserver/internal/sdk/models/components/createworkflowrequest.go:
+    id: 92b0c1ccd3f0
+    last_write_checksum: sha1:8febb494a066873172f0229af2880901e5f44ef5
+    pristine_git_object: 277dd8b7d18f4aa926904cdf892e3475e6e998a6
   tests/mockserver/internal/sdk/models/components/currentactiveusers.go:
     id: 220e7dbe04c9
     last_write_checksum: sha1:4c876d24b835be3c5975308c132a4599bc11a71a
@@ -7353,8 +7385,8 @@ trackedFiles:
     pristine_git_object: a0e605281d1c6bfa56c6ee88f2dfceff7b144e93
   tests/mockserver/internal/sdk/models/components/dlpconfig.go:
     id: dd310c689385
-    last_write_checksum: sha1:d7f7202ea98f70853dbe57afbbf046a63a59f8d0
-    pristine_git_object: 04c23aebfc11d653007748a5653bfe742e2fe962
+    last_write_checksum: sha1:62e4f2e5e4a611f7b3eae8479f5bb3d97831b9cc
+    pristine_git_object: 23a965fc8709811e91e4f40756137761239f6af7
   tests/mockserver/internal/sdk/models/components/dlpexportfindingsrequest.go:
     id: 5edd4787e726
     last_write_checksum: sha1:a6fa9927945d74ba513e8299c8102f5f4545c2ab
@@ -7577,12 +7609,12 @@ trackedFiles:
     pristine_git_object: 04cc3a93272ac70933b0485bee31b335e05ab623
   tests/mockserver/internal/sdk/models/components/feedentry.go:
     id: d25fd66fcf7a
-    last_write_checksum: sha1:802c3c827ceab5ea012ccb4cfdfb41c059a57533
-    pristine_git_object: 1274083a6813ebf47b3f6bf587e397bf12b904ff
+    last_write_checksum: sha1:9100c7409b5249d0e85ae2cedab9800b0da020d0
+    pristine_git_object: 36234aa7db5e3c4da48d59cf7bfbb9e4639afda9
   tests/mockserver/internal/sdk/models/components/feedrequest.go:
     id: b06bc4cef0cf
-    last_write_checksum: sha1:e3e5205728c55eb2beef947db9c45670f2ef73af
-    pristine_git_object: 7c94e4641e1f167be444e87014e6f9de15b649f2
+    last_write_checksum: sha1:2994c91d016176d20fdb2d47d073cb98d66ac056
+    pristine_git_object: 28d6dbf022acdb0c38e137948212965d528bbfd3
   tests/mockserver/internal/sdk/models/components/feedrequestoptions.go:
     id: fd9245fe1bf2
     last_write_checksum: sha1:fa30b7fd6ee3e45896d7bbe36e33e7c0cb9000ba
@@ -7593,8 +7625,8 @@ trackedFiles:
     pristine_git_object: 54f9d1a8997983156c84e69f888c59a80d06c2b1
   tests/mockserver/internal/sdk/models/components/feedresult.go:
     id: 47411573e67a
-    last_write_checksum: sha1:dec3c7bf47204e5399fe5b1863ac96134a1a43ec
-    pristine_git_object: ddd4f095be90f403aac41127aa170c46c75cebd3
+    last_write_checksum: sha1:adf5068767d5a4cbc8f3d4daeff4903bc556405b
+    pristine_git_object: ec49941ce4c605b8de48dda8e303a3ab067a393b
   tests/mockserver/internal/sdk/models/components/followupaction.go:
     id: 38179fec19b1
     last_write_checksum: sha1:32a31f7af77a58ce6f3284e8550d01fcf0d3bddd
@@ -7753,8 +7785,8 @@ trackedFiles:
     pristine_git_object: ecd7ddb6777546fb2061ed8d7fe99372430d28e3
   tests/mockserver/internal/sdk/models/components/grouptype.go:
     id: 5537ed02d061
-    last_write_checksum: sha1:0346c3bd888fdcfa6bdf470f76f7778f32b240dd
-    pristine_git_object: 3f25f70bef8fa2da5226a5ab4ab60295240ab984
+    last_write_checksum: sha1:ac5c2401137f44b275f47896925b258c730d5a6c
+    pristine_git_object: be69cc6acc4dd739fa09cc6a3117fcd8ab91b269
   tests/mockserver/internal/sdk/models/components/hotword.go:
     id: 541b48d27f83
     last_write_checksum: sha1:7aaa2279ba4032458f14d65c2dbd3def0078920d
@@ -8579,6 +8611,10 @@ trackedFiles:
     id: 89e5236173f5
     last_write_checksum: sha1:4ea8a844fedb81791dbff6fd5b45031943c118ed
     pristine_git_object: 55046755b604159689bf327aa7174a0e080a970e
+  tests/mockserver/internal/sdk/models/operations/createagent.go:
+    id: 4338e91202b4
+    last_write_checksum: sha1:80daff65223d9d23afb599cb4af805f35c29919b
+    pristine_git_object: 255e835e82fba8bf4023a2f99c5c2d1af40dd2cf
   tests/mockserver/internal/sdk/models/operations/createandstreamrun.go:
     id: e9a974b86a39
     last_write_checksum: sha1:ff0bc51a66cdb65f5d36415c82e92377fd0d2cff
@@ -9181,8 +9217,8 @@ trackedFiles:
     pristine_git_object: 8276fc3a8313ccbdb884ac378657dea8e7a24776
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:ca6dc11ab46aab547f96cfa948c7d75dc3ef9cbc
-    pristine_git_object: 82e7014fe632efda0d2f05376b17812f945a5f1a
+    last_write_checksum: sha1:ae9ff96ebb891d67df9ac3693604872472d962dd
+    pristine_git_object: 495a0106a9f12fb2e6eb0cde8146b2e6bbd4c40e
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -10147,6 +10183,13 @@ examples:
           application/json: {"status": "MISSING"}
         "400":
           application/json: {}
+  createAgent:
+    speakeasy-default-create-agent:
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"workflow": {"author": {"name": "George Clooney", "obfuscatedId": "abc123"}, "lastDraftSavedBy": {"name": "George Clooney", "obfuscatedId": "abc123"}, "lastUpdatedBy": {"name": "George Clooney", "obfuscatedId": "abc123"}}}
 examplesVersion: 1.0.2
 generatedTests:
   activity: "2025-04-29T16:18:24+01:00"
@@ -10306,7 +10349,8 @@ generatedTests:
   delete_/rest/api/index/custom-metadata/schema/{groupName}: "2026-06-05T17:32:19Z"
   getDatasourceCredentialStatus: "2026-06-05T17:32:19Z"
   rotateDatasourceCredentials: "2026-06-05T17:32:19Z"
-releaseNotes: "## Go SDK Changes:\n* `Glean.Client.Chat.Create()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n* `Glean.Client.Collections.AddItems()`:  `response` **Changed** (Breaking ⚠️)\n* `Glean.Chat.GetChatFile()`: **Added**\n* `Glean.Agents.EditAgent()`: **Added**\n* `Glean.Entities.GetPersonPhoto()`: **Added**\n* `Glean.Tools.GetActionPackAuthStatus()`: **Added**\n* `Glean.Tools.AuthorizeActionPack()`: **Added**\n* `Glean.Indexing.CustomMetadata.Upsert()`: **Added**\n* `Glean.Indexing.CustomMetadata.Delete()`: **Added**\n* `Glean.Indexing.CustomMetadata.GetSchema()`: **Added**\n* `Glean.Indexing.CustomMetadata.UpsertSchema()`: **Added**\n* `Glean.Indexing.CustomMetadata.DeleteSchema()`: **Added**\n* `Glean.Troubleshooting.Post/api/index/v1/debug/{datasource}/document/events()`: **Added**\n* `Glean.Datasources.GetDatasourceCredentialStatus()`: **Added**\n* `Glean.Datasources.RotateDatasourceCredentials()`: **Added**\n* `Glean.Client.Activity.Feedback()`: \n  *  `request.Feedback1.Category` **Changed**\n* `Glean.Client.Announcements.Create()`: \n  *  `request.CreateAnnouncementRequest.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n  *  `response` **Changed**\n* `Glean.Client.Announcements.Update()`: \n  *  `request.UpdateAnnouncementRequest.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n  *  `response` **Changed**\n* `Glean.Client.Answers.Create()`: \n  *  `request.CreateAnswerRequest.Data.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n  *  `response` **Changed**\n* `Glean.Client.Answers.Update()`: \n  *  `request.EditAnswerRequest.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n  *  `response` **Changed**\n* `Glean.Client.Answers.Retrieve()`:  `response.AnswerResult.Answer` **Changed**\n* `Glean.Client.Answers.List()`:  `response.AnswerResults[].Answer` **Changed**\n* `Glean.Client.Chat.Retrieve()`:  `response.ChatResult.Chat.CreatedBy.RelatedDocuments[]` **Changed**\n* `Glean.Client.Chat.List()`:  `response.ChatResults[].Chat.CreatedBy.RelatedDocuments[]` **Changed**\n* `Glean.Client.Chat.CreateStream()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n* `Glean.Client.Collections.Create()`: \n  *  `request.CreateCollectionRequest.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n  *  `response.union(class (0))` **Changed**\n  *  `error.ErrorCode.Enum(corruptItem)` **Added**\n* `Glean.Client.Collections.Delete()`:  `error.ErrorCode.Enum(corruptItem)` **Added**\n* `Glean.Client.Collections.DeleteItem()`:  `response.Collection` **Changed**\n* `Glean.Client.Collections.Update()`: \n  *  `request.EditCollectionRequest.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n  *  `response` **Changed**\n  *  `error.ErrorCode.Enum(corruptItem)` **Added**\n* `Glean.Client.Collections.UpdateItem()`:  `response.Collection` **Changed**\n* `Glean.Client.Collections.Retrieve()`:  `response` **Changed**\n* `Glean.Client.Collections.List()`:  `response.Collections[]` **Changed**\n* `Glean.Client.Documents.Retrieve()`:  `response.Documents.Map<DocumentOrError>.union(Document).Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n* `Glean.Client.Documents.RetrieveByFacets()`:  `response.Documents[].Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n* `Glean.Client.Insights.Retrieve()`: \n  *  `request.InsightsRequest` **Changed**\n  *  `response` **Changed**\n* `Glean.Client.Messages.Retrieve()`:  `response.SearchResponse.Results[].StructuredResults[]` **Changed**\n* `Glean.Client.Pins.Update()`:  `response.Attribution.RelatedDocuments[]` **Changed**\n* `Glean.Client.Pins.Retrieve()`:  `response.Pin.Attribution.RelatedDocuments[]` **Changed**\n* `Glean.Client.Pins.List()`:  `response.Pins[].Attribution.RelatedDocuments[]` **Changed**\n* `Glean.Client.Pins.Create()`:  `response.Attribution.RelatedDocuments[]` **Changed**\n* `Glean.Client.Search.QueryAsAdmin()`: \n  *  `request.SearchRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n  *  `response.Results[].StructuredResults[]` **Changed**\n* `Glean.Client.Search.Autocomplete()`:  `response.Results[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n* `Glean.Client.Search.RetrieveFeed()`: \n  *  `request.FeedRequest.Categories[]` **Changed**\n  *  `response.Results[]` **Changed**\n* `Glean.Client.Search.Recommendations()`: \n  *  `request.RecommendationsRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n  *  `response.Results[].StructuredResults[]` **Changed**\n* `Glean.Client.Search.Query()`: \n  *  `request.SearchRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer` **Changed**\n  *  `response.Results[].StructuredResults[]` **Changed**\n* `Glean.Client.Entities.List()`:  `response.Results[].RelatedDocuments[]` **Changed**\n* `Glean.Client.Entities.ReadPeople()`:  `response.Results[].RelatedDocuments[]` **Changed**\n* `Glean.Client.Shortcuts.Create()`: \n  *  `request.CreateShortcutRequest.Data.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n  *  `response.Shortcut.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n* `Glean.Client.Shortcuts.Retrieve()`:  `response.Shortcut.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n* `Glean.Client.Shortcuts.List()`:  `response.Shortcuts[].AddedRoles[].Person.RelatedDocuments[]` **Changed**\n* `Glean.Client.Shortcuts.Update()`: \n  *  `request.UpdateShortcutRequest.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n  *  `response.Shortcut.AddedRoles[].Person.RelatedDocuments[]` **Changed**\n* `Glean.Client.Verification.AddReminder()`:  `response.Metadata.LastVerifier.RelatedDocuments[]` **Changed**\n* `Glean.Client.Verification.List()`:  `response.Documents[].Metadata.LastVerifier.RelatedDocuments[]` **Changed**\n* `Glean.Client.Verification.Verify()`:  `response.Metadata.LastVerifier.RelatedDocuments[]` **Changed**\n"
+  createAgent: "2026-06-29T03:02:56Z"
+releaseNotes: "## Go SDK Changes:\n* `Glean.Agents.CreateAgent()`: **Added**\n* `Glean.Client.Announcements.Create()`: \n  *  `request.CreateAnnouncementRequest.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Announcements.Update()`: \n  *  `request.UpdateAnnouncementRequest.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Answers.Create()`: \n  *  `request.CreateAnswerRequest.Data.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Answers.Update()`: \n  *  `request.EditAnswerRequest.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Answers.Retrieve()`:  `response.AnswerResult.Answer.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Answers.List()`:  `response.AnswerResults[].Answer.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Chat.Create()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Chat.Retrieve()`:  `response.ChatResult.Chat.CreatedBy.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Chat.List()`:  `response.ChatResults[].Chat.CreatedBy.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Chat.CreateStream()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.AddItems()`:  `response.Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.Create()`: \n  *  `request.CreateCollectionRequest.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.union(class (0)).Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.DeleteItem()`:  `response.Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.Update()`: \n  *  `request.EditCollectionRequest.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.UpdateItem()`:  `response.Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.Retrieve()`:  `response.Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.List()`:  `response.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Documents.Retrieve()`:  `response.Documents.Map<DocumentOrError>.union(Document).Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Documents.RetrieveByFacets()`:  `response.Documents[].Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Insights.Retrieve()`:  `response.GleanAssist.ActivityInsights[].User.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Messages.Retrieve()`:  `response.SearchResponse.Results[].StructuredResults[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Pins.Update()`:  `response.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Pins.Retrieve()`:  `response.Pin.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Pins.List()`:  `response.Pins[].Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Pins.Create()`:  `response.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Search.QueryAsAdmin()`: \n  *  `request.SearchRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Search.Autocomplete()`:  `response.Results[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Search.RetrieveFeed()`: \n  *  `request.FeedRequest.Categories[].Enum(cardStackPromo)` **Added**\n  *  `response.Results[]` **Changed**\n* `Glean.Client.Search.Recommendations()`: \n  *  `request.RecommendationsRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Search.Query()`: \n  *  `request.SearchRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Entities.List()`:  `response.Results[].RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Entities.ReadPeople()`:  `response.Results[].RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Shortcuts.Create()`: \n  *  `request.CreateShortcutRequest.Data.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Shortcut.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Shortcuts.Retrieve()`:  `response.Shortcut.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Shortcuts.List()`:  `response.Shortcuts[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Shortcuts.Update()`: \n  *  `request.UpdateShortcutRequest.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Shortcut.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Verification.AddReminder()`:  `response.Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Verification.List()`:  `response.Documents[].Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Verification.Verify()`:  `response.Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Governance.Data.Policies.Retrieve()`:  `response.Report.Config.AllowlistOptions.Regexes` **Added**\n* `Glean.Client.Governance.Data.Policies.Update()`: \n  *  `request.UpdateDlpReportRequest.Config.AllowlistOptions.Regexes` **Added**\n* `Glean.Client.Governance.Data.Policies.List()`:  `response.Reports[].Config.AllowlistOptions.Regexes` **Added**\n* `Glean.Client.Governance.Data.Policies.Create()`: \n  *  `request.Request.Config.AllowlistOptions.Regexes` **Added**\n  *  `response.Report.Config.AllowlistOptions.Regexes` **Added**\n* `Glean.Client.Governance.Data.Reports.Create()`: \n  *  `request.Request.Config.AllowlistOptions.Regexes` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

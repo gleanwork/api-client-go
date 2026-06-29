@@ -52,6 +52,7 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                 |
 | `FeedResultCategoryQuerySuggestion`              | QUERY_SUGGESTION                                 |
 | `FeedResultCategoryCoworkCujPromo`               | COWORK_CUJ_PROMO                                 |
+| `FeedResultCategoryCardStackPromo`               | CARD_STACK_PROMO                                 |
 | `FeedResultCategoryWeeklyMeetings`               | WEEKLY_MEETINGS                                  |
 | `FeedResultCategoryFollowUp`                     | FOLLOW_UP                                        |
 | `FeedResultCategoryMilestoneTimelineCheck`       | MILESTONE_TIMELINE_CHECK                         |

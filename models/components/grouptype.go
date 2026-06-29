@@ -14,6 +14,8 @@ const (
 	GroupTypeLocation      GroupType = "LOCATION"
 	GroupTypeRegion        GroupType = "REGION"
 	GroupTypeExternalGroup GroupType = "EXTERNAL_GROUP"
+	// GroupTypeCollectionAudience Refers to any viewers of the Collection.
+	GroupTypeCollectionAudience GroupType = "COLLECTION_AUDIENCE"
 )
 
 func (e GroupType) ToPointer() *GroupType {
@@ -24,7 +26,7 @@ func (e GroupType) ToPointer() *GroupType {
 func (e *GroupType) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "DEPARTMENT", "ALL", "TEAM", "JOB_TITLE", "ROLE_TYPE", "LOCATION", "REGION", "EXTERNAL_GROUP":
+		case "DEPARTMENT", "ALL", "TEAM", "JOB_TITLE", "ROLE_TYPE", "LOCATION", "REGION", "EXTERNAL_GROUP", "COLLECTION_AUDIENCE":
 			return true
 		}
 	}

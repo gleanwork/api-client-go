@@ -253,6 +253,7 @@ For more information on obtaining the appropriate token type, please contact you
 
 ### [Agents](docs/sdks/agents/README.md)
 
+* [CreateAgent](docs/sdks/agents/README.md#createagent) - Create an agent
 * [EditAgent](docs/sdks/agents/README.md#editagent) - Edit an agent
 
 ### [Authentication](docs/sdks/authentication/README.md)

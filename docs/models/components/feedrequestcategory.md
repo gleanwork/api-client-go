@@ -47,6 +47,7 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                  |
 | `FeedRequestCategoryQuerySuggestion`              | QUERY_SUGGESTION                                  |
 | `FeedRequestCategoryCoworkCujPromo`               | COWORK_CUJ_PROMO                                  |
+| `FeedRequestCategoryCardStackPromo`               | CARD_STACK_PROMO                                  |
 | `FeedRequestCategoryWeeklyMeetings`               | WEEKLY_MEETINGS                                   |
 | `FeedRequestCategoryFollowUp`                     | FOLLOW_UP                                         |
 | `FeedRequestCategoryMilestoneTimelineCheck`       | MILESTONE_TIMELINE_CHECK                          |

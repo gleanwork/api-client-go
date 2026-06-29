@@ -6,6 +6,7 @@ import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/internal/utils"
+	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
@@ -67,4 +68,21 @@ func TestAgents_CreateAndStreamRun(t *testing.T) {
 
 func TestAgents_CreateAndWaitRun(t *testing.T) {
 	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step createAndWaitRun.test referencing operation createAndWaitRun is missing required request body`]")
+}
+
+func TestAgents_CreateAgent(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("createAgent")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Agents.CreateAgent(ctx, components.CreateWorkflowRequest{}, nil, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
 }

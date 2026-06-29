@@ -65,6 +65,7 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeMidDayCatchUp`                     | MID_DAY_CATCH_UP                                     |
 | `JustificationTypeQuerySuggestion`                   | QUERY_SUGGESTION                                     |
 | `JustificationTypeCoworkCujPromo`                    | COWORK_CUJ_PROMO                                     |
+| `JustificationTypeCardStackPromo`                    | CARD_STACK_PROMO                                     |
 | `JustificationTypeWeeklyMeetings`                    | WEEKLY_MEETINGS                                      |
 | `JustificationTypeFollowUp`                          | FOLLOW_UP                                            |
 | `JustificationTypeMilestoneTimelineCheck`            | MILESTONE_TIMELINE_CHECK                             |
