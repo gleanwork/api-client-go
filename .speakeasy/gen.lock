@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 939d2f12fecf92a82326fb98be3b67dc
+  docChecksum: db466f76a01e1cd7113bb9028f77a91f
   docVersion: 0.9.0
   speakeasyVersion: 1.786.1
   generationVersion: 2.913.3
-  releaseVersion: 0.12.1
-  configChecksum: 7b73ab5d36bcb2d2a4fa03e5e988aad3
+  releaseVersion: 0.12.2
+  configChecksum: 8dc38ac308c531da283a42a7921a1055
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: 8638f6e8-47cf-4726-9445-2bf2562f6d6b
-  pristine_commit_hash: 642488bbf5fd9cdb70ce00859e06bd02a417a15c
-  pristine_tree_hash: 559bfcd8bbcdb5bbcba33c6d9cbded7ca4dfba16
+  generation_id: ffac2388-2424-4297-bcdf-daf37acdc66e
+  pristine_commit_hash: 3f2a27e044b90b6b2ad3030568ef471748390f39
+  pristine_tree_hash: a45c223e57ea262e697e3ccabe88b9f2079619fb
 features:
   go:
     acceptHeaders: 2.81.2
@@ -3585,8 +3585,8 @@ trackedFiles:
     pristine_git_object: 117e015a2b8fce0cb8a931963503e7ab1c7066d5
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:11e37fda6b480e2601b3c8919af1fcb037148f38
-    pristine_git_object: 80c28f541c815ccf936bbf82122611a7b8963c45
+    last_write_checksum: sha1:d225a4f1ce2d1afe1304bb5541f1534fd8846460
+    pristine_git_object: 97d4707096df6d90070c08f5bc4a04602b30aa73
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:cf65a2c96e303858d4cf70e07d4c44d3f1c1db38
@@ -6493,8 +6493,8 @@ trackedFiles:
     pristine_git_object: ab9263d43404e8e6f07af222a3e785aca2fbf35f
   tests/mockserver/internal/handler/pathpostrestapiv1createcollection.go:
     id: 3fb93a419933
-    last_write_checksum: sha1:14b4a1d98dd55ce2b487ae1aaab4a7dece08df25
-    pristine_git_object: 371b90231fcd7bd77fd6d9566156605af1712d9a
+    last_write_checksum: sha1:f9f4c718408bddadbdf826194f07970bb111e57e
+    pristine_git_object: 5c99a0ada5302c8f64c0e5da5683fa8bd9e9975d
   tests/mockserver/internal/handler/pathpostrestapiv1createshortcut.go:
     id: 8d9d3abb0c34
     last_write_checksum: sha1:2f9468a50936c4cb0fb2101d97c1425cb36ba2d4
@@ -9217,8 +9217,8 @@ trackedFiles:
     pristine_git_object: 8276fc3a8313ccbdb884ac378657dea8e7a24776
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:ae9ff96ebb891d67df9ac3693604872472d962dd
-    pristine_git_object: 495a0106a9f12fb2e6eb0cde8146b2e6bbd4c40e
+    last_write_checksum: sha1:f4293c9d4f23fd82897dc1aa42464acbcf7c3ab0
+    pristine_git_object: 0584f2ffb97eaa2926a3599ec50475a23623e992
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -10350,7 +10350,6 @@ generatedTests:
   getDatasourceCredentialStatus: "2026-06-05T17:32:19Z"
   rotateDatasourceCredentials: "2026-06-05T17:32:19Z"
   createAgent: "2026-06-29T03:02:56Z"
-releaseNotes: "## Go SDK Changes:\n* `Glean.Agents.CreateAgent()`: **Added**\n* `Glean.Client.Announcements.Create()`: \n  *  `request.CreateAnnouncementRequest.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Announcements.Update()`: \n  *  `request.UpdateAnnouncementRequest.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Answers.Create()`: \n  *  `request.CreateAnswerRequest.Data.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Answers.Update()`: \n  *  `request.EditAnswerRequest.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Answers.Retrieve()`:  `response.AnswerResult.Answer.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Answers.List()`:  `response.AnswerResults[].Answer.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Chat.Create()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Chat.Retrieve()`:  `response.ChatResult.Chat.CreatedBy.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Chat.List()`:  `response.ChatResults[].Chat.CreatedBy.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Chat.CreateStream()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.AddItems()`:  `response.Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.Create()`: \n  *  `request.CreateCollectionRequest.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.union(class (0)).Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.DeleteItem()`:  `response.Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.Update()`: \n  *  `request.EditCollectionRequest.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.UpdateItem()`:  `response.Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.Retrieve()`:  `response.Collection.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Collections.List()`:  `response.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Documents.Retrieve()`:  `response.Documents.Map<DocumentOrError>.union(Document).Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Documents.RetrieveByFacets()`:  `response.Documents[].Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Insights.Retrieve()`:  `response.GleanAssist.ActivityInsights[].User.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Messages.Retrieve()`:  `response.SearchResponse.Results[].StructuredResults[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Pins.Update()`:  `response.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Pins.Retrieve()`:  `response.Pin.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Pins.List()`:  `response.Pins[].Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Pins.Create()`:  `response.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Search.QueryAsAdmin()`: \n  *  `request.SearchRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Search.Autocomplete()`:  `response.Results[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Search.RetrieveFeed()`: \n  *  `request.FeedRequest.Categories[].Enum(cardStackPromo)` **Added**\n  *  `response.Results[]` **Changed**\n* `Glean.Client.Search.Recommendations()`: \n  *  `request.RecommendationsRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Search.Query()`: \n  *  `request.SearchRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].CustomEntity.Roles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Entities.List()`:  `response.Results[].RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Entities.ReadPeople()`:  `response.Results[].RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Shortcuts.Create()`: \n  *  `request.CreateShortcutRequest.Data.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Shortcut.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Shortcuts.Retrieve()`:  `response.Shortcut.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Shortcuts.List()`:  `response.Shortcuts[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Shortcuts.Update()`: \n  *  `request.UpdateShortcutRequest.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n  *  `response.Shortcut.AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Verification.AddReminder()`:  `response.Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Verification.List()`:  `response.Documents[].Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Verification.Verify()`:  `response.Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].AddedRoles[].Group.Type.Enum(collectionAudience)` **Added**\n* `Glean.Client.Governance.Data.Policies.Retrieve()`:  `response.Report.Config.AllowlistOptions.Regexes` **Added**\n* `Glean.Client.Governance.Data.Policies.Update()`: \n  *  `request.UpdateDlpReportRequest.Config.AllowlistOptions.Regexes` **Added**\n* `Glean.Client.Governance.Data.Policies.List()`:  `response.Reports[].Config.AllowlistOptions.Regexes` **Added**\n* `Glean.Client.Governance.Data.Policies.Create()`: \n  *  `request.Request.Config.AllowlistOptions.Regexes` **Added**\n  *  `response.Report.Config.AllowlistOptions.Regexes` **Added**\n* `Glean.Client.Governance.Data.Reports.Create()`: \n  *  `request.Request.Config.AllowlistOptions.Regexes` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
