@@ -40,12 +40,12 @@ func TestXGleanHook_NoConfiguration(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	if result.Header.Get("X-Glean-Exclude-Deprecated-After") != "" {
+	if result.Header.Get(headerExcludeDeprecatedAfter) != "" {
 		t.Error("expected X-Glean-Exclude-Deprecated-After header to not be set")
 	}
 
-	if result.Header.Get("X-Glean-Experimental") != "" {
-		t.Error("expected X-Glean-Experimental header to not be set")
+	if result.Header.Get(headerIncludeExperimental) != "" {
+		t.Error("expected X-Glean-Include-Experimental header to not be set")
 	}
 }
 
@@ -70,7 +70,7 @@ func TestXGleanHook_SDKOptions_ExcludeDeprecatedAfter(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	if got := result.Header.Get("X-Glean-Exclude-Deprecated-After"); got != "2026-10-15" {
+	if got := result.Header.Get(headerExcludeDeprecatedAfter); got != "2026-10-15" {
 		t.Errorf("expected X-Glean-Exclude-Deprecated-After header to be '2026-10-15', got '%s'", got)
 	}
 }
@@ -96,8 +96,8 @@ func TestXGleanHook_SDKOptions_IncludeExperimental(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	if got := result.Header.Get("X-Glean-Experimental"); got != "true" {
-		t.Errorf("expected X-Glean-Experimental header to be 'true', got '%s'", got)
+	if got := result.Header.Get(headerIncludeExperimental); got != "true" {
+		t.Errorf("expected X-Glean-Include-Experimental header to be 'true', got '%s'", got)
 	}
 }
 
@@ -122,8 +122,8 @@ func TestXGleanHook_SDKOptions_IncludeExperimentalFalse(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	if result.Header.Get("X-Glean-Experimental") != "" {
-		t.Error("expected X-Glean-Experimental header to not be set when IncludeExperimental is false")
+	if result.Header.Get(headerIncludeExperimental) != "" {
+		t.Error("expected X-Glean-Include-Experimental header to not be set when IncludeExperimental is false")
 	}
 }
 
@@ -149,12 +149,12 @@ func TestXGleanHook_SDKOptions_BothOptions(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	if got := result.Header.Get("X-Glean-Exclude-Deprecated-After"); got != "2026-10-15" {
+	if got := result.Header.Get(headerExcludeDeprecatedAfter); got != "2026-10-15" {
 		t.Errorf("expected X-Glean-Exclude-Deprecated-After header to be '2026-10-15', got '%s'", got)
 	}
 
-	if got := result.Header.Get("X-Glean-Experimental"); got != "true" {
-		t.Errorf("expected X-Glean-Experimental header to be 'true', got '%s'", got)
+	if got := result.Header.Get(headerIncludeExperimental); got != "true" {
+		t.Errorf("expected X-Glean-Include-Experimental header to be 'true', got '%s'", got)
 	}
 }
 
@@ -174,7 +174,7 @@ func TestXGleanHook_EnvVars_ExcludeDeprecatedAfter(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	if got := result.Header.Get("X-Glean-Exclude-Deprecated-After"); got != "2027-01-01" {
+	if got := result.Header.Get(headerExcludeDeprecatedAfter); got != "2027-01-01" {
 		t.Errorf("expected X-Glean-Exclude-Deprecated-After header to be '2027-01-01', got '%s'", got)
 	}
 }
@@ -195,8 +195,8 @@ func TestXGleanHook_EnvVars_IncludeExperimental(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	if got := result.Header.Get("X-Glean-Experimental"); got != "true" {
-		t.Errorf("expected X-Glean-Experimental header to be 'true', got '%s'", got)
+	if got := result.Header.Get(headerIncludeExperimental); got != "true" {
+		t.Errorf("expected X-Glean-Include-Experimental header to be 'true', got '%s'", got)
 	}
 }
 
@@ -217,12 +217,12 @@ func TestXGleanHook_EnvVars_BothOptions(t *testing.T) {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
-	if got := result.Header.Get("X-Glean-Exclude-Deprecated-After"); got != "2027-06-15" {
+	if got := result.Header.Get(headerExcludeDeprecatedAfter); got != "2027-06-15" {
 		t.Errorf("expected X-Glean-Exclude-Deprecated-After header to be '2027-06-15', got '%s'", got)
 	}
 
-	if got := result.Header.Get("X-Glean-Experimental"); got != "true" {
-		t.Errorf("expected X-Glean-Experimental header to be 'true', got '%s'", got)
+	if got := result.Header.Get(headerIncludeExperimental); got != "true" {
+		t.Errorf("expected X-Glean-Include-Experimental header to be 'true', got '%s'", got)
 	}
 }
 
@@ -249,7 +249,7 @@ func TestXGleanHook_EnvVarsPrecedence_ExcludeDeprecatedAfter(t *testing.T) {
 	}
 
 	// Environment variable should take precedence
-	if got := result.Header.Get("X-Glean-Exclude-Deprecated-After"); got != "2027-12-31" {
+	if got := result.Header.Get(headerExcludeDeprecatedAfter); got != "2027-12-31" {
 		t.Errorf("expected X-Glean-Exclude-Deprecated-After header to be '2027-12-31' (from env var), got '%s'", got)
 	}
 }
@@ -277,8 +277,8 @@ func TestXGleanHook_EnvVarsPrecedence_IncludeExperimental(t *testing.T) {
 	}
 
 	// Environment variable should take precedence
-	if got := result.Header.Get("X-Glean-Experimental"); got != "true" {
-		t.Errorf("expected X-Glean-Experimental header to be 'true' (from env var), got '%s'", got)
+	if got := result.Header.Get(headerIncludeExperimental); got != "true" {
+		t.Errorf("expected X-Glean-Include-Experimental header to be 'true' (from env var), got '%s'", got)
 	}
 }
 
@@ -307,11 +307,11 @@ func TestXGleanHook_EnvVarsPrecedence_BothOptions(t *testing.T) {
 	}
 
 	// Environment variables should take precedence
-	if got := result.Header.Get("X-Glean-Exclude-Deprecated-After"); got != "2028-01-01" {
+	if got := result.Header.Get(headerExcludeDeprecatedAfter); got != "2028-01-01" {
 		t.Errorf("expected X-Glean-Exclude-Deprecated-After header to be '2028-01-01' (from env var), got '%s'", got)
 	}
 
-	if got := result.Header.Get("X-Glean-Experimental"); got != "true" {
-		t.Errorf("expected X-Glean-Experimental header to be 'true' (from env var), got '%s'", got)
+	if got := result.Header.Get(headerIncludeExperimental); got != "true" {
+		t.Errorf("expected X-Glean-Include-Experimental header to be 'true' (from env var), got '%s'", got)
 	}
 }
