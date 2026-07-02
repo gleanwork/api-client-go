@@ -5,6 +5,13 @@ import (
 	"os"
 )
 
+// Header names set by XGleanHook. Kept as consts so the header names live in
+// a single place.
+const (
+	headerExcludeDeprecatedAfter = "X-Glean-Exclude-Deprecated-After"
+	headerIncludeExperimental    = "X-Glean-Include-Experimental"
+)
+
 // XGleanHook is a beforeRequest hook that sets X-Glean headers for
 // experimental features and deprecation testing.
 type XGleanHook struct{}
@@ -33,11 +40,11 @@ func (h *XGleanHook) BeforeRequest(hookCtx BeforeRequestContext, req *http.Reque
 
 	// Set headers if values are present
 	if deprecatedAfter != "" {
-		req.Header.Set("X-Glean-Exclude-Deprecated-After", deprecatedAfter)
+		req.Header.Set(headerExcludeDeprecatedAfter, deprecatedAfter)
 	}
 
 	if experimentalValue != "" {
-		req.Header.Set("X-Glean-Include-Experimental", experimentalValue)
+		req.Header.Set(headerIncludeExperimental, experimentalValue)
 	}
 
 	return req, nil
