@@ -1,0 +1,12 @@
+# PlatformProblemDetailError
+
+Field-level validation problem for a single offending field.
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `Pointer`                                                                                     | `string`                                                                                      | :heavy_check_mark:                                                                            | RFC 6901 JSON Pointer to the offending field.                                                 | /messages/0/role                                                                              |
+| `Detail`                                                                                      | `string`                                                                                      | :heavy_check_mark:                                                                            | Human-readable explanation for this field.                                                    | Must be one of: USER, GLEAN_AI.                                                               |
+| `Code`                                                                                        | [*components.PlatformProblemDetailCode](../../models/components/platformproblemdetailcode.md) | :heavy_minus_sign:                                                                            | Stable machine-readable error code.                                                           | invalid_cursor                                                                                |

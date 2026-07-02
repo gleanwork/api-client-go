@@ -10,6 +10,7 @@ import (
 type Data struct {
 	Policies *Policies
 	Reports  *Reports
+	Findings *Findings
 
 	rootSDK          *Glean
 	sdkConfiguration config.SDKConfiguration
@@ -23,5 +24,6 @@ func newData(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks.Hoo
 		hooks:            hooks,
 		Policies:         newPolicies(rootSDK, sdkConfig, hooks),
 		Reports:          newReports(rootSDK, sdkConfig, hooks),
+		Findings:         newFindings(rootSDK, sdkConfig, hooks),
 	}
 }

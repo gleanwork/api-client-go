@@ -12,19 +12,20 @@ type Client struct {
 	Announcements  *Announcements
 	Answers        *Answers
 	Authentication *ClientAuthentication
-	Chat           *ClientChat
+	Chat           *Chat
 	Agents         *ClientAgents
 	Collections    *Collections
 	Documents      *ClientDocuments
 	Insights       *Insights
 	Messages       *Messages
 	Pins           *Pins
-	Search         *Search
-	Entities       *ClientEntities
+	Search         *ClientSearch
+	Entities       *Entities
 	Shortcuts      *ClientShortcuts
 	Verification   *Verification
-	Tools          *ClientTools
-	Governance     *ClientGovernance
+	Tools          *Tools
+	Governance     *Governance
+	Datasources    *ClientDatasources
 
 	rootSDK          *Glean
 	sdkConfiguration config.SDKConfiguration
@@ -40,18 +41,19 @@ func newClient(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks.H
 		Announcements:    newAnnouncements(rootSDK, sdkConfig, hooks),
 		Answers:          newAnswers(rootSDK, sdkConfig, hooks),
 		Authentication:   newClientAuthentication(rootSDK, sdkConfig, hooks),
-		Chat:             newClientChat(rootSDK, sdkConfig, hooks),
+		Chat:             newChat(rootSDK, sdkConfig, hooks),
 		Agents:           newClientAgents(rootSDK, sdkConfig, hooks),
 		Collections:      newCollections(rootSDK, sdkConfig, hooks),
 		Documents:        newClientDocuments(rootSDK, sdkConfig, hooks),
 		Insights:         newInsights(rootSDK, sdkConfig, hooks),
 		Messages:         newMessages(rootSDK, sdkConfig, hooks),
 		Pins:             newPins(rootSDK, sdkConfig, hooks),
-		Search:           newSearch(rootSDK, sdkConfig, hooks),
-		Entities:         newClientEntities(rootSDK, sdkConfig, hooks),
+		Search:           newClientSearch(rootSDK, sdkConfig, hooks),
+		Entities:         newEntities(rootSDK, sdkConfig, hooks),
 		Shortcuts:        newClientShortcuts(rootSDK, sdkConfig, hooks),
 		Verification:     newVerification(rootSDK, sdkConfig, hooks),
-		Tools:            newClientTools(rootSDK, sdkConfig, hooks),
-		Governance:       newClientGovernance(rootSDK, sdkConfig, hooks),
+		Tools:            newTools(rootSDK, sdkConfig, hooks),
+		Governance:       newGovernance(rootSDK, sdkConfig, hooks),
+		Datasources:      newClientDatasources(rootSDK, sdkConfig, hooks),
 	}
 }

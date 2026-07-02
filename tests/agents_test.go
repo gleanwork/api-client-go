@@ -70,10 +70,10 @@ func TestAgents_CreateAndWaitRun(t *testing.T) {
 	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step createAndWaitRun.test referencing operation createAndWaitRun is missing required request body`]")
 }
 
-func TestAgents_CreateAgent(t *testing.T) {
+func TestAgents_PlatformAgentsSearch(t *testing.T) {
 	ctx := context.Background()
 
-	testHTTPClient := createTestHTTPClient("createAgent")
+	testHTTPClient := createTestHTTPClient("platform-agents-search")
 
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
@@ -81,7 +81,67 @@ func TestAgents_CreateAgent(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Agents.CreateAgent(ctx, components.CreateWorkflowRequest{}, nil, nil)
+	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
+		Name: apiclientgo.Pointer("HR Policy Agent"),
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestAgents_PlatformAgentsGet(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-agents-get")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Agents.Get(ctx, "<id>")
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestAgents_PlatformAgentsGetSchemas(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-agents-get-schemas")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Agents.GetSchemas(ctx, "<id>", apiclientgo.Pointer(false))
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestAgents_PlatformAgentsCreateRun(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-agents-create-run")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Agents.CreateRun(ctx, "<id>", components.PlatformAgentRunCreateRequest{
+		Messages: []components.PlatformMessage{
+			components.PlatformMessage{
+				Role:    components.PlatformMessageRoleUser,
+				Content: []components.PlatformMessageTextBlock{},
+			},
+		},
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

@@ -1,0 +1,10 @@
+# PlatformAgentsCreateRunResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                          | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                  | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `PlatformAgentRunWaitResponse`                                                                      | [*components.PlatformAgentRunWaitResponse](../../models/components/platformagentrunwaitresponse.md) | :heavy_minus_sign:                                                                                  | Successful response.                                                                                |
+| `Res`                                                                                               | `*string`                                                                                           | :heavy_minus_sign:                                                                                  | Successful response.                                                                                |

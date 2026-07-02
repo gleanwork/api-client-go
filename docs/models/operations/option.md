@@ -159,5 +159,5 @@ operations.WithURLOverride("/custom/path")
 WithAcceptHeaderOverride allows overriding the `Accept` header for operations that support multiple response content types.
 
 ```go
-operations.WithAcceptHeaderOverride(operations.AcceptHeaderEnumWildcardRootWildcard)
+operations.WithAcceptHeaderOverride(operations.AcceptHeaderEnumApplicationJson)
 ```
