@@ -22,7 +22,7 @@ func TestChat_GetChatFile(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Chat.GetChatFile(ctx, "<id>", nil)
+	res, err := s.Client.Chat.RetrieveFile(ctx, "<id>", nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

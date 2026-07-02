@@ -167,7 +167,6 @@ import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/components"
-	"github.com/gleanwork/api-client-go/types"
 	"log"
 	"os"
 )
@@ -179,36 +178,13 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Client.Activity.Report(ctx, components.Activity{
-		Events: []components.ActivityEvent{
-			components.ActivityEvent{
-				Action:    components.ActivityEventActionHistoricalView,
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionSearch,
-				Params: &components.ActivityEventParams{
-					Query: apiclientgo.Pointer("query"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/search?q=query",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionView,
-				Params: &components.ActivityEventParams{
-					Duration: apiclientgo.Pointer[int64](20),
-					Referrer: apiclientgo.Pointer("https://example.com/document"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-		},
+	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
+		Name: apiclientgo.Pointer("HR Policy Agent"),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res != nil {
+	if res.PlatformAgentsSearchResponse != nil {
 		// handle response
 	}
 }
@@ -253,16 +229,10 @@ For more information on obtaining the appropriate token type, please contact you
 
 ### [Agents](docs/sdks/agents/README.md)
 
-* [CreateAgent](docs/sdks/agents/README.md#createagent) - Create an agent
-* [EditAgent](docs/sdks/agents/README.md#editagent) - Edit an agent
-
-### [Authentication](docs/sdks/authentication/README.md)
-
-* [Checkdatasourceauth](docs/sdks/authentication/README.md#checkdatasourceauth) - Check datasource authorization
-
-### [Chat](docs/sdks/chat/README.md)
-
-* [GetChatFile](docs/sdks/chat/README.md#getchatfile) - Download a chat file
+* [Search](docs/sdks/agents/README.md#search) - Search agents
+* [Get](docs/sdks/agents/README.md#get) - Get agent
+* [GetSchemas](docs/sdks/agents/README.md#getschemas) - Get agent schemas
+* [CreateRun](docs/sdks/agents/README.md#createrun) - Create agent run
 
 ### [Client.Activity](docs/sdks/activity/README.md)
 
@@ -271,7 +241,9 @@ For more information on obtaining the appropriate token type, please contact you
 
 ### [Client.Agents](docs/sdks/clientagents/README.md)
 
+* [Create](docs/sdks/clientagents/README.md#create) - Create an agent
 * [Retrieve](docs/sdks/clientagents/README.md#retrieve) - Retrieve an agent
+* [Update](docs/sdks/clientagents/README.md#update) - Edit an agent
 * [RetrieveSchemas](docs/sdks/clientagents/README.md#retrieveschemas) - List an agent's schemas
 * [List](docs/sdks/clientagents/README.md#list) - Search agents
 * [RunStream](docs/sdks/clientagents/README.md#runstream) - Create an agent run and stream the response
@@ -293,20 +265,22 @@ For more information on obtaining the appropriate token type, please contact you
 
 ### [Client.Authentication](docs/sdks/clientauthentication/README.md)
 
+* [CheckDatasourceAuth](docs/sdks/clientauthentication/README.md#checkdatasourceauth) - Check datasource authorization
 * [CreateToken](docs/sdks/clientauthentication/README.md#createtoken) - Create authentication token
 
-### [Client.Chat](docs/sdks/clientchat/README.md)
+### [Client.Chat](docs/sdks/chat/README.md)
 
-* [Create](docs/sdks/clientchat/README.md#create) - Chat
-* [DeleteAll](docs/sdks/clientchat/README.md#deleteall) - Deletes all saved Chats owned by a user
-* [Delete](docs/sdks/clientchat/README.md#delete) - Deletes saved Chats
-* [Retrieve](docs/sdks/clientchat/README.md#retrieve) - Retrieves a Chat
-* [List](docs/sdks/clientchat/README.md#list) - Retrieves all saved Chats
-* [RetrieveApplication](docs/sdks/clientchat/README.md#retrieveapplication) - Gets the metadata for a custom Chat application
-* [UploadFiles](docs/sdks/clientchat/README.md#uploadfiles) - Upload files for Chat
-* [RetrieveFiles](docs/sdks/clientchat/README.md#retrievefiles) - Get files uploaded by a user for Chat
-* [DeleteFiles](docs/sdks/clientchat/README.md#deletefiles) - Delete files uploaded by a user for chat
-* [CreateStream](docs/sdks/clientchat/README.md#createstream) - Chat
+* [Create](docs/sdks/chat/README.md#create) - Chat
+* [DeleteAll](docs/sdks/chat/README.md#deleteall) - Deletes all saved Chats owned by a user
+* [Delete](docs/sdks/chat/README.md#delete) - Deletes saved Chats
+* [Retrieve](docs/sdks/chat/README.md#retrieve) - Retrieves a Chat
+* [List](docs/sdks/chat/README.md#list) - Retrieves all saved Chats
+* [RetrieveApplication](docs/sdks/chat/README.md#retrieveapplication) - Gets the metadata for a custom Chat application
+* [UploadFiles](docs/sdks/chat/README.md#uploadfiles) - Upload files for Chat
+* [RetrieveFiles](docs/sdks/chat/README.md#retrievefiles) - Get files uploaded by a user for Chat
+* [DeleteFiles](docs/sdks/chat/README.md#deletefiles) - Delete files uploaded by a user for chat
+* [RetrieveFile](docs/sdks/chat/README.md#retrievefile) - Download a chat file
+* [CreateStream](docs/sdks/chat/README.md#createstream) - Chat
 
 ### [Client.Collections](docs/sdks/collections/README.md)
 
@@ -319,6 +293,13 @@ For more information on obtaining the appropriate token type, please contact you
 * [Retrieve](docs/sdks/collections/README.md#retrieve) - Read Collection
 * [List](docs/sdks/collections/README.md#list) - List Collections
 
+### [Client.Datasources](docs/sdks/clientdatasources/README.md)
+
+* [RetrieveConfiguration](docs/sdks/clientdatasources/README.md#retrieveconfiguration) - Get datasource instance configuration
+* [UpdateConfiguration](docs/sdks/clientdatasources/README.md#updateconfiguration) - Update datasource instance configuration
+* [RetrieveCredentialStatus](docs/sdks/clientdatasources/README.md#retrievecredentialstatus) - Get datasource instance credential status
+* [RotateCredentials](docs/sdks/clientdatasources/README.md#rotatecredentials) - Rotate datasource instance credentials
+
 ### [Client.Documents](docs/sdks/clientdocuments/README.md)
 
 * [RetrievePermissions](docs/sdks/clientdocuments/README.md#retrievepermissions) - Read document permissions
@@ -326,10 +307,18 @@ For more information on obtaining the appropriate token type, please contact you
 * [RetrieveByFacets](docs/sdks/clientdocuments/README.md#retrievebyfacets) - Read documents by facets
 * [Summarize](docs/sdks/clientdocuments/README.md#summarize) - Summarize documents
 
-### [Client.Entities](docs/sdks/cliententities/README.md)
+### [Client.Entities](docs/sdks/entities/README.md)
 
-* [List](docs/sdks/cliententities/README.md#list) - List entities
-* [ReadPeople](docs/sdks/cliententities/README.md#readpeople) - Read people
+* [List](docs/sdks/entities/README.md#list) - List entities
+* [ReadPeople](docs/sdks/entities/README.md#readpeople) - Read people
+* [RetrievePersonPhoto](docs/sdks/entities/README.md#retrievepersonphoto) - Get person photo
+
+### [Client.Governance.Data.Findings](docs/sdks/findings/README.md)
+
+* [Create](docs/sdks/findings/README.md#create) - Creates findings export
+* [List](docs/sdks/findings/README.md#list) - Lists findings exports
+* [Download](docs/sdks/findings/README.md#download) - Downloads findings export
+* [Delete](docs/sdks/findings/README.md#delete) - Deletes findings export
 
 ### [Client.Governance.Data.Policies](docs/sdks/policies/README.md)
 
@@ -366,13 +355,13 @@ For more information on obtaining the appropriate token type, please contact you
 * [Create](docs/sdks/pins/README.md#create) - Create pin
 * [Remove](docs/sdks/pins/README.md#remove) - Delete pin
 
-### [Client.Search](docs/sdks/search/README.md)
+### [Client.Search](docs/sdks/clientsearch/README.md)
 
-* [QueryAsAdmin](docs/sdks/search/README.md#queryasadmin) - Search the index (admin)
-* [Autocomplete](docs/sdks/search/README.md#autocomplete) - Autocomplete
-* [RetrieveFeed](docs/sdks/search/README.md#retrievefeed) - Feed of documents and events
-* [Recommendations](docs/sdks/search/README.md#recommendations) - Recommend documents
-* [Query](docs/sdks/search/README.md#query) - Search
+* [QueryAsAdmin](docs/sdks/clientsearch/README.md#queryasadmin) - Search the index (admin)
+* [Autocomplete](docs/sdks/clientsearch/README.md#autocomplete) - Autocomplete
+* [RetrieveFeed](docs/sdks/clientsearch/README.md#retrievefeed) - Feed of documents and events
+* [Recommendations](docs/sdks/clientsearch/README.md#recommendations) - Recommend documents
+* [Query](docs/sdks/clientsearch/README.md#query) - Search
 
 ### [Client.Shortcuts](docs/sdks/clientshortcuts/README.md)
 
@@ -382,34 +371,18 @@ For more information on obtaining the appropriate token type, please contact you
 * [List](docs/sdks/clientshortcuts/README.md#list) - List shortcuts
 * [Update](docs/sdks/clientshortcuts/README.md#update) - Update shortcut
 
-### [Client.Tools](docs/sdks/clienttools/README.md)
+### [Client.Tools](docs/sdks/tools/README.md)
 
-* [List](docs/sdks/clienttools/README.md#list) - List available tools
-* [Run](docs/sdks/clienttools/README.md#run) - Execute the specified tool
+* [List](docs/sdks/tools/README.md#list) - List available tools
+* [Run](docs/sdks/tools/README.md#run) - Execute the specified tool
+* [RetrieveActionPackAuthStatus](docs/sdks/tools/README.md#retrieveactionpackauthstatus) - Get end-user authentication status for an action pack.
+* [AuthorizeActionPack](docs/sdks/tools/README.md#authorizeactionpack) - Start the OAuth authorization flow for an action pack.
 
 ### [Client.Verification](docs/sdks/verification/README.md)
 
 * [AddReminder](docs/sdks/verification/README.md#addreminder) - Create verification
 * [List](docs/sdks/verification/README.md#list) - List verifications
 * [Verify](docs/sdks/verification/README.md#verify) - Update verification
-
-### [Datasources](docs/sdks/datasources/README.md)
-
-* [GetDatasourceInstanceConfiguration](docs/sdks/datasources/README.md#getdatasourceinstanceconfiguration) - Get datasource instance configuration
-* [UpdateDatasourceInstanceConfiguration](docs/sdks/datasources/README.md#updatedatasourceinstanceconfiguration) - Update datasource instance configuration
-* [GetDatasourceCredentialStatus](docs/sdks/datasources/README.md#getdatasourcecredentialstatus) - Get datasource instance credential status
-* [RotateDatasourceCredentials](docs/sdks/datasources/README.md#rotatedatasourcecredentials) - Rotate datasource instance credentials
-
-### [Entities](docs/sdks/entities/README.md)
-
-* [GetPersonPhoto](docs/sdks/entities/README.md#getpersonphoto) - Get person photo
-
-### [Governance](docs/sdks/governance/README.md)
-
-* [Createfindingsexport](docs/sdks/governance/README.md#createfindingsexport) - Creates findings export
-* [Listfindingsexports](docs/sdks/governance/README.md#listfindingsexports) - Lists findings exports
-* [Downloadfindingsexport](docs/sdks/governance/README.md#downloadfindingsexport) - Downloads findings export
-* [Deletefindingsexport](docs/sdks/governance/README.md#deletefindingsexport) - Deletes findings export
 
 ### [Indexing.Authentication](docs/sdks/indexingauthentication/README.md)
 
@@ -447,6 +420,8 @@ For more information on obtaining the appropriate token type, please contact you
 * [CheckAccess](docs/sdks/indexingdocuments/README.md#checkaccess) - Check document access
 * [~~Status~~](docs/sdks/indexingdocuments/README.md#status) - Get document upload and indexing status :warning: **Deprecated**
 * [~~Count~~](docs/sdks/indexingdocuments/README.md#count) - Get document count :warning: **Deprecated**
+* [DebugEvents](docs/sdks/indexingdocuments/README.md#debugevents) - Beta: Get document lifecycle events
+
 
 ### [Indexing.People](docs/sdks/people/README.md)
 
@@ -481,15 +456,9 @@ For more information on obtaining the appropriate token type, please contact you
 * [BulkIndex](docs/sdks/indexingshortcuts/README.md#bulkindex) - Bulk index external shortcuts
 * [Upload](docs/sdks/indexingshortcuts/README.md#upload) - Upload shortcuts
 
-### [Tools](docs/sdks/tools/README.md)
+### [Search](docs/sdks/search/README.md)
 
-* [GetActionPackAuthStatus](docs/sdks/tools/README.md#getactionpackauthstatus) - Get end-user authentication status for an action pack.
-* [AuthorizeActionPack](docs/sdks/tools/README.md#authorizeactionpack) - Start the OAuth authorization flow for an action pack.
-
-### [Troubleshooting](docs/sdks/troubleshooting/README.md)
-
-* [PostAPIIndexV1DebugDatasourceDocumentEvents](docs/sdks/troubleshooting/README.md#postapiindexv1debugdatasourcedocumentevents) - Beta: Get document lifecycle events
-
+* [Query](docs/sdks/search/README.md#query) - Search
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -508,7 +477,6 @@ import (
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/gleanwork/api-client-go/retry"
-	"github.com/gleanwork/api-client-go/types"
 	"log"
 	"models/operations"
 	"os"
@@ -521,31 +489,8 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Client.Activity.Report(ctx, components.Activity{
-		Events: []components.ActivityEvent{
-			components.ActivityEvent{
-				Action:    components.ActivityEventActionHistoricalView,
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionSearch,
-				Params: &components.ActivityEventParams{
-					Query: apiclientgo.Pointer("query"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/search?q=query",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionView,
-				Params: &components.ActivityEventParams{
-					Duration: apiclientgo.Pointer[int64](20),
-					Referrer: apiclientgo.Pointer("https://example.com/document"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-		},
+	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
+		Name: apiclientgo.Pointer("HR Policy Agent"),
 	}, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
@@ -560,7 +505,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res != nil {
+	if res.PlatformAgentsSearchResponse != nil {
 		// handle response
 	}
 }
@@ -576,7 +521,6 @@ import (
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/gleanwork/api-client-go/retry"
-	"github.com/gleanwork/api-client-go/types"
 	"log"
 	"os"
 )
@@ -599,36 +543,13 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Client.Activity.Report(ctx, components.Activity{
-		Events: []components.ActivityEvent{
-			components.ActivityEvent{
-				Action:    components.ActivityEventActionHistoricalView,
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionSearch,
-				Params: &components.ActivityEventParams{
-					Query: apiclientgo.Pointer("query"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/search?q=query",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionView,
-				Params: &components.ActivityEventParams{
-					Duration: apiclientgo.Pointer[int64](20),
-					Referrer: apiclientgo.Pointer("https://example.com/document"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-		},
+	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
+		Name: apiclientgo.Pointer("HR Policy Agent"),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res != nil {
+	if res.PlatformAgentsSearchResponse != nil {
 		// handle response
 	}
 }
@@ -643,12 +564,13 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `Retrieve` function may return the following errors:
+For example, the `Search` function may return the following errors:
 
-| Error Type              | Status Code | Content Type     |
-| ----------------------- | ----------- | ---------------- |
-| apierrors.ErrorResponse | 404         | application/json |
-| apierrors.APIError      | 4XX, 5XX    | \*/\*            |
+| Error Type                           | Status Code                  | Content Type             |
+| ------------------------------------ | ---------------------------- | ------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 429 | application/problem+json |
+| apierrors.PlatformProblemDetailError | 500, 503                     | application/problem+json |
+| apierrors.APIError                   | 4XX, 5XX                     | \*/\*                    |
 
 ### Example
 
@@ -660,6 +582,7 @@ import (
 	"errors"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/apierrors"
+	"github.com/gleanwork/api-client-go/models/components"
 	"log"
 	"os"
 )
@@ -671,10 +594,18 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Client.Agents.Retrieve(ctx, "<id>", nil, nil)
+	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
+		Name: apiclientgo.Pointer("HR Policy Agent"),
+	})
 	if err != nil {
 
-		var e *apierrors.ErrorResponse
+		var e *apierrors.PlatformProblemDetailError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *apierrors.PlatformProblemDetailError
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
@@ -711,7 +642,6 @@ import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/components"
-	"github.com/gleanwork/api-client-go/types"
 	"log"
 	"os"
 )
@@ -725,36 +655,13 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Client.Activity.Report(ctx, components.Activity{
-		Events: []components.ActivityEvent{
-			components.ActivityEvent{
-				Action:    components.ActivityEventActionHistoricalView,
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionSearch,
-				Params: &components.ActivityEventParams{
-					Query: apiclientgo.Pointer("query"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/search?q=query",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionView,
-				Params: &components.ActivityEventParams{
-					Duration: apiclientgo.Pointer[int64](20),
-					Referrer: apiclientgo.Pointer("https://example.com/document"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-		},
+	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
+		Name: apiclientgo.Pointer("HR Policy Agent"),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res != nil {
+	if res.PlatformAgentsSearchResponse != nil {
 		// handle response
 	}
 }
@@ -771,7 +678,6 @@ import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/components"
-	"github.com/gleanwork/api-client-go/types"
 	"log"
 	"os"
 )
@@ -784,36 +690,13 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Client.Activity.Report(ctx, components.Activity{
-		Events: []components.ActivityEvent{
-			components.ActivityEvent{
-				Action:    components.ActivityEventActionHistoricalView,
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionSearch,
-				Params: &components.ActivityEventParams{
-					Query: apiclientgo.Pointer("query"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/search?q=query",
-			},
-			components.ActivityEvent{
-				Action: components.ActivityEventActionView,
-				Params: &components.ActivityEventParams{
-					Duration: apiclientgo.Pointer[int64](20),
-					Referrer: apiclientgo.Pointer("https://example.com/document"),
-				},
-				Timestamp: types.MustTimeFromString("2000-01-23T04:56:07.000Z"),
-				URL:       "https://example.com/",
-			},
-		},
+	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
+		Name: apiclientgo.Pointer("HR Policy Agent"),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res != nil {
+	if res.PlatformAgentsSearchResponse != nil {
 		// handle response
 	}
 }

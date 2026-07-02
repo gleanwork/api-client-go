@@ -1,0 +1,9 @@
+# PlatformAgentsCreateRunRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `AgentID`                                                                                            | `string`                                                                                             | :heavy_check_mark:                                                                                   | ID of the agent to run.                                                                              |
+| `PlatformAgentRunCreateRequest`                                                                      | [components.PlatformAgentRunCreateRequest](../../models/components/platformagentruncreaterequest.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

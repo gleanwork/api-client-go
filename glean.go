@@ -2,7 +2,7 @@
 
 package apiclientgo
 
-// Generated from OpenAPI doc version 0.9.0 and generator version 2.913.3
+// Generated from OpenAPI doc version 0.9.0 and generator version 2.915.0
 
 import (
 	"context"
@@ -65,18 +65,13 @@ func Pointer[T any](v T) *T { return &v }
 // These API clients provide type-safe, idiomatic interfaces for working with Glean IndexingAPIs in your language of choice.
 type Glean struct {
 	SDKVersion string
-	Client     *Client
-	// Manage indexing API tokens.
-	Authentication  *Authentication
-	Chat            *Chat
-	Agents          *Agents
-	Entities        *Entities
-	Tools           *Tools
-	Indexing        *Indexing
-	Troubleshooting *Troubleshooting
-	Governance      *Governance
-	// Manage datasources.
-	Datasources *Datasources
+	Agents     *Agents
+	// Search agents
+	// Search agents available to the authenticated user by agent name.
+	//
+	Search   *Search
+	Client   *Client
+	Indexing *Indexing
 
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
@@ -166,9 +161,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Glean {
 	sdk := &Glean{
-		SDKVersion: "0.12.2",
+		SDKVersion: "0.13.0",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.12.2 2.913.3 0.9.0 github.com/gleanwork/api-client-go",
+			UserAgent:  "speakeasy-sdk/go 0.13.0 2.915.0 0.9.0 github.com/gleanwork/api-client-go",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -201,16 +196,10 @@ func New(opts ...SDKOption) *Glean {
 		sdk.sdkConfiguration.ServerURL = serverURL
 	}
 
-	sdk.Client = newClient(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.Authentication = newAuthentication(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.Chat = newChat(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Agents = newAgents(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.Entities = newEntities(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.Tools = newTools(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Search = newSearch(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Client = newClient(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Indexing = newIndexing(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.Troubleshooting = newTroubleshooting(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.Governance = newGovernance(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.Datasources = newDatasources(sdk, sdk.sdkConfiguration, sdk.hooks)
 
 	return sdk
 }

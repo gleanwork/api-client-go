@@ -2071,3 +2071,39 @@ func TestSearch_Search(t *testing.T) {
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
+
+func TestSearch_PlatformSearch(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-search")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Search.Query(ctx, components.PlatformSearchRequest{
+		Query: "quarterly planning 2026",
+		Datasources: []string{
+			"confluence",
+			"google_drive",
+		},
+		DatasourceInstances: []string{
+			"slack_acme",
+			"slack_eu",
+		},
+		Filters: []components.PlatformFilter{
+			components.PlatformFilter{
+				Field: "type",
+				Values: []string{
+					"spreadsheet",
+					"presentation",
+				},
+			},
+		},
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}

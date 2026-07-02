@@ -31,3 +31,20 @@ func TestClientAuthentication_Createauthtoken(t *testing.T) {
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
+
+func TestClientAuthentication_Checkdatasourceauth(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("checkdatasourceauth")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Client.Authentication.CheckDatasourceAuth(ctx)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}

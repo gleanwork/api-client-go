@@ -65,7 +65,7 @@ func TestTools_GetActionPackAuthStatus(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Tools.GetActionPackAuthStatus(ctx, "<id>")
+	res, err := s.Client.Tools.RetrieveActionPackAuthStatus(ctx, "<id>")
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -82,7 +82,7 @@ func TestTools_AuthorizeActionPack(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Tools.AuthorizeActionPack(ctx, "<id>", components.AuthorizeActionPackRequest{
+	res, err := s.Client.Tools.AuthorizeActionPack(ctx, "<id>", components.AuthorizeActionPackRequest{
 		ReturnURL: "https://merry-allocation.org/",
 	})
 	require.NoError(t, err)

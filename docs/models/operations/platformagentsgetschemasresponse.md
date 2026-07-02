@@ -1,0 +1,9 @@
+# PlatformAgentsGetSchemasResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                          | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                  | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `PlatformAgentSchemasResponse`                                                                      | [*components.PlatformAgentSchemasResponse](../../models/components/platformagentschemasresponse.md) | :heavy_minus_sign:                                                                                  | Successful response.                                                                                |

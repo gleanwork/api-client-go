@@ -84,7 +84,7 @@ func TestEntities_GetPersonPhoto(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Entities.GetPersonPhoto(ctx, "<id>", nil, operations.WithAcceptHeaderOverride(operations.AcceptHeaderEnumImagePng))
+	res, err := s.Client.Entities.RetrievePersonPhoto(ctx, "<id>", nil, operations.WithAcceptHeaderOverride(operations.AcceptHeaderEnumImagePng))
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
