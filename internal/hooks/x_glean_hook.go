@@ -9,7 +9,7 @@ import (
 // experimental features and deprecation testing.
 type XGleanHook struct{}
 
-// BeforeRequest sets the X-Glean-Exclude-Deprecated-After and X-Glean-Experimental
+// BeforeRequest sets the X-Glean-Exclude-Deprecated-After and X-Glean-Include-Experimental
 // headers based on environment variables or SDK configuration.
 // Environment variables take precedence over SDK options.
 func (h *XGleanHook) BeforeRequest(hookCtx BeforeRequestContext, req *http.Request) (*http.Request, error) {
@@ -37,7 +37,7 @@ func (h *XGleanHook) BeforeRequest(hookCtx BeforeRequestContext, req *http.Reque
 	}
 
 	if experimentalValue != "" {
-		req.Header.Set("X-Glean-Experimental", experimentalValue)
+		req.Header.Set("X-Glean-Include-Experimental", experimentalValue)
 	}
 
 	return req, nil
