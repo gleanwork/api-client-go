@@ -232,6 +232,8 @@ func (s *Search) Query(ctx context.Context, request components.PlatformSearchReq
 		fallthrough
 	case httpRes.StatusCode == 408:
 		fallthrough
+	case httpRes.StatusCode == 413:
+		fallthrough
 	case httpRes.StatusCode == 429:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/problem+json`):

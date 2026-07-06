@@ -47,7 +47,8 @@ type Shortcut struct {
 	// Title for the Go Link
 	Title *string `json:"title,omitempty"`
 	// A list of user roles for the Go Link.
-	Roles []UserRoleSpecification `json:"roles,omitempty"`
+	Roles        []UserRoleSpecification `json:"roles,omitempty"`
+	FavoriteInfo *FavoriteInfo           `json:"favoriteInfo,omitempty"`
 }
 
 func (s Shortcut) MarshalJSON() ([]byte, error) {
@@ -213,4 +214,11 @@ func (s *Shortcut) GetRoles() []UserRoleSpecification {
 		return nil
 	}
 	return s.Roles
+}
+
+func (s *Shortcut) GetFavoriteInfo() *FavoriteInfo {
+	if s == nil {
+		return nil
+	}
+	return s.FavoriteInfo
 }
