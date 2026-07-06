@@ -230,6 +230,8 @@ func (s *Agents) Search(ctx context.Context, request components.PlatformAgentsSe
 		fallthrough
 	case httpRes.StatusCode == 408:
 		fallthrough
+	case httpRes.StatusCode == 413:
+		fallthrough
 	case httpRes.StatusCode == 429:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/problem+json`):
@@ -1074,6 +1076,8 @@ func (s *Agents) CreateRun(ctx context.Context, agentID string, platformAgentRun
 	case httpRes.StatusCode == 408:
 		fallthrough
 	case httpRes.StatusCode == 409:
+		fallthrough
+	case httpRes.StatusCode == 413:
 		fallthrough
 	case httpRes.StatusCode == 429:
 		switch {

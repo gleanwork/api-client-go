@@ -40,6 +40,7 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryZeroStateWorkflowSuggestion`  | ZERO_STATE_WORKFLOW_SUGGESTION                    |
 | `FeedRequestCategoryPersonalizedChatSuggestion`   | PERSONALIZED_CHAT_SUGGESTION                      |
 | `FeedRequestCategoryDailyDigest`                  | DAILY_DIGEST                                      |
+| `FeedRequestCategoryPodcast`                      | PODCAST                                           |
 | `FeedRequestCategoryTask`                         | TASK                                              |
 | `FeedRequestCategoryPlanMyDay`                    | PLAN_MY_DAY                                       |
 | `FeedRequestCategoryEndMyDay`                     | END_MY_DAY                                        |

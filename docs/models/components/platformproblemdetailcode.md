@@ -33,6 +33,7 @@ custom := components.PlatformProblemDetailCode("custom_value")
 | `PlatformProblemDetailCodeResourceNotFound`        | resource_not_found                                 |
 | `PlatformProblemDetailCodeMethodNotAllowed`        | method_not_allowed                                 |
 | `PlatformProblemDetailCodeRequestTimeout`          | request_timeout                                    |
+| `PlatformProblemDetailCodeRequestTooLarge`         | request_too_large                                  |
 | `PlatformProblemDetailCodeConflict`                | conflict                                           |
 | `PlatformProblemDetailCodeGone`                    | gone                                               |
 | `PlatformProblemDetailCodeUnprocessableQuery`      | unprocessable_query                                |

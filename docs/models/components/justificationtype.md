@@ -54,6 +54,7 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeZeroStateAgentSuggestion`          | ZERO_STATE_AGENT_SUGGESTION                          |
 | `JustificationTypePersonalizedChatSuggestion`        | PERSONALIZED_CHAT_SUGGESTION                         |
 | `JustificationTypeDailyDigest`                       | DAILY_DIGEST                                         |
+| `JustificationTypePodcast`                           | PODCAST                                              |
 | `JustificationTypeTask`                              | TASK                                                 |
 | `JustificationTypePlanMyDay`                         | PLAN_MY_DAY                                          |
 | `JustificationTypeEndMyDay`                          | END_MY_DAY                                           |

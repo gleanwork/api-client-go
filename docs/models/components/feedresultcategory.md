@@ -45,6 +45,7 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryZeroStateWorkflowSuggestion`  | ZERO_STATE_WORKFLOW_SUGGESTION                   |
 | `FeedResultCategoryPersonalizedChatSuggestion`   | PERSONALIZED_CHAT_SUGGESTION                     |
 | `FeedResultCategoryDailyDigest`                  | DAILY_DIGEST                                     |
+| `FeedResultCategoryPodcast`                      | PODCAST                                          |
 | `FeedResultCategoryTask`                         | TASK                                             |
 | `FeedResultCategoryPlanMyDay`                    | PLAN_MY_DAY                                      |
 | `FeedResultCategoryEndMyDay`                     | END_MY_DAY                                       |

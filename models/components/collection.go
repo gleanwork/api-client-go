@@ -48,7 +48,8 @@ type Collection struct {
 	// The children Collections of this Collection.
 	Children []Collection `json:"children,omitempty"`
 	// A list of user roles for the Collection.
-	Roles []UserRoleSpecification `json:"roles,omitempty"`
+	Roles        []UserRoleSpecification `json:"roles,omitempty"`
+	FavoriteInfo *FavoriteInfo           `json:"favoriteInfo,omitempty"`
 }
 
 func (c Collection) MarshalJSON() ([]byte, error) {
@@ -228,4 +229,11 @@ func (c *Collection) GetRoles() []UserRoleSpecification {
 		return nil
 	}
 	return c.Roles
+}
+
+func (c *Collection) GetFavoriteInfo() *FavoriteInfo {
+	if c == nil {
+		return nil
+	}
+	return c.FavoriteInfo
 }
