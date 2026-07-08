@@ -8,6 +8,8 @@
 * [Run](#run) - Execute the specified tool
 * [RetrieveActionPackAuthStatus](#retrieveactionpackauthstatus) - Get end-user authentication status for an action pack.
 * [AuthorizeActionPack](#authorizeactionpack) - Start the OAuth authorization flow for an action pack.
+* [RetrieveToolServerAuthStatus](#retrievetoolserverauthstatus) - Get end-user authentication status for a tool server.
+* [AuthorizeToolServer](#authorizetoolserver) - Start the OAuth authorization flow for a tool server.
 
 ## List
 
@@ -233,6 +235,123 @@ func main() {
 ### Response
 
 **[*operations.AuthorizeActionPackResponse](../../models/operations/authorizeactionpackresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| apierrors.APIError | 4XX, 5XX           | \*/\*              |
+
+## RetrieveToolServerAuthStatus
+
+Returns display information and the calling user's current authentication status
+for the specified tool server.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="getToolServerAuthStatus" method="get" path="/rest/api/v1/tool-servers/{serverId}/auth" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Client.Tools.RetrieveToolServerAuthStatus(ctx, "<id>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ToolServerAuthStatusResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `serverID`                                               | `string`                                                 | :heavy_check_mark:                                       | Unique identifier of the tool server.                    |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetToolServerAuthStatusResponse](../../models/operations/gettoolserverauthstatusresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| apierrors.APIError | 4XX, 5XX           | \*/\*              |
+
+## AuthorizeToolServer
+
+Initiates the third-party OAuth flow for the specified tool server and returns the
+authorization URL that the client should navigate the end user to. After the OAuth
+callback completes, the user's browser is redirected back to `returnUrl` with query
+parameters indicating the result.
+
+`returnUrl` must match the tenant's configured return URL allowlist; otherwise the
+request is rejected with 400.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="authorizeToolServer" method="post" path="/rest/api/v1/tool-servers/{serverId}/auth" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Client.Tools.AuthorizeToolServer(ctx, "<id>", components.AuthorizeToolServerRequest{
+        ReturnURL: "https://lucky-disadvantage.com",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.AuthorizeToolServerResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `serverID`                                                                                     | `string`                                                                                       | :heavy_check_mark:                                                                             | Unique identifier of the tool server.                                                          |
+| `authorizeToolServerRequest`                                                                   | [components.AuthorizeToolServerRequest](../../models/components/authorizetoolserverrequest.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
+
+### Response
+
+**[*operations.AuthorizeToolServerResponse](../../models/operations/authorizetoolserverresponse.md), error**
 
 ### Errors
 

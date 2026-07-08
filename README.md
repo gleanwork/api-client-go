@@ -377,6 +377,8 @@ For more information on obtaining the appropriate token type, please contact you
 * [Run](docs/sdks/tools/README.md#run) - Execute the specified tool
 * [RetrieveActionPackAuthStatus](docs/sdks/tools/README.md#retrieveactionpackauthstatus) - Get end-user authentication status for an action pack.
 * [AuthorizeActionPack](docs/sdks/tools/README.md#authorizeactionpack) - Start the OAuth authorization flow for an action pack.
+* [RetrieveToolServerAuthStatus](docs/sdks/tools/README.md#retrievetoolserverauthstatus) - Get end-user authentication status for a tool server.
+* [AuthorizeToolServer](docs/sdks/tools/README.md#authorizetoolserver) - Start the OAuth authorization flow for a tool server.
 
 ### [Client.Verification](docs/sdks/verification/README.md)
 
