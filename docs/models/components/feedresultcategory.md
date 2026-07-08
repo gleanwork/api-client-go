@@ -63,3 +63,4 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryDemoCard`                     | DEMO_CARD                                        |
 | `FeedResultCategoryOooPlanner`                   | OOO_PLANNER                                      |
 | `FeedResultCategoryOooCatchUp`                   | OOO_CATCH_UP                                     |
+| `FeedResultCategoryAdminHealthCenter`            | ADMIN_HEALTH_CENTER                              |

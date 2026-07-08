@@ -1,0 +1,9 @@
+# AuthorizeToolServerResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                        | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `AuthorizeToolServerResponse`                                                                     | [*components.AuthorizeToolServerResponse](../../models/components/authorizetoolserverresponse.md) | :heavy_minus_sign:                                                                                | Successful operation                                                                              |

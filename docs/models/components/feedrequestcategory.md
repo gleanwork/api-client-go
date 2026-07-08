@@ -58,3 +58,4 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryDemoCard`                     | DEMO_CARD                                         |
 | `FeedRequestCategoryOooPlanner`                   | OOO_PLANNER                                       |
 | `FeedRequestCategoryOooCatchUp`                   | OOO_CATCH_UP                                      |
+| `FeedRequestCategoryAdminHealthCenter`            | ADMIN_HEALTH_CENTER                               |

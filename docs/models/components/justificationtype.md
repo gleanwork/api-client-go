@@ -76,3 +76,4 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeDemoCard`                          | DEMO_CARD                                            |
 | `JustificationTypeOooPlanner`                        | OOO_PLANNER                                          |
 | `JustificationTypeOooCatchUp`                        | OOO_CATCH_UP                                         |
+| `JustificationTypeAdminHealthCenter`                 | ADMIN_HEALTH_CENTER                                  |
