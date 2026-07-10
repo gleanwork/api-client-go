@@ -2089,10 +2089,6 @@ func TestSearch_PlatformSearch(t *testing.T) {
 			"confluence",
 			"google_drive",
 		},
-		DatasourceInstances: []string{
-			"slack_acme",
-			"slack_eu",
-		},
 		Filters: []components.PlatformFilter{
 			components.PlatformFilter{
 				Field: "type",
