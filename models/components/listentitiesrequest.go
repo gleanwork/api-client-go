@@ -84,20 +84,20 @@ func (e *ListEntitiesRequestIncludeField) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// RequestType - The type of request being made.
-type RequestType string
+// ListEntitiesRequestRequestType - The type of request being made.
+type ListEntitiesRequestRequestType string
 
 const (
-	// RequestTypeStandard Used by default for all requests and satisfies all standard use cases for list requests. Limited to 10000 entities.
-	RequestTypeStandard RequestType = "STANDARD"
-	// RequestTypeFullDirectory Used exclusively to return a comprehensive list of all people entities in the organization, typically for audit like purposes. The recommended approach is to sort by FIRST_NAME or LAST_NAME, and use pagination for large organizations.
-	RequestTypeFullDirectory RequestType = "FULL_DIRECTORY"
+	// ListEntitiesRequestRequestTypeStandard Used by default for all requests and satisfies all standard use cases for list requests. Limited to 10000 entities.
+	ListEntitiesRequestRequestTypeStandard ListEntitiesRequestRequestType = "STANDARD"
+	// ListEntitiesRequestRequestTypeFullDirectory Used exclusively to return a comprehensive list of all people entities in the organization, typically for audit like purposes. The recommended approach is to sort by FIRST_NAME or LAST_NAME, and use pagination for large organizations.
+	ListEntitiesRequestRequestTypeFullDirectory ListEntitiesRequestRequestType = "FULL_DIRECTORY"
 )
 
-func (e RequestType) ToPointer() *RequestType {
+func (e ListEntitiesRequestRequestType) ToPointer() *ListEntitiesRequestRequestType {
 	return &e
 }
-func (e *RequestType) UnmarshalJSON(data []byte) error {
+func (e *ListEntitiesRequestRequestType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -106,10 +106,10 @@ func (e *RequestType) UnmarshalJSON(data []byte) error {
 	case "STANDARD":
 		fallthrough
 	case "FULL_DIRECTORY":
-		*e = RequestType(v)
+		*e = ListEntitiesRequestRequestType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RequestType: %v", v)
+		return fmt.Errorf("invalid value for ListEntitiesRequestRequestType: %v", v)
 	}
 }
 
@@ -131,7 +131,7 @@ type ListEntitiesRequest struct {
 	// A string denoting the search surface from which the endpoint is called.
 	Source *string `json:"source,omitempty"`
 	// The type of request being made.
-	RequestType *RequestType `default:"STANDARD" json:"requestType"`
+	RequestType *ListEntitiesRequestRequestType `default:"STANDARD" json:"requestType"`
 }
 
 func (l ListEntitiesRequest) MarshalJSON() ([]byte, error) {
@@ -208,7 +208,7 @@ func (l *ListEntitiesRequest) GetSource() *string {
 	return l.Source
 }
 
-func (l *ListEntitiesRequest) GetRequestType() *RequestType {
+func (l *ListEntitiesRequest) GetRequestType() *ListEntitiesRequestRequestType {
 	if l == nil {
 		return nil
 	}

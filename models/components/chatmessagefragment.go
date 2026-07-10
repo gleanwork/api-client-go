@@ -14,7 +14,23 @@ type ChatMessageFragment struct {
 	File   *ChatFile `json:"file,omitempty"`
 	Action *ToolInfo `json:"action,omitempty"`
 	// Information about the source for a ChatMessage.
-	Citation *ChatMessageCitation `json:"citation,omitempty"`
+	Citation          *ChatMessageCitation `json:"citation,omitempty"`
+	ServerToolRequest *ServerToolRequest   `json:"serverToolRequest,omitempty"`
+	// Response to a server tool request. The applicable fields depend on requestType:
+	//
+	// For EXECUTION requests:
+	// - isGranted: whether tool execution is approved
+	// - reason: optional explanation
+	//
+	// For AUTHENTICATION_SUGGESTION requests:
+	// - isGranted: whether auth completed successfully (true=connected, false=skipped)
+	// - authContext: contains serverId or actionPackId for identifying the authenticated entity
+	// - reason: optional explanation for skip
+	//
+	// For VOTE_SUGGESTION requests:
+	// - voted: whether the user voted for this tool
+	//
+	ServerToolResponse *ServerToolResponse `json:"serverToolResponse,omitempty"`
 }
 
 func (c *ChatMessageFragment) GetStructuredResults() []StructuredResult {
@@ -64,4 +80,18 @@ func (c *ChatMessageFragment) GetCitation() *ChatMessageCitation {
 		return nil
 	}
 	return c.Citation
+}
+
+func (c *ChatMessageFragment) GetServerToolRequest() *ServerToolRequest {
+	if c == nil {
+		return nil
+	}
+	return c.ServerToolRequest
+}
+
+func (c *ChatMessageFragment) GetServerToolResponse() *ServerToolResponse {
+	if c == nil {
+		return nil
+	}
+	return c.ServerToolResponse
 }
