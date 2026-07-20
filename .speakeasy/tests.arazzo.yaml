@@ -164714,3 +164714,59 @@ workflows:
             type: simple
     x-speakeasy-test-group: tools
     x-speakeasy-test-rebuild: true
+  - workflowId: platform-skills-list
+    steps:
+      - stepId: test
+        operationId: platform-skills-list
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"skills":[],"has_more":true,"next_cursor":"<value>","request_id":"<id>"}
+            type: simple
+    x-speakeasy-test-group: skills
+    x-speakeasy-test-rebuild: true
+  - workflowId: platform-skills-get
+    steps:
+      - stepId: test
+        operationId: platform-skills-get
+        parameters:
+          - name: skill_id
+            in: path
+            value: <id>
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"skill":{"id":"<id>","display_name":"Chad_Herzog","description":"whenever up aha controvert","latest_version":151495,"latest_minor_version":170771,"status":"DISABLED","origin":"CUSTOM","owner":{"name":"<value>"},"created_at":"2024-12-25T16:41:00.099Z","updated_at":"2026-12-07T21:59:59.375Z"},"request_id":"<id>"}
+            type: simple
+    x-speakeasy-test-group: skills
+    x-speakeasy-test-rebuild: true
+  - workflowId: post_/rest/api/index/submissions/{datasourceInstance}/{type}
+    steps:
+      - stepId: test
+        operationId: post_/rest/api/index/submissions/{datasourceInstance}/{type}
+        parameters:
+          - name: datasourceInstance
+            in: path
+            value: <value>
+          - name: type
+            in: path
+            value: <value>
+        requestBody:
+          contentType: application/json
+          payload:
+            key: <value>
+            key1: <value>
+            key2: <value>
+        successCriteria:
+          - condition: $statusCode == 202
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"requestId":"<id>"}
+            type: simple
+    x-speakeasy-test-group: indexing_datasources
+    x-speakeasy-test-rebuild: true

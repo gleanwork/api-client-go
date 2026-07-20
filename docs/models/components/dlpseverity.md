@@ -1,6 +1,6 @@
 # DlpSeverity
 
-Severity levels for DLP findings and analyses.
+Severity levels for DLP findings and analyses. FALSE_POSITIVE ranks below LOW and marks analyses that concluded every flagged entity is a detector false positive.
 
 ## Example Usage
 
@@ -18,9 +18,10 @@ custom := components.DlpSeverity("custom_value")
 
 ## Values
 
-| Name                     | Value                    |
-| ------------------------ | ------------------------ |
-| `DlpSeverityUnspecified` | UNSPECIFIED              |
-| `DlpSeverityLow`         | LOW                      |
-| `DlpSeverityMedium`      | MEDIUM                   |
-| `DlpSeverityHigh`        | HIGH                     |
+| Name                       | Value                      |
+| -------------------------- | -------------------------- |
+| `DlpSeverityUnspecified`   | UNSPECIFIED                |
+| `DlpSeverityLow`           | LOW                        |
+| `DlpSeverityMedium`        | MEDIUM                     |
+| `DlpSeverityHigh`          | HIGH                       |
+| `DlpSeverityFalsePositive` | FALSE_POSITIVE             |
