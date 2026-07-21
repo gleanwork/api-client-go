@@ -1,0 +1,9 @@
+# PlatformSkillsCreateVersionRequest
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `SkillID`                                                                                                    | `string`                                                                                                     | :heavy_check_mark:                                                                                           | Glean skill ID.                                                                                              |
+| `PlatformSkillVersionCreateRequest`                                                                          | [components.PlatformSkillVersionCreateRequest](../../models/components/platformskillversioncreaterequest.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

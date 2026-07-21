@@ -45,7 +45,7 @@ You must:
 
 Example:
   uploadResp, err := client.Chat.UploadFiles(ctx, components.UploadChatFilesRequest{
-      Files: []components.File{
+      Files: []components.UploadChatFilesRequestFile{
           {FileName: "data.csv", Content: fileBytes},
       },
   }, nil)

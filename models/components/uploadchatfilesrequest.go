@@ -2,34 +2,34 @@
 
 package components
 
-type File struct {
+type UploadChatFilesRequestFile struct {
 	FileName string `multipartForm:"name=fileName"`
 	// This field accepts []byte data or io.Reader implementations, such as *os.File.
 	Content any `multipartForm:"content"`
 }
 
-func (f *File) GetFileName() string {
-	if f == nil {
+func (u *UploadChatFilesRequestFile) GetFileName() string {
+	if u == nil {
 		return ""
 	}
-	return f.FileName
+	return u.FileName
 }
 
-func (f *File) GetContent() any {
-	if f == nil {
+func (u *UploadChatFilesRequestFile) GetContent() any {
+	if u == nil {
 		return nil
 	}
-	return f.Content
+	return u.Content
 }
 
 type UploadChatFilesRequest struct {
 	// Raw files to be uploaded for chat in binary format.
-	Files []File `multipartForm:"file,name=files"`
+	Files []UploadChatFilesRequestFile `multipartForm:"file,name=files"`
 }
 
-func (u *UploadChatFilesRequest) GetFiles() []File {
+func (u *UploadChatFilesRequest) GetFiles() []UploadChatFilesRequestFile {
 	if u == nil {
-		return []File{}
+		return []UploadChatFilesRequestFile{}
 	}
 	return u.Files
 }

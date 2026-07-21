@@ -2,14 +2,15 @@
 
 package components
 
-// DlpSeverity - Severity levels for DLP findings and analyses.
+// DlpSeverity - Severity levels for DLP findings and analyses. FALSE_POSITIVE ranks below LOW and marks analyses that concluded every flagged entity is a detector false positive.
 type DlpSeverity string
 
 const (
-	DlpSeverityUnspecified DlpSeverity = "UNSPECIFIED"
-	DlpSeverityLow         DlpSeverity = "LOW"
-	DlpSeverityMedium      DlpSeverity = "MEDIUM"
-	DlpSeverityHigh        DlpSeverity = "HIGH"
+	DlpSeverityUnspecified   DlpSeverity = "UNSPECIFIED"
+	DlpSeverityLow           DlpSeverity = "LOW"
+	DlpSeverityMedium        DlpSeverity = "MEDIUM"
+	DlpSeverityHigh          DlpSeverity = "HIGH"
+	DlpSeverityFalsePositive DlpSeverity = "FALSE_POSITIVE"
 )
 
 func (e DlpSeverity) ToPointer() *DlpSeverity {
@@ -20,7 +21,7 @@ func (e DlpSeverity) ToPointer() *DlpSeverity {
 func (e *DlpSeverity) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "UNSPECIFIED", "LOW", "MEDIUM", "HIGH":
+		case "UNSPECIFIED", "LOW", "MEDIUM", "HIGH", "FALSE_POSITIVE":
 			return true
 		}
 	}

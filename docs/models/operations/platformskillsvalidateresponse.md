@@ -1,0 +1,9 @@
+# PlatformSkillsValidateResponse
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                                | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                        | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `PlatformSkillValidationResponse`                                                                         | [*components.PlatformSkillValidationResponse](../../models/components/platformskillvalidationresponse.md) | :heavy_minus_sign:                                                                                        | Successful response.                                                                                      |
