@@ -17,7 +17,7 @@ Alice,30,Engineering
 Bob,25,Marketing`)
 
 	uploadResp, _ := client.Client.Chat.UploadFiles(ctx, components.UploadChatFilesRequest{
-		Files: []components.File{
+		Files: []components.UploadChatFilesRequestFile{
 			{FileName: "data.csv", Content: csvContent},
 		},
 	}, nil, nil)
