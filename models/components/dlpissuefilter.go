@@ -8,15 +8,34 @@ type DlpIssueFilter struct {
 	SearchText *string `json:"searchText,omitempty"`
 	// Filter by one or more issue statuses.
 	Statuses []DlpIssueStatus `json:"statuses,omitempty"`
-	// Filter by assignee user ID.
+	// Filter by a single assignee user ID. Deprecated; use assigneeIds.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 	AssigneeID *string `json:"assigneeId,omitempty"`
-	InfoType   *string `json:"infoType,omitempty"`
-	RegexID    *string `json:"regexId,omitempty"`
+	// Filter by one or more assignee user IDs. Use the sentinel value "UNASSIGNED" to match issues with no assignee.
+	AssigneeIds []string `json:"assigneeIds,omitempty"`
+	// Filter by a single built-in info type. Deprecated; use infoTypes.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
+	InfoType *string `json:"infoType,omitempty"`
+	// Filter by one or more built-in info types.
+	InfoTypes []string `json:"infoTypes,omitempty"`
+	// Filter by a single regex rule ID. Deprecated; use regexIds.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
+	RegexID *string `json:"regexId,omitempty"`
+	// Filter by one or more regex rule IDs.
+	RegexIds []string `json:"regexIds,omitempty"`
 	// Filter by one or more report/policy IDs.
-	ReportIds  []string `json:"reportIds,omitempty"`
-	DocID      *string  `json:"docId,omitempty"`
-	Datasource *string  `json:"datasource,omitempty"`
-	Visibility *string  `json:"visibility,omitempty"`
+	ReportIds []string `json:"reportIds,omitempty"`
+	DocID     *string  `json:"docId,omitempty"`
+	// Filter by a single datasource. Deprecated; use datasources.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
+	Datasource *string `json:"datasource,omitempty"`
+	// Filter by one or more datasources.
+	Datasources []string `json:"datasources,omitempty"`
+	Visibility  *string  `json:"visibility,omitempty"`
 	// Filter by one or more severity levels.
 	Severities []DlpSeverity    `json:"severities,omitempty"`
 	TimeRange  *TimeRangeFilter `json:"timeRange,omitempty"`
@@ -43,6 +62,13 @@ func (d *DlpIssueFilter) GetAssigneeID() *string {
 	return d.AssigneeID
 }
 
+func (d *DlpIssueFilter) GetAssigneeIds() []string {
+	if d == nil {
+		return nil
+	}
+	return d.AssigneeIds
+}
+
 func (d *DlpIssueFilter) GetInfoType() *string {
 	if d == nil {
 		return nil
@@ -50,11 +76,25 @@ func (d *DlpIssueFilter) GetInfoType() *string {
 	return d.InfoType
 }
 
+func (d *DlpIssueFilter) GetInfoTypes() []string {
+	if d == nil {
+		return nil
+	}
+	return d.InfoTypes
+}
+
 func (d *DlpIssueFilter) GetRegexID() *string {
 	if d == nil {
 		return nil
 	}
 	return d.RegexID
+}
+
+func (d *DlpIssueFilter) GetRegexIds() []string {
+	if d == nil {
+		return nil
+	}
+	return d.RegexIds
 }
 
 func (d *DlpIssueFilter) GetReportIds() []string {
@@ -76,6 +116,13 @@ func (d *DlpIssueFilter) GetDatasource() *string {
 		return nil
 	}
 	return d.Datasource
+}
+
+func (d *DlpIssueFilter) GetDatasources() []string {
+	if d == nil {
+		return nil
+	}
+	return d.Datasources
 }
 
 func (d *DlpIssueFilter) GetVisibility() *string {

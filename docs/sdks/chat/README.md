@@ -52980,8 +52980,8 @@ func main() {
     }
 
     res, err := s.Client.Chat.UploadFiles(ctx, components.UploadChatFilesRequest{
-        Files: []components.File{
-            components.File{
+        Files: []components.UploadChatFilesRequestFile{
+            components.UploadChatFilesRequestFile{
                 FileName: "example.file",
                 Content: example,
             },

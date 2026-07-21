@@ -407,6 +407,7 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [Add](docs/sdks/indexingdatasources/README.md#add) - Add or update datasource
 * [RetrieveConfig](docs/sdks/indexingdatasources/README.md#retrieveconfig) - Get datasource config
+* [Submit](docs/sdks/indexingdatasources/README.md#submit) - Submit datasource data
 
 ### [Indexing.Documents](docs/sdks/indexingdocuments/README.md)
 
@@ -461,6 +462,18 @@ For more information on obtaining the appropriate token type, please contact you
 ### [Search](docs/sdks/search/README.md)
 
 * [Query](docs/sdks/search/README.md#query) - Search
+
+### [Skills](docs/sdks/skills/README.md)
+
+* [Create](docs/sdks/skills/README.md#create) - Create skill
+* [List](docs/sdks/skills/README.md#list) - List skills
+* [Validate](docs/sdks/skills/README.md#validate) - Validate skill bundle
+* [Retrieve](docs/sdks/skills/README.md#retrieve) - Retrieve skill
+* [RetrieveContent](docs/sdks/skills/README.md#retrievecontent) - Download skill content
+* [CreateVersion](docs/sdks/skills/README.md#createversion) - Create skill version
+* [ListVersions](docs/sdks/skills/README.md#listversions) - List skill versions
+* [RetrieveVersion](docs/sdks/skills/README.md#retrieveversion) - Retrieve skill version
+* [RetrieveVersionContent](docs/sdks/skills/README.md#retrieveversioncontent) - Download skill version content
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -714,7 +727,6 @@ package main
 import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/gleanwork/api-client-go/models/operations"
 	"log"
 	"os"
@@ -727,13 +739,15 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Indexing.CustomMetadata.Upsert(ctx, "<id>", "<value>", components.CustomMetadataPutRequest{
-		CustomMetadata: []components.CustomProperty{},
+	res, err := s.Indexing.Datasources.Submit(ctx, "<value>", "<value>", map[string]any{
+		"key":  "<value>",
+		"key1": "<value>",
+		"key2": "<value>",
 	}, operations.WithServerURL("https://instance-name-be.glean.com"))
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.SuccessResponse != nil {
+	if res.Object != nil {
 		// handle response
 	}
 }
