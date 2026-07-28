@@ -52835,9 +52835,10 @@ func main() {
 
 ### Errors
 
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
+| Error Type                                           | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| apierrors.AccessRequestPermissionDeniedResponseError | 403                                                  | application/json                                     |
+| apierrors.APIError                                   | 4XX, 5XX                                             | \*/\*                                                |
 
 ## List
 

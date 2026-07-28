@@ -462,12 +462,14 @@ For more information on obtaining the appropriate token type, please contact you
 ### [Search](docs/sdks/search/README.md)
 
 * [Query](docs/sdks/search/README.md#query) - Search
+* [ListFilters](docs/sdks/search/README.md#listfilters) - List search filters
 
 ### [Skills](docs/sdks/skills/README.md)
 
 * [Create](docs/sdks/skills/README.md#create) - Create skill
 * [List](docs/sdks/skills/README.md#list) - List skills
 * [Validate](docs/sdks/skills/README.md#validate) - Validate skill bundle
+* [Update](docs/sdks/skills/README.md#update) - Update skill
 * [Retrieve](docs/sdks/skills/README.md#retrieve) - Retrieve skill
 * [RetrieveContent](docs/sdks/skills/README.md#retrievecontent) - Download skill content
 * [CreateVersion](docs/sdks/skills/README.md#createversion) - Create skill version

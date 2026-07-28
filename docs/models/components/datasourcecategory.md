@@ -38,3 +38,5 @@ custom := components.DatasourceCategory("custom_value")
 | `DatasourceCategoryEntity`               | ENTITY                                   |
 | `DatasourceCategoryCalendar`             | CALENDAR                                 |
 | `DatasourceCategoryAgents`               | AGENTS                                   |
+| `DatasourceCategoryAiConversation`       | AI_CONVERSATION                          |
+| `DatasourceCategoryAiArtifact`           | AI_ARTIFACT                              |

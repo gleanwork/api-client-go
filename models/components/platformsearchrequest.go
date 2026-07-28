@@ -15,13 +15,10 @@ type PlatformSearchRequest struct {
 	// Opaque pagination token from a previous response's `next_cursor` field. Omit on the first request.
 	//
 	Cursor *string `json:"cursor,omitempty"`
-	// Restrict results to specific datasources. Requests must not specify both `datasources` and `datasource_instances`.
+	// Restrict results to specific datasource identifiers returned by `GET /api/search/filters`. Scopes by datasource type and may include results from multiple instances of that type.
 	//
 	Datasources []string `json:"datasources,omitempty"`
-	// Restrict results to specific datasource instances. Values are datasource instance identifiers returned by `GET /api/search/filters`. Requests must not specify both `datasources` and `datasource_instances`.
-	//
-	DatasourceInstances []string `json:"datasource_instances,omitempty"`
-	// Structured filters applied to search results. Equality operators OR multiple values within a filter. Multiple filters are AND'd together, including range filters on the same field. Filters are AND'd with any inline operators in `query`. Note that conflicting constraints on the same field (e.g., `type:document` in the query and `type: spreadsheet` in a filter) produce an empty result set.
+	// Structured filters applied to search results. Multiple values within a filter with `EQUALS` are OR'd; separate filters are AND'd. Conflicting constraints on the same field (for example, `type:document` in `query` and `type:spreadsheet` in a filter) return an empty result set. See `Filter.field` for built-in field names and operators. Other nonblank field names are accepted as custom filters without validation; behavior depends on your connected sources.
 	//
 	Filters []PlatformFilter `json:"filters,omitempty"`
 	// Filter results to those last updated within this range.
@@ -65,13 +62,6 @@ func (p *PlatformSearchRequest) GetDatasources() []string {
 		return nil
 	}
 	return p.Datasources
-}
-
-func (p *PlatformSearchRequest) GetDatasourceInstances() []string {
-	if p == nil {
-		return nil
-	}
-	return p.DatasourceInstances
 }
 
 func (p *PlatformSearchRequest) GetFilters() []PlatformFilter {

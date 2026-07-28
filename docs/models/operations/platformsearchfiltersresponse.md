@@ -1,0 +1,10 @@
+# PlatformSearchFiltersResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                            | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                    | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `PlatformSearchFiltersResponse`                                                                       | [*components.PlatformSearchFiltersResponse](../../models/components/platformsearchfiltersresponse.md) | :heavy_minus_sign:                                                                                    | Successful response.                                                                                  |
+| `Headers`                                                                                             | map[string][]`string`                                                                                 | :heavy_check_mark:                                                                                    | N/A                                                                                                   |

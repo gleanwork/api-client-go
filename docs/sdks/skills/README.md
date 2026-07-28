@@ -7,6 +7,7 @@
 * [Create](#create) - Create skill
 * [List](#list) - List skills
 * [Validate](#validate) - Validate skill bundle
+* [Update](#update) - Update skill
 * [Retrieve](#retrieve) - Retrieve skill
 * [RetrieveContent](#retrievecontent) - Download skill content
 * [CreateVersion](#createversion) - Create skill version
@@ -201,6 +202,65 @@ func main() {
 | apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 413, 429    | application/problem+json             |
 | apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
 | apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## Update
+
+Update mutable metadata for a skill. V1 supports enabling or disabling a skill without changing its content.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-skills-update" method="patch" path="/api/skills/{skill_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Skills.Update(ctx, "<id>", components.PlatformSkillUpdateRequest{
+        Status: components.PlatformSkillUpdateStatusDisabled,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformSkillUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `skillID`                                                                                      | `string`                                                                                       | :heavy_check_mark:                                                                             | Glean skill ID.                                                                                |
+| `platformSkillUpdateRequest`                                                                   | [components.PlatformSkillUpdateRequest](../../models/components/platformskillupdaterequest.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
+
+### Response
+
+**[*operations.PlatformSkillsUpdateResponse](../../models/operations/platformskillsupdateresponse.md), error**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| apierrors.PlatformProblemDetailError   | 400, 401, 403, 404, 408, 409, 413, 429 | application/problem+json               |
+| apierrors.PlatformProblemDetailError   | 500, 503                               | application/problem+json               |
+| apierrors.APIError                     | 4XX, 5XX                               | \*/\*                                  |
 
 ## Retrieve
 

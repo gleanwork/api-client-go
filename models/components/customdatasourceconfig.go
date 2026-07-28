@@ -28,6 +28,8 @@ const (
 	DatasourceCategoryEntity               DatasourceCategory = "ENTITY"
 	DatasourceCategoryCalendar             DatasourceCategory = "CALENDAR"
 	DatasourceCategoryAgents               DatasourceCategory = "AGENTS"
+	DatasourceCategoryAiConversation       DatasourceCategory = "AI_CONVERSATION"
+	DatasourceCategoryAiArtifact           DatasourceCategory = "AI_ARTIFACT"
 )
 
 func (e DatasourceCategory) ToPointer() *DatasourceCategory {
@@ -38,7 +40,7 @@ func (e DatasourceCategory) ToPointer() *DatasourceCategory {
 func (e *DatasourceCategory) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "UNCATEGORIZED", "TICKETS", "CRM", "PUBLISHED_CONTENT", "COLLABORATIVE_CONTENT", "QUESTION_ANSWER", "MESSAGING", "CODE_REPOSITORY", "CHANGE_MANAGEMENT", "PEOPLE", "EMAIL", "SSO", "ATS", "KNOWLEDGE_HUB", "EXTERNAL_SHORTCUT", "ENTITY", "CALENDAR", "AGENTS":
+		case "UNCATEGORIZED", "TICKETS", "CRM", "PUBLISHED_CONTENT", "COLLABORATIVE_CONTENT", "QUESTION_ANSWER", "MESSAGING", "CODE_REPOSITORY", "CHANGE_MANAGEMENT", "PEOPLE", "EMAIL", "SSO", "ATS", "KNOWLEDGE_HUB", "EXTERNAL_SHORTCUT", "ENTITY", "CALENDAR", "AGENTS", "AI_CONVERSATION", "AI_ARTIFACT":
 			return true
 		}
 	}

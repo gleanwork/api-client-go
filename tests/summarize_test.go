@@ -27,13 +27,14 @@ func TestSummarize_Summarize(t *testing.T) {
 		DocumentSpecs: []components.DocumentSpecUnion{
 			components.CreateDocumentSpecUnionDocumentSpec4(
 				components.DocumentSpec4{
-					UgcType: components.DocumentSpecUgcType2Answers,
+					UgcType: components.DocumentSpecUgcType2Shortcuts,
 					UgcID:   "<id>",
 				},
 			),
-			components.CreateDocumentSpecUnionDocumentSpec1(
-				components.DocumentSpec1{
-					URL: "https://potable-pine.org",
+			components.CreateDocumentSpecUnionDocumentSpec4(
+				components.DocumentSpec4{
+					UgcType: components.DocumentSpecUgcType2Shortcuts,
+					UgcID:   "<id>",
 				},
 			),
 		},
