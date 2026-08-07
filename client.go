@@ -12,7 +12,7 @@ type Client struct {
 	Announcements  *Announcements
 	Answers        *Answers
 	Authentication *ClientAuthentication
-	Chat           *Chat
+	Chat           *ClientChat
 	Agents         *ClientAgents
 	Collections    *Collections
 	Documents      *ClientDocuments
@@ -41,7 +41,7 @@ func newClient(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks.H
 		Announcements:    newAnnouncements(rootSDK, sdkConfig, hooks),
 		Answers:          newAnswers(rootSDK, sdkConfig, hooks),
 		Authentication:   newClientAuthentication(rootSDK, sdkConfig, hooks),
-		Chat:             newChat(rootSDK, sdkConfig, hooks),
+		Chat:             newClientChat(rootSDK, sdkConfig, hooks),
 		Agents:           newClientAgents(rootSDK, sdkConfig, hooks),
 		Collections:      newCollections(rootSDK, sdkConfig, hooks),
 		Documents:        newClientDocuments(rootSDK, sdkConfig, hooks),

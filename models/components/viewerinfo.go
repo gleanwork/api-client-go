@@ -7,23 +7,23 @@ import (
 	"time"
 )
 
-// Role - DEPRECATED - use permissions instead. Viewer's role on the specific document.
+// ViewerInfoRole - DEPRECATED - use permissions instead. Viewer's role on the specific document.
 //
 // Deprecated: Deprecated on 2026-02-05, removal scheduled for 2026-10-15: Use permissions instead.
-type Role string
+type ViewerInfoRole string
 
 const (
-	RoleAnswerModerator Role = "ANSWER_MODERATOR"
-	RoleOwner           Role = "OWNER"
-	RoleViewer          Role = "VIEWER"
+	ViewerInfoRoleAnswerModerator ViewerInfoRole = "ANSWER_MODERATOR"
+	ViewerInfoRoleOwner           ViewerInfoRole = "OWNER"
+	ViewerInfoRoleViewer          ViewerInfoRole = "VIEWER"
 )
 
-func (e Role) ToPointer() *Role {
+func (e ViewerInfoRole) ToPointer() *ViewerInfoRole {
 	return &e
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
-func (e *Role) IsExact() bool {
+func (e *ViewerInfoRole) IsExact() bool {
 	if e != nil {
 		switch *e {
 		case "ANSWER_MODERATOR", "OWNER", "VIEWER":
@@ -37,8 +37,8 @@ type ViewerInfo struct {
 	// DEPRECATED - use permissions instead. Viewer's role on the specific document.
 	//
 	// Deprecated: Deprecated on 2026-02-05, removal scheduled for 2026-10-15: Use permissions instead.
-	Role           *Role      `json:"role,omitempty"`
-	LastViewedTime *time.Time `json:"lastViewedTime,omitempty"`
+	Role           *ViewerInfoRole `json:"role,omitempty"`
+	LastViewedTime *time.Time      `json:"lastViewedTime,omitempty"`
 }
 
 func (v ViewerInfo) MarshalJSON() ([]byte, error) {
@@ -52,7 +52,7 @@ func (v *ViewerInfo) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (v *ViewerInfo) GetRole() *Role {
+func (v *ViewerInfo) GetRole() *ViewerInfoRole {
 	if v == nil {
 		return nil
 	}

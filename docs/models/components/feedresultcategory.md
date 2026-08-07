@@ -50,6 +50,7 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryPlanMyDay`                    | PLAN_MY_DAY                                      |
 | `FeedResultCategoryEndMyDay`                     | END_MY_DAY                                       |
 | `FeedResultCategoryStarterKit`                   | STARTER_KIT                                      |
+| `FeedResultCategoryMeetingPrepAutomation`        | MEETING_PREP_AUTOMATION                          |
 | `FeedResultCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                 |
 | `FeedResultCategoryQuerySuggestion`              | QUERY_SUGGESTION                                 |
 | `FeedResultCategoryCoworkCujPromo`               | COWORK_CUJ_PROMO                                 |

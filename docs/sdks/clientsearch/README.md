@@ -257,9 +257,11 @@ func main() {
                         "Backend",
                         "Networking",
                     },
-                    Status: apiclientgo.Pointer("[\"Done\"]"),
+                    Status: apiclientgo.Pointer("Done"),
                     CustomData: map[string]components.CustomDataValue{
-                        "someCustomField": components.CustomDataValue{},
+                        "someCustomField": components.CustomDataValue{
+                            StringValue: apiclientgo.Pointer("someCustomValue"),
+                        },
                     },
                 },
             },
@@ -281,9 +283,11 @@ func main() {
                         "Backend",
                         "Networking",
                     },
-                    Status: apiclientgo.Pointer("[\"Done\"]"),
+                    Status: apiclientgo.Pointer("Done"),
                     CustomData: map[string]components.CustomDataValue{
-                        "someCustomField": components.CustomDataValue{},
+                        "someCustomField": components.CustomDataValue{
+                            StringValue: apiclientgo.Pointer("someCustomValue"),
+                        },
                     },
                 },
             },
@@ -304,9 +308,11 @@ func main() {
                     "Backend",
                     "Networking",
                 },
-                Status: apiclientgo.Pointer("[\"Done\"]"),
+                Status: apiclientgo.Pointer("Done"),
                 CustomData: map[string]components.CustomDataValue{
-                    "someCustomField": components.CustomDataValue{},
+                    "someCustomField": components.CustomDataValue{
+                        StringValue: apiclientgo.Pointer("someCustomValue"),
+                    },
                 },
             },
         },
@@ -385,9 +391,11 @@ func main() {
                             "Backend",
                             "Networking",
                         },
-                        Status: apiclientgo.Pointer("[\"Done\"]"),
+                        Status: apiclientgo.Pointer("Done"),
                         CustomData: map[string]components.CustomDataValue{
-                            "someCustomField": components.CustomDataValue{},
+                            "someCustomField": components.CustomDataValue{
+                                StringValue: apiclientgo.Pointer("someCustomValue"),
+                            },
                         },
                     },
                 },
@@ -409,9 +417,11 @@ func main() {
                             "Backend",
                             "Networking",
                         },
-                        Status: apiclientgo.Pointer("[\"Done\"]"),
+                        Status: apiclientgo.Pointer("Done"),
                         CustomData: map[string]components.CustomDataValue{
-                            "someCustomField": components.CustomDataValue{},
+                            "someCustomField": components.CustomDataValue{
+                                StringValue: apiclientgo.Pointer("someCustomValue"),
+                            },
                         },
                     },
                 },
@@ -432,9 +442,11 @@ func main() {
                         "Backend",
                         "Networking",
                     },
-                    Status: apiclientgo.Pointer("[\"Done\"]"),
+                    Status: apiclientgo.Pointer("Done"),
                     CustomData: map[string]components.CustomDataValue{
-                        "someCustomField": components.CustomDataValue{},
+                        "someCustomField": components.CustomDataValue{
+                            StringValue: apiclientgo.Pointer("someCustomValue"),
+                        },
                     },
                 },
             },

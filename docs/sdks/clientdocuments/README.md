@@ -178,6 +178,7 @@ func main() {
                 },
             },
         },
+        Cursor: apiclientgo.Pointer(""),
     })
     if err != nil {
         log.Fatal(err)

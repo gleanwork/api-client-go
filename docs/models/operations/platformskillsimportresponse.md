@@ -1,0 +1,9 @@
+# PlatformSkillsImportResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                        | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `PlatformSkillImportResponse`                                                                     | [*components.PlatformSkillImportResponse](../../models/components/platformskillimportresponse.md) | :heavy_minus_sign:                                                                                | Skills imported successfully.                                                                     |

@@ -6,6 +6,7 @@ import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/internal/utils"
+	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
@@ -23,6 +24,25 @@ func TestPeople_PostAPIIndexV1Processallemployeesandteams(t *testing.T) {
 	)
 
 	res, err := s.Indexing.People.ProcessAllEmployeesAndTeams(ctx)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestPeople_PostAPIIndexV1DebugDatasourceUser(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("post_/api/index/v1/debug/{datasource}/user")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Indexing.People.Debug(ctx, "<value>", components.DebugUserRequest{
+		Email: "u1@foo.com",
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

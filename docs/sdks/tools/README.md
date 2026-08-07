@@ -10,6 +10,7 @@
 * [AuthorizeActionPack](#authorizeactionpack) - Start the OAuth authorization flow for an action pack.
 * [RetrieveToolServerAuthStatus](#retrievetoolserverauthstatus) - Get end-user authentication status for a tool server.
 * [AuthorizeToolServer](#authorizetoolserver) - Start the OAuth authorization flow for a tool server.
+* [GetToolServerTools](#gettoolservertools) - Get tool definitions from a tool server.
 
 ## List
 
@@ -352,6 +353,72 @@ func main() {
 ### Response
 
 **[*operations.AuthorizeToolServerResponse](../../models/operations/authorizetoolserverresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| apierrors.APIError | 4XX, 5XX           | \*/\*              |
+
+## GetToolServerTools
+
+Returns the name, description and JSON input schema for the named tools on the
+specified tool server. Works for both action packs and MCP servers.
+
+`toolNames` is required. Names that do not exist on the server are returned in
+`notFound` rather than failing the request, so a single bad name does not force
+callers into one-at-a-time retries. Matching is case-insensitive and treats `-`
+and `_` as equivalent.
+
+Native tools are not served; `serverId=native` returns 404.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="getToolServerTools" method="get" path="/rest/api/v1/tool-servers/{serverId}/tools" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Client.Tools.GetToolServerTools(ctx, "<id>", []string{
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ToolDefinitionsResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `serverID`                                               | `string`                                                 | :heavy_check_mark:                                       | Unique identifier of the tool server.                    |
+| `toolNames`                                              | []`string`                                               | :heavy_check_mark:                                       | Tool names to look up on this server. Maximum 100.       |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetToolServerToolsResponse](../../models/operations/gettoolservertoolsresponse.md), error**
 
 ### Errors
 

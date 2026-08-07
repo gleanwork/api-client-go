@@ -32,7 +32,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: true
 go:
-  version: 0.13.4
+  version: 0.13.5
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: GleanError
@@ -44,6 +44,7 @@ go:
   flattenGlobalSecurity: true
   forwardCompatibleEnumsByDefault: true
   forwardCompatibleUnionsByDefault: "false"
+  idiomaticMethodCollisionNames: false
   imports:
     option: openapi
     paths:
@@ -60,10 +61,12 @@ go:
   modulePath: ""
   multipartArrayFormat: standard
   nullableOptionalWrapper: false
+  optionalMethodArguments: pointers
   outputModelSuffix: output
   packageName: github.com/gleanwork/api-client-go
   respectRequiredFields: false
   respectTitlesForPrimitiveUnionMembers: false
   responseFormat: envelope-http
   sdkPackageName: ""
+  unionGenerics: false
   unionStrategy: populated-fields

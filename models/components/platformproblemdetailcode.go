@@ -16,13 +16,16 @@ const (
 	PlatformProblemDetailCodeAuthenticationRequired  PlatformProblemDetailCode = "authentication_required"
 	PlatformProblemDetailCodeTokenExpired            PlatformProblemDetailCode = "token_expired"
 	PlatformProblemDetailCodeInsufficientPermissions PlatformProblemDetailCode = "insufficient_permissions"
+	PlatformProblemDetailCodeSpendLimitExceeded      PlatformProblemDetailCode = "spend_limit_exceeded"
 	PlatformProblemDetailCodeResourceNotFound        PlatformProblemDetailCode = "resource_not_found"
 	PlatformProblemDetailCodeMethodNotAllowed        PlatformProblemDetailCode = "method_not_allowed"
 	PlatformProblemDetailCodeRequestTimeout          PlatformProblemDetailCode = "request_timeout"
 	PlatformProblemDetailCodeRequestTooLarge         PlatformProblemDetailCode = "request_too_large"
+	PlatformProblemDetailCodeTokenLimitExceeded      PlatformProblemDetailCode = "token_limit_exceeded"
 	PlatformProblemDetailCodeConflict                PlatformProblemDetailCode = "conflict"
 	PlatformProblemDetailCodeGone                    PlatformProblemDetailCode = "gone"
 	PlatformProblemDetailCodeUnprocessableQuery      PlatformProblemDetailCode = "unprocessable_query"
+	PlatformProblemDetailCodeToolsUnauthorized       PlatformProblemDetailCode = "tools_unauthorized"
 	PlatformProblemDetailCodeRateLimitExceeded       PlatformProblemDetailCode = "rate_limit_exceeded"
 	PlatformProblemDetailCodeInternalError           PlatformProblemDetailCode = "internal_error"
 	PlatformProblemDetailCodeServiceUnavailable      PlatformProblemDetailCode = "service_unavailable"
@@ -36,7 +39,7 @@ func (e PlatformProblemDetailCode) ToPointer() *PlatformProblemDetailCode {
 func (e *PlatformProblemDetailCode) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "invalid_request", "missing_required_field", "invalid_parameter", "invalid_cursor", "expired_cursor", "invalid_filter", "invalid_datasource", "authentication_required", "token_expired", "insufficient_permissions", "resource_not_found", "method_not_allowed", "request_timeout", "request_too_large", "conflict", "gone", "unprocessable_query", "rate_limit_exceeded", "internal_error", "service_unavailable":
+		case "invalid_request", "missing_required_field", "invalid_parameter", "invalid_cursor", "expired_cursor", "invalid_filter", "invalid_datasource", "authentication_required", "token_expired", "insufficient_permissions", "spend_limit_exceeded", "resource_not_found", "method_not_allowed", "request_timeout", "request_too_large", "token_limit_exceeded", "conflict", "gone", "unprocessable_query", "tools_unauthorized", "rate_limit_exceeded", "internal_error", "service_unavailable":
 			return true
 		}
 	}

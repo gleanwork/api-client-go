@@ -2,11 +2,6 @@
 
 package components
 
-import (
-	"encoding/json"
-	"fmt"
-)
-
 // PlatformFilterOperator - Supported filter operator.
 type PlatformFilterOperator string
 
@@ -22,26 +17,14 @@ const (
 func (e PlatformFilterOperator) ToPointer() *PlatformFilterOperator {
 	return &e
 }
-func (e *PlatformFilterOperator) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *PlatformFilterOperator) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "EQUALS", "NOT_EQUALS", "GT", "GTE", "LT", "LTE":
+			return true
+		}
 	}
-	switch v {
-	case "EQUALS":
-		fallthrough
-	case "NOT_EQUALS":
-		fallthrough
-	case "GT":
-		fallthrough
-	case "GTE":
-		fallthrough
-	case "LT":
-		fallthrough
-	case "LTE":
-		*e = PlatformFilterOperator(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for PlatformFilterOperator: %v", v)
-	}
+	return false
 }

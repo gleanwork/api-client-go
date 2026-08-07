@@ -119,3 +119,69 @@ func TestIndexingDocuments_PostAPIIndexV1Deletedocument(t *testing.T) {
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
+
+func TestIndexingDocuments_PostAPIIndexV1DebugDatasourceDocument(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("post_/api/index/v1/debug/{datasource}/document")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Indexing.Documents.Debug(ctx, "<value>", components.DebugDocumentRequest{
+		ObjectType: "Article",
+		DocID:      "art123",
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestIndexingDocuments_PostAPIIndexV1DebugDatasourceDocuments(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("post_/api/index/v1/debug/{datasource}/documents")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Indexing.Documents.DebugMany(ctx, "<value>", components.DebugDocumentsRequest{
+		DebugDocuments: []components.DebugDocumentRequest{
+			components.DebugDocumentRequest{
+				ObjectType: "Article",
+				DocID:      "art123",
+			},
+		},
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestIndexingDocuments_PostAPIIndexV1DebugDatasourceDocumentEvents(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("post_/api/index/v1/debug/{datasource}/document/events")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Indexing.Documents.DebugEvents(ctx, "<value>", components.DebugDocumentLifecycleRequest{
+		ObjectType: "Article",
+		DocID:      "art123",
+		StartDate:  apiclientgo.Pointer("2025-05-01"),
+		MaxEvents:  apiclientgo.Pointer[int64](50),
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}

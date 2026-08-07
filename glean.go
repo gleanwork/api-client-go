@@ -2,7 +2,7 @@
 
 package apiclientgo
 
-// Generated from OpenAPI doc version 0.9.0 and generator version 2.918.4
+// Generated from OpenAPI doc version 0.9.0 and generator version 2.927.0
 
 import (
 	"context"
@@ -66,13 +66,11 @@ func Pointer[T any](v T) *T { return &v }
 type Glean struct {
 	SDKVersion string
 	Agents     *Agents
+	Chat       *Chat
 	Skills     *Skills
-	// Search agents
-	// Search agents available to the authenticated user by agent name.
-	//
-	Search   *Search
-	Client   *Client
-	Indexing *Indexing
+	Search     *Search
+	Client     *Client
+	Indexing   *Indexing
 
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
@@ -162,9 +160,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Glean {
 	sdk := &Glean{
-		SDKVersion: "0.13.4",
+		SDKVersion: "0.13.5",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.13.4 2.918.4 0.9.0 github.com/gleanwork/api-client-go",
+			UserAgent:  "speakeasy-sdk/go 0.13.5 2.927.0 0.9.0 github.com/gleanwork/api-client-go",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -198,6 +196,7 @@ func New(opts ...SDKOption) *Glean {
 	}
 
 	sdk.Agents = newAgents(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Chat = newChat(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Skills = newSkills(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Search = newSearch(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Client = newClient(sdk, sdk.sdkConfiguration, sdk.hooks)

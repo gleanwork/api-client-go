@@ -189,3 +189,79 @@ func TestSkills_PlatformSkillsGetVersionContent(t *testing.T) {
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
+
+func TestSkills_PlatformSkillsImport(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-skills-import")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Skills.Import(ctx, components.PlatformSkillImportRequest{
+		SourceUrls: []string{
+			"<value 1>",
+		},
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestSkills_PlatformSkillsPreviewSource(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-skills-preview-source")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Skills.PreviewSource(ctx, components.PlatformSkillSourcePreviewRequest{
+		SourceURL: "https://ugly-information.name/",
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestSkills_PlatformSkillsUpdate(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-skills-update")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Skills.Update(ctx, "<id>", components.PlatformSkillUpdateRequest{
+		Status: components.PlatformSkillUpdateStatusDisabled,
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestSkills_PlatformSkillsSync(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-skills-sync")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Skills.Sync(ctx, "<id>")
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}

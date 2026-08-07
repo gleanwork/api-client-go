@@ -16,8 +16,6 @@ type PlatformResult struct {
 	Snippets []string `json:"snippets,omitempty"`
 	// The datasource this result originates from.
 	Datasource string `json:"datasource"`
-	// The datasource instance this result originates from, if known.
-	DatasourceInstance *string `json:"datasource_instance,omitempty"`
 	// The document type within the datasource.
 	DocumentType *string `json:"document_type,omitempty"`
 	// A lightweight reference to a person, used where a payload merely points at someone.
@@ -67,13 +65,6 @@ func (p *PlatformResult) GetDatasource() string {
 		return ""
 	}
 	return p.Datasource
-}
-
-func (p *PlatformResult) GetDatasourceInstance() *string {
-	if p == nil {
-		return nil
-	}
-	return p.DatasourceInstance
 }
 
 func (p *PlatformResult) GetDocumentType() *string {

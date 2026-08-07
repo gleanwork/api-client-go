@@ -50,6 +50,7 @@ func main() {
             },
         },
         PageSize: apiclientgo.Pointer[int64](100),
+        Cursor: apiclientgo.Pointer(""),
     }, nil)
     if err != nil {
         log.Fatal(err)

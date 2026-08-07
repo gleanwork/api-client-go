@@ -6,15 +6,16 @@ import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/internal/utils"
+	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
 
-func TestChat_GetChatFile(t *testing.T) {
+func TestChat_PlatformChatCreate(t *testing.T) {
 	ctx := context.Background()
 
-	testHTTPClient := createTestHTTPClient("getChatFile")
+	testHTTPClient := createTestHTTPClient("platform-chat-create")
 
 	s := apiclientgo.New(
 		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
@@ -22,7 +23,11 @@ func TestChat_GetChatFile(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Client.Chat.RetrieveFile(ctx, "<id>", nil)
+	res, err := s.Chat.Create(ctx, components.PlatformChatCreateRequest{
+		Input: components.CreateInputStr(
+			"<value>",
+		),
+	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
