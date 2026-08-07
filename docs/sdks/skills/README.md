@@ -7,8 +7,13 @@
 * [Create](#create) - Create skill
 * [List](#list) - List skills
 * [Validate](#validate) - Validate skill bundle
+* [Import](#import) - Import skills from GitHub
+* [PreviewSource](#previewsource) - Preview a GitHub skill source
+* [Update](#update) - Update skill
+* [Delete](#delete) - Delete skill
 * [Retrieve](#retrieve) - Retrieve skill
 * [RetrieveContent](#retrievecontent) - Download skill content
+* [Sync](#sync) - Sync a GitHub-imported skill
 * [CreateVersion](#createversion) - Create skill version
 * [ListVersions](#listversions) - List skill versions
 * [RetrieveVersion](#retrieveversion) - Retrieve skill version
@@ -202,6 +207,238 @@ func main() {
 | apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
 | apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
 
+## Import
+
+Import one or more skills selected from a GitHub source preview. Each source URL is fetched and persisted as an independent skill with source provenance. This operation does not create a durable source resource. The import is atomic: if any source cannot be fetched, validated, or persisted, no skills are created.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-skills-import" method="post" path="/api/skills/import" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Skills.Import(ctx, components.PlatformSkillImportRequest{
+        SourceUrls: []string{
+            "<value 1>",
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformSkillImportResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [components.PlatformSkillImportRequest](../../models/components/platformskillimportrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
+
+### Response
+
+**[*operations.PlatformSkillsImportResponse](../../models/operations/platformskillsimportresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 408, 409, 413, 429    | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## PreviewSource
+
+Inspect a GitHub URL without persisting a source or any discovered skills. Set stream to true to receive repository scan progress as server-sent events; otherwise the response contains the completed preview.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-skills-preview-source" method="post" path="/api/skills/sources/preview" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Skills.PreviewSource(ctx, components.PlatformSkillSourcePreviewRequest{
+        SourceURL: "https://ugly-information.name/",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformSkillSourcePreviewResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [components.PlatformSkillSourcePreviewRequest](../../models/components/platformskillsourcepreviewrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `opts`                                                                                                       | [][operations.Option](../../models/operations/option.md)                                                     | :heavy_minus_sign:                                                                                           | The options for this request.                                                                                |
+
+### Response
+
+**[*operations.PlatformSkillsPreviewSourceResponse](../../models/operations/platformskillspreviewsourceresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 408, 413, 429         | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## Update
+
+Update mutable metadata for a skill. V1 supports enabling or disabling a skill without changing its content.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-skills-update" method="patch" path="/api/skills/{skill_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Skills.Update(ctx, "<id>", components.PlatformSkillUpdateRequest{
+        Status: components.PlatformSkillUpdateStatusDisabled,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformSkillUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `skillID`                                                                                      | `string`                                                                                       | :heavy_check_mark:                                                                             | Glean skill ID.                                                                                |
+| `platformSkillUpdateRequest`                                                                   | [components.PlatformSkillUpdateRequest](../../models/components/platformskillupdaterequest.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
+
+### Response
+
+**[*operations.PlatformSkillsUpdateResponse](../../models/operations/platformskillsupdateresponse.md), error**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| apierrors.PlatformProblemDetailError   | 400, 401, 403, 404, 408, 409, 413, 429 | application/problem+json               |
+| apierrors.PlatformProblemDetailError   | 500, 503                               | application/problem+json               |
+| apierrors.APIError                     | 4XX, 5XX                               | \*/\*                                  |
+
+## Delete
+
+Delete a skill the authenticated caller is allowed to manage. This operation permanently removes all versions of the skill.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-skills-delete" method="delete" path="/api/skills/{skill_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Skills.Delete(ctx, "<id>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.PlatformSkillsDeleteResponse](../../models/operations/platformskillsdeleteresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 429         | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
 ## Retrieve
 
 Retrieve metadata for a skill available to the authenticated user.
@@ -311,6 +548,61 @@ func main() {
 | apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 429         | application/problem+json             |
 | apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
 | apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## Sync
+
+Refresh one GitHub-imported skill from its stored source URL. If the skill content has changed, this operation creates a new skill version. If the skill is no longer present upstream, the stored skill is left unchanged and must be deleted explicitly.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-skills-sync" method="post" path="/api/skills/{skill_id}/sync" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Skills.Sync(ctx, "<id>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformSkillSyncResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | ID of the GitHub-imported skill to sync.                 |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.PlatformSkillsSyncResponse](../../models/operations/platformskillssyncresponse.md), error**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| apierrors.PlatformProblemDetailError   | 400, 401, 403, 404, 408, 409, 413, 429 | application/problem+json               |
+| apierrors.PlatformProblemDetailError   | 500, 503                               | application/problem+json               |
+| apierrors.APIError                     | 4XX, 5XX                               | \*/\*                                  |
 
 ## CreateVersion
 

@@ -38,3 +38,5 @@ custom := components.DocCategory("custom_value")
 | `DocCategoryEntity`               | ENTITY                            |
 | `DocCategoryCalendar`             | CALENDAR                          |
 | `DocCategoryAgents`               | AGENTS                            |
+| `DocCategoryAiConversation`       | AI_CONVERSATION                   |
+| `DocCategoryAiArtifact`           | AI_ARTIFACT                       |

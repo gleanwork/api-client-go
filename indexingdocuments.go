@@ -1108,7 +1108,7 @@ func (s *IndexingDocuments) Debug(ctx context.Context, datasource string, debugD
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json; charset=UTF-8")
+	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
@@ -1223,7 +1223,7 @@ func (s *IndexingDocuments) Debug(ctx context.Context, datasource string, debugD
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json; charset=UTF-8`):
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
 				return nil, err
@@ -1333,7 +1333,7 @@ func (s *IndexingDocuments) DebugMany(ctx context.Context, datasource string, de
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json; charset=UTF-8")
+	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
@@ -1448,7 +1448,7 @@ func (s *IndexingDocuments) DebugMany(ctx context.Context, datasource string, de
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json; charset=UTF-8`):
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
 				return nil, err
@@ -2223,7 +2223,7 @@ func (s *IndexingDocuments) DebugEvents(ctx context.Context, datasource string, 
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json; charset=UTF-8")
+	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
@@ -2338,7 +2338,7 @@ func (s *IndexingDocuments) DebugEvents(ctx context.Context, datasource string, 
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json; charset=UTF-8`):
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
 				return nil, err

@@ -9,6 +9,7 @@ import (
 	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"os"
 	"testing"
 )
 
@@ -24,6 +25,31 @@ func TestClientAgents_CreateAgent(t *testing.T) {
 	)
 
 	res, err := s.Client.Agents.Create(ctx, components.CreateWorkflowRequest{}, nil, nil)
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestClientAgents_ImportAgent(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("importAgent")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	example, fileErr := os.Open("../.speakeasy/testfiles/example.file")
+	require.NoError(t, fileErr)
+
+	res, err := s.Client.Agents.Import(ctx, "<id>", components.ImportAgentRequest{
+		Bundle: components.Bundle{
+			FileName: "example.file",
+			Content:  example,
+		},
+	}, nil, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

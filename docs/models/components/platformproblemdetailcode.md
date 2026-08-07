@@ -30,13 +30,16 @@ custom := components.PlatformProblemDetailCode("custom_value")
 | `PlatformProblemDetailCodeAuthenticationRequired`  | authentication_required                            |
 | `PlatformProblemDetailCodeTokenExpired`            | token_expired                                      |
 | `PlatformProblemDetailCodeInsufficientPermissions` | insufficient_permissions                           |
+| `PlatformProblemDetailCodeSpendLimitExceeded`      | spend_limit_exceeded                               |
 | `PlatformProblemDetailCodeResourceNotFound`        | resource_not_found                                 |
 | `PlatformProblemDetailCodeMethodNotAllowed`        | method_not_allowed                                 |
 | `PlatformProblemDetailCodeRequestTimeout`          | request_timeout                                    |
 | `PlatformProblemDetailCodeRequestTooLarge`         | request_too_large                                  |
+| `PlatformProblemDetailCodeTokenLimitExceeded`      | token_limit_exceeded                               |
 | `PlatformProblemDetailCodeConflict`                | conflict                                           |
 | `PlatformProblemDetailCodeGone`                    | gone                                               |
 | `PlatformProblemDetailCodeUnprocessableQuery`      | unprocessable_query                                |
+| `PlatformProblemDetailCodeToolsUnauthorized`       | tools_unauthorized                                 |
 | `PlatformProblemDetailCodeRateLimitExceeded`       | rate_limit_exceeded                                |
 | `PlatformProblemDetailCodeInternalError`           | internal_error                                     |
 | `PlatformProblemDetailCodeServiceUnavailable`      | service_unavailable                                |

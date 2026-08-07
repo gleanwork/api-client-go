@@ -10,6 +10,9 @@ import (
 )
 
 value := components.PlatformFilterOperatorEquals
+
+// Open enum: custom values can be created with a direct type cast
+custom := components.PlatformFilterOperator("custom_value")
 ```
 
 

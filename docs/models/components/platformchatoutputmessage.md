@@ -1,0 +1,10 @@
+# PlatformChatOutputMessage
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `Type`                                                                                                 | [components.PlatformChatOutputMessageType](../../models/components/platformchatoutputmessagetype.md)   | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `Role`                                                                                                 | [components.PlatformChatOutputMessageRole](../../models/components/platformchatoutputmessagerole.md)   | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `Content`                                                                                              | [][components.PlatformChatOutputTextContent](../../models/components/platformchatoutputtextcontent.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

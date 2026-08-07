@@ -30,3 +30,5 @@ value := components.IssueAgentCanvasFailed
 | `IssueResultsHelpful`               | RESULTS_HELPFUL                     |
 | `IssueResultsPoorOrder`             | RESULTS_POOR_ORDER                  |
 | `IssueTooMuchOneKind`               | TOO_MUCH_ONE_KIND                   |
+| `IssueNotAQuestion`                 | NOT_A_QUESTION                      |
+| `IssueUnsureIfCorrect`              | UNSURE_IF_CORRECT                   |

@@ -236,8 +236,9 @@ func main() {
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| apierrors.PlatformProblemDetailError   | 400, 401, 403, 404, 408, 409, 413, 429 | application/problem+json               |
-| apierrors.PlatformProblemDetailError   | 500, 503                               | application/problem+json               |
-| apierrors.APIError                     | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                                           | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| apierrors.PlatformUnauthorizedAgentToolsProblemError | 422                                                  | application/problem+json                             |
+| apierrors.PlatformProblemDetailError                 | 400, 401, 403, 404, 408, 409, 413, 429               | application/problem+json                             |
+| apierrors.PlatformProblemDetailError                 | 500, 503                                             | application/problem+json                             |
+| apierrors.APIError                                   | 4XX, 5XX                                             | \*/\*                                                |

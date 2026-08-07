@@ -62,6 +62,7 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeStarterKitOrgChart`                | STARTER_KIT_ORG_CHART                                |
 | `JustificationTypeStarterKitAddDoc`                  | STARTER_KIT_ADD_DOC                                  |
 | `JustificationTypeMeetingRecap`                      | MEETING_RECAP                                        |
+| `JustificationTypeMeetingPrepAutomation`             | MEETING_PREP_AUTOMATION                              |
 | `JustificationTypeActiveDiscussion`                  | ACTIVE_DISCUSSION                                    |
 | `JustificationTypeMidDayCatchUp`                     | MID_DAY_CATCH_UP                                     |
 | `JustificationTypeQuerySuggestion`                   | QUERY_SUGGESTION                                     |

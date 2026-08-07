@@ -45,6 +45,7 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryPlanMyDay`                    | PLAN_MY_DAY                                       |
 | `FeedRequestCategoryEndMyDay`                     | END_MY_DAY                                        |
 | `FeedRequestCategoryStarterKit`                   | STARTER_KIT                                       |
+| `FeedRequestCategoryMeetingPrepAutomation`        | MEETING_PREP_AUTOMATION                           |
 | `FeedRequestCategoryMidDayCatchUp`                | MID_DAY_CATCH_UP                                  |
 | `FeedRequestCategoryQuerySuggestion`              | QUERY_SUGGESTION                                  |
 | `FeedRequestCategoryCoworkCujPromo`               | COWORK_CUJ_PROMO                                  |

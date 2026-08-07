@@ -8,6 +8,7 @@
 * [Retrieve](#retrieve) - Retrieve an agent
 * [Update](#update) - Edit an agent
 * [RetrieveSchemas](#retrieveschemas) - List an agent's schemas
+* [Import](#import) - Import an agent
 * [List](#list) - Search agents
 * [RunStream](#runstream) - Create an agent run and stream the response
 * [Run](#run) - Create an agent run and wait for the response
@@ -234,6 +235,73 @@ func main() {
 | apierrors.ErrorResponse | 404, 422                | application/json        |
 | apierrors.APIError      | 4XX, 5XX                | \*/\*                   |
 
+## Import
+
+Imports an [agent](https://developers.glean.com/agents/agents-api) from its on-disk folder representation (spec.yaml, instructions.md, skills/, subagents/) packaged as a zip, and creates or updates the agent. Inverse of the export flow: the folder-to-schema conversion runs server-side. The bundle must contain only regular files; symlinks are resolved by the caller at packaging time.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="importAgent" method="post" path="/rest/api/v1/agents/{agent_id}/import" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    example, fileErr := os.Open("example.file")
+    if fileErr != nil {
+        panic(fileErr)
+    }
+
+    res, err := s.Client.Agents.Import(ctx, "<id>", components.ImportAgentRequest{
+        Bundle: components.Bundle{
+            FileName: "example.file",
+            Content: example,
+        },
+    }, nil, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ImportAgentResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                           | Type                                                                                                                                                                                                | Required                                                                                                                                                                                            | Description                                                                                                                                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                                                                                               | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                  | The context to use for the request.                                                                                                                                                                 |
+| `agentID`                                                                                                                                                                                           | `string`                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                  | The ID of the agent to create or update.                                                                                                                                                            |
+| `importAgentRequest`                                                                                                                                                                                | [components.ImportAgentRequest](../../models/components/importagentrequest.md)                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                  | N/A                                                                                                                                                                                                 |
+| `locale`                                                                                                                                                                                            | `*string`                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                  | The client's preferred locale in rfc5646 format (e.g. `en`, `ja`, `pt-BR`). If omitted, the `Accept-Language` will be used. If not present or not supported, defaults to the closest match or `en`. |
+| `timezoneOffset`                                                                                                                                                                                    | `*int64`                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                  | The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 because it's 7 hours behind UTC.                                                                                          |
+| `opts`                                                                                                                                                                                              | [][operations.Option](../../models/operations/option.md)                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                  | The options for this request.                                                                                                                                                                       |
+
+### Response
+
+**[*operations.ImportAgentResponse](../../models/operations/importagentresponse.md), error**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| apierrors.ErrorResponse | 404                     | application/json        |
+| apierrors.APIError      | 4XX, 5XX                | \*/\*                   |
+
 ## List
 
 Search for [agents](https://developers.glean.com/agents/agents-api) by agent name.
@@ -346,10 +414,11 @@ func main() {
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| apierrors.ErrorResponse | 404, 409, 422           | application/json        |
-| apierrors.APIError      | 4XX, 5XX                | \*/\*                   |
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| apierrors.ErrorResponse               | 404, 409                              | application/json                      |
+| apierrors.UnauthorizedAgentToolsError | 422                                   | application/json                      |
+| apierrors.APIError                    | 4XX, 5XX                              | \*/\*                                 |
 
 ## Run
 
@@ -407,6 +476,7 @@ func main() {
 
 ### Errors
 
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| apierrors.UnauthorizedAgentToolsError | 422                                   | application/json                      |
+| apierrors.APIError                    | 4XX, 5XX                              | \*/\*                                 |

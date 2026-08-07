@@ -1815,6 +1815,7 @@ func main() {
 
     res, err := s.Client.Shortcuts.List(ctx, components.ListShortcutsPaginatedRequest{
         PageSize: 10,
+        Cursor: apiclientgo.Pointer(""),
         Filters: []components.FacetFilter{
             components.FacetFilter{
                 FieldName: apiclientgo.Pointer("type"),
