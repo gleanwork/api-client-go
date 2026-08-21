@@ -17,8 +17,6 @@ import (
 	"net/url"
 )
 
-// Search agents
-// Search agents available to the authenticated user by agent name.
 type Search struct {
 	rootSDK          *Glean
 	sdkConfiguration config.SDKConfiguration

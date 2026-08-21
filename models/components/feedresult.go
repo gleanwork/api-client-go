@@ -48,9 +48,11 @@ const (
 	FeedResultCategoryProjectFocusBlock            FeedResultCategory = "PROJECT_FOCUS_BLOCK"
 	FeedResultCategoryProjectNextStep              FeedResultCategory = "PROJECT_NEXT_STEP"
 	FeedResultCategoryDemoCard                     FeedResultCategory = "DEMO_CARD"
+	FeedResultCategoryResolveMeetingConflict       FeedResultCategory = "RESOLVE_MEETING_CONFLICT"
 	FeedResultCategoryOooPlanner                   FeedResultCategory = "OOO_PLANNER"
 	FeedResultCategoryOooCatchUp                   FeedResultCategory = "OOO_CATCH_UP"
 	FeedResultCategoryAdminHealthCenter            FeedResultCategory = "ADMIN_HEALTH_CENTER"
+	FeedResultCategoryKnowledgeGap                 FeedResultCategory = "KNOWLEDGE_GAP"
 )
 
 func (e FeedResultCategory) ToPointer() *FeedResultCategory {
@@ -61,19 +63,20 @@ func (e FeedResultCategory) ToPointer() *FeedResultCategory {
 func (e *FeedResultCategory) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "DOCUMENT_SUGGESTION", "DOCUMENT_SUGGESTION_SCENARIO", "TRENDING_DOCUMENT", "USE_CASE", "VERIFICATION_REMINDER", "EVENT", "ANNOUNCEMENT", "MENTION", "DATASOURCE_AFFINITY", "RECENT", "COMPANY_RESOURCE", "EXPERIMENTAL", "PEOPLE_CELEBRATIONS", "SOCIAL_LINK", "EXTERNAL_TASKS", "DISPLAYABLE_LIST", "ZERO_STATE_CHAT_SUGGESTION", "ZERO_STATE_CHAT_TOOL_SUGGESTION", "ZERO_STATE_WORKFLOW_CREATED_BY_ME", "ZERO_STATE_WORKFLOW_FAVORITES", "ZERO_STATE_WORKFLOW_POPULAR", "ZERO_STATE_WORKFLOW_RECENT", "ZERO_STATE_WORKFLOW_SUGGESTION", "PERSONALIZED_CHAT_SUGGESTION", "DAILY_DIGEST", "PODCAST", "TASK", "PLAN_MY_DAY", "END_MY_DAY", "STARTER_KIT", "MEETING_PREP_AUTOMATION", "MID_DAY_CATCH_UP", "QUERY_SUGGESTION", "COWORK_CUJ_PROMO", "CARD_STACK_PROMO", "WEEKLY_MEETINGS", "FOLLOW_UP", "MILESTONE_TIMELINE_CHECK", "PROJECT_DISCUSSION_DIGEST", "PROJECT_FOCUS_BLOCK", "PROJECT_NEXT_STEP", "DEMO_CARD", "OOO_PLANNER", "OOO_CATCH_UP", "ADMIN_HEALTH_CENTER":
+		case "DOCUMENT_SUGGESTION", "DOCUMENT_SUGGESTION_SCENARIO", "TRENDING_DOCUMENT", "USE_CASE", "VERIFICATION_REMINDER", "EVENT", "ANNOUNCEMENT", "MENTION", "DATASOURCE_AFFINITY", "RECENT", "COMPANY_RESOURCE", "EXPERIMENTAL", "PEOPLE_CELEBRATIONS", "SOCIAL_LINK", "EXTERNAL_TASKS", "DISPLAYABLE_LIST", "ZERO_STATE_CHAT_SUGGESTION", "ZERO_STATE_CHAT_TOOL_SUGGESTION", "ZERO_STATE_WORKFLOW_CREATED_BY_ME", "ZERO_STATE_WORKFLOW_FAVORITES", "ZERO_STATE_WORKFLOW_POPULAR", "ZERO_STATE_WORKFLOW_RECENT", "ZERO_STATE_WORKFLOW_SUGGESTION", "PERSONALIZED_CHAT_SUGGESTION", "DAILY_DIGEST", "PODCAST", "TASK", "PLAN_MY_DAY", "END_MY_DAY", "STARTER_KIT", "MEETING_PREP_AUTOMATION", "MID_DAY_CATCH_UP", "QUERY_SUGGESTION", "COWORK_CUJ_PROMO", "CARD_STACK_PROMO", "WEEKLY_MEETINGS", "FOLLOW_UP", "MILESTONE_TIMELINE_CHECK", "PROJECT_DISCUSSION_DIGEST", "PROJECT_FOCUS_BLOCK", "PROJECT_NEXT_STEP", "DEMO_CARD", "RESOLVE_MEETING_CONFLICT", "OOO_PLANNER", "OOO_CATCH_UP", "ADMIN_HEALTH_CENTER", "KNOWLEDGE_GAP":
 			return true
 		}
 	}
 	return false
 }
 
-// PlacementReason - Placement source for ranked feed results. ORGANIC means the card was emitted by normal feed ranking. PROMO means the card was inserted by the homepage cards promo framework.
+// PlacementReason - Placement source for ranked feed results. ORGANIC means the card was emitted by normal feed ranking. PROMO means the card was inserted by the homepage cards promo framework. PINNED means the card was moved to the head of the ranked stack (e.g. knowledge-gap pilot cards).
 type PlacementReason string
 
 const (
 	PlacementReasonOrganic PlacementReason = "ORGANIC"
 	PlacementReasonPromo   PlacementReason = "PROMO"
+	PlacementReasonPinned  PlacementReason = "PINNED"
 )
 
 func (e PlacementReason) ToPointer() *PlacementReason {
@@ -84,7 +87,7 @@ func (e PlacementReason) ToPointer() *PlacementReason {
 func (e *PlacementReason) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "ORGANIC", "PROMO":
+		case "ORGANIC", "PROMO", "PINNED":
 			return true
 		}
 	}
@@ -99,7 +102,7 @@ type FeedResult struct {
 	SecondaryEntries []FeedEntry `json:"secondaryEntries,omitempty"`
 	// Rank of the result. Rank is suggested by server. Client side rank may differ.
 	Rank *int64 `json:"rank,omitempty"`
-	// Placement source for ranked feed results. ORGANIC means the card was emitted by normal feed ranking. PROMO means the card was inserted by the homepage cards promo framework.
+	// Placement source for ranked feed results. ORGANIC means the card was emitted by normal feed ranking. PROMO means the card was inserted by the homepage cards promo framework. PINNED means the card was moved to the head of the ranked stack (e.g. knowledge-gap pilot cards).
 	PlacementReason *PlacementReason `json:"placementReason,omitempty"`
 }
 

@@ -15,4 +15,4 @@ value := components.PlatformChatCustomEntitySourceTypeCustomEntity
 
 | Name                                             | Value                                            |
 | ------------------------------------------------ | ------------------------------------------------ |
-| `PlatformChatCustomEntitySourceTypeCustomEntity` | custom_entity                                    |
+| `PlatformChatCustomEntitySourceTypeCustomEntity` | CUSTOM_ENTITY                                    |

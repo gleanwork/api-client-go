@@ -2,7 +2,7 @@
 
 package apiclientgo
 
-// Generated from OpenAPI doc version 0.9.0 and generator version 2.927.0
+// Generated from OpenAPI doc version 0.9.0 and generator version 2.932.9
 
 import (
 	"context"
@@ -69,6 +69,7 @@ type Glean struct {
 	Chat       *Chat
 	Skills     *Skills
 	Search     *Search
+	Triggers   *Triggers
 	Client     *Client
 	Indexing   *Indexing
 
@@ -160,9 +161,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Glean {
 	sdk := &Glean{
-		SDKVersion: "0.13.5",
+		SDKVersion: "0.14.0",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.13.5 2.927.0 0.9.0 github.com/gleanwork/api-client-go",
+			UserAgent:  "speakeasy-sdk/go 0.14.0 2.932.9 0.9.0 github.com/gleanwork/api-client-go",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -199,6 +200,7 @@ func New(opts ...SDKOption) *Glean {
 	sdk.Chat = newChat(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Skills = newSkills(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Search = newSearch(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Triggers = newTriggers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Client = newClient(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Indexing = newIndexing(sdk, sdk.sdkConfiguration, sdk.hooks)
 

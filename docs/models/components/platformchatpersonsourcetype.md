@@ -15,4 +15,4 @@ value := components.PlatformChatPersonSourceTypePerson
 
 | Name                                 | Value                                |
 | ------------------------------------ | ------------------------------------ |
-| `PlatformChatPersonSourceTypePerson` | person                               |
+| `PlatformChatPersonSourceTypePerson` | PERSON                               |

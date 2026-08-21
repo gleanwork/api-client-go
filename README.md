@@ -474,8 +474,8 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [Create](docs/sdks/skills/README.md#create) - Create skill
 * [List](docs/sdks/skills/README.md#list) - List skills
-* [Validate](docs/sdks/skills/README.md#validate) - Validate skill bundle
 * [Import](docs/sdks/skills/README.md#import) - Import skills from GitHub
+* [Validate](docs/sdks/skills/README.md#validate) - Validate skill bundle
 * [PreviewSource](docs/sdks/skills/README.md#previewsource) - Preview a GitHub skill source
 * [Update](docs/sdks/skills/README.md#update) - Update skill
 * [Delete](docs/sdks/skills/README.md#delete) - Delete skill
@@ -486,6 +486,19 @@ For more information on obtaining the appropriate token type, please contact you
 * [ListVersions](docs/sdks/skills/README.md#listversions) - List skill versions
 * [RetrieveVersion](docs/sdks/skills/README.md#retrieveversion) - Retrieve skill version
 * [RetrieveVersionContent](docs/sdks/skills/README.md#retrieveversioncontent) - Download skill version content
+
+### [Triggers](docs/sdks/triggers/README.md)
+
+* [Create](docs/sdks/triggers/README.md#create) - Create trigger
+* [List](docs/sdks/triggers/README.md#list) - List triggers
+* [Get](docs/sdks/triggers/README.md#get) - Get trigger
+* [Update](docs/sdks/triggers/README.md#update) - Update trigger
+* [Delete](docs/sdks/triggers/README.md#delete) - Delete trigger
+* [SearchEvents](docs/sdks/triggers/README.md#searchevents) - Search events for a trigger
+* [ListPresets](docs/sdks/triggers/README.md#listpresets) - List trigger presets
+* [GetPreset](docs/sdks/triggers/README.md#getpreset) - Get trigger preset
+* [ListPresetInputValues](docs/sdks/triggers/README.md#listpresetinputvalues) - Search trigger preset input values
+* [SearchPresetEvents](docs/sdks/triggers/README.md#searchpresetevents) - Search events for a trigger preset
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

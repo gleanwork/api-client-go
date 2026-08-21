@@ -12,7 +12,7 @@ import (
 type Object string
 
 const (
-	ObjectResponse Object = "response"
+	ObjectResponse Object = "RESPONSE"
 )
 
 func (e Object) ToPointer() *Object {
@@ -24,7 +24,7 @@ func (e *Object) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "response":
+	case "RESPONSE":
 		*e = Object(v)
 		return nil
 	default:
@@ -35,7 +35,7 @@ func (e *Object) UnmarshalJSON(data []byte) error {
 type PlatformChatCompletedResponseStatus string
 
 const (
-	PlatformChatCompletedResponseStatusCompleted PlatformChatCompletedResponseStatus = "completed"
+	PlatformChatCompletedResponseStatusCompleted PlatformChatCompletedResponseStatus = "COMPLETED"
 )
 
 func (e PlatformChatCompletedResponseStatus) ToPointer() *PlatformChatCompletedResponseStatus {
@@ -47,7 +47,7 @@ func (e *PlatformChatCompletedResponseStatus) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "completed":
+	case "COMPLETED":
 		*e = PlatformChatCompletedResponseStatus(v)
 		return nil
 	default:

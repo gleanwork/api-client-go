@@ -1,0 +1,9 @@
+# PlatformTriggersListResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                        | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `PlatformTriggerListResponse`                                                                     | [*components.PlatformTriggerListResponse](../../models/components/platformtriggerlistresponse.md) | :heavy_minus_sign:                                                                                | Successful response.                                                                              |

@@ -15,4 +15,4 @@ value := components.PlatformChatOutputTextContentTypeOutputText
 
 | Name                                          | Value                                         |
 | --------------------------------------------- | --------------------------------------------- |
-| `PlatformChatOutputTextContentTypeOutputText` | output_text                                   |
+| `PlatformChatOutputTextContentTypeOutputText` | OUTPUT_TEXT                                   |

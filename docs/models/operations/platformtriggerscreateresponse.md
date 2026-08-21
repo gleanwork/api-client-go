@@ -1,0 +1,9 @@
+# PlatformTriggersCreateResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                            | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                    | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `PlatformTriggerCreateResponse`                                                                       | [*components.PlatformTriggerCreateResponse](../../models/components/platformtriggercreateresponse.md) | :heavy_minus_sign:                                                                                    | Trigger created.                                                                                      |

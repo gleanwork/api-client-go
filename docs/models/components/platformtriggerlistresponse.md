@@ -1,0 +1,11 @@
+# PlatformTriggerListResponse
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `Results`                                                                  | [][components.PlatformTrigger](../../models/components/platformtrigger.md) | :heavy_check_mark:                                                         | Triggers owned by the caller.                                              |
+| `HasMore`                                                                  | `bool`                                                                     | :heavy_check_mark:                                                         | Whether additional results are available.                                  |
+| `NextCursor`                                                               | `*string`                                                                  | :heavy_check_mark:                                                         | Cursor for the next page, or null when no more results are available.      |
+| `RequestID`                                                                | `string`                                                                   | :heavy_check_mark:                                                         | Platform-generated request ID for support correlation.                     |

@@ -8,25 +8,25 @@ Four-variant citation source union.
 ### PlatformChatDocumentSource
 
 ```go
-platformChatCitationSource := components.CreatePlatformChatCitationSourcePlatformChatDocumentSource(components.PlatformChatDocumentSource{/* values here */})
+platformChatCitationSource := components.CreatePlatformChatCitationSourceDocument(components.PlatformChatDocumentSource{/* values here */})
 ```
 
 ### PlatformChatPersonSource
 
 ```go
-platformChatCitationSource := components.CreatePlatformChatCitationSourcePlatformChatPersonSource(components.PlatformChatPersonSource{/* values here */})
+platformChatCitationSource := components.CreatePlatformChatCitationSourcePerson(components.PlatformChatPersonSource{/* values here */})
 ```
 
 ### PlatformChatFileSource
 
 ```go
-platformChatCitationSource := components.CreatePlatformChatCitationSourcePlatformChatFileSource(components.PlatformChatFileSource{/* values here */})
+platformChatCitationSource := components.CreatePlatformChatCitationSourceFile(components.PlatformChatFileSource{/* values here */})
 ```
 
 ### PlatformChatCustomEntitySource
 
 ```go
-platformChatCitationSource := components.CreatePlatformChatCitationSourcePlatformChatCustomEntitySource(components.PlatformChatCustomEntitySource{/* values here */})
+platformChatCitationSource := components.CreatePlatformChatCitationSourceCustomEntity(components.PlatformChatCustomEntitySource{/* values here */})
 ```
 
 ## Union Discrimination
@@ -35,13 +35,13 @@ Use the `Type` field to determine which variant is active, then access the corre
 
 ```go
 switch platformChatCitationSource.Type {
-	case components.PlatformChatCitationSourceTypePlatformChatDocumentSource:
+	case components.PlatformChatCitationSourceTypeDocument:
 		// platformChatCitationSource.PlatformChatDocumentSource is populated
-	case components.PlatformChatCitationSourceTypePlatformChatPersonSource:
+	case components.PlatformChatCitationSourceTypePerson:
 		// platformChatCitationSource.PlatformChatPersonSource is populated
-	case components.PlatformChatCitationSourceTypePlatformChatFileSource:
+	case components.PlatformChatCitationSourceTypeFile:
 		// platformChatCitationSource.PlatformChatFileSource is populated
-	case components.PlatformChatCitationSourceTypePlatformChatCustomEntitySource:
+	case components.PlatformChatCitationSourceTypeCustomEntity:
 		// platformChatCitationSource.PlatformChatCustomEntitySource is populated
 }
 ```

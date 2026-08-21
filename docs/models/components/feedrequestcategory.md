@@ -57,6 +57,8 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryProjectFocusBlock`            | PROJECT_FOCUS_BLOCK                               |
 | `FeedRequestCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                 |
 | `FeedRequestCategoryDemoCard`                     | DEMO_CARD                                         |
+| `FeedRequestCategoryResolveMeetingConflict`       | RESOLVE_MEETING_CONFLICT                          |
 | `FeedRequestCategoryOooPlanner`                   | OOO_PLANNER                                       |
 | `FeedRequestCategoryOooCatchUp`                   | OOO_CATCH_UP                                      |
 | `FeedRequestCategoryAdminHealthCenter`            | ADMIN_HEALTH_CENTER                               |
+| `FeedRequestCategoryKnowledgeGap`                 | KNOWLEDGE_GAP                                     |
