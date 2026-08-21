@@ -62,6 +62,8 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryProjectFocusBlock`            | PROJECT_FOCUS_BLOCK                              |
 | `FeedResultCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                |
 | `FeedResultCategoryDemoCard`                     | DEMO_CARD                                        |
+| `FeedResultCategoryResolveMeetingConflict`       | RESOLVE_MEETING_CONFLICT                         |
 | `FeedResultCategoryOooPlanner`                   | OOO_PLANNER                                      |
 | `FeedResultCategoryOooCatchUp`                   | OOO_CATCH_UP                                     |
 | `FeedResultCategoryAdminHealthCenter`            | ADMIN_HEALTH_CENTER                              |
+| `FeedResultCategoryKnowledgeGap`                 | KNOWLEDGE_GAP                                    |

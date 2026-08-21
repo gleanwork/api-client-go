@@ -15,4 +15,4 @@ value := components.ObjectResponse
 
 | Name             | Value            |
 | ---------------- | ---------------- |
-| `ObjectResponse` | response         |
+| `ObjectResponse` | RESPONSE         |

@@ -12,7 +12,7 @@ import (
 type PlatformChatDocumentSourceType2 string
 
 const (
-	PlatformChatDocumentSourceType2Document PlatformChatDocumentSourceType2 = "document"
+	PlatformChatDocumentSourceType2Document PlatformChatDocumentSourceType2 = "DOCUMENT"
 )
 
 func (e PlatformChatDocumentSourceType2) ToPointer() *PlatformChatDocumentSourceType2 {
@@ -24,7 +24,7 @@ func (e *PlatformChatDocumentSourceType2) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "document":
+	case "DOCUMENT":
 		*e = PlatformChatDocumentSourceType2(v)
 		return nil
 	default:
@@ -92,7 +92,7 @@ func (p *PlatformChatDocumentSourceDocument2) GetDatasource() *string {
 type PlatformChatDocumentSourceType1 string
 
 const (
-	PlatformChatDocumentSourceType1Document PlatformChatDocumentSourceType1 = "document"
+	PlatformChatDocumentSourceType1Document PlatformChatDocumentSourceType1 = "DOCUMENT"
 )
 
 func (e PlatformChatDocumentSourceType1) ToPointer() *PlatformChatDocumentSourceType1 {
@@ -104,7 +104,7 @@ func (e *PlatformChatDocumentSourceType1) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "document":
+	case "DOCUMENT":
 		*e = PlatformChatDocumentSourceType1(v)
 		return nil
 	default:

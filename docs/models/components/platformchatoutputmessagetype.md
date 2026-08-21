@@ -15,4 +15,4 @@ value := components.PlatformChatOutputMessageTypeMessage
 
 | Name                                   | Value                                  |
 | -------------------------------------- | -------------------------------------- |
-| `PlatformChatOutputMessageTypeMessage` | message                                |
+| `PlatformChatOutputMessageTypeMessage` | MESSAGE                                |

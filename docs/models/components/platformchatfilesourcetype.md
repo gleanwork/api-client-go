@@ -15,4 +15,4 @@ value := components.PlatformChatFileSourceTypeFile
 
 | Name                             | Value                            |
 | -------------------------------- | -------------------------------- |
-| `PlatformChatFileSourceTypeFile` | file                             |
+| `PlatformChatFileSourceTypeFile` | FILE                             |

@@ -15,4 +15,4 @@ value := components.PlatformChatCitationAnnotationTypeCitation
 
 | Name                                         | Value                                        |
 | -------------------------------------------- | -------------------------------------------- |
-| `PlatformChatCitationAnnotationTypeCitation` | citation                                     |
+| `PlatformChatCitationAnnotationTypeCitation` | CITATION                                     |

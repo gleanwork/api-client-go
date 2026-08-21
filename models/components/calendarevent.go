@@ -35,6 +35,12 @@ type CalendarEvent struct {
 	// A permalink for this calendar event
 	URL       string             `json:"url"`
 	Attendees *CalendarAttendees `json:"attendees,omitempty"`
+	// Whether the requesting user is the organizer of this event.
+	IsOrganizer *bool `json:"isOrganizer,omitempty"`
+	// The current booking status of the room resource associated with an event.
+	RoomBookingStatus *CalendarRoomBookingStatus `json:"roomBookingStatus,omitempty"`
+	// The display name of the room resource associated with this event.
+	RoomName *string `json:"roomName,omitempty"`
 	// The location that this event is taking place at.
 	Location       *string         `json:"location,omitempty"`
 	ConferenceData *ConferenceData `json:"conferenceData,omitempty"`
@@ -83,6 +89,27 @@ func (c *CalendarEvent) GetAttendees() *CalendarAttendees {
 		return nil
 	}
 	return c.Attendees
+}
+
+func (c *CalendarEvent) GetIsOrganizer() *bool {
+	if c == nil {
+		return nil
+	}
+	return c.IsOrganizer
+}
+
+func (c *CalendarEvent) GetRoomBookingStatus() *CalendarRoomBookingStatus {
+	if c == nil {
+		return nil
+	}
+	return c.RoomBookingStatus
+}
+
+func (c *CalendarEvent) GetRoomName() *string {
+	if c == nil {
+		return nil
+	}
+	return c.RoomName
 }
 
 func (c *CalendarEvent) GetLocation() *string {

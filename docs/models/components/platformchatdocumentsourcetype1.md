@@ -15,4 +15,4 @@ value := components.PlatformChatDocumentSourceType1Document
 
 | Name                                      | Value                                     |
 | ----------------------------------------- | ----------------------------------------- |
-| `PlatformChatDocumentSourceType1Document` | document                                  |
+| `PlatformChatDocumentSourceType1Document` | DOCUMENT                                  |

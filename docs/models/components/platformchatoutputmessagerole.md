@@ -15,4 +15,4 @@ value := components.PlatformChatOutputMessageRoleAssistant
 
 | Name                                     | Value                                    |
 | ---------------------------------------- | ---------------------------------------- |
-| `PlatformChatOutputMessageRoleAssistant` | assistant                                |
+| `PlatformChatOutputMessageRoleAssistant` | ASSISTANT                                |

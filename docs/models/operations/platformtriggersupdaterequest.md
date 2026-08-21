@@ -1,0 +1,9 @@
+# PlatformTriggersUpdateRequest
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `TriggerID`                                                                                        | `string`                                                                                           | :heavy_check_mark:                                                                                 | ID of the trigger to update.                                                                       |
+| `PlatformTriggerUpdateRequest`                                                                     | [components.PlatformTriggerUpdateRequest](../../models/components/platformtriggerupdaterequest.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

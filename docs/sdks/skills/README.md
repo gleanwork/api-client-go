@@ -6,8 +6,8 @@
 
 * [Create](#create) - Create skill
 * [List](#list) - List skills
-* [Validate](#validate) - Validate skill bundle
 * [Import](#import) - Import skills from GitHub
+* [Validate](#validate) - Validate skill bundle
 * [PreviewSource](#previewsource) - Preview a GitHub skill source
 * [Update](#update) - Update skill
 * [Delete](#delete) - Delete skill
@@ -141,6 +141,66 @@ func main() {
 | apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
 | apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
 
+## Import
+
+Import one or more skills selected from a GitHub source preview. Each source URL is fetched and persisted as an independent skill with source provenance. This operation does not create a durable source resource. The import is atomic: if any source cannot be fetched, validated, or persisted, no skills are created.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-skills-import" method="post" path="/api/skills/import" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Skills.Import(ctx, components.PlatformSkillImportRequest{
+        SourceUrls: []string{
+            "<value 1>",
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformSkillImportResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [components.PlatformSkillImportRequest](../../models/components/platformskillimportrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
+
+### Response
+
+**[*operations.PlatformSkillsImportResponse](../../models/operations/platformskillsimportresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 408, 409, 413, 429    | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
 ## Validate
 
 Validate a skill bundle without persisting it. Accepts a SKILL.md, .zip, or .skill upload and returns parsed metadata plus the normalized file layout.
@@ -204,66 +264,6 @@ func main() {
 | Error Type                           | Status Code                          | Content Type                         |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 413, 429    | application/problem+json             |
-| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
-| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
-
-## Import
-
-Import one or more skills selected from a GitHub source preview. Each source URL is fetched and persisted as an independent skill with source provenance. This operation does not create a durable source resource. The import is atomic: if any source cannot be fetched, validated, or persisted, no skills are created.
-
-
-### Example Usage
-
-<!-- UsageSnippet language="go" operationID="platform-skills-import" method="post" path="/api/skills/import" -->
-```go
-package main
-
-import(
-	"context"
-	"os"
-	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := apiclientgo.New(
-        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
-    )
-
-    res, err := s.Skills.Import(ctx, components.PlatformSkillImportRequest{
-        SourceUrls: []string{
-            "<value 1>",
-        },
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.PlatformSkillImportResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [components.PlatformSkillImportRequest](../../models/components/platformskillimportrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
-
-### Response
-
-**[*operations.PlatformSkillsImportResponse](../../models/operations/platformskillsimportresponse.md), error**
-
-### Errors
-
-| Error Type                           | Status Code                          | Content Type                         |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| apierrors.PlatformProblemDetailError | 400, 401, 403, 408, 409, 413, 429    | application/problem+json             |
 | apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
 | apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
 

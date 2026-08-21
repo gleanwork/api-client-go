@@ -11,6 +11,8 @@ type ChatMessageCitation struct {
 	SourceFile         *ChatFile     `json:"sourceFile,omitempty"`
 	SourcePerson       *Person       `json:"sourcePerson,omitempty"`
 	SourceCustomEntity *CustomEntity `json:"sourceCustomEntity,omitempty"`
+	// A skill cited by Assistant.
+	SourceSkill *ChatSkill `json:"sourceSkill,omitempty"`
 	// Each reference range and its corresponding snippets
 	ReferenceRanges []ReferenceRange `json:"referenceRanges,omitempty"`
 }
@@ -48,6 +50,13 @@ func (c *ChatMessageCitation) GetSourceCustomEntity() *CustomEntity {
 		return nil
 	}
 	return c.SourceCustomEntity
+}
+
+func (c *ChatMessageCitation) GetSourceSkill() *ChatSkill {
+	if c == nil {
+		return nil
+	}
+	return c.SourceSkill
 }
 
 func (c *ChatMessageCitation) GetReferenceRanges() []ReferenceRange {

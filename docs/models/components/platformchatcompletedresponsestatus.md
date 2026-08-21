@@ -15,4 +15,4 @@ value := components.PlatformChatCompletedResponseStatusCompleted
 
 | Name                                           | Value                                          |
 | ---------------------------------------------- | ---------------------------------------------- |
-| `PlatformChatCompletedResponseStatusCompleted` | completed                                      |
+| `PlatformChatCompletedResponseStatusCompleted` | COMPLETED                                      |

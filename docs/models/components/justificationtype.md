@@ -62,6 +62,7 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeStarterKitOrgChart`                | STARTER_KIT_ORG_CHART                                |
 | `JustificationTypeStarterKitAddDoc`                  | STARTER_KIT_ADD_DOC                                  |
 | `JustificationTypeMeetingRecap`                      | MEETING_RECAP                                        |
+| `JustificationTypeMeetingRoom`                       | MEETING_ROOM                                         |
 | `JustificationTypeMeetingPrepAutomation`             | MEETING_PREP_AUTOMATION                              |
 | `JustificationTypeActiveDiscussion`                  | ACTIVE_DISCUSSION                                    |
 | `JustificationTypeMidDayCatchUp`                     | MID_DAY_CATCH_UP                                     |
@@ -75,6 +76,8 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeProjectFocusBlock`                 | PROJECT_FOCUS_BLOCK                                  |
 | `JustificationTypeProjectNextStep`                   | PROJECT_NEXT_STEP                                    |
 | `JustificationTypeDemoCard`                          | DEMO_CARD                                            |
+| `JustificationTypeResolveMeetingConflict`            | RESOLVE_MEETING_CONFLICT                             |
 | `JustificationTypeOooPlanner`                        | OOO_PLANNER                                          |
 | `JustificationTypeOooCatchUp`                        | OOO_CATCH_UP                                         |
 | `JustificationTypeAdminHealthCenter`                 | ADMIN_HEALTH_CENTER                                  |
+| `JustificationTypeKnowledgeGap`                      | KNOWLEDGE_GAP                                        |

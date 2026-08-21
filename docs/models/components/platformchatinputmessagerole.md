@@ -15,5 +15,5 @@ value := components.PlatformChatInputMessageRoleUser
 
 | Name                                    | Value                                   |
 | --------------------------------------- | --------------------------------------- |
-| `PlatformChatInputMessageRoleUser`      | user                                    |
-| `PlatformChatInputMessageRoleAssistant` | assistant                               |
+| `PlatformChatInputMessageRoleUser`      | USER                                    |
+| `PlatformChatInputMessageRoleAssistant` | ASSISTANT                               |
