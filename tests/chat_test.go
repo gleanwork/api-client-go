@@ -25,7 +25,7 @@ func TestChat_PlatformChatCreate(t *testing.T) {
 
 	res, err := s.Chat.Create(ctx, components.PlatformChatCreateRequest{
 		Input: components.CreateInputStr(
-			"<value>",
+			"What is our parental leave policy?",
 		),
 	})
 	require.NoError(t, err)

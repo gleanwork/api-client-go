@@ -23,3 +23,4 @@ custom := components.ServerToolRequestRequestType("custom_value")
 | `ServerToolRequestRequestTypeExecution`                | EXECUTION                                              |
 | `ServerToolRequestRequestTypeAuthenticationSuggestion` | AUTHENTICATION_SUGGESTION                              |
 | `ServerToolRequestRequestTypeVoteSuggestion`           | VOTE_SUGGESTION                                        |
+| `ServerToolRequestRequestTypeSandboxEgress`            | SANDBOX_EGRESS                                         |

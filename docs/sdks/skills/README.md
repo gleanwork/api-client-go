@@ -169,7 +169,7 @@ func main() {
 
     res, err := s.Skills.Import(ctx, components.PlatformSkillImportRequest{
         SourceUrls: []string{
-            "<value 1>",
+            "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
         },
     })
     if err != nil {
@@ -294,7 +294,7 @@ func main() {
     )
 
     res, err := s.Skills.PreviewSource(ctx, components.PlatformSkillSourcePreviewRequest{
-        SourceURL: "https://ugly-information.name/",
+        SourceURL: "https://github.com/anthropics/skills",
     })
     if err != nil {
         log.Fatal(err)
@@ -352,7 +352,7 @@ func main() {
     )
 
     res, err := s.Skills.Update(ctx, "<id>", components.PlatformSkillUpdateRequest{
-        Status: components.PlatformSkillUpdateStatusDisabled,
+        Status: components.PlatformSkillUpdateStatusEnabled,
     })
     if err != nil {
         log.Fatal(err)
@@ -365,12 +365,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `skillID`                                                                                      | `string`                                                                                       | :heavy_check_mark:                                                                             | Glean skill ID.                                                                                |
-| `platformSkillUpdateRequest`                                                                   | [components.PlatformSkillUpdateRequest](../../models/components/platformskillupdaterequest.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |                                                                                                |
+| `skillID`                                                                                      | `string`                                                                                       | :heavy_check_mark:                                                                             | Glean skill ID.                                                                                |                                                                                                |
+| `platformSkillUpdateRequest`                                                                   | [components.PlatformSkillUpdateRequest](../../models/components/platformskillupdaterequest.md) | :heavy_check_mark:                                                                             | N/A                                                                                            | {<br/>"status": "ENABLED"<br/>}                                                                |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |                                                                                                |
 
 ### Response
 

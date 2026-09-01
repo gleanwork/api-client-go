@@ -34,7 +34,7 @@ func main() {
 
     res, err := s.Chat.Create(ctx, components.PlatformChatCreateRequest{
         Input: components.CreateInputStr(
-            "<value>",
+            "What is our parental leave policy?",
         ),
     })
     if err != nil {
