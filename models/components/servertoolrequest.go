@@ -12,6 +12,8 @@ const (
 	ServerToolRequestRequestTypeAuthenticationSuggestion ServerToolRequestRequestType = "AUTHENTICATION_SUGGESTION"
 	// ServerToolRequestRequestTypeVoteSuggestion Suggestion to vote for enabling an available-but-not-enabled tool.
 	ServerToolRequestRequestTypeVoteSuggestion ServerToolRequestRequestType = "VOTE_SUGGESTION"
+	// ServerToolRequestRequestTypeSandboxEgress Request to approve an outbound/egress call from the sandbox.
+	ServerToolRequestRequestTypeSandboxEgress ServerToolRequestRequestType = "SANDBOX_EGRESS"
 )
 
 func (e ServerToolRequestRequestType) ToPointer() *ServerToolRequestRequestType {
@@ -22,7 +24,7 @@ func (e ServerToolRequestRequestType) ToPointer() *ServerToolRequestRequestType 
 func (e *ServerToolRequestRequestType) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "EXECUTION", "AUTHENTICATION_SUGGESTION", "VOTE_SUGGESTION":
+		case "EXECUTION", "AUTHENTICATION_SUGGESTION", "VOTE_SUGGESTION", "SANDBOX_EGRESS":
 			return true
 		}
 	}

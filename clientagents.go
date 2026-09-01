@@ -264,6 +264,8 @@ func (s *ClientAgents) Create(ctx context.Context, createWorkflowRequest compone
 
 // Retrieve an agent
 // Returns details of an [agent](https://developers.glean.com/agents/agents-api) created in the Agent Builder.
+//
+// Deprecated: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use GET /api/agents/{agent_id} instead..
 func (s *ClientAgents) Retrieve(ctx context.Context, agentID string, locale *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetAgentResponse, error) {
 	request := operations.GetAgentRequest{
 		Locale:         locale,
@@ -749,6 +751,8 @@ func (s *ClientAgents) Update(ctx context.Context, agentID string, editWorkflowR
 
 // RetrieveSchemas - List an agent's schemas
 // Return [agent](https://developers.glean.com/agents/agents-api)'s input and output schemas. You can use these schemas to detect changes to an agent's input or output structure.
+//
+// Deprecated: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use GET /api/agents/{agent_id}/schemas instead..
 func (s *ClientAgents) RetrieveSchemas(ctx context.Context, agentID string, locale *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetAgentSchemasResponse, error) {
 	request := operations.GetAgentSchemasRequest{
 		Locale:         locale,
@@ -1255,6 +1259,8 @@ func (s *ClientAgents) Import(ctx context.Context, agentID string, importAgentRe
 
 // List - Search agents
 // Search for [agents](https://developers.glean.com/agents/agents-api) by agent name.
+//
+// Deprecated: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use POST /api/agents/search instead..
 func (s *ClientAgents) List(ctx context.Context, request components.SearchAgentsRequest, opts ...operations.Option) (*operations.SearchAgentsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1501,6 +1507,8 @@ func (s *ClientAgents) List(ctx context.Context, request components.SearchAgents
 
 // RunStream - Create an agent run and stream the response
 // Executes an [agent](https://developers.glean.com/agents/agents-api) run and returns the result as a stream of server-sent events (SSE). **Note**: If the agent uses an input form trigger, all form fields (including optional fields) must be included in the `input` object.
+//
+// Deprecated: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use POST /api/agents/{agent_id}/runs with stream=true instead..
 func (s *ClientAgents) RunStream(ctx context.Context, request components.AgentRunCreate, opts ...operations.Option) (*operations.CreateAndStreamRunResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1768,6 +1776,8 @@ func (s *ClientAgents) RunStream(ctx context.Context, request components.AgentRu
 
 // Run - Create an agent run and wait for the response
 // Executes an [agent](https://developers.glean.com/agents/agents-api) run and returns the final response. **Note**: If the agent uses an input form trigger, all form fields (including optional fields) must be included in the `input` object.
+//
+// Deprecated: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use POST /api/agents/{agent_id}/runs instead..
 func (s *ClientAgents) Run(ctx context.Context, request components.AgentRunCreate, opts ...operations.Option) (*operations.CreateAndWaitRunResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

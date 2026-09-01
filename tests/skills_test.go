@@ -203,7 +203,7 @@ func TestSkills_PlatformSkillsImport(t *testing.T) {
 
 	res, err := s.Skills.Import(ctx, components.PlatformSkillImportRequest{
 		SourceUrls: []string{
-			"<value 1>",
+			"https://github.com/anthropics/skills/tree/main/skills/skill-creator",
 		},
 	})
 	require.NoError(t, err)
@@ -223,7 +223,7 @@ func TestSkills_PlatformSkillsPreviewSource(t *testing.T) {
 	)
 
 	res, err := s.Skills.PreviewSource(ctx, components.PlatformSkillSourcePreviewRequest{
-		SourceURL: "https://ugly-information.name/",
+		SourceURL: "https://github.com/anthropics/skills",
 	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
@@ -242,7 +242,7 @@ func TestSkills_PlatformSkillsUpdate(t *testing.T) {
 	)
 
 	res, err := s.Skills.Update(ctx, "<id>", components.PlatformSkillUpdateRequest{
-		Status: components.PlatformSkillUpdateStatusDisabled,
+		Status: components.PlatformSkillUpdateStatusEnabled,
 	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)

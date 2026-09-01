@@ -246,13 +246,13 @@ For more information on obtaining the appropriate token type, please contact you
 ### [Client.Agents](docs/sdks/clientagents/README.md)
 
 * [Create](docs/sdks/clientagents/README.md#create) - Create an agent
-* [Retrieve](docs/sdks/clientagents/README.md#retrieve) - Retrieve an agent
+* [~~Retrieve~~](docs/sdks/clientagents/README.md#retrieve) - Retrieve an agent :warning: **Deprecated**
 * [Update](docs/sdks/clientagents/README.md#update) - Edit an agent
-* [RetrieveSchemas](docs/sdks/clientagents/README.md#retrieveschemas) - List an agent's schemas
+* [~~RetrieveSchemas~~](docs/sdks/clientagents/README.md#retrieveschemas) - List an agent's schemas :warning: **Deprecated**
 * [Import](docs/sdks/clientagents/README.md#import) - Import an agent
-* [List](docs/sdks/clientagents/README.md#list) - Search agents
-* [RunStream](docs/sdks/clientagents/README.md#runstream) - Create an agent run and stream the response
-* [Run](docs/sdks/clientagents/README.md#run) - Create an agent run and wait for the response
+* [~~List~~](docs/sdks/clientagents/README.md#list) - Search agents :warning: **Deprecated**
+* [~~RunStream~~](docs/sdks/clientagents/README.md#runstream) - Create an agent run and stream the response :warning: **Deprecated**
+* [~~Run~~](docs/sdks/clientagents/README.md#run) - Create an agent run and wait for the response :warning: **Deprecated**
 
 ### [Client.Announcements](docs/sdks/announcements/README.md)
 

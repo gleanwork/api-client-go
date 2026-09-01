@@ -16,6 +16,8 @@ const (
 	ServerToolResponseRequestTypeAuthenticationSuggestion ServerToolResponseRequestType = "AUTHENTICATION_SUGGESTION"
 	// ServerToolResponseRequestTypeVoteSuggestion Suggestion to vote for enabling an available-but-not-enabled tool.
 	ServerToolResponseRequestTypeVoteSuggestion ServerToolResponseRequestType = "VOTE_SUGGESTION"
+	// ServerToolResponseRequestTypeSandboxEgress Request to approve an outbound/egress call from the sandbox.
+	ServerToolResponseRequestTypeSandboxEgress ServerToolResponseRequestType = "SANDBOX_EGRESS"
 )
 
 func (e ServerToolResponseRequestType) ToPointer() *ServerToolResponseRequestType {
@@ -26,7 +28,7 @@ func (e ServerToolResponseRequestType) ToPointer() *ServerToolResponseRequestTyp
 func (e *ServerToolResponseRequestType) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "EXECUTION", "AUTHENTICATION_SUGGESTION", "VOTE_SUGGESTION":
+		case "EXECUTION", "AUTHENTICATION_SUGGESTION", "VOTE_SUGGESTION", "SANDBOX_EGRESS":
 			return true
 		}
 	}
@@ -73,6 +75,9 @@ func (e *GrantScope) IsExact() bool {
 //
 // For VOTE_SUGGESTION requests:
 // - voted: whether the user voted for this tool
+//
+// For SANDBOX_EGRESS requests:
+// - isGranted: whether the sandbox egress call is approved
 type ServerToolResponse struct {
 	// The type of request made to the user.
 	RequestType ServerToolResponseRequestType `json:"requestType"`

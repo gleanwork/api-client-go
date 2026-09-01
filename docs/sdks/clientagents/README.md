@@ -5,13 +5,13 @@
 ### Available Operations
 
 * [Create](#create) - Create an agent
-* [Retrieve](#retrieve) - Retrieve an agent
+* [~~Retrieve~~](#retrieve) - Retrieve an agent :warning: **Deprecated**
 * [Update](#update) - Edit an agent
-* [RetrieveSchemas](#retrieveschemas) - List an agent's schemas
+* [~~RetrieveSchemas~~](#retrieveschemas) - List an agent's schemas :warning: **Deprecated**
 * [Import](#import) - Import an agent
-* [List](#list) - Search agents
-* [RunStream](#runstream) - Create an agent run and stream the response
-* [Run](#run) - Create an agent run and wait for the response
+* [~~List~~](#list) - Search agents :warning: **Deprecated**
+* [~~RunStream~~](#runstream) - Create an agent run and stream the response :warning: **Deprecated**
+* [~~Run~~](#run) - Create an agent run and wait for the response :warning: **Deprecated**
 
 ## Create
 
@@ -68,9 +68,11 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## Retrieve
+## ~~Retrieve~~
 
 Returns details of an [agent](https://developers.glean.com/agents/agents-api) created in the Agent Builder.
+
+> :warning: **DEPRECATED**: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use GET /api/agents/{agent_id} instead..
 
 ### Example Usage
 
@@ -180,9 +182,11 @@ func main() {
 | apierrors.ErrorResponse | 404                     | application/json        |
 | apierrors.APIError      | 4XX, 5XX                | \*/\*                   |
 
-## RetrieveSchemas
+## ~~RetrieveSchemas~~
 
 Return [agent](https://developers.glean.com/agents/agents-api)'s input and output schemas. You can use these schemas to detect changes to an agent's input or output structure.
+
+> :warning: **DEPRECATED**: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use GET /api/agents/{agent_id}/schemas instead..
 
 ### Example Usage
 
@@ -302,9 +306,11 @@ func main() {
 | apierrors.ErrorResponse | 404                     | application/json        |
 | apierrors.APIError      | 4XX, 5XX                | \*/\*                   |
 
-## List
+## ~~List~~
 
 Search for [agents](https://developers.glean.com/agents/agents-api) by agent name.
+
+> :warning: **DEPRECATED**: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use POST /api/agents/search instead..
 
 ### Example Usage
 
@@ -358,9 +364,11 @@ func main() {
 | apierrors.ErrorResponse | 404, 422                | application/json        |
 | apierrors.APIError      | 4XX, 5XX                | \*/\*                   |
 
-## RunStream
+## ~~RunStream~~
 
 Executes an [agent](https://developers.glean.com/agents/agents-api) run and returns the result as a stream of server-sent events (SSE). **Note**: If the agent uses an input form trigger, all form fields (including optional fields) must be included in the `input` object.
+
+> :warning: **DEPRECATED**: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use POST /api/agents/{agent_id}/runs with stream=true instead..
 
 ### Example Usage
 
@@ -420,9 +428,11 @@ func main() {
 | apierrors.UnauthorizedAgentToolsError | 422                                   | application/json                      |
 | apierrors.APIError                    | 4XX, 5XX                              | \*/\*                                 |
 
-## Run
+## ~~Run~~
 
 Executes an [agent](https://developers.glean.com/agents/agents-api) run and returns the final response. **Note**: If the agent uses an input form trigger, all form fields (including optional fields) must be included in the `input` object.
+
+> :warning: **DEPRECATED**: Deprecated on 2026-08-25, removal scheduled for 2027-04-15: Use POST /api/agents/{agent_id}/runs instead..
 
 ### Example Usage
 
