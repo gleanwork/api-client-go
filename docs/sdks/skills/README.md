@@ -351,7 +351,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Skills.Update(ctx, "<id>", components.PlatformSkillUpdateRequest{
+    res, err := s.Skills.Update(ctx, "{skill_id}", components.PlatformSkillUpdateRequest{
         Status: components.PlatformSkillUpdateStatusEnabled,
     })
     if err != nil {
@@ -368,7 +368,7 @@ func main() {
 | Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |                                                                                                |
-| `skillID`                                                                                      | `string`                                                                                       | :heavy_check_mark:                                                                             | Glean skill ID.                                                                                |                                                                                                |
+| `skillID`                                                                                      | `string`                                                                                       | :heavy_check_mark:                                                                             | Glean skill ID.                                                                                | {skill_id}                                                                                     |
 | `platformSkillUpdateRequest`                                                                   | [components.PlatformSkillUpdateRequest](../../models/components/platformskillupdaterequest.md) | :heavy_check_mark:                                                                             | N/A                                                                                            | {<br/>"status": "ENABLED"<br/>}                                                                |
 | `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |                                                                                                |
 
@@ -409,7 +409,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Skills.Delete(ctx, "<id>")
+    res, err := s.Skills.Delete(ctx, "{skill_id}")
     if err != nil {
         log.Fatal(err)
     }
@@ -421,11 +421,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          | {skill_id}                                               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -464,7 +464,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Skills.Retrieve(ctx, "<id>")
+    res, err := s.Skills.Retrieve(ctx, "{skill_id}")
     if err != nil {
         log.Fatal(err)
     }
@@ -476,11 +476,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          | {skill_id}                                               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -519,7 +519,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Skills.RetrieveContent(ctx, "<id>")
+    res, err := s.Skills.RetrieveContent(ctx, "{skill_id}")
     if err != nil {
         log.Fatal(err)
     }
@@ -531,11 +531,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          | {skill_id}                                               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -574,7 +574,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Skills.Sync(ctx, "<id>")
+    res, err := s.Skills.Sync(ctx, "{skill_id}")
     if err != nil {
         log.Fatal(err)
     }
@@ -586,11 +586,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | ID of the GitHub-imported skill to sync.                 |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | ID of the GitHub-imported skill to sync.                 | {skill_id}                                               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -635,7 +635,7 @@ func main() {
         panic(fileErr)
     }
 
-    res, err := s.Skills.CreateVersion(ctx, "<id>", components.PlatformSkillVersionCreateRequest{
+    res, err := s.Skills.CreateVersion(ctx, "{skill_id}", components.PlatformSkillVersionCreateRequest{
         File: components.PlatformSkillVersionCreateRequestFile{
             FileName: "example.file",
             Content: example,
@@ -652,12 +652,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
-| `skillID`                                                                                                    | `string`                                                                                                     | :heavy_check_mark:                                                                                           | Glean skill ID.                                                                                              |
-| `platformSkillVersionCreateRequest`                                                                          | [components.PlatformSkillVersionCreateRequest](../../models/components/platformskillversioncreaterequest.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `opts`                                                                                                       | [][operations.Option](../../models/operations/option.md)                                                     | :heavy_minus_sign:                                                                                           | The options for this request.                                                                                |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  | Example                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |                                                                                                              |
+| `skillID`                                                                                                    | `string`                                                                                                     | :heavy_check_mark:                                                                                           | Glean skill ID.                                                                                              | {skill_id}                                                                                                   |
+| `platformSkillVersionCreateRequest`                                                                          | [components.PlatformSkillVersionCreateRequest](../../models/components/platformskillversioncreaterequest.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |                                                                                                              |
+| `opts`                                                                                                       | [][operations.Option](../../models/operations/option.md)                                                     | :heavy_minus_sign:                                                                                           | The options for this request.                                                                                |                                                                                                              |
 
 ### Response
 
@@ -696,7 +696,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Skills.ListVersions(ctx, "<id>", nil, nil)
+    res, err := s.Skills.ListVersions(ctx, "{skill_id}", nil, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -708,13 +708,13 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          |
-| `pageSize`                                               | `*int64`                                                 | :heavy_minus_sign:                                       | Maximum number of versions to return.                    |
-| `cursor`                                                 | `*string`                                                | :heavy_minus_sign:                                       | Opaque pagination cursor from a previous response.       |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          | {skill_id}                                               |
+| `pageSize`                                               | `*int64`                                                 | :heavy_minus_sign:                                       | Maximum number of versions to return.                    |                                                          |
+| `cursor`                                                 | `*string`                                                | :heavy_minus_sign:                                       | Opaque pagination cursor from a previous response.       |                                                          |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -753,7 +753,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Skills.RetrieveVersion(ctx, "<id>", 495658)
+    res, err := s.Skills.RetrieveVersion(ctx, "{skill_id}", 1)
     if err != nil {
         log.Fatal(err)
     }
@@ -765,12 +765,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          |
-| `version`                                                | `int64`                                                  | :heavy_check_mark:                                       | Major version number.                                    |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          | {skill_id}                                               |
+| `version`                                                | `int64`                                                  | :heavy_check_mark:                                       | Major version number.                                    | 1                                                        |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -809,7 +809,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Skills.RetrieveVersionContent(ctx, "<id>", 117760)
+    res, err := s.Skills.RetrieveVersionContent(ctx, "{skill_id}", 1)
     if err != nil {
         log.Fatal(err)
     }
@@ -821,12 +821,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          |
-| `version`                                                | `int64`                                                  | :heavy_check_mark:                                       | Major version number.                                    |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `skillID`                                                | `string`                                                 | :heavy_check_mark:                                       | Glean skill ID.                                          | {skill_id}                                               |
+| `version`                                                | `int64`                                                  | :heavy_check_mark:                                       | Major version number.                                    | 1                                                        |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 

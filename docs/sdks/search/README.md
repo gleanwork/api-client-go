@@ -36,19 +36,6 @@ func main() {
 
     res, err := s.Search.Query(ctx, components.PlatformSearchRequest{
         Query: "quarterly planning 2026",
-        Datasources: []string{
-            "confluence",
-            "google_drive",
-        },
-        Filters: []components.PlatformFilter{
-            components.PlatformFilter{
-                Field: "type",
-                Values: []string{
-                    "spreadsheet",
-                    "presentation",
-                },
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)
