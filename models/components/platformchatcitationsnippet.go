@@ -2,9 +2,24 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type PlatformChatCitationSnippet struct {
 	Text       string `json:"text"`
 	PageNumber *int64 `json:"page_number,omitempty"`
+}
+
+func (p PlatformChatCitationSnippet) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformChatCitationSnippet) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (p *PlatformChatCitationSnippet) GetText() string {

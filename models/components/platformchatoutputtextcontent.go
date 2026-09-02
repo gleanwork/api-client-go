@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 type PlatformChatOutputTextContentType string
@@ -34,6 +35,17 @@ type PlatformChatOutputTextContent struct {
 	Type        PlatformChatOutputTextContentType `json:"type"`
 	Text        string                            `json:"text"`
 	Annotations []PlatformChatCitationAnnotation  `json:"annotations,omitempty"`
+}
+
+func (p PlatformChatOutputTextContent) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformChatOutputTextContent) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (p *PlatformChatOutputTextContent) GetType() PlatformChatOutputTextContentType {

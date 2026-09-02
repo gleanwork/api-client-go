@@ -6,7 +6,7 @@ import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/internal/utils"
-	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/models/operations"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
@@ -23,8 +23,8 @@ func TestChat_PlatformChatCreate(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Chat.Create(ctx, components.PlatformChatCreateRequest{
-		Input: components.CreateInputStr(
+	res, err := s.Chat.Create(ctx, operations.PlatformChatCreateRequest{
+		Input: operations.CreatePlatformChatCreateInputStr(
 			"What is our parental leave policy?",
 		),
 	})
