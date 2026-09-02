@@ -2085,19 +2085,6 @@ func TestSearch_PlatformSearch(t *testing.T) {
 
 	res, err := s.Search.Query(ctx, components.PlatformSearchRequest{
 		Query: "quarterly planning 2026",
-		Datasources: []string{
-			"confluence",
-			"google_drive",
-		},
-		Filters: []components.PlatformFilter{
-			components.PlatformFilter{
-				Field: "type",
-				Values: []string{
-					"spreadsheet",
-					"presentation",
-				},
-			},
-		},
 	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)

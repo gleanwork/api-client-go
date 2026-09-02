@@ -92,7 +92,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Agents.Get(ctx, "<id>")
+    res, err := s.Agents.Get(ctx, "{agent_id}")
     if err != nil {
         log.Fatal(err)
     }
@@ -104,11 +104,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `agentID`                                                | `string`                                                 | :heavy_check_mark:                                       | ID of the agent to retrieve.                             |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `agentID`                                                | `string`                                                 | :heavy_check_mark:                                       | ID of the agent to retrieve.                             | {agent_id}                                               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -147,7 +147,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Agents.GetSchemas(ctx, "<id>", apiclientgo.Pointer(false))
+    res, err := s.Agents.GetSchemas(ctx, "{agent_id}", apiclientgo.Pointer(false))
     if err != nil {
         log.Fatal(err)
     }
@@ -159,12 +159,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `agentID`                                                | `string`                                                 | :heavy_check_mark:                                       | ID of the agent whose schemas should be retrieved.       |
-| `includeTools`                                           | `*bool`                                                  | :heavy_minus_sign:                                       | Whether to include tool metadata in the response.        |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `agentID`                                                | `string`                                                 | :heavy_check_mark:                                       | ID of the agent whose schemas should be retrieved.       | {agent_id}                                               |
+| `includeTools`                                           | `*bool`                                                  | :heavy_minus_sign:                                       | Whether to include tool metadata in the response.        |                                                          |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -204,7 +204,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Agents.CreateRun(ctx, "<id>", components.PlatformAgentRunCreateRequest{
+    res, err := s.Agents.CreateRun(ctx, "{agent_id}", components.PlatformAgentRunCreateRequest{
         Messages: []components.PlatformMessage{
             components.PlatformMessage{
                 Role: components.PlatformMessageRoleUser,
@@ -231,7 +231,7 @@ func main() {
 | Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             | Example                                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                                   | [context.Context](https://pkg.go.dev/context#Context)                                                                   | :heavy_check_mark:                                                                                                      | The context to use for the request.                                                                                     |                                                                                                                         |
-| `agentID`                                                                                                               | `string`                                                                                                                | :heavy_check_mark:                                                                                                      | ID of the agent to run.                                                                                                 |                                                                                                                         |
+| `agentID`                                                                                                               | `string`                                                                                                                | :heavy_check_mark:                                                                                                      | ID of the agent to run.                                                                                                 | {agent_id}                                                                                                              |
 | `platformAgentRunCreateRequest`                                                                                         | [components.PlatformAgentRunCreateRequest](../../models/components/platformagentruncreaterequest.md)                    | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     | {<br/>"messages": [<br/>{<br/>"role": "USER",<br/>"content": [<br/>{<br/>"text": "What is our parental leave policy?",<br/>"type": "text"<br/>}<br/>]<br/>}<br/>]<br/>} |
 | `opts`                                                                                                                  | [][operations.Option](../../models/operations/option.md)                                                                | :heavy_minus_sign:                                                                                                      | The options for this request.                                                                                           |                                                                                                                         |
 
