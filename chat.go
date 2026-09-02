@@ -33,7 +33,7 @@ func newChat(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks.Hoo
 }
 
 // Create a chat response
-// Run an assistant turn. Set `stream` to true to receive server-sent events; otherwise the response is a typed JSON response object.
+// Run an assistant turn. The default response is JSON. HTTP clients request server-sent events by setting `stream` to true in the JSON body. An `Accept: text/event-stream` header does not replace `stream`.
 func (s *Chat) Create(ctx context.Context, request operations.PlatformChatCreateRequest, opts ...operations.Option) (*operations.PlatformChatCreateResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -312,7 +312,7 @@ func (s *Chat) Create(ctx context.Context, request operations.PlatformChatCreate
 }
 
 // CreateStream - SDK-only logical operation. HTTP clients must call the base path; the URL fragment is not sent. Create a chat response
-// SDK-only logical operation. HTTP clients must call the base path; the URL fragment is not sent. Run an assistant turn. Set `stream` to true to receive server-sent events; otherwise the response is a typed JSON response object.
+// SDK-only logical operation. HTTP clients must call the base path; the URL fragment is not sent. Run an assistant turn. The default response is JSON. HTTP clients request server-sent events by setting `stream` to true in the JSON body. An `Accept: text/event-stream` header does not replace `stream`.
 func (s *Chat) CreateStream(ctx context.Context, request operations.PlatformChatCreateStreamRequest, opts ...operations.Option) (*operations.PlatformChatCreateStreamResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
