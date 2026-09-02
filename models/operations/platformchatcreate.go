@@ -3,15 +3,157 @@
 package operations
 
 import (
+	"errors"
+	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/types"
 )
+
+type PlatformChatCreateInputType string
+
+const (
+	PlatformChatCreateInputTypeStr                             PlatformChatCreateInputType = "str"
+	PlatformChatCreateInputTypeArrayOfPlatformChatInputMessage PlatformChatCreateInputType = "arrayOfPlatformChatInputMessage"
+)
+
+// PlatformChatCreateInput - Either a plain string (single user turn) or a chronological array of `USER`/`ASSISTANT` messages. The final array message must be `USER`.
+type PlatformChatCreateInput struct {
+	Str                             *string                               `queryParam:"inline" union:"member"`
+	ArrayOfPlatformChatInputMessage []components.PlatformChatInputMessage `queryParam:"inline" union:"member"`
+
+	Type PlatformChatCreateInputType
+}
+
+func CreatePlatformChatCreateInputStr(str string) PlatformChatCreateInput {
+	typ := PlatformChatCreateInputTypeStr
+
+	return PlatformChatCreateInput{
+		Str:  &str,
+		Type: typ,
+	}
+}
+
+func CreatePlatformChatCreateInputArrayOfPlatformChatInputMessage(arrayOfPlatformChatInputMessage []components.PlatformChatInputMessage) PlatformChatCreateInput {
+	typ := PlatformChatCreateInputTypeArrayOfPlatformChatInputMessage
+
+	return PlatformChatCreateInput{
+		ArrayOfPlatformChatInputMessage: arrayOfPlatformChatInputMessage,
+		Type:                            typ,
+	}
+}
+
+func (u *PlatformChatCreateInput) UnmarshalJSON(data []byte) error {
+
+	var candidates []utils.UnionCandidate
+
+	// Collect all valid candidates
+	var str string = ""
+	if err := utils.UnmarshalJSON(data, &str, "", true, nil); err == nil {
+		candidates = append(candidates, utils.UnionCandidate{
+			Type:  PlatformChatCreateInputTypeStr,
+			Value: &str,
+		})
+	}
+
+	var arrayOfPlatformChatInputMessage []components.PlatformChatInputMessage = []components.PlatformChatInputMessage{}
+	if err := utils.UnmarshalJSON(data, &arrayOfPlatformChatInputMessage, "", true, nil); err == nil {
+		candidates = append(candidates, utils.UnionCandidate{
+			Type:  PlatformChatCreateInputTypeArrayOfPlatformChatInputMessage,
+			Value: arrayOfPlatformChatInputMessage,
+		})
+	}
+
+	if len(candidates) == 0 {
+		return fmt.Errorf("could not unmarshal `%s` into any supported union types for PlatformChatCreateInput", string(data))
+	}
+
+	// Pick the best candidate using multi-stage filtering
+	best := utils.PickBestUnionCandidate(candidates, data)
+	if best == nil {
+		return fmt.Errorf("could not unmarshal `%s` into any supported union types for PlatformChatCreateInput", string(data))
+	}
+
+	// Set the union type and value based on the best candidate
+	u.Type = best.Type.(PlatformChatCreateInputType)
+	switch best.Type {
+	case PlatformChatCreateInputTypeStr:
+		u.Str = best.Value.(*string)
+		return nil
+	case PlatformChatCreateInputTypeArrayOfPlatformChatInputMessage:
+		u.ArrayOfPlatformChatInputMessage = best.Value.([]components.PlatformChatInputMessage)
+		return nil
+	}
+
+	return fmt.Errorf("could not unmarshal `%s` into any supported union types for PlatformChatCreateInput", string(data))
+}
+
+func (u PlatformChatCreateInput) MarshalJSON() ([]byte, error) {
+	if u.Str != nil {
+		return utils.MarshalJSON(u.Str, "", true)
+	}
+
+	if u.ArrayOfPlatformChatInputMessage != nil {
+		return utils.MarshalJSON(u.ArrayOfPlatformChatInputMessage, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type PlatformChatCreateInput: all fields are null")
+}
+
+type PlatformChatCreateRequest struct {
+	// Either a plain string (single user turn) or a chronological array of `USER`/`ASSISTANT` messages. The final array message must be `USER`.
+	//
+	Input PlatformChatCreateInput `json:"input"`
+	//lint:ignore U1000 accessed via reflection for JSON marshaling
+	stream_ *bool `const:"false" json:"stream"`
+	// When true (default), persist the interaction and return a `conversation_id`. When false, run ephemerally with no persistence.
+	//
+	Store *bool `default:"true" json:"store"`
+	// Continue an existing stored conversation. Incompatible with message-array `input` and with `store: false`.
+	//
+	ConversationID *string `json:"conversation_id,omitempty"`
+}
+
+func (p PlatformChatCreateRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformChatCreateRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (p *PlatformChatCreateRequest) GetInput() PlatformChatCreateInput {
+	if p == nil {
+		return PlatformChatCreateInput{}
+	}
+	return p.Input
+}
+
+func (p *PlatformChatCreateRequest) GetStream() *bool {
+	return types.Pointer(false)
+}
+
+func (p *PlatformChatCreateRequest) GetStore() *bool {
+	if p == nil {
+		return nil
+	}
+	return p.Store
+}
+
+func (p *PlatformChatCreateRequest) GetConversationID() *string {
+	if p == nil {
+		return nil
+	}
+	return p.ConversationID
+}
 
 type PlatformChatCreateResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Successful response.
 	PlatformChatCompletedResponse *components.PlatformChatCompletedResponse
-	// Successful response.
-	Res *string
 }
 
 func (p *PlatformChatCreateResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -26,11 +168,4 @@ func (p *PlatformChatCreateResponse) GetPlatformChatCompletedResponse() *compone
 		return nil
 	}
 	return p.PlatformChatCompletedResponse
-}
-
-func (p *PlatformChatCreateResponse) GetRes() *string {
-	if p == nil {
-		return nil
-	}
-	return p.Res
 }

@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
 type PlatformChatCitationAnnotationType string
@@ -36,6 +37,17 @@ type PlatformChatCitationAnnotation struct {
 	StartIndex *int64                             `json:"start_index,omitempty"`
 	EndIndex   *int64                             `json:"end_index,omitempty"`
 	Snippets   []PlatformChatCitationSnippet      `json:"snippets,omitempty"`
+}
+
+func (p PlatformChatCitationAnnotation) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformChatCitationAnnotation) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (p *PlatformChatCitationAnnotation) GetType() PlatformChatCitationAnnotationType {

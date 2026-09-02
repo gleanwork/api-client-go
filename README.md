@@ -41,6 +41,7 @@ Remember that each namespace requires its own authentication token type as descr
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
+  * [Server-sent event streaming](#server-sent-event-streaming)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
@@ -237,6 +238,7 @@ For more information on obtaining the appropriate token type, please contact you
 ### [Chat](docs/sdks/chat/README.md)
 
 * [Create](docs/sdks/chat/README.md#create) - Create a chat response
+* [CreateStream](docs/sdks/chat/README.md#createstream) - SDK-only logical operation. HTTP clients must call the base path; the URL fragment is not sent. Create a chat response
 
 ### [Client.Activity](docs/sdks/activity/README.md)
 
@@ -502,6 +504,57 @@ For more information on obtaining the appropriate token type, please contact you
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Server-sent event streaming [eventstream] -->
+## Server-sent event streaming
+
+[Server-sent events][mdn-sse] are used to stream content from certain
+operations. These operations will expose the stream as an iterable that
+can be consumed using a simple `for` loop. The loop will
+terminate when the server no longer has any events to send and closes the
+underlying connection.
+
+```go
+package main
+
+import (
+	"context"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/operations"
+	"log"
+	"os"
+)
+
+func main() {
+	ctx := context.Background()
+
+	s := apiclientgo.New(
+		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+	)
+
+	res, err := s.Chat.CreateStream(ctx, operations.PlatformChatCreateStreamRequest{
+		Input: operations.CreatePlatformChatCreateStreamInputStr(
+			"What is our parental leave policy?",
+		),
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.PlatformChatStreamEventServerSentEvent != nil {
+		defer res.PlatformChatStreamEventServerSentEvent.Close()
+
+		for res.PlatformChatStreamEventServerSentEvent.Next() {
+			event := res.PlatformChatStreamEventServerSentEvent.Value()
+			log.Print(event)
+			// Handle the event
+		}
+	}
+}
+
+```
+
+[mdn-sse]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+<!-- End Server-sent event streaming [eventstream] -->
 
 <!-- Start Retries [retries] -->
 ## Retries
