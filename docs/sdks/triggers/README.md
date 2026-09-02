@@ -43,16 +43,11 @@ func main() {
 
     res, err := s.Triggers.Create(ctx, components.PlatformTriggerCreateRequest{
         PresetID: "GITHUB_1",
-        Description: apiclientgo.Pointer("Reviews I am tagged on, sent to my team's review channel"),
         Inputs: map[string]any{
-            "repository": "acme/payments-api",
+            "repository": "{repository}",
         },
         Delivery: components.PlatformTriggerDelivery{
-            WebhookURL: "https://customer.app/webhook",
-            Auth: &components.PlatformTriggerAuth{
-                Type: components.PlatformTriggerAuthTypeBearer,
-                Secret: "secret_test_123",
-            },
+            WebhookURL: "https://example.com/webhook",
         },
     })
     if err != nil {
@@ -165,7 +160,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Triggers.Get(ctx, "<id>")
+    res, err := s.Triggers.Get(ctx, "{trigger_id}")
     if err != nil {
         log.Fatal(err)
     }
@@ -177,11 +172,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `triggerID`                                              | `string`                                                 | :heavy_check_mark:                                       | ID of the trigger to retrieve.                           |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `triggerID`                                              | `string`                                                 | :heavy_check_mark:                                       | ID of the trigger to retrieve.                           | {trigger_id}                                             |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -221,18 +216,12 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Triggers.Update(ctx, "<id>", components.PlatformTriggerUpdateRequest{
-        Status: components.PlatformTriggerStatusEnabled.ToPointer(),
-        Description: apiclientgo.Pointer("Reviews I am tagged on, sent to my team's review channel"),
+    res, err := s.Triggers.Update(ctx, "{trigger_id}", components.PlatformTriggerUpdateRequest{
         Inputs: map[string]any{
-            "repository": "acme/payments-api",
+            "repository": "{repository}",
         },
         Delivery: &components.PlatformTriggerDelivery{
-            WebhookURL: "https://customer.app/webhook",
-            Auth: &components.PlatformTriggerAuth{
-                Type: components.PlatformTriggerAuthTypeBearer,
-                Secret: "secret_test_123",
-            },
+            WebhookURL: "https://example.com/webhook",
         },
     })
     if err != nil {
@@ -246,12 +235,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `triggerID`                                                                                        | `string`                                                                                           | :heavy_check_mark:                                                                                 | ID of the trigger to update.                                                                       |
-| `platformTriggerUpdateRequest`                                                                     | [components.PlatformTriggerUpdateRequest](../../models/components/platformtriggerupdaterequest.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
-| `opts`                                                                                             | [][operations.Option](../../models/operations/option.md)                                           | :heavy_minus_sign:                                                                                 | The options for this request.                                                                      |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  | Example                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |                                                                                                              |
+| `triggerID`                                                                                                  | `string`                                                                                                     | :heavy_check_mark:                                                                                           | ID of the trigger to update.                                                                                 | {trigger_id}                                                                                                 |
+| `platformTriggerUpdateRequest`                                                                               | [components.PlatformTriggerUpdateRequest](../../models/components/platformtriggerupdaterequest.md)           | :heavy_check_mark:                                                                                           | N/A                                                                                                          | {<br/>"inputs": {<br/>"repository": "{repository}"<br/>},<br/>"delivery": {<br/>"webhook_url": "https://example.com/webhook"<br/>}<br/>} |
+| `opts`                                                                                                       | [][operations.Option](../../models/operations/option.md)                                                     | :heavy_minus_sign:                                                                                           | The options for this request.                                                                                |                                                                                                              |
 
 ### Response
 
@@ -290,7 +279,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Triggers.Delete(ctx, "<id>")
+    res, err := s.Triggers.Delete(ctx, "{trigger_id}")
     if err != nil {
         log.Fatal(err)
     }
@@ -302,11 +291,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `triggerID`                                              | `string`                                                 | :heavy_check_mark:                                       | ID of the trigger to delete.                             |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `triggerID`                                              | `string`                                                 | :heavy_check_mark:                                       | ID of the trigger to delete.                             | {trigger_id}                                             |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -335,6 +324,7 @@ import(
 	"context"
 	"os"
 	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
 	"log"
 )
 
@@ -345,7 +335,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Triggers.SearchEvents(ctx, "<id>", nil)
+    res, err := s.Triggers.SearchEvents(ctx, "{trigger_id}", &components.PlatformTriggerEventSearchRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -357,12 +347,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                         | [context.Context](https://pkg.go.dev/context#Context)                                                         | :heavy_check_mark:                                                                                            | The context to use for the request.                                                                           |
-| `triggerID`                                                                                                   | `string`                                                                                                      | :heavy_check_mark:                                                                                            | ID of the trigger whose events to search.                                                                     |
-| `platformTriggerEventSearchRequest`                                                                           | [*components.PlatformTriggerEventSearchRequest](../../models/components/platformtriggereventsearchrequest.md) | :heavy_minus_sign:                                                                                            | N/A                                                                                                           |
-| `opts`                                                                                                        | [][operations.Option](../../models/operations/option.md)                                                      | :heavy_minus_sign:                                                                                            | The options for this request.                                                                                 |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   | Example                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                         | [context.Context](https://pkg.go.dev/context#Context)                                                         | :heavy_check_mark:                                                                                            | The context to use for the request.                                                                           |                                                                                                               |
+| `triggerID`                                                                                                   | `string`                                                                                                      | :heavy_check_mark:                                                                                            | ID of the trigger whose events to search.                                                                     | {trigger_id}                                                                                                  |
+| `platformTriggerEventSearchRequest`                                                                           | [*components.PlatformTriggerEventSearchRequest](../../models/components/platformtriggereventsearchrequest.md) | :heavy_minus_sign:                                                                                            | N/A                                                                                                           | {<br/>"page_size": 10<br/>}                                                                                   |
+| `opts`                                                                                                        | [][operations.Option](../../models/operations/option.md)                                                      | :heavy_minus_sign:                                                                                            | The options for this request.                                                                                 |                                                                                                               |
 
 ### Response
 
@@ -458,7 +448,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Triggers.GetPreset(ctx, "<id>")
+    res, err := s.Triggers.GetPreset(ctx, "{preset_id}")
     if err != nil {
         log.Fatal(err)
     }
@@ -470,11 +460,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `presetID`                                               | `string`                                                 | :heavy_check_mark:                                       | ID of the preset to retrieve.                            |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `presetID`                                               | `string`                                                 | :heavy_check_mark:                                       | ID of the preset to retrieve.                            | {preset_id}                                              |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -513,7 +503,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Triggers.ListPresetInputValues(ctx, "<id>", "<value>", nil)
+    res, err := s.Triggers.ListPresetInputValues(ctx, "{preset_id}", "{field}", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -525,13 +515,13 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                                | :heavy_check_mark:                                                                                                   | The context to use for the request.                                                                                  |
-| `presetID`                                                                                                           | `string`                                                                                                             | :heavy_check_mark:                                                                                                   | ID of the preset the input belongs to.                                                                               |
-| `field`                                                                                                              | `string`                                                                                                             | :heavy_check_mark:                                                                                                   | Field identifier of the input whose values to list.                                                                  |
-| `query`                                                                                                              | `*string`                                                                                                            | :heavy_minus_sign:                                                                                                   | Prefix filter over the input's option values, for typeahead. Matching is on the option value, not its display name.<br/> |
-| `opts`                                                                                                               | [][operations.Option](../../models/operations/option.md)                                                             | :heavy_minus_sign:                                                                                                   | The options for this request.                                                                                        |
+| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          | Example                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                                | :heavy_check_mark:                                                                                                   | The context to use for the request.                                                                                  |                                                                                                                      |
+| `presetID`                                                                                                           | `string`                                                                                                             | :heavy_check_mark:                                                                                                   | ID of the preset the input belongs to.                                                                               | {preset_id}                                                                                                          |
+| `field`                                                                                                              | `string`                                                                                                             | :heavy_check_mark:                                                                                                   | Field identifier of the input whose values to list.                                                                  | {field}                                                                                                              |
+| `query`                                                                                                              | `*string`                                                                                                            | :heavy_minus_sign:                                                                                                   | Prefix filter over the input's option values, for typeahead. Matching is on the option value, not its display name.<br/> |                                                                                                                      |
+| `opts`                                                                                                               | [][operations.Option](../../models/operations/option.md)                                                             | :heavy_minus_sign:                                                                                                   | The options for this request.                                                                                        |                                                                                                                      |
 
 ### Response
 
@@ -571,9 +561,9 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Triggers.SearchPresetEvents(ctx, "<id>", &components.PlatformTriggerPresetEventSearchRequest{
+    res, err := s.Triggers.SearchPresetEvents(ctx, "{preset_id}", &components.PlatformTriggerPresetEventSearchRequest{
         Inputs: map[string]string{
-            "repository": "acme/payments-api",
+            "repository": "{repository}",
         },
     })
     if err != nil {
@@ -587,12 +577,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                     | [context.Context](https://pkg.go.dev/context#Context)                                                                     | :heavy_check_mark:                                                                                                        | The context to use for the request.                                                                                       |
-| `presetID`                                                                                                                | `string`                                                                                                                  | :heavy_check_mark:                                                                                                        | ID of the preset to preview.                                                                                              |
-| `platformTriggerPresetEventSearchRequest`                                                                                 | [*components.PlatformTriggerPresetEventSearchRequest](../../models/components/platformtriggerpreseteventsearchrequest.md) | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
-| `opts`                                                                                                                    | [][operations.Option](../../models/operations/option.md)                                                                  | :heavy_minus_sign:                                                                                                        | The options for this request.                                                                                             |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               | Example                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                     | [context.Context](https://pkg.go.dev/context#Context)                                                                     | :heavy_check_mark:                                                                                                        | The context to use for the request.                                                                                       |                                                                                                                           |
+| `presetID`                                                                                                                | `string`                                                                                                                  | :heavy_check_mark:                                                                                                        | ID of the preset to preview.                                                                                              | {preset_id}                                                                                                               |
+| `platformTriggerPresetEventSearchRequest`                                                                                 | [*components.PlatformTriggerPresetEventSearchRequest](../../models/components/platformtriggerpreseteventsearchrequest.md) | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       | {<br/>"inputs": {<br/>"repository": "{repository}"<br/>},<br/>"page_size": 10<br/>}                                       |
+| `opts`                                                                                                                    | [][operations.Option](../../models/operations/option.md)                                                                  | :heavy_minus_sign:                                                                                                        | The options for this request.                                                                                             |                                                                                                                           |
 
 ### Response
 

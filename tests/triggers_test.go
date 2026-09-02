@@ -24,17 +24,12 @@ func TestTriggers_PlatformTriggersCreate(t *testing.T) {
 	)
 
 	res, err := s.Triggers.Create(ctx, components.PlatformTriggerCreateRequest{
-		PresetID:    "GITHUB_1",
-		Description: apiclientgo.Pointer("Reviews I am tagged on, sent to my team's review channel"),
+		PresetID: "GITHUB_1",
 		Inputs: map[string]any{
-			"repository": "acme/payments-api",
+			"repository": "{repository}",
 		},
 		Delivery: components.PlatformTriggerDelivery{
-			WebhookURL: "https://customer.app/webhook",
-			Auth: &components.PlatformTriggerAuth{
-				Type:   components.PlatformTriggerAuthTypeBearer,
-				Secret: "secret_test_123",
-			},
+			WebhookURL: "https://example.com/webhook",
 		},
 	})
 	require.NoError(t, err)
@@ -88,17 +83,11 @@ func TestTriggers_PlatformTriggersUpdate(t *testing.T) {
 	)
 
 	res, err := s.Triggers.Update(ctx, "<id>", components.PlatformTriggerUpdateRequest{
-		Status:      components.PlatformTriggerStatusEnabled.ToPointer(),
-		Description: apiclientgo.Pointer("Reviews I am tagged on, sent to my team's review channel"),
 		Inputs: map[string]any{
-			"repository": "acme/payments-api",
+			"repository": "{repository}",
 		},
 		Delivery: &components.PlatformTriggerDelivery{
-			WebhookURL: "https://customer.app/webhook",
-			Auth: &components.PlatformTriggerAuth{
-				Type:   components.PlatformTriggerAuthTypeBearer,
-				Secret: "secret_test_123",
-			},
+			WebhookURL: "https://example.com/webhook",
 		},
 	})
 	require.NoError(t, err)
@@ -117,7 +106,7 @@ func TestTriggers_PlatformTriggersEventsSearch(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Triggers.SearchEvents(ctx, "<id>", nil)
+	res, err := s.Triggers.SearchEvents(ctx, "<id>", &components.PlatformTriggerEventSearchRequest{})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -187,7 +176,7 @@ func TestTriggers_PlatformTriggerPresetsEventsSearch(t *testing.T) {
 
 	res, err := s.Triggers.SearchPresetEvents(ctx, "<id>", &components.PlatformTriggerPresetEventSearchRequest{
 		Inputs: map[string]string{
-			"repository": "acme/payments-api",
+			"repository": "{repository}",
 		},
 	})
 	require.NoError(t, err)
