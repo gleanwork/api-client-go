@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 8dc95bfc7e332908fbcd5de1c6c86785
+  docChecksum: 18a116fa0026e01d9a1addcdb4a0eb16
   docVersion: 0.9.0
   speakeasyVersion: 1.796.2
   generationVersion: 2.933.0
-  releaseVersion: 0.14.1
-  configChecksum: 8c89c283820d9faac4e45a791dc0cb8c
+  releaseVersion: 0.14.2
+  configChecksum: 129d1b1823a9da11c2ba28ca06eea180
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: 840f78ee-879d-4dee-ad28-ed93c6ea84a8
-  pristine_commit_hash: d4587625c12696d2ef22074480dad10341f9c161
-  pristine_tree_hash: 6a06f24ced2b243abad006f79ce75f2388578ff0
+  generation_id: 202d5eda-bc41-46c5-ad18-55f1b78f609f
+  pristine_commit_hash: a271685373dd688b6dbe4056d91377b28374b5ba
+  pristine_tree_hash: ff73f70c290b0b5eaa76f8d0d41e8dbe5dc2a1f1
 features:
   go:
     acceptHeaders: 2.81.2
@@ -4436,8 +4436,8 @@ trackedFiles:
     pristine_git_object: a3cb3e5448f3fdcfad77ed2a4ba47ae848d5cd5d
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:f40ebe3bde4f55ee4a32edefba969539316cf612
-    pristine_git_object: 5e1b19689ba49507a46e49cedecc48f061aa3812
+    last_write_checksum: sha1:b859db77b8f973e3dba53eab93c4b934f0efd032
+    pristine_git_object: 29019a856696b4ac46245015ffb6e72373a30605
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:cf65a2c96e303858d4cf70e07d4c44d3f1c1db38
@@ -7724,8 +7724,8 @@ trackedFiles:
     pristine_git_object: 6d9cbca42012c2760de3ecaf4f569c53d32197da
   tests/messages_test.go:
     id: 3433c956b7a3
-    last_write_checksum: sha1:0e70d5a95dcfffb2d01931c47eae827d7c95129a
-    pristine_git_object: bc499ec73cc495c1502d01361347ce76a0fe5f18
+    last_write_checksum: sha1:352ecfa3a01795bbe7fad9b0202c4ccaa02448c3
+    pristine_git_object: 64ef64fe1c0ccbc223987d87ddddf3d6e2de7799
   tests/mockserver/.gitignore:
     id: 7705eb663274
     last_write_checksum: sha1:228e1b05712a973948fd771323a2140a3b355ff4
@@ -8212,8 +8212,8 @@ trackedFiles:
     pristine_git_object: abb763ddc8504b28c0cb6fdf8d25237d46e21bab
   tests/mockserver/internal/handler/pathpostrestapiv1getchat.go:
     id: a0ec7bafa599
-    last_write_checksum: sha1:2267292ba8173cf8df70ddbc6ac02ff3439cb879
-    pristine_git_object: 8740195860b6c08e036caae19aab8e7374350960
+    last_write_checksum: sha1:b48e2313407814ee4f8ed181b8e5299a84960c44
+    pristine_git_object: 96d4127e0455272a9842e2d1954e5fcefa3278cc
   tests/mockserver/internal/handler/pathpostrestapiv1getchatapplication.go:
     id: 7d101c69d4bc
     last_write_checksum: sha1:7b81898137fdb3a89b4dcfa318b9b5b92e8860c0
@@ -11508,8 +11508,8 @@ trackedFiles:
     pristine_git_object: f6ef683531884725f5107c32848516513f87e494
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:d4de2843277d56535e630242ac2356de45043911
-    pristine_git_object: bf62649ead002e2e055aee340df14547cb7fce83
+    last_write_checksum: sha1:dbad0b008bd506999608ebaec2f211699394ad62
+    pristine_git_object: 2689f187c4f2df7ce3ea2cc3086860896cdbfb4f
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -13128,7 +13128,6 @@ generatedTests:
   platform-trigger-presets-get: "2026-08-21T02:35:39Z"
   platform-trigger-presets-input-values-list: "2026-08-21T02:35:39Z"
   platform-trigger-presets-events-search: "2026-08-21T02:35:39Z"
-releaseNotes: "## Go SDK Changes:\n* `Glean.Client.Chat.Create()`: \n  *  `request.ChatRequest.Messages[].Fragments[]` **Changed**\n  *  `response.Messages[].Fragments[]` **Changed**\n* `Glean.Client.Chat.Retrieve()`:  `response.ChatResult.Chat.Messages[].Fragments[]` **Changed**\n* `Glean.Client.Chat.CreateStream()`: \n  *  `request.ChatRequest.Messages[].Fragments[]` **Changed**\n* `Glean.Client.Agents.Retrieve()`: **Deprecated**\n* `Glean.Client.Agents.RetrieveSchemas()`: **Deprecated**\n* `Glean.Client.Agents.List()`: **Deprecated**\n* `Glean.Client.Agents.RunStream()`: **Deprecated**\n* `Glean.Client.Agents.RunStream()`:  `error.AuthenticationSuggestions[].RequestType.Enum(sandboxEgress)` **Added**\n* `Glean.Client.Agents.Run()`: **Deprecated**\n* `Glean.Client.Agents.Run()`:  `error.AuthenticationSuggestions[].RequestType.Enum(sandboxEgress)` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
