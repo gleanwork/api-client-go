@@ -33,6 +33,7 @@ custom := components.UgcType("custom_value")
 | `UgcTypePinsType`            | PINS_TYPE                    |
 | `UgcTypeScribesType`         | SCRIBES_TYPE                 |
 | `UgcTypeShortcutsType`       | SHORTCUTS_TYPE               |
+| `UgcTypeSkillsType`          | SKILLS_TYPE                  |
 | `UgcTypeSlideType`           | SLIDE_TYPE                   |
 | `UgcTypeSpreadsheetType`     | SPREADSHEET_TYPE             |
 | `UgcTypeInlineHTMLType`      | INLINE_HTML_TYPE             |

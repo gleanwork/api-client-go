@@ -20,6 +20,7 @@ const (
 	UgcTypePinsType            UgcType = "PINS_TYPE"
 	UgcTypeScribesType         UgcType = "SCRIBES_TYPE"
 	UgcTypeShortcutsType       UgcType = "SHORTCUTS_TYPE"
+	UgcTypeSkillsType          UgcType = "SKILLS_TYPE"
 	UgcTypeSlideType           UgcType = "SLIDE_TYPE"
 	UgcTypeSpreadsheetType     UgcType = "SPREADSHEET_TYPE"
 	UgcTypeInlineHTMLType      UgcType = "INLINE_HTML_TYPE"
@@ -35,7 +36,7 @@ func (e UgcType) ToPointer() *UgcType {
 func (e *UgcType) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "AGENT_TYPE", "ANNOUNCEMENTS_TYPE", "ANSWERS_TYPE", "CHATS_TYPE", "COLLECTIONS_TYPE", "EMAIL_TYPE", "HTML_CODE_TYPE", "IMAGE_TYPE", "MESSAGE_TYPE", "PAPER_TYPE", "PRISM_VIEWS_TYPE", "PROMPT_TEMPLATES_TYPE", "PINS_TYPE", "SCRIBES_TYPE", "SHORTCUTS_TYPE", "SLIDE_TYPE", "SPREADSHEET_TYPE", "INLINE_HTML_TYPE", "PODCAST_TYPE", "WORKFLOWS_TYPE":
+		case "AGENT_TYPE", "ANNOUNCEMENTS_TYPE", "ANSWERS_TYPE", "CHATS_TYPE", "COLLECTIONS_TYPE", "EMAIL_TYPE", "HTML_CODE_TYPE", "IMAGE_TYPE", "MESSAGE_TYPE", "PAPER_TYPE", "PRISM_VIEWS_TYPE", "PROMPT_TEMPLATES_TYPE", "PINS_TYPE", "SCRIBES_TYPE", "SHORTCUTS_TYPE", "SKILLS_TYPE", "SLIDE_TYPE", "SPREADSHEET_TYPE", "INLINE_HTML_TYPE", "PODCAST_TYPE", "WORKFLOWS_TYPE":
 			return true
 		}
 	}
