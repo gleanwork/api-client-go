@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 68720f65cbf714217871381245ae8dc9
+  docChecksum: f93d9acdb5383727834338db515aa742
   docVersion: 0.9.0
   speakeasyVersion: 1.796.3
   generationVersion: 2.934.1
-  releaseVersion: 0.15.2
-  configChecksum: 434be186e0a4566dce1aaba6a9fbb32a
+  releaseVersion: 0.15.3
+  configChecksum: 5e07f0304c2c9aee512a3080e5337108
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: 9e676e8b-8f67-405f-a7df-c98d039c530a
-  pristine_commit_hash: 64f9d933a452b75cddabc52c9c87703b28c89633
-  pristine_tree_hash: 04bf6219e968ede11066f302622f1cdfcccc8bec
+  generation_id: 15a588e9-5735-47a3-b298-b60cde77ecbe
+  pristine_commit_hash: 3757966cc845b9a64db6e7a8d4c249308dfa1f4f
+  pristine_tree_hash: f873446e44c415c9ea981294c4203905b667d6ef
 features:
   go:
     acceptHeaders: 2.81.2
@@ -3029,8 +3029,8 @@ trackedFiles:
     pristine_git_object: ff0c9ab42bb2060ffa4b4baa6b29d2136f97dd18
   docs/models/components/ugctype.md:
     id: 40fa5e032f80
-    last_write_checksum: sha1:d9465c589f412da573ea39e35fdb51d02544c65f
-    pristine_git_object: be5ae7ff3b8dba9d8393f317ded1caf324ea24f1
+    last_write_checksum: sha1:52143e3d7b9986cef444ad5de17b28132519cd0d
+    pristine_git_object: 39f2a4caee66e5f8dec67d2a6c5ad93b275b4341
   docs/models/components/uiconfig.md:
     id: 755fbd873311
     last_write_checksum: sha1:682048883ac81a43f5ff7becd6906e1146dfa46a
@@ -4541,8 +4541,8 @@ trackedFiles:
     pristine_git_object: a3cb3e5448f3fdcfad77ed2a4ba47ae848d5cd5d
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:ad8790f180fb3e09611a825198bbb91ce0dd69b9
-    pristine_git_object: dd8b1028ff0616b85b1e2d47905b6b2fd155b67b
+    last_write_checksum: sha1:7f449fe5833c47357af2209012c553354d81a94d
+    pristine_git_object: 85aac9fb49357fb9304604ec886c6654c9b0e82c
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:cf65a2c96e303858d4cf70e07d4c44d3f1c1db38
@@ -6917,8 +6917,8 @@ trackedFiles:
     pristine_git_object: 0b72dbe21d5033f1d76ddd60472f10449375c421
   models/components/ugctype.go:
     id: 98a0543d6066
-    last_write_checksum: sha1:71020b477928e3a71b5c47d41299745ffeee7edc
-    pristine_git_object: 4332969322c089d6bf6c09883350bebb52797e3b
+    last_write_checksum: sha1:01514c9151f0188187673ff44919e501bf94bc5e
+    pristine_git_object: b680fd1d17062e952196471625e7d5fe559059a4
   models/components/unauthorizeddatasourceinstance.go:
     id: 172020c59199
     last_write_checksum: sha1:208f3d9f66716905af4149eb8fa81efc975b5212
@@ -10773,8 +10773,8 @@ trackedFiles:
     pristine_git_object: 7a6a89805e8b840aa2fae616ef6e49dc3d0e0851
   tests/mockserver/internal/sdk/models/components/ugctype.go:
     id: 7b77277c1355
-    last_write_checksum: sha1:c7e27d5ff56bd7ff24625189a85d766eca701e7f
-    pristine_git_object: bc085b15186b2dcd11f9f73d3dcbb7c090e2987d
+    last_write_checksum: sha1:653a15069e2fc0cce67579c0871856d42a85f51f
+    pristine_git_object: 3d7ab4b482de383d8b46f9af9779e1051f9c68ff
   tests/mockserver/internal/sdk/models/components/unauthorizeddatasourceinstance.go:
     id: bc69d4c4bf6d
     last_write_checksum: sha1:39fb84396b33bc645fb5e6ebcea36ab88b5db179
@@ -11737,8 +11737,8 @@ trackedFiles:
     pristine_git_object: f6ef683531884725f5107c32848516513f87e494
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:7c2dd1971ef08363eb64aac3c8a2da389411b637
-    pristine_git_object: 8f8003ff8749d018e6b02af41ac3cffaf4436542
+    last_write_checksum: sha1:ca6dc11ab46aab547f96cfa948c7d75dc3ef9cbc
+    pristine_git_object: 82e7014fe632efda0d2f05376b17812f945a5f1a
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -13372,6 +13372,7 @@ generatedTests:
   platform-trigger-presets-get: "2026-08-21T02:35:39Z"
   platform-trigger-presets-input-values-list: "2026-08-21T02:35:39Z"
   platform-trigger-presets-events-search: "2026-08-21T02:35:39Z"
+releaseNotes: "## Go SDK Changes:\n* `Glean.Client.Announcements.Create()`: \n  *  `request.CreateAnnouncementRequest.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Announcements.Update()`: \n  *  `request.UpdateAnnouncementRequest.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.Body.StructuredList[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Answers.Create()`: \n  *  `request.CreateAnswerRequest.Data.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Answers.Update()`: \n  *  `request.EditAnswerRequest.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Answers.Retrieve()`:  `response.AnswerResult.Answer.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Answers.List()`:  `response.AnswerResults[].Answer.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Chat.Create()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Chat.Retrieve()`: \n  *  `response.ChatResult.Chat.CreatedBy.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `error.CreatedBy.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Chat.List()`:  `response.ChatResults[].Chat.CreatedBy.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Chat.CreateStream()`: \n  *  `request.ChatRequest.Messages[].Citations[].SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Agents.Create()`:  `response.Workflow.Author.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Agents.Import()`:  `response.WorkflowResult.Workflow.Author.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Collections.AddItems()`:  `response.Collection.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Collections.Create()`: \n  *  `request.CreateCollectionRequest.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.union(class (0)).Collection.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Collections.DeleteItem()`:  `response.Collection.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Collections.Update()`: \n  *  `request.EditCollectionRequest.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Collections.UpdateItem()`:  `response.Collection.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Collections.Retrieve()`:  `response.Collection.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Collections.List()`:  `response.Collections[].AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Documents.Retrieve()`:  `response.Documents.Map<DocumentOrError>.union(Document).Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Documents.RetrieveByFacets()`:  `response.Documents[].Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Insights.Retrieve()`:  `response.GleanAssist.ActivityInsights[].User.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Messages.Retrieve()`:  `response.SearchResponse.Results[].StructuredResults[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Pins.Update()`:  `response.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Pins.Retrieve()`:  `response.Pin.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Pins.List()`:  `response.Pins[].Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Pins.Create()`:  `response.Attribution.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Search.QueryAsAdmin()`: \n  *  `request.SearchRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Search.Autocomplete()`:  `response.Results[].Document.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Search.RetrieveFeed()`:  `response.Results[].PrimaryEntry.CreatedBy.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Search.Recommendations()`: \n  *  `request.RecommendationsRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Search.Query()`: \n  *  `request.SearchRequest.SourceDocument.Metadata.Author.RelatedDocuments[].Results[].StructuredResults[].Answer.Collections[].Items[].Shortcut.FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.Results[].StructuredResults[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Entities.List()`:  `response.Results[].RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Entities.ReadPeople()`:  `response.Results[].RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Shortcuts.Create()`: \n  *  `request.CreateShortcutRequest.Data.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.Shortcut.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Shortcuts.Retrieve()`:  `response.Shortcut.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Shortcuts.List()`:  `response.Shortcuts[].AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Shortcuts.Update()`: \n  *  `request.UpdateShortcutRequest.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n  *  `response.Shortcut.AddedRoles[].Person.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Verification.AddReminder()`:  `response.Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Verification.List()`:  `response.Documents[].Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n* `Glean.Client.Verification.Verify()`:  `response.Metadata.LastVerifier.RelatedDocuments[].QuerySuggestion.Ranges[].Document.Metadata.Pins[].FavoriteInfo.UgcType.Enum(skillsType)` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
