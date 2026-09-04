@@ -356,10 +356,17 @@ func (s *Chat) CreateStream(ctx context.Context, request operations.PlatformChat
 		timeout = s.sdkConfiguration.Timeout
 	}
 
+	var streamCancel context.CancelFunc
+
 	if timeout != nil {
 		var cancel context.CancelFunc
 		ctx, cancel = context.WithTimeout(ctx, *timeout)
-		defer cancel()
+		streamCancel = cancel
+		defer func() {
+			if streamCancel != nil {
+				streamCancel()
+			}
+		}()
 	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", opURL, bodyReader)
@@ -488,7 +495,8 @@ func (s *Chat) CreateStream(ctx context.Context, request operations.PlatformChat
 					return components.PlatformChatStreamEventServerSentEvent{}, err
 				}
 				return e, nil
-			}, "")
+			}, "", stream.WithCancel[components.PlatformChatStreamEventServerSentEvent](streamCancel))
+			streamCancel = nil
 			res.PlatformChatStreamEventServerSentEvent = out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)

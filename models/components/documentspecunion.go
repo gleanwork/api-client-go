@@ -255,7 +255,14 @@ func CreateDocumentSpecUnionDocumentSpec4(documentSpec4 DocumentSpec4) DocumentS
 	}
 }
 
-func (u *DocumentSpecUnion) UnmarshalJSON(data []byte) error {
+func (u *DocumentSpecUnion) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = DocumentSpecUnion{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	var candidates []utils.UnionCandidate
 

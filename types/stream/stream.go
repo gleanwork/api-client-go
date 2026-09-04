@@ -11,6 +11,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
+	"sync/atomic"
 )
 
 type ServerEvent struct {
@@ -73,9 +75,11 @@ type EventStream[T any] struct {
 	unmarshaller func(se []byte) (T, error)
 	sentinel     string
 	ctx          context.Context
+	cancel       context.CancelFunc
+	releaseOnce  sync.Once
 	dataRequired bool
 
-	finished bool
+	finished atomic.Bool
 	first    bool
 	err      error
 	val      *T
@@ -125,30 +129,52 @@ func WithDataRequired[T any](dataRequired bool) func(*EventStream[T]) {
 	}
 }
 
+// WithCancel hands ownership of a context cancel function (typically the
+// request timeout's) to the stream. The deadline keeps bounding the whole
+// stream; the stream releases the context when it ends or is closed instead
+// of the caller cancelling it before iteration. A nil cancel is ignored.
+func WithCancel[T any](cancel context.CancelFunc) func(*EventStream[T]) {
+	return func(es *EventStream[T]) {
+		if cancel != nil {
+			es.cancel = cancel
+		}
+	}
+}
+
+// release cancels the owned context, once.
+func (es *EventStream[T]) release() {
+	es.releaseOnce.Do(func() {
+		if es.cancel != nil {
+			es.cancel()
+		}
+	})
+}
+
 // Next waits for the next event from a stream which will be available
 // through the Value() method. It returns false when the stream is done or
 // an error occurred. After this method returns false, the Err method is used
 // to check for any errors that occurred while parsing the stream.
 func (es *EventStream[T]) Next() bool {
-	if es.err != nil || es.finished {
+	if es.err != nil || es.finished.Load() {
 		return false
-	}
-
-	// Check if context is canceled
-	select {
-	case <-es.ctx.Done():
-		es.err = es.ctx.Err()
-		return false
-	default:
 	}
 
 	for {
-		if !es.scanner.Scan() {
+		// Re-checked every iteration: comment-only and data-less keepalive
+		// frames loop here without publishing, and the retained operation
+		// timeout must still be able to stop the stream.
+		select {
+		case <-es.ctx.Done():
+			es.err = es.ctx.Err()
+			es.release()
 			return false
+		default:
 		}
 
-		es.err = es.scanner.Err()
-		if es.err != nil {
+		if !es.scanner.Scan() {
+			es.err = es.scanner.Err()
+			es.finished.Store(true)
+			es.release()
 			return false
 		}
 
@@ -217,7 +243,8 @@ func (es *EventStream[T]) Next() bool {
 		event.ID = es.eventID
 
 		if es.sentinel != "" && data == es.sentinel+"\n" {
-			es.finished = true
+			es.finished.Store(true)
+			es.release()
 			return false
 		}
 
@@ -256,6 +283,7 @@ func (es *EventStream[T]) Next() bool {
 			jsonData, err := json.Marshal(data)
 			if err != nil {
 				es.err = err
+				es.release()
 				return false
 			}
 			event.Data = jsonData
@@ -266,12 +294,14 @@ func (es *EventStream[T]) Next() bool {
 		e, err := json.Marshal(event)
 		if err != nil {
 			es.err = err
+			es.release()
 			return false
 		}
 
 		parsedEvent, err := es.unmarshaller(e)
 		if err != nil {
 			es.err = err
+			es.release()
 			return false
 		}
 
@@ -294,6 +324,8 @@ func (es *EventStream[T]) Err() error {
 // Close will release underlying resources held by an event stream. It must
 // always be called.
 func (es *EventStream[T]) Close() error {
-	es.finished = true
-	return es.r.Close()
+	es.finished.Store(true)
+	err := es.r.Close()
+	es.release()
+	return err
 }

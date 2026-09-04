@@ -43,7 +43,14 @@ func CreatePlatformChatCreateInputArrayOfPlatformChatInputMessage(arrayOfPlatfor
 	}
 }
 
-func (u *PlatformChatCreateInput) UnmarshalJSON(data []byte) error {
+func (u *PlatformChatCreateInput) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = PlatformChatCreateInput{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	var candidates []utils.UnionCandidate
 

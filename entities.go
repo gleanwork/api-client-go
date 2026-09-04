@@ -534,10 +534,17 @@ func (s *Entities) RetrievePersonPhoto(ctx context.Context, personID string, ds 
 		timeout = s.sdkConfiguration.Timeout
 	}
 
+	var streamCancel context.CancelFunc
+
 	if timeout != nil {
 		var cancel context.CancelFunc
 		ctx, cancel = context.WithTimeout(ctx, *timeout)
-		defer cancel()
+		streamCancel = cancel
+		defer func() {
+			if streamCancel != nil {
+				streamCancel()
+			}
+		}()
 	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", opURL, nil)
@@ -668,10 +675,14 @@ func (s *Entities) RetrievePersonPhoto(ctx context.Context, personID string, ds 
 
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `image/png`):
+			httpRes.Body = utils.BodyWithCancel(httpRes.Body, streamCancel)
+			streamCancel = nil
 			res.TwoHundredImagePngResponseStream = httpRes.Body
 
 			return res, nil
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `image/jpeg`):
+			httpRes.Body = utils.BodyWithCancel(httpRes.Body, streamCancel)
+			streamCancel = nil
 			res.TwoHundredImageJpegResponseStream = httpRes.Body
 
 			return res, nil

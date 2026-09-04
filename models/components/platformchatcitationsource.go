@@ -73,7 +73,14 @@ func CreatePlatformChatCitationSourceCustomEntity(customEntity PlatformChatCusto
 	}
 }
 
-func (u *PlatformChatCitationSource) UnmarshalJSON(data []byte) error {
+func (u *PlatformChatCitationSource) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = PlatformChatCitationSource{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	type discriminator struct {
 		Type string `json:"type"`

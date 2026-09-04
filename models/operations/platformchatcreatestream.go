@@ -44,7 +44,14 @@ func CreatePlatformChatCreateStreamInputArrayOfPlatformChatInputMessage(arrayOfP
 	}
 }
 
-func (u *PlatformChatCreateStreamInput) UnmarshalJSON(data []byte) error {
+func (u *PlatformChatCreateStreamInput) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = PlatformChatCreateStreamInput{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	var candidates []utils.UnionCandidate
 
