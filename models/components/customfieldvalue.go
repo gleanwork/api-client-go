@@ -51,7 +51,14 @@ func CreateCustomFieldValueCustomFieldValuePerson(customFieldValuePerson CustomF
 	}
 }
 
-func (u *CustomFieldValue) UnmarshalJSON(data []byte) error {
+func (u *CustomFieldValue) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = CustomFieldValue{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	var candidates []utils.UnionCandidate
 

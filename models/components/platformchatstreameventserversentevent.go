@@ -86,7 +86,14 @@ func CreatePlatformChatStreamEventServerSentEventResponseFailed(responseFailed P
 	}
 }
 
-func (u *PlatformChatStreamEventServerSentEvent) UnmarshalJSON(data []byte) error {
+func (u *PlatformChatStreamEventServerSentEvent) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = PlatformChatStreamEventServerSentEvent{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	type discriminator struct {
 		Event string `json:"event"`

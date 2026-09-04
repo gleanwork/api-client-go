@@ -48,7 +48,14 @@ func CreatePlatformTriggerWebhookEventContentSchedule(contentSchedule PlatformCo
 	}
 }
 
-func (u *PlatformTriggerWebhookEvent) UnmarshalJSON(data []byte) error {
+func (u *PlatformTriggerWebhookEvent) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = PlatformTriggerWebhookEvent{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	type discriminator struct {
 		EventType string `json:"event_type"`

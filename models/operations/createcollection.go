@@ -129,7 +129,14 @@ func CreateCreatecollectionResponseBodyResponseBody2(responseBody2 ResponseBody2
 	}
 }
 
-func (u *CreatecollectionResponseBody) UnmarshalJSON(data []byte) error {
+func (u *CreatecollectionResponseBody) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = CreatecollectionResponseBody{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	var candidates []utils.UnionCandidate
 

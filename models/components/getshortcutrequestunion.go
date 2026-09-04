@@ -63,7 +63,14 @@ func CreateGetShortcutRequestUnionGetShortcutRequest(getShortcutRequest GetShort
 	}
 }
 
-func (u *GetShortcutRequestUnion) UnmarshalJSON(data []byte) error {
+func (u *GetShortcutRequestUnion) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = GetShortcutRequestUnion{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
 
 	var candidates []utils.UnionCandidate
 
