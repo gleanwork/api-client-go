@@ -77,7 +77,9 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeProjectNextStep`                   | PROJECT_NEXT_STEP                                    |
 | `JustificationTypeDemoCard`                          | DEMO_CARD                                            |
 | `JustificationTypeResolveMeetingConflict`            | RESOLVE_MEETING_CONFLICT                             |
+| `JustificationTypeFindingMeetingRoom`                | FINDING_MEETING_ROOM                                 |
 | `JustificationTypeOooPlanner`                        | OOO_PLANNER                                          |
 | `JustificationTypeOooCatchUp`                        | OOO_CATCH_UP                                         |
 | `JustificationTypeAdminHealthCenter`                 | ADMIN_HEALTH_CENTER                                  |
 | `JustificationTypeKnowledgeGap`                      | KNOWLEDGE_GAP                                        |
+| `JustificationTypeArtifactCreation`                  | ARTIFACT_CREATION                                    |

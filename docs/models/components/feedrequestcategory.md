@@ -58,7 +58,9 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                 |
 | `FeedRequestCategoryDemoCard`                     | DEMO_CARD                                         |
 | `FeedRequestCategoryResolveMeetingConflict`       | RESOLVE_MEETING_CONFLICT                          |
+| `FeedRequestCategoryFindingMeetingRoom`           | FINDING_MEETING_ROOM                              |
 | `FeedRequestCategoryOooPlanner`                   | OOO_PLANNER                                       |
 | `FeedRequestCategoryOooCatchUp`                   | OOO_CATCH_UP                                      |
 | `FeedRequestCategoryAdminHealthCenter`            | ADMIN_HEALTH_CENTER                               |
 | `FeedRequestCategoryKnowledgeGap`                 | KNOWLEDGE_GAP                                     |
+| `FeedRequestCategoryArtifactCreation`             | ARTIFACT_CREATION                                 |

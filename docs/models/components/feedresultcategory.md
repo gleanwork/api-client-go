@@ -63,7 +63,9 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                |
 | `FeedResultCategoryDemoCard`                     | DEMO_CARD                                        |
 | `FeedResultCategoryResolveMeetingConflict`       | RESOLVE_MEETING_CONFLICT                         |
+| `FeedResultCategoryFindingMeetingRoom`           | FINDING_MEETING_ROOM                             |
 | `FeedResultCategoryOooPlanner`                   | OOO_PLANNER                                      |
 | `FeedResultCategoryOooCatchUp`                   | OOO_CATCH_UP                                     |
 | `FeedResultCategoryAdminHealthCenter`            | ADMIN_HEALTH_CENTER                              |
 | `FeedResultCategoryKnowledgeGap`                 | KNOWLEDGE_GAP                                    |
+| `FeedResultCategoryArtifactCreation`             | ARTIFACT_CREATION                                |
