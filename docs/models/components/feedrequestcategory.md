@@ -64,3 +64,4 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryAdminHealthCenter`            | ADMIN_HEALTH_CENTER                               |
 | `FeedRequestCategoryKnowledgeGap`                 | KNOWLEDGE_GAP                                     |
 | `FeedRequestCategoryArtifactCreation`             | ARTIFACT_CREATION                                 |
+| `FeedRequestCategoryEditDoc`                      | EDIT_DOC                                          |

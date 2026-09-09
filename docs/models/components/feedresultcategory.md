@@ -69,3 +69,4 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryAdminHealthCenter`            | ADMIN_HEALTH_CENTER                              |
 | `FeedResultCategoryKnowledgeGap`                 | KNOWLEDGE_GAP                                    |
 | `FeedResultCategoryArtifactCreation`             | ARTIFACT_CREATION                                |
+| `FeedResultCategoryEditDoc`                      | EDIT_DOC                                         |

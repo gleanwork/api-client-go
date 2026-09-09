@@ -83,3 +83,4 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeAdminHealthCenter`                 | ADMIN_HEALTH_CENTER                                  |
 | `JustificationTypeKnowledgeGap`                      | KNOWLEDGE_GAP                                        |
 | `JustificationTypeArtifactCreation`                  | ARTIFACT_CREATION                                    |
+| `JustificationTypeEditDoc`                           | EDIT_DOC                                             |
