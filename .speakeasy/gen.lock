@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: fee1a198e1c72b93bc0505c193dde59e
+  docChecksum: c527c862fa483ecb898fd7e035f77cda
   docVersion: 0.9.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.15.9
-  configChecksum: 6be551de3dbd205ee495255ef7a5d1f6
+  releaseVersion: 0.15.10
+  configChecksum: 37b0f7ac4dfb3ab71ce9cfa4cae51378
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: c0654466-febd-4954-839b-eec9567e85ae
-  pristine_commit_hash: 9a4e1a04134d6aae1eacc19db3a6f9c839d74885
-  pristine_tree_hash: c92abe44cd9152e7200f1467fb320e7097909413
+  generation_id: 801bd45c-3a57-4f66-bc5c-4573f2a86a9b
+  pristine_commit_hash: 5cfac9b826305398cef69a8da0ad52cb69fa82d4
+  pristine_tree_hash: 78e3aead911a56593a335dd129d91962927bca12
 features:
   go:
     acceptHeaders: 2.81.2
@@ -4485,8 +4485,8 @@ trackedFiles:
     pristine_git_object: 6fd58d622b0781d8feefd4d52e5b409f8de2fa3e
   docs/sdks/people/README.md:
     id: ff7b3ee21c2b
-    last_write_checksum: sha1:f11a46bb5737e9a1e990936103557ace1dc9174b
-    pristine_git_object: 7126c298668da48f9e3a1a3c1895ca919aaf3816
+    last_write_checksum: sha1:30b258bab0b6c8f76b241a2e0a135a00ca79b95d
+    pristine_git_object: 6d2b293d4f8ef11ec2e9138f08cae3a7c00d8281
   docs/sdks/permissions/README.md:
     id: 2e4061ce50d4
     last_write_checksum: sha1:f9839d0d3a07b9890acce64828f8173f1609dbfc
@@ -4541,8 +4541,8 @@ trackedFiles:
     pristine_git_object: a3cb3e5448f3fdcfad77ed2a4ba47ae848d5cd5d
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:43b461f873546ce98756a210479974ddc97c8a94
-    pristine_git_object: cb10bca003cee931b3e6c80f3338bc93e6fb8abe
+    last_write_checksum: sha1:837cb6865c5ea431dd47841fe7164584e73b2694
+    pristine_git_object: 5bf979cc2f93ab34e413483ee5dd1a6d4db44d8b
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:cf65a2c96e303858d4cf70e07d4c44d3f1c1db38
@@ -7749,8 +7749,8 @@ trackedFiles:
     pristine_git_object: e6e5a01c6e721e879e24a38a1f97e3e27d4686d4
   people.go:
     id: 7ce8ac6ba500
-    last_write_checksum: sha1:de8ea226822fb1a1f3a4b209276aa5f8c2b7af1b
-    pristine_git_object: 82627831ce64fad8a27ede322e1ddb086c67a59c
+    last_write_checksum: sha1:01dc7cec19f71a9ce0e06f7b50ce816c815892db
+    pristine_git_object: 8b998f409900658e41ef3051950320edaf6ac2fe
   permissions.go:
     id: 24d6fe5c456e
     last_write_checksum: sha1:d0f7d48ef09cbbf1eeb63a1847b05158b3fe8eb4
@@ -7889,8 +7889,8 @@ trackedFiles:
     pristine_git_object: 6d9cbca42012c2760de3ecaf4f569c53d32197da
   tests/messages_test.go:
     id: 3433c956b7a3
-    last_write_checksum: sha1:352ecfa3a01795bbe7fad9b0202c4ccaa02448c3
-    pristine_git_object: 64ef64fe1c0ccbc223987d87ddddf3d6e2de7799
+    last_write_checksum: sha1:1cd91a5da0532448c95e970af3d91952394a6cb9
+    pristine_git_object: f927c36464e8eb191ae67582831be04e3db1e5dc
   tests/mockserver/.gitignore:
     id: 7705eb663274
     last_write_checksum: sha1:228e1b05712a973948fd771323a2140a3b355ff4
@@ -11737,8 +11737,8 @@ trackedFiles:
     pristine_git_object: f6ef683531884725f5107c32848516513f87e494
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:bc69738af59c73ce2c879c5e10a457eb451f8f72
-    pristine_git_object: d470e2e3dc7390a884e96fba9f1ed59011856725
+    last_write_checksum: sha1:dbad0b008bd506999608ebaec2f211699394ad62
+    pristine_git_object: 2689f187c4f2df7ce3ea2cc3086860896cdbfb4f
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -13372,7 +13372,6 @@ generatedTests:
   platform-trigger-presets-get: "2026-08-21T02:35:39Z"
   platform-trigger-presets-input-values-list: "2026-08-21T02:35:39Z"
   platform-trigger-presets-events-search: "2026-08-21T02:35:39Z"
-releaseNotes: "## Go SDK Changes:\n* `Glean.Client.Search.RetrieveFeed()`: \n  *  `request.FeedRequest.Categories[].Enum(editDoc)` **Added**\n  *  `response.Results[]` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
