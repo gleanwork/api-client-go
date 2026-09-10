@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 4206f66b4e733a1bd9d459d8063cc4ce
+  docChecksum: 6353c0f55e4a0e81bd102bec49feb762
   docVersion: 0.9.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.15.11
-  configChecksum: f719719aa4ff147de0e356bc1de3b95c
+  releaseVersion: 0.15.12
+  configChecksum: e4916470fb7e0fa8f4f67755c900accb
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: d52592a0-a59a-4f7b-87d4-2eef883a80ab
-  pristine_commit_hash: ba7e9f74d93de42e1c87242e98eff945965c344c
-  pristine_tree_hash: 529d4043483bbc3030f9fefa29c9b71664345dac
+  generation_id: cc655913-09f7-437e-8304-5876725731f8
+  pristine_commit_hash: 6b51a99b27dae175b4d4139795c356c830f12679
+  pristine_tree_hash: 2c0e09765cfca0d4381ab33f265b12a513c0ed0a
 features:
   go:
     acceptHeaders: 2.81.2
@@ -85,8 +85,8 @@ trackedFiles:
     pristine_git_object: 10266e6f1bb29d4dc23a062cf812cd8b301e7e9c
   chat.go:
     id: 81535ccb3ff5
-    last_write_checksum: sha1:fc8759eec8e613bbbbd690f54fa3c0ab6d09a0fe
-    pristine_git_object: 9e08391f34b358845252936b811ece2720707c2e
+    last_write_checksum: sha1:6e005735a5d3585ac561279fbf7ffff85fea7adc
+    pristine_git_object: 13dc9c16103b053ffe211c97f183c4adeea23d5c
   client.go:
     id: d633516feaf9
     last_write_checksum: sha1:0d0791344f96bf5f4ca299c16ff640582fb0c055
@@ -4409,8 +4409,8 @@ trackedFiles:
     pristine_git_object: eb3586c19afd9dfda47ca746441495da0473be29
   docs/sdks/chat/README.md:
     id: 393193527c2c
-    last_write_checksum: sha1:2dad7aed0f644ca865f9970f7e4ddac1cfa861a6
-    pristine_git_object: 0eb6d5ce1b4b7fe28eb870854668fc79bd6f724c
+    last_write_checksum: sha1:2dfaed593102d4be6bb4a8f7ed6dfceff65457f7
+    pristine_git_object: a967e8840e00d43887ee16e00407a46fd8bfd12e
   docs/sdks/clientagents/README.md:
     id: 8e00e6d6b64e
     last_write_checksum: sha1:951b2c3d8a4e1432b1bd2dddd6de9923829532f9
@@ -4541,8 +4541,8 @@ trackedFiles:
     pristine_git_object: a3cb3e5448f3fdcfad77ed2a4ba47ae848d5cd5d
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:14a8098410ff09a8f83f4a07992debe0b1c726fc
-    pristine_git_object: b815aef59fd398c97773672efc8fed394efc0d84
+    last_write_checksum: sha1:d7b8d5013260023d130068f95fd0e2d0e6a14fde
+    pristine_git_object: 4afa729ca95e50f9dd5eb8d47b84c936828d4446
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:cf65a2c96e303858d4cf70e07d4c44d3f1c1db38
@@ -11737,8 +11737,8 @@ trackedFiles:
     pristine_git_object: f6ef683531884725f5107c32848516513f87e494
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:51caf98a762e9111f8558428aa0ca90594e4ae69
-    pristine_git_object: b832e217c5421f5ae128917e4e19fe29b3a90024
+    last_write_checksum: sha1:dbad0b008bd506999608ebaec2f211699394ad62
+    pristine_git_object: 2689f187c4f2df7ce3ea2cc3086860896cdbfb4f
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
