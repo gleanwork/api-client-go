@@ -311,8 +311,8 @@ func (s *Chat) Create(ctx context.Context, request operations.PlatformChatCreate
 
 }
 
-// CreateStream - SDK-only logical operation. HTTP clients must call the base path; the URL fragment is not sent. Create a chat response
-// SDK-only logical operation. HTTP clients must call the base path; the URL fragment is not sent. Run an assistant turn. The default response is JSON. HTTP clients request server-sent events by setting `stream` to true in the JSON body. An `Accept: text/event-stream` header does not replace `stream`.
+// CreateStream - Create a streaming chat response
+// SDK-only logical operation. HTTP clients must call the base path; the URL fragment is not sent. Run an assistant turn as server-sent events. HTTP clients request this mode by setting `stream` to true in the JSON body.
 func (s *Chat) CreateStream(ctx context.Context, request operations.PlatformChatCreateStreamRequest, opts ...operations.Option) (*operations.PlatformChatCreateStreamResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
