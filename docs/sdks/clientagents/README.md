@@ -393,8 +393,8 @@ func main() {
 
     res, err := s.Client.Agents.RunStream(ctx, components.AgentRunCreate{
         AgentID: "<id>",
-        Messages: []components.Message{
-            components.Message{
+        Messages: []components.MessageInput{
+            components.MessageInput{
                 Role: apiclientgo.Pointer("USER"),
             },
         },
@@ -457,8 +457,8 @@ func main() {
 
     res, err := s.Client.Agents.Run(ctx, components.AgentRunCreate{
         AgentID: "<id>",
-        Messages: []components.Message{
-            components.Message{
+        Messages: []components.MessageInput{
+            components.MessageInput{
                 Role: apiclientgo.Pointer("USER"),
             },
         },

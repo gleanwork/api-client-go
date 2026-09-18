@@ -1,0 +1,12 @@
+# ChatFileSource
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `Type`                                                                         | [components.ChatFileSourceType](../../models/components/chatfilesourcetype.md) | :heavy_check_mark:                                                             | N/A                                                                            |
+| `FileID`                                                                       | `string`                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `Title`                                                                        | `*string`                                                                      | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `URL`                                                                          | `*string`                                                                      | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `Datasource`                                                                   | `*string`                                                                      | :heavy_minus_sign:                                                             | N/A                                                                            |

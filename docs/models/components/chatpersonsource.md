@@ -1,0 +1,11 @@
+# ChatPersonSource
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `Type`                                                                             | [components.ChatPersonSourceType](../../models/components/chatpersonsourcetype.md) | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `PersonID`                                                                         | `string`                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `Name`                                                                             | `*string`                                                                          | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `URL`                                                                              | `*string`                                                                          | :heavy_minus_sign:                                                                 | N/A                                                                                |

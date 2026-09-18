@@ -135,11 +135,11 @@ func TestAgents_PlatformAgentsCreateRun(t *testing.T) {
 	)
 
 	res, err := s.Agents.CreateRun(ctx, "<id>", components.PlatformAgentRunCreateRequest{
-		Messages: []components.PlatformMessage{
-			components.PlatformMessage{
+		Messages: []components.PlatformMessageInput{
+			components.PlatformMessageInput{
 				Role: components.PlatformMessageRoleUser,
-				Content: []components.PlatformMessageTextBlock{
-					components.PlatformMessageTextBlock{
+				Content: []components.PlatformMessageTextBlockInput{
+					components.PlatformMessageTextBlockInput{
 						Text: "What is our parental leave policy?",
 						Type: components.PlatformContentTypeText,
 					},

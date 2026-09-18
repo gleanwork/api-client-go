@@ -12,7 +12,7 @@ type PlatformAgentRunCreateRequest struct {
 	Input map[string]any `json:"input,omitempty"`
 	// Messages to pass to the agent. When provided, the array MUST contain at least one message and each message MUST specify a valid `role` and non-empty `content`.
 	//
-	Messages []PlatformMessage `json:"messages,omitempty"`
+	Messages []PlatformMessageInput `json:"messages,omitempty"`
 	// Metadata to pass to the agent.
 	Metadata map[string]any `json:"metadata,omitempty"`
 	// Whether to stream the run response as server-sent events.
@@ -37,7 +37,7 @@ func (p *PlatformAgentRunCreateRequest) GetInput() map[string]any {
 	return p.Input
 }
 
-func (p *PlatformAgentRunCreateRequest) GetMessages() []PlatformMessage {
+func (p *PlatformAgentRunCreateRequest) GetMessages() []PlatformMessageInput {
 	if p == nil {
 		return nil
 	}

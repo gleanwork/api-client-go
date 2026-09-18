@@ -205,11 +205,11 @@ func main() {
     )
 
     res, err := s.Agents.CreateRun(ctx, "{agent_id}", components.PlatformAgentRunCreateRequest{
-        Messages: []components.PlatformMessage{
-            components.PlatformMessage{
+        Messages: []components.PlatformMessageInput{
+            components.PlatformMessageInput{
                 Role: components.PlatformMessageRoleUser,
-                Content: []components.PlatformMessageTextBlock{
-                    components.PlatformMessageTextBlock{
+                Content: []components.PlatformMessageTextBlockInput{
+                    components.PlatformMessageTextBlockInput{
                         Text: "What is our parental leave policy?",
                         Type: components.PlatformContentTypeText,
                     },
