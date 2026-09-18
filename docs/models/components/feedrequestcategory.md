@@ -65,3 +65,5 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryKnowledgeGap`                 | KNOWLEDGE_GAP                                     |
 | `FeedRequestCategoryArtifactCreation`             | ARTIFACT_CREATION                                 |
 | `FeedRequestCategoryEditDoc`                      | EDIT_DOC                                          |
+| `FeedRequestCategoryChatToArtifact`               | CHAT_TO_ARTIFACT                                  |
+| `FeedRequestCategoryShareArtifact`                | SHARE_ARTIFACT                                    |

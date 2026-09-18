@@ -33,9 +33,9 @@ func (e *PlatformChatDocumentSourceType2) UnmarshalJSON(data []byte) error {
 }
 
 type PlatformChatDocumentSourceDocument2 struct {
+	URL        string                          `json:"url"`
 	Type       PlatformChatDocumentSourceType2 `json:"type"`
 	DocumentID *string                         `json:"document_id,omitempty"`
-	URL        string                          `json:"url"`
 	Title      *string                         `json:"title,omitempty"`
 	Datasource *string                         `json:"datasource,omitempty"`
 }
@@ -51,6 +51,13 @@ func (p *PlatformChatDocumentSourceDocument2) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
+func (p *PlatformChatDocumentSourceDocument2) GetURL() string {
+	if p == nil {
+		return ""
+	}
+	return p.URL
+}
+
 func (p *PlatformChatDocumentSourceDocument2) GetType() PlatformChatDocumentSourceType2 {
 	if p == nil {
 		return PlatformChatDocumentSourceType2("")
@@ -63,13 +70,6 @@ func (p *PlatformChatDocumentSourceDocument2) GetDocumentID() *string {
 		return nil
 	}
 	return p.DocumentID
-}
-
-func (p *PlatformChatDocumentSourceDocument2) GetURL() string {
-	if p == nil {
-		return ""
-	}
-	return p.URL
 }
 
 func (p *PlatformChatDocumentSourceDocument2) GetTitle() *string {
@@ -113,8 +113,8 @@ func (e *PlatformChatDocumentSourceType1) UnmarshalJSON(data []byte) error {
 }
 
 type PlatformChatDocumentSourceDocument1 struct {
-	Type       PlatformChatDocumentSourceType1 `json:"type"`
 	DocumentID string                          `json:"document_id"`
+	Type       PlatformChatDocumentSourceType1 `json:"type"`
 	URL        *string                         `json:"url,omitempty"`
 	Title      *string                         `json:"title,omitempty"`
 	Datasource *string                         `json:"datasource,omitempty"`
@@ -131,18 +131,18 @@ func (p *PlatformChatDocumentSourceDocument1) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (p *PlatformChatDocumentSourceDocument1) GetType() PlatformChatDocumentSourceType1 {
-	if p == nil {
-		return PlatformChatDocumentSourceType1("")
-	}
-	return p.Type
-}
-
 func (p *PlatformChatDocumentSourceDocument1) GetDocumentID() string {
 	if p == nil {
 		return ""
 	}
 	return p.DocumentID
+}
+
+func (p *PlatformChatDocumentSourceDocument1) GetType() PlatformChatDocumentSourceType1 {
+	if p == nil {
+		return PlatformChatDocumentSourceType1("")
+	}
+	return p.Type
 }
 
 func (p *PlatformChatDocumentSourceDocument1) GetURL() *string {

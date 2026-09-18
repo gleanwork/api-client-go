@@ -84,3 +84,5 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeKnowledgeGap`                      | KNOWLEDGE_GAP                                        |
 | `JustificationTypeArtifactCreation`                  | ARTIFACT_CREATION                                    |
 | `JustificationTypeEditDoc`                           | EDIT_DOC                                             |
+| `JustificationTypeChatToArtifact`                    | CHAT_TO_ARTIFACT                                     |
+| `JustificationTypeShareArtifact`                     | SHARE_ARTIFACT                                       |

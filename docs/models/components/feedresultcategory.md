@@ -70,3 +70,5 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryKnowledgeGap`                 | KNOWLEDGE_GAP                                    |
 | `FeedResultCategoryArtifactCreation`             | ARTIFACT_CREATION                                |
 | `FeedResultCategoryEditDoc`                      | EDIT_DOC                                         |
+| `FeedResultCategoryChatToArtifact`               | CHAT_TO_ARTIFACT                                 |
+| `FeedResultCategoryShareArtifact`                | SHARE_ARTIFACT                                   |
