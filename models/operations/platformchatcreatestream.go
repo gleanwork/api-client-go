@@ -108,6 +108,117 @@ func (u PlatformChatCreateStreamInput) MarshalJSON() ([]byte, error) {
 	return nil, errors.New("could not marshal union type PlatformChatCreateStreamInput: all fields are null")
 }
 
+type PlatformChatCreateStreamFormatType string
+
+const (
+	PlatformChatCreateStreamFormatTypePlatformChatTextFormat       PlatformChatCreateStreamFormatType = "PlatformChatTextFormat"
+	PlatformChatCreateStreamFormatTypePlatformChatJSONSchemaFormat PlatformChatCreateStreamFormatType = "PlatformChatJsonSchemaFormat"
+)
+
+// PlatformChatCreateStreamFormat - Output format for the assistant text. TEXT is unconstrained. JSON_SCHEMA constrains the response to the supplied schema.
+type PlatformChatCreateStreamFormat struct {
+	PlatformChatTextFormat       *components.PlatformChatTextFormat       `queryParam:"inline" union:"member"`
+	PlatformChatJSONSchemaFormat *components.PlatformChatJSONSchemaFormat `queryParam:"inline" union:"member"`
+
+	Type PlatformChatCreateStreamFormatType
+}
+
+func CreatePlatformChatCreateStreamFormatPlatformChatTextFormat(platformChatTextFormat components.PlatformChatTextFormat) PlatformChatCreateStreamFormat {
+	typ := PlatformChatCreateStreamFormatTypePlatformChatTextFormat
+
+	return PlatformChatCreateStreamFormat{
+		PlatformChatTextFormat: &platformChatTextFormat,
+		Type:                   typ,
+	}
+}
+
+func CreatePlatformChatCreateStreamFormatPlatformChatJSONSchemaFormat(platformChatJSONSchemaFormat components.PlatformChatJSONSchemaFormat) PlatformChatCreateStreamFormat {
+	typ := PlatformChatCreateStreamFormatTypePlatformChatJSONSchemaFormat
+
+	return PlatformChatCreateStreamFormat{
+		PlatformChatJSONSchemaFormat: &platformChatJSONSchemaFormat,
+		Type:                         typ,
+	}
+}
+
+func (u *PlatformChatCreateStreamFormat) UnmarshalJSON(data []byte) (err error) {
+	previous := *u
+	*u = PlatformChatCreateStreamFormat{}
+	defer func() {
+		if err != nil {
+			*u = previous
+		}
+	}()
+
+	var candidates []utils.UnionCandidate
+
+	// Collect all valid candidates
+	var platformChatTextFormat components.PlatformChatTextFormat = components.PlatformChatTextFormat{}
+	if err := utils.UnmarshalJSON(data, &platformChatTextFormat, "", true, nil); err == nil {
+		candidates = append(candidates, utils.UnionCandidate{
+			Type:  PlatformChatCreateStreamFormatTypePlatformChatTextFormat,
+			Value: &platformChatTextFormat,
+		})
+	}
+
+	var platformChatJSONSchemaFormat components.PlatformChatJSONSchemaFormat = components.PlatformChatJSONSchemaFormat{}
+	if err := utils.UnmarshalJSON(data, &platformChatJSONSchemaFormat, "", true, nil); err == nil {
+		candidates = append(candidates, utils.UnionCandidate{
+			Type:  PlatformChatCreateStreamFormatTypePlatformChatJSONSchemaFormat,
+			Value: &platformChatJSONSchemaFormat,
+		})
+	}
+
+	if len(candidates) == 0 {
+		return fmt.Errorf("could not unmarshal `%s` into any supported union types for PlatformChatCreateStreamFormat", string(data))
+	}
+
+	// Pick the best candidate using multi-stage filtering
+	best := utils.PickBestUnionCandidate(candidates, data)
+	if best == nil {
+		return fmt.Errorf("could not unmarshal `%s` into any supported union types for PlatformChatCreateStreamFormat", string(data))
+	}
+
+	// Set the union type and value based on the best candidate
+	u.Type = best.Type.(PlatformChatCreateStreamFormatType)
+	switch best.Type {
+	case PlatformChatCreateStreamFormatTypePlatformChatTextFormat:
+		u.PlatformChatTextFormat = best.Value.(*components.PlatformChatTextFormat)
+		return nil
+	case PlatformChatCreateStreamFormatTypePlatformChatJSONSchemaFormat:
+		u.PlatformChatJSONSchemaFormat = best.Value.(*components.PlatformChatJSONSchemaFormat)
+		return nil
+	}
+
+	return fmt.Errorf("could not unmarshal `%s` into any supported union types for PlatformChatCreateStreamFormat", string(data))
+}
+
+func (u PlatformChatCreateStreamFormat) MarshalJSON() ([]byte, error) {
+	if u.PlatformChatTextFormat != nil {
+		return utils.MarshalJSON(u.PlatformChatTextFormat, "", true)
+	}
+
+	if u.PlatformChatJSONSchemaFormat != nil {
+		return utils.MarshalJSON(u.PlatformChatJSONSchemaFormat, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type PlatformChatCreateStreamFormat: all fields are null")
+}
+
+// PlatformChatCreateStreamText - Optional configuration for the assistant's text response. When `format.type` is `JSON_SCHEMA`, the response is constrained to the supplied JSON schema and returned in `output[*].content[*].structured_output`. Structured output is not supported when `stream` is true.
+type PlatformChatCreateStreamText struct {
+	// Output format for the assistant text. TEXT is unconstrained. JSON_SCHEMA constrains the response to the supplied schema.
+	//
+	Format *PlatformChatCreateStreamFormat `json:"format,omitempty"`
+}
+
+func (p *PlatformChatCreateStreamText) GetFormat() *PlatformChatCreateStreamFormat {
+	if p == nil {
+		return nil
+	}
+	return p.Format
+}
+
 type PlatformChatCreateStreamRequest struct {
 	// Either a plain string (single user turn) or a chronological array of `USER`/`ASSISTANT` messages. The final array message must be `USER`.
 	//
@@ -120,6 +231,9 @@ type PlatformChatCreateStreamRequest struct {
 	// Continue an existing stored conversation. Incompatible with message-array `input` and with `store: false`.
 	//
 	ConversationID *string `json:"conversation_id,omitempty"`
+	// Optional configuration for the assistant's text response. When `format.type` is `JSON_SCHEMA`, the response is constrained to the supplied JSON schema and returned in `output[*].content[*].structured_output`. Structured output is not supported when `stream` is true.
+	//
+	Text *PlatformChatCreateStreamText `json:"text,omitempty"`
 }
 
 func (p PlatformChatCreateStreamRequest) MarshalJSON() ([]byte, error) {
@@ -156,6 +270,13 @@ func (p *PlatformChatCreateStreamRequest) GetConversationID() *string {
 		return nil
 	}
 	return p.ConversationID
+}
+
+func (p *PlatformChatCreateStreamRequest) GetText() *PlatformChatCreateStreamText {
+	if p == nil {
+		return nil
+	}
+	return p.Text
 }
 
 type PlatformChatCreateStreamResponse struct {

@@ -67,3 +67,4 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryEditDoc`                      | EDIT_DOC                                          |
 | `FeedRequestCategoryChatToArtifact`               | CHAT_TO_ARTIFACT                                  |
 | `FeedRequestCategoryShareArtifact`                | SHARE_ARTIFACT                                    |
+| `FeedRequestCategoryCreateAgent`                  | CREATE_AGENT                                      |
