@@ -72,3 +72,5 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryEditDoc`                      | EDIT_DOC                                         |
 | `FeedResultCategoryChatToArtifact`               | CHAT_TO_ARTIFACT                                 |
 | `FeedResultCategoryShareArtifact`                | SHARE_ARTIFACT                                   |
+| `FeedResultCategoryCreateAgent`                  | CREATE_AGENT                                     |
+| `FeedResultCategoryManagerInvite`                | MANAGER_INVITE                                   |

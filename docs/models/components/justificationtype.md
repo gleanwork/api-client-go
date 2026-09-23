@@ -86,3 +86,5 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeEditDoc`                           | EDIT_DOC                                             |
 | `JustificationTypeChatToArtifact`                    | CHAT_TO_ARTIFACT                                     |
 | `JustificationTypeShareArtifact`                     | SHARE_ARTIFACT                                       |
+| `JustificationTypeCreateAgent`                       | CREATE_AGENT                                         |
+| `JustificationTypeManagerInvite`                     | MANAGER_INVITE                                       |

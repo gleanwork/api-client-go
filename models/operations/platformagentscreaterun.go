@@ -32,6 +32,9 @@ type PlatformAgentsCreateRunResponse struct {
 	PlatformAgentRunWaitResponse *components.PlatformAgentRunWaitResponse
 	// Successful response.
 	Res *string
+	// Durable run persisted and started. The snapshot is immediately retrievable through GET /api/agents/{agent_id}/runs/{run_id}. Execution failures appear in the run state.
+	//
+	PlatformAgentRunResponse *components.PlatformAgentRunResponse
 }
 
 func (p *PlatformAgentsCreateRunResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -53,4 +56,11 @@ func (p *PlatformAgentsCreateRunResponse) GetRes() *string {
 		return nil
 	}
 	return p.Res
+}
+
+func (p *PlatformAgentsCreateRunResponse) GetPlatformAgentRunResponse() *components.PlatformAgentRunResponse {
+	if p == nil {
+		return nil
+	}
+	return p.PlatformAgentRunResponse
 }
