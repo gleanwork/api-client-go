@@ -234,6 +234,9 @@ For more information on obtaining the appropriate token type, please contact you
 * [Get](docs/sdks/agents/README.md#get) - Get agent
 * [GetSchemas](docs/sdks/agents/README.md#getschemas) - Get agent schemas
 * [CreateRun](docs/sdks/agents/README.md#createrun) - Create agent run
+* [GetRun](docs/sdks/agents/README.md#getrun) - Get agent run
+* [CancelRun](docs/sdks/agents/README.md#cancelrun) - Cancel an agent run
+* [RespondToRun](docs/sdks/agents/README.md#respondtorun) - Respond to agent run approvals
 
 ### [Chat](docs/sdks/chat/README.md)
 
@@ -520,6 +523,7 @@ package main
 import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/gleanwork/api-client-go/models/operations"
 	"log"
 	"os"
@@ -534,8 +538,31 @@ func main() {
 
 	res, err := s.Chat.CreateStream(ctx, operations.PlatformChatCreateStreamRequest{
 		Input: operations.CreatePlatformChatCreateStreamInputStr(
-			"What is our parental leave policy?",
+			"Summarize our parental leave policy as JSON.",
 		),
+		Text: &operations.PlatformChatCreateStreamText{
+			Format: apiclientgo.Pointer(operations.CreatePlatformChatCreateStreamFormatPlatformChatJSONSchemaFormat(
+				components.PlatformChatJSONSchemaFormat{
+					Type: components.PlatformChatJSONSchemaFormatTypeJSONSchema,
+					Name: "policy_summary",
+					Schema: map[string]any{
+						"type": "object",
+						"properties": map[string]any{
+							"eligible_employees": map[string]any{
+								"type": "string",
+							},
+							"duration_weeks": map[string]any{
+								"type": "integer",
+							},
+						},
+						"required": []any{
+							"eligible_employees",
+							"duration_weeks",
+						},
+					},
+				},
+			)),
+		},
 	})
 	if err != nil {
 		log.Fatal(err)
