@@ -242,7 +242,7 @@ func (s *Agents) Search(ctx context.Context, request components.PlatformAgentsSe
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -269,7 +269,7 @@ func (s *Agents) Search(ctx context.Context, request components.PlatformAgentsSe
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -514,7 +514,7 @@ func (s *Agents) Get(ctx context.Context, agentID string, opts ...operations.Opt
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -541,7 +541,7 @@ func (s *Agents) Get(ctx context.Context, agentID string, opts ...operations.Opt
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -791,7 +791,7 @@ func (s *Agents) GetSchemas(ctx context.Context, agentID string, includeTools *b
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -818,7 +818,7 @@ func (s *Agents) GetSchemas(ctx context.Context, agentID string, includeTools *b
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -1096,7 +1096,7 @@ func (s *Agents) CreateRun(ctx context.Context, agentID string, platformAgentRun
 
 			var out apierrors.PlatformUnauthorizedAgentToolsProblemError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -1135,7 +1135,7 @@ func (s *Agents) CreateRun(ctx context.Context, agentID string, platformAgentRun
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -1162,7 +1162,7 @@ func (s *Agents) CreateRun(ctx context.Context, agentID string, platformAgentRun
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -1408,7 +1408,7 @@ func (s *Agents) GetRun(ctx context.Context, agentID string, runID string, opts 
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -1435,7 +1435,7 @@ func (s *Agents) GetRun(ctx context.Context, agentID string, runID string, opts 
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -1692,7 +1692,7 @@ func (s *Agents) CancelRun(ctx context.Context, agentID string, platformAgentRun
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -1719,7 +1719,7 @@ func (s *Agents) CancelRun(ctx context.Context, agentID string, platformAgentRun
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -1976,7 +1976,7 @@ func (s *Agents) RespondToRun(ctx context.Context, agentID string, platformAgent
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
@@ -2003,7 +2003,7 @@ func (s *Agents) RespondToRun(ctx context.Context, agentID string, platformAgent
 
 			var out apierrors.PlatformProblemDetailError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{

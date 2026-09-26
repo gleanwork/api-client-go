@@ -491,6 +491,7 @@ For more information on obtaining the appropriate token type, please contact you
 * [ListVersions](docs/sdks/skills/README.md#listversions) - List skill versions
 * [RetrieveVersion](docs/sdks/skills/README.md#retrieveversion) - Retrieve skill version
 * [RetrieveVersionContent](docs/sdks/skills/README.md#retrieveversioncontent) - Download skill version content
+* [PreviewSourceStream](docs/sdks/skills/README.md#previewsourcestream) - Preview a GitHub skill source as events
 
 ### [Triggers](docs/sdks/triggers/README.md)
 

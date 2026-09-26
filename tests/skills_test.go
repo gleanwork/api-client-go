@@ -7,6 +7,7 @@ import (
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/internal/utils"
 	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/models/operations"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"os"
@@ -34,7 +35,7 @@ func TestSkills_PlatformSkillsCreate(t *testing.T) {
 		},
 	})
 	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+	assert.Equal(t, 201, res.HTTPMeta.Response.StatusCode)
 
 }
 
@@ -49,7 +50,7 @@ func TestSkills_PlatformSkillsList(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Skills.List(ctx, nil, nil)
+	res, err := s.Skills.List(ctx, apiclientgo.Pointer[int64](20), nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -135,7 +136,7 @@ func TestSkills_PlatformSkillsCreateVersion(t *testing.T) {
 		},
 	})
 	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+	assert.Equal(t, 201, res.HTTPMeta.Response.StatusCode)
 
 }
 
@@ -150,7 +151,7 @@ func TestSkills_PlatformSkillsListVersions(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Skills.ListVersions(ctx, "<id>", nil, nil)
+	res, err := s.Skills.ListVersions(ctx, "<id>", apiclientgo.Pointer[int64](20), nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
@@ -207,7 +208,7 @@ func TestSkills_PlatformSkillsImport(t *testing.T) {
 		},
 	})
 	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+	assert.Equal(t, 201, res.HTTPMeta.Response.StatusCode)
 
 }
 
@@ -222,7 +223,7 @@ func TestSkills_PlatformSkillsPreviewSource(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Skills.PreviewSource(ctx, components.PlatformSkillSourcePreviewRequest{
+	res, err := s.Skills.PreviewSource(ctx, operations.PlatformSkillsPreviewSourceRequest{
 		SourceURL: "https://github.com/anthropics/skills",
 	})
 	require.NoError(t, err)

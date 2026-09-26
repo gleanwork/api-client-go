@@ -3,15 +3,44 @@
 package operations
 
 import (
+	"github.com/gleanwork/api-client-go/internal/utils"
 	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/types"
 )
+
+type PlatformSkillsPreviewSourceRequest struct {
+	// GitHub URL for a skill directory, SKILL.md file, or repository to inspect.
+	SourceURL string `json:"source_url"`
+	//lint:ignore U1000 accessed via reflection for JSON marshaling
+	stream_ *bool `const:"false" json:"stream"`
+}
+
+func (p PlatformSkillsPreviewSourceRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformSkillsPreviewSourceRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (p *PlatformSkillsPreviewSourceRequest) GetSourceURL() string {
+	if p == nil {
+		return ""
+	}
+	return p.SourceURL
+}
+
+func (p *PlatformSkillsPreviewSourceRequest) GetStream() *bool {
+	return types.Pointer(false)
+}
 
 type PlatformSkillsPreviewSourceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Successful response.
 	PlatformSkillSourcePreviewResponse *components.PlatformSkillSourcePreviewResponse
-	// Successful response.
-	Res *string
 }
 
 func (p *PlatformSkillsPreviewSourceResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -26,11 +55,4 @@ func (p *PlatformSkillsPreviewSourceResponse) GetPlatformSkillSourcePreviewRespo
 		return nil
 	}
 	return p.PlatformSkillSourcePreviewResponse
-}
-
-func (p *PlatformSkillsPreviewSourceResponse) GetRes() *string {
-	if p == nil {
-		return nil
-	}
-	return p.Res
 }

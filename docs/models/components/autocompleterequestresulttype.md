@@ -18,12 +18,12 @@ value := components.AutocompleteRequestResultTypeAdditionalDocument
 | `AutocompleteRequestResultTypeAdditionalDocument` | ADDITIONAL_DOCUMENT                               |
 | `AutocompleteRequestResultTypeApp`                | APP                                               |
 | `AutocompleteRequestResultTypeBrowserHistory`     | BROWSER_HISTORY                                   |
+| `AutocompleteRequestResultTypeChatHistory`        | CHAT_HISTORY                                      |
 | `AutocompleteRequestResultTypeDatasource`         | DATASOURCE                                        |
 | `AutocompleteRequestResultTypeDocument`           | DOCUMENT                                          |
 | `AutocompleteRequestResultTypeEntity`             | ENTITY                                            |
 | `AutocompleteRequestResultTypeGolink`             | GOLINK                                            |
 | `AutocompleteRequestResultTypeHistory`            | HISTORY                                           |
-| `AutocompleteRequestResultTypeChatHistory`        | CHAT_HISTORY                                      |
 | `AutocompleteRequestResultTypeNewChat`            | NEW_CHAT                                          |
 | `AutocompleteRequestResultTypeOperator`           | OPERATOR                                          |
 | `AutocompleteRequestResultTypeOperatorValue`      | OPERATOR_VALUE                                    |

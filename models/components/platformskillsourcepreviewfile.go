@@ -2,11 +2,26 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type PlatformSkillSourcePreviewFile struct {
 	// Relative path within the skill bundle.
 	Path string `json:"path"`
 	// UTF-8 file content.
 	Content string `json:"content"`
+}
+
+func (p PlatformSkillSourcePreviewFile) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformSkillSourcePreviewFile) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (p *PlatformSkillSourcePreviewFile) GetPath() string {

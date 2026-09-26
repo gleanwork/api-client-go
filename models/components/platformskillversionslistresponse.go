@@ -4,7 +4,7 @@ package components
 
 type PlatformSkillVersionsListResponse struct {
 	// Versions available for the skill.
-	Versions []PlatformSkillVersion `json:"versions"`
+	Results []PlatformSkillVersion `json:"results"`
 	// Whether additional results are available.
 	HasMore bool `json:"has_more"`
 	// Cursor for the next page, or null when no more results are available.
@@ -13,11 +13,11 @@ type PlatformSkillVersionsListResponse struct {
 	RequestID string `json:"request_id"`
 }
 
-func (p *PlatformSkillVersionsListResponse) GetVersions() []PlatformSkillVersion {
+func (p *PlatformSkillVersionsListResponse) GetResults() []PlatformSkillVersion {
 	if p == nil {
 		return []PlatformSkillVersion{}
 	}
-	return p.Versions
+	return p.Results
 }
 
 func (p *PlatformSkillVersionsListResponse) GetHasMore() bool {

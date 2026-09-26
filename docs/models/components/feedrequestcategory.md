@@ -69,3 +69,4 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryShareArtifact`                | SHARE_ARTIFACT                                    |
 | `FeedRequestCategoryCreateAgent`                  | CREATE_AGENT                                      |
 | `FeedRequestCategoryManagerInvite`                | MANAGER_INVITE                                    |
+| `FeedRequestCategoryOnboardingAuthorization`      | ONBOARDING_AUTHORIZATION                          |
