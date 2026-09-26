@@ -74,3 +74,4 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryShareArtifact`                | SHARE_ARTIFACT                                   |
 | `FeedResultCategoryCreateAgent`                  | CREATE_AGENT                                     |
 | `FeedResultCategoryManagerInvite`                | MANAGER_INVITE                                   |
+| `FeedResultCategoryOnboardingAuthorization`      | ONBOARDING_AUTHORIZATION                         |
