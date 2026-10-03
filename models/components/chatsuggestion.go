@@ -9,6 +9,8 @@ type ChatSuggestion struct {
 	Cta *string `json:"cta,omitempty"`
 	// Targeted Glean Chat feature for the suggestion.
 	Feature *string `json:"feature,omitempty"`
+	// Type of the Artifact
+	ArtifactType *ArtifactType `json:"artifactType,omitempty"`
 	// Document IDs that grounded the suggestion.
 	SourceDocumentIds []string `json:"sourceDocumentIds,omitempty"`
 }
@@ -32,6 +34,13 @@ func (c *ChatSuggestion) GetFeature() *string {
 		return nil
 	}
 	return c.Feature
+}
+
+func (c *ChatSuggestion) GetArtifactType() *ArtifactType {
+	if c == nil {
+		return nil
+	}
+	return c.ArtifactType
 }
 
 func (c *ChatSuggestion) GetSourceDocumentIds() []string {

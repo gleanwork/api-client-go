@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 // PlatformProblemDetailError - Field-level validation problem for a single offending field.
 type PlatformProblemDetailError struct {
 	// RFC 6901 JSON Pointer to the offending field.
@@ -10,6 +14,17 @@ type PlatformProblemDetailError struct {
 	Detail string `json:"detail"`
 	// Stable machine-readable error code.
 	Code *PlatformProblemDetailCode `json:"code,omitempty"`
+}
+
+func (p PlatformProblemDetailError) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformProblemDetailError) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (p *PlatformProblemDetailError) GetPointer() string {

@@ -38,4 +38,5 @@ custom := components.UgcType("custom_value")
 | `UgcTypeSpreadsheetType`     | SPREADSHEET_TYPE             |
 | `UgcTypeInlineHTMLType`      | INLINE_HTML_TYPE             |
 | `UgcTypePodcastType`         | PODCAST_TYPE                 |
+| `UgcTypeVideoType`           | VIDEO_TYPE                   |
 | `UgcTypeWorkflowsType`       | WORKFLOWS_TYPE               |

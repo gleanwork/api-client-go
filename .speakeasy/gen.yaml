@@ -32,7 +32,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: true
 go:
-  version: 0.15.15
+  version: 0.16.0
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: GleanError
@@ -41,6 +41,8 @@ go:
   enableCustomCodeRegions: false
   enableSkipDeserialization: false
   envVarPrefix: GLEAN
+  fixFlags:
+    encodePathParams: false
   flattenGlobalSecurity: true
   forwardCompatibleEnumsByDefault: true
   forwardCompatibleUnionsByDefault: "false"

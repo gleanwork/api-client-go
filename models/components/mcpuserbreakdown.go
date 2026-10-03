@@ -12,6 +12,8 @@ type McpUserBreakdown struct {
 	Tools []string `json:"tools,omitempty"`
 	// MCP servers used by this user in the specified time period.
 	Servers []string `json:"servers,omitempty"`
+	// Authentication methods this user's MCP clients presented in the specified time period, for example OAUTH_XAA for Cross App Access.
+	AuthMethods []string `json:"authMethods,omitempty"`
 }
 
 func (m *McpUserBreakdown) GetPerson() *Person {
@@ -47,4 +49,11 @@ func (m *McpUserBreakdown) GetServers() []string {
 		return nil
 	}
 	return m.Servers
+}
+
+func (m *McpUserBreakdown) GetAuthMethods() []string {
+	if m == nil {
+		return nil
+	}
+	return m.AuthMethods
 }

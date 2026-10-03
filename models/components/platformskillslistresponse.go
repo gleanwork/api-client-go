@@ -4,7 +4,7 @@ package components
 
 type PlatformSkillsListResponse struct {
 	// Skills available to the user.
-	Skills []PlatformSkill `json:"skills"`
+	Results []PlatformSkill `json:"results"`
 	// Whether additional results are available.
 	HasMore bool `json:"has_more"`
 	// Cursor for the next page, or null when no more results are available.
@@ -13,11 +13,11 @@ type PlatformSkillsListResponse struct {
 	RequestID string `json:"request_id"`
 }
 
-func (p *PlatformSkillsListResponse) GetSkills() []PlatformSkill {
+func (p *PlatformSkillsListResponse) GetResults() []PlatformSkill {
 	if p == nil {
 		return []PlatformSkill{}
 	}
-	return p.Skills
+	return p.Results
 }
 
 func (p *PlatformSkillsListResponse) GetHasMore() bool {

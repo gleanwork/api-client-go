@@ -10,6 +10,9 @@ import (
 )
 
 value := components.PlatformSkillOriginCustom
+
+// Open enum: custom values can be created with a direct type cast
+custom := components.PlatformSkillOrigin("custom_value")
 ```
 
 
@@ -18,3 +21,4 @@ value := components.PlatformSkillOriginCustom
 | Name                        | Value                       |
 | --------------------------- | --------------------------- |
 | `PlatformSkillOriginCustom` | CUSTOM                      |
+| `PlatformSkillOriginGithub` | GITHUB                      |

@@ -1,0 +1,11 @@
+# PlatformSkillSourcePreviewStreamResult
+
+Terminal success event carrying the fully assembled preview.
+
+
+## Fields
+
+| Field                                                                                                                          | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `Type`                                                                                                                         | [components.PlatformSkillSourcePreviewStreamResultType](../../models/components/platformskillsourcepreviewstreamresulttype.md) | :heavy_check_mark:                                                                                                             | Event type, also sent as the SSE `event` name.                                                                                 |
+| `Response`                                                                                                                     | [components.PlatformSkillSourcePreviewResponse](../../models/components/platformskillsourcepreviewresponse.md)                 | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |

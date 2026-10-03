@@ -21,3 +21,4 @@ value := components.BreakdownTypeUsers
 | `BreakdownTypeHostApplications` | HOST_APPLICATIONS               |
 | `BreakdownTypeTools`            | TOOLS                           |
 | `BreakdownTypeServers`          | SERVERS                         |
+| `BreakdownTypeAuthMethods`      | AUTH_METHODS                    |
