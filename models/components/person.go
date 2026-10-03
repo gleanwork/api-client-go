@@ -11,6 +11,8 @@ type Person struct {
 	Name string `json:"name"`
 	// An opaque identifier that can be used to request metadata for a Person.
 	ObfuscatedID string `json:"obfuscatedId"`
+	// True when this is an authenticated identity fallback rather than a people profile. Directory metadata is unavailable.
+	IdentityOnly *bool `json:"identityOnly,omitempty"`
 	// A list of documents related to this person.
 	RelatedDocuments []RelatedDocuments `json:"relatedDocuments,omitempty"`
 	Metadata         *PersonMetadata    `json:"metadata,omitempty"`
@@ -39,6 +41,13 @@ func (p *Person) GetObfuscatedID() string {
 		return ""
 	}
 	return p.ObfuscatedID
+}
+
+func (p *Person) GetIdentityOnly() *bool {
+	if p == nil {
+		return nil
+	}
+	return p.IdentityOnly
 }
 
 func (p *Person) GetRelatedDocuments() []RelatedDocuments {

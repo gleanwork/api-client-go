@@ -88,3 +88,5 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeShareArtifact`                     | SHARE_ARTIFACT                                       |
 | `JustificationTypeCreateAgent`                       | CREATE_AGENT                                         |
 | `JustificationTypeManagerInvite`                     | MANAGER_INVITE                                       |
+| `JustificationTypeOnboardingAuthorization`           | ONBOARDING_AUTHORIZATION                             |
+| `JustificationTypeChatReminder`                      | CHAT_REMINDER                                        |

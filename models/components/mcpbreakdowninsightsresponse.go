@@ -7,6 +7,7 @@ type McpBreakdownInsightsResponse struct {
 	HostApplicationsBreakdown []McpHostApplicationBreakdown `json:"hostApplicationsBreakdown,omitempty"`
 	ToolsBreakdown            []McpToolBreakdown            `json:"toolsBreakdown,omitempty"`
 	ServersBreakdown          []McpServerBreakdown          `json:"serversBreakdown,omitempty"`
+	AuthMethodsBreakdown      []McpAuthMethodBreakdown      `json:"authMethodsBreakdown,omitempty"`
 }
 
 func (m *McpBreakdownInsightsResponse) GetUsersBreakdown() []McpUserBreakdown {
@@ -35,4 +36,11 @@ func (m *McpBreakdownInsightsResponse) GetServersBreakdown() []McpServerBreakdow
 		return nil
 	}
 	return m.ServersBreakdown
+}
+
+func (m *McpBreakdownInsightsResponse) GetAuthMethodsBreakdown() []McpAuthMethodBreakdown {
+	if m == nil {
+		return nil
+	}
+	return m.AuthMethodsBreakdown
 }

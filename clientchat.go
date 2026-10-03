@@ -887,7 +887,7 @@ func (s *ClientChat) Retrieve(ctx context.Context, getChatRequest components.Get
 
 			var out apierrors.AccessRequestPermissionDeniedResponseError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, apierrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			out.HTTPMeta = components.HTTPMetadata{
