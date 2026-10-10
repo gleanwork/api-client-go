@@ -1,6 +1,6 @@
 # ExportInfoExportType
 
-The type of export to perform
+The type of export to perform. FINDINGS, DOCUMENTS and ISSUES produce JSONL; FINDINGS_CSV produces one CSV row per finding.
 
 ## Example Usage
 
@@ -18,8 +18,9 @@ custom := components.ExportInfoExportType("custom_value")
 
 ## Values
 
-| Name                            | Value                           |
-| ------------------------------- | ------------------------------- |
-| `ExportInfoExportTypeFindings`  | FINDINGS                        |
-| `ExportInfoExportTypeDocuments` | DOCUMENTS                       |
-| `ExportInfoExportTypeIssues`    | ISSUES                          |
+| Name                              | Value                             |
+| --------------------------------- | --------------------------------- |
+| `ExportInfoExportTypeFindings`    | FINDINGS                          |
+| `ExportInfoExportTypeDocuments`   | DOCUMENTS                         |
+| `ExportInfoExportTypeIssues`      | ISSUES                            |
+| `ExportInfoExportTypeFindingsCsv` | FINDINGS_CSV                      |

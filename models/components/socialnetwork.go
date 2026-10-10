@@ -13,6 +13,8 @@ type SocialNetwork struct {
 	ProfileName *string `json:"profileName,omitempty"`
 	// Link to profile.
 	ProfileURL string `json:"profileUrl"`
+	// URL of the icon to display for this social network, when available.
+	IconURL *string `json:"iconUrl,omitempty"`
 }
 
 func (s SocialNetwork) MarshalJSON() ([]byte, error) {
@@ -45,4 +47,11 @@ func (s *SocialNetwork) GetProfileURL() string {
 		return ""
 	}
 	return s.ProfileURL
+}
+
+func (s *SocialNetwork) GetIconURL() *string {
+	if s == nil {
+		return nil
+	}
+	return s.IconURL
 }
