@@ -2,7 +2,7 @@
 
 package apiclientgo
 
-// Generated from OpenAPI doc version 0.9.0 and generator version 2.943.0
+// Generated from OpenAPI doc version 0.9.0 and generator version 2.946.0
 
 import (
 	"context"
@@ -64,14 +64,16 @@ func Pointer[T any](v T) *T { return &v }
 //
 // These API clients provide type-safe, idiomatic interfaces for working with Glean IndexingAPIs in your language of choice.
 type Glean struct {
-	SDKVersion string
-	Agents     *Agents
-	Chat       *Chat
-	Skills     *Skills
-	Search     *Search
-	Triggers   *Triggers
-	Client     *Client
-	Indexing   *Indexing
+	SDKVersion  string
+	Agents      *Agents
+	Chat        *Chat
+	Skills      *Skills
+	Search      *Search
+	Departments *Departments
+	Users       *Users
+	Triggers    *Triggers
+	Client      *Client
+	Indexing    *Indexing
 
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
@@ -161,11 +163,11 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Glean {
 	sdk := &Glean{
-		SDKVersion: "0.16.0",
+		SDKVersion: "0.16.1",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:         "speakeasy-sdk/go 0.16.0 2.943.0 0.9.0 github.com/gleanwork/api-client-go",
-			SDKVersion:        "0.16.0",
-			GenVersion:        "2.943.0",
+			UserAgent:         "speakeasy-sdk/go 0.16.1 2.946.0 0.9.0 github.com/gleanwork/api-client-go",
+			SDKVersion:        "0.16.1",
+			GenVersion:        "2.946.0",
 			OpenAPIDocVersion: "0.9.0",
 			ServerList:        ServerList,
 			ServerVariables: []map[string]string{
@@ -203,6 +205,8 @@ func New(opts ...SDKOption) *Glean {
 	sdk.Chat = newChat(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Skills = newSkills(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Search = newSearch(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Departments = newDepartments(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Users = newUsers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Triggers = newTriggers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Client = newClient(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Indexing = newIndexing(sdk, sdk.sdkConfiguration, sdk.hooks)

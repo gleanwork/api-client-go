@@ -35,6 +35,7 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryZeroStateChatToolSuggestion`  | ZERO_STATE_CHAT_TOOL_SUGGESTION                   |
 | `FeedRequestCategoryZeroStateWorkflowCreatedByMe` | ZERO_STATE_WORKFLOW_CREATED_BY_ME                 |
 | `FeedRequestCategoryZeroStateWorkflowFavorites`   | ZERO_STATE_WORKFLOW_FAVORITES                     |
+| `FeedRequestCategoryZeroStateGleanAgentCoworkers` | ZERO_STATE_GLEAN_AGENT_COWORKERS                  |
 | `FeedRequestCategoryZeroStateWorkflowPopular`     | ZERO_STATE_WORKFLOW_POPULAR                       |
 | `FeedRequestCategoryZeroStateWorkflowRecent`      | ZERO_STATE_WORKFLOW_RECENT                        |
 | `FeedRequestCategoryZeroStateWorkflowSuggestion`  | ZERO_STATE_WORKFLOW_SUGGESTION                    |

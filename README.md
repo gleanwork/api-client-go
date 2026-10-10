@@ -397,6 +397,10 @@ For more information on obtaining the appropriate token type, please contact you
 * [List](docs/sdks/verification/README.md#list) - List verifications
 * [Verify](docs/sdks/verification/README.md#verify) - Update verification
 
+### [Departments](docs/sdks/departments/README.md)
+
+* [List](docs/sdks/departments/README.md#list) - List departments
+
 ### [Indexing.Authentication](docs/sdks/indexingauthentication/README.md)
 
 * [RotateToken](docs/sdks/indexingauthentication/README.md#rotatetoken) - Rotate token
@@ -505,6 +509,10 @@ For more information on obtaining the appropriate token type, please contact you
 * [GetPreset](docs/sdks/triggers/README.md#getpreset) - Get trigger preset
 * [ListPresetInputValues](docs/sdks/triggers/README.md#listpresetinputvalues) - Search trigger preset input values
 * [SearchPresetEvents](docs/sdks/triggers/README.md#searchpresetevents) - Search events for a trigger preset
+
+### [Users](docs/sdks/users/README.md)
+
+* [List](docs/sdks/users/README.md#list) - List users
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
