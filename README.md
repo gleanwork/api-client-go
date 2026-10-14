@@ -228,6 +228,19 @@ For more information on obtaining the appropriate token type, please contact you
 <details open>
 <summary>Available methods</summary>
 
+### [Admin.Agents](docs/sdks/adminagents/README.md)
+
+* [List](docs/sdks/adminagents/README.md#list) - List all agents
+
+### [Admin.Idpgroups](docs/sdks/idpgroups/README.md)
+
+* [List](docs/sdks/idpgroups/README.md#list) - List IdP groups
+
+### [Admin.Usage](docs/sdks/usage/README.md)
+
+* [GetSettings](docs/sdks/usage/README.md#getsettings) - Get usage settings
+* [UpdateSettings](docs/sdks/usage/README.md#updatesettings) - Update usage settings
+
 ### [Agents](docs/sdks/agents/README.md)
 
 * [Search](docs/sdks/agents/README.md#search) - Search agents
@@ -397,6 +410,10 @@ For more information on obtaining the appropriate token type, please contact you
 * [List](docs/sdks/verification/README.md#list) - List verifications
 * [Verify](docs/sdks/verification/README.md#verify) - Update verification
 
+### [Departments](docs/sdks/departments/README.md)
+
+* [List](docs/sdks/departments/README.md#list) - List departments
+
 ### [Indexing.Authentication](docs/sdks/indexingauthentication/README.md)
 
 * [RotateToken](docs/sdks/indexingauthentication/README.md#rotatetoken) - Rotate token
@@ -505,6 +522,10 @@ For more information on obtaining the appropriate token type, please contact you
 * [GetPreset](docs/sdks/triggers/README.md#getpreset) - Get trigger preset
 * [ListPresetInputValues](docs/sdks/triggers/README.md#listpresetinputvalues) - Search trigger preset input values
 * [SearchPresetEvents](docs/sdks/triggers/README.md#searchpresetevents) - Search events for a trigger preset
+
+### [Users](docs/sdks/users/README.md)
+
+* [List](docs/sdks/users/README.md#list) - List users
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

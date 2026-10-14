@@ -40,6 +40,7 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryZeroStateChatToolSuggestion`  | ZERO_STATE_CHAT_TOOL_SUGGESTION                  |
 | `FeedResultCategoryZeroStateWorkflowCreatedByMe` | ZERO_STATE_WORKFLOW_CREATED_BY_ME                |
 | `FeedResultCategoryZeroStateWorkflowFavorites`   | ZERO_STATE_WORKFLOW_FAVORITES                    |
+| `FeedResultCategoryZeroStateGleanAgentCoworkers` | ZERO_STATE_GLEAN_AGENT_COWORKERS                 |
 | `FeedResultCategoryZeroStateWorkflowPopular`     | ZERO_STATE_WORKFLOW_POPULAR                      |
 | `FeedResultCategoryZeroStateWorkflowRecent`      | ZERO_STATE_WORKFLOW_RECENT                       |
 | `FeedResultCategoryZeroStateWorkflowSuggestion`  | ZERO_STATE_WORKFLOW_SUGGESTION                   |
