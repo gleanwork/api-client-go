@@ -1,0 +1,12 @@
+# PlatformIdpGroupFilter
+
+A filter on one IdP group field.
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `Field`                                                                                                 | `string`                                                                                                | :heavy_check_mark:                                                                                      | The IdP group field to filter on. The supported fields are is_active and provider_instance.<br/>        |
+| `Values`                                                                                                | []`string`                                                                                              | :heavy_check_mark:                                                                                      | The values to match. An IdP group matches when any value matches.                                       |
+| `Operator`                                                                                              | [*components.PlatformIdpGroupFilterOperator](../../models/components/platformidpgroupfilteroperator.md) | :heavy_minus_sign:                                                                                      | The only supported operator is EQUALS. Defaults to EQUALS.                                              |
