@@ -261,7 +261,7 @@ func (s *People) Debug(ctx context.Context, datasource string, debugUserRequest 
 //
 // Tip: Use [/debug/{datasource}/status](https://developers.glean.com/indexing/debugging/datasource-status) for richer information.
 //
-// Deprecated: Deprecated on 2026-02-03, removal scheduled for 2026-10-15: Endpoint is deprecated.
+// Deprecated: Deprecated on 2026-02-03, removal scheduled for 2027-01-15: Endpoint is deprecated.
 func (s *People) Count(ctx context.Context, request components.GetUserCountRequest, opts ...operations.Option) (*operations.PostAPIIndexV1GetusercountResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

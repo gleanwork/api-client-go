@@ -72,3 +72,4 @@ value := components.FeedRequestCategoryDocumentSuggestion
 | `FeedRequestCategoryManagerInvite`                | MANAGER_INVITE                                    |
 | `FeedRequestCategoryOnboardingAuthorization`      | ONBOARDING_AUTHORIZATION                          |
 | `FeedRequestCategoryChatReminder`                 | CHAT_REMINDER                                     |
+| `FeedRequestCategoryDiscover`                     | DISCOVER                                          |

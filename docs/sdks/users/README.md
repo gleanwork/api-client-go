@@ -5,6 +5,7 @@
 ### Available Operations
 
 * [List](#list) - List users
+* [Get](#get) - Get user
 
 ## List
 
@@ -55,6 +56,62 @@ func main() {
 ### Response
 
 **[*operations.PlatformUsersListResponse](../../models/operations/platformuserslistresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 429         | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## Get
+
+Get one user in the Glean directory by user_id. The user can be any person that the list returns, including an inactive user such as a former employee, which is returned with is_active set to false. A user_id that is not in the directory returns 404 resource_not_found. This includes a deleted user and a person that the People directory does not show. An alias ID of a merged person returns the person's canonical user_id.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-users-get" method="get" path="/api/users/{user_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Users.Get(ctx, "{user_id}", nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformGetUserResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |                                                                                    |
+| `userID`                                                                           | `string`                                                                           | :heavy_check_mark:                                                                 | Canonical Glean user ID, as the list returns it.                                   | {user_id}                                                                          |
+| `include`                                                                          | [][components.PlatformUserInclude](../../models/components/platformuserinclude.md) | :heavy_minus_sign:                                                                 | Optional fields to add to the user. Each value only adds fields.<br/>              |                                                                                    |
+| `opts`                                                                             | [][operations.Option](../../models/operations/option.md)                           | :heavy_minus_sign:                                                                 | The options for this request.                                                      |                                                                                    |
+
+### Response
+
+**[*operations.PlatformUsersGetResponse](../../models/operations/platformusersgetresponse.md), error**
 
 ### Errors
 

@@ -1,0 +1,9 @@
+# PlatformDepartmentsGetResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                            | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                    | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `PlatformGetDepartmentResponse`                                                                       | [*components.PlatformGetDepartmentResponse](../../models/components/platformgetdepartmentresponse.md) | :heavy_minus_sign:                                                                                    | Successful response.                                                                                  |
