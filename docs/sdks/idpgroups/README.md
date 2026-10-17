@@ -5,6 +5,7 @@
 ### Available Operations
 
 * [List](#list) - List IdP groups
+* [Get](#get) - Get an IdP group
 
 ## List
 
@@ -54,6 +55,61 @@ func main() {
 ### Response
 
 **[*operations.PlatformAdminIdpGroupsListResponse](../../models/operations/platformadminidpgroupslistresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 429         | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## Get
+
+Get one identity provider (IdP) group by its idp_group_id. Inactive IdP groups are returned, so a caller can still show a group after it was removed from the identity provider. An IdP group is active when Glean loaded it from the directory. An IdP group is inactive when only a usage limit names it, for example after the group was removed from the identity provider. An idp_group_id that is not valid, or that names no group that the list returns, returns 404 resource_not_found. The caller must be able to read the workspace configuration or the workspace billing.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-admin-idp-groups-get" method="get" path="/api/admin/idp-groups/{idp_group_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Admin.Idpgroups.Get(ctx, "{idp_group_id}")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformGetIdpGroupResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                    | Type                                                                                                                                                                         | Required                                                                                                                                                                     | Description                                                                                                                                                                  | Example                                                                                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                        | :heavy_check_mark:                                                                                                                                                           | The context to use for the request.                                                                                                                                          |                                                                                                                                                                              |
+| `idpGroupID`                                                                                                                                                                 | `string`                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                           | The idp_group_id from a list IdP groups response. IDs are opaque. Do not parse or build them. The group_id in usage limit responses is not an idp_group_id and returns 404.<br/> | {idp_group_id}                                                                                                                                                               |
+| `opts`                                                                                                                                                                       | [][operations.Option](../../models/operations/option.md)                                                                                                                     | :heavy_minus_sign:                                                                                                                                                           | The options for this request.                                                                                                                                                |                                                                                                                                                                              |
+
+### Response
+
+**[*operations.PlatformAdminIdpGroupsGetResponse](../../models/operations/platformadminidpgroupsgetresponse.md), error**
 
 ### Errors
 

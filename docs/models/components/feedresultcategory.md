@@ -77,3 +77,4 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryManagerInvite`                | MANAGER_INVITE                                   |
 | `FeedResultCategoryOnboardingAuthorization`      | ONBOARDING_AUTHORIZATION                         |
 | `FeedResultCategoryChatReminder`                 | CHAT_REMINDER                                    |
+| `FeedResultCategoryDiscover`                     | DISCOVER                                         |

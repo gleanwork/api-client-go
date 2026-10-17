@@ -235,6 +235,11 @@ For more information on obtaining the appropriate token type, please contact you
 ### [Admin.Idpgroups](docs/sdks/idpgroups/README.md)
 
 * [List](docs/sdks/idpgroups/README.md#list) - List IdP groups
+* [Get](docs/sdks/idpgroups/README.md#get) - Get an IdP group
+
+### [Admin.Oauth.Clients](docs/sdks/clients/README.md)
+
+* [List](docs/sdks/clients/README.md#list) - List OAuth clients
 
 ### [Admin.Usage](docs/sdks/usage/README.md)
 
@@ -413,6 +418,7 @@ For more information on obtaining the appropriate token type, please contact you
 ### [Departments](docs/sdks/departments/README.md)
 
 * [List](docs/sdks/departments/README.md#list) - List departments
+* [Get](docs/sdks/departments/README.md#get) - Get a department
 
 ### [Indexing.Authentication](docs/sdks/indexingauthentication/README.md)
 
@@ -526,6 +532,7 @@ For more information on obtaining the appropriate token type, please contact you
 ### [Users](docs/sdks/users/README.md)
 
 * [List](docs/sdks/users/README.md#list) - List users
+* [Get](docs/sdks/users/README.md#get) - Get user
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
