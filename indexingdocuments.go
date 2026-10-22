@@ -1721,7 +1721,7 @@ func (s *IndexingDocuments) CheckAccess(ctx context.Context, request components.
 //
 // Tip: Use [/debug/{datasource}/document](https://developers.glean.com/indexing/debugging/datasource-document) for richer information.
 //
-// Deprecated: Deprecated on 2026-02-03, removal scheduled for 2026-10-15: Endpoint is deprecated.
+// Deprecated: Deprecated on 2026-02-03, removal scheduled for 2027-01-15: Endpoint is deprecated.
 func (s *IndexingDocuments) Status(ctx context.Context, request components.GetDocumentStatusRequest, opts ...operations.Option) (*operations.PostAPIIndexV1GetdocumentstatusResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1944,7 +1944,7 @@ func (s *IndexingDocuments) Status(ctx context.Context, request components.GetDo
 //
 // Tip: Use [/debug/{datasource}/status](https://developers.glean.com/indexing/debugging/datasource-status) for richer information.
 //
-// Deprecated: Deprecated on 2026-02-03, removal scheduled for 2026-10-15: Endpoint is deprecated.
+// Deprecated: Deprecated on 2026-02-03, removal scheduled for 2027-01-15: Endpoint is deprecated.
 func (s *IndexingDocuments) Count(ctx context.Context, request components.GetDocumentCountRequest, opts ...operations.Option) (*operations.PostAPIIndexV1GetdocumentcountResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

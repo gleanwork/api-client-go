@@ -16,9 +16,6 @@ type PlatformIdpGroup struct {
 	// The datasource instance that the group comes from, for example "okta". A provider can have more than one instance.
 	//
 	ProviderInstance string `json:"provider_instance"`
-	// Whether Glean loaded the group from the directory. A group that only a usage limit names is inactive.
-	//
-	IsActive bool `json:"is_active"`
 }
 
 func (p *PlatformIdpGroup) GetIdpGroupID() string {
@@ -47,11 +44,4 @@ func (p *PlatformIdpGroup) GetProviderInstance() string {
 		return ""
 	}
 	return p.ProviderInstance
-}
-
-func (p *PlatformIdpGroup) GetIsActive() bool {
-	if p == nil {
-		return false
-	}
-	return p.IsActive
 }

@@ -5,6 +5,7 @@
 ### Available Operations
 
 * [Create](#create) - Create a chat response
+* [Update](#update) - Update a chat
 * [CreateStream](#createstream) - Create a streaming chat response
 
 ## Create
@@ -90,6 +91,64 @@ func main() {
 | apierrors.PlatformProblemDetailError   | 400, 401, 403, 404, 408, 413, 422, 429 | application/problem+json               |
 | apierrors.PlatformProblemDetailError   | 500, 503                               | application/problem+json               |
 | apierrors.APIError                     | 4XX, 5XX                               | \*/\*                                  |
+
+## Update
+
+Update the name of a chat. Only the chat owner can update it.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-chat-update" method="patch" path="/api/chats/{chat_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Chat.Update(ctx, "{chat_id}", components.PlatformChatUpdateRequest{
+        Name: "Quarterly planning notes",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformChatUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |                                                                                              |
+| `chatID`                                                                                     | `string`                                                                                     | :heavy_check_mark:                                                                           | The ID of the chat to update.                                                                | {chat_id}                                                                                    |
+| `platformChatUpdateRequest`                                                                  | [components.PlatformChatUpdateRequest](../../models/components/platformchatupdaterequest.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
+| `opts`                                                                                       | [][operations.Option](../../models/operations/option.md)                                     | :heavy_minus_sign:                                                                           | The options for this request.                                                                |                                                                                              |
+
+### Response
+
+**[*operations.PlatformChatUpdateResponse](../../models/operations/platformchatupdateresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 405, 413, 429    | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500                                  | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
 
 ## CreateStream
 

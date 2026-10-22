@@ -3,51 +3,13 @@
 package tests
 
 import (
-	"context"
-	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/internal/utils"
-	"github.com/gleanwork/api-client-go/models/components"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 	"testing"
 )
 
 func TestUsage_PlatformAdminUsageSettingsGet(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("platform-admin-usage-settings-get")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
-	)
-
-	res, err := s.Admin.Usage.GetSettings(ctx)
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
+	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step platform-admin-usage-settings-get.test referencing operation platform-admin-usage-settings-get not found in document`]")
 }
 
 func TestUsage_PlatformAdminUsageSettingsUpdate(t *testing.T) {
-	ctx := context.Background()
-
-	testHTTPClient := createTestHTTPClient("platform-admin-usage-settings-update")
-
-	s := apiclientgo.New(
-		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
-		apiclientgo.WithClient(testHTTPClient),
-		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
-	)
-
-	res, err := s.Admin.Usage.UpdateSettings(ctx, components.CreatePlatformUsageSettingsUpdateRequestUnionPlatformUsageSettingsUpdateRequest2(
-		components.PlatformUsageSettingsUpdateRequest2{
-			LimitIncreaseRequests: components.PlatformLimitIncreaseRequestSettings{
-				BusinessJustification: components.BusinessJustificationRequired,
-			},
-		},
-	))
-	require.NoError(t, err)
-	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
-
+	t.Skip("incomplete test found please make sure to address the following errors: [`workflow step platform-admin-usage-settings-update.test referencing operation platform-admin-usage-settings-update not found in document`]")
 }

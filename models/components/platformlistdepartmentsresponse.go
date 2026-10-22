@@ -6,7 +6,7 @@ package components
 type PlatformListDepartmentsResponse struct {
 	// The departments on this page, ordered by display_name and then by department_id.
 	//
-	Results []PlatformDepartment `json:"results"`
+	Results []PlatformDepartmentReference `json:"results"`
 	// Whether more departments are available after this page.
 	HasMore bool `json:"has_more"`
 	// Opaque cursor for the next page; null or absent when has_more is false.
@@ -15,9 +15,9 @@ type PlatformListDepartmentsResponse struct {
 	RequestID string `json:"request_id"`
 }
 
-func (p *PlatformListDepartmentsResponse) GetResults() []PlatformDepartment {
+func (p *PlatformListDepartmentsResponse) GetResults() []PlatformDepartmentReference {
 	if p == nil {
-		return []PlatformDepartment{}
+		return []PlatformDepartmentReference{}
 	}
 	return p.Results
 }

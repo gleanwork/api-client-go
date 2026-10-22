@@ -90,3 +90,4 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeManagerInvite`                     | MANAGER_INVITE                                       |
 | `JustificationTypeOnboardingAuthorization`           | ONBOARDING_AUTHORIZATION                             |
 | `JustificationTypeChatReminder`                      | CHAT_REMINDER                                        |
+| `JustificationTypeDiscover`                          | DISCOVER                                             |
