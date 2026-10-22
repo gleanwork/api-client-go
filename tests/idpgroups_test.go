@@ -27,3 +27,20 @@ func TestIdpgroups_PlatformAdminIdpGroupsList(t *testing.T) {
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
+
+func TestIdpgroups_PlatformAdminIdpGroupsGet(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-admin-idp-groups-get")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Admin.Idpgroups.Get(ctx, "{idp_group_id}")
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}

@@ -1,0 +1,9 @@
+# PlatformAdminOauthClientsGetResponse
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                              | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                      | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `PlatformGetOAuthClientResponse`                                                                        | [*components.PlatformGetOAuthClientResponse](../../models/components/platformgetoauthclientresponse.md) | :heavy_minus_sign:                                                                                      | Successful response.                                                                                    |

@@ -1,0 +1,9 @@
+# PlatformChatUpdateResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)                              | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `PlatformChatUpdateResponse`                                                                    | [*components.PlatformChatUpdateResponse](../../models/components/platformchatupdateresponse.md) | :heavy_minus_sign:                                                                              | The updated chat.                                                                               |

@@ -1,0 +1,9 @@
+# PlatformAdminIdpGroupsGetResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                        | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `PlatformGetIdpGroupResponse`                                                                     | [*components.PlatformGetIdpGroupResponse](../../models/components/platformgetidpgroupresponse.md) | :heavy_minus_sign:                                                                                | Successful response.                                                                              |

@@ -8,7 +8,7 @@ import (
 )
 
 type Admin struct {
-	Usage     *Usage
+	Oauth     *Oauth
 	Idpgroups *Idpgroups
 	Agents    *AdminAgents
 
@@ -22,7 +22,7 @@ func newAdmin(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks.Ho
 		rootSDK:          rootSDK,
 		sdkConfiguration: sdkConfig,
 		hooks:            hooks,
-		Usage:            newUsage(rootSDK, sdkConfig, hooks),
+		Oauth:            newOauth(rootSDK, sdkConfig, hooks),
 		Idpgroups:        newIdpgroups(rootSDK, sdkConfig, hooks),
 		Agents:           newAdminAgents(rootSDK, sdkConfig, hooks),
 	}
