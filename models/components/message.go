@@ -34,6 +34,8 @@ type Message struct {
 	Role *string `json:"role,omitempty"`
 	// The content of the message.
 	Content []MessageTextBlock `json:"content,omitempty"`
+	// An opaque token that represents this particular agent message. Populated only on `GLEAN_AI` messages in responses. To record feedback, pass the token of the message being rated (typically the final `GLEAN_AI` message of the run) as the single entry in `trackingTokens` to `/feedback`, with `category: CHAT`.
+	MessageTrackingToken *string `json:"messageTrackingToken,omitempty"`
 }
 
 func (m *Message) GetRole() *string {
@@ -48,4 +50,11 @@ func (m *Message) GetContent() []MessageTextBlock {
 		return nil
 	}
 	return m.Content
+}
+
+func (m *Message) GetMessageTrackingToken() *string {
+	if m == nil {
+		return nil
+	}
+	return m.MessageTrackingToken
 }

@@ -10,8 +10,12 @@ import (
 type PlatformDepartmentsListRequest struct {
 	// Maximum number of departments to return. Defaults to 50. Maximum is 100.
 	PageSize *int64 `default:"50" queryParam:"style=form,explode=true,name=page_size"`
-	// Opaque pagination cursor from a previous response.
+	// Opaque pagination cursor from a previous response. Send the same filters that the previous request used.
+	//
 	Cursor *string `queryParam:"style=form,explode=true,name=cursor"`
+	// JSON-encoded filters that choose which departments are returned. The only supported field is name, with the operator EQUALS. Multiple values OR within a filter. The field may appear in only one filter. A value that matches no department returns no departments rather than an error.
+	//
+	Filters []components.PlatformDepartmentFilter `queryParam:"serialization=json,name=filters"`
 }
 
 func (p PlatformDepartmentsListRequest) MarshalJSON() ([]byte, error) {
@@ -37,6 +41,13 @@ func (p *PlatformDepartmentsListRequest) GetCursor() *string {
 		return nil
 	}
 	return p.Cursor
+}
+
+func (p *PlatformDepartmentsListRequest) GetFilters() []components.PlatformDepartmentFilter {
+	if p == nil {
+		return nil
+	}
+	return p.Filters
 }
 
 type PlatformDepartmentsListResponse struct {
