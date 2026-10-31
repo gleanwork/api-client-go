@@ -76,6 +76,7 @@ custom := components.JustificationType("custom_value")
 | `JustificationTypeProjectFocusBlock`                 | PROJECT_FOCUS_BLOCK                                  |
 | `JustificationTypeProjectNextStep`                   | PROJECT_NEXT_STEP                                    |
 | `JustificationTypeDemoCard`                          | DEMO_CARD                                            |
+| `JustificationTypePersonalAgentNux`                  | PERSONAL_AGENT_NUX                                   |
 | `JustificationTypeResolveMeetingConflict`            | RESOLVE_MEETING_CONFLICT                             |
 | `JustificationTypeFindingMeetingRoom`                | FINDING_MEETING_ROOM                                 |
 | `JustificationTypeOooPlanner`                        | OOO_PLANNER                                          |
