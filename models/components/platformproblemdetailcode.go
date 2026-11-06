@@ -9,6 +9,7 @@ const (
 	PlatformProblemDetailCodeInvalidRequest          PlatformProblemDetailCode = "invalid_request"
 	PlatformProblemDetailCodeMissingRequiredField    PlatformProblemDetailCode = "missing_required_field"
 	PlatformProblemDetailCodeInvalidParameter        PlatformProblemDetailCode = "invalid_parameter"
+	PlatformProblemDetailCodeUnsupportedActionTarget PlatformProblemDetailCode = "unsupported_action_target"
 	PlatformProblemDetailCodeInvalidCursor           PlatformProblemDetailCode = "invalid_cursor"
 	PlatformProblemDetailCodeExpiredCursor           PlatformProblemDetailCode = "expired_cursor"
 	PlatformProblemDetailCodeInvalidFilter           PlatformProblemDetailCode = "invalid_filter"
@@ -39,7 +40,7 @@ func (e PlatformProblemDetailCode) ToPointer() *PlatformProblemDetailCode {
 func (e *PlatformProblemDetailCode) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "invalid_request", "missing_required_field", "invalid_parameter", "invalid_cursor", "expired_cursor", "invalid_filter", "invalid_datasource", "authentication_required", "token_expired", "insufficient_permissions", "spend_limit_exceeded", "resource_not_found", "method_not_allowed", "request_timeout", "request_too_large", "token_limit_exceeded", "conflict", "gone", "unprocessable_query", "tools_unauthorized", "rate_limit_exceeded", "internal_error", "service_unavailable":
+		case "invalid_request", "missing_required_field", "invalid_parameter", "unsupported_action_target", "invalid_cursor", "expired_cursor", "invalid_filter", "invalid_datasource", "authentication_required", "token_expired", "insufficient_permissions", "spend_limit_exceeded", "resource_not_found", "method_not_allowed", "request_timeout", "request_too_large", "token_limit_exceeded", "conflict", "gone", "unprocessable_query", "tools_unauthorized", "rate_limit_exceeded", "internal_error", "service_unavailable":
 			return true
 		}
 	}

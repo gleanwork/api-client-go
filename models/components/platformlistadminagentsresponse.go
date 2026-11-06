@@ -4,8 +4,8 @@ package components
 
 // PlatformListAdminAgentsResponse - One page of agents.
 type PlatformListAdminAgentsResponse struct {
-	// The agents on this page, ordered by display_name and then by agent_id.
-	Results []PlatformAdminAgent `json:"results"`
+	// The agents on this page, ordered by name and then by agent_id.
+	Results []PlatformAgent `json:"results"`
 	// Whether more agents are available after this page.
 	HasMore bool `json:"has_more"`
 	// Opaque cursor for the next page; null or absent when has_more is false.
@@ -14,9 +14,9 @@ type PlatformListAdminAgentsResponse struct {
 	RequestID string `json:"request_id"`
 }
 
-func (p *PlatformListAdminAgentsResponse) GetResults() []PlatformAdminAgent {
+func (p *PlatformListAdminAgentsResponse) GetResults() []PlatformAgent {
 	if p == nil {
-		return []PlatformAdminAgent{}
+		return []PlatformAgent{}
 	}
 	return p.Results
 }

@@ -26,6 +26,7 @@ const (
 	DocCategoryAgents               DocCategory = "AGENTS"
 	DocCategoryAiConversation       DocCategory = "AI_CONVERSATION"
 	DocCategoryAiArtifact           DocCategory = "AI_ARTIFACT"
+	DocCategoryUgcSkill             DocCategory = "UGC_SKILL"
 )
 
 func (e DocCategory) ToPointer() *DocCategory {
@@ -36,7 +37,7 @@ func (e DocCategory) ToPointer() *DocCategory {
 func (e *DocCategory) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "UNCATEGORIZED", "TICKETS", "CRM", "PUBLISHED_CONTENT", "COLLABORATIVE_CONTENT", "QUESTION_ANSWER", "MESSAGING", "CODE_REPOSITORY", "CHANGE_MANAGEMENT", "PEOPLE", "EMAIL", "SSO", "ATS", "KNOWLEDGE_HUB", "EXTERNAL_SHORTCUT", "ENTITY", "CALENDAR", "AGENTS", "AI_CONVERSATION", "AI_ARTIFACT":
+		case "UNCATEGORIZED", "TICKETS", "CRM", "PUBLISHED_CONTENT", "COLLABORATIVE_CONTENT", "QUESTION_ANSWER", "MESSAGING", "CODE_REPOSITORY", "CHANGE_MANAGEMENT", "PEOPLE", "EMAIL", "SSO", "ATS", "KNOWLEDGE_HUB", "EXTERNAL_SHORTCUT", "ENTITY", "CALENDAR", "AGENTS", "AI_CONVERSATION", "AI_ARTIFACT", "UGC_SKILL":
 			return true
 		}
 	}

@@ -417,6 +417,12 @@ For more information on obtaining the appropriate token type, please contact you
 * [List](docs/sdks/departments/README.md#list) - List departments
 * [Get](docs/sdks/departments/README.md#get) - Get a department
 
+### [Documents](docs/sdks/documents/README.md)
+
+* [GetByURL](docs/sdks/documents/README.md#getbyurl) - Get document by URL
+* [GetByID](docs/sdks/documents/README.md#getbyid) - Get document by ID
+* [Batch](docs/sdks/documents/README.md#batch) - Batch get documents
+
 ### [Indexing.Authentication](docs/sdks/indexingauthentication/README.md)
 
 * [RotateToken](docs/sdks/indexingauthentication/README.md#rotatetoken) - Rotate token

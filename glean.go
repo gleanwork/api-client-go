@@ -2,7 +2,7 @@
 
 package apiclientgo
 
-// Generated from OpenAPI doc version 0.9.0 and generator version 2.950.2
+// Generated from OpenAPI doc version 0.9.0 and generator version 2.956.1
 
 import (
 	"context"
@@ -72,6 +72,7 @@ type Glean struct {
 	Admin       *Admin
 	Departments *Departments
 	Users       *Users
+	Documents   *Documents
 	Triggers    *Triggers
 	Client      *Client
 	Indexing    *Indexing
@@ -164,11 +165,11 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Glean {
 	sdk := &Glean{
-		SDKVersion: "0.17.1",
+		SDKVersion: "0.17.2",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:         "speakeasy-sdk/go 0.17.1 2.950.2 0.9.0 github.com/gleanwork/api-client-go",
-			SDKVersion:        "0.17.1",
-			GenVersion:        "2.950.2",
+			UserAgent:         "speakeasy-sdk/go 0.17.2 2.956.1 0.9.0 github.com/gleanwork/api-client-go",
+			SDKVersion:        "0.17.2",
+			GenVersion:        "2.956.1",
 			OpenAPIDocVersion: "0.9.0",
 			ServerList:        ServerList,
 			ServerVariables: []map[string]string{
@@ -209,6 +210,7 @@ func New(opts ...SDKOption) *Glean {
 	sdk.Admin = newAdmin(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Departments = newDepartments(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Users = newUsers(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Documents = newDocuments(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Triggers = newTriggers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Client = newClient(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Indexing = newIndexing(sdk, sdk.sdkConfiguration, sdk.hooks)

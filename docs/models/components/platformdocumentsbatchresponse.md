@@ -1,0 +1,10 @@
+# PlatformDocumentsBatchResponse
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `Results`                                                                                              | [][components.PlatformDocumentsBatchResult](../../models/components/platformdocumentsbatchresult.md)   | :heavy_check_mark:                                                                                     | Found documents, correlated by index into document_specs.                                              |
+| `Warnings`                                                                                             | [][components.PlatformDocumentsBatchWarning](../../models/components/platformdocumentsbatchwarning.md) | :heavy_check_mark:                                                                                     | Complete per-item failures. Empty when every spec was found.                                           |
+| `RequestID`                                                                                            | `string`                                                                                               | :heavy_check_mark:                                                                                     | Platform-generated request ID for support correlation.                                                 |
