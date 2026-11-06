@@ -22,7 +22,7 @@ func TestDepartments_PlatformDepartmentsList(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Departments.List(ctx, apiclientgo.Pointer[int64](50), nil)
+	res, err := s.Departments.List(ctx, apiclientgo.Pointer[int64](50), nil, nil)
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 

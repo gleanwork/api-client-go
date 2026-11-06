@@ -679,7 +679,7 @@ func (s *ClientChat) Delete(ctx context.Context, deleteChatsRequest components.D
 }
 
 // Retrieve - Retrieves a Chat
-// Retrieves the chat history between Glean Assistant and the user for a given Chat.
+// Retrieves the chat history between Glean Assistant and the user for a given Chat. Omit pagination fields to return the full message history (existing behavior). Use last alone for the latest page, last with before for older messages, or first with after for newer messages. Each page is chronological and includes pagination cursors and page flags.
 func (s *ClientChat) Retrieve(ctx context.Context, getChatRequest components.GetChatRequest, locale *string, timezoneOffset *int64, opts ...operations.Option) (*operations.GetchatResponse, error) {
 	request := operations.GetchatRequest{
 		Locale:         locale,

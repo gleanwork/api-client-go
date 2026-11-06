@@ -63,6 +63,7 @@ custom := components.FeedResultCategory("custom_value")
 | `FeedResultCategoryProjectFocusBlock`            | PROJECT_FOCUS_BLOCK                              |
 | `FeedResultCategoryProjectNextStep`              | PROJECT_NEXT_STEP                                |
 | `FeedResultCategoryDemoCard`                     | DEMO_CARD                                        |
+| `FeedResultCategoryPersonalAgentNux`             | PERSONAL_AGENT_NUX                               |
 | `FeedResultCategoryResolveMeetingConflict`       | RESOLVE_MEETING_CONFLICT                         |
 | `FeedResultCategoryFindingMeetingRoom`           | FINDING_MEETING_ROOM                             |
 | `FeedResultCategoryOooPlanner`                   | OOO_PLANNER                                      |

@@ -32,11 +32,12 @@ func newDepartments(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *ho
 }
 
 // List departments
-// List the departments in the Glean directory, ordered by display_name and then by department_id. The list includes every department that at least one user belongs to or that a usage limit names, so a caller can show the name of a department that a usage limit still names after its users leave it. Department names are exact, so names that differ only by case are different departments.
-func (s *Departments) List(ctx context.Context, pageSize *int64, cursor *string, opts ...operations.Option) (*operations.PlatformDepartmentsListResponse, error) {
+// List the departments in the Glean directory, ordered by display_name and then by department_id. The list includes every department that at least one user belongs to or that a usage limit names, so a caller can show the name of a department that a usage limit still names after its users leave it. Department names are exact, so names that differ only by case are different departments. Send a name filter to return only the departments whose display_name contains a value.
+func (s *Departments) List(ctx context.Context, pageSize *int64, cursor *string, filters []components.PlatformDepartmentFilter, opts ...operations.Option) (*operations.PlatformDepartmentsListResponse, error) {
 	request := operations.PlatformDepartmentsListRequest{
 		PageSize: pageSize,
 		Cursor:   cursor,
+		Filters:  filters,
 	}
 
 	o := operations.Options{}

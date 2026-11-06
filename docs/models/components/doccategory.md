@@ -40,3 +40,4 @@ custom := components.DocCategory("custom_value")
 | `DocCategoryAgents`               | AGENTS                            |
 | `DocCategoryAiConversation`       | AI_CONVERSATION                   |
 | `DocCategoryAiArtifact`           | AI_ARTIFACT                       |
+| `DocCategoryUgcSkill`             | UGC_SKILL                         |

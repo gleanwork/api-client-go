@@ -4,6 +4,8 @@ package components
 
 type GetChatResponse struct {
 	ChatResult *ChatResult `json:"chatResult,omitempty"`
+	// Pagination cursors and page flags for a getchat message page.
+	Pagination *GetChatPagination `json:"pagination,omitempty"`
 }
 
 func (g *GetChatResponse) GetChatResult() *ChatResult {
@@ -11,4 +13,11 @@ func (g *GetChatResponse) GetChatResult() *ChatResult {
 		return nil
 	}
 	return g.ChatResult
+}
+
+func (g *GetChatResponse) GetPagination() *GetChatPagination {
+	if g == nil {
+		return nil
+	}
+	return g.Pagination
 }

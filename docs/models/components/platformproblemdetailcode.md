@@ -23,6 +23,7 @@ custom := components.PlatformProblemDetailCode("custom_value")
 | `PlatformProblemDetailCodeInvalidRequest`          | invalid_request                                    |
 | `PlatformProblemDetailCodeMissingRequiredField`    | missing_required_field                             |
 | `PlatformProblemDetailCodeInvalidParameter`        | invalid_parameter                                  |
+| `PlatformProblemDetailCodeUnsupportedActionTarget` | unsupported_action_target                          |
 | `PlatformProblemDetailCodeInvalidCursor`           | invalid_cursor                                     |
 | `PlatformProblemDetailCodeExpiredCursor`           | expired_cursor                                     |
 | `PlatformProblemDetailCodeInvalidFilter`           | invalid_filter                                     |

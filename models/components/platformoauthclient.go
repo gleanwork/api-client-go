@@ -24,9 +24,9 @@ type PlatformOAuthClient struct {
 	TokenEndpointAuthMethod *PlatformOAuthTokenEndpointAuthMethod `json:"token_endpoint_auth_method,omitempty"`
 	// The redirect URIs that the client can use.
 	RedirectUris []string `json:"redirect_uris"`
-	// Whether the client is active. A client that an admin disabled is inactive and cannot authenticate.
+	// Whether the client is enabled. A client that an admin disabled cannot authenticate.
 	//
-	IsActive bool `json:"is_active"`
+	IsEnabled bool `json:"is_enabled"`
 	// When the client was created. Absent when it is not known.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// LLM Gateway details of an OAuth client.
@@ -93,11 +93,11 @@ func (p *PlatformOAuthClient) GetRedirectUris() []string {
 	return p.RedirectUris
 }
 
-func (p *PlatformOAuthClient) GetIsActive() bool {
+func (p *PlatformOAuthClient) GetIsEnabled() bool {
 	if p == nil {
 		return false
 	}
-	return p.IsActive
+	return p.IsEnabled
 }
 
 func (p *PlatformOAuthClient) GetCreatedAt() *time.Time {
