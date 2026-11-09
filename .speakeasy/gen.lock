@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 85fd0b317d248bf62455701daa45f644
+  docChecksum: 95692313381fbb5eca84b518bbfd374c
   docVersion: 0.9.0
-  speakeasyVersion: 1.806.0
+  speakeasyVersion: 1.807.0
   generationVersion: 2.956.1
-  releaseVersion: 0.17.2
-  configChecksum: 00684fd0d042578a7b3d24a6fb3e190b
+  releaseVersion: 0.17.3
+  configChecksum: 634aff9e2142dce9a2c6d463f2fb35b9
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: 1c3530d1-c806-488e-b9e6-dbdb9c24764b
-  pristine_commit_hash: 09f7449252af18c5da0a176d1aa68a3fc91f443e
-  pristine_tree_hash: 4dac4e8f91019544a879c7068f619a0fef8e9eba
+  generation_id: 6ef661a8-31ea-4c3c-a016-7d309cccf1b4
+  pristine_commit_hash: 74757a80a381f1baf4d8fd42e11d8aa86d54217e
+  pristine_tree_hash: 3877c6fcfe7f99c8b8628bf4661d8807b639b517
 features:
   go:
     acceptHeaders: 2.81.2
@@ -5153,8 +5153,8 @@ trackedFiles:
     pristine_git_object: a3cb3e5448f3fdcfad77ed2a4ba47ae848d5cd5d
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:b882be04d7a191d6a880a85e5c5f25563f6b66e3
-    pristine_git_object: 5dede2d54d99b3621bbb076b85f3641b5c7aed51
+    last_write_checksum: sha1:04638bf86b91810b25950c32828d3dde4cd980f3
+    pristine_git_object: d95d32b39613a2457eec9368cff04801e683d5ae
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:b3c76c4c50472a60a8c74834bce9770edcc84fb1
@@ -8905,8 +8905,8 @@ trackedFiles:
     pristine_git_object: 6d9cbca42012c2760de3ecaf4f569c53d32197da
   tests/messages_test.go:
     id: 3433c956b7a3
-    last_write_checksum: sha1:63e7b1c9a68b43467855286635a88cb166b2bc79
-    pristine_git_object: febdc0e8a34b769bfc6dcfe3a9e33053b2267433
+    last_write_checksum: sha1:0e70d5a95dcfffb2d01931c47eae827d7c95129a
+    pristine_git_object: bc499ec73cc495c1502d01361347ce76a0fe5f18
   tests/mockserver/.gitignore:
     id: 7705eb663274
     last_write_checksum: sha1:228e1b05712a973948fd771323a2140a3b355ff4
@@ -9457,8 +9457,8 @@ trackedFiles:
     pristine_git_object: abb763ddc8504b28c0cb6fdf8d25237d46e21bab
   tests/mockserver/internal/handler/pathpostrestapiv1getchat.go:
     id: a0ec7bafa599
-    last_write_checksum: sha1:2267292ba8173cf8df70ddbc6ac02ff3439cb879
-    pristine_git_object: 8740195860b6c08e036caae19aab8e7374350960
+    last_write_checksum: sha1:b48e2313407814ee4f8ed181b8e5299a84960c44
+    pristine_git_object: 96d4127e0455272a9842e2d1954e5fcefa3278cc
   tests/mockserver/internal/handler/pathpostrestapiv1getchatapplication.go:
     id: 7d101c69d4bc
     last_write_checksum: sha1:7b81898137fdb3a89b4dcfa318b9b5b92e8860c0
@@ -13189,8 +13189,8 @@ trackedFiles:
     pristine_git_object: c529bd5691588e889a10e46bb1cd477a80cb3703
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:7c2dd1971ef08363eb64aac3c8a2da389411b637
-    pristine_git_object: 8f8003ff8749d018e6b02af41ac3cffaf4436542
+    last_write_checksum: sha1:64d76c70f34f3c7ca73608fb80648e23288cc566
+    pristine_git_object: 2e8b5f832540cb42eff176dd3be06fe1d2684913
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -15102,7 +15102,6 @@ generatedTests:
   platform-documents-get-by-url: "2026-11-06T19:46:30Z"
   platform-documents-get: "2026-11-06T19:46:30Z"
   platform-documents-batch: "2026-11-06T19:46:30Z"
-releaseNotes: "## Go SDK Changes:\n* `Glean.Admin.Oauth.Clients.List()`: \n  *  `response.Results[]` **Changed** (Breaking ⚠️)\n  *  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Admin.Oauth.Clients.Get()`: \n  *  `response.Client` **Changed** (Breaking ⚠️)\n  *  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Admin.Agents.List()`: \n  *  `response.Results[]` **Changed** (Breaking ⚠️)\n  *  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Documents.GetByUrl()`: **Added**\n* `Glean.Documents.GetById()`: **Added**\n* `Glean.Documents.Batch()`: **Added**\n* `Glean.Agents.Search()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Agents.Get()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Agents.GetSchemas()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Agents.CreateRun()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Agents.GetRun()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Agents.CancelRun()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Agents.RespondToRun()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Chat.Create()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Chat.Update()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Chat.CreateStream()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.Create()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.List()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.Import()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.Validate()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.PreviewSource()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.Update()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.Delete()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.Retrieve()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.RetrieveContent()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.Sync()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.CreateVersion()`: \n  *  `response.Version.UpdatedBy` **Added**\n  *  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.ListVersions()`: \n  *  `response.Results[].UpdatedBy` **Added**\n  *  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.RetrieveVersion()`: \n  *  `response.Version.UpdatedBy` **Added**\n  *  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.RetrieveVersionContent()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Skills.PreviewSourceStream()`: \n  *  `response.[].union(ERROR).Data.Error.Code.Enum(unsupportedActionTarget)` **Added**\n  *  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Search.Query()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Search.ListFilters()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Admin.Idpgroups.List()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Admin.Idpgroups.Get()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Departments.List()`: \n  *  `request.Filters` **Added**\n  *  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Departments.Get()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Users.List()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Users.Get()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.Create()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.List()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.Get()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.Update()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.Delete()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.SearchEvents()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.ListPresets()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.GetPreset()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.ListPresetInputValues()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Triggers.SearchPresetEvents()`:  `error.Code.Enum(unsupportedActionTarget)` **Added**\n* `Glean.Client.Chat.Retrieve()`: \n  *  `request.GetChatRequest` **Changed**\n  *  `response.Pagination` **Added**\n* `Glean.Client.Agents.Run()`:  `response.Run.Messages[]` **Changed**\n* `Glean.Client.Search.RetrieveFeed()`: \n  *  `request.FeedRequest.Categories[].Enum(personalAgentNux)` **Added**\n  *  `response.Results[]` **Changed**\n* `Glean.Indexing.Datasources.Add()`: \n  *  `request.Request.ObjectDefinitions[].DocCategory.Enum(ugcSkill)` **Added**\n* `Glean.Indexing.Datasources.RetrieveConfig()`:  `response.ObjectDefinitions[].DocCategory.Enum(ugcSkill)` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
