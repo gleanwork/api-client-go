@@ -19,6 +19,12 @@ type ErrorInfoResponse struct {
 var _ error = &ErrorInfoResponse{}
 
 func (e *ErrorInfoResponse) Error() string {
+	if e != nil {
+		if e.Message != nil {
+			return *e.Message
+		}
+	}
+
 	data, _ := json.Marshal(e)
 	return string(data)
 }
