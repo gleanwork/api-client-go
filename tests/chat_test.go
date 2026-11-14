@@ -26,31 +26,8 @@ func TestChat_PlatformChatCreate(t *testing.T) {
 
 	res, err := s.Chat.Create(ctx, operations.PlatformChatCreateRequest{
 		Input: operations.CreatePlatformChatCreateInputStr(
-			"Summarize our parental leave policy as JSON.",
+			"Summarize our parental leave policy.",
 		),
-		Text: &operations.PlatformChatCreateText{
-			Format: apiclientgo.Pointer(operations.CreatePlatformChatCreateFormatPlatformChatJSONSchemaFormat(
-				components.PlatformChatJSONSchemaFormat{
-					Type: components.PlatformChatJSONSchemaFormatTypeJSONSchema,
-					Name: "policy_summary",
-					Schema: map[string]any{
-						"properties": map[string]any{
-							"duration_weeks": map[string]any{
-								"type": "integer",
-							},
-							"eligible_employees": map[string]any{
-								"type": "string",
-							},
-						},
-						"required": []any{
-							"eligible_employees",
-							"duration_weeks",
-						},
-						"type": "object",
-					},
-				},
-			)),
-		},
 	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
