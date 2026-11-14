@@ -6,6 +6,7 @@
 
 * [Query](#query) - Search
 * [ListFilters](#listfilters) - List search filters
+* [Enumerate](#enumerate) - Enumerate matching documents
 
 ## Query
 
@@ -122,3 +123,67 @@ func main() {
 | apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 429         | application/problem+json             |
 | apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
 | apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## Enumerate
+
+Walk every indexed document that matches a selection and that the caller is permitted to see. Returns document references with minimal metadata and never bodies; request `SNIPPETS` via `include` for query-relevant excerpts, and hydrate full documents with `POST /api/documents/batch`. Unlike `POST /api/search`, `query` is optional: omit it to enumerate by `datasources`, `filters`, and `time_range` alone. Results are ordered for completeness, not relevance.
+Follow `next_cursor` until `has_more` is `false`, regardless of page size. This is a live scan, not a snapshot: concurrent index changes can cause duplicates or omissions. Deduplicate by `document_id`.
+A page is either complete at its cursor position or an error. A shard or datasource failure returns HTTP 503 and the same cursor stays valid for retry; this endpoint never returns a partial page. A cursor reused with a different selection returns HTTP 400 `invalid_cursor`.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-search-enumeration" method="post" path="/api/search/enumeration" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Search.Enumerate(ctx, components.PlatformSearchEnumerationRequest{
+        Query: apiclientgo.Pointer("amoxicillin"),
+        Datasources: []string{
+            "gdrive",
+        },
+        PageSize: apiclientgo.Pointer[int64](500),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformSearchEnumerationResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `request`                                                                                                  | [components.PlatformSearchEnumerationRequest](../../models/components/platformsearchenumerationrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `opts`                                                                                                     | [][operations.Option](../../models/operations/option.md)                                                   | :heavy_minus_sign:                                                                                         | The options for this request.                                                                              |
+
+### Response
+
+**[*operations.PlatformSearchEnumerationResponse](../../models/operations/platformsearchenumerationresponse.md), error**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| apierrors.PlatformProblemDetailError   | 400, 401, 403, 404, 408, 413, 422, 429 | application/problem+json               |
+| apierrors.PlatformProblemDetailError   | 500, 503                               | application/problem+json               |
+| apierrors.APIError                     | 4XX, 5XX                               | \*/\*                                  |

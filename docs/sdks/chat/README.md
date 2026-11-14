@@ -24,7 +24,6 @@ import(
 	"os"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/operations"
-	"github.com/gleanwork/api-client-go/models/components"
 	"log"
 )
 
@@ -37,31 +36,8 @@ func main() {
 
     res, err := s.Chat.Create(ctx, operations.PlatformChatCreateRequest{
         Input: operations.CreatePlatformChatCreateInputStr(
-            "Summarize our parental leave policy as JSON.",
+            "Summarize our parental leave policy.",
         ),
-        Text: &operations.PlatformChatCreateText{
-            Format: apiclientgo.Pointer(operations.CreatePlatformChatCreateFormatPlatformChatJSONSchemaFormat(
-                components.PlatformChatJSONSchemaFormat{
-                    Type: components.PlatformChatJSONSchemaFormatTypeJSONSchema,
-                    Name: "policy_summary",
-                    Schema: map[string]any{
-                        "type": "object",
-                        "properties": map[string]any{
-                            "eligible_employees": map[string]any{
-                                "type": "string",
-                            },
-                            "duration_weeks": map[string]any{
-                                "type": "integer",
-                            },
-                        },
-                        "required": []any{
-                            "eligible_employees",
-                            "duration_weeks",
-                        },
-                    },
-                },
-            )),
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -166,7 +142,6 @@ import(
 	"os"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/operations"
-	"github.com/gleanwork/api-client-go/models/components"
 	"log"
 )
 
@@ -179,31 +154,8 @@ func main() {
 
     res, err := s.Chat.CreateStream(ctx, operations.PlatformChatCreateStreamRequest{
         Input: operations.CreatePlatformChatCreateStreamInputStr(
-            "Summarize our parental leave policy as JSON.",
+            "Summarize our parental leave policy.",
         ),
-        Text: &operations.PlatformChatCreateStreamText{
-            Format: apiclientgo.Pointer(operations.CreatePlatformChatCreateStreamFormatPlatformChatJSONSchemaFormat(
-                components.PlatformChatJSONSchemaFormat{
-                    Type: components.PlatformChatJSONSchemaFormatTypeJSONSchema,
-                    Name: "policy_summary",
-                    Schema: map[string]any{
-                        "type": "object",
-                        "properties": map[string]any{
-                            "eligible_employees": map[string]any{
-                                "type": "string",
-                            },
-                            "duration_weeks": map[string]any{
-                                "type": "integer",
-                            },
-                        },
-                        "required": []any{
-                            "eligible_employees",
-                            "duration_weeks",
-                        },
-                    },
-                },
-            )),
-        },
     })
     if err != nil {
         log.Fatal(err)
