@@ -500,6 +500,7 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [Query](docs/sdks/search/README.md#query) - Search
 * [ListFilters](docs/sdks/search/README.md#listfilters) - List search filters
+* [Enumerate](docs/sdks/search/README.md#enumerate) - Enumerate matching documents
 
 ### [Skills](docs/sdks/skills/README.md)
 
@@ -555,7 +556,6 @@ package main
 import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
-	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/gleanwork/api-client-go/models/operations"
 	"log"
 	"os"
@@ -570,31 +570,8 @@ func main() {
 
 	res, err := s.Chat.CreateStream(ctx, operations.PlatformChatCreateStreamRequest{
 		Input: operations.CreatePlatformChatCreateStreamInputStr(
-			"Summarize our parental leave policy as JSON.",
+			"Summarize our parental leave policy.",
 		),
-		Text: &operations.PlatformChatCreateStreamText{
-			Format: apiclientgo.Pointer(operations.CreatePlatformChatCreateStreamFormatPlatformChatJSONSchemaFormat(
-				components.PlatformChatJSONSchemaFormat{
-					Type: components.PlatformChatJSONSchemaFormatTypeJSONSchema,
-					Name: "policy_summary",
-					Schema: map[string]any{
-						"type": "object",
-						"properties": map[string]any{
-							"eligible_employees": map[string]any{
-								"type": "string",
-							},
-							"duration_weeks": map[string]any{
-								"type": "integer",
-							},
-						},
-						"required": []any{
-							"eligible_employees",
-							"duration_weeks",
-						},
-					},
-				},
-			)),
-		},
 	})
 	if err != nil {
 		log.Fatal(err)
