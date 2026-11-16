@@ -9,7 +9,11 @@ type XGleanConfig struct {
 	// Format: YYYY-MM-DD (e.g., "2026-10-15")
 	ExcludeDeprecatedAfter string
 
-	// IncludeExperimental enables experimental API features when true.
+	// IncludeBeta enables beta API features when true.
+	IncludeBeta bool
+
+	// IncludeExperimental is an alias of IncludeBeta. Either one enables beta
+	// API features.
 	IncludeExperimental bool
 }
 

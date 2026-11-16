@@ -1,10 +1,15 @@
 package apiclientgo
 
 import (
+	"context"
+	"io"
+	"net/http"
 	"os"
+	"strings"
 	"testing"
 
 	"github.com/gleanwork/api-client-go/internal/hooks"
+	"github.com/gleanwork/api-client-go/models/components"
 )
 
 func TestWithExcludeDeprecatedAfter(t *testing.T) {
@@ -41,6 +46,94 @@ func TestWithBothOptions(t *testing.T) {
 	}
 	if !config.IncludeExperimental {
 		t.Error("expected IncludeExperimental to be true")
+	}
+}
+
+func TestWithIncludeBeta(t *testing.T) {
+	sdk := New(
+		WithIncludeBeta(true),
+	)
+
+	config := hooks.GetXGleanConfig(sdk)
+	if !config.IncludeBeta {
+		t.Error("expected IncludeBeta to be true")
+	}
+	if config.IncludeExperimental {
+		t.Error("expected IncludeExperimental to be false")
+	}
+}
+
+func TestWithIncludeBetaAndIncludeExperimental(t *testing.T) {
+	sdk := New(
+		WithIncludeBeta(true),
+		WithIncludeExperimental(true),
+		WithExcludeDeprecatedAfter("2026-10-15"),
+	)
+
+	config := hooks.GetXGleanConfig(sdk)
+	if !config.IncludeBeta {
+		t.Error("expected IncludeBeta to be true")
+	}
+	if !config.IncludeExperimental {
+		t.Error("expected IncludeExperimental to be true")
+	}
+	if config.ExcludeDeprecatedAfter != "2026-10-15" {
+		t.Errorf("expected ExcludeDeprecatedAfter to be '2026-10-15', got '%s'", config.ExcludeDeprecatedAfter)
+	}
+}
+
+// headerCapturingClient records the headers of the last request it receives.
+type headerCapturingClient struct {
+	header http.Header
+}
+
+func (c *headerCapturingClient) Do(req *http.Request) (*http.Response, error) {
+	c.header = req.Header.Clone()
+	return &http.Response{
+		StatusCode: http.StatusOK,
+		Header:     http.Header{"Content-Type": []string{"application/json"}},
+		Body:       io.NopCloser(strings.NewReader("{}")),
+		Request:    req,
+	}, nil
+}
+
+func TestXGleanOptionsSendIncludeExperimentalHeader(t *testing.T) {
+	tests := []struct {
+		name string
+		opts []SDKOption
+		want string
+	}{
+		{name: "neither option", want: ""},
+		{name: "WithIncludeBeta", opts: []SDKOption{WithIncludeBeta(true)}, want: "true"},
+		{name: "WithIncludeExperimental", opts: []SDKOption{WithIncludeExperimental(true)}, want: "true"},
+		{name: "both options", opts: []SDKOption{WithIncludeBeta(true), WithIncludeExperimental(true)}, want: "true"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			t.Setenv("X_GLEAN_INCLUDE_BETA", "")
+			t.Setenv("X_GLEAN_INCLUDE_EXPERIMENTAL", "")
+
+			client := &headerCapturingClient{}
+			opts := append([]SDKOption{
+				WithClient(client),
+				WithSecurity("test-token"),
+				WithServerURL("https://example.com"),
+			}, tt.opts...)
+			sdk := New(opts...)
+
+			_, _ = sdk.Search.Query(context.Background(), components.PlatformSearchRequest{Query: "test"})
+
+			if client.header == nil {
+				t.Fatal("expected a request to be sent")
+			}
+			if got := client.header.Get("X-Glean-Include-Experimental"); got != tt.want {
+				t.Errorf("expected X-Glean-Include-Experimental header to be %q, got %q", tt.want, got)
+			}
+			if got := client.header.Get("X-Glean-Beta"); got != "" {
+				t.Errorf("expected X-Glean-Beta header to not be set yet, got %q", got)
+			}
+		})
 	}
 }
 

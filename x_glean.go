@@ -7,6 +7,7 @@ import (
 // xGleanOptions holds the X-Glean configuration options that will be applied after SDK initialization.
 type xGleanOptions struct {
 	excludeDeprecatedAfter string
+	includeBeta            bool
 	includeExperimental    bool
 }
 
@@ -31,11 +32,27 @@ func WithExcludeDeprecatedAfter(date string) SDKOption {
 	}
 }
 
-// WithIncludeExperimental configures the SDK to enable experimental API features
-// that are not yet generally available. Use this to preview and test new functionality.
+// WithIncludeBeta configures the SDK to enable beta API features that are not
+// yet generally available. Use this to preview and test new functionality.
 //
-// Warning: Experimental features may change or be removed without notice.
-// Do not rely on experimental features in production environments.
+// Warning: Beta features may change or be removed without notice.
+// Do not rely on beta features in production environments.
+//
+// This can also be set via the X_GLEAN_INCLUDE_BETA environment variable.
+// Environment variables take precedence over SDK options.
+//
+// WithIncludeExperimental is an alias. If either one is enabled, the SDK
+// enables beta API features.
+func WithIncludeBeta(enabled bool) SDKOption {
+	return func(sdk *Glean) {
+		opts := getOrCreatePendingOptions(sdk)
+		opts.includeBeta = enabled
+		applyXGleanConfig(sdk, opts)
+	}
+}
+
+// WithIncludeExperimental is an alias of WithIncludeBeta. If either one is
+// enabled, the SDK enables beta API features.
 //
 // This can also be set via the X_GLEAN_INCLUDE_EXPERIMENTAL environment variable.
 // Environment variables take precedence over SDK options.
@@ -61,6 +78,7 @@ func getOrCreatePendingOptions(sdk *Glean) *xGleanOptions {
 func applyXGleanConfig(sdk *Glean, opts *xGleanOptions) {
 	hooks.SetXGleanConfig(sdk, hooks.XGleanConfig{
 		ExcludeDeprecatedAfter: opts.excludeDeprecatedAfter,
+		IncludeBeta:            opts.includeBeta,
 		IncludeExperimental:    opts.includeExperimental,
 	})
 }

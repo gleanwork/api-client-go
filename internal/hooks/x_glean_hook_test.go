@@ -315,3 +315,53 @@ func TestXGleanHook_EnvVarsPrecedence_BothOptions(t *testing.T) {
 		t.Errorf("expected X-Glean-Include-Experimental header to be 'true' (from env var), got '%s'", got)
 	}
 }
+
+func TestXGleanHook_IncludeBeta(t *testing.T) {
+	tests := []struct {
+		name            string
+		betaEnv         string
+		experimentalEnv string
+		config          XGleanConfig
+		want            string
+	}{
+		{name: "neither option set", want: ""},
+		{name: "IncludeBeta alone", config: XGleanConfig{IncludeBeta: true}, want: "true"},
+		{name: "IncludeBeta false", config: XGleanConfig{IncludeBeta: false}, want: ""},
+		{name: "IncludeExperimental alone", config: XGleanConfig{IncludeExperimental: true}, want: "true"},
+		{name: "both options true", config: XGleanConfig{IncludeBeta: true, IncludeExperimental: true}, want: "true"},
+		{name: "IncludeBeta true, IncludeExperimental false", config: XGleanConfig{IncludeBeta: true, IncludeExperimental: false}, want: "true"},
+		{name: "X_GLEAN_INCLUDE_BETA alone", betaEnv: "true", want: "true"},
+		{name: "X_GLEAN_INCLUDE_BETA is case-insensitive", betaEnv: " TRUE ", want: "true"},
+		{name: "both env vars true", betaEnv: "true", experimentalEnv: "true", want: "true"},
+		{name: "X_GLEAN_INCLUDE_BETA=false overrides IncludeBeta", betaEnv: "false", config: XGleanConfig{IncludeBeta: true}, want: ""},
+		{name: "X_GLEAN_INCLUDE_BETA=true overrides IncludeBeta=false", betaEnv: "true", config: XGleanConfig{IncludeBeta: false}, want: "true"},
+		{name: "empty X_GLEAN_INCLUDE_BETA falls back to IncludeBeta", betaEnv: " ", config: XGleanConfig{IncludeBeta: true}, want: "true"},
+		{name: "X_GLEAN_INCLUDE_BETA=false does not turn off IncludeExperimental", betaEnv: "false", config: XGleanConfig{IncludeExperimental: true}, want: "true"},
+		{name: "X_GLEAN_INCLUDE_BETA=false does not turn off X_GLEAN_INCLUDE_EXPERIMENTAL", betaEnv: "false", experimentalEnv: "true", want: "true"},
+		{name: "X_GLEAN_INCLUDE_EXPERIMENTAL=false does not turn off IncludeBeta", experimentalEnv: "false", config: XGleanConfig{IncludeBeta: true}, want: "true"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			t.Setenv("X_GLEAN_EXCLUDE_DEPRECATED_AFTER", "")
+			t.Setenv("X_GLEAN_INCLUDE_BETA", tt.betaEnv)
+			t.Setenv("X_GLEAN_INCLUDE_EXPERIMENTAL", tt.experimentalEnv)
+
+			hook := &XGleanHook{}
+			sdk := &mockSDK{}
+			SetXGleanConfig(sdk, tt.config)
+
+			result, err := hook.BeforeRequest(createMockContext(sdk), createMockRequest())
+			if err != nil {
+				t.Fatalf("expected no error, got %v", err)
+			}
+
+			if got := result.Header.Get(headerIncludeExperimental); got != tt.want {
+				t.Errorf("expected X-Glean-Include-Experimental header to be %q, got %q", tt.want, got)
+			}
+			if got := result.Header.Get("X-Glean-Beta"); got != "" {
+				t.Errorf("expected X-Glean-Beta header to not be set yet, got %q", got)
+			}
+		})
+	}
+}
