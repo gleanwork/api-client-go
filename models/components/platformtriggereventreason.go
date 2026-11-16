@@ -34,6 +34,10 @@ const (
 	PlatformTriggerEventReasonWebhookUpdated PlatformTriggerEventReason = "WEBHOOK_UPDATED"
 	// PlatformTriggerEventReasonWebhookCreated The source system sent a webhook creation event.
 	PlatformTriggerEventReasonWebhookCreated PlatformTriggerEventReason = "WEBHOOK_CREATED"
+	// PlatformTriggerEventReasonClosed The item was closed.
+	PlatformTriggerEventReasonClosed PlatformTriggerEventReason = "CLOSED"
+	// PlatformTriggerEventReasonCommentAdded A comment was added to the item.
+	PlatformTriggerEventReasonCommentAdded PlatformTriggerEventReason = "COMMENT_ADDED"
 )
 
 func (e PlatformTriggerEventReason) ToPointer() *PlatformTriggerEventReason {
@@ -44,7 +48,7 @@ func (e PlatformTriggerEventReason) ToPointer() *PlatformTriggerEventReason {
 func (e *PlatformTriggerEventReason) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "CREATED", "UPDATED", "DELETED", "MEETS_CONDITION", "ASSIGNED", "UNASSIGNED", "LABELED", "UNLABELED", "REVIEW_REQUESTED", "REVIEW_REQUEST_REMOVED", "READY_FOR_REVIEW", "CONVERTED_TO_DRAFT", "WEBHOOK_UPDATED", "WEBHOOK_CREATED":
+		case "CREATED", "UPDATED", "DELETED", "MEETS_CONDITION", "ASSIGNED", "UNASSIGNED", "LABELED", "UNLABELED", "REVIEW_REQUESTED", "REVIEW_REQUEST_REMOVED", "READY_FOR_REVIEW", "CONVERTED_TO_DRAFT", "WEBHOOK_UPDATED", "WEBHOOK_CREATED", "CLOSED", "COMMENT_ADDED":
 			return true
 		}
 	}

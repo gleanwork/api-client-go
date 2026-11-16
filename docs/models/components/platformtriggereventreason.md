@@ -34,3 +34,5 @@ custom := components.PlatformTriggerEventReason("custom_value")
 | `PlatformTriggerEventReasonConvertedToDraft`     | CONVERTED_TO_DRAFT                               |
 | `PlatformTriggerEventReasonWebhookUpdated`       | WEBHOOK_UPDATED                                  |
 | `PlatformTriggerEventReasonWebhookCreated`       | WEBHOOK_CREATED                                  |
+| `PlatformTriggerEventReasonClosed`               | CLOSED                                           |
+| `PlatformTriggerEventReasonCommentAdded`         | COMMENT_ADDED                                    |
