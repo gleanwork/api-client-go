@@ -500,7 +500,6 @@ For more information on obtaining the appropriate token type, please contact you
 
 * [Query](docs/sdks/search/README.md#query) - Search
 * [ListFilters](docs/sdks/search/README.md#listfilters) - List search filters
-* [Enumerate](docs/sdks/search/README.md#enumerate) - Enumerate matching documents
 
 ### [Skills](docs/sdks/skills/README.md)
 
