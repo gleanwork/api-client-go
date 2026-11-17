@@ -2,8 +2,8 @@ speakeasyVersion: 1.809.0
 sources:
     Glean API:
         sourceNamespace: glean-api-specs
-        sourceRevisionDigest: sha256:872476237575ccc7e2720d7a31a66fc38ec7c561cfd2e33459cf33e1a45d9949
-        sourceBlobDigest: sha256:7d5c308c3a1ba3c2dc2486a0006d48995e1618f3be0673c7e9422fd5eb582f2a
+        sourceRevisionDigest: sha256:9520eaea4f882d898719574ee75afc5c9289562b08a4ddbf337693f3041aaae3
+        sourceBlobDigest: sha256:d1b9b1adb0aa1d72885cc0bd86db9adc236a161f7f0b70b9f5cc61cf5c7052bd
         tags:
             - latest
     petstore-oas:
@@ -17,10 +17,10 @@ targets:
     glean:
         source: Glean API
         sourceNamespace: glean-api-specs
-        sourceRevisionDigest: sha256:872476237575ccc7e2720d7a31a66fc38ec7c561cfd2e33459cf33e1a45d9949
-        sourceBlobDigest: sha256:7d5c308c3a1ba3c2dc2486a0006d48995e1618f3be0673c7e9422fd5eb582f2a
+        sourceRevisionDigest: sha256:9520eaea4f882d898719574ee75afc5c9289562b08a4ddbf337693f3041aaae3
+        sourceBlobDigest: sha256:d1b9b1adb0aa1d72885cc0bd86db9adc236a161f7f0b70b9f5cc61cf5c7052bd
         codeSamplesNamespace: glean-api-specs-go-code-samples
-        codeSamplesRevisionDigest: sha256:94b75d49424cefbbeed73a8574f77a45677e1fb4c1fcd02090ea24977ce7c11a
+        codeSamplesRevisionDigest: sha256:8e42a62eda9d1638f4384f4242db5c660ddb3cf83ff1d20d7e925f2827aa4fde
     petstore:
         source: petstore-oas
         sourceNamespace: petstore-oas
