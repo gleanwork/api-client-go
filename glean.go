@@ -165,10 +165,10 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Glean {
 	sdk := &Glean{
-		SDKVersion: "0.17.7",
+		SDKVersion: "0.17.8",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:         "speakeasy-sdk/go 0.17.7 2.961.1 0.9.0 github.com/gleanwork/api-client-go",
-			SDKVersion:        "0.17.7",
+			UserAgent:         "speakeasy-sdk/go 0.17.8 2.961.1 0.9.0 github.com/gleanwork/api-client-go",
+			SDKVersion:        "0.17.8",
 			GenVersion:        "2.961.1",
 			OpenAPIDocVersion: "0.9.0",
 			ServerList:        ServerList,
