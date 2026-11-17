@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 9d90eb9e-33f8-4170-8944-988f4000aad0
 management:
-  docChecksum: 01a90b01e893a4ce756427c8d9283253
+  docChecksum: 9d8ec68225b876cf9682078cfb491edd
   docVersion: 0.9.0
   speakeasyVersion: 1.809.0
   generationVersion: 2.961.1
-  releaseVersion: 0.17.6
-  configChecksum: 4fb7baa894b7f2b69d9a1fe16e419169
+  releaseVersion: 0.17.7
+  configChecksum: 34225d42eb3ddcd07939561b734ec3cb
   repoURL: https://github.com/gleanwork/api-client-go.git
   installationURL: https://github.com/gleanwork/api-client-go
 persistentEdits:
-  generation_id: b2e8a4c7-c837-4dcd-8df7-b21f2225d4d6
-  pristine_commit_hash: 74c2dda719dbc41db306467407b24018089229df
-  pristine_tree_hash: b2a5b979ff426475fc21930db5bf2fd394f154d6
+  generation_id: 67796240-d33c-4ad2-86e1-675925e5358d
+  pristine_commit_hash: c50b961d7b768cb92b01a28c2497cc0d78129cc4
+  pristine_tree_hash: 6bc66762c1ba52ec4bb44c8feb38801d05691b57
 features:
   go:
     acceptHeaders: 2.81.2
@@ -1761,8 +1761,8 @@ trackedFiles:
     pristine_git_object: a659575f9f64d0b094681b69fbad6c9a9ce9a300
   docs/models/components/insightsoverviewresponse.md:
     id: e490ed19892d
-    last_write_checksum: sha1:943ff872a42dac9eddab77f426aef02ae6a6babc
-    pristine_git_object: c06897bc22c364ea10dffedbac442a2c175f083d
+    last_write_checksum: sha1:6b7c03ad422848be02c8bf6b79ba82ba5a5fb5ce
+    pristine_git_object: d25f98bf1eae67bb718c79ded9500d61128a8236
   docs/models/components/insightsrequest.md:
     id: cf96ae543699
     last_write_checksum: sha1:7fcfaf5d7656abb9b65e3a7406d0d81d50b3637e
@@ -5137,8 +5137,8 @@ trackedFiles:
     pristine_git_object: a3cb3e5448f3fdcfad77ed2a4ba47ae848d5cd5d
   glean.go:
     id: f5ed099b8e85
-    last_write_checksum: sha1:c9a29feb5b8a3628f4cd6614046b84acf3919023
-    pristine_git_object: d29156b0891fc4652df639b018893acb21421875
+    last_write_checksum: sha1:e42e437189872e0ebc0d2730240e10577f76da64
+    pristine_git_object: 15cc3097d34586cb51adc8dd8b0fd3220f0afd71
   go.mod:
     id: c47645c391ad
     last_write_checksum: sha1:b3c76c4c50472a60a8c74834bce9770edcc84fb1
@@ -6505,8 +6505,8 @@ trackedFiles:
     pristine_git_object: 5186f212c30ffca043657c61b69feedea998fa32
   models/components/insightsoverviewresponse.go:
     id: ac8d586dce6f
-    last_write_checksum: sha1:ffd5c4cd842c0d54c0b5ed1c5dda00a85845db7b
-    pristine_git_object: 39b3895f948fc834fd27a53d219f0fdb5cc86d7e
+    last_write_checksum: sha1:360958fb518fcf165e1da33a6d76d488f0d8eb9b
+    pristine_git_object: dea18e87441f33a629d85cd5291d17d9595ed312
   models/components/insightsrequest.go:
     id: 864d5ff0b637
     last_write_checksum: sha1:b4a7963549e0d534c6a1ef5064705a71bbcd235d
@@ -10837,8 +10837,8 @@ trackedFiles:
     pristine_git_object: 5e903919f103f212820d2d4717e0e1e95d78846b
   tests/mockserver/internal/sdk/models/components/insightsoverviewresponse.go:
     id: 5643c3cf2f72
-    last_write_checksum: sha1:16dad78e377ce9f351787544d31c03af558d1cfd
-    pristine_git_object: 2e8c2ec9b1055f925928b2179fea2bd7c9d31627
+    last_write_checksum: sha1:38ab70635b4b9fc592ef3e863272410f1db855f4
+    pristine_git_object: a4872a274ca370eae187a079685b7b919c776a56
   tests/mockserver/internal/sdk/models/components/insightsrequest.go:
     id: ce15dfb99343
     last_write_checksum: sha1:b9f1c9680014aa2b60161886dc0d5932ef0cab20
@@ -13201,8 +13201,8 @@ trackedFiles:
     pristine_git_object: c529bd5691588e889a10e46bb1cd477a80cb3703
   tests/summarize_test.go:
     id: 1b63b0a16e69
-    last_write_checksum: sha1:7c2dd1971ef08363eb64aac3c8a2da389411b637
-    pristine_git_object: 8f8003ff8749d018e6b02af41ac3cffaf4436542
+    last_write_checksum: sha1:6da9f736fef20def1b16946fe93d02a1c5cb94ec
+    pristine_git_object: 4bfe1645d67bb70c7dc680bf793b2c4d9ae38d2f
   tests/testclient.go:
     id: 78d36c6e169c
     last_write_checksum: sha1:507c44e437934fbff8d295201c1327e18bd00df8
@@ -15126,7 +15126,9 @@ generatedTests:
   platform-documents-get: "2026-11-06T19:46:30Z"
   platform-documents-batch: "2026-11-06T19:46:30Z"
   platform-search-enumeration: "2026-11-16T11:54:07Z"
-releaseNotes: "## Go SDK Changes:\n* `Glean.Chat.Create()`: \n  *  `request.Request.Text` **Removed** (Breaking ⚠️)\n  *  `response.Output[].Content[].StructuredOutput` **Removed** (Breaking ⚠️)\n* `Glean.Chat.CreateStream()`: \n  *  `request.Request.Text` **Removed** (Breaking ⚠️)\n  *  `response.[].union(RESPONSE_COMPLETED).Data.Response.Output[].Content[].StructuredOutput` **Removed** (Breaking ⚠️)\n* `Glean.Search.Enumerate()`: **Added**\n* `Glean.Triggers.SearchEvents()`:  `response.Results[].Reason` **Changed**\n* `Glean.Triggers.SearchPresetEvents()`:  `response.Results[].Reason` **Changed**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Glean.Client.Insights.Retrieve()`:  `response.OverviewResponse.TotalSignupsWeekAgo` **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
