@@ -18,7 +18,9 @@ type Chat struct {
 	// The display name of the AI App that this Chat is associated to.
 	ApplicationName *string `json:"applicationName,omitempty"`
 	// Defines how to render an icon
-	Icon        *IconConfig        `json:"icon,omitempty"`
+	Icon *IconConfig `json:"icon,omitempty"`
+	// The status of the Chat.
+	Status      *ChatStatus        `json:"status,omitempty"`
 	Permissions *ObjectPermissions `json:"permissions,omitempty"`
 	// The chat messages within a Chat.
 	Messages []ChatMessage `json:"messages,omitempty"`
@@ -80,6 +82,13 @@ func (c *Chat) GetIcon() *IconConfig {
 		return nil
 	}
 	return c.Icon
+}
+
+func (c *Chat) GetStatus() *ChatStatus {
+	if c == nil {
+		return nil
+	}
+	return c.Status
 }
 
 func (c *Chat) GetPermissions() *ObjectPermissions {

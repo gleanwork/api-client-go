@@ -437,7 +437,7 @@ For more information on obtaining the appropriate token type, please contact you
 
 ### [Indexing.Datasource](docs/sdks/datasource/README.md)
 
-* [Status](docs/sdks/datasource/README.md#status) - Beta: Get datasource status
+* [Status](docs/sdks/datasource/README.md#status) - Get datasource status
 
 
 ### [Indexing.Datasources](docs/sdks/indexingdatasources/README.md)
@@ -453,19 +453,19 @@ For more information on obtaining the appropriate token type, please contact you
 * [BulkIndex](docs/sdks/indexingdocuments/README.md#bulkindex) - Bulk index documents
 * [ProcessAll](docs/sdks/indexingdocuments/README.md#processall) - Schedules the processing of uploaded documents
 * [Delete](docs/sdks/indexingdocuments/README.md#delete) - Delete document
-* [Debug](docs/sdks/indexingdocuments/README.md#debug) - Beta: Get document information
+* [Debug](docs/sdks/indexingdocuments/README.md#debug) - Get document information
 
-* [DebugMany](docs/sdks/indexingdocuments/README.md#debugmany) - Beta: Get information of a batch of documents
+* [DebugMany](docs/sdks/indexingdocuments/README.md#debugmany) - Get information of a batch of documents
 
 * [CheckAccess](docs/sdks/indexingdocuments/README.md#checkaccess) - Check document access
 * [~~Status~~](docs/sdks/indexingdocuments/README.md#status) - Get document upload and indexing status :warning: **Deprecated**
 * [~~Count~~](docs/sdks/indexingdocuments/README.md#count) - Get document count :warning: **Deprecated**
-* [DebugEvents](docs/sdks/indexingdocuments/README.md#debugevents) - Beta: Get document lifecycle events
+* [DebugEvents](docs/sdks/indexingdocuments/README.md#debugevents) - Get document lifecycle events
 
 
 ### [Indexing.People](docs/sdks/people/README.md)
 
-* [Debug](docs/sdks/people/README.md#debug) - Beta: Get user information
+* [Debug](docs/sdks/people/README.md#debug) - Get user information
 
 * [~~Count~~](docs/sdks/people/README.md#count) - Get user count :warning: **Deprecated**
 * [Index](docs/sdks/people/README.md#index) - Index employee
