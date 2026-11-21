@@ -35,22 +35,22 @@ func (e *AgentEnum) IsExact() bool {
 	return false
 }
 
-// Mode - Top level modes to run GleanChat in.
-type Mode string
+// AgentConfigMode - Top level modes to run GleanChat in.
+type AgentConfigMode string
 
 const (
-	// ModeDefault Used if no mode supplied.
-	ModeDefault Mode = "DEFAULT"
-	// ModeQuick Deprecated.
-	ModeQuick Mode = "QUICK"
+	// AgentConfigModeDefault Used if no mode supplied.
+	AgentConfigModeDefault AgentConfigMode = "DEFAULT"
+	// AgentConfigModeQuick Deprecated.
+	AgentConfigModeQuick AgentConfigMode = "QUICK"
 )
 
-func (e Mode) ToPointer() *Mode {
+func (e AgentConfigMode) ToPointer() *AgentConfigMode {
 	return &e
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
-func (e *Mode) IsExact() bool {
+func (e *AgentConfigMode) IsExact() bool {
 	if e != nil {
 		switch *e {
 		case "DEFAULT", "QUICK":
@@ -67,7 +67,7 @@ type AgentConfig struct {
 	// The types of tools that the agent is allowed to use. Only works with FAST and ADVANCED `agent` values
 	ToolSets *ToolSets `json:"toolSets,omitempty"`
 	// Top level modes to run GleanChat in.
-	Mode *Mode `json:"mode,omitempty"`
+	Mode *AgentConfigMode `json:"mode,omitempty"`
 	// Whether the agent should create an image.
 	UseImageGeneration *bool `json:"useImageGeneration,omitempty"`
 }
@@ -86,7 +86,7 @@ func (a *AgentConfig) GetToolSets() *ToolSets {
 	return a.ToolSets
 }
 
-func (a *AgentConfig) GetMode() *Mode {
+func (a *AgentConfig) GetMode() *AgentConfigMode {
 	if a == nil {
 		return nil
 	}
