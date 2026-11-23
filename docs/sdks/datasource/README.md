@@ -4,12 +4,12 @@
 
 ### Available Operations
 
-* [Status](#status) - Beta: Get datasource status
+* [Status](#status) - Get datasource status
 
 
 ## Status
 
-Gather information about the datasource's overall status. Currently in beta, might undergo breaking changes without prior notice.
+Gather information about the datasource's overall status.
 
 Tip: Refer to the [Troubleshooting tutorial](https://developers.glean.com/indexing/debugging/datasource-config) for more information.
 

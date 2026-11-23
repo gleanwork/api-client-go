@@ -2,23 +2,67 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+	"time"
+)
+
+// PlatformAgent - An agent available to the authenticated user.
 type PlatformAgent struct {
+	// Human-readable name.
+	Name string `json:"name"`
+	// Description of the agent's purpose and behavior.
+	Description *string `json:"description,omitempty"`
+	// System prompt the agent follows.
+	Instructions *string `json:"instructions,omitempty"`
+	// Skills defined inline.
+	Skills []PlatformAgentSkill `json:"skills,omitempty"`
+	// Published artifacts referenced by platform ID. Their content is not inlined in `skills` or `subagents`.
+	//
+	Dependencies []PlatformAgentDependency `json:"dependencies,omitempty"`
+	// Tool providers and the subset of their tools available to the agent.
+	Tools []PlatformAgentToolset `json:"tools,omitempty"`
+	// Glean Search configuration. When omitted, Glean Search is disabled for the agent. An empty object searches all company knowledge available to the invoking user. Populated lists restrict search to the union of the listed datasource instances and URLs.
+	//
+	GleanSearchConfig *PlatformAgentGleanSearchConfig `json:"glean_search_config,omitempty"`
+	// Agentic model the agent runs on and its reasoning effort.
+	Model *PlatformAgentLlmModel `json:"model,omitempty"`
+	// Service credentials the agent uses to call tools.
+	ServiceCredentials []PlatformAgentServiceCredential `json:"service_credentials,omitempty"`
 	// ID of the agent.
 	AgentID string `json:"agent_id"`
-	// Name of the agent.
-	Name string `json:"name"`
-	// Description of the agent.
-	Description *string `json:"description,omitempty"`
 	// Agent metadata.
 	Metadata     map[string]any            `json:"metadata,omitempty"`
 	Capabilities PlatformAgentCapabilities `json:"capabilities"`
+	// Whether the agent acts with its own identity instead of the invoking user's. Cannot be changed after the agent is created.
+	//
+	UseAgentIdentity *bool `json:"use_agent_identity,omitempty"`
+	// Messaging channels the agent is deployed to. Requires `use_agent_identity`.
+	Channels *PlatformAgentChannels `json:"channels,omitempty"`
+	// Subagents the agent dispatches work to. Subagents cannot contain subagents.
+	//
+	Subagents []PlatformSubagent `json:"subagents,omitempty"`
+	// How the agent is invoked. Applies to top-level agents only.
+	Trigger *PlatformAgentTrigger `json:"trigger,omitempty"`
+	// A lightweight reference to a person, used where a payload merely points at someone.
+	CreatedBy *PlatformPersonReference `json:"created_by,omitempty"`
+	// A lightweight reference to a person, used where a payload merely points at someone.
+	UpdatedBy *PlatformPersonReference `json:"updated_by,omitempty"`
+	// Time the agent was created.
+	CreatedAt *time.Time `json:"created_at,omitempty"`
+	// Time the agent was last updated.
+	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
 
-func (p *PlatformAgent) GetAgentID() string {
-	if p == nil {
-		return ""
+func (p PlatformAgent) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformAgent) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
 	}
-	return p.AgentID
+	return nil
 }
 
 func (p *PlatformAgent) GetName() string {
@@ -35,6 +79,62 @@ func (p *PlatformAgent) GetDescription() *string {
 	return p.Description
 }
 
+func (p *PlatformAgent) GetInstructions() *string {
+	if p == nil {
+		return nil
+	}
+	return p.Instructions
+}
+
+func (p *PlatformAgent) GetSkills() []PlatformAgentSkill {
+	if p == nil {
+		return nil
+	}
+	return p.Skills
+}
+
+func (p *PlatformAgent) GetDependencies() []PlatformAgentDependency {
+	if p == nil {
+		return nil
+	}
+	return p.Dependencies
+}
+
+func (p *PlatformAgent) GetTools() []PlatformAgentToolset {
+	if p == nil {
+		return nil
+	}
+	return p.Tools
+}
+
+func (p *PlatformAgent) GetGleanSearchConfig() *PlatformAgentGleanSearchConfig {
+	if p == nil {
+		return nil
+	}
+	return p.GleanSearchConfig
+}
+
+func (p *PlatformAgent) GetModel() *PlatformAgentLlmModel {
+	if p == nil {
+		return nil
+	}
+	return p.Model
+}
+
+func (p *PlatformAgent) GetServiceCredentials() []PlatformAgentServiceCredential {
+	if p == nil {
+		return nil
+	}
+	return p.ServiceCredentials
+}
+
+func (p *PlatformAgent) GetAgentID() string {
+	if p == nil {
+		return ""
+	}
+	return p.AgentID
+}
+
 func (p *PlatformAgent) GetMetadata() map[string]any {
 	if p == nil {
 		return nil
@@ -47,4 +147,60 @@ func (p *PlatformAgent) GetCapabilities() PlatformAgentCapabilities {
 		return PlatformAgentCapabilities{}
 	}
 	return p.Capabilities
+}
+
+func (p *PlatformAgent) GetUseAgentIdentity() *bool {
+	if p == nil {
+		return nil
+	}
+	return p.UseAgentIdentity
+}
+
+func (p *PlatformAgent) GetChannels() *PlatformAgentChannels {
+	if p == nil {
+		return nil
+	}
+	return p.Channels
+}
+
+func (p *PlatformAgent) GetSubagents() []PlatformSubagent {
+	if p == nil {
+		return nil
+	}
+	return p.Subagents
+}
+
+func (p *PlatformAgent) GetTrigger() *PlatformAgentTrigger {
+	if p == nil {
+		return nil
+	}
+	return p.Trigger
+}
+
+func (p *PlatformAgent) GetCreatedBy() *PlatformPersonReference {
+	if p == nil {
+		return nil
+	}
+	return p.CreatedBy
+}
+
+func (p *PlatformAgent) GetUpdatedBy() *PlatformPersonReference {
+	if p == nil {
+		return nil
+	}
+	return p.UpdatedBy
+}
+
+func (p *PlatformAgent) GetCreatedAt() *time.Time {
+	if p == nil {
+		return nil
+	}
+	return p.CreatedAt
+}
+
+func (p *PlatformAgent) GetUpdatedAt() *time.Time {
+	if p == nil {
+		return nil
+	}
+	return p.UpdatedAt
 }

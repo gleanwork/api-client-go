@@ -212,3 +212,23 @@ func TestAgents_PlatformAgentsCreateRunResponses(t *testing.T) {
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
+
+func TestAgents_PlatformAgentsCreate(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-agents-create")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+		Name:         "HR Policy Agent",
+		Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 201, res.HTTPMeta.Response.StatusCode)
+
+}

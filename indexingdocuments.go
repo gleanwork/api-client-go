@@ -1045,9 +1045,9 @@ func (s *IndexingDocuments) Delete(ctx context.Context, request components.Delet
 
 }
 
-// Debug - Beta: Get document information
+// Debug - Get document information
 //
-// Gives various information that would help in debugging related to a particular document. Currently in beta, might undergo breaking changes without prior notice.
+// Gives various information that would help in debugging related to a particular document.
 //
 // Tip: Refer to the [Troubleshooting tutorial](https://developers.glean.com/indexing/debugging/datasource-config) for more information.
 func (s *IndexingDocuments) Debug(ctx context.Context, datasource string, debugDocumentRequest components.DebugDocumentRequest, opts ...operations.Option) (*operations.PostAPIIndexV1DebugDatasourceDocumentResponse, error) {
@@ -1270,9 +1270,9 @@ func (s *IndexingDocuments) Debug(ctx context.Context, datasource string, debugD
 
 }
 
-// DebugMany - Beta: Get information of a batch of documents
+// DebugMany - Get information of a batch of documents
 //
-// Gives various information that would help in debugging related to a batch of documents. Currently in beta, might undergo breaking changes without prior notice.
+// Gives various information that would help in debugging related to a batch of documents.
 //
 // Tip: Refer to the [Troubleshooting tutorial](https://developers.glean.com/indexing/debugging/datasource-config) for more information.
 func (s *IndexingDocuments) DebugMany(ctx context.Context, datasource string, debugDocumentsRequest components.DebugDocumentsRequest, opts ...operations.Option) (*operations.PostAPIIndexV1DebugDatasourceDocumentsResponse, error) {
@@ -2162,9 +2162,9 @@ func (s *IndexingDocuments) Count(ctx context.Context, request components.GetDoc
 
 }
 
-// DebugEvents - Beta: Get document lifecycle events
+// DebugEvents - Get document lifecycle events
 //
-// Retrieves lifecycle events for a specific document including upload time, index times and deletions. Rate limited to 1 request per minute per datasource. Currently in beta, might undergo breaking changes without prior notice.
+// Retrieves lifecycle events for a specific document including upload time, index times and deletions. Rate limited to 1 request per minute per datasource.
 func (s *IndexingDocuments) DebugEvents(ctx context.Context, datasource string, debugDocumentLifecycleRequest components.DebugDocumentLifecycleRequest, opts ...operations.Option) (*operations.PostAPIIndexV1DebugDatasourceDocumentEventsResponse, error) {
 	request := operations.PostAPIIndexV1DebugDatasourceDocumentEventsRequest{
 		Datasource:                    datasource,

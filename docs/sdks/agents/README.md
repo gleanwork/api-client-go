@@ -4,6 +4,7 @@
 
 ### Available Operations
 
+* [Create](#create) - Create agent
 * [Search](#search) - Search agents
 * [Get](#get) - Get agent
 * [GetSchemas](#getschemas) - Get agent schemas
@@ -11,6 +12,65 @@
 * [GetRun](#getrun) - Get agent run
 * [CancelRun](#cancelrun) - Cancel an agent run
 * [RespondToRun](#respondtorun) - Respond to agent run approvals
+
+## Create
+
+Create and publish an agent from its complete definition.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-agents-create" method="post" path="/api/agents" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+        Name: "HR Policy Agent",
+        Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformAgentGetResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [components.PlatformAgentCreateRequest](../../models/components/platformagentcreaterequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
+
+### Response
+
+**[*operations.PlatformAgentsCreateResponse](../../models/operations/platformagentscreateresponse.md), error**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| apierrors.PlatformProblemDetailError        | 400, 401, 403, 404, 408, 409, 413, 422, 429 | application/problem+json                    |
+| apierrors.PlatformProblemDetailError        | 500, 503                                    | application/problem+json                    |
+| apierrors.APIError                          | 4XX, 5XX                                    | \*/\*                                       |
 
 ## Search
 

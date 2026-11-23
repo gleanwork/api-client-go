@@ -18,7 +18,7 @@ var _ error = &ErrorResponse{}
 
 func (e *ErrorResponse) Error() string {
 	if e != nil {
-		if e.Message != nil {
+		if e.Message != nil && *e.Message != "" {
 			return *e.Message
 		}
 	}
