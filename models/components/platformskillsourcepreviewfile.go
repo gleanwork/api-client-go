@@ -6,6 +6,7 @@ import (
 	"github.com/gleanwork/api-client-go/internal/utils"
 )
 
+// PlatformSkillSourcePreviewFile - A supporting file bundled with a skill.
 type PlatformSkillSourcePreviewFile struct {
 	// Relative path within the skill bundle.
 	Path string `json:"path"`

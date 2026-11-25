@@ -31,9 +31,9 @@ func newPeople(rootSDK *Glean, sdkConfig config.SDKConfiguration, hooks *hooks.H
 	}
 }
 
-// Debug - Beta: Get user information
+// Debug - Get user information
 //
-// Gives various information that would help in debugging related to a particular user. Currently in beta, might undergo breaking changes without prior notice.
+// Gives various information that would help in debugging related to a particular user.
 //
 // Tip: Refer to the [Troubleshooting tutorial](https://developers.glean.com/indexing/debugging/datasource-config) for more information.
 func (s *People) Debug(ctx context.Context, datasource string, debugUserRequest components.DebugUserRequest, opts ...operations.Option) (*operations.PostAPIIndexV1DebugDatasourceUserResponse, error) {

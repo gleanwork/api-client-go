@@ -37,6 +37,11 @@ type PlatformChatStreamOutputTextDelta struct {
 	//
 	ResponseID string `json:"response_id"`
 	Delta      string `json:"delta"`
+	// The ID of the chat the event belongs to, when the chat is stored.
+	ConversationID *string `json:"conversation_id,omitempty"`
+	// Position of this event's source message in the chat stream. Pass the last one you received as `last_seen_sequence_id` when resuming.
+	//
+	SequenceID *int64 `json:"sequence_id,omitempty"`
 }
 
 func (p PlatformChatStreamOutputTextDelta) MarshalJSON() ([]byte, error) {
@@ -69,4 +74,18 @@ func (p *PlatformChatStreamOutputTextDelta) GetDelta() string {
 		return ""
 	}
 	return p.Delta
+}
+
+func (p *PlatformChatStreamOutputTextDelta) GetConversationID() *string {
+	if p == nil {
+		return nil
+	}
+	return p.ConversationID
+}
+
+func (p *PlatformChatStreamOutputTextDelta) GetSequenceID() *int64 {
+	if p == nil {
+		return nil
+	}
+	return p.SequenceID
 }

@@ -20,7 +20,9 @@ var _ error = &UnauthorizedAgentToolsError{}
 
 func (e *UnauthorizedAgentToolsError) Error() string {
 	if e != nil {
-		return e.Message
+		if e.Message != "" {
+			return e.Message
+		}
 	}
 
 	data, _ := json.Marshal(e)

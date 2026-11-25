@@ -1,0 +1,12 @@
+# PlatformAgentRunMessageEvent
+
+A `message` event that carries agent output.
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                       | `*string`                                                                                                  | :heavy_minus_sign:                                                                                         | Event ID. IDs increase by one across the stream.                                                           |
+| `Event`                                                                                                    | `string`                                                                                                   | :heavy_check_mark:                                                                                         | SSE event name. Always `message` for this event.                                                           |
+| `Data`                                                                                                     | [components.PlatformAgentRunMessageEventData](../../models/components/platformagentrunmessageeventdata.md) | :heavy_check_mark:                                                                                         | Payload for the Agents SSE event `message`.                                                                |

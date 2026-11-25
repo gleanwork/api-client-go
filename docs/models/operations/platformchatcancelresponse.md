@@ -1,0 +1,9 @@
+# PlatformChatCancelResponse
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)                              | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `PlatformChatCancelResponse`                                                                    | [*components.PlatformChatCancelResponse](../../models/components/platformchatcancelresponse.md) | :heavy_minus_sign:                                                                              | The chat was cancelled, or was not running.                                                     |

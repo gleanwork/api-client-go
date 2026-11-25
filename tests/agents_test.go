@@ -7,6 +7,7 @@ import (
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/internal/utils"
 	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/models/operations"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
@@ -134,7 +135,7 @@ func TestAgents_PlatformAgentsCreateRun(t *testing.T) {
 		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
 	)
 
-	res, err := s.Agents.CreateRun(ctx, "<id>", components.PlatformAgentRunCreateRequest{
+	res, err := s.Agents.CreateRun(ctx, "<id>", operations.PlatformAgentsCreateRunRequestBody{
 		Messages: []components.PlatformMessageInput{
 			components.PlatformMessageInput{
 				Role: components.PlatformMessageRoleUser,
@@ -207,6 +208,45 @@ func TestAgents_PlatformAgentsCreateRunResponses(t *testing.T) {
 				Decision:      components.DecisionApprove,
 			},
 		},
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestAgents_PlatformAgentsCreate(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-agents-create")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+		Name:         "HR Policy Agent",
+		Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
+	})
+	require.NoError(t, err)
+	assert.Equal(t, 201, res.HTTPMeta.Response.StatusCode)
+
+}
+
+func TestAgents_PlatformAgentsUpdate(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-agents-update")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Agents.Update(ctx, "{agent_id}", components.PlatformAgentUpdateRequest{
+		Instructions: apiclientgo.Pointer("Answer questions using the latest HR policies."),
 	})
 	require.NoError(t, err)
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)

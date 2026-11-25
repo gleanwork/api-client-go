@@ -4,13 +4,76 @@
 
 ### Available Operations
 
+* [Create](#create) - Create agent
 * [Search](#search) - Search agents
 * [Get](#get) - Get agent
+* [Update](#update) - Update agent
+* [Delete](#delete) - Delete agent
 * [GetSchemas](#getschemas) - Get agent schemas
 * [CreateRun](#createrun) - Create agent run
 * [GetRun](#getrun) - Get agent run
 * [CancelRun](#cancelrun) - Cancel an agent run
 * [RespondToRun](#respondtorun) - Respond to agent run approvals
+* [CreateRunStream](#createrunstream) - Create a streaming agent run
+
+## Create
+
+Create and publish an agent from its complete definition.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-agents-create" method="post" path="/api/agents" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+        Name: "HR Policy Agent",
+        Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformAgentGetResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [components.PlatformAgentCreateRequest](../../models/components/platformagentcreaterequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
+
+### Response
+
+**[*operations.PlatformAgentsCreateResponse](../../models/operations/platformagentscreateresponse.md), error**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| apierrors.PlatformProblemDetailError        | 400, 401, 403, 404, 408, 409, 413, 422, 429 | application/problem+json                    |
+| apierrors.PlatformProblemDetailError        | 500, 503                                    | application/problem+json                    |
+| apierrors.APIError                          | 4XX, 5XX                                    | \*/\*                                       |
 
 ## Search
 
@@ -125,6 +188,120 @@ func main() {
 | apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
 | apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
 
+## Update
+
+Update and publish an agent. Supplied fields replace their saved values and omitted fields are kept.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-agents-update" method="patch" path="/api/agents/{agent_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Agents.Update(ctx, "{agent_id}", components.PlatformAgentUpdateRequest{
+        Instructions: apiclientgo.Pointer("Answer questions using the latest HR policies."),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformAgentGetResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |                                                                                                |
+| `agentID`                                                                                      | `string`                                                                                       | :heavy_check_mark:                                                                             | The ID of the agent to update.                                                                 | {agent_id}                                                                                     |
+| `platformAgentUpdateRequest`                                                                   | [components.PlatformAgentUpdateRequest](../../models/components/platformagentupdaterequest.md) | :heavy_check_mark:                                                                             | N/A                                                                                            | {<br/>"instructions": "Answer questions using the latest HR policies."<br/>}                   |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |                                                                                                |
+
+### Response
+
+**[*operations.PlatformAgentsUpdateResponse](../../models/operations/platformagentsupdateresponse.md), error**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| apierrors.PlatformProblemDetailError        | 400, 401, 403, 404, 408, 409, 413, 422, 429 | application/problem+json                    |
+| apierrors.PlatformProblemDetailError        | 500, 503                                    | application/problem+json                    |
+| apierrors.APIError                          | 4XX, 5XX                                    | \*/\*                                       |
+
+## Delete
+
+Delete an agent.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-agents-delete" method="delete" path="/api/agents/{agent_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Agents.Delete(ctx, "{agent_id}")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `agentID`                                                | `string`                                                 | :heavy_check_mark:                                       | The ID of the agent to delete.                           | {agent_id}                                               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
+
+### Response
+
+**[*operations.PlatformAgentsDeleteResponse](../../models/operations/platformagentsdeleteresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 429         | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
 ## GetSchemas
 
 Retrieve an agent's input and output JSON schemas.
@@ -197,6 +374,7 @@ import(
 	"os"
 	apiclientgo "github.com/gleanwork/api-client-go"
 	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/models/operations"
 	"log"
 )
 
@@ -207,7 +385,7 @@ func main() {
         apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
     )
 
-    res, err := s.Agents.CreateRun(ctx, "{agent_id}", components.PlatformAgentRunCreateRequest{
+    res, err := s.Agents.CreateRun(ctx, "{agent_id}", operations.PlatformAgentsCreateRunRequestBody{
         Messages: []components.PlatformMessageInput{
             components.PlatformMessageInput{
                 Role: components.PlatformMessageRoleUser,
@@ -235,7 +413,7 @@ func main() {
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                                   | [context.Context](https://pkg.go.dev/context#Context)                                                                   | :heavy_check_mark:                                                                                                      | The context to use for the request.                                                                                     |                                                                                                                         |
 | `agentID`                                                                                                               | `string`                                                                                                                | :heavy_check_mark:                                                                                                      | ID of the agent to run.                                                                                                 | {agent_id}                                                                                                              |
-| `platformAgentRunCreateRequest`                                                                                         | [components.PlatformAgentRunCreateRequest](../../models/components/platformagentruncreaterequest.md)                    | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     | {<br/>"messages": [<br/>{<br/>"role": "USER",<br/>"content": [<br/>{<br/>"text": "What is our parental leave policy?",<br/>"type": "text"<br/>}<br/>]<br/>}<br/>]<br/>} |
+| `requestBody`                                                                                                           | [operations.PlatformAgentsCreateRunRequestBody](../../models/operations/platformagentscreaterunrequestbody.md)          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     | {<br/>"messages": [<br/>{<br/>"role": "USER",<br/>"content": [<br/>{<br/>"text": "What is our parental leave policy?",<br/>"type": "text"<br/>}<br/>]<br/>}<br/>]<br/>} |
 | `opts`                                                                                                                  | [][operations.Option](../../models/operations/option.md)                                                                | :heavy_minus_sign:                                                                                                      | The options for this request.                                                                                           |                                                                                                                         |
 
 ### Response
@@ -430,3 +608,80 @@ func main() {
 | apierrors.PlatformProblemDetailError   | 400, 401, 403, 404, 408, 409, 413, 429 | application/problem+json               |
 | apierrors.PlatformProblemDetailError   | 500, 503                               | application/problem+json               |
 | apierrors.APIError                     | 4XX, 5XX                               | \*/\*                                  |
+
+## CreateRunStream
+
+SDK-only logical operation. HTTP clients must call the base path; the URL fragment is not sent. Execute an agent run as server-sent events. HTTP clients request this mode by setting `stream` to true in the JSON body. Streaming is not supported in DURABLE mode.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-agents-create-run-stream" method="post" path="/api/agents/{agent_id}/runs#stream" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Agents.CreateRunStream(ctx, "{agent_id}", operations.PlatformAgentsCreateRunStreamRequestBody{
+        Messages: []components.PlatformMessageInput{
+            components.PlatformMessageInput{
+                Role: components.PlatformMessageRoleUser,
+                Content: []components.PlatformMessageTextBlockInput{
+                    components.PlatformMessageTextBlockInput{
+                        Text: "What is our parental leave policy?",
+                        Type: components.PlatformContentTypeText,
+                    },
+                },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformAgentRunStreamEvent != nil {
+        defer res.PlatformAgentRunStreamEvent.Close()
+
+        for res.PlatformAgentRunStreamEvent.Next() {
+            event := res.PlatformAgentRunStreamEvent.Value()
+            log.Print(event)
+            // Handle the event
+	      }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                | Example                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                                      | :heavy_check_mark:                                                                                                         | The context to use for the request.                                                                                        |                                                                                                                            |
+| `agentID`                                                                                                                  | `string`                                                                                                                   | :heavy_check_mark:                                                                                                         | ID of the agent to run.                                                                                                    | {agent_id}                                                                                                                 |
+| `requestBody`                                                                                                              | [operations.PlatformAgentsCreateRunStreamRequestBody](../../models/operations/platformagentscreaterunstreamrequestbody.md) | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        | {<br/>"messages": [<br/>{<br/>"role": "USER",<br/>"content": [<br/>{<br/>"text": "What is our parental leave policy?",<br/>"type": "text"<br/>}<br/>]<br/>}<br/>]<br/>} |
+| `opts`                                                                                                                     | [][operations.Option](../../models/operations/option.md)                                                                   | :heavy_minus_sign:                                                                                                         | The options for this request.                                                                                              |                                                                                                                            |
+
+### Response
+
+**[*operations.PlatformAgentsCreateRunStreamResponse](../../models/operations/platformagentscreaterunstreamresponse.md), error**
+
+### Errors
+
+| Error Type                                           | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| apierrors.PlatformUnauthorizedAgentToolsProblemError | 422                                                  | application/problem+json                             |
+| apierrors.PlatformProblemDetailError                 | 400, 401, 403, 404, 408, 409, 413, 429               | application/problem+json                             |
+| apierrors.PlatformProblemDetailError                 | 500, 503                                             | application/problem+json                             |
+| apierrors.APIError                                   | 4XX, 5XX                                             | \*/\*                                                |
