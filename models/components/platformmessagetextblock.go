@@ -2,11 +2,26 @@
 
 package components
 
+import (
+	"github.com/gleanwork/api-client-go/internal/utils"
+)
+
 type PlatformMessageTextBlock struct {
 	// Text content.
 	Text        string                           `json:"text"`
 	Type        PlatformContentType              `json:"type"`
 	Annotations []PlatformChatCitationAnnotation `json:"annotations,omitempty"`
+}
+
+func (p PlatformMessageTextBlock) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformMessageTextBlock) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (p *PlatformMessageTextBlock) GetText() string {

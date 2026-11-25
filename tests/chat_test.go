@@ -52,3 +52,20 @@ func TestChat_PlatformChatUpdate(t *testing.T) {
 	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
 
 }
+
+func TestChat_PlatformChatCancel(t *testing.T) {
+	ctx := context.Background()
+
+	testHTTPClient := createTestHTTPClient("platform-chat-cancel")
+
+	s := apiclientgo.New(
+		apiclientgo.WithServerURL(utils.GetEnv("TEST_SERVER_URL", "http://localhost:18080")),
+		apiclientgo.WithClient(testHTTPClient),
+		apiclientgo.WithSecurity(utils.GetEnv("GLEAN_API_TOKEN", "value")),
+	)
+
+	res, err := s.Chat.Cancel(ctx, "{chat_id}")
+	require.NoError(t, err)
+	assert.Equal(t, 200, res.HTTPMeta.Response.StatusCode)
+
+}

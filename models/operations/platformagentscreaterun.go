@@ -3,13 +3,103 @@
 package operations
 
 import (
+	"encoding/json"
+	"fmt"
+	"github.com/gleanwork/api-client-go/internal/utils"
 	"github.com/gleanwork/api-client-go/models/components"
+	"github.com/gleanwork/api-client-go/types"
 )
+
+// PlatformAgentsCreateRunExecutionMode - REQUEST_BOUND preserves the existing wait/stream behavior. DURABLE starts a fresh, persisted execution with a 30-minute execution timeout and returns immediately. DURABLE requires stream to be false or omitted and does not accept metadata.chat_session_id. It does not bypass tool approval requirements or provide automatic QE-crash resumption. Expiry is read-triggered: the next GET of the run marks an active turn FAILED if more than 40 minutes have passed since the turn was accepted. There is no periodic sweep, so the stored run can remain RUNNING until it is read. Expiry never replays execution or expires approval-paused runs, and failure does not prove that external tool work has stopped.
+type PlatformAgentsCreateRunExecutionMode string
+
+const (
+	PlatformAgentsCreateRunExecutionModeRequestBound PlatformAgentsCreateRunExecutionMode = "REQUEST_BOUND"
+	PlatformAgentsCreateRunExecutionModeDurable      PlatformAgentsCreateRunExecutionMode = "DURABLE"
+)
+
+func (e PlatformAgentsCreateRunExecutionMode) ToPointer() *PlatformAgentsCreateRunExecutionMode {
+	return &e
+}
+func (e *PlatformAgentsCreateRunExecutionMode) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "REQUEST_BOUND":
+		fallthrough
+	case "DURABLE":
+		*e = PlatformAgentsCreateRunExecutionMode(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for PlatformAgentsCreateRunExecutionMode: %v", v)
+	}
+}
+
+// PlatformAgentsCreateRunRequestBody - Request to run an agent. A request MUST supply either `messages` (a non-empty conversation) or `input` (for input-form triggered agents).
+type PlatformAgentsCreateRunRequestBody struct {
+	// Input fields for an input-form triggered agent.
+	Input map[string]any `json:"input,omitempty"`
+	// Messages to pass to the agent. When provided, the array MUST contain at least one message and each message MUST specify a valid `role` and non-empty `content`.
+	//
+	Messages []components.PlatformMessageInput `json:"messages,omitempty"`
+	// Metadata to pass to the agent.
+	Metadata map[string]any `json:"metadata,omitempty"`
+	//lint:ignore U1000 accessed via reflection for JSON marshaling
+	stream_ *bool `const:"false" json:"stream"`
+	// REQUEST_BOUND preserves the existing wait/stream behavior. DURABLE starts a fresh, persisted execution with a 30-minute execution timeout and returns immediately. DURABLE requires stream to be false or omitted and does not accept metadata.chat_session_id. It does not bypass tool approval requirements or provide automatic QE-crash resumption. Expiry is read-triggered: the next GET of the run marks an active turn FAILED if more than 40 minutes have passed since the turn was accepted. There is no periodic sweep, so the stored run can remain RUNNING until it is read. Expiry never replays execution or expires approval-paused runs, and failure does not prove that external tool work has stopped.
+	//
+	ExecutionMode *PlatformAgentsCreateRunExecutionMode `default:"REQUEST_BOUND" json:"execution_mode"`
+}
+
+func (p PlatformAgentsCreateRunRequestBody) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PlatformAgentsCreateRunRequestBody) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (p *PlatformAgentsCreateRunRequestBody) GetInput() map[string]any {
+	if p == nil {
+		return nil
+	}
+	return p.Input
+}
+
+func (p *PlatformAgentsCreateRunRequestBody) GetMessages() []components.PlatformMessageInput {
+	if p == nil {
+		return nil
+	}
+	return p.Messages
+}
+
+func (p *PlatformAgentsCreateRunRequestBody) GetMetadata() map[string]any {
+	if p == nil {
+		return nil
+	}
+	return p.Metadata
+}
+
+func (p *PlatformAgentsCreateRunRequestBody) GetStream() *bool {
+	return types.Pointer(false)
+}
+
+func (p *PlatformAgentsCreateRunRequestBody) GetExecutionMode() *PlatformAgentsCreateRunExecutionMode {
+	if p == nil {
+		return nil
+	}
+	return p.ExecutionMode
+}
 
 type PlatformAgentsCreateRunRequest struct {
 	// ID of the agent to run.
-	AgentID                       string                                   `pathParam:"style=simple,explode=false,name=agent_id"`
-	PlatformAgentRunCreateRequest components.PlatformAgentRunCreateRequest `request:"mediaType=application/json"`
+	AgentID     string                             `pathParam:"style=simple,explode=false,name=agent_id"`
+	RequestBody PlatformAgentsCreateRunRequestBody `request:"mediaType=application/json"`
 }
 
 func (p *PlatformAgentsCreateRunRequest) GetAgentID() string {
@@ -19,19 +109,17 @@ func (p *PlatformAgentsCreateRunRequest) GetAgentID() string {
 	return p.AgentID
 }
 
-func (p *PlatformAgentsCreateRunRequest) GetPlatformAgentRunCreateRequest() components.PlatformAgentRunCreateRequest {
+func (p *PlatformAgentsCreateRunRequest) GetRequestBody() PlatformAgentsCreateRunRequestBody {
 	if p == nil {
-		return components.PlatformAgentRunCreateRequest{}
+		return PlatformAgentsCreateRunRequestBody{}
 	}
-	return p.PlatformAgentRunCreateRequest
+	return p.RequestBody
 }
 
 type PlatformAgentsCreateRunResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Successful response.
 	PlatformAgentRunWaitResponse *components.PlatformAgentRunWaitResponse
-	// Successful response.
-	Res *string
 	// Durable run persisted and started. The snapshot is immediately retrievable through GET /api/agents/{agent_id}/runs/{run_id}. Execution failures appear in the run state.
 	//
 	PlatformAgentRunResponse *components.PlatformAgentRunResponse
@@ -49,13 +137,6 @@ func (p *PlatformAgentsCreateRunResponse) GetPlatformAgentRunWaitResponse() *com
 		return nil
 	}
 	return p.PlatformAgentRunWaitResponse
-}
-
-func (p *PlatformAgentsCreateRunResponse) GetRes() *string {
-	if p == nil {
-		return nil
-	}
-	return p.Res
 }
 
 func (p *PlatformAgentsCreateRunResponse) GetPlatformAgentRunResponse() *components.PlatformAgentRunResponse {

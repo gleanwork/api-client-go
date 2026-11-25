@@ -9,14 +9,14 @@
 * [BulkIndex](#bulkindex) - Bulk index documents
 * [ProcessAll](#processall) - Schedules the processing of uploaded documents
 * [Delete](#delete) - Delete document
-* [Debug](#debug) - Beta: Get document information
+* [Debug](#debug) - Get document information
 
-* [DebugMany](#debugmany) - Beta: Get information of a batch of documents
+* [DebugMany](#debugmany) - Get information of a batch of documents
 
 * [CheckAccess](#checkaccess) - Check document access
 * [~~Status~~](#status) - Get document upload and indexing status :warning: **Deprecated**
 * [~~Count~~](#count) - Get document count :warning: **Deprecated**
-* [DebugEvents](#debugevents) - Beta: Get document lifecycle events
+* [DebugEvents](#debugevents) - Get document lifecycle events
 
 
 ## AddOrUpdate
@@ -311,7 +311,7 @@ func main() {
 
 ## Debug
 
-Gives various information that would help in debugging related to a particular document. Currently in beta, might undergo breaking changes without prior notice.
+Gives various information that would help in debugging related to a particular document.
 
 Tip: Refer to the [Troubleshooting tutorial](https://developers.glean.com/indexing/debugging/datasource-config) for more information.
 
@@ -371,7 +371,7 @@ func main() {
 
 ## DebugMany
 
-Gives various information that would help in debugging related to a batch of documents. Currently in beta, might undergo breaking changes without prior notice.
+Gives various information that would help in debugging related to a batch of documents.
 
 Tip: Refer to the [Troubleshooting tutorial](https://developers.glean.com/indexing/debugging/datasource-config) for more information.
 
@@ -618,7 +618,7 @@ func main() {
 
 ## DebugEvents
 
-Retrieves lifecycle events for a specific document including upload time, index times and deletions. Rate limited to 1 request per minute per datasource. Currently in beta, might undergo breaking changes without prior notice.
+Retrieves lifecycle events for a specific document including upload time, index times and deletions. Rate limited to 1 request per minute per datasource.
 
 
 ### Example Usage

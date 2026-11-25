@@ -179,13 +179,14 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
-		Name: apiclientgo.Pointer("HR Policy Agent"),
+	res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+		Name:         "HR Policy Agent",
+		Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PlatformAgentsSearchResponse != nil {
+	if res.PlatformAgentGetResponse != nil {
 		// handle response
 	}
 }
@@ -244,18 +245,24 @@ For more information on obtaining the appropriate token type, please contact you
 
 ### [Agents](docs/sdks/agents/README.md)
 
+* [Create](docs/sdks/agents/README.md#create) - Create agent
 * [Search](docs/sdks/agents/README.md#search) - Search agents
 * [Get](docs/sdks/agents/README.md#get) - Get agent
+* [Update](docs/sdks/agents/README.md#update) - Update agent
+* [Delete](docs/sdks/agents/README.md#delete) - Delete agent
 * [GetSchemas](docs/sdks/agents/README.md#getschemas) - Get agent schemas
 * [CreateRun](docs/sdks/agents/README.md#createrun) - Create agent run
 * [GetRun](docs/sdks/agents/README.md#getrun) - Get agent run
 * [CancelRun](docs/sdks/agents/README.md#cancelrun) - Cancel an agent run
 * [RespondToRun](docs/sdks/agents/README.md#respondtorun) - Respond to agent run approvals
+* [CreateRunStream](docs/sdks/agents/README.md#createrunstream) - Create a streaming agent run
 
 ### [Chat](docs/sdks/chat/README.md)
 
 * [Create](docs/sdks/chat/README.md#create) - Create a chat response
 * [Update](docs/sdks/chat/README.md#update) - Update a chat
+* [Resume](docs/sdks/chat/README.md#resume) - Resume a chat stream
+* [Cancel](docs/sdks/chat/README.md#cancel) - Cancel a chat
 * [CreateStream](docs/sdks/chat/README.md#createstream) - Create a streaming chat response
 
 ### [Client.Activity](docs/sdks/activity/README.md)
@@ -437,7 +444,7 @@ For more information on obtaining the appropriate token type, please contact you
 
 ### [Indexing.Datasource](docs/sdks/datasource/README.md)
 
-* [Status](docs/sdks/datasource/README.md#status) - Beta: Get datasource status
+* [Status](docs/sdks/datasource/README.md#status) - Get datasource status
 
 
 ### [Indexing.Datasources](docs/sdks/indexingdatasources/README.md)
@@ -453,19 +460,19 @@ For more information on obtaining the appropriate token type, please contact you
 * [BulkIndex](docs/sdks/indexingdocuments/README.md#bulkindex) - Bulk index documents
 * [ProcessAll](docs/sdks/indexingdocuments/README.md#processall) - Schedules the processing of uploaded documents
 * [Delete](docs/sdks/indexingdocuments/README.md#delete) - Delete document
-* [Debug](docs/sdks/indexingdocuments/README.md#debug) - Beta: Get document information
+* [Debug](docs/sdks/indexingdocuments/README.md#debug) - Get document information
 
-* [DebugMany](docs/sdks/indexingdocuments/README.md#debugmany) - Beta: Get information of a batch of documents
+* [DebugMany](docs/sdks/indexingdocuments/README.md#debugmany) - Get information of a batch of documents
 
 * [CheckAccess](docs/sdks/indexingdocuments/README.md#checkaccess) - Check document access
 * [~~Status~~](docs/sdks/indexingdocuments/README.md#status) - Get document upload and indexing status :warning: **Deprecated**
 * [~~Count~~](docs/sdks/indexingdocuments/README.md#count) - Get document count :warning: **Deprecated**
-* [DebugEvents](docs/sdks/indexingdocuments/README.md#debugevents) - Beta: Get document lifecycle events
+* [DebugEvents](docs/sdks/indexingdocuments/README.md#debugevents) - Get document lifecycle events
 
 
 ### [Indexing.People](docs/sdks/people/README.md)
 
-* [Debug](docs/sdks/people/README.md#debug) - Beta: Get user information
+* [Debug](docs/sdks/people/README.md#debug) - Get user information
 
 * [~~Count~~](docs/sdks/people/README.md#count) - Get user count :warning: **Deprecated**
 * [Index](docs/sdks/people/README.md#index) - Index employee
@@ -555,6 +562,7 @@ package main
 import (
 	"context"
 	apiclientgo "github.com/gleanwork/api-client-go"
+	"github.com/gleanwork/api-client-go/models/components"
 	"github.com/gleanwork/api-client-go/models/operations"
 	"log"
 	"os"
@@ -567,19 +575,27 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Chat.CreateStream(ctx, operations.PlatformChatCreateStreamRequest{
-		Input: operations.CreatePlatformChatCreateStreamInputStr(
-			"Summarize our parental leave policy.",
-		),
+	res, err := s.Agents.CreateRunStream(ctx, "{agent_id}", operations.PlatformAgentsCreateRunStreamRequestBody{
+		Messages: []components.PlatformMessageInput{
+			components.PlatformMessageInput{
+				Role: components.PlatformMessageRoleUser,
+				Content: []components.PlatformMessageTextBlockInput{
+					components.PlatformMessageTextBlockInput{
+						Text: "What is our parental leave policy?",
+						Type: components.PlatformContentTypeText,
+					},
+				},
+			},
+		},
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PlatformChatStreamEventServerSentEvent != nil {
-		defer res.PlatformChatStreamEventServerSentEvent.Close()
+	if res.PlatformAgentRunStreamEvent != nil {
+		defer res.PlatformAgentRunStreamEvent.Close()
 
-		for res.PlatformChatStreamEventServerSentEvent.Next() {
-			event := res.PlatformChatStreamEventServerSentEvent.Value()
+		for res.PlatformAgentRunStreamEvent.Next() {
+			event := res.PlatformAgentRunStreamEvent.Value()
 			log.Print(event)
 			// Handle the event
 		}
@@ -617,8 +633,9 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
-		Name: apiclientgo.Pointer("HR Policy Agent"),
+	res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+		Name:         "HR Policy Agent",
+		Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
 	}, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
@@ -633,7 +650,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PlatformAgentsSearchResponse != nil {
+	if res.PlatformAgentGetResponse != nil {
 		// handle response
 	}
 }
@@ -671,13 +688,14 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
-		Name: apiclientgo.Pointer("HR Policy Agent"),
+	res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+		Name:         "HR Policy Agent",
+		Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PlatformAgentsSearchResponse != nil {
+	if res.PlatformAgentGetResponse != nil {
 		// handle response
 	}
 }
@@ -692,13 +710,13 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `Search` function may return the following errors:
+For example, the `Create` function may return the following errors:
 
-| Error Type                           | Status Code                       | Content Type             |
-| ------------------------------------ | --------------------------------- | ------------------------ |
-| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 413, 429 | application/problem+json |
-| apierrors.PlatformProblemDetailError | 500, 503                          | application/problem+json |
-| apierrors.APIError                   | 4XX, 5XX                          | \*/\*                    |
+| Error Type                           | Status Code                                 | Content Type             |
+| ------------------------------------ | ------------------------------------------- | ------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 408, 409, 413, 422, 429 | application/problem+json |
+| apierrors.PlatformProblemDetailError | 500, 503                                    | application/problem+json |
+| apierrors.APIError                   | 4XX, 5XX                                    | \*/\*                    |
 
 ### Example
 
@@ -722,8 +740,9 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
-		Name: apiclientgo.Pointer("HR Policy Agent"),
+	res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+		Name:         "HR Policy Agent",
+		Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
 	})
 	if err != nil {
 
@@ -783,13 +802,14 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
-		Name: apiclientgo.Pointer("HR Policy Agent"),
+	res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+		Name:         "HR Policy Agent",
+		Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PlatformAgentsSearchResponse != nil {
+	if res.PlatformAgentGetResponse != nil {
 		// handle response
 	}
 }
@@ -818,13 +838,14 @@ func main() {
 		apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
 	)
 
-	res, err := s.Agents.Search(ctx, components.PlatformAgentsSearchRequest{
-		Name: apiclientgo.Pointer("HR Policy Agent"),
+	res, err := s.Agents.Create(ctx, components.PlatformAgentCreateRequest{
+		Name:         "HR Policy Agent",
+		Instructions: apiclientgo.Pointer("Answer employee questions about HR policies and benefits."),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PlatformAgentsSearchResponse != nil {
+	if res.PlatformAgentGetResponse != nil {
 		// handle response
 	}
 }

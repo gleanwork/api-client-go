@@ -6,6 +6,8 @@
 
 * [Create](#create) - Create a chat response
 * [Update](#update) - Update a chat
+* [Resume](#resume) - Resume a chat stream
+* [Cancel](#cancel) - Cancel a chat
 * [CreateStream](#createstream) - Create a streaming chat response
 
 ## Create
@@ -124,6 +126,123 @@ func main() {
 | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 405, 413, 429    | application/problem+json             |
 | apierrors.PlatformProblemDetailError | 500                                  | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## Resume
+
+Reconnect to a chat that is still running, or replay one that just finished. The response is server-sent events in the same format as the streaming response of the create endpoint. Pass the `sequence_id` of the last event you received as `last_seen_sequence_id`, or omit it to start from the beginning of the stream. The final event is `RESPONSE_COMPLETED` or `RESPONSE_FAILED`, and its text covers only the events sent on this connection. Streams are kept for a limited time, so a chat that finished long ago returns 404.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-chat-resume" method="get" path="/api/chats/{chat_id}/resume" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Chat.Resume(ctx, "{chat_id}", apiclientgo.Pointer[int64](0))
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformChatStreamEventServerSentEvent != nil {
+        defer res.PlatformChatStreamEventServerSentEvent.Close()
+
+        for res.PlatformChatStreamEventServerSentEvent.Next() {
+            event := res.PlatformChatStreamEventServerSentEvent.Value()
+            log.Print(event)
+            // Handle the event
+	      }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                        | Type                                                                                                                                             | Required                                                                                                                                         | Description                                                                                                                                      | Example                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                                                            | :heavy_check_mark:                                                                                                                               | The context to use for the request.                                                                                                              |                                                                                                                                                  |
+| `chatID`                                                                                                                                         | `string`                                                                                                                                         | :heavy_check_mark:                                                                                                                               | The ID of the chat to resume.                                                                                                                    | {chat_id}                                                                                                                                        |
+| `lastSeenSequenceID`                                                                                                                             | `*int64`                                                                                                                                         | :heavy_minus_sign:                                                                                                                               | The `sequence_id` of the last event already received. The stream continues with the next event. Defaults to 0, which starts from the beginning.<br/> | 0                                                                                                                                                |
+| `opts`                                                                                                                                           | [][operations.Option](../../models/operations/option.md)                                                                                         | :heavy_minus_sign:                                                                                                                               | The options for this request.                                                                                                                    |                                                                                                                                                  |
+
+### Response
+
+**[*operations.PlatformChatResumeResponse](../../models/operations/platformchatresumeresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 429              | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
+| apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
+
+## Cancel
+
+Stop a running chat. Only users who can edit the chat can cancel it. Cancelling a chat that is not running succeeds without effect.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="platform-chat-cancel" method="post" path="/api/chats/{chat_id}/cancellations" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	apiclientgo "github.com/gleanwork/api-client-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := apiclientgo.New(
+        apiclientgo.WithSecurity(os.Getenv("GLEAN_API_TOKEN")),
+    )
+
+    res, err := s.Chat.Cancel(ctx, "{chat_id}")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PlatformChatCancelResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `chatID`                                                 | `string`                                                 | :heavy_check_mark:                                       | The ID of the chat to cancel.                            | {chat_id}                                                |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
+
+### Response
+
+**[*operations.PlatformChatCancelResponse](../../models/operations/platformchatcancelresponse.md), error**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| apierrors.PlatformProblemDetailError | 400, 401, 403, 404, 429              | application/problem+json             |
+| apierrors.PlatformProblemDetailError | 500, 503                             | application/problem+json             |
 | apierrors.APIError                   | 4XX, 5XX                             | \*/\*                                |
 
 ## CreateStream
