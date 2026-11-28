@@ -20,6 +20,20 @@ func (e ConnectorType) ToPointer() *ConnectorType {
 	return &e
 }
 
+// ConnectorTypeValues returns every known ConnectorType value in schema order.
+func ConnectorTypeValues() []ConnectorType {
+	return []ConnectorType{
+		ConnectorTypeAPICrawl,
+		ConnectorTypeBrowserCrawl,
+		ConnectorTypeBrowserHistory,
+		ConnectorTypeBuiltin,
+		ConnectorTypeFederatedSearch,
+		ConnectorTypePushAPI,
+		ConnectorTypeWebCrawl,
+		ConnectorTypeNativeHistory,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ConnectorType) IsExact() bool {
 	if e != nil {

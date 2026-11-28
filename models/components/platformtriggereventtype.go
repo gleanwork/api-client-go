@@ -18,6 +18,13 @@ const (
 func (e PlatformTriggerEventType) ToPointer() *PlatformTriggerEventType {
 	return &e
 }
+
+// PlatformTriggerEventTypeValues returns every known PlatformTriggerEventType value in schema order.
+func PlatformTriggerEventTypeValues() []PlatformTriggerEventType {
+	return []PlatformTriggerEventType{
+		PlatformTriggerEventTypeDocumentChange,
+	}
+}
 func (e *PlatformTriggerEventType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

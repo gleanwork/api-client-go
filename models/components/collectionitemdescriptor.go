@@ -18,6 +18,15 @@ const (
 func (e CollectionItemDescriptorItemType) ToPointer() *CollectionItemDescriptorItemType {
 	return &e
 }
+
+// CollectionItemDescriptorItemTypeValues returns every known CollectionItemDescriptorItemType value in schema order.
+func CollectionItemDescriptorItemTypeValues() []CollectionItemDescriptorItemType {
+	return []CollectionItemDescriptorItemType{
+		CollectionItemDescriptorItemTypeDocument,
+		CollectionItemDescriptorItemTypeText,
+		CollectionItemDescriptorItemTypeURL,
+	}
+}
 func (e *CollectionItemDescriptorItemType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

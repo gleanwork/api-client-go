@@ -19,6 +19,15 @@ const (
 func (e ManualFeedbackSideBySideInfoSource) ToPointer() *ManualFeedbackSideBySideInfoSource {
 	return &e
 }
+
+// ManualFeedbackSideBySideInfoSourceValues returns every known ManualFeedbackSideBySideInfoSource value in schema order.
+func ManualFeedbackSideBySideInfoSourceValues() []ManualFeedbackSideBySideInfoSource {
+	return []ManualFeedbackSideBySideInfoSource{
+		ManualFeedbackSideBySideInfoSourceLiveEval,
+		ManualFeedbackSideBySideInfoSourceChat,
+		ManualFeedbackSideBySideInfoSourceSearch,
+	}
+}
 func (e *ManualFeedbackSideBySideInfoSource) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -48,6 +57,15 @@ const (
 
 func (e ManualFeedbackSideBySideInfoVote) ToPointer() *ManualFeedbackSideBySideInfoVote {
 	return &e
+}
+
+// ManualFeedbackSideBySideInfoVoteValues returns every known ManualFeedbackSideBySideInfoVote value in schema order.
+func ManualFeedbackSideBySideInfoVoteValues() []ManualFeedbackSideBySideInfoVote {
+	return []ManualFeedbackSideBySideInfoVote{
+		ManualFeedbackSideBySideInfoVoteUpvote,
+		ManualFeedbackSideBySideInfoVoteDownvote,
+		ManualFeedbackSideBySideInfoVoteNeutral,
+	}
 }
 func (e *ManualFeedbackSideBySideInfoVote) UnmarshalJSON(data []byte) error {
 	var v string

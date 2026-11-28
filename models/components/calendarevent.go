@@ -14,6 +14,14 @@ func (e CalendarEventEventType) ToPointer() *CalendarEventEventType {
 	return &e
 }
 
+// CalendarEventEventTypeValues returns every known CalendarEventEventType value in schema order.
+func CalendarEventEventTypeValues() []CalendarEventEventType {
+	return []CalendarEventEventType{
+		CalendarEventEventTypeDefault,
+		CalendarEventEventTypeOutOfOffice,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CalendarEventEventType) IsExact() bool {
 	if e != nil {

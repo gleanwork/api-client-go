@@ -71,6 +71,71 @@ func (e FeedResultCategory) ToPointer() *FeedResultCategory {
 	return &e
 }
 
+// FeedResultCategoryValues returns every known FeedResultCategory value in schema order.
+func FeedResultCategoryValues() []FeedResultCategory {
+	return []FeedResultCategory{
+		FeedResultCategoryDocumentSuggestion,
+		FeedResultCategoryDocumentSuggestionScenario,
+		FeedResultCategoryTrendingDocument,
+		FeedResultCategoryUseCase,
+		FeedResultCategoryVerificationReminder,
+		FeedResultCategoryEvent,
+		FeedResultCategoryAnnouncement,
+		FeedResultCategoryMention,
+		FeedResultCategoryDatasourceAffinity,
+		FeedResultCategoryRecent,
+		FeedResultCategoryCompanyResource,
+		FeedResultCategoryExperimental,
+		FeedResultCategoryPeopleCelebrations,
+		FeedResultCategorySocialLink,
+		FeedResultCategoryExternalTasks,
+		FeedResultCategoryDisplayableList,
+		FeedResultCategoryZeroStateChatSuggestion,
+		FeedResultCategoryZeroStateChatToolSuggestion,
+		FeedResultCategoryZeroStateWorkflowCreatedByMe,
+		FeedResultCategoryZeroStateWorkflowFavorites,
+		FeedResultCategoryZeroStateGleanAgentCoworkers,
+		FeedResultCategoryZeroStateWorkflowPopular,
+		FeedResultCategoryZeroStateWorkflowRecent,
+		FeedResultCategoryZeroStateWorkflowSuggestion,
+		FeedResultCategoryPersonalizedChatSuggestion,
+		FeedResultCategoryDailyDigest,
+		FeedResultCategoryPodcast,
+		FeedResultCategoryTask,
+		FeedResultCategoryPlanMyDay,
+		FeedResultCategoryEndMyDay,
+		FeedResultCategoryStarterKit,
+		FeedResultCategoryMeetingPrepAutomation,
+		FeedResultCategoryMidDayCatchUp,
+		FeedResultCategoryQuerySuggestion,
+		FeedResultCategoryCoworkCujPromo,
+		FeedResultCategoryCardStackPromo,
+		FeedResultCategoryWeeklyMeetings,
+		FeedResultCategoryFollowUp,
+		FeedResultCategoryMilestoneTimelineCheck,
+		FeedResultCategoryProjectDiscussionDigest,
+		FeedResultCategoryProjectFocusBlock,
+		FeedResultCategoryProjectNextStep,
+		FeedResultCategoryDemoCard,
+		FeedResultCategoryPersonalAgentNux,
+		FeedResultCategoryResolveMeetingConflict,
+		FeedResultCategoryFindingMeetingRoom,
+		FeedResultCategoryOooPlanner,
+		FeedResultCategoryOooCatchUp,
+		FeedResultCategoryAdminHealthCenter,
+		FeedResultCategoryKnowledgeGap,
+		FeedResultCategoryArtifactCreation,
+		FeedResultCategoryEditDoc,
+		FeedResultCategoryChatToArtifact,
+		FeedResultCategoryShareArtifact,
+		FeedResultCategoryCreateAgent,
+		FeedResultCategoryManagerInvite,
+		FeedResultCategoryOnboardingAuthorization,
+		FeedResultCategoryChatReminder,
+		FeedResultCategoryDiscover,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *FeedResultCategory) IsExact() bool {
 	if e != nil {
@@ -93,6 +158,15 @@ const (
 
 func (e PlacementReason) ToPointer() *PlacementReason {
 	return &e
+}
+
+// PlacementReasonValues returns every known PlacementReason value in schema order.
+func PlacementReasonValues() []PlacementReason {
+	return []PlacementReason{
+		PlacementReasonOrganic,
+		PlacementReasonPromo,
+		PlacementReasonPinned,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

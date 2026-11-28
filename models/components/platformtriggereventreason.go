@@ -46,6 +46,29 @@ func (e PlatformTriggerEventReason) ToPointer() *PlatformTriggerEventReason {
 	return &e
 }
 
+// PlatformTriggerEventReasonValues returns every known PlatformTriggerEventReason value in schema order.
+func PlatformTriggerEventReasonValues() []PlatformTriggerEventReason {
+	return []PlatformTriggerEventReason{
+		PlatformTriggerEventReasonCreated,
+		PlatformTriggerEventReasonUpdated,
+		PlatformTriggerEventReasonDeleted,
+		PlatformTriggerEventReasonMeetsCondition,
+		PlatformTriggerEventReasonAssigned,
+		PlatformTriggerEventReasonUnassigned,
+		PlatformTriggerEventReasonLabeled,
+		PlatformTriggerEventReasonUnlabeled,
+		PlatformTriggerEventReasonReviewRequested,
+		PlatformTriggerEventReasonReviewRequestRemoved,
+		PlatformTriggerEventReasonReadyForReview,
+		PlatformTriggerEventReasonConvertedToDraft,
+		PlatformTriggerEventReasonWebhookUpdated,
+		PlatformTriggerEventReasonWebhookCreated,
+		PlatformTriggerEventReasonClosed,
+		PlatformTriggerEventReasonCommentAdded,
+		PlatformTriggerEventReasonCommentResolved,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformTriggerEventReason) IsExact() bool {
 	if e != nil {

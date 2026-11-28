@@ -102,6 +102,15 @@ func (e DatasourceVisibility) ToPointer() *DatasourceVisibility {
 	return &e
 }
 
+// DatasourceVisibilityValues returns every known DatasourceVisibility value in schema order.
+func DatasourceVisibilityValues() []DatasourceVisibility {
+	return []DatasourceVisibility{
+		DatasourceVisibilityEnabledForAll,
+		DatasourceVisibilityEnabledForTestGroup,
+		DatasourceVisibilityNotEnabled,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DatasourceVisibility) IsExact() bool {
 	if e != nil {

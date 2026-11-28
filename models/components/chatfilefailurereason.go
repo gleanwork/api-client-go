@@ -23,6 +23,23 @@ func (e ChatFileFailureReason) ToPointer() *ChatFileFailureReason {
 	return &e
 }
 
+// ChatFileFailureReasonValues returns every known ChatFileFailureReason value in schema order.
+func ChatFileFailureReasonValues() []ChatFileFailureReason {
+	return []ChatFileFailureReason{
+		ChatFileFailureReasonParseFailed,
+		ChatFileFailureReasonAvScanFailed,
+		ChatFileFailureReasonFileTooSmall,
+		ChatFileFailureReasonFileTooLarge,
+		ChatFileFailureReasonFileExtensionUnsupported,
+		ChatFileFailureReasonFileMetadataValidationFail,
+		ChatFileFailureReasonFileProcessingTimedOut,
+		ChatFileFailureReasonOauthNeeded,
+		ChatFileFailureReasonURLFetchFailed,
+		ChatFileFailureReasonEmptyContent,
+		ChatFileFailureReasonAuthRequired,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ChatFileFailureReason) IsExact() bool {
 	if e != nil {

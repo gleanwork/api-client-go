@@ -19,6 +19,15 @@ const (
 func (e IDType) ToPointer() *IDType {
 	return &e
 }
+
+// IDTypeValues returns every known IDType value in schema order.
+func IDTypeValues() []IDType {
+	return []IDType{
+		IDTypeChannelName,
+		IDTypeThreadID,
+		IDTypeConversationID,
+	}
+}
 func (e *IDType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -47,6 +56,14 @@ const (
 
 func (e MessagesRequestDirection) ToPointer() *MessagesRequestDirection {
 	return &e
+}
+
+// MessagesRequestDirectionValues returns every known MessagesRequestDirection value in schema order.
+func MessagesRequestDirectionValues() []MessagesRequestDirection {
+	return []MessagesRequestDirection{
+		MessagesRequestDirectionOlder,
+		MessagesRequestDirectionNewer,
+	}
 }
 func (e *MessagesRequestDirection) UnmarshalJSON(data []byte) error {
 	var v string
@@ -77,6 +94,17 @@ const (
 
 func (e Datasource) ToPointer() *Datasource {
 	return &e
+}
+
+// DatasourceValues returns every known Datasource value in schema order.
+func DatasourceValues() []Datasource {
+	return []Datasource{
+		DatasourceSlack,
+		DatasourceSlackentgrid,
+		DatasourceMicrosoftteams,
+		DatasourceGchat,
+		DatasourceFacebookworkplace,
+	}
 }
 func (e *Datasource) UnmarshalJSON(data []byte) error {
 	var v string

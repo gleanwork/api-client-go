@@ -38,6 +38,34 @@ const (
 func (e ManualFeedbackInfoSource) ToPointer() *ManualFeedbackInfoSource {
 	return &e
 }
+
+// ManualFeedbackInfoSourceValues returns every known ManualFeedbackInfoSource value in schema order.
+func ManualFeedbackInfoSourceValues() []ManualFeedbackInfoSource {
+	return []ManualFeedbackInfoSource{
+		ManualFeedbackInfoSourceAutocomplete,
+		ManualFeedbackInfoSourceCalendar,
+		ManualFeedbackInfoSourceChat,
+		ManualFeedbackInfoSourceChatGeneral,
+		ManualFeedbackInfoSourceConceptCard,
+		ManualFeedbackInfoSourceDesktopApp,
+		ManualFeedbackInfoSourceDisambiguationCard,
+		ManualFeedbackInfoSourceExpertDetection,
+		ManualFeedbackInfoSourceFeed,
+		ManualFeedbackInfoSourceGeneratedQAndA,
+		ManualFeedbackInfoSourceInlineMenu,
+		ManualFeedbackInfoSourceNativeResult,
+		ManualFeedbackInfoSourcePrism,
+		ManualFeedbackInfoSourceQAndA,
+		ManualFeedbackInfoSourceRelatedQuestions,
+		ManualFeedbackInfoSourceReportIssue,
+		ManualFeedbackInfoSourceSciobot,
+		ManualFeedbackInfoSourceSearch,
+		ManualFeedbackInfoSourceSidebar,
+		ManualFeedbackInfoSourceSummary,
+		ManualFeedbackInfoSourceTasks,
+		ManualFeedbackInfoSourceTaskExecution,
+	}
+}
 func (e *ManualFeedbackInfoSource) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -119,6 +147,29 @@ const (
 func (e Issue) ToPointer() *Issue {
 	return &e
 }
+
+// IssueValues returns every known Issue value in schema order.
+func IssueValues() []Issue {
+	return []Issue{
+		IssueAgentCanvasFailed,
+		IssueAgentClarifyingQuestions,
+		IssueAgentIntermediateStepsFailed,
+		IssueAgentToolCallFailed,
+		IssueInaccurateResponse,
+		IssueIncompleteOrNoAnswer,
+		IssueIncorrectCitation,
+		IssueMissingCitation,
+		IssueOther,
+		IssueOutdatedResponse,
+		IssueResultMissing,
+		IssueResultShouldNotAppear,
+		IssueResultsHelpful,
+		IssueResultsPoorOrder,
+		IssueTooMuchOneKind,
+		IssueNotAQuestion,
+		IssueUnsureIfCorrect,
+	}
+}
 func (e *Issue) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -175,6 +226,14 @@ const (
 
 func (e ManualFeedbackInfoVote) ToPointer() *ManualFeedbackInfoVote {
 	return &e
+}
+
+// ManualFeedbackInfoVoteValues returns every known ManualFeedbackInfoVote value in schema order.
+func ManualFeedbackInfoVoteValues() []ManualFeedbackInfoVote {
+	return []ManualFeedbackInfoVote{
+		ManualFeedbackInfoVoteUpvote,
+		ManualFeedbackInfoVoteDownvote,
+	}
 }
 func (e *ManualFeedbackInfoVote) UnmarshalJSON(data []byte) error {
 	var v string

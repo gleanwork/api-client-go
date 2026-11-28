@@ -17,6 +17,13 @@ const (
 func (e PlatformChatOutputTextContentType) ToPointer() *PlatformChatOutputTextContentType {
 	return &e
 }
+
+// PlatformChatOutputTextContentTypeValues returns every known PlatformChatOutputTextContentType value in schema order.
+func PlatformChatOutputTextContentTypeValues() []PlatformChatOutputTextContentType {
+	return []PlatformChatOutputTextContentType{
+		PlatformChatOutputTextContentTypeOutputText,
+	}
+}
 func (e *PlatformChatOutputTextContentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

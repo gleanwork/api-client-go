@@ -16,6 +16,16 @@ func (e DlpReportStatus) ToPointer() *DlpReportStatus {
 	return &e
 }
 
+// DlpReportStatusValues returns every known DlpReportStatus value in schema order.
+func DlpReportStatusValues() []DlpReportStatus {
+	return []DlpReportStatus{
+		DlpReportStatusActive,
+		DlpReportStatusInactive,
+		DlpReportStatusCancelled,
+		DlpReportStatusNone,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DlpReportStatus) IsExact() bool {
 	if e != nil {

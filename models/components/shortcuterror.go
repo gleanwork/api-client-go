@@ -15,6 +15,16 @@ func (e ShortcutErrorErrorType) ToPointer() *ShortcutErrorErrorType {
 	return &e
 }
 
+// ShortcutErrorErrorTypeValues returns every known ShortcutErrorErrorType value in schema order.
+func ShortcutErrorErrorTypeValues() []ShortcutErrorErrorType {
+	return []ShortcutErrorErrorType{
+		ShortcutErrorErrorTypeNoPermission,
+		ShortcutErrorErrorTypeInvalidID,
+		ShortcutErrorErrorTypeExistingShortcut,
+		ShortcutErrorErrorTypeInvalidChars,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ShortcutErrorErrorType) IsExact() bool {
 	if e != nil {

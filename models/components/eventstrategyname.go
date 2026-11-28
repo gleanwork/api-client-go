@@ -21,6 +21,21 @@ func (e EventStrategyName) ToPointer() *EventStrategyName {
 	return &e
 }
 
+// EventStrategyNameValues returns every known EventStrategyName value in schema order.
+func EventStrategyNameValues() []EventStrategyName {
+	return []EventStrategyName{
+		EventStrategyNameCustomerCard,
+		EventStrategyNameNews,
+		EventStrategyNameCall,
+		EventStrategyNameEmail,
+		EventStrategyNameMeetingNotes,
+		EventStrategyNameLinkedIn,
+		EventStrategyNameRelevantDocuments,
+		EventStrategyNameChatFollowUps,
+		EventStrategyNameConversations,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *EventStrategyName) IsExact() bool {
 	if e != nil {

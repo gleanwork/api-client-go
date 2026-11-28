@@ -18,6 +18,13 @@ const (
 func (e PlatformSkillSourcePreviewStreamErrorType) ToPointer() *PlatformSkillSourcePreviewStreamErrorType {
 	return &e
 }
+
+// PlatformSkillSourcePreviewStreamErrorTypeValues returns every known PlatformSkillSourcePreviewStreamErrorType value in schema order.
+func PlatformSkillSourcePreviewStreamErrorTypeValues() []PlatformSkillSourcePreviewStreamErrorType {
+	return []PlatformSkillSourcePreviewStreamErrorType{
+		PlatformSkillSourcePreviewStreamErrorTypeError,
+	}
+}
 func (e *PlatformSkillSourcePreviewStreamErrorType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

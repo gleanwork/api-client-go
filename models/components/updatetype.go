@@ -16,6 +16,14 @@ func (e UpdateType) ToPointer() *UpdateType {
 	return &e
 }
 
+// UpdateTypeValues returns every known UpdateType value in schema order.
+func UpdateTypeValues() []UpdateType {
+	return []UpdateType{
+		UpdateTypeActionable,
+		UpdateTypeInformative,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *UpdateType) IsExact() bool {
 	if e != nil {

@@ -13,6 +13,14 @@ func (e CommunicationChannel) ToPointer() *CommunicationChannel {
 	return &e
 }
 
+// CommunicationChannelValues returns every known CommunicationChannel value in schema order.
+func CommunicationChannelValues() []CommunicationChannel {
+	return []CommunicationChannel{
+		CommunicationChannelCommunicationChannelEmail,
+		CommunicationChannelCommunicationChannelSlack,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CommunicationChannel) IsExact() bool {
 	if e != nil {

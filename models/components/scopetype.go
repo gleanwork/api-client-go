@@ -14,6 +14,14 @@ func (e ScopeType) ToPointer() *ScopeType {
 	return &e
 }
 
+// ScopeTypeValues returns every known ScopeType value in schema order.
+func ScopeTypeValues() []ScopeType {
+	return []ScopeType{
+		ScopeTypeGlobal,
+		ScopeTypeOwn,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ScopeType) IsExact() bool {
 	if e != nil {

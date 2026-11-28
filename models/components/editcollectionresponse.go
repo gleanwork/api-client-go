@@ -24,6 +24,20 @@ func (e EditCollectionResponseErrorCode) ToPointer() *EditCollectionResponseErro
 	return &e
 }
 
+// EditCollectionResponseErrorCodeValues returns every known EditCollectionResponseErrorCode value in schema order.
+func EditCollectionResponseErrorCodeValues() []EditCollectionResponseErrorCode {
+	return []EditCollectionResponseErrorCode{
+		EditCollectionResponseErrorCodeNameExists,
+		EditCollectionResponseErrorCodeNotFound,
+		EditCollectionResponseErrorCodeCollectionPinned,
+		EditCollectionResponseErrorCodeConcurrentHierarchyEdit,
+		EditCollectionResponseErrorCodeHeightViolation,
+		EditCollectionResponseErrorCodeWidthViolation,
+		EditCollectionResponseErrorCodeNoPermissions,
+		EditCollectionResponseErrorCodeCorruptItem,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *EditCollectionResponseErrorCode) IsExact() bool {
 	if e != nil {

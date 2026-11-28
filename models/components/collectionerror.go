@@ -23,6 +23,20 @@ func (e CollectionErrorErrorCode) ToPointer() *CollectionErrorErrorCode {
 	return &e
 }
 
+// CollectionErrorErrorCodeValues returns every known CollectionErrorErrorCode value in schema order.
+func CollectionErrorErrorCodeValues() []CollectionErrorErrorCode {
+	return []CollectionErrorErrorCode{
+		CollectionErrorErrorCodeNameExists,
+		CollectionErrorErrorCodeNotFound,
+		CollectionErrorErrorCodeCollectionPinned,
+		CollectionErrorErrorCodeConcurrentHierarchyEdit,
+		CollectionErrorErrorCodeHeightViolation,
+		CollectionErrorErrorCodeWidthViolation,
+		CollectionErrorErrorCodeNoPermissions,
+		CollectionErrorErrorCodeCorruptItem,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CollectionErrorErrorCode) IsExact() bool {
 	if e != nil {

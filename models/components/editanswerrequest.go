@@ -17,6 +17,14 @@ const (
 func (e EditAnswerRequestSourceType) ToPointer() *EditAnswerRequestSourceType {
 	return &e
 }
+
+// EditAnswerRequestSourceTypeValues returns every known EditAnswerRequestSourceType value in schema order.
+func EditAnswerRequestSourceTypeValues() []EditAnswerRequestSourceType {
+	return []EditAnswerRequestSourceType{
+		EditAnswerRequestSourceTypeDocument,
+		EditAnswerRequestSourceTypeAssistant,
+	}
+}
 func (e *EditAnswerRequestSourceType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

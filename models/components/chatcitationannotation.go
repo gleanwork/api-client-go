@@ -16,6 +16,13 @@ const (
 func (e ChatCitationAnnotationType) ToPointer() *ChatCitationAnnotationType {
 	return &e
 }
+
+// ChatCitationAnnotationTypeValues returns every known ChatCitationAnnotationType value in schema order.
+func ChatCitationAnnotationTypeValues() []ChatCitationAnnotationType {
+	return []ChatCitationAnnotationType{
+		ChatCitationAnnotationTypeCitation,
+	}
+}
 func (e *ChatCitationAnnotationType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

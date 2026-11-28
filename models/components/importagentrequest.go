@@ -39,6 +39,14 @@ const (
 func (e VersionSource) ToPointer() *VersionSource {
 	return &e
 }
+
+// VersionSourceValues returns every known VersionSource value in schema order.
+func VersionSourceValues() []VersionSource {
+	return []VersionSource{
+		VersionSourceGit,
+		VersionSourceUser,
+	}
+}
 func (e *VersionSource) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

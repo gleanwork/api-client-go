@@ -22,6 +22,14 @@ const (
 func (e PlatformAgentsCreateRunStreamExecutionMode) ToPointer() *PlatformAgentsCreateRunStreamExecutionMode {
 	return &e
 }
+
+// PlatformAgentsCreateRunStreamExecutionModeValues returns every known PlatformAgentsCreateRunStreamExecutionMode value in schema order.
+func PlatformAgentsCreateRunStreamExecutionModeValues() []PlatformAgentsCreateRunStreamExecutionMode {
+	return []PlatformAgentsCreateRunStreamExecutionMode{
+		PlatformAgentsCreateRunStreamExecutionModeRequestBound,
+		PlatformAgentsCreateRunStreamExecutionModeDurable,
+	}
+}
 func (e *PlatformAgentsCreateRunStreamExecutionMode) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

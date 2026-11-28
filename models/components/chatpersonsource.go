@@ -17,6 +17,13 @@ const (
 func (e ChatPersonSourceType) ToPointer() *ChatPersonSourceType {
 	return &e
 }
+
+// ChatPersonSourceTypeValues returns every known ChatPersonSourceType value in schema order.
+func ChatPersonSourceTypeValues() []ChatPersonSourceType {
+	return []ChatPersonSourceType{
+		ChatPersonSourceTypePerson,
+	}
+}
 func (e *ChatPersonSourceType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

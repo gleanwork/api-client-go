@@ -17,6 +17,13 @@ const (
 func (e PlatformChatStreamProgressType) ToPointer() *PlatformChatStreamProgressType {
 	return &e
 }
+
+// PlatformChatStreamProgressTypeValues returns every known PlatformChatStreamProgressType value in schema order.
+func PlatformChatStreamProgressTypeValues() []PlatformChatStreamProgressType {
+	return []PlatformChatStreamProgressType{
+		PlatformChatStreamProgressTypeResponseProgress,
+	}
+}
 func (e *PlatformChatStreamProgressType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

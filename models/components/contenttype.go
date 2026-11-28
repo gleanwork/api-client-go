@@ -16,6 +16,13 @@ const (
 func (e ContentType) ToPointer() *ContentType {
 	return &e
 }
+
+// ContentTypeValues returns every known ContentType value in schema order.
+func ContentTypeValues() []ContentType {
+	return []ContentType{
+		ContentTypeText,
+	}
+}
 func (e *ContentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

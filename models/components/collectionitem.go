@@ -20,6 +20,16 @@ func (e CollectionItemItemType) ToPointer() *CollectionItemItemType {
 	return &e
 }
 
+// CollectionItemItemTypeValues returns every known CollectionItemItemType value in schema order.
+func CollectionItemItemTypeValues() []CollectionItemItemType {
+	return []CollectionItemItemType{
+		CollectionItemItemTypeDocument,
+		CollectionItemItemTypeText,
+		CollectionItemItemTypeURL,
+		CollectionItemItemTypeCollection,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CollectionItemItemType) IsExact() bool {
 	if e != nil {

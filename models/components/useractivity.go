@@ -26,6 +26,26 @@ func (e UserActivityAction) ToPointer() *UserActivityAction {
 	return &e
 }
 
+// UserActivityActionValues returns every known UserActivityAction value in schema order.
+func UserActivityActionValues() []UserActivityAction {
+	return []UserActivityAction{
+		UserActivityActionAdd,
+		UserActivityActionAddReminder,
+		UserActivityActionClick,
+		UserActivityActionComment,
+		UserActivityActionDelete,
+		UserActivityActionDismiss,
+		UserActivityActionEdit,
+		UserActivityActionMention,
+		UserActivityActionMove,
+		UserActivityActionOther,
+		UserActivityActionRestore,
+		UserActivityActionUnknown,
+		UserActivityActionVerify,
+		UserActivityActionView,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *UserActivityAction) IsExact() bool {
 	if e != nil {

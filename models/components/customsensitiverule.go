@@ -17,6 +17,17 @@ func (e CustomSensitiveRuleLikelihoodThreshold) ToPointer() *CustomSensitiveRule
 	return &e
 }
 
+// CustomSensitiveRuleLikelihoodThresholdValues returns every known CustomSensitiveRuleLikelihoodThreshold value in schema order.
+func CustomSensitiveRuleLikelihoodThresholdValues() []CustomSensitiveRuleLikelihoodThreshold {
+	return []CustomSensitiveRuleLikelihoodThreshold{
+		CustomSensitiveRuleLikelihoodThresholdLikely,
+		CustomSensitiveRuleLikelihoodThresholdVeryLikely,
+		CustomSensitiveRuleLikelihoodThresholdPossible,
+		CustomSensitiveRuleLikelihoodThresholdUnlikely,
+		CustomSensitiveRuleLikelihoodThresholdVeryUnlikely,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CustomSensitiveRuleLikelihoodThreshold) IsExact() bool {
 	if e != nil {

@@ -25,6 +25,16 @@ func (e PersonMetadataType) ToPointer() *PersonMetadataType {
 	return &e
 }
 
+// PersonMetadataTypeValues returns every known PersonMetadataType value in schema order.
+func PersonMetadataTypeValues() []PersonMetadataType {
+	return []PersonMetadataType{
+		PersonMetadataTypeFullTime,
+		PersonMetadataTypeContractor,
+		PersonMetadataTypeNonEmployee,
+		PersonMetadataTypeFormerEmployee,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PersonMetadataType) IsExact() bool {
 	if e != nil {

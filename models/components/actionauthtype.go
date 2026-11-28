@@ -18,6 +18,15 @@ func (e ActionAuthType) ToPointer() *ActionAuthType {
 	return &e
 }
 
+// ActionAuthTypeValues returns every known ActionAuthType value in schema order.
+func ActionAuthTypeValues() []ActionAuthType {
+	return []ActionAuthType{
+		ActionAuthTypeAuthUserOauth,
+		ActionAuthTypeAuthAdmin,
+		ActionAuthTypeAuthNone,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ActionAuthType) IsExact() bool {
 	if e != nil {

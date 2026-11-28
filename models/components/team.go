@@ -20,6 +20,15 @@ func (e TeamStatus) ToPointer() *TeamStatus {
 	return &e
 }
 
+// TeamStatusValues returns every known TeamStatus value in schema order.
+func TeamStatusValues() []TeamStatus {
+	return []TeamStatus{
+		TeamStatusProcessed,
+		TeamStatusQueuedForCreation,
+		TeamStatusQueuedForDeletion,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *TeamStatus) IsExact() bool {
 	if e != nil {

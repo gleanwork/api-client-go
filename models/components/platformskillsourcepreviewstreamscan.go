@@ -18,6 +18,13 @@ const (
 func (e PlatformSkillSourcePreviewStreamScanType) ToPointer() *PlatformSkillSourcePreviewStreamScanType {
 	return &e
 }
+
+// PlatformSkillSourcePreviewStreamScanTypeValues returns every known PlatformSkillSourcePreviewStreamScanType value in schema order.
+func PlatformSkillSourcePreviewStreamScanTypeValues() []PlatformSkillSourcePreviewStreamScanType {
+	return []PlatformSkillSourcePreviewStreamScanType{
+		PlatformSkillSourcePreviewStreamScanTypeScan,
+	}
+}
 func (e *PlatformSkillSourcePreviewStreamScanType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

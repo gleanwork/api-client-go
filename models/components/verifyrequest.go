@@ -19,6 +19,15 @@ const (
 func (e VerifyRequestAction) ToPointer() *VerifyRequestAction {
 	return &e
 }
+
+// VerifyRequestActionValues returns every known VerifyRequestAction value in schema order.
+func VerifyRequestActionValues() []VerifyRequestAction {
+	return []VerifyRequestAction{
+		VerifyRequestActionVerify,
+		VerifyRequestActionDeprecate,
+		VerifyRequestActionUnverify,
+	}
+}
 func (e *VerifyRequestAction) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

@@ -14,6 +14,14 @@ func (e PlatformAgentExecutionStatus) ToPointer() *PlatformAgentExecutionStatus 
 	return &e
 }
 
+// PlatformAgentExecutionStatusValues returns every known PlatformAgentExecutionStatus value in schema order.
+func PlatformAgentExecutionStatusValues() []PlatformAgentExecutionStatus {
+	return []PlatformAgentExecutionStatus{
+		PlatformAgentExecutionStatusError,
+		PlatformAgentExecutionStatusSuccess,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformAgentExecutionStatus) IsExact() bool {
 	if e != nil {

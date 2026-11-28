@@ -18,6 +18,14 @@ const (
 func (e Decision) ToPointer() *Decision {
 	return &e
 }
+
+// DecisionValues returns every known Decision value in schema order.
+func DecisionValues() []Decision {
+	return []Decision{
+		DecisionApprove,
+		DecisionReject,
+	}
+}
 func (e *Decision) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

@@ -19,6 +19,15 @@ const (
 func (e ListEntitiesRequestEntityType) ToPointer() *ListEntitiesRequestEntityType {
 	return &e
 }
+
+// ListEntitiesRequestEntityTypeValues returns every known ListEntitiesRequestEntityType value in schema order.
+func ListEntitiesRequestEntityTypeValues() []ListEntitiesRequestEntityType {
+	return []ListEntitiesRequestEntityType{
+		ListEntitiesRequestEntityTypePeople,
+		ListEntitiesRequestEntityTypeTeams,
+		ListEntitiesRequestEntityTypeCustomEntities,
+	}
+}
 func (e *ListEntitiesRequestEntityType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -53,6 +62,21 @@ const (
 
 func (e ListEntitiesRequestIncludeField) ToPointer() *ListEntitiesRequestIncludeField {
 	return &e
+}
+
+// ListEntitiesRequestIncludeFieldValues returns every known ListEntitiesRequestIncludeField value in schema order.
+func ListEntitiesRequestIncludeFieldValues() []ListEntitiesRequestIncludeField {
+	return []ListEntitiesRequestIncludeField{
+		ListEntitiesRequestIncludeFieldPeople,
+		ListEntitiesRequestIncludeFieldTeams,
+		ListEntitiesRequestIncludeFieldPeopleDistance,
+		ListEntitiesRequestIncludeFieldPermissions,
+		ListEntitiesRequestIncludeFieldFacets,
+		ListEntitiesRequestIncludeFieldInviteInfo,
+		ListEntitiesRequestIncludeFieldLastExtensionUse,
+		ListEntitiesRequestIncludeFieldManagementDetails,
+		ListEntitiesRequestIncludeFieldUnprocessedTeams,
+	}
 }
 func (e *ListEntitiesRequestIncludeField) UnmarshalJSON(data []byte) error {
 	var v string
@@ -96,6 +120,14 @@ const (
 
 func (e ListEntitiesRequestRequestType) ToPointer() *ListEntitiesRequestRequestType {
 	return &e
+}
+
+// ListEntitiesRequestRequestTypeValues returns every known ListEntitiesRequestRequestType value in schema order.
+func ListEntitiesRequestRequestTypeValues() []ListEntitiesRequestRequestType {
+	return []ListEntitiesRequestRequestType{
+		ListEntitiesRequestRequestTypeStandard,
+		ListEntitiesRequestRequestTypeFullDirectory,
+	}
 }
 func (e *ListEntitiesRequestRequestType) UnmarshalJSON(data []byte) error {
 	var v string

@@ -17,6 +17,13 @@ const (
 func (e PlatformChatStreamResponseCompletedType) ToPointer() *PlatformChatStreamResponseCompletedType {
 	return &e
 }
+
+// PlatformChatStreamResponseCompletedTypeValues returns every known PlatformChatStreamResponseCompletedType value in schema order.
+func PlatformChatStreamResponseCompletedTypeValues() []PlatformChatStreamResponseCompletedType {
+	return []PlatformChatStreamResponseCompletedType{
+		PlatformChatStreamResponseCompletedTypeResponseCompleted,
+	}
+}
 func (e *PlatformChatStreamResponseCompletedType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

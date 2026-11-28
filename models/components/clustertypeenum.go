@@ -23,6 +23,23 @@ func (e ClusterTypeEnum) ToPointer() *ClusterTypeEnum {
 	return &e
 }
 
+// ClusterTypeEnumValues returns every known ClusterTypeEnum value in schema order.
+func ClusterTypeEnumValues() []ClusterTypeEnum {
+	return []ClusterTypeEnum{
+		ClusterTypeEnumSimilar,
+		ClusterTypeEnumFreshness,
+		ClusterTypeEnumTitle,
+		ClusterTypeEnumContent,
+		ClusterTypeEnumNone,
+		ClusterTypeEnumThreadReply,
+		ClusterTypeEnumThreadRoot,
+		ClusterTypeEnumPrefix,
+		ClusterTypeEnumSuffix,
+		ClusterTypeEnumAuthorPrefix,
+		ClusterTypeEnumAuthorSuffix,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ClusterTypeEnum) IsExact() bool {
 	if e != nil {

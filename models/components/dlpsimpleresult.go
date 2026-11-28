@@ -13,6 +13,14 @@ func (e DlpSimpleResult) ToPointer() *DlpSimpleResult {
 	return &e
 }
 
+// DlpSimpleResultValues returns every known DlpSimpleResult value in schema order.
+func DlpSimpleResultValues() []DlpSimpleResult {
+	return []DlpSimpleResult{
+		DlpSimpleResultSuccess,
+		DlpSimpleResultFailure,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DlpSimpleResult) IsExact() bool {
 	if e != nil {

@@ -15,6 +15,15 @@ func (e CollectionPinnableCategories) ToPointer() *CollectionPinnableCategories 
 	return &e
 }
 
+// CollectionPinnableCategoriesValues returns every known CollectionPinnableCategories value in schema order.
+func CollectionPinnableCategoriesValues() []CollectionPinnableCategories {
+	return []CollectionPinnableCategories{
+		CollectionPinnableCategoriesCompanyResource,
+		CollectionPinnableCategoriesDepartmentResource,
+		CollectionPinnableCategoriesTeamResource,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CollectionPinnableCategories) IsExact() bool {
 	if e != nil {

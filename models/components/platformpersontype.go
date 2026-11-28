@@ -16,6 +16,16 @@ func (e PlatformPersonType) ToPointer() *PlatformPersonType {
 	return &e
 }
 
+// PlatformPersonTypeValues returns every known PlatformPersonType value in schema order.
+func PlatformPersonTypeValues() []PlatformPersonType {
+	return []PlatformPersonType{
+		PlatformPersonTypeFullTime,
+		PlatformPersonTypeContractor,
+		PlatformPersonTypeNonEmployee,
+		PlatformPersonTypeFormerEmployee,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformPersonType) IsExact() bool {
 	if e != nil {

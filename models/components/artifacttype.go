@@ -18,6 +18,18 @@ func (e ArtifactType) ToPointer() *ArtifactType {
 	return &e
 }
 
+// ArtifactTypeValues returns every known ArtifactType value in schema order.
+func ArtifactTypeValues() []ArtifactType {
+	return []ArtifactType{
+		ArtifactTypePaper,
+		ArtifactTypeAgent,
+		ArtifactTypeMessage,
+		ArtifactTypeEmail,
+		ArtifactTypeHTMLCode,
+		ArtifactTypeSlide,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ArtifactType) IsExact() bool {
 	if e != nil {

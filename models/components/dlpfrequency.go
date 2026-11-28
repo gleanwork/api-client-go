@@ -17,6 +17,17 @@ func (e DlpFrequency) ToPointer() *DlpFrequency {
 	return &e
 }
 
+// DlpFrequencyValues returns every known DlpFrequency value in schema order.
+func DlpFrequencyValues() []DlpFrequency {
+	return []DlpFrequency{
+		DlpFrequencyOnce,
+		DlpFrequencyDaily,
+		DlpFrequencyWeekly,
+		DlpFrequencyContinuous,
+		DlpFrequencyNone,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DlpFrequency) IsExact() bool {
 	if e != nil {

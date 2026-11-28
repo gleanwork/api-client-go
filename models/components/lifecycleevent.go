@@ -16,6 +16,16 @@ func (e LifeCycleEventEvent) ToPointer() *LifeCycleEventEvent {
 	return &e
 }
 
+// LifeCycleEventEventValues returns every known LifeCycleEventEvent value in schema order.
+func LifeCycleEventEventValues() []LifeCycleEventEvent {
+	return []LifeCycleEventEvent{
+		LifeCycleEventEventUploaded,
+		LifeCycleEventEventIndexed,
+		LifeCycleEventEventDeletionRequested,
+		LifeCycleEventEventDeleted,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *LifeCycleEventEvent) IsExact() bool {
 	if e != nil {

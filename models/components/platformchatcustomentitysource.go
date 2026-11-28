@@ -17,6 +17,13 @@ const (
 func (e PlatformChatCustomEntitySourceType) ToPointer() *PlatformChatCustomEntitySourceType {
 	return &e
 }
+
+// PlatformChatCustomEntitySourceTypeValues returns every known PlatformChatCustomEntitySourceType value in schema order.
+func PlatformChatCustomEntitySourceTypeValues() []PlatformChatCustomEntitySourceType {
+	return []PlatformChatCustomEntitySourceType{
+		PlatformChatCustomEntitySourceTypeCustomEntity,
+	}
+}
 func (e *PlatformChatCustomEntitySourceType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

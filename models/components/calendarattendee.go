@@ -19,6 +19,16 @@ func (e ResponseStatus) ToPointer() *ResponseStatus {
 	return &e
 }
 
+// ResponseStatusValues returns every known ResponseStatus value in schema order.
+func ResponseStatusValues() []ResponseStatus {
+	return []ResponseStatus{
+		ResponseStatusAccepted,
+		ResponseStatusDeclined,
+		ResponseStatusNoResponse,
+		ResponseStatusTentative,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ResponseStatus) IsExact() bool {
 	if e != nil {

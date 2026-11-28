@@ -18,6 +18,13 @@ const (
 func (e PlatformDocumentInclude) ToPointer() *PlatformDocumentInclude {
 	return &e
 }
+
+// PlatformDocumentIncludeValues returns every known PlatformDocumentInclude value in schema order.
+func PlatformDocumentIncludeValues() []PlatformDocumentInclude {
+	return []PlatformDocumentInclude{
+		PlatformDocumentIncludeContent,
+	}
+}
 func (e *PlatformDocumentInclude) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

@@ -27,6 +27,18 @@ func (e AuthConfigType) ToPointer() *AuthConfigType {
 	return &e
 }
 
+// AuthConfigTypeValues returns every known AuthConfigType value in schema order.
+func AuthConfigTypeValues() []AuthConfigType {
+	return []AuthConfigType{
+		AuthConfigTypeNone,
+		AuthConfigTypeOauthUser,
+		AuthConfigTypeOauthAdmin,
+		AuthConfigTypeAPIKey,
+		AuthConfigTypeBasicAuth,
+		AuthConfigTypeDwd,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AuthConfigType) IsExact() bool {
 	if e != nil {
@@ -48,6 +60,14 @@ const (
 
 func (e GrantType) ToPointer() *GrantType {
 	return &e
+}
+
+// GrantTypeValues returns every known GrantType value in schema order.
+func GrantTypeValues() []GrantType {
+	return []GrantType{
+		GrantTypeAuthCode,
+		GrantTypeClientCredentials,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
@@ -72,6 +92,15 @@ const (
 
 func (e AuthConfigStatus) ToPointer() *AuthConfigStatus {
 	return &e
+}
+
+// AuthConfigStatusValues returns every known AuthConfigStatus value in schema order.
+func AuthConfigStatusValues() []AuthConfigStatus {
+	return []AuthConfigStatus{
+		AuthConfigStatusAwaitingAuth,
+		AuthConfigStatusAuthorized,
+		AuthConfigStatusAuthDisabled,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
@@ -103,6 +132,16 @@ func (e TokenEndpointAuthMethod) ToPointer() *TokenEndpointAuthMethod {
 	return &e
 }
 
+// TokenEndpointAuthMethodValues returns every known TokenEndpointAuthMethod value in schema order.
+func TokenEndpointAuthMethodValues() []TokenEndpointAuthMethod {
+	return []TokenEndpointAuthMethod{
+		TokenEndpointAuthMethodClientSecretPost,
+		TokenEndpointAuthMethodClientSecretBasic,
+		TokenEndpointAuthMethodNone,
+		TokenEndpointAuthMethodPrivateKeyJwt,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *TokenEndpointAuthMethod) IsExact() bool {
 	if e != nil {
@@ -130,6 +169,16 @@ const (
 
 func (e AuthHeaderType) ToPointer() *AuthHeaderType {
 	return &e
+}
+
+// AuthHeaderTypeValues returns every known AuthHeaderType value in schema order.
+func AuthHeaderTypeValues() []AuthHeaderType {
+	return []AuthHeaderType{
+		AuthHeaderTypeAuthorizationBearer,
+		AuthHeaderTypeAuthorizationToken,
+		AuthHeaderTypeAuthorizationAPIKey,
+		AuthHeaderTypeXAPIKey,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

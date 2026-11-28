@@ -17,6 +17,13 @@ const (
 func (e ChatFileSourceType) ToPointer() *ChatFileSourceType {
 	return &e
 }
+
+// ChatFileSourceTypeValues returns every known ChatFileSourceType value in schema order.
+func ChatFileSourceTypeValues() []ChatFileSourceType {
+	return []ChatFileSourceType{
+		ChatFileSourceTypeFile,
+	}
+}
 func (e *ChatFileSourceType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

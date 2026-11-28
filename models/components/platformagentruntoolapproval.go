@@ -19,6 +19,13 @@ const (
 func (e PlatformAgentRunToolApprovalType) ToPointer() *PlatformAgentRunToolApprovalType {
 	return &e
 }
+
+// PlatformAgentRunToolApprovalTypeValues returns every known PlatformAgentRunToolApprovalType value in schema order.
+func PlatformAgentRunToolApprovalTypeValues() []PlatformAgentRunToolApprovalType {
+	return []PlatformAgentRunToolApprovalType{
+		PlatformAgentRunToolApprovalTypeToolApproval,
+	}
+}
 func (e *PlatformAgentRunToolApprovalType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

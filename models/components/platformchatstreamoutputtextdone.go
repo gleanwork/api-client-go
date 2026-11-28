@@ -17,6 +17,13 @@ const (
 func (e PlatformChatStreamOutputTextDoneType) ToPointer() *PlatformChatStreamOutputTextDoneType {
 	return &e
 }
+
+// PlatformChatStreamOutputTextDoneTypeValues returns every known PlatformChatStreamOutputTextDoneType value in schema order.
+func PlatformChatStreamOutputTextDoneTypeValues() []PlatformChatStreamOutputTextDoneType {
+	return []PlatformChatStreamOutputTextDoneType{
+		PlatformChatStreamOutputTextDoneTypeResponseOutputTextDone,
+	}
+}
 func (e *PlatformChatStreamOutputTextDoneType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

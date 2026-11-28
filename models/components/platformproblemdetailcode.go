@@ -36,6 +36,36 @@ func (e PlatformProblemDetailCode) ToPointer() *PlatformProblemDetailCode {
 	return &e
 }
 
+// PlatformProblemDetailCodeValues returns every known PlatformProblemDetailCode value in schema order.
+func PlatformProblemDetailCodeValues() []PlatformProblemDetailCode {
+	return []PlatformProblemDetailCode{
+		PlatformProblemDetailCodeInvalidRequest,
+		PlatformProblemDetailCodeMissingRequiredField,
+		PlatformProblemDetailCodeInvalidParameter,
+		PlatformProblemDetailCodeUnsupportedActionTarget,
+		PlatformProblemDetailCodeInvalidCursor,
+		PlatformProblemDetailCodeExpiredCursor,
+		PlatformProblemDetailCodeInvalidFilter,
+		PlatformProblemDetailCodeInvalidDatasource,
+		PlatformProblemDetailCodeAuthenticationRequired,
+		PlatformProblemDetailCodeTokenExpired,
+		PlatformProblemDetailCodeInsufficientPermissions,
+		PlatformProblemDetailCodeSpendLimitExceeded,
+		PlatformProblemDetailCodeResourceNotFound,
+		PlatformProblemDetailCodeMethodNotAllowed,
+		PlatformProblemDetailCodeRequestTimeout,
+		PlatformProblemDetailCodeRequestTooLarge,
+		PlatformProblemDetailCodeTokenLimitExceeded,
+		PlatformProblemDetailCodeConflict,
+		PlatformProblemDetailCodeGone,
+		PlatformProblemDetailCodeUnprocessableQuery,
+		PlatformProblemDetailCodeToolsUnauthorized,
+		PlatformProblemDetailCodeRateLimitExceeded,
+		PlatformProblemDetailCodeInternalError,
+		PlatformProblemDetailCodeServiceUnavailable,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformProblemDetailCode) IsExact() bool {
 	if e != nil {

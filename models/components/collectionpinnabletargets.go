@@ -14,6 +14,14 @@ func (e CollectionPinnableTargets) ToPointer() *CollectionPinnableTargets {
 	return &e
 }
 
+// CollectionPinnableTargetsValues returns every known CollectionPinnableTargets value in schema order.
+func CollectionPinnableTargetsValues() []CollectionPinnableTargets {
+	return []CollectionPinnableTargets{
+		CollectionPinnableTargetsResourceCard,
+		CollectionPinnableTargetsTeamProfilePage,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CollectionPinnableTargets) IsExact() bool {
 	if e != nil {

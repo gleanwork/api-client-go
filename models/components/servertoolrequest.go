@@ -20,6 +20,16 @@ func (e ServerToolRequestRequestType) ToPointer() *ServerToolRequestRequestType 
 	return &e
 }
 
+// ServerToolRequestRequestTypeValues returns every known ServerToolRequestRequestType value in schema order.
+func ServerToolRequestRequestTypeValues() []ServerToolRequestRequestType {
+	return []ServerToolRequestRequestType{
+		ServerToolRequestRequestTypeExecution,
+		ServerToolRequestRequestTypeAuthenticationSuggestion,
+		ServerToolRequestRequestTypeVoteSuggestion,
+		ServerToolRequestRequestTypeSandboxEgress,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ServerToolRequestRequestType) IsExact() bool {
 	if e != nil {

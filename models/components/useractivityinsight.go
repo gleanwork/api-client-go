@@ -14,6 +14,14 @@ func (e ActivityEnum) ToPointer() *ActivityEnum {
 	return &e
 }
 
+// ActivityEnumValues returns every known ActivityEnum value in schema order.
+func ActivityEnumValues() []ActivityEnum {
+	return []ActivityEnum{
+		ActivityEnumAll,
+		ActivityEnumSearch,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ActivityEnum) IsExact() bool {
 	if e != nil {

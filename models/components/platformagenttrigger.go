@@ -18,6 +18,15 @@ func (e PlatformAgentTriggerType) ToPointer() *PlatformAgentTriggerType {
 	return &e
 }
 
+// PlatformAgentTriggerTypeValues returns every known PlatformAgentTriggerType value in schema order.
+func PlatformAgentTriggerTypeValues() []PlatformAgentTriggerType {
+	return []PlatformAgentTriggerType{
+		PlatformAgentTriggerTypeChatMessage,
+		PlatformAgentTriggerTypeInputForm,
+		PlatformAgentTriggerTypeContentTrigger,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformAgentTriggerType) IsExact() bool {
 	if e != nil {

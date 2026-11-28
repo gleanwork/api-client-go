@@ -14,6 +14,14 @@ func (e PlatformSkillOrigin) ToPointer() *PlatformSkillOrigin {
 	return &e
 }
 
+// PlatformSkillOriginValues returns every known PlatformSkillOrigin value in schema order.
+func PlatformSkillOriginValues() []PlatformSkillOrigin {
+	return []PlatformSkillOrigin{
+		PlatformSkillOriginCustom,
+		PlatformSkillOriginGithub,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformSkillOrigin) IsExact() bool {
 	if e != nil {

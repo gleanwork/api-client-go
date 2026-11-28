@@ -23,6 +23,18 @@ const (
 func (e PlatformOAuthClientFilterOperator) ToPointer() *PlatformOAuthClientFilterOperator {
 	return &e
 }
+
+// PlatformOAuthClientFilterOperatorValues returns every known PlatformOAuthClientFilterOperator value in schema order.
+func PlatformOAuthClientFilterOperatorValues() []PlatformOAuthClientFilterOperator {
+	return []PlatformOAuthClientFilterOperator{
+		PlatformOAuthClientFilterOperatorEquals,
+		PlatformOAuthClientFilterOperatorNotEquals,
+		PlatformOAuthClientFilterOperatorGt,
+		PlatformOAuthClientFilterOperatorGte,
+		PlatformOAuthClientFilterOperatorLt,
+		PlatformOAuthClientFilterOperatorLte,
+	}
+}
 func (e *PlatformOAuthClientFilterOperator) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

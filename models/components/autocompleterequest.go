@@ -29,6 +29,26 @@ const (
 func (e AutocompleteRequestResultType) ToPointer() *AutocompleteRequestResultType {
 	return &e
 }
+
+// AutocompleteRequestResultTypeValues returns every known AutocompleteRequestResultType value in schema order.
+func AutocompleteRequestResultTypeValues() []AutocompleteRequestResultType {
+	return []AutocompleteRequestResultType{
+		AutocompleteRequestResultTypeAdditionalDocument,
+		AutocompleteRequestResultTypeApp,
+		AutocompleteRequestResultTypeBrowserHistory,
+		AutocompleteRequestResultTypeChatHistory,
+		AutocompleteRequestResultTypeDatasource,
+		AutocompleteRequestResultTypeDocument,
+		AutocompleteRequestResultTypeEntity,
+		AutocompleteRequestResultTypeGolink,
+		AutocompleteRequestResultTypeHistory,
+		AutocompleteRequestResultTypeNewChat,
+		AutocompleteRequestResultTypeOperator,
+		AutocompleteRequestResultTypeOperatorValue,
+		AutocompleteRequestResultTypeQuicklink,
+		AutocompleteRequestResultTypeSuggestion,
+	}
+}
 func (e *AutocompleteRequestResultType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

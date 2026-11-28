@@ -26,6 +26,22 @@ const (
 func (e PeopleRequestIncludeField) ToPointer() *PeopleRequestIncludeField {
 	return &e
 }
+
+// PeopleRequestIncludeFieldValues returns every known PeopleRequestIncludeField value in schema order.
+func PeopleRequestIncludeFieldValues() []PeopleRequestIncludeField {
+	return []PeopleRequestIncludeField{
+		PeopleRequestIncludeFieldBadges,
+		PeopleRequestIncludeFieldBusyEvents,
+		PeopleRequestIncludeFieldDocumentActivity,
+		PeopleRequestIncludeFieldInviteInfo,
+		PeopleRequestIncludeFieldPeopleDistance,
+		PeopleRequestIncludeFieldPermissions,
+		PeopleRequestIncludeFieldPeopleDetails,
+		PeopleRequestIncludeFieldManagementDetails,
+		PeopleRequestIncludeFieldPeopleProfileSettings,
+		PeopleRequestIncludeFieldPeopleWithoutManager,
+	}
+}
 func (e *PeopleRequestIncludeField) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -67,6 +83,14 @@ const (
 
 func (e IncludeType) ToPointer() *IncludeType {
 	return &e
+}
+
+// IncludeTypeValues returns every known IncludeType value in schema order.
+func IncludeTypeValues() []IncludeType {
+	return []IncludeType{
+		IncludeTypePeopleWithoutManager,
+		IncludeTypeInvalidEntities,
+	}
 }
 func (e *IncludeType) UnmarshalJSON(data []byte) error {
 	var v string

@@ -16,6 +16,13 @@ const (
 func (e PlatformContentType) ToPointer() *PlatformContentType {
 	return &e
 }
+
+// PlatformContentTypeValues returns every known PlatformContentType value in schema order.
+func PlatformContentTypeValues() []PlatformContentType {
+	return []PlatformContentType{
+		PlatformContentTypeText,
+	}
+}
 func (e *PlatformContentType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

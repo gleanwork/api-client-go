@@ -17,6 +17,17 @@ func (e DatasourceCredentialStatus) ToPointer() *DatasourceCredentialStatus {
 	return &e
 }
 
+// DatasourceCredentialStatusValues returns every known DatasourceCredentialStatus value in schema order.
+func DatasourceCredentialStatusValues() []DatasourceCredentialStatus {
+	return []DatasourceCredentialStatus{
+		DatasourceCredentialStatusValid,
+		DatasourceCredentialStatusValidWithWarnings,
+		DatasourceCredentialStatusValidating,
+		DatasourceCredentialStatusInvalid,
+		DatasourceCredentialStatusMissing,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DatasourceCredentialStatus) IsExact() bool {
 	if e != nil {

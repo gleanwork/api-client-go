@@ -18,6 +18,18 @@ func (e PlatformFilterOperator) ToPointer() *PlatformFilterOperator {
 	return &e
 }
 
+// PlatformFilterOperatorValues returns every known PlatformFilterOperator value in schema order.
+func PlatformFilterOperatorValues() []PlatformFilterOperator {
+	return []PlatformFilterOperator{
+		PlatformFilterOperatorEquals,
+		PlatformFilterOperatorNotEquals,
+		PlatformFilterOperatorGt,
+		PlatformFilterOperatorGte,
+		PlatformFilterOperatorLt,
+		PlatformFilterOperatorLte,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformFilterOperator) IsExact() bool {
 	if e != nil {

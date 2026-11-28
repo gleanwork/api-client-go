@@ -19,6 +19,19 @@ func (e EntitiesSortOrder) ToPointer() *EntitiesSortOrder {
 	return &e
 }
 
+// EntitiesSortOrderValues returns every known EntitiesSortOrder value in schema order.
+func EntitiesSortOrderValues() []EntitiesSortOrder {
+	return []EntitiesSortOrder{
+		EntitiesSortOrderEntityName,
+		EntitiesSortOrderFirstName,
+		EntitiesSortOrderLastName,
+		EntitiesSortOrderOrgSizeCount,
+		EntitiesSortOrderStartDate,
+		EntitiesSortOrderTeamSize,
+		EntitiesSortOrderRelevance,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *EntitiesSortOrder) IsExact() bool {
 	if e != nil {

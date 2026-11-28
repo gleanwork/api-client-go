@@ -17,6 +17,13 @@ const (
 func (e PlatformChatStreamResponseCreatedType) ToPointer() *PlatformChatStreamResponseCreatedType {
 	return &e
 }
+
+// PlatformChatStreamResponseCreatedTypeValues returns every known PlatformChatStreamResponseCreatedType value in schema order.
+func PlatformChatStreamResponseCreatedTypeValues() []PlatformChatStreamResponseCreatedType {
+	return []PlatformChatStreamResponseCreatedType{
+		PlatformChatStreamResponseCreatedTypeResponseCreated,
+	}
+}
 func (e *PlatformChatStreamResponseCreatedType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

@@ -33,6 +33,28 @@ func (e Relation) ToPointer() *Relation {
 	return &e
 }
 
+// RelationValues returns every known Relation value in schema order.
+func RelationValues() []Relation {
+	return []Relation{
+		RelationAttachment,
+		RelationCanonical,
+		RelationCase,
+		RelationContactLower,
+		RelationContactUpper,
+		RelationConversationMessages,
+		RelationExpert,
+		RelationFrom,
+		RelationHighlight,
+		RelationOpportunityLower,
+		RelationOpportunityUpper,
+		RelationRecent,
+		RelationSource,
+		RelationTicket,
+		RelationTranscript,
+		RelationWith,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *Relation) IsExact() bool {
 	if e != nil {

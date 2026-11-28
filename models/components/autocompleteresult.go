@@ -25,6 +25,26 @@ func (e AutocompleteResultResultType) ToPointer() *AutocompleteResultResultType 
 	return &e
 }
 
+// AutocompleteResultResultTypeValues returns every known AutocompleteResultResultType value in schema order.
+func AutocompleteResultResultTypeValues() []AutocompleteResultResultType {
+	return []AutocompleteResultResultType{
+		AutocompleteResultResultTypeAdditionalDocument,
+		AutocompleteResultResultTypeApp,
+		AutocompleteResultResultTypeBrowserHistory,
+		AutocompleteResultResultTypeDatasource,
+		AutocompleteResultResultTypeDocument,
+		AutocompleteResultResultTypeEntity,
+		AutocompleteResultResultTypeGolink,
+		AutocompleteResultResultTypeHistory,
+		AutocompleteResultResultTypeChatHistory,
+		AutocompleteResultResultTypeNewChat,
+		AutocompleteResultResultTypeOperator,
+		AutocompleteResultResultTypeOperatorValue,
+		AutocompleteResultResultTypeQuicklink,
+		AutocompleteResultResultTypeSuggestion,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AutocompleteResultResultType) IsExact() bool {
 	if e != nil {

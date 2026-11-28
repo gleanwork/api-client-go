@@ -17,6 +17,13 @@ const (
 func (e EventClassificationName) ToPointer() *EventClassificationName {
 	return &e
 }
+
+// EventClassificationNameValues returns every known EventClassificationName value in schema order.
+func EventClassificationNameValues() []EventClassificationName {
+	return []EventClassificationName{
+		EventClassificationNameExternalEvent,
+	}
+}
 func (e *EventClassificationName) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

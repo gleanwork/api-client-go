@@ -19,6 +19,16 @@ func (e TextRangeType) ToPointer() *TextRangeType {
 	return &e
 }
 
+// TextRangeTypeValues returns every known TextRangeType value in schema order.
+func TextRangeTypeValues() []TextRangeType {
+	return []TextRangeType{
+		TextRangeTypeBold,
+		TextRangeTypeCitation,
+		TextRangeTypeHighlight,
+		TextRangeTypeLink,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *TextRangeType) IsExact() bool {
 	if e != nil {

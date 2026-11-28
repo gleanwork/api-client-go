@@ -17,6 +17,18 @@ func (e LastScanStatus) ToPointer() *LastScanStatus {
 	return &e
 }
 
+// LastScanStatusValues returns every known LastScanStatus value in schema order.
+func LastScanStatusValues() []LastScanStatus {
+	return []LastScanStatus{
+		LastScanStatusPending,
+		LastScanStatusSuccess,
+		LastScanStatusFailure,
+		LastScanStatusCancelled,
+		LastScanStatusCancelling,
+		LastScanStatusActive,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *LastScanStatus) IsExact() bool {
 	if e != nil {

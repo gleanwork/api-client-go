@@ -17,6 +17,13 @@ const (
 func (e Format) ToPointer() *Format {
 	return &e
 }
+
+// FormatValues returns every known Format value in schema order.
+func FormatValues() []Format {
+	return []Format{
+		FormatList,
+	}
+}
 func (e *Format) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -132,6 +139,84 @@ const (
 
 func (e JustificationType) ToPointer() *JustificationType {
 	return &e
+}
+
+// JustificationTypeValues returns every known JustificationType value in schema order.
+func JustificationTypeValues() []JustificationType {
+	return []JustificationType{
+		JustificationTypeFrequentlyAccessed,
+		JustificationTypeRecentlyAccessed,
+		JustificationTypeTrendingDocument,
+		JustificationTypeVerificationReminder,
+		JustificationTypeSuggestedDocument,
+		JustificationTypeEmptyStateSuggestion,
+		JustificationTypeFrecencyScored,
+		JustificationTypeServerGenerated,
+		JustificationTypeUseCase,
+		JustificationTypeUpdateSinceLastView,
+		JustificationTypeRecentlyStarted,
+		JustificationTypeEvent,
+		JustificationTypeUserMention,
+		JustificationTypeAnnouncement,
+		JustificationTypeExternalAnnouncement,
+		JustificationTypePopularityBasedTrending,
+		JustificationTypeCompanyResource,
+		JustificationTypeEventDocumentFromContent,
+		JustificationTypeEventDocumentFromSearch,
+		JustificationTypeVisitAffinityScored,
+		JustificationTypeSuggestedApp,
+		JustificationTypeSuggestedPerson,
+		JustificationTypeActivityHighlight,
+		JustificationTypeSavedSearch,
+		JustificationTypeSuggestedChannel,
+		JustificationTypePeopleCelebrations,
+		JustificationTypeSocialLink,
+		JustificationTypeZeroStateChatSuggestion,
+		JustificationTypeZeroStateChatToolSuggestion,
+		JustificationTypeZeroStatePromptTemplateSuggestion,
+		JustificationTypeZeroStateStaticWorkflowSuggestion,
+		JustificationTypeZeroStateAgentSuggestion,
+		JustificationTypePersonalizedChatSuggestion,
+		JustificationTypeDailyDigest,
+		JustificationTypePodcast,
+		JustificationTypeTask,
+		JustificationTypePlanMyDay,
+		JustificationTypeEndMyDay,
+		JustificationTypeStarterKitExtension,
+		JustificationTypeStarterKitOrgChart,
+		JustificationTypeStarterKitAddDoc,
+		JustificationTypeMeetingRecap,
+		JustificationTypeMeetingRoom,
+		JustificationTypeMeetingPrepAutomation,
+		JustificationTypeActiveDiscussion,
+		JustificationTypeMidDayCatchUp,
+		JustificationTypeQuerySuggestion,
+		JustificationTypeCoworkCujPromo,
+		JustificationTypeCardStackPromo,
+		JustificationTypeWeeklyMeetings,
+		JustificationTypeFollowUp,
+		JustificationTypeMilestoneTimelineCheck,
+		JustificationTypeProjectDiscussionDigest,
+		JustificationTypeProjectFocusBlock,
+		JustificationTypeProjectNextStep,
+		JustificationTypeDemoCard,
+		JustificationTypePersonalAgentNux,
+		JustificationTypeResolveMeetingConflict,
+		JustificationTypeFindingMeetingRoom,
+		JustificationTypeOooPlanner,
+		JustificationTypeOooCatchUp,
+		JustificationTypeAdminHealthCenter,
+		JustificationTypeKnowledgeGap,
+		JustificationTypeArtifactCreation,
+		JustificationTypeEditDoc,
+		JustificationTypeChatToArtifact,
+		JustificationTypeShareArtifact,
+		JustificationTypeCreateAgent,
+		JustificationTypeManagerInvite,
+		JustificationTypeOnboardingAuthorization,
+		JustificationTypeChatReminder,
+		JustificationTypeDiscover,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
