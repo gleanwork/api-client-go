@@ -22,6 +22,17 @@ func (e PersonTeamRelationship) ToPointer() *PersonTeamRelationship {
 	return &e
 }
 
+// PersonTeamRelationshipValues returns every known PersonTeamRelationship value in schema order.
+func PersonTeamRelationshipValues() []PersonTeamRelationship {
+	return []PersonTeamRelationship{
+		PersonTeamRelationshipMember,
+		PersonTeamRelationshipManager,
+		PersonTeamRelationshipLead,
+		PersonTeamRelationshipPointOfContact,
+		PersonTeamRelationshipOther,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PersonTeamRelationship) IsExact() bool {
 	if e != nil {

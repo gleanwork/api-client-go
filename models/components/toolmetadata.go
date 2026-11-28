@@ -19,6 +19,14 @@ func (e ToolMetadataType) ToPointer() *ToolMetadataType {
 	return &e
 }
 
+// ToolMetadataTypeValues returns every known ToolMetadataType value in schema order.
+func ToolMetadataTypeValues() []ToolMetadataType {
+	return []ToolMetadataType{
+		ToolMetadataTypeRetrieval,
+		ToolMetadataTypeAction,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ToolMetadataType) IsExact() bool {
 	if e != nil {
@@ -43,6 +51,15 @@ func (e KnowledgeType) ToPointer() *KnowledgeType {
 	return &e
 }
 
+// KnowledgeTypeValues returns every known KnowledgeType value in schema order.
+func KnowledgeTypeValues() []KnowledgeType {
+	return []KnowledgeType{
+		KnowledgeTypeNeutralKnowledge,
+		KnowledgeTypeCompanyKnowledge,
+		KnowledgeTypeWorldKnowledge,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *KnowledgeType) IsExact() bool {
 	if e != nil {
@@ -65,6 +82,15 @@ const (
 
 func (e WriteActionType) ToPointer() *WriteActionType {
 	return &e
+}
+
+// WriteActionTypeValues returns every known WriteActionType value in schema order.
+func WriteActionTypeValues() []WriteActionType {
+	return []WriteActionType{
+		WriteActionTypeRedirect,
+		WriteActionTypeExecution,
+		WriteActionTypeMcp,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
@@ -99,6 +125,16 @@ func (e ActionTypeSource) ToPointer() *ActionTypeSource {
 	return &e
 }
 
+// ActionTypeSourceValues returns every known ActionTypeSource value in schema order.
+func ActionTypeSourceValues() []ActionTypeSource {
+	return []ActionTypeSource{
+		ActionTypeSourceMcpAnnotation,
+		ActionTypeSourceAdminOverride,
+		ActionTypeSourceNone,
+		ActionTypeSourceNativeToolDefinition,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ActionTypeSource) IsExact() bool {
 	if e != nil {
@@ -128,6 +164,18 @@ const (
 
 func (e AuthType) ToPointer() *AuthType {
 	return &e
+}
+
+// AuthTypeValues returns every known AuthType value in schema order.
+func AuthTypeValues() []AuthType {
+	return []AuthType{
+		AuthTypeNone,
+		AuthTypeOauthUser,
+		AuthTypeOauthAdmin,
+		AuthTypeAPIKey,
+		AuthTypeBasicAuth,
+		AuthTypeDwd,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

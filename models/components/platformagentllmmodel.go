@@ -16,6 +16,14 @@ func (e PlatformAgentLlmModelMode) ToPointer() *PlatformAgentLlmModelMode {
 	return &e
 }
 
+// PlatformAgentLlmModelModeValues returns every known PlatformAgentLlmModelMode value in schema order.
+func PlatformAgentLlmModelModeValues() []PlatformAgentLlmModelMode {
+	return []PlatformAgentLlmModelMode{
+		PlatformAgentLlmModelModeAdvanced,
+		PlatformAgentLlmModelModeFast,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformAgentLlmModelMode) IsExact() bool {
 	if e != nil {

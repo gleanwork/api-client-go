@@ -20,6 +20,16 @@ func (e PlatformAgentInputFieldType) ToPointer() *PlatformAgentInputFieldType {
 	return &e
 }
 
+// PlatformAgentInputFieldTypeValues returns every known PlatformAgentInputFieldType value in schema order.
+func PlatformAgentInputFieldTypeValues() []PlatformAgentInputFieldType {
+	return []PlatformAgentInputFieldType{
+		PlatformAgentInputFieldTypeText,
+		PlatformAgentInputFieldTypeSelect,
+		PlatformAgentInputFieldTypeDate,
+		PlatformAgentInputFieldTypeDocument,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformAgentInputFieldType) IsExact() bool {
 	if e != nil {

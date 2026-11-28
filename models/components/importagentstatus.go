@@ -15,6 +15,15 @@ func (e ImportAgentStatus) ToPointer() *ImportAgentStatus {
 	return &e
 }
 
+// ImportAgentStatusValues returns every known ImportAgentStatus value in schema order.
+func ImportAgentStatusValues() []ImportAgentStatus {
+	return []ImportAgentStatus{
+		ImportAgentStatusCreated,
+		ImportAgentStatusUpdated,
+		ImportAgentStatusDraftPreview,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ImportAgentStatus) IsExact() bool {
 	if e != nil {

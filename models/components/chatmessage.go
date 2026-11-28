@@ -17,6 +17,14 @@ func (e Author) ToPointer() *Author {
 	return &e
 }
 
+// AuthorValues returns every known Author value in schema order.
+func AuthorValues() []Author {
+	return []Author{
+		AuthorUser,
+		AuthorGleanAi,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *Author) IsExact() bool {
 	if e != nil {
@@ -66,6 +74,27 @@ const (
 
 func (e MessageType) ToPointer() *MessageType {
 	return &e
+}
+
+// MessageTypeValues returns every known MessageType value in schema order.
+func MessageTypeValues() []MessageType {
+	return []MessageType{
+		MessageTypeUpdate,
+		MessageTypeContent,
+		MessageTypeContext,
+		MessageTypeControl,
+		MessageTypeControlStart,
+		MessageTypeControlFinish,
+		MessageTypeControlCancel,
+		MessageTypeControlRetry,
+		MessageTypeControlUnknown,
+		MessageTypeDebug,
+		MessageTypeDebugExternal,
+		MessageTypeError,
+		MessageTypeHeading,
+		MessageTypeWarning,
+		MessageTypeServerTool,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

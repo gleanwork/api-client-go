@@ -17,6 +17,17 @@ func (e TimeRangeFilterTimePeriodType) ToPointer() *TimeRangeFilterTimePeriodTyp
 	return &e
 }
 
+// TimeRangeFilterTimePeriodTypeValues returns every known TimeRangeFilterTimePeriodType value in schema order.
+func TimeRangeFilterTimePeriodTypeValues() []TimeRangeFilterTimePeriodType {
+	return []TimeRangeFilterTimePeriodType{
+		TimeRangeFilterTimePeriodTypePastDay,
+		TimeRangeFilterTimePeriodTypePastWeek,
+		TimeRangeFilterTimePeriodTypePastMonth,
+		TimeRangeFilterTimePeriodTypePastYear,
+		TimeRangeFilterTimePeriodTypeCustom,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *TimeRangeFilterTimePeriodType) IsExact() bool {
 	if e != nil {

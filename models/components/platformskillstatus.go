@@ -15,6 +15,15 @@ func (e PlatformSkillStatus) ToPointer() *PlatformSkillStatus {
 	return &e
 }
 
+// PlatformSkillStatusValues returns every known PlatformSkillStatus value in schema order.
+func PlatformSkillStatusValues() []PlatformSkillStatus {
+	return []PlatformSkillStatus{
+		PlatformSkillStatusDraft,
+		PlatformSkillStatusEnabled,
+		PlatformSkillStatusDisabled,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformSkillStatus) IsExact() bool {
 	if e != nil {

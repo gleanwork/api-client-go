@@ -13,6 +13,14 @@ func (e GetAnswerErrorErrorType) ToPointer() *GetAnswerErrorErrorType {
 	return &e
 }
 
+// GetAnswerErrorErrorTypeValues returns every known GetAnswerErrorErrorType value in schema order.
+func GetAnswerErrorErrorTypeValues() []GetAnswerErrorErrorType {
+	return []GetAnswerErrorErrorType{
+		GetAnswerErrorErrorTypeNoPermission,
+		GetAnswerErrorErrorTypeInvalidID,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *GetAnswerErrorErrorType) IsExact() bool {
 	if e != nil {

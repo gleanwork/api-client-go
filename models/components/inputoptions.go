@@ -14,6 +14,14 @@ func (e DatasourcesType) ToPointer() *DatasourcesType {
 	return &e
 }
 
+// DatasourcesTypeValues returns every known DatasourcesType value in schema order.
+func DatasourcesTypeValues() []DatasourcesType {
+	return []DatasourcesType{
+		DatasourcesTypeAll,
+		DatasourcesTypeCustom,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DatasourcesType) IsExact() bool {
 	if e != nil {
@@ -38,6 +46,17 @@ const (
 
 func (e InputOptionsTimePeriodType) ToPointer() *InputOptionsTimePeriodType {
 	return &e
+}
+
+// InputOptionsTimePeriodTypeValues returns every known InputOptionsTimePeriodType value in schema order.
+func InputOptionsTimePeriodTypeValues() []InputOptionsTimePeriodType {
+	return []InputOptionsTimePeriodType{
+		InputOptionsTimePeriodTypeAllTime,
+		InputOptionsTimePeriodTypePastYear,
+		InputOptionsTimePeriodTypePastDay,
+		InputOptionsTimePeriodTypeCustom,
+		InputOptionsTimePeriodTypeLastNDays,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

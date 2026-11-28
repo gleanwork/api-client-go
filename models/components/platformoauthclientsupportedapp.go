@@ -16,6 +16,14 @@ func (e PlatformOAuthClientSupportedApp) ToPointer() *PlatformOAuthClientSupport
 	return &e
 }
 
+// PlatformOAuthClientSupportedAppValues returns every known PlatformOAuthClientSupportedApp value in schema order.
+func PlatformOAuthClientSupportedAppValues() []PlatformOAuthClientSupportedApp {
+	return []PlatformOAuthClientSupportedApp{
+		PlatformOAuthClientSupportedAppClaudeCode,
+		PlatformOAuthClientSupportedAppCodex,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformOAuthClientSupportedApp) IsExact() bool {
 	if e != nil {

@@ -14,6 +14,14 @@ func (e PlatformSkillSourcePreviewFailureCode) ToPointer() *PlatformSkillSourceP
 	return &e
 }
 
+// PlatformSkillSourcePreviewFailureCodeValues returns every known PlatformSkillSourcePreviewFailureCode value in schema order.
+func PlatformSkillSourcePreviewFailureCodeValues() []PlatformSkillSourcePreviewFailureCode {
+	return []PlatformSkillSourcePreviewFailureCode{
+		PlatformSkillSourcePreviewFailureCodeInvalidSkill,
+		PlatformSkillSourcePreviewFailureCodeSkillFetchFailed,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformSkillSourcePreviewFailureCode) IsExact() bool {
 	if e != nil {

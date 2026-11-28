@@ -19,6 +19,15 @@ func (e State) ToPointer() *State {
 	return &e
 }
 
+// StateValues returns every known State value in schema order.
+func StateValues() []State {
+	return []State{
+		StateUnverified,
+		StateVerified,
+		StateDeprecated,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *State) IsExact() bool {
 	if e != nil {

@@ -17,6 +17,13 @@ const (
 func (e PlatformChatCitationAnnotationType) ToPointer() *PlatformChatCitationAnnotationType {
 	return &e
 }
+
+// PlatformChatCitationAnnotationTypeValues returns every known PlatformChatCitationAnnotationType value in schema order.
+func PlatformChatCitationAnnotationTypeValues() []PlatformChatCitationAnnotationType {
+	return []PlatformChatCitationAnnotationType{
+		PlatformChatCitationAnnotationTypeCitation,
+	}
+}
 func (e *PlatformChatCitationAnnotationType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

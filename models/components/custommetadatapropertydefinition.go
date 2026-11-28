@@ -16,6 +16,16 @@ func (e CustomMetadataPropertyDefinitionPropertyType) ToPointer() *CustomMetadat
 	return &e
 }
 
+// CustomMetadataPropertyDefinitionPropertyTypeValues returns every known CustomMetadataPropertyDefinitionPropertyType value in schema order.
+func CustomMetadataPropertyDefinitionPropertyTypeValues() []CustomMetadataPropertyDefinitionPropertyType {
+	return []CustomMetadataPropertyDefinitionPropertyType{
+		CustomMetadataPropertyDefinitionPropertyTypeText,
+		CustomMetadataPropertyDefinitionPropertyTypePicklist,
+		CustomMetadataPropertyDefinitionPropertyTypeTextlist,
+		CustomMetadataPropertyDefinitionPropertyTypeMultipicklist,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CustomMetadataPropertyDefinitionPropertyType) IsExact() bool {
 	if e != nil {

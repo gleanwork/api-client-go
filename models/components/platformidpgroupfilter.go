@@ -23,6 +23,18 @@ const (
 func (e PlatformIdpGroupFilterOperator) ToPointer() *PlatformIdpGroupFilterOperator {
 	return &e
 }
+
+// PlatformIdpGroupFilterOperatorValues returns every known PlatformIdpGroupFilterOperator value in schema order.
+func PlatformIdpGroupFilterOperatorValues() []PlatformIdpGroupFilterOperator {
+	return []PlatformIdpGroupFilterOperator{
+		PlatformIdpGroupFilterOperatorEquals,
+		PlatformIdpGroupFilterOperatorNotEquals,
+		PlatformIdpGroupFilterOperatorGt,
+		PlatformIdpGroupFilterOperatorGte,
+		PlatformIdpGroupFilterOperatorLt,
+		PlatformIdpGroupFilterOperatorLte,
+	}
+}
 func (e *PlatformIdpGroupFilterOperator) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

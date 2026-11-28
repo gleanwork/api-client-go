@@ -18,6 +18,13 @@ const (
 func (e PlatformUserInclude) ToPointer() *PlatformUserInclude {
 	return &e
 }
+
+// PlatformUserIncludeValues returns every known PlatformUserInclude value in schema order.
+func PlatformUserIncludeValues() []PlatformUserInclude {
+	return []PlatformUserInclude{
+		PlatformUserIncludeDatasourceProfiles,
+	}
+}
 func (e *PlatformUserInclude) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

@@ -18,6 +18,15 @@ func (e SearchResultProminenceEnum) ToPointer() *SearchResultProminenceEnum {
 	return &e
 }
 
+// SearchResultProminenceEnumValues returns every known SearchResultProminenceEnum value in schema order.
+func SearchResultProminenceEnumValues() []SearchResultProminenceEnum {
+	return []SearchResultProminenceEnum{
+		SearchResultProminenceEnumHero,
+		SearchResultProminenceEnumPromoted,
+		SearchResultProminenceEnumStandard,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *SearchResultProminenceEnum) IsExact() bool {
 	if e != nil {

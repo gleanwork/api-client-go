@@ -20,6 +20,17 @@ const (
 func (e GetDocumentsRequestIncludeField) ToPointer() *GetDocumentsRequestIncludeField {
 	return &e
 }
+
+// GetDocumentsRequestIncludeFieldValues returns every known GetDocumentsRequestIncludeField value in schema order.
+func GetDocumentsRequestIncludeFieldValues() []GetDocumentsRequestIncludeField {
+	return []GetDocumentsRequestIncludeField{
+		GetDocumentsRequestIncludeFieldLastViewedAt,
+		GetDocumentsRequestIncludeFieldVisitorsCount,
+		GetDocumentsRequestIncludeFieldRecentShares,
+		GetDocumentsRequestIncludeFieldDocumentContent,
+		GetDocumentsRequestIncludeFieldCustomMetadata,
+	}
+}
 func (e *GetDocumentsRequestIncludeField) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

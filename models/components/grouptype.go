@@ -22,6 +22,21 @@ func (e GroupType) ToPointer() *GroupType {
 	return &e
 }
 
+// GroupTypeValues returns every known GroupType value in schema order.
+func GroupTypeValues() []GroupType {
+	return []GroupType{
+		GroupTypeDepartment,
+		GroupTypeAll,
+		GroupTypeTeam,
+		GroupTypeJobTitle,
+		GroupTypeRoleType,
+		GroupTypeLocation,
+		GroupTypeRegion,
+		GroupTypeExternalGroup,
+		GroupTypeCollectionAudience,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *GroupType) IsExact() bool {
 	if e != nil {

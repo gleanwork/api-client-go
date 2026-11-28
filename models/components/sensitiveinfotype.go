@@ -19,6 +19,17 @@ func (e SensitiveInfoTypeLikelihoodThreshold) ToPointer() *SensitiveInfoTypeLike
 	return &e
 }
 
+// SensitiveInfoTypeLikelihoodThresholdValues returns every known SensitiveInfoTypeLikelihoodThreshold value in schema order.
+func SensitiveInfoTypeLikelihoodThresholdValues() []SensitiveInfoTypeLikelihoodThreshold {
+	return []SensitiveInfoTypeLikelihoodThreshold{
+		SensitiveInfoTypeLikelihoodThresholdLikely,
+		SensitiveInfoTypeLikelihoodThresholdVeryLikely,
+		SensitiveInfoTypeLikelihoodThresholdPossible,
+		SensitiveInfoTypeLikelihoodThresholdUnlikely,
+		SensitiveInfoTypeLikelihoodThresholdVeryUnlikely,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *SensitiveInfoTypeLikelihoodThreshold) IsExact() bool {
 	if e != nil {

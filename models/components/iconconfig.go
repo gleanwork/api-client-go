@@ -28,6 +28,25 @@ func (e IconType) ToPointer() *IconType {
 	return &e
 }
 
+// IconTypeValues returns every known IconType value in schema order.
+func IconTypeValues() []IconType {
+	return []IconType{
+		IconTypeCollection,
+		IconTypeCustom,
+		IconTypeDatasource,
+		IconTypeDatasourceInstance,
+		IconTypeFavicon,
+		IconTypeFileType,
+		IconTypeGeneratedBackground,
+		IconTypeGlyph,
+		IconTypeMimeType,
+		IconTypeNoIcon,
+		IconTypePerson,
+		IconTypeReactions,
+		IconTypeURL,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *IconType) IsExact() bool {
 	if e != nil {

@@ -23,6 +23,18 @@ const (
 func (e PlatformAdminAgentFilterOperator) ToPointer() *PlatformAdminAgentFilterOperator {
 	return &e
 }
+
+// PlatformAdminAgentFilterOperatorValues returns every known PlatformAdminAgentFilterOperator value in schema order.
+func PlatformAdminAgentFilterOperatorValues() []PlatformAdminAgentFilterOperator {
+	return []PlatformAdminAgentFilterOperator{
+		PlatformAdminAgentFilterOperatorEquals,
+		PlatformAdminAgentFilterOperatorNotEquals,
+		PlatformAdminAgentFilterOperatorGt,
+		PlatformAdminAgentFilterOperatorGte,
+		PlatformAdminAgentFilterOperatorLt,
+		PlatformAdminAgentFilterOperatorLte,
+	}
+}
 func (e *PlatformAdminAgentFilterOperator) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

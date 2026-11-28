@@ -14,6 +14,14 @@ func (e ToolServerAuthStatus) ToPointer() *ToolServerAuthStatus {
 	return &e
 }
 
+// ToolServerAuthStatusValues returns every known ToolServerAuthStatus value in schema order.
+func ToolServerAuthStatusValues() []ToolServerAuthStatus {
+	return []ToolServerAuthStatus{
+		ToolServerAuthStatusAwaitingAuth,
+		ToolServerAuthStatusAuthorized,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ToolServerAuthStatus) IsExact() bool {
 	if e != nil {

@@ -14,6 +14,14 @@ func (e PlatformTriggerStatus) ToPointer() *PlatformTriggerStatus {
 	return &e
 }
 
+// PlatformTriggerStatusValues returns every known PlatformTriggerStatus value in schema order.
+func PlatformTriggerStatusValues() []PlatformTriggerStatus {
+	return []PlatformTriggerStatus{
+		PlatformTriggerStatusEnabled,
+		PlatformTriggerStatusDisabled,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformTriggerStatus) IsExact() bool {
 	if e != nil {

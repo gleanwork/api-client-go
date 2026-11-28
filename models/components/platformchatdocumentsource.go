@@ -18,6 +18,13 @@ const (
 func (e PlatformChatDocumentSourceType2) ToPointer() *PlatformChatDocumentSourceType2 {
 	return &e
 }
+
+// PlatformChatDocumentSourceType2Values returns every known PlatformChatDocumentSourceType2 value in schema order.
+func PlatformChatDocumentSourceType2Values() []PlatformChatDocumentSourceType2 {
+	return []PlatformChatDocumentSourceType2{
+		PlatformChatDocumentSourceType2Document,
+	}
+}
 func (e *PlatformChatDocumentSourceType2) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -97,6 +104,13 @@ const (
 
 func (e PlatformChatDocumentSourceType1) ToPointer() *PlatformChatDocumentSourceType1 {
 	return &e
+}
+
+// PlatformChatDocumentSourceType1Values returns every known PlatformChatDocumentSourceType1 value in schema order.
+func PlatformChatDocumentSourceType1Values() []PlatformChatDocumentSourceType1 {
+	return []PlatformChatDocumentSourceType1{
+		PlatformChatDocumentSourceType1Document,
+	}
 }
 func (e *PlatformChatDocumentSourceType1) UnmarshalJSON(data []byte) error {
 	var v string

@@ -19,6 +19,14 @@ func (e AnnouncementChannel) ToPointer() *AnnouncementChannel {
 	return &e
 }
 
+// AnnouncementChannelValues returns every known AnnouncementChannel value in schema order.
+func AnnouncementChannelValues() []AnnouncementChannel {
+	return []AnnouncementChannel{
+		AnnouncementChannelMain,
+		AnnouncementChannelSocialFeed,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AnnouncementChannel) IsExact() bool {
 	if e != nil {
@@ -40,6 +48,14 @@ const (
 
 func (e AnnouncementPostType) ToPointer() *AnnouncementPostType {
 	return &e
+}
+
+// AnnouncementPostTypeValues returns every known AnnouncementPostType value in schema order.
+func AnnouncementPostTypeValues() []AnnouncementPostType {
+	return []AnnouncementPostType{
+		AnnouncementPostTypeText,
+		AnnouncementPostTypeLink,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

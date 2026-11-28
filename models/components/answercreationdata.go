@@ -17,6 +17,14 @@ const (
 func (e AnswerCreationDataSourceType) ToPointer() *AnswerCreationDataSourceType {
 	return &e
 }
+
+// AnswerCreationDataSourceTypeValues returns every known AnswerCreationDataSourceType value in schema order.
+func AnswerCreationDataSourceTypeValues() []AnswerCreationDataSourceType {
+	return []AnswerCreationDataSourceType{
+		AnswerCreationDataSourceTypeDocument,
+		AnswerCreationDataSourceTypeAssistant,
+	}
+}
 func (e *AnswerCreationDataSourceType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

@@ -19,6 +19,19 @@ func (e PropertyDefinitionPropertyType) ToPointer() *PropertyDefinitionPropertyT
 	return &e
 }
 
+// PropertyDefinitionPropertyTypeValues returns every known PropertyDefinitionPropertyType value in schema order.
+func PropertyDefinitionPropertyTypeValues() []PropertyDefinitionPropertyType {
+	return []PropertyDefinitionPropertyType{
+		PropertyDefinitionPropertyTypeText,
+		PropertyDefinitionPropertyTypeDate,
+		PropertyDefinitionPropertyTypeInt,
+		PropertyDefinitionPropertyTypeUserid,
+		PropertyDefinitionPropertyTypePicklist,
+		PropertyDefinitionPropertyTypeTextlist,
+		PropertyDefinitionPropertyTypeMultipicklist,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PropertyDefinitionPropertyType) IsExact() bool {
 	if e != nil {
@@ -40,6 +53,15 @@ const (
 
 func (e UIOptions) ToPointer() *UIOptions {
 	return &e
+}
+
+// UIOptionsValues returns every known UIOptions value in schema order.
+func UIOptionsValues() []UIOptions {
+	return []UIOptions{
+		UIOptionsNone,
+		UIOptionsSearchResult,
+		UIOptionsDocHovercard,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

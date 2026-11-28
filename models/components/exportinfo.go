@@ -16,6 +16,16 @@ func (e ExportInfoExportType) ToPointer() *ExportInfoExportType {
 	return &e
 }
 
+// ExportInfoExportTypeValues returns every known ExportInfoExportType value in schema order.
+func ExportInfoExportTypeValues() []ExportInfoExportType {
+	return []ExportInfoExportType{
+		ExportInfoExportTypeFindings,
+		ExportInfoExportTypeDocuments,
+		ExportInfoExportTypeIssues,
+		ExportInfoExportTypeFindingsCsv,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ExportInfoExportType) IsExact() bool {
 	if e != nil {
@@ -38,6 +48,15 @@ const (
 
 func (e ExportInfoStatus) ToPointer() *ExportInfoStatus {
 	return &e
+}
+
+// ExportInfoStatusValues returns every known ExportInfoStatus value in schema order.
+func ExportInfoStatusValues() []ExportInfoStatus {
+	return []ExportInfoStatus{
+		ExportInfoStatusPending,
+		ExportInfoStatusCompleted,
+		ExportInfoStatusFailed,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

@@ -18,6 +18,13 @@ const (
 func (e PlatformChatFailedResponseObject) ToPointer() *PlatformChatFailedResponseObject {
 	return &e
 }
+
+// PlatformChatFailedResponseObjectValues returns every known PlatformChatFailedResponseObject value in schema order.
+func PlatformChatFailedResponseObjectValues() []PlatformChatFailedResponseObject {
+	return []PlatformChatFailedResponseObject{
+		PlatformChatFailedResponseObjectResponse,
+	}
+}
 func (e *PlatformChatFailedResponseObject) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -40,6 +47,13 @@ const (
 
 func (e PlatformChatFailedResponseStatus) ToPointer() *PlatformChatFailedResponseStatus {
 	return &e
+}
+
+// PlatformChatFailedResponseStatusValues returns every known PlatformChatFailedResponseStatus value in schema order.
+func PlatformChatFailedResponseStatusValues() []PlatformChatFailedResponseStatus {
+	return []PlatformChatFailedResponseStatus{
+		PlatformChatFailedResponseStatusFailed,
+	}
 }
 func (e *PlatformChatFailedResponseStatus) UnmarshalJSON(data []byte) error {
 	var v string

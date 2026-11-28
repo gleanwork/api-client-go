@@ -20,6 +20,16 @@ func (e PlatformAgentContentTriggerFilterOperator) ToPointer() *PlatformAgentCon
 	return &e
 }
 
+// PlatformAgentContentTriggerFilterOperatorValues returns every known PlatformAgentContentTriggerFilterOperator value in schema order.
+func PlatformAgentContentTriggerFilterOperatorValues() []PlatformAgentContentTriggerFilterOperator {
+	return []PlatformAgentContentTriggerFilterOperator{
+		PlatformAgentContentTriggerFilterOperatorIsOneOf,
+		PlatformAgentContentTriggerFilterOperatorIsNotOneOf,
+		PlatformAgentContentTriggerFilterOperatorContains,
+		PlatformAgentContentTriggerFilterOperatorFieldChanged,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformAgentContentTriggerFilterOperator) IsExact() bool {
 	if e != nil {

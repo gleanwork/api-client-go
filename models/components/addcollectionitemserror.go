@@ -13,6 +13,14 @@ func (e AddCollectionItemsErrorErrorType) ToPointer() *AddCollectionItemsErrorEr
 	return &e
 }
 
+// AddCollectionItemsErrorErrorTypeValues returns every known AddCollectionItemsErrorErrorType value in schema order.
+func AddCollectionItemsErrorErrorTypeValues() []AddCollectionItemsErrorErrorType {
+	return []AddCollectionItemsErrorErrorType{
+		AddCollectionItemsErrorErrorTypeExistingItem,
+		AddCollectionItemsErrorErrorTypeCorruptItem,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AddCollectionItemsErrorErrorType) IsExact() bool {
 	if e != nil {

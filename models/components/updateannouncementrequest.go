@@ -20,6 +20,14 @@ const (
 func (e UpdateAnnouncementRequestChannel) ToPointer() *UpdateAnnouncementRequestChannel {
 	return &e
 }
+
+// UpdateAnnouncementRequestChannelValues returns every known UpdateAnnouncementRequestChannel value in schema order.
+func UpdateAnnouncementRequestChannelValues() []UpdateAnnouncementRequestChannel {
+	return []UpdateAnnouncementRequestChannel{
+		UpdateAnnouncementRequestChannelMain,
+		UpdateAnnouncementRequestChannelSocialFeed,
+	}
+}
 func (e *UpdateAnnouncementRequestChannel) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -46,6 +54,14 @@ const (
 
 func (e UpdateAnnouncementRequestPostType) ToPointer() *UpdateAnnouncementRequestPostType {
 	return &e
+}
+
+// UpdateAnnouncementRequestPostTypeValues returns every known UpdateAnnouncementRequestPostType value in schema order.
+func UpdateAnnouncementRequestPostTypeValues() []UpdateAnnouncementRequestPostType {
+	return []UpdateAnnouncementRequestPostType{
+		UpdateAnnouncementRequestPostTypeText,
+		UpdateAnnouncementRequestPostTypeLink,
+	}
 }
 func (e *UpdateAnnouncementRequestPostType) UnmarshalJSON(data []byte) error {
 	var v string

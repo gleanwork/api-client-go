@@ -18,6 +18,14 @@ const (
 func (e ImportAgentSyncMode) ToPointer() *ImportAgentSyncMode {
 	return &e
 }
+
+// ImportAgentSyncModeValues returns every known ImportAgentSyncMode value in schema order.
+func ImportAgentSyncModeValues() []ImportAgentSyncMode {
+	return []ImportAgentSyncMode{
+		ImportAgentSyncModeStaged,
+		ImportAgentSyncModePublished,
+	}
+}
 func (e *ImportAgentSyncMode) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

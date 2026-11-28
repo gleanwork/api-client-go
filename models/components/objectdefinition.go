@@ -33,6 +33,33 @@ func (e DocCategory) ToPointer() *DocCategory {
 	return &e
 }
 
+// DocCategoryValues returns every known DocCategory value in schema order.
+func DocCategoryValues() []DocCategory {
+	return []DocCategory{
+		DocCategoryUncategorized,
+		DocCategoryTickets,
+		DocCategoryCrm,
+		DocCategoryPublishedContent,
+		DocCategoryCollaborativeContent,
+		DocCategoryQuestionAnswer,
+		DocCategoryMessaging,
+		DocCategoryCodeRepository,
+		DocCategoryChangeManagement,
+		DocCategoryPeople,
+		DocCategoryEmail,
+		DocCategorySso,
+		DocCategoryAts,
+		DocCategoryKnowledgeHub,
+		DocCategoryExternalShortcut,
+		DocCategoryEntity,
+		DocCategoryCalendar,
+		DocCategoryAgents,
+		DocCategoryAiConversation,
+		DocCategoryAiArtifact,
+		DocCategoryUgcSkill,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DocCategory) IsExact() bool {
 	if e != nil {

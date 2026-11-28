@@ -18,6 +18,14 @@ func (e AnonymousEventEventType) ToPointer() *AnonymousEventEventType {
 	return &e
 }
 
+// AnonymousEventEventTypeValues returns every known AnonymousEventEventType value in schema order.
+func AnonymousEventEventTypeValues() []AnonymousEventEventType {
+	return []AnonymousEventEventType{
+		AnonymousEventEventTypeDefault,
+		AnonymousEventEventTypeOutOfOffice,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AnonymousEventEventType) IsExact() bool {
 	if e != nil {

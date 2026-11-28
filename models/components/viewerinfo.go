@@ -22,6 +22,15 @@ func (e ViewerInfoRole) ToPointer() *ViewerInfoRole {
 	return &e
 }
 
+// ViewerInfoRoleValues returns every known ViewerInfoRole value in schema order.
+func ViewerInfoRoleValues() []ViewerInfoRole {
+	return []ViewerInfoRole{
+		ViewerInfoRoleAnswerModerator,
+		ViewerInfoRoleOwner,
+		ViewerInfoRoleViewer,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ViewerInfoRole) IsExact() bool {
 	if e != nil {

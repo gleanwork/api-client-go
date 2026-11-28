@@ -14,6 +14,14 @@ func (e AgentExecutionStatus) ToPointer() *AgentExecutionStatus {
 	return &e
 }
 
+// AgentExecutionStatusValues returns every known AgentExecutionStatus value in schema order.
+func AgentExecutionStatusValues() []AgentExecutionStatus {
+	return []AgentExecutionStatus{
+		AgentExecutionStatusError,
+		AgentExecutionStatusSuccess,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AgentExecutionStatus) IsExact() bool {
 	if e != nil {

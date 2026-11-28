@@ -20,6 +20,16 @@ const (
 func (e DlpExportFindingsRequestExportType) ToPointer() *DlpExportFindingsRequestExportType {
 	return &e
 }
+
+// DlpExportFindingsRequestExportTypeValues returns every known DlpExportFindingsRequestExportType value in schema order.
+func DlpExportFindingsRequestExportTypeValues() []DlpExportFindingsRequestExportType {
+	return []DlpExportFindingsRequestExportType{
+		DlpExportFindingsRequestExportTypeFindings,
+		DlpExportFindingsRequestExportTypeDocuments,
+		DlpExportFindingsRequestExportTypeIssues,
+		DlpExportFindingsRequestExportTypeFindingsCsv,
+	}
+}
 func (e *DlpExportFindingsRequestExportType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -51,6 +61,15 @@ const (
 
 func (e FieldScope) ToPointer() *FieldScope {
 	return &e
+}
+
+// FieldScopeValues returns every known FieldScope value in schema order.
+func FieldScopeValues() []FieldScope {
+	return []FieldScope{
+		FieldScopeAll,
+		FieldScopeExcludeSensitive,
+		FieldScopeCustom,
+	}
 }
 func (e *FieldScope) UnmarshalJSON(data []byte) error {
 	var v string

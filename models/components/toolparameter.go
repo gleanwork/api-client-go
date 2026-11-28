@@ -17,6 +17,17 @@ func (e ToolParameterType) ToPointer() *ToolParameterType {
 	return &e
 }
 
+// ToolParameterTypeValues returns every known ToolParameterType value in schema order.
+func ToolParameterTypeValues() []ToolParameterType {
+	return []ToolParameterType{
+		ToolParameterTypeString,
+		ToolParameterTypeNumber,
+		ToolParameterTypeBoolean,
+		ToolParameterTypeObject,
+		ToolParameterTypeArray,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ToolParameterType) IsExact() bool {
 	if e != nil {

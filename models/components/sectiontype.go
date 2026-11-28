@@ -18,6 +18,15 @@ func (e SectionType) ToPointer() *SectionType {
 	return &e
 }
 
+// SectionTypeValues returns every known SectionType value in schema order.
+func SectionTypeValues() []SectionType {
+	return []SectionType{
+		SectionTypeChannel,
+		SectionTypeMentions,
+		SectionTypeTopic,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *SectionType) IsExact() bool {
 	if e != nil {

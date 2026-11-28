@@ -13,6 +13,14 @@ func (e Provider) ToPointer() *Provider {
 	return &e
 }
 
+// ProviderValues returns every known Provider value in schema order.
+func ProviderValues() []Provider {
+	return []Provider{
+		ProviderZoom,
+		ProviderHangouts,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *Provider) IsExact() bool {
 	if e != nil {
@@ -34,6 +42,15 @@ const (
 
 func (e ConferenceDataSource) ToPointer() *ConferenceDataSource {
 	return &e
+}
+
+// ConferenceDataSourceValues returns every known ConferenceDataSource value in schema order.
+func ConferenceDataSourceValues() []ConferenceDataSource {
+	return []ConferenceDataSource{
+		ConferenceDataSourceNativeConference,
+		ConferenceDataSourceLocation,
+		ConferenceDataSourceDescription,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

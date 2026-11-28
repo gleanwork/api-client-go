@@ -19,6 +19,19 @@ func (e WarningType) ToPointer() *WarningType {
 	return &e
 }
 
+// WarningTypeValues returns every known WarningType value in schema order.
+func WarningTypeValues() []WarningType {
+	return []WarningType{
+		WarningTypeLongQuery,
+		WarningTypeQuotedPunctuation,
+		WarningTypePunctuationOnly,
+		WarningTypeCopypastedQuotes,
+		WarningTypeInvalidOperator,
+		WarningTypeMaybeInvalidFacetQuery,
+		WarningTypeTooManyDatasourceGroups,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *WarningType) IsExact() bool {
 	if e != nil {

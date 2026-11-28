@@ -17,6 +17,14 @@ const (
 func (e OrderBy) ToPointer() *OrderBy {
 	return &e
 }
+
+// OrderByValues returns every known OrderBy value in schema order.
+func OrderByValues() []OrderBy {
+	return []OrderBy{
+		OrderByAsc,
+		OrderByDesc,
+	}
+}
 func (e *OrderBy) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

@@ -36,6 +36,32 @@ func (e DatasourceCategory) ToPointer() *DatasourceCategory {
 	return &e
 }
 
+// DatasourceCategoryValues returns every known DatasourceCategory value in schema order.
+func DatasourceCategoryValues() []DatasourceCategory {
+	return []DatasourceCategory{
+		DatasourceCategoryUncategorized,
+		DatasourceCategoryTickets,
+		DatasourceCategoryCrm,
+		DatasourceCategoryPublishedContent,
+		DatasourceCategoryCollaborativeContent,
+		DatasourceCategoryQuestionAnswer,
+		DatasourceCategoryMessaging,
+		DatasourceCategoryCodeRepository,
+		DatasourceCategoryChangeManagement,
+		DatasourceCategoryPeople,
+		DatasourceCategoryEmail,
+		DatasourceCategorySso,
+		DatasourceCategoryAts,
+		DatasourceCategoryKnowledgeHub,
+		DatasourceCategoryExternalShortcut,
+		DatasourceCategoryEntity,
+		DatasourceCategoryCalendar,
+		DatasourceCategoryAgents,
+		DatasourceCategoryAiConversation,
+		DatasourceCategoryAiArtifact,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DatasourceCategory) IsExact() bool {
 	if e != nil {
@@ -58,6 +84,16 @@ const (
 
 func (e HideBuiltInFacet) ToPointer() *HideBuiltInFacet {
 	return &e
+}
+
+// HideBuiltInFacetValues returns every known HideBuiltInFacet value in schema order.
+func HideBuiltInFacetValues() []HideBuiltInFacet {
+	return []HideBuiltInFacet{
+		HideBuiltInFacetType,
+		HideBuiltInFacetTag,
+		HideBuiltInFacetAuthor,
+		HideBuiltInFacetOwner,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
@@ -87,6 +123,20 @@ const (
 
 func (e CustomDatasourceConfigConnectorType) ToPointer() *CustomDatasourceConfigConnectorType {
 	return &e
+}
+
+// CustomDatasourceConfigConnectorTypeValues returns every known CustomDatasourceConfigConnectorType value in schema order.
+func CustomDatasourceConfigConnectorTypeValues() []CustomDatasourceConfigConnectorType {
+	return []CustomDatasourceConfigConnectorType{
+		CustomDatasourceConfigConnectorTypeAPICrawl,
+		CustomDatasourceConfigConnectorTypeBrowserCrawl,
+		CustomDatasourceConfigConnectorTypeBrowserHistory,
+		CustomDatasourceConfigConnectorTypeBuiltin,
+		CustomDatasourceConfigConnectorTypeFederatedSearch,
+		CustomDatasourceConfigConnectorTypePushAPI,
+		CustomDatasourceConfigConnectorTypeWebCrawl,
+		CustomDatasourceConfigConnectorTypeNativeHistory,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

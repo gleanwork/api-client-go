@@ -18,6 +18,14 @@ const (
 func (e PlatformChatInputMessageRole) ToPointer() *PlatformChatInputMessageRole {
 	return &e
 }
+
+// PlatformChatInputMessageRoleValues returns every known PlatformChatInputMessageRole value in schema order.
+func PlatformChatInputMessageRoleValues() []PlatformChatInputMessageRole {
+	return []PlatformChatInputMessageRole{
+		PlatformChatInputMessageRoleUser,
+		PlatformChatInputMessageRoleAssistant,
+	}
+}
 func (e *PlatformChatInputMessageRole) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

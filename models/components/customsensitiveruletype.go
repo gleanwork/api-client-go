@@ -15,6 +15,15 @@ func (e CustomSensitiveRuleType) ToPointer() *CustomSensitiveRuleType {
 	return &e
 }
 
+// CustomSensitiveRuleTypeValues returns every known CustomSensitiveRuleType value in schema order.
+func CustomSensitiveRuleTypeValues() []CustomSensitiveRuleType {
+	return []CustomSensitiveRuleType{
+		CustomSensitiveRuleTypeRegex,
+		CustomSensitiveRuleTypeTerm,
+		CustomSensitiveRuleTypeInfoType,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *CustomSensitiveRuleType) IsExact() bool {
 	if e != nil {

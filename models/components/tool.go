@@ -14,6 +14,14 @@ func (e ToolType) ToPointer() *ToolType {
 	return &e
 }
 
+// ToolTypeValues returns every known ToolType value in schema order.
+func ToolTypeValues() []ToolType {
+	return []ToolType{
+		ToolTypeRead,
+		ToolTypeWrite,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ToolType) IsExact() bool {
 	if e != nil {

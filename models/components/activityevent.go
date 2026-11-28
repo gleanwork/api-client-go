@@ -32,6 +32,19 @@ const (
 func (e ActivityEventAction) ToPointer() *ActivityEventAction {
 	return &e
 }
+
+// ActivityEventActionValues returns every known ActivityEventAction value in schema order.
+func ActivityEventActionValues() []ActivityEventAction {
+	return []ActivityEventAction{
+		ActivityEventActionView,
+		ActivityEventActionEdit,
+		ActivityEventActionSearch,
+		ActivityEventActionComment,
+		ActivityEventActionCrawl,
+		ActivityEventActionHistoricalSearch,
+		ActivityEventActionHistoricalView,
+	}
+}
 func (e *ActivityEventAction) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

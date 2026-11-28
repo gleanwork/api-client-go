@@ -20,6 +20,20 @@ func (e PlatformAgentRunState) ToPointer() *PlatformAgentRunState {
 	return &e
 }
 
+// PlatformAgentRunStateValues returns every known PlatformAgentRunState value in schema order.
+func PlatformAgentRunStateValues() []PlatformAgentRunState {
+	return []PlatformAgentRunState{
+		PlatformAgentRunStateQueued,
+		PlatformAgentRunStateRunning,
+		PlatformAgentRunStateRequiresInput,
+		PlatformAgentRunStateSucceeded,
+		PlatformAgentRunStateFailed,
+		PlatformAgentRunStateCancelling,
+		PlatformAgentRunStateCancelled,
+		PlatformAgentRunStateExpired,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformAgentRunState) IsExact() bool {
 	if e != nil {

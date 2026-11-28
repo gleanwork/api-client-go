@@ -24,6 +24,16 @@ func (e ServerToolResponseRequestType) ToPointer() *ServerToolResponseRequestTyp
 	return &e
 }
 
+// ServerToolResponseRequestTypeValues returns every known ServerToolResponseRequestType value in schema order.
+func ServerToolResponseRequestTypeValues() []ServerToolResponseRequestType {
+	return []ServerToolResponseRequestType{
+		ServerToolResponseRequestTypeExecution,
+		ServerToolResponseRequestTypeAuthenticationSuggestion,
+		ServerToolResponseRequestTypeVoteSuggestion,
+		ServerToolResponseRequestTypeSandboxEgress,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ServerToolResponseRequestType) IsExact() bool {
 	if e != nil {
@@ -49,6 +59,15 @@ const (
 
 func (e GrantScope) ToPointer() *GrantScope {
 	return &e
+}
+
+// GrantScopeValues returns every known GrantScope value in schema order.
+func GrantScopeValues() []GrantScope {
+	return []GrantScope{
+		GrantScopeCurrentRequest,
+		GrantScopeCurrentSession,
+		GrantScopeAlways,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

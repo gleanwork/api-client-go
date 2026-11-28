@@ -33,6 +33,34 @@ func (e UgcType) ToPointer() *UgcType {
 	return &e
 }
 
+// UgcTypeValues returns every known UgcType value in schema order.
+func UgcTypeValues() []UgcType {
+	return []UgcType{
+		UgcTypeAgentType,
+		UgcTypeAnnouncementsType,
+		UgcTypeAnswersType,
+		UgcTypeChatsType,
+		UgcTypeCollectionsType,
+		UgcTypeEmailType,
+		UgcTypeHTMLCodeType,
+		UgcTypeImageType,
+		UgcTypeMessageType,
+		UgcTypePaperType,
+		UgcTypePrismViewsType,
+		UgcTypePromptTemplatesType,
+		UgcTypePinsType,
+		UgcTypeScribesType,
+		UgcTypeShortcutsType,
+		UgcTypeSkillsType,
+		UgcTypeSlideType,
+		UgcTypeSpreadsheetType,
+		UgcTypeInlineHTMLType,
+		UgcTypePodcastType,
+		UgcTypeVideoType,
+		UgcTypeWorkflowsType,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *UgcType) IsExact() bool {
 	if e != nil {

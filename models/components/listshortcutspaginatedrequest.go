@@ -17,6 +17,14 @@ const (
 func (e ListShortcutsPaginatedRequestIncludeField) ToPointer() *ListShortcutsPaginatedRequestIncludeField {
 	return &e
 }
+
+// ListShortcutsPaginatedRequestIncludeFieldValues returns every known ListShortcutsPaginatedRequestIncludeField value in schema order.
+func ListShortcutsPaginatedRequestIncludeFieldValues() []ListShortcutsPaginatedRequestIncludeField {
+	return []ListShortcutsPaginatedRequestIncludeField{
+		ListShortcutsPaginatedRequestIncludeFieldFacets,
+		ListShortcutsPaginatedRequestIncludeFieldPeopleDetails,
+	}
+}
 func (e *ListShortcutsPaginatedRequestIncludeField) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

@@ -14,6 +14,14 @@ func (e PlatformMessageRole) ToPointer() *PlatformMessageRole {
 	return &e
 }
 
+// PlatformMessageRoleValues returns every known PlatformMessageRole value in schema order.
+func PlatformMessageRoleValues() []PlatformMessageRole {
+	return []PlatformMessageRole{
+		PlatformMessageRoleUser,
+		PlatformMessageRoleGleanAi,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformMessageRole) IsExact() bool {
 	if e != nil {

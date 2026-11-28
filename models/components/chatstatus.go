@@ -20,6 +20,16 @@ func (e ChatStatus) ToPointer() *ChatStatus {
 	return &e
 }
 
+// ChatStatusValues returns every known ChatStatus value in schema order.
+func ChatStatusValues() []ChatStatus {
+	return []ChatStatus{
+		ChatStatusSuccess,
+		ChatStatusError,
+		ChatStatusInProgress,
+		ChatStatusCancelled,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ChatStatus) IsExact() bool {
 	if e != nil {

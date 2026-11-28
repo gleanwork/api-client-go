@@ -16,6 +16,14 @@ func (e PlatformAgentDependencyType) ToPointer() *PlatformAgentDependencyType {
 	return &e
 }
 
+// PlatformAgentDependencyTypeValues returns every known PlatformAgentDependencyType value in schema order.
+func PlatformAgentDependencyTypeValues() []PlatformAgentDependencyType {
+	return []PlatformAgentDependencyType{
+		PlatformAgentDependencyTypeSkill,
+		PlatformAgentDependencyTypeAgent,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformAgentDependencyType) IsExact() bool {
 	if e != nil {

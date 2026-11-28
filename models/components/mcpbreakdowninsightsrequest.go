@@ -21,6 +21,17 @@ const (
 func (e BreakdownType) ToPointer() *BreakdownType {
 	return &e
 }
+
+// BreakdownTypeValues returns every known BreakdownType value in schema order.
+func BreakdownTypeValues() []BreakdownType {
+	return []BreakdownType{
+		BreakdownTypeUsers,
+		BreakdownTypeHostApplications,
+		BreakdownTypeTools,
+		BreakdownTypeServers,
+		BreakdownTypeAuthMethods,
+	}
+}
 func (e *BreakdownType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

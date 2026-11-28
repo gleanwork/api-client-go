@@ -14,6 +14,14 @@ func (e BulkUploadHistoryEventStatus) ToPointer() *BulkUploadHistoryEventStatus 
 	return &e
 }
 
+// BulkUploadHistoryEventStatusValues returns every known BulkUploadHistoryEventStatus value in schema order.
+func BulkUploadHistoryEventStatusValues() []BulkUploadHistoryEventStatus {
+	return []BulkUploadHistoryEventStatus{
+		BulkUploadHistoryEventStatusActive,
+		BulkUploadHistoryEventStatusSuccessful,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *BulkUploadHistoryEventStatus) IsExact() bool {
 	if e != nil {
@@ -39,6 +47,18 @@ const (
 
 func (e ProcessingState) ToPointer() *ProcessingState {
 	return &e
+}
+
+// ProcessingStateValues returns every known ProcessingState value in schema order.
+func ProcessingStateValues() []ProcessingState {
+	return []ProcessingState{
+		ProcessingStateUnavailable,
+		ProcessingStateUploadStarted,
+		ProcessingStateUploadInProgress,
+		ProcessingStateUploadCompleted,
+		ProcessingStateDeletionPaused,
+		ProcessingStateIndexingCompleted,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

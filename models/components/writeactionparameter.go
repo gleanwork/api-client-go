@@ -16,6 +16,16 @@ func (e WriteActionParameterType) ToPointer() *WriteActionParameterType {
 	return &e
 }
 
+// WriteActionParameterTypeValues returns every known WriteActionParameterType value in schema order.
+func WriteActionParameterTypeValues() []WriteActionParameterType {
+	return []WriteActionParameterType{
+		WriteActionParameterTypeUnknown,
+		WriteActionParameterTypeInteger,
+		WriteActionParameterTypeString,
+		WriteActionParameterTypeBoolean,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *WriteActionParameterType) IsExact() bool {
 	if e != nil {

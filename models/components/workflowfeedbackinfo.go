@@ -19,6 +19,15 @@ const (
 func (e WorkflowFeedbackInfoSource) ToPointer() *WorkflowFeedbackInfoSource {
 	return &e
 }
+
+// WorkflowFeedbackInfoSourceValues returns every known WorkflowFeedbackInfoSource value in schema order.
+func WorkflowFeedbackInfoSourceValues() []WorkflowFeedbackInfoSource {
+	return []WorkflowFeedbackInfoSource{
+		WorkflowFeedbackInfoSourceZeroState,
+		WorkflowFeedbackInfoSourceLibrary,
+		WorkflowFeedbackInfoSourceHomepage,
+	}
+}
 func (e *WorkflowFeedbackInfoSource) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

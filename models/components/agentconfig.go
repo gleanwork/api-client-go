@@ -24,6 +24,18 @@ func (e AgentEnum) ToPointer() *AgentEnum {
 	return &e
 }
 
+// AgentEnumValues returns every known AgentEnum value in schema order.
+func AgentEnumValues() []AgentEnum {
+	return []AgentEnum{
+		AgentEnumDefault,
+		AgentEnumGpt,
+		AgentEnumUniversal,
+		AgentEnumFast,
+		AgentEnumAdvanced,
+		AgentEnumAuto,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AgentEnum) IsExact() bool {
 	if e != nil {
@@ -47,6 +59,14 @@ const (
 
 func (e AgentConfigMode) ToPointer() *AgentConfigMode {
 	return &e
+}
+
+// AgentConfigModeValues returns every known AgentConfigMode value in schema order.
+func AgentConfigModeValues() []AgentConfigMode {
+	return []AgentConfigMode{
+		AgentConfigModeDefault,
+		AgentConfigModeQuick,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

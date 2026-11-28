@@ -16,6 +16,16 @@ func (e DocumentVisibilityOverrideOverride) ToPointer() *DocumentVisibilityOverr
 	return &e
 }
 
+// DocumentVisibilityOverrideOverrideValues returns every known DocumentVisibilityOverrideOverride value in schema order.
+func DocumentVisibilityOverrideOverrideValues() []DocumentVisibilityOverrideOverride {
+	return []DocumentVisibilityOverrideOverride{
+		DocumentVisibilityOverrideOverrideNone,
+		DocumentVisibilityOverrideOverrideHideFromAll,
+		DocumentVisibilityOverrideOverrideHideFromGroups,
+		DocumentVisibilityOverrideOverrideHideFromAllExceptOwner,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DocumentVisibilityOverrideOverride) IsExact() bool {
 	if e != nil {

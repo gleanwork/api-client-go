@@ -24,6 +24,20 @@ func (e GeneratedQnaStatus) ToPointer() *GeneratedQnaStatus {
 	return &e
 }
 
+// GeneratedQnaStatusValues returns every known GeneratedQnaStatus value in schema order.
+func GeneratedQnaStatusValues() []GeneratedQnaStatus {
+	return []GeneratedQnaStatus{
+		GeneratedQnaStatusComputing,
+		GeneratedQnaStatusDisabled,
+		GeneratedQnaStatusFailed,
+		GeneratedQnaStatusNoAnswer,
+		GeneratedQnaStatusSkipped,
+		GeneratedQnaStatusStreaming,
+		GeneratedQnaStatusSucceeded,
+		GeneratedQnaStatusTimeout,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *GeneratedQnaStatus) IsExact() bool {
 	if e != nil {

@@ -16,6 +16,13 @@ const (
 func (e AccessRequestPermissionDeniedResponseErrorType) ToPointer() *AccessRequestPermissionDeniedResponseErrorType {
 	return &e
 }
+
+// AccessRequestPermissionDeniedResponseErrorTypeValues returns every known AccessRequestPermissionDeniedResponseErrorType value in schema order.
+func AccessRequestPermissionDeniedResponseErrorTypeValues() []AccessRequestPermissionDeniedResponseErrorType {
+	return []AccessRequestPermissionDeniedResponseErrorType{
+		AccessRequestPermissionDeniedResponseErrorTypePermissionDenied,
+	}
+}
 func (e *AccessRequestPermissionDeniedResponseErrorType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

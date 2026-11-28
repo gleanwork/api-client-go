@@ -17,6 +17,17 @@ func (e DlpSeverity) ToPointer() *DlpSeverity {
 	return &e
 }
 
+// DlpSeverityValues returns every known DlpSeverity value in schema order.
+func DlpSeverityValues() []DlpSeverity {
+	return []DlpSeverity{
+		DlpSeverityUnspecified,
+		DlpSeverityLow,
+		DlpSeverityMedium,
+		DlpSeverityHigh,
+		DlpSeverityFalsePositive,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DlpSeverity) IsExact() bool {
 	if e != nil {

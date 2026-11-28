@@ -15,6 +15,15 @@ func (e PlatformTriggerPresetInputType) ToPointer() *PlatformTriggerPresetInputT
 	return &e
 }
 
+// PlatformTriggerPresetInputTypeValues returns every known PlatformTriggerPresetInputType value in schema order.
+func PlatformTriggerPresetInputTypeValues() []PlatformTriggerPresetInputType {
+	return []PlatformTriggerPresetInputType{
+		PlatformTriggerPresetInputTypePicklist,
+		PlatformTriggerPresetInputTypeText,
+		PlatformTriggerPresetInputTypeUser,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformTriggerPresetInputType) IsExact() bool {
 	if e != nil {

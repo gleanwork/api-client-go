@@ -32,6 +32,26 @@ const (
 func (e FeedbackCategory) ToPointer() *FeedbackCategory {
 	return &e
 }
+
+// FeedbackCategoryValues returns every known FeedbackCategory value in schema order.
+func FeedbackCategoryValues() []FeedbackCategory {
+	return []FeedbackCategory{
+		FeedbackCategoryAnnouncement,
+		FeedbackCategoryAnswers,
+		FeedbackCategoryArtifacts,
+		FeedbackCategoryAutocomplete,
+		FeedbackCategoryCollections,
+		FeedbackCategoryFeed,
+		FeedbackCategorySearch,
+		FeedbackCategoryChat,
+		FeedbackCategoryNtp,
+		FeedbackCategoryWorkflows,
+		FeedbackCategorySummary,
+		FeedbackCategoryGeneral,
+		FeedbackCategoryPrism,
+		FeedbackCategoryPrompts,
+	}
+}
 func (e *FeedbackCategory) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -144,6 +164,44 @@ const (
 func (e FeedbackEvent) ToPointer() *FeedbackEvent {
 	return &e
 }
+
+// FeedbackEventValues returns every known FeedbackEvent value in schema order.
+func FeedbackEventValues() []FeedbackEvent {
+	return []FeedbackEvent{
+		FeedbackEventClick,
+		FeedbackEventContainerClick,
+		FeedbackEventCopyLink,
+		FeedbackEventCreate,
+		FeedbackEventDismiss,
+		FeedbackEventDownvote,
+		FeedbackEventEmail,
+		FeedbackEventExecute,
+		FeedbackEventFilter,
+		FeedbackEventFirstToken,
+		FeedbackEventFocusIn,
+		FeedbackEventLastToken,
+		FeedbackEventManualFeedback,
+		FeedbackEventManualFeedbackSideBySide,
+		FeedbackEventFeedbackTimeSaved,
+		FeedbackEventMarkAsRead,
+		FeedbackEventMessage,
+		FeedbackEventMiddleClick,
+		FeedbackEventPageBlur,
+		FeedbackEventPageFocus,
+		FeedbackEventPageLeave,
+		FeedbackEventPreview,
+		FeedbackEventRelatedClick,
+		FeedbackEventRightClick,
+		FeedbackEventSectionClick,
+		FeedbackEventSeen,
+		FeedbackEventSelect,
+		FeedbackEventShare,
+		FeedbackEventShowMore,
+		FeedbackEventUpvote,
+		FeedbackEventView,
+		FeedbackEventVisible,
+	}
+}
 func (e *FeedbackEvent) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -229,6 +287,14 @@ const (
 
 func (e FeedbackChannel) ToPointer() *FeedbackChannel {
 	return &e
+}
+
+// FeedbackChannelValues returns every known FeedbackChannel value in schema order.
+func FeedbackChannelValues() []FeedbackChannel {
+	return []FeedbackChannel{
+		FeedbackChannelCompany,
+		FeedbackChannelGlean,
+	}
 }
 func (e *FeedbackChannel) UnmarshalJSON(data []byte) error {
 	var v string

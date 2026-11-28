@@ -26,6 +26,17 @@ func (e ResponseHint) ToPointer() *ResponseHint {
 	return &e
 }
 
+// ResponseHintValues returns every known ResponseHint value in schema order.
+func ResponseHintValues() []ResponseHint {
+	return []ResponseHint{
+		ResponseHintAllResultCounts,
+		ResponseHintFacetResults,
+		ResponseHintQueryMetadata,
+		ResponseHintResults,
+		ResponseHintSpellcheckMetadata,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ResponseHint) IsExact() bool {
 	if e != nil {

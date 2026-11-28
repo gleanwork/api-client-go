@@ -17,6 +17,17 @@ func (e AuthStatus) ToPointer() *AuthStatus {
 	return &e
 }
 
+// AuthStatusValues returns every known AuthStatus value in schema order.
+func AuthStatusValues() []AuthStatus {
+	return []AuthStatus{
+		AuthStatusDisabled,
+		AuthStatusAwaitingAuth,
+		AuthStatusAuthorized,
+		AuthStatusStaleOauth,
+		AuthStatusSegMigration,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AuthStatus) IsExact() bool {
 	if e != nil {

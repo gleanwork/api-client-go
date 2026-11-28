@@ -23,6 +23,18 @@ const (
 func (e PlatformDepartmentFilterOperator) ToPointer() *PlatformDepartmentFilterOperator {
 	return &e
 }
+
+// PlatformDepartmentFilterOperatorValues returns every known PlatformDepartmentFilterOperator value in schema order.
+func PlatformDepartmentFilterOperatorValues() []PlatformDepartmentFilterOperator {
+	return []PlatformDepartmentFilterOperator{
+		PlatformDepartmentFilterOperatorEquals,
+		PlatformDepartmentFilterOperatorNotEquals,
+		PlatformDepartmentFilterOperatorGt,
+		PlatformDepartmentFilterOperatorGte,
+		PlatformDepartmentFilterOperatorLt,
+		PlatformDepartmentFilterOperatorLte,
+	}
+}
 func (e *PlatformDepartmentFilterOperator) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

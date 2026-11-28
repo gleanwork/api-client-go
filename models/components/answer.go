@@ -18,6 +18,14 @@ func (e AnswerSourceType) ToPointer() *AnswerSourceType {
 	return &e
 }
 
+// AnswerSourceTypeValues returns every known AnswerSourceType value in schema order.
+func AnswerSourceTypeValues() []AnswerSourceType {
+	return []AnswerSourceType{
+		AnswerSourceTypeDocument,
+		AnswerSourceTypeAssistant,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *AnswerSourceType) IsExact() bool {
 	if e != nil {

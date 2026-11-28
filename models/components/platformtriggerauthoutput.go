@@ -17,6 +17,13 @@ const (
 func (e PlatformTriggerAuthType) ToPointer() *PlatformTriggerAuthType {
 	return &e
 }
+
+// PlatformTriggerAuthTypeValues returns every known PlatformTriggerAuthType value in schema order.
+func PlatformTriggerAuthTypeValues() []PlatformTriggerAuthType {
+	return []PlatformTriggerAuthType{
+		PlatformTriggerAuthTypeBearer,
+	}
+}
 func (e *PlatformTriggerAuthType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

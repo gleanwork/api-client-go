@@ -17,6 +17,18 @@ func (e ReportStatusResponseStatus) ToPointer() *ReportStatusResponseStatus {
 	return &e
 }
 
+// ReportStatusResponseStatusValues returns every known ReportStatusResponseStatus value in schema order.
+func ReportStatusResponseStatusValues() []ReportStatusResponseStatus {
+	return []ReportStatusResponseStatus{
+		ReportStatusResponseStatusPending,
+		ReportStatusResponseStatusSuccess,
+		ReportStatusResponseStatusFailure,
+		ReportStatusResponseStatusCancelled,
+		ReportStatusResponseStatusCancelling,
+		ReportStatusResponseStatusActive,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *ReportStatusResponseStatus) IsExact() bool {
 	if e != nil {

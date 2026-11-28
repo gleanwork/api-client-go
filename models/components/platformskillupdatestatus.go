@@ -18,6 +18,14 @@ const (
 func (e PlatformSkillUpdateStatus) ToPointer() *PlatformSkillUpdateStatus {
 	return &e
 }
+
+// PlatformSkillUpdateStatusValues returns every known PlatformSkillUpdateStatus value in schema order.
+func PlatformSkillUpdateStatusValues() []PlatformSkillUpdateStatus {
+	return []PlatformSkillUpdateStatus{
+		PlatformSkillUpdateStatusEnabled,
+		PlatformSkillUpdateStatusDisabled,
+	}
+}
 func (e *PlatformSkillUpdateStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

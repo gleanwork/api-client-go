@@ -22,6 +22,15 @@ func (e Prominence) ToPointer() *Prominence {
 	return &e
 }
 
+// ProminenceValues returns every known Prominence value in schema order.
+func ProminenceValues() []Prominence {
+	return []Prominence{
+		ProminenceHero,
+		ProminencePromoted,
+		ProminenceStandard,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *Prominence) IsExact() bool {
 	if e != nil {
@@ -45,6 +54,16 @@ const (
 
 func (e StructuredResultSource) ToPointer() *StructuredResultSource {
 	return &e
+}
+
+// StructuredResultSourceValues returns every known StructuredResultSource value in schema order.
+func StructuredResultSourceValues() []StructuredResultSource {
+	return []StructuredResultSource{
+		StructuredResultSourceExpertDetection,
+		StructuredResultSourceEntityNlq,
+		StructuredResultSourceCalendarEvent,
+		StructuredResultSourceAgent,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.

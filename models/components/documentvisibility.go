@@ -24,6 +24,18 @@ func (e DocumentVisibility) ToPointer() *DocumentVisibility {
 	return &e
 }
 
+// DocumentVisibilityValues returns every known DocumentVisibility value in schema order.
+func DocumentVisibilityValues() []DocumentVisibility {
+	return []DocumentVisibility{
+		DocumentVisibilityPrivate,
+		DocumentVisibilitySpecificPeopleAndGroups,
+		DocumentVisibilityDomainLink,
+		DocumentVisibilityDomainVisible,
+		DocumentVisibilityPublicLink,
+		DocumentVisibilityPublicVisible,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DocumentVisibility) IsExact() bool {
 	if e != nil {

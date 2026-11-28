@@ -15,6 +15,15 @@ func (e UploadStatusEnum) ToPointer() *UploadStatusEnum {
 	return &e
 }
 
+// UploadStatusEnumValues returns every known UploadStatusEnum value in schema order.
+func UploadStatusEnumValues() []UploadStatusEnum {
+	return []UploadStatusEnum{
+		UploadStatusEnumUploaded,
+		UploadStatusEnumNotUploaded,
+		UploadStatusEnumStatusUnknown,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *UploadStatusEnum) IsExact() bool {
 	if e != nil {

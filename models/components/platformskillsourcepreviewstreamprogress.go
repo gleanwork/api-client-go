@@ -18,6 +18,13 @@ const (
 func (e PlatformSkillSourcePreviewStreamProgressType) ToPointer() *PlatformSkillSourcePreviewStreamProgressType {
 	return &e
 }
+
+// PlatformSkillSourcePreviewStreamProgressTypeValues returns every known PlatformSkillSourcePreviewStreamProgressType value in schema order.
+func PlatformSkillSourcePreviewStreamProgressTypeValues() []PlatformSkillSourcePreviewStreamProgressType {
+	return []PlatformSkillSourcePreviewStreamProgressType{
+		PlatformSkillSourcePreviewStreamProgressTypeProgress,
+	}
+}
 func (e *PlatformSkillSourcePreviewStreamProgressType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

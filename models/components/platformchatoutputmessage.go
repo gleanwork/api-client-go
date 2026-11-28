@@ -17,6 +17,13 @@ const (
 func (e PlatformChatOutputMessageType) ToPointer() *PlatformChatOutputMessageType {
 	return &e
 }
+
+// PlatformChatOutputMessageTypeValues returns every known PlatformChatOutputMessageType value in schema order.
+func PlatformChatOutputMessageTypeValues() []PlatformChatOutputMessageType {
+	return []PlatformChatOutputMessageType{
+		PlatformChatOutputMessageTypeMessage,
+	}
+}
 func (e *PlatformChatOutputMessageType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
@@ -39,6 +46,13 @@ const (
 
 func (e PlatformChatOutputMessageRole) ToPointer() *PlatformChatOutputMessageRole {
 	return &e
+}
+
+// PlatformChatOutputMessageRoleValues returns every known PlatformChatOutputMessageRole value in schema order.
+func PlatformChatOutputMessageRoleValues() []PlatformChatOutputMessageRole {
+	return []PlatformChatOutputMessageRole{
+		PlatformChatOutputMessageRoleAssistant,
+	}
 }
 func (e *PlatformChatOutputMessageRole) UnmarshalJSON(data []byte) error {
 	var v string

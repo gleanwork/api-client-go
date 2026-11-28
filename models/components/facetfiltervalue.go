@@ -25,6 +25,17 @@ func (e RelationType) ToPointer() *RelationType {
 	return &e
 }
 
+// RelationTypeValues returns every known RelationType value in schema order.
+func RelationTypeValues() []RelationType {
+	return []RelationType{
+		RelationTypeEquals,
+		RelationTypeIDEquals,
+		RelationTypeLt,
+		RelationTypeGt,
+		RelationTypeNotEquals,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *RelationType) IsExact() bool {
 	if e != nil {

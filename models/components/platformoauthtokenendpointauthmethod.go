@@ -22,6 +22,17 @@ func (e PlatformOAuthTokenEndpointAuthMethod) ToPointer() *PlatformOAuthTokenEnd
 	return &e
 }
 
+// PlatformOAuthTokenEndpointAuthMethodValues returns every known PlatformOAuthTokenEndpointAuthMethod value in schema order.
+func PlatformOAuthTokenEndpointAuthMethodValues() []PlatformOAuthTokenEndpointAuthMethod {
+	return []PlatformOAuthTokenEndpointAuthMethod{
+		PlatformOAuthTokenEndpointAuthMethodClientSecretBasic,
+		PlatformOAuthTokenEndpointAuthMethodClientSecretPost,
+		PlatformOAuthTokenEndpointAuthMethodNoAuthentication,
+		PlatformOAuthTokenEndpointAuthMethodPrivateKeyJwt,
+		PlatformOAuthTokenEndpointAuthMethodTLSClientAuth,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformOAuthTokenEndpointAuthMethod) IsExact() bool {
 	if e != nil {

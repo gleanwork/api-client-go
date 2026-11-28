@@ -24,6 +24,18 @@ func (e PlatformOAuthGrantType) ToPointer() *PlatformOAuthGrantType {
 	return &e
 }
 
+// PlatformOAuthGrantTypeValues returns every known PlatformOAuthGrantType value in schema order.
+func PlatformOAuthGrantTypeValues() []PlatformOAuthGrantType {
+	return []PlatformOAuthGrantType{
+		PlatformOAuthGrantTypeAuthorizationCode,
+		PlatformOAuthGrantTypeClientCredentials,
+		PlatformOAuthGrantTypeRefreshToken,
+		PlatformOAuthGrantTypeDeviceCode,
+		PlatformOAuthGrantTypeTokenExchange,
+		PlatformOAuthGrantTypeJwtBearer,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *PlatformOAuthGrantType) IsExact() bool {
 	if e != nil {

@@ -18,6 +18,13 @@ const (
 func (e PlatformOAuthClientRegistrationType) ToPointer() *PlatformOAuthClientRegistrationType {
 	return &e
 }
+
+// PlatformOAuthClientRegistrationTypeValues returns every known PlatformOAuthClientRegistrationType value in schema order.
+func PlatformOAuthClientRegistrationTypeValues() []PlatformOAuthClientRegistrationType {
+	return []PlatformOAuthClientRegistrationType{
+		PlatformOAuthClientRegistrationTypeStatic,
+	}
+}
 func (e *PlatformOAuthClientRegistrationType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

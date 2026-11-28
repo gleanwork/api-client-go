@@ -15,6 +15,16 @@ func (e OperatorType) ToPointer() *OperatorType {
 	return &e
 }
 
+// OperatorTypeValues returns every known OperatorType value in schema order.
+func OperatorTypeValues() []OperatorType {
+	return []OperatorType{
+		OperatorTypeText,
+		OperatorTypeDouble,
+		OperatorTypeDate,
+		OperatorTypeUser,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *OperatorType) IsExact() bool {
 	if e != nil {

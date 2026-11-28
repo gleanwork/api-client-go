@@ -24,6 +24,18 @@ func (e DocumentSpecUgcType2) ToPointer() *DocumentSpecUgcType2 {
 	return &e
 }
 
+// DocumentSpecUgcType2Values returns every known DocumentSpecUgcType2 value in schema order.
+func DocumentSpecUgcType2Values() []DocumentSpecUgcType2 {
+	return []DocumentSpecUgcType2{
+		DocumentSpecUgcType2Announcements,
+		DocumentSpecUgcType2Answers,
+		DocumentSpecUgcType2Artifacts,
+		DocumentSpecUgcType2Collections,
+		DocumentSpecUgcType2Shortcuts,
+		DocumentSpecUgcType2Chats,
+	}
+}
+
 // IsExact returns true if the value matches a known enum value, false otherwise.
 func (e *DocumentSpecUgcType2) IsExact() bool {
 	if e != nil {
@@ -92,6 +104,17 @@ const (
 
 func (e DocumentSpecUgcType1) ToPointer() *DocumentSpecUgcType1 {
 	return &e
+}
+
+// DocumentSpecUgcType1Values returns every known DocumentSpecUgcType1 value in schema order.
+func DocumentSpecUgcType1Values() []DocumentSpecUgcType1 {
+	return []DocumentSpecUgcType1{
+		DocumentSpecUgcType1Announcements,
+		DocumentSpecUgcType1Answers,
+		DocumentSpecUgcType1Collections,
+		DocumentSpecUgcType1Shortcuts,
+		DocumentSpecUgcType1Chats,
+	}
 }
 
 // IsExact returns true if the value matches a known enum value, false otherwise.
